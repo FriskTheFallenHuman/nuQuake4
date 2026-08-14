@@ -345,7 +345,7 @@ void idCommonLocal::LoadToolsDLL( void ) {
 	}
 
 	char dllPath[ MAX_OSPATH ];
-	fileSystem->FindDLL( "ToolsReconstructed", dllPath, true );
+	fileSystem->FindDLL( "Tools", dllPath, true );
 	if ( dllPath[ 0 ] == '\0' ) {
 		Warning( "couldn't find tools dynamic library" );
 		return;

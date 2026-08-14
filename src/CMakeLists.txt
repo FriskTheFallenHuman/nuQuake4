@@ -785,12 +785,12 @@ set_target_properties(q4_tools PROPERTIES
     MFC_FLAG 2
 )
 
-# Keep the 2005 retail Toolsx86.dll intact for binary comparison.  The
-# reconstructed engine deliberately loads this non-conflicting runtime alias.
+# Place the reconstructed tools DLL beside the runtime executable using the
+# canonical filename expected by the engine.
 add_custom_command(TARGET q4_tools POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:q4_tools>
-        "${Q4_RUNTIME_DIR}/ToolsReconstructedx86.dll"
+        "${Q4_RUNTIME_DIR}/Toolsx86.dll"
 )
 
 endif()
