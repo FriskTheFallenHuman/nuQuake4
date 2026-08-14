@@ -1,0 +1,42 @@
+
+
+sound speak_test1
+{
+	description	"If we'd been a couple minutes later, you'd be a squib."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_21_3.wav
+	shakeData 0 bfgsysmcaaaaaaaaaaaaafvlmyxwjyywxzwehqxwucpnxrwwvutlklxyvvvoocaaaaaaivyxmuyyyxlloklrxxxxqpecba
+}
+
+
+sound speak_test2
+{
+	description	"You better say a lot of prayers tonight because someone's sure watchin' over you."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_22_1.wav
+	shakeData 0 difjwrlleccilkklhkrvwqrgabfzwusogcccdfitutibcacdccdetviilttilijkiknprqmyyxvdhhgmqnddfchlkicaaa
+}
+
+
+sound speak_test3
+{
+	description	"We were passing through this building trying to get to the extraction point. Never thought we'd find you here."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_22_2.wav
+	shakeData 0 dqremufaepuuvtddggcdjihenjcjqvturjhecjjuutkgbeomddgfmkfihegtwrrdhhggbbbgfecaaaaaaaaabmuhhjadwvngcgfcccvvtmehhhigfhfeedbaaa
+}

@@ -1,0 +1,205 @@
+/***********************************************************************************************************************
+ reactive
+
+(.def file for entities that are objects, but have more active self-contained elements. They animate, can take damage,
+explode, trigger effects, etc. without scripting)
+************************************************************************************************************************/
+
+//----------------------------------------------------------------------------------------------------------------------
+//	react_Terminal_TSD			Torso storage devices, for the data storage level.
+//----------------------------------------------------------------------------------------------------------------------
+export reactive 
+{
+	//options -scale .3937
+	mesh	work/models/reactive/Terminal/Terminal_TSD/animations/Terminal_TSD_base.ma	-dest models/reactive/Terminal/Terminal_TSD/Terminal_TSD_base.md5mesh
+	anim	work/models/reactive/Terminal/Terminal_TSD/animations/Terminal_TSD_idle01.ma	-dest models/reactive/Terminal/Terminal_TSD/Terminal_TSD_idle01.md5anim
+	}
+
+entityDef react_Terminal_TSD{
+
+//Editor for react_Terminal_TSD----------------------------------------------------------------------------------------
+	"editor_color"				".8 .3 0"
+	"editor_mins"				"?"
+	"editor_maxs"				"?"
+
+	"editor_usage"				"Reactive object.  Fires targets and changes shader parms and model when damaged."
+	"editor_usage1"				"(When damaged, shaderparm3 is set to the current time.)"
+
+	"editor_model broken"			"if set, switch to this model when the entity is broken."
+	"editor_var health"			"amount of damage to recieve before becoming damaged."
+	"editor_var target"			"targets to trigger when damaged."
+	"editor_var count"			"number of times to allow to be triggered, (-1 means infinite)."
+	"editor_bool cycle"			"if set to 1, entity will cycle through each shader state when damaged, reseting to 0 when it exceeds numstates."
+	"editor_var numstates"			"Shader parm 7 will be set to a value between 1 and this value, when triggered"
+	"editor_var forcestate"			"Shader parm 7 set to exactly this number when entity is damaged"
+	"editor_var wait"			"Seconds between triggerings."
+
+	"spawnclass"				"idDamagable"
+
+	"action"				"idle"
+	"health"				"50"
+	"count"					"1"
+	"cycle"					"0"
+	"numstates"				"1"
+	"forcestate"				"0"
+	"wait"					"0.1"
+
+//Models and animations for react_Terminal_TSD--------------------------------------------------------------------------
+	"model"					"models/reactive/Terminal/Terminal_TSD/Terminal_TSD_base.md5mesh"
+	"anim idle"				"models/reactive/Terminal/Terminal_TSD/Terminal_TSD_idle01.md5anim"
+
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+//	react_Terminal_BCover_Sm01		Small breakable cover (pipes)
+//----------------------------------------------------------------------------------------------------------------------
+export reactive	{
+	options -scale .3937
+	mesh	work/models/reactive/Terminal/BCover_Sm01/BCover_Sm01_base.ma	-dest models/reactive/Terminal/BCover_Sm01/BCover_Sm01_base.md5mesh
+	anim	work/models/reactive/Terminal/BCover_Sm01/BCover_Sm01_idle.ma	-dest models/reactive/Terminal/BCover_Sm01/BCover_Sm01_idle.md5anim
+	}
+
+entityDef react_Terminal_BCover_Sm01{
+
+//Editor for react_Terminal_BCover_Sm01----------------------------------------------------------------------------------
+	"editor_color"				".8 .3 0"
+	"editor_mins"				"?"
+	"editor_maxs"				"?"
+
+	"editor_usage"				"Reactive object.  Fires targets and changes shader parms and model when damaged."
+	"editor_usage1"				"(When damaged, shaderparm3 is set to the current time.)"
+
+	"editor_model broken"			"if set, switch to this model when the entity is broken."
+	"editor_var health"			"amount of damage to recieve before becoming damaged."
+	"editor_var target"			"targets to trigger when damaged."
+	"editor_var count"			"number of times to allow to be triggered, (-1 means infinite)."
+	"editor_bool cycle"			"if set to 1, entity will cycle through each shader state when damaged, reseting to 0 when it exceeds numstates."
+	"editor_var numstates"			"Shader parm 7 will be set to a value between 1 and this value, when triggered"
+	"editor_var forcestate"			"Shader parm 7 set to exactly this number when entity is damaged"
+	"editor_var wait"			"Seconds between triggerings."
+
+	"spawnclass"				"idDamagable"
+
+	"mins"					"0 -32 0"
+	"maxs"					"64 32 64"
+//	"reaction joint"			"FXTarget"
+	"reaction joint"			"FXPointer"
+	"reaction anim"				"idle"
+	"reaction effect"			"explode"
+	"fx_explode"			"effects/fire/wall_384.fx"
+	"action"				"idle"
+	"health"				"50"
+	"count"					"1"
+	"cycle"					"0"
+	"numstates"				"1"
+	"forcestate"				"0"
+	"wait"					"0.1"
+
+//Models and animations for react_Terminal_BCover_Sm01-------------------------------------------------------------------
+	"model"					"models/reactive/Terminal/BCover_Sm01/BCover_Sm01_base.md5mesh"
+	"anim idle"				"models/reactive/Terminal/BCover_Sm01/BCover_Sm01_idle.md5anim"
+
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+//	react_Terminal_BCover_Lrg01		Larger breakable cover (tank)
+//----------------------------------------------------------------------------------------------------------------------
+export reactive {
+	options -scale .3937
+	mesh	work/models/reactive/Terminal/BCover_Lrg01/BCover_Lrg01_base.ma	-dest models/reactive/Terminal/BCover_Lrg01/BCover_Lrg01_base.md5mesh
+	anim	work/models/reactive/Terminal/BCover_Lrg01/BCover_Lrg01_idle.ma	-dest models/reactive/Terminal/BCover_Lrg01/BCover_Lrg01_idle.md5anim
+	}
+
+entityDef react_Terminal_BCover_Lrg01{
+
+//Editor for react_Terminal_BCover_Lrg01----------------------------------------------------------------------------------
+	"editor_color"				".8 .3 0"
+	"editor_mins"				"?"
+	"editor_maxs"				"?"
+
+	"editor_usage"				"Reactive object.  Fires targets and changes shader parms and model when damaged."
+	"editor_usage1"				"(When damaged, shaderparm3 is set to the current time.)"
+
+	"editor_model broken"			"if set, switch to this model when the entity is broken."
+	"editor_var health"			"amount of damage to recieve before becoming damaged."
+	"editor_var target"			"targets to trigger when damaged."
+	"editor_var count"			"number of times to allow to be triggered, (-1 means infinite)."
+	"editor_bool cycle"			"if set to 1, entity will cycle through each shader state when damaged, reseting to 0 when it exceeds numstates."
+	"editor_var numstates"			"Shader parm 7 will be set to a value between 1 and this value, when triggered"
+	"editor_var forcestate"			"Shader parm 7 set to exactly this number when entity is damaged"
+	"editor_var wait"			"Seconds between triggerings."
+
+	"spawnclass"				"idDamagable"
+
+	"mins"					"0 -32 0"
+	"maxs"					"128 32 64"
+//	"reaction joint"			"FXTarget"
+	"reaction joint"			"FXPointer"
+	"reaction anim"				"idle"
+	"reaction effect"			"explode"
+	"fx_explode"			"effects/fire/wall_384.fx"
+	"action"				"idle"
+	"health"				"50"
+	"count"					"1"
+	"cycle"					"0"
+	"numstates"				"1"
+	"forcestate"				"0"
+	"wait"					"0.1"
+
+//Models and animations for react_Terminal_BCover_Sm1-------------------------------------------------------------------
+	"model"					"models/reactive/Terminal/BCover_Lrg01/BCover_Lrg01_base.md5mesh"
+	"anim idle"				"models/reactive/Terminal/BCover_Lrg01/BCover_Lrg01_idle.md5anim"
+
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//	react_Convoy_Pump		Breakable pump
+//----------------------------------------------------------------------------------------------------------------------
+
+model model_react_convoy_pump
+{
+	mesh						"models/mapobjects/strogg/convoy/pump.md5mesh"
+	anim pumping				"models/mapobjects/strogg/convoy/pump_anim.md5anim"
+	anim stop					"models/mapobjects/strogg/convoy/pump_stop.md5anim"
+}
+
+entityDef react_convoy_pump
+{
+
+	"model"						"model_react_convoy_pump"
+	"anim"						"pumping"
+
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-96 -96 0"
+	"editor_maxs"				"96 96 192"
+
+	"editor_usage"				"Destoyable pump.  Fires targets and changes shader parms and model when damaged."
+	"editor_usage1"				"(When damaged, shaderparm3 is set to the current time.)"
+
+	"spawnclass"				"idDamagable"
+
+	"mins"						"-96 -96 0"
+	"maxs"						"96 96 192"
+
+	"reaction joint"			"joint11"
+	"reaction anim"				"stop"
+	"reaction effect"			"fx_explode"
+	"fx_explode"				"effects\levels\convoy\PumpDeath.fx"
+
+	"action"					"pumping"
+	"start_anim"				"pumping"
+	"health"					"50"
+	"count"						"1"
+	"cycle"						"0"
+	"numstates"					"1"
+	"forcestate"				"0"
+	"wait"						"0.1"
+
+}
+//----------------------------------------------------------------------------------------------------------------------
+

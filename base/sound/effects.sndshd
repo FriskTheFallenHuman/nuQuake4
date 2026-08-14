@@ -1,0 +1,1667 @@
+
+
+sound effects_bullet_passby
+{
+	minDistance	40
+	maxDistance	550
+	volumeDb	0
+	frequentlyUsed
+
+	sound/impact/bullet/blt_passby1
+	shakeData 0 blszykllmohebaaaaaa
+	sound/impact/bullet/blt_passby2
+	shakeData 1 tzslijjhgedcdaaa
+	sound/impact/bullet/blt_passby3
+	shakeData 2 cerzlmolfdbbaaaa
+	sound/impact/bullet/blt_passby4
+	shakeData 3 ilozzwqoutidccbaaaaaaaaaa
+}
+
+
+sound effects_rocket_loop
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+	frequentlyUsed
+	looping
+
+	sound/effects/generic/rocket_loop
+	shakeData 0 gggggggfhgggfggffgffffffeffgeefgfeeffffffegeeeeeffeffffffeeeeffffefffefffffefgfefffgffeffgffhefgggggfgggghgfhghhhhf
+}
+
+
+sound effects_flies
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/effects/generic/flies
+	shakeData 0 ccbbcbccbbbbbcbbbbbbbbbcbbcccbcbcdcccccbcbcdc
+}
+
+
+sound effects_hydraulic_burst
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+
+	sound/effects/generic/hydraulic_burst
+	shakeData 0 wkkihjkwmihgeihfeeddeddcdccccbccccbbbbaaaaaa
+}
+
+
+sound effects_weld
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-6
+
+	sound/effects/generic/weld_01
+	shakeData 0 scndrrlcbbaaaaaaaa
+	sound/effects/generic/weld_02
+	shakeData 1 codsvutvxrtpvcbbaaaaaaa
+	sound/effects/generic/weld_03
+	shakeData 2 ptmunrvvxfdbaaaaaaaaaaa
+	sound/effects/generic/weld_04
+	shakeData 3 lqmosrvntncbbaaaaaaaaaa
+}
+
+
+sound effects_weld_loop
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	-8
+	looping
+
+	sound/effects/generic/weld_loop
+	shakeData 0 fddeeeigcecebcdfeeigffghhbdegehegikegfeggkffedefkecgjegeehckffggfdgggehfeefd
+}
+
+
+sound effects_debris
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/effects/generic/debris1
+	shakeData 0 hdffegjhjgfehhedefeedejgkjjifgffdjfejfffddchecdhdedccifedcccbcddcccbbccbbbbbbaaaaaaaaaa
+	sound/effects/generic/debris2
+	shakeData 1 dccdhggeeeefedeedecehgiklhdepkggffikffefkgknrokigpijkjhgmlihifffefbcdeccccbbcbbbbbbbbbbbaaaaaaa
+	sound/effects/generic/debris3
+	shakeData 2 ddegfeflidddedgdddeeehedeededdnhdedgfgecgkkmhellmiikigddfdeeedgdddcccdbbaaaa
+	sound/effects/generic/debris4
+	shakeData 3 fhhghegjflfihgjfheffgfdfefgdddhjggfhkkllighhiihhhhiighhfegfefeghedccddbbbbbaaaaaaaaaaaa
+}
+
+
+sound effects_debris2
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/effects/generic/debris1
+	shakeData 0 hdffegjhjgfehhedefeedejgkjjifgffdjfejfffddchecdhdedccifedcccbcddcccbbccbbbbbbaaaaaaaaaa
+	sound/effects/generic/debris2
+	shakeData 1 dccdhggeeeefedeedecehgiklhdepkggffikffefkgknrokigpijkjhgmlihifffefbcdeccccbbcbbbbbbbbbbbaaaaaaa
+	sound/effects/generic/debris3
+	shakeData 2 ddegfeflidddedgdddeeehedeededdnhdedgfgecgkkmhellmiikigddfdeeedgdddcccdbbaaaa
+	sound/effects/generic/debris4
+	shakeData 3 fhhghegjflfihgjfheffgfdfefgdddhjggfhkkllighhiihhhhiighhfegfefeghedccddbbbbbaaaaaaaaaaaa
+}
+
+
+sound effects_debris_light
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/effects/generic/debris_light1
+	shakeData 0 aabbabbbccfcfcddeeeiffgfffghigghhggfgfffeddddddddccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/debris_light2
+	shakeData 1 aaabaababbdecfccdfdfgfeeefefedeededdddeddddddeddcddcccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_debris_heavy
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/effects/generic/debris_heavy1
+	shakeData 0 aaaaaaaabbbbcccdcbdeddddeedegeeeeeedgeefeeedeefddfgfddedffeefegdedddffddddddeccccccccbbccbbbbbbbbbbbaaaaaaaaaaaaaaa
+	sound/effects/generic/debris_heavy2
+	shakeData 1 aaabbcbdeedgffgkhjfhgfghgiggjihhijklkhhgfghhghghhgjgiggiggghggjkjjhighhjhjhihhhffefhghghhghfgeffdedgffdecdcdccccdbbbbabbabaaaaaaaaaaaaaa
+}
+
+
+sound effects_fire
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-8
+	looping
+
+	sound/effects/fire/fire
+	shakeData 0 eekidgekgeefekgefdohgfmphjrhgflvkihgmkifghjmfjlhegkjifmhjduvjjokkkigdefedlgfeghgjgffghgefkfejdhdfghif
+}
+
+
+sound effects_fire_whoosh
+{
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+
+	sound/effects/fire/whoosh1
+	shakeData 0 abcddfhilpwuuyyuxwyxzyzvwuwwsonpoijifgedecbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/fire/whoosh2
+	shakeData 1 aaabbbbdegfghkijmnnqpwuxrvvrmjkiieffeeedccbbbccbabbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/fire/whoosh3
+	shakeData 2 aaabccdfhhjlpuuuwzxzyzzzzzzzxuonsljlikjfdcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_fire_deep1
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	looping
+
+	sound/effects/fire/fire_deep1
+	shakeData 0 hjhhjghfjkggjhfkgijfjjfhimjghfkhhnnkjjkiffehighhgfhkilkjghlfkhfkhgfiigglnhkhjlhjjhkljfihijgifgjhhhiihhikkhikegfkiflighiigjkiiglljjhkhljfgjkghffkeehfgiqkfjfliighijfikijkgib
+}
+
+
+sound effects_fire_deep2
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	looping
+
+	sound/effects/fire/fire_deep2
+	shakeData 0 yytxsuvvwyrqrusvrmsronlnnrromnuwwqwukrtkmqouttrospnskpvqotppnqxunqtokpkmkrpwtronlvntksorpvomunppnpttmryyrrvstosutspqqqrqpsvpwtuuuyropnlutyqpxqv
+}
+
+
+sound effects_fire_small
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-8
+	looping
+
+	sound/effects/fire/fire_small
+	shakeData 0 eedcheddfcceeefefedfddcfccdddcddddeddeddefededdffeefeeeeeedddecededdedeeeeeeeeedddjeeecegeddecddfffddeddecdeedececeecdddeedceedegdcdc
+}
+
+
+sound effects_fire_gas
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-8
+	looping
+
+	sound/effects/fire/fire_gas
+	shakeData 0 mnonjmmplmllmlljmkjlkjjkkkjlkjkjoiljllmllllkklmnmmmklilnnoonnknmommnjimlkjlljmkklojnklkjmlimjiilkknjjkklljklmklkolmm
+}
+
+
+sound effects_fire_gas2
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	looping
+
+	sound/effects/fire/fire_gas2
+	shakeData 0 prqqprnossolnnqrrnmloupqtmnpknmnmkononkqnpnllkrkljrmmknoqonlmousjlplrrrnltrnntsqopmupmtl
+}
+
+
+sound effects_fire_pipe
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	looping
+
+	sound/effects/fire/fire_pipe
+	shakeData 0 uttyvxuqzwsxuuvsutuzrttvqswxvswruyswwvtzvvwwyxpxwtxxtpvxuswwwqtupuwtutxxtwtttqvzuwspxwvvuvvpusv
+}
+
+
+sound effects_flare
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-12
+	looping
+
+	sound/effects/fire/flare
+	shakeData 0 hffgfeffgfgffheefeeffefffeeeddeeffedfgfeffgfgeffffffefffffdddededeefddefefffffedfhfedfffefehfghkqqgrsumffgeeefehgfffkeeeeddddddedddedecddddcddfejnkmmllljjnjjmiedeffgeeedeeddedfdfhntrsrrtuqfffuqlsushd
+}
+
+
+sound effects_wind_blast
+{
+	minDistance	393
+	maxDistance	1377
+	volumeDb	-8
+
+	sound/effects/outdoors/windblast01
+	shakeData 0 adeehffedffeheiigiggjhmgggjunhghihhegfggggegnnikjjgjkeenhigjjjhmrleggdgddeddddcddccdddgdbcbcccccdcddddccccccbccddbbbbbbbbbbbbbabbaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/outdoors/windblast02
+	shakeData 1 aaaaaaaaaabbbbbbcbcbbbbbbbbccbbcdccdcbcedcdddeedddefgfcfgegeheedhhhffgdeedccccccccdcccbbbbbbbaaaabaaaaaaaaaaa
+	sound/effects/outdoors/windblast03
+	shakeData 2 dcdeegfgedfefeedehdebfefddcdcdfdececdedfffeeeedceffeedddededegfddcdeddcccdececedcbcccbcccdcccdecbdheeddccbbcbbbbbbbbbbbaabbbbaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/outdoors/windblast04
+	shakeData 3 bccddeegigiliillmilhhhffgefgfeededdecdddddcdcccccccccbbbbbbbbbbbbbbaaaaaaaaaaaa
+}
+
+
+sound effects_fire_build
+{
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+
+	sound/effects/fire/fr_build
+	shakeData 0 wvvsvxxspsutvsvurvqtruousqqrsotmknkijijmnnmjjllmnppljlpqkkkpqopnjnropnrnrrrtyta
+}
+
+
+sound effects_fire_blast
+{
+	minDistance	39
+	maxDistance	984
+	volumeDb	-7
+
+	sound/effects/fire/fr_blast
+	shakeData 0 twywuwwxywyvwwwvyutryvutvtqvtuqtutvrwuwxtsssttpqvnsqoropnoqqopormmkpijjiikjghgigeedbbbbaaaaaaaaaaaa
+}
+
+
+sound effects_bombardment_focus
+{
+	minDistance	2362
+	maxDistance	5905
+	volumeDb	4
+
+	sound/effects/convoy/bombardment
+	shakeData 0 ceefgkkhijjmjmpopqopzzyxzyzzzzzzzzzzzzzzzzyzzxyyzxwwutsoooigkhhefedccaaaaaaaaaaaaa
+}
+
+
+sound effects_explosion_glass
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	shakes		0.2
+	soundClass	1
+
+	sound/effects/explosions/glass01
+	shakeData 0 syyysqvuzzzwzzwxuuwxvvsrprusrsusuzwusrssprrnomlnpnljnkigfffdccbbbaaaaaaaaaa
+	sound/effects/explosions/glass02
+	shakeData 1 pzxzpuvxwyvuswqusqursqsqmqpsutuqoqooqsqsrqpqopppppopnnkonnmnnnnnmonnnnmmllkmmmgghhejccefddcbcabcbbaaaaaaaaaaaa
+	sound/effects/explosions/glass03
+	shakeData 2 ozvzwtszvsnrtwvvvwsrtvvvsvwuxxzuxsvvxwvtptvqqttrprquqropprqrpvupuupsrurqppoprnommlljmmlkmklgilggjhehhhhggggddeddeeeeeddcbcccbcbbbabbbaaaaaaaaaaa
+}
+
+
+
+
+
+sound effects_explosion_muffled
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	-6
+	soundClass	1
+	no_shakes
+	frequentlyused
+
+	sound/effects/explosions/exp_muffled1
+	sound/effects/explosions/exp_muffled2
+	sound/effects/explosions/exp_muffled3
+}
+
+
+sound effects_explosion_metal
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	soundClass	1
+	no_shakes
+	frequentlyused
+
+	sound/effects/explosions/metal01
+	sound/effects/explosions/metal02
+	sound/effects/explosions/metal03
+}
+
+
+sound effects_explosion_fiery
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	soundClass	1
+	no_shakes
+	frequentlyused
+
+	sound/effects/explosions/fiery01
+	shakeData 0 wzxwzswpvtoswxwwotrstrsrrqpurstttqrsqpqrqpqrqqopqqqrqppoqpppqoppopjjmhnjmlhlihhfhhdeedcbcddbbbbaaaaaaaaaaaaaaa
+	sound/effects/explosions/fiery02
+	shakeData 1 kyvzytpysuutsvtuwvqurrurqposstqosqtqpqppqppppoplmpmlkjllkigjigfdfeddefccbbbbbbabaaaaaaaaaaaaaaaaaaaaaa
+}
+
+sound effects_explosion_nodebris
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/effects/explosions/no_debris01
+	shakeData 0 zzzzzzyyzzzzzyyxwrsyyrvvwqvnllolmnklijgehggigdecccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/no_debris02
+	shakeData 1 xwynwxqxwtyyzzyvqwxvxyysuxprtuvrpkknsolqunlojkjjmkhgfffjegdgecccdbccbbbababbaaaaaaaaaaaa
+	sound/effects/explosions/no_debris03
+	shakeData 2 wzzzzzzzzzzzxyzzxuyxwvtyusmplqnlnmfokiiiegggddcccbbbcbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/no_debris04
+	shakeData 3 vvwxzzzzzzzzyyzzzyzyyutwsspqwuwttrtnswvsuotskopkrnkmnlmmjijhilkegffilihedcedccdbccbbbbccaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+
+
+sound effects_explosion_small
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	soundClass	1
+	no_shakes
+
+	sound/effects/explosions/no_debris01
+	shakeData 0 yzzyzzyyyzzyyxywvrsyyrvvwqvmklnlmnkkijgehfgigdecccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/no_debris02
+	shakeData 1 xwyowwqwvtyxyzywqwxvxyystwpquuvrpklnsolqunlojkjjmkhgeffiegdgecccdbccbbbababbaaaaaaaaaaaa
+}
+
+
+sound effects_explosion_rock
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	soundClass	1
+	no_shakes
+	frequentlyused
+
+	sound/effects/explosions/dirt_rocks01
+	shakeData 0 uzzzzzxzywwtuuxzyxvvxuxuwtwxxyxvxuwuxwsuxyvuwtuuurstsuttutsusutrssqrqrppomolmklkjifgfefdeccbbbaaaaa
+	sound/effects/explosions/dirt_rocks02
+	shakeData 1 nzyzzzxzyvwtstuxyurwuuuvvvuzxyyxyuxwuwwqsvvtwttstspstjmlgjmgfhfgdcdcdcbcbbbbaaaaaaaaaaaaa
+	sound/effects/explosions/dirt_rocks03
+	shakeData 2 uyzzzyzyzzxvyzuyusrsqtrpstrprwssornqproqrrsppppnpppppnmnoomnmmlhikhihefefedcccdcdbbaaaaaaaa
+	sound/effects/explosions/dirt_rocks04
+	shakeData 3 nzzytyzyxyzyvwvvvwvutuutrwrttttrsprrrsqnnqtstrsrqqroqpnonmmkljiiifffgddbcbbaaaaaaaaaaaaa
+	sound/effects/explosions/dirt_rocks05
+	shakeData 4 qzzyywzzzzywwwtwuwvswttvwsvtvurvvvsqrtprustssssspssqqrrqrroqqororrqopopopolnpnonijhiheghfcddccdbcccbaabbbaaaaaaaaaaaaaa
+}
+
+sound effects_explosion_wood
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	-6
+	shakes		0.2
+	soundClass	1
+
+	sound/effects/explosions/debris01
+	shakeData 0 tzxzsxyzyvxzuzvvsruwxwsspsqvxxsqutuvtttprmrmoqqnppqnpqmomkjlkkmkklpropqooolmnlklkklnjnijlimngpmifhgeedgfedcfddfefedbbcbbbbaccbaaaaaaaaaaaaaaa
+	sound/effects/explosions/debris02
+	shakeData 1 xzzyyutywuwtuppprtrussqppstqroqqusuutsqrqqrtsqqqrrrrorrqqqrprooqqlqpnrrqorrrrsrrqsrnpqronrpojpnpomnkmkikeiigffdeedcdbcbbbaabaaaaaaaaaaaaaaaa
+	sound/effects/explosions/debris03
+	shakeData 2 kzzzzzszzvvssxxyyzvvvuvvtutuzywxvwyxswuuxusorsrqrtnnkmkihjlhhihffihffggfccfedccbbbdbaaaaaaaaaaaaaaa
+}
+
+
+sound effects_vent_steam
+{
+	minDistance	118
+	maxDistance	984
+	volumeDb	0
+
+	sound/effects/generic/vent_steam
+	shakeData 0 hillmnmrrppnppsoprpopsnnonqmoqmtprpqrpnsnrnoornlqononkkknlliijihijhfhhfeeeedccccbcbbbbbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_steam_blast
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	-18
+
+	sound/effects/generic/steam_01
+	shakeData 0 ahkoommmnnnlmkjjhiggffeeedbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_02
+	shakeData 1 aaaflklllnllkjkkjhighghgfgffffeddddddcccbcbbbbbbbbbbbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_03
+	shakeData 2 hnlnonoonqqnrnonmmlhggfeegfffffhkiihhggffeddccbbbbaaaaaaaaaaaa
+	sound/effects/generic/steam_04
+	shakeData 3 fotvusrsstrtrsrrsqqqpppqroqprpooopnqopooqjgfddaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_05
+	shakeData 4 iillmlnlnllkljjkkijiiiiiiighgghfgffgffffgfefeeeeeefeeefeeddddeddecddccdcccccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_steam_blast2
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	-9
+
+	sound/effects/generic/steam_01
+	shakeData 0 ahkoommmnnnlmkjjhiggffeeedbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_02
+	shakeData 1 aaaflklllnllkjkkjhighghgfgffffeddddddcccbcbbbbbbbbbbbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_03
+	shakeData 2 hnlnonoonqqnrnonmmlhggfeegfffffhkiihhggffeddccbbbbaaaaaaaaaaaa
+	sound/effects/generic/steam_04
+	shakeData 3 fotvusrsstrtrsrrsqqqpppqroqprpooopnqopooqjgfddaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_05
+	shakeData 4 iillmlnlnllkljjkkijiiiiiiighgghfgffgffffgfefeeeeeefeeefeeddddeddecddccdcccccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_steam_blast3
+{
+	minDistance	40
+	maxDistance	1400
+	volumeDb	0
+
+	sound/effects/generic/steam_01
+	shakeData 0 ahkoommmnnnlmkjjhiggffeeedbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_02
+	shakeData 1 aaaflklllnllkjkkjhighghgfgffffeddddddcccbcbbbbbbbbbbbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_03
+	shakeData 2 hnlnonoonqqnrnonmmlhggfeegfffffhkiihhggffeddccbbbbaaaaaaaaaaaa
+	sound/effects/generic/steam_04
+	shakeData 3 fotvusrsstrtrsrrsqqqpppqroqprpooopnqopooqjgfddaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_05
+	shakeData 4 iillmlnlnllkljjkkijiiiiiiighgghfgffgffffgfefeeeeeefeeefeeddddeddecddccdcccccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_sparks01
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+	looping
+
+	sound/effects/generic/sparks_01
+	shakeData 0 cbadcacabdadcdaabacbbaaaccababaabbacacbcbbabbabbbcbaaaaccbbbcbaabbbbaaaaaaaaaaabbaacabca
+}
+
+
+sound effects_sparks02
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/effects/generic/sparks_02
+	shakeData 0 gdccbccbcbcccqdcbccdbddddcbbccccccbbca
+	sound/effects/generic/sparks_03
+	shakeData 1 djjmkmoifeedcccbcbfbbccbccbbcc
+	sound/effects/generic/sparks_04
+	shakeData 2 dhikjljhfdddcccccbbbccbca
+	sound/effects/generic/sparks_05
+	shakeData 3 cdeeffffhgghigghgggddcbjccccccccb
+	sound/effects/generic/sparks_06
+	shakeData 4 cccccbbbdcccgcccdccbaaa
+	sound/effects/generic/sparks_07
+	shakeData 5 glijjkimmkknlmlccedcccbbccccba
+	sound/effects/generic/sparks_08
+	shakeData 6 febbbabbbbbbcbb
+	sound/effects/generic/sparks_09
+	shakeData 7 cbdccccccdefhbbbcccbaacba
+	sound/effects/generic/sparks_10
+	shakeData 8 bedaabbbbaaaabbbbbcbbbbbbcbba
+}
+
+
+sound effects_sparks02_large
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	frequentlyUsed
+
+	sound/effects/generic/sparks_02
+	shakeData 0 gdccbccbcbcccqdcbccdbddddcbbccccccbbca
+	sound/effects/generic/sparks_03
+	shakeData 1 djjmkmoifeedcccbcbfbbccbccbbcc
+	sound/effects/generic/sparks_04
+	shakeData 2 dhikjljhfdddcccccbbbccbca
+	sound/effects/generic/sparks_05
+	shakeData 3 cdeeffffhgghigghgggddcbjccccccccb
+	sound/effects/generic/sparks_06
+	shakeData 4 cccccbbbdcccgcccdccbaaa
+	sound/effects/generic/sparks_07
+	shakeData 5 glijjkimmkknlmlccedcccbbccccba
+	sound/effects/generic/sparks_08
+	shakeData 6 febbbabbbbbbcbb
+	sound/effects/generic/sparks_09
+	shakeData 7 cbdccccccdefhbbbcccbaacba
+	sound/effects/generic/sparks_10
+	shakeData 8 bedaabbbbaaaabbbbbcbbbbbbcbba
+}
+
+
+sound effects_sparks02_quiet
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	-6
+	frequentlyUsed
+
+	sound/effects/generic/sparks_02
+	shakeData 0 gdccbccbcbcccqdcbccdbddddcbbccccccbbca
+	sound/effects/generic/sparks_03
+	shakeData 1 djjmkmoifeedcccbcbfbbccbccbbcc
+	sound/effects/generic/sparks_04
+	shakeData 2 dhikjljhfdddcccccbbbccbca
+	sound/effects/generic/sparks_05
+	shakeData 3 cdeeffffhgghigghgggddcbjccccccccb
+	sound/effects/generic/sparks_06
+	shakeData 4 cccccbbbdcccgcccdccbaaa
+	sound/effects/generic/sparks_07
+	shakeData 5 glijjkimmkknlmlccedcccbbccccba
+	sound/effects/generic/sparks_08
+	shakeData 6 febbbabbbbbbcbb
+	sound/effects/generic/sparks_09
+	shakeData 7 cbdccccccdefhbbbcccbaacba
+	sound/effects/generic/sparks_10
+	shakeData 8 bedaabbbbaaaabbbbbcbbbbbbcbba
+}
+
+
+sound effects_sparks03
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+	frequentlyUsed
+
+	sound/effects/generic/elec_arc1
+	shakeData 0 abdffeffeeeffffghhgggihghjmiiiiiklkjnorqorplhdccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc2
+	shakeData 1 abcdeeeeeggffeeefeffffgffghgffhhionoliipmmfdccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc3
+	shakeData 2 aaccddehgifedefehilooifeddddeeeeeffgfghifeeegfeefeccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc4
+	shakeData 3 abeghhhghhhggffgeeedcecefffeeeccbbbbbbcbbddffdeccbeeedffecbbcbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_sparks03_large
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	-9
+	frequentlyUsed
+
+	sound/effects/generic/elec_arc1
+	shakeData 0 abdffeffeeeffffghhgggihghjmiiiiiklkjnorqorplhdccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc2
+	shakeData 1 abcdeeeeeggffeeefeffffgffghgffhhionoliipmmfdccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc3
+	shakeData 2 aaccddehgifedefehilooifeddddeeeeeffgfghifeeegfeefeccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc4
+	shakeData 3 abeghhhghhhggffgeeedcecefffeeeccbbbbbbcbbddffdeccbeeedffecbbcbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_sparks03_quiet
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	-14
+	frequentlyUsed
+
+	sound/effects/generic/elec_arc1
+	shakeData 0 abdffeffeeeffffghhgggihghjmiiiiiklkjnorqorplhdccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc2
+	shakeData 1 abcdeeeeeggffeeefeffffgffghgffhhionoliipmmfdccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc3
+	shakeData 2 aaccddehgifedefehilooifeddddeeeeeffgfghifeeegfeefeccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/elec_arc4
+	shakeData 3 abeghhhghhhggffgeeedcecefffeeeccbbbbbbcbbddffdeccbeeedffecbbcbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_arc_loop
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	-12
+	looping
+
+	sound/effects/generic/elec_arc_loop
+	shakeData 0 ieedefgghhihiopkjloqpsuqkfeedeefgijhhhiihjhikkklkkokosshfeedeegfhhjlllllmqrtslfeffhjjijhhiimkllljnntwqifffeeghijikmnopqutlhffghiikknoklkusmhfeffghihjlntuqifeeeehgffhiikhhggggghhfihhikjgiklkpxvojjwrmfd
+}
+
+
+sound effects_arc_high_loop
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	-6
+	looping
+
+	sound/effects/generic/elec_arc_high_loop
+	shakeData 0 heffhggjmjqsupgeeegjhhhiikkkmoqifdefilljlstohghiiiimklkpuqhfehjkmnrunhghilmnnuiefggllsrgeehffijgfhfhhhkjilnuskume
+}
+
+
+sound effects_teleport_ball
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	-4
+	looping
+
+	sound/effects/generic/teleport_ball
+	shakeData 0 jknmmmqnkmklnmmmjslonmqpnsqnmjknmhpiieghnpfhgmnkkmqqkqononilhggfggjjinnmkmgohlnkjinl
+}
+
+
+sound effects_teleport_rift
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	-9
+	looping
+
+	sound/effects/generic/teleport_rift
+	shakeData 0 nllnlnmnplosppompllnkplmokmkmnmlllnmjnrnonmnmmoljilk
+}
+
+
+sound effects_teleport
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	0
+	global
+
+	sound/effects/generic/teleport
+	shakeData 0 vyyywtuvusvvtvtuuovvuqvuoqprvspppmpnrnoqotkommmjjnjghhgeefeedddcccdcccccbbbbbbbbbbaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_teleporter_big
+{
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+	shakes		0.1
+	looping
+
+	sound/effects/generic/teleporter_big
+	shakeData 0 rsnsooqrquwqssonpnrrropqqnsrutqssnsqlrpmsnopsoprqqtrvtsnqtstvptnppsqrtsroopqpprqqppoupnrorossqpstosopstqrsxtoupqsssrsststvuwwvwvqoxtssrquvrrursuvrrptoqssprsstqmvoruxvrtutstsqroupwsquqprtsrvqqstsqonsprsusrssqwurqrqqsqsrtvtunrqpoqsronvtqtwpr
+}
+
+
+sound effects_teleporter_big_noshake
+{
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+	looping
+
+	sound/effects/generic/teleporter_big
+	shakeData 0 rsnsooqrquwqssonpnrrropqqnsrutqssnsqlrpmsnopsoprqqtrvtsnqtstvptnppsqrtsroopqpprqqppoupnrorossqpstosopstqrsxtoupqsssrsststvuwwvwvqoxtssrquvrrursuvrrptoqssprsstqmvoruxvrtutstsqroupwsquqprtsrvqqstsqonsprsusrssqwurqrqqsqsrtvtunrqpoqsronvtqtwpr
+}
+
+
+sound effects_teleporter_small
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	0
+	looping
+
+	sound/effects/generic/teleporter_small
+	shakeData 0 nnnpjllnonnknqmqonoolioojmrkoqnmnnnonnsotukopoqkjoimijolkmoklkmnlnlojmkjlolllopnrlnnionpjplosorqpolononpjpmmnotsklrsqqpsvvpqmnmupqpqomtlrqqulnmjjnnhimkklnlsuxqnkgnjj
+}
+
+
+sound effects_burn_away
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	frequentlyUsed
+
+	sound/effects/generic/burn_away
+	shakeData 0 bdfhihjjknmoqnsrstprtntrnrtvwxwwwxwzpwvpprnpomnkiljgigghgggffdccccbbbbabaaaaaaaaaaaaaaa
+}
+
+
+sound effects_teleport_out
+{
+	minDistance	196
+	maxDistance	787
+	volumeDb	0
+	global
+
+	sound/effects/generic/teleport_out
+	shakeData 0 zyyxxwwvwwvtrwvuuqrrostrvkmpnoprqnnnqnmkpnmpolkhijikjjihlmhfeddbbccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_acid_pump
+{
+	minDistance	39
+	maxDistance	708
+	volumeDb	0
+
+	sound/effects/dispersal/acid_pump
+	shakeData 0 bcbbeeedfedheggdfecffgdedddeededgddedgkiigeggeddfecfjefccdececbbbcbbababababbaaaaaaa
+}
+
+
+sound effects_acid_burn
+{
+	minDistance	39
+	maxDistance	708
+	volumeDb	0
+
+	sound/effects/generic/acid_burn
+	shakeData 0 tuxvyzyyzxvyzwwxvuuttonjhggfeeddcccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/acid_burn2
+	shakeData 1 srvtzyytqmllihffedddccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_blaster_hit01
+{
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/impact/energy/blast_hit01
+	shakeData 0 vyvpongfdbaaaaaaaaa
+	sound/impact/energy/blast_hit02
+	shakeData 1 yztnkggdbaaaaaaa
+	sound/impact/energy/blast_hit03
+	shakeData 2 vxnkigecbaaaaa
+	sound/impact/energy/lt_blast_hit01
+	shakeData 3 vrnoljfggedbaaaaa
+	sound/impact/energy/lt_blast_hit02
+	shakeData 4 sqnnjhecbbaaaaa
+}
+
+
+sound effects_energy_burst
+{
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+
+	sound/effects/generic/energy_burst
+	shakeData 0 vuuttssuxtrvvqtvtusulqnollijhhddbcbaaaaaaaa
+}
+
+
+sound effects_energy_burst_large
+{
+	minDistance	200
+	maxDistance	2000
+	volumeDb	-4
+
+	sound/effects/generic/energy_burst_large
+	shakeData 0 cfjmquzzyzwwuxttxsuqswwvowqtuzvtwwyuzxprtvsqysostooksglmijjkfegeceedddddddcbcbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_energy_burst2
+{
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+
+	sound/effects/airdefense/cannon_fire1
+	shakeData 0 zyxquvtxuvurvrororssqmpnlmnlonklpponllmihjlhihghfgegdddcdbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/airdefense/cannon_fire2
+	shakeData 1 xzxyywsrxpqsrppmurrnqmrmonmlkmjkkghfgkjkjhghhhehgcedddddcbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_blaster_hit_light01
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	frequentlyUsed
+
+	sound/impact/energy/lt_blast_hit01
+	shakeData 0 vrnoljfggedbaaaaa
+	sound/impact/energy/lt_blast_hit02
+	shakeData 1 sqnnjhecbbaaaaa
+}
+
+
+sound effects_blaster_hit_big
+{
+	minDistance	60
+	maxDistance	1000
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/impact/energy/big_blast_hit01
+	shakeData 0 zzzzzwzyuwtwpqmljgdcbaaaaaaaaaaaaaaaa
+	sound/impact/energy/big_blast_hit02
+	shakeData 1 yyzzzzzxswsunlkihfdcbaaaaa
+	sound/impact/energy/big_blast_hit03
+	shakeData 2 zzzzzzzsytwupnmkihdcbaaaaaaa
+}
+
+
+sound effects_blowtorch
+{
+	minDistance	39
+	maxDistance	472
+	volumeDb	-12
+	looping
+
+	sound/effects/generic/blowtorch
+	shakeData 0 eedeeeeeeeeegded
+}
+
+
+sound effects_monitor_shot
+{
+	minDistance	157
+	maxDistance	787
+	volumeDb	0
+
+	sound/effects/generic/monitor_shot
+	shakeData 0 yzzzywtrtrqomnjkhgedddcbbaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_liquiddrip_small
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+
+	sound/effects/generic/waterdrip1
+	shakeData 0 aaaaaabcbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/null
+	shakeData 1 aaaaaaaaaaaa
+	sound/effects/generic/waterdrip2
+	shakeData 2 aacdccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+	sound/effects/generic/waterdrip3
+	shakeData 4 aabcbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/null
+	shakeData 5 aaaaaaaaaaaa
+}
+
+
+sound effects_liquiddrip_large
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+
+	sound/effects/generic/liquidplop1
+	shakeData 0 keecebbaaaaaaaa
+	sound/null
+	shakeData 1 aaaaaaaaaaaa
+	sound/null
+	shakeData 2 aaaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+}
+
+
+sound effects_liquiddrip_small_quiet
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	-12
+
+	sound/effects/generic/waterdrip1
+	shakeData 0 aaaaaabcbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/null
+	shakeData 1 aaaaaaaaaaaa
+	sound/effects/generic/waterdrip2
+	shakeData 2 aacdccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+	sound/effects/generic/waterdrip3
+	shakeData 4 aabcbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/null
+	shakeData 5 aaaaaaaaaaaa
+}
+
+
+sound effects_liquiddrip_large_quiet
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	-12
+
+	sound/effects/generic/liquidplop1
+	shakeData 0 keecebbaaaaaaaa
+	sound/null
+	shakeData 1 aaaaaaaaaaaa
+	sound/null
+	shakeData 2 aaaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+}
+
+
+sound effects_bloodsplat
+{
+	minDistance	78
+	maxDistance	196
+	volumeDb	-20
+
+	sound/impact/bullet/blt_flesh2
+	shakeData 0 cetzzthhedcaaaaaaaa
+}
+
+
+sound effects_bullet_tracer
+{
+	minDistance	80
+	maxDistance	2000
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_passby1
+	shakeData 0 blszykllmohebaaaaaa
+	sound/impact/bullet/blt_passby2
+	shakeData 1 tzslijjhgedcdaaa
+	sound/impact/bullet/blt_passby3
+	shakeData 2 cerzlmolfdbbaaaa
+	sound/impact/bullet/blt_passby4
+	shakeData 3 ilozzwqoutidccbaaaaaaaaaa
+}
+
+
+sound effects_bullet_tracer_large
+{
+	minDistance	400
+	maxDistance	5000
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_passby1
+	shakeData 0 blszykllmohebaaaaaa
+	sound/impact/bullet/blt_passby2
+	shakeData 1 tzslijjhgedcdaaa
+	sound/impact/bullet/blt_passby3
+	shakeData 2 cerzlmolfdbbaaaa
+	sound/impact/bullet/blt_passby4
+	shakeData 3 ilozzwqoutidccbaaaaaaaaaa
+}
+
+
+sound effects_bullet_tracer_impact
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-4
+	frequentlyUsed
+
+	sound/impact/bullet/blt_dirt1
+	shakeData 0 eoxxskceebdbdbkddecdbaabbaaaa
+	sound/impact/bullet/blt_dirt2
+	shakeData 1 psonvmmgedbbffegbbbbbdbaaaaaa
+	sound/impact/bullet/blt_dirt3
+	shakeData 2 hjfouvnjeedgbbcbbcccbjfggcccaaaaaaaaaaaa
+	sound/impact/bullet/blt_dirt4
+	shakeData 3 eswqjencbcgebadbcaaaa
+}
+
+
+sound effects_bulletimpact_absorb
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/absorb1
+	shakeData 0 kvytvslnhgfecccbbaaaaaaaaaaaaaaaa
+	sound/impact/bullet/absorb2
+	shakeData 1 mxxwuokiieecccbbbaaaaaaaaaaaaaa
+	sound/impact/bullet/absorb3
+	shakeData 2 hxzyvponjhfeccbbaaaaaaaaaaaa
+	sound/impact/bullet/absorb4
+	shakeData 3 fsvyywoliefdcbbaaaaaaaaa
+}
+
+
+sound effects_bulletimpact_hollowmetal
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_h_metal1
+	shakeData 0 zzzquttpjgccbbaaaaaa
+	sound/impact/bullet/blt_h_metal2
+	shakeData 1 zzxzzyrmiedbaaaaaaaaaaa
+	sound/impact/bullet/blt_h_metal3
+	shakeData 2 flzzxvwtspnkjigdbaaaaaaaaaaaa
+	sound/impact/bullet/blt_h_metal4
+	shakeData 3 dyxvzzzzurlecbaaaaaaaaa
+	sound/impact/bullet/default1
+	shakeData 4 znqslgedcbaaa
+	sound/impact/bullet/default2
+	shakeData 5 wuliigfgfgheedcbbbbaaaaaaa
+	sound/impact/bullet/default3
+	shakeData 6 zxidbbaaaaaaaaaaaa
+	sound/impact/bullet/default4
+	shakeData 7 zyjebbaaaaaaaaaaaa
+	sound/impact/bullet/default5
+	shakeData 8 xzzrjgdcccbbaaaaaaaaaa
+}
+
+
+sound effects_bulletimpact_dirt
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_dirt1
+	shakeData 0 eoxxskceebdbdbkddecdbaabbaaaa
+	sound/impact/bullet/blt_dirt2
+	shakeData 1 psonvmmgedbbffegbbbbbdbaaaaaa
+	sound/impact/bullet/blt_dirt3
+	shakeData 2 hjfouvnjeedgbbcbbcccbjfggcccaaaaaaaaaaaa
+	sound/impact/bullet/blt_dirt4
+	shakeData 3 eswqjencbcgebadbcaaaa
+}
+
+
+sound effects_bulletimpact_concrete
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_concrete1
+	shakeData 0 bkyzwzyxlhgcbabaaaaa
+	sound/impact/bullet/blt_concrete2
+	shakeData 1 lzyzzxymvlhfcbaaa
+	sound/impact/bullet/blt_concrete3
+	shakeData 2 zzzunozsjdcaaaa
+	sound/impact/bullet/blt_concrete4
+	shakeData 3 zzzyutmhddbaaa
+}
+
+
+sound bullet_impact_metal
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_s_metal1
+	shakeData 0 yzyupfeccabaaaaaaaaaa
+	sound/impact/bullet/blt_s_metal2
+	shakeData 1 nzzzzxsqolidaaaaa
+	sound/impact/bullet/blt_s_metal3
+	shakeData 2 zzyxnkhdbaaaaaaaaaaaaa
+	sound/impact/bullet/blt_s_metal4
+	shakeData 3 kzzytifccaaaaa
+	sound/impact/bullet/blt_s_metal5
+	shakeData 4 lzzurmihdcbbaaaaaaaaaaaa
+	sound/impact/bullet/default1
+	shakeData 5 znqslgedcbaaa
+	sound/impact/bullet/default2
+	shakeData 6 wuliigfgfgheedcbbbbaaaaaaa
+	sound/impact/bullet/default3
+	shakeData 7 zxidbbaaaaaaaaaaaa
+	sound/impact/bullet/default4
+	shakeData 8 zyjebbaaaaaaaaaaaa
+	sound/impact/bullet/default5
+	shakeData 9 xzzrjgdcccbbaaaaaaaaaa
+}
+
+
+sound bullet_impact_water
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_water1
+	shakeData 0 xsnnfcaccaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water2
+	shakeData 1 ypytidaaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water3
+	shakeData 2 xjkhhfaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water4
+	shakeData 3 ttmrxthfebaaaaaaaa
+	sound/impact/bullet/blt_water5
+	shakeData 4 wkmkhghdaaa
+}
+
+
+sound bullet_impact_flesh
+{
+	minDistance	80
+	maxDistance	600
+	volumeDb	3
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_flesh1
+	shakeData 0 cvzzymrlfcbbbaaaaaa
+	sound/impact/bullet/blt_flesh2
+	shakeData 1 cetzzthhedcaaaaaaaa
+	sound/impact/bullet/blt_flesh3
+	shakeData 2 pxyzogfcdccdbbaabaaaa
+	sound/impact/bullet/blt_water1
+	shakeData 3 xsnnfcaccaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water2
+	shakeData 4 ypytidaaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water3
+	shakeData 5 xjkhhfaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water4
+	shakeData 6 ttmrxthfebaaaaaaaa
+	sound/impact/bullet/blt_water5
+	shakeData 7 wkmkhghdaaa
+}
+
+
+sound bullet_ricochet
+{
+	description	"various richochet sounds, one will be played randomly"
+
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/default1
+	shakeData 0 znqslgedcbaaa
+	sound/impact/bullet/default2
+	shakeData 1 wuliigfgfgheedcbbbbaaaaaaa
+	sound/impact/bullet/default3
+	shakeData 2 zxidbbaaaaaaaaaaaa
+	sound/impact/bullet/default4
+	shakeData 3 zyjebbaaaaaaaaaaaa
+	sound/impact/bullet/default5
+	shakeData 4 xzzrjgdcccbbaaaaaaaaaa
+}
+
+
+sound bullet_impact_glass
+{
+	description	"glass hit"
+
+	minDistance	39
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_glass1
+	shakeData 0 zvvtnufccbbbbddbfbdbaaaaa
+	sound/impact/bullet/blt_glass2
+	shakeData 1 zzzxtkhfdbbbbbbabbaaaaaaaaa
+	sound/impact/bullet/blt_glass3
+	shakeData 2 rzzmqpifdcbaaaaaaaaaaaa
+	sound/impact/bullet/blt_glass4
+	shakeData 3 qxutjhoohecbbaaaaaaaaaaa
+}
+
+
+sound glass_break
+{
+	description	"glass break"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+	soundClass	1
+
+	sound/impact/bullet/glass_break01
+	shakeData 0 csqunqroroyvrwwvxzzywwyyxvwwsilplggkdcljbnmhhgbaaaaaa
+	sound/impact/bullet/glass_break02
+	shakeData 1 ogtqnmqzzwtspsrpxohqlhffebabsvtnlkkhpopoihidddhedcabcbccbaaa
+	sound/impact/bullet/glass_break03
+	shakeData 2 nwxtyyvysvoqtmorxvurssnnmlifedhrigfkkjgfeceebfgdabbbaaaaa
+}
+
+
+sound effects_bulletimpact_hollowmetal_shotgun
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_h_metal1
+	shakeData 0 zzzquttpjgccbbaaaaaa
+	sound/impact/bullet/blt_h_metal2
+	shakeData 1 zzxzzyrmiedbaaaaaaaaaaa
+	sound/impact/bullet/blt_h_metal3
+	shakeData 2 flzzxvwtspnkjigdbaaaaaaaaaaaa
+	sound/impact/bullet/blt_h_metal4
+	shakeData 3 dyxvzzzzurlecbaaaaaaaaa
+	sound/impact/bullet/default1
+	shakeData 4 znqslgedcbaaa
+	sound/impact/bullet/default2
+	shakeData 5 wuliigfgfgheedcbbbbaaaaaaa
+	sound/impact/bullet/default3
+	shakeData 6 zxidbbaaaaaaaaaaaa
+	sound/impact/bullet/default4
+	shakeData 7 zyjebbaaaaaaaaaaaa
+	sound/impact/bullet/default5
+	shakeData 8 xzzrjgdcccbbaaaaaaaaaa
+}
+
+
+sound effects_bulletimpact_dirt_shotgun
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_dirt1
+	shakeData 0 eoxxskceebdbdbkddecdbaabbaaaa
+	sound/impact/bullet/blt_dirt2
+	shakeData 1 psonvmmgedbbffegbbbbbdbaaaaaa
+	sound/impact/bullet/blt_dirt3
+	shakeData 2 hjfouvnjeedgbbcbbcccbjfggcccaaaaaaaaaaaa
+	sound/impact/bullet/blt_dirt4
+	shakeData 3 eswqjencbcgebadbcaaaa
+}
+
+
+sound effects_bulletimpact_concrete_shotgun
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_concrete1
+	shakeData 0 bkyzwzyxlhgcbabaaaaa
+	sound/impact/bullet/blt_concrete2
+	shakeData 1 lzyzzxymvlhfcbaaa
+	sound/impact/bullet/blt_concrete3
+	shakeData 2 zzzunozsjdcaaaa
+	sound/impact/bullet/blt_concrete4
+	shakeData 3 zzzyutmhddbaaa
+}
+
+
+sound bullet_impact_metal_shotgun
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_s_metal1
+	shakeData 0 yzyupfeccabaaaaaaaaaa
+	sound/impact/bullet/blt_s_metal2
+	shakeData 1 nzzzzxsqolidaaaaa
+	sound/impact/bullet/blt_s_metal3
+	shakeData 2 zzyxnkhdbaaaaaaaaaaaaa
+	sound/impact/bullet/blt_s_metal4
+	shakeData 3 kzzytifccaaaaa
+	sound/impact/bullet/blt_s_metal5
+	shakeData 4 lzzurmihdcbbaaaaaaaaaaaa
+	sound/impact/bullet/default1
+	shakeData 5 znqslgedcbaaa
+	sound/impact/bullet/default2
+	shakeData 6 wuliigfgfgheedcbbbbaaaaaaa
+	sound/impact/bullet/default3
+	shakeData 7 zxidbbaaaaaaaaaaaa
+	sound/impact/bullet/default4
+	shakeData 8 zyjebbaaaaaaaaaaaa
+	sound/impact/bullet/default5
+	shakeData 9 xzzrjgdcccbbaaaaaaaaaa
+}
+
+
+sound bullet_impact_water_shotgun
+{
+	minDistance	39
+	maxDistance	600
+	volumeDb	-12
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_water1
+	shakeData 0 xsnnfcaccaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water2
+	shakeData 1 ypytidaaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water3
+	shakeData 2 xjkhhfaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water4
+	shakeData 3 ttmrxthfebaaaaaaaa
+	sound/impact/bullet/blt_water5
+	shakeData 4 wkmkhghdaaa
+}
+
+
+sound bullet_impact_flesh_shotgun
+{
+	minDistance	100
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_flesh1
+	shakeData 0 cvzzymrlfcbbbaaaaaa
+	sound/impact/bullet/blt_flesh2
+	shakeData 1 cetzzthhedcaaaaaaaa
+	sound/impact/bullet/blt_flesh3
+	shakeData 2 pxyzogfcdccdbbaabaaaa
+	sound/impact/bullet/blt_water1
+	shakeData 3 xsnnfcaccaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water2
+	shakeData 4 ypytidaaaaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water3
+	shakeData 5 xjkhhfaaaaaaaaaaaaaaaaa
+	sound/impact/bullet/blt_water4
+	shakeData 6 ttmrxthfebaaaaaaaa
+	sound/impact/bullet/blt_water5
+	shakeData 7 wkmkhghdaaa
+}
+
+
+sound bullet_ricochet_shotgun
+{
+	description	"various richochet sounds, one will be played randomly"
+
+	minDistance	39
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/default1
+	shakeData 0 znqslgedcbaaa
+	sound/impact/bullet/default2
+	shakeData 1 wuliigfgfgheedcbbbbaaaaaaa
+	sound/impact/bullet/default3
+	shakeData 2 zxidbbaaaaaaaaaaaa
+	sound/impact/bullet/default4
+	shakeData 3 zyjebbaaaaaaaaaaaa
+	sound/impact/bullet/default5
+	shakeData 4 xzzrjgdcccbbaaaaaaaaaa
+}
+
+
+sound bullet_impact_glass_shotgun
+{
+	description	"glass hit"
+
+	minDistance	39
+	maxDistance	600
+	volumeDb	-6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/bullet/blt_glass1
+	shakeData 0 zvvtnufccbbbbddbfbdbaaaaa
+	sound/impact/bullet/blt_glass2
+	shakeData 1 zzzxtkhfdbbbbbbabbaaaaaaaaa
+	sound/impact/bullet/blt_glass3
+	shakeData 2 rzzmqpifdcbaaaaaaaaaaaa
+	sound/impact/bullet/blt_glass4
+	shakeData 3 qxutjhoohecbbaaaaaaaaaaa
+}
+
+
+sound glass_break_big
+{
+	description	"glass break"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+	soundClass	1
+
+	sound/impact/bullet/hvy_glass_break1
+	shakeData 0 zzzzzyzzzyyzzzzzwxyxxxwvxvvsrsprqqpqppnidcccbbaaaaaaaaaaaa
+	sound/impact/bullet/hvy_glass_break2
+	shakeData 1 zzzzyxvusrovsnqtxvurrsmpmligfegpjggkkjhfedeebegdbbbbaaaaaa
+}
+
+
+sound glass_break_medlabs_tube
+{
+	description	"tube holding player broken with gun butt"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+	soundClass	1
+
+	sound/impact/glass/medlabs_tube
+	shakeData 0 zzzzzzzzzzzzzzzzzzzzzzzzzzxvotnxtptkrqnltmfjgfjffifdccbbdidbjobbbbaaaaaaaaaaaa
+}
+
+
+sound glass_crack_medlabs_tube
+{
+	description	"tube holding player broken with gun butt"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/impact/glass/medlabs_tube_crack
+	shakeData 0 zzzwttpmiheedcdcbbbbaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_gib
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	6
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/gibs/explode0
+	shakeData 0 yszuvzztrfvzupyrvtwmsgdfbba
+	sound/impact/gibs/explode1
+	shakeData 1 zzzzzzzzyzxwnrsnhklhggehhcbcabgfcaabaaa
+	sound/impact/gibs/explode2
+	shakeData 2 zzzzzzzzxwzylggqceccdccccbaaabcaaaaaaaa
+}
+
+
+sound effects_walker_squish
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	soundClass	1
+
+	sound/impact/body/walker_squish
+	shakeData 0 dfirprosikgiedfcbcaaaa
+}
+
+
+sound effects_gib_grinder
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+
+	sound/impact/gibs/grinder1
+	shakeData 0 zysvjorpzxrvnvkqknonvjvhhowvwhhhghfcbfbcbbbecbbbaaaaaabaaaaaaaaaaaaaaaaaa
+	sound/impact/gibs/grinder2
+	shakeData 1 zyxzypvomkwrunwnsjpllvitjlmtvwsceridcmdsgogukvcgfebbacacaabaaaaaaaaaaa
+	sound/impact/gibs/grinder3
+	shakeData 2 wwzyttzourqoxpujrkxtwwslivkkogjrmoiumvgdfdcbabaaa
+}
+
+
+sound effects_gib_bounce
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-12
+	soundClass	1
+	frequentlyUsed
+
+	sound/impact/gibs/bounce0
+	shakeData 0 lkcaaaa
+	sound/impact/gibs/bounce1
+	shakeData 1 lfcaa
+	sound/impact/gibs/bounce2
+	shakeData 2 jihiedaa
+	sound/impact/gibs/bounce3
+	shakeData 3 kligfeaaaaa
+	sound/null
+	shakeData 4 aaaaaaaaaaaa
+	sound/null
+	shakeData 5 aaaaaaaaaaaa
+}
+
+
+sound effects_barrel_launch
+{
+	minDistance	196
+	maxDistance	2952
+	volumeDb	10
+
+	sound/weapons/grenade/explode1
+	shakeData 0 zzzsxvyroolknmmtjkhgolihlliromokjjjkjhjhjigffedddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode2
+	shakeData 1 zznotvvtrrnmpmomhimhkhgifgiplkmliikigijghggffeecdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode3
+	shakeData 2 zzywwzxxxtvupnmhfhhhjggfefglihigfefdddddccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode4
+	shakeData 3 zzswpwxxuysppjjjkhlkikhjlmpmjkkmkjkiihhgffhfgedecccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_barrel_explode
+{
+	minDistance	196
+	maxDistance	2952
+	volumeDb	10
+	shakes		0.2
+
+	sound/effects/explosions/no_debris01
+	shakeData 0 zzzzzzyyzzzzzyyxwrsyyrvvwqvnllolmnklijgehggigdecccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound effects_waste_acid_spray
+{
+	minDistance	118
+	maxDistance	984
+	volumeDb	-6
+	looping
+
+	sound/effects/waste/acid_spray
+	shakeData 0 stqprtqutrtstpptpqrrrqrppqsrqrstqtrrrvurqursprqosruqsrrtvrtrsstvuspsttspptopsppqpqvorsppppnqqptrpuptspuqqrvosvuopopqqpspqsptprrrppppvqorqqqopposupqsqttqssoqrrtrtpsrqqqvsurstss
+}
+
+
+sound effects_waste_acid_spray_on
+{
+	minDistance	118
+	maxDistance	984
+	volumeDb	-2
+
+	sound/effects/waste/acid_spray_on
+	shakeData 0 ijjzzzyzuvzyxxywwutruqwsrssyvsojhfecbaa
+}
+
+
+sound effects_waste_acid_spray_off
+{
+	minDistance	118
+	maxDistance	984
+	volumeDb	-2
+
+	sound/effects/waste/acid_spray_off
+	shakeData 0 fjiknotpmozzyzkfcccbbaaaaaaaa
+}
+
+
+sound effects_waste_chunks
+{
+	minDistance	118
+	maxDistance	984
+	volumeDb	0
+
+	sound/effects/waste/chunks1
+	shakeData 0 bcdccddedcldjeeleiggdjhfgjjjkefhqjfggfffhreeiehedfcbbaaaaaa
+	sound/effects/waste/chunks2
+	shakeData 1 bomohicclidffdldjedlccfgmdcddthddeccbbbaaaaa
+	sound/effects/waste/chunks3
+	shakeData 2 daablcbbbaaaaabbcedcbbaaabbbbngnhifbkjeefeeldidilccfmfccciteddedbbabaaaa
+}
+
+
+

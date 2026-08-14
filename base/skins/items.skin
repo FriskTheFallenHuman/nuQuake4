@@ -1,0 +1,265 @@
+skin skins/items/ammo/machinegun
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/machinegun"
+	"models/items/ammo/icon"		"models/items/ammo/machinegun_decal"
+}
+
+skin skins/items/ammo/shotgun
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/shotgun"
+	"models/items/ammo/icon"		"models/items/ammo/shotgun_decal"
+}
+
+skin skins/items/ammo/nailgun
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/nailgun"
+	"models/items/ammo/icon"		"models/items/ammo/nailgun_decal"
+}
+
+skin skins/items/ammo/railgun
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/railgun"
+	"models/items/ammo/icon"		"models/items/ammo/railgun_decal"
+}
+
+skin skins/items/ammo/hyperblaster
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/hyperblaster"
+	"models/items/ammo/icon"		"models/items/ammo/hyperblaster_decal"
+}
+
+skin skins/items/ammo/rocketlauncher
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/rocketlauncher"
+	"models/items/ammo/icon"		"models/items/ammo/rocketlauncher_decal"
+}
+
+skin skins/items/ammo/grenadelauncher
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/grenadelauncher"
+	"models/items/ammo/icon"		"models/items/ammo/grenadelauncher_decal"
+}
+
+skin skins/items/ammo/lightninggun
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/lightninggun"
+	"models/items/ammo/icon"		"models/items/ammo/lightninggun_decal"
+}
+
+skin skins/items/ammo/dmg
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/dmg"
+	"models/items/ammo/icon"		"models/items/ammo/dmg_decal"
+}
+
+skin skins/items/moderator
+{
+	"models/items/ammo/ammo_box"	"models/items/ammo/lightninggun"
+	"models/items/ammo/icon"	"models/items/moderator_decal"
+}
+
+skin skins/items/ctf_marine_flag_world
+{
+	"textures/mp/ctf_flag"	"textures/mp/ctf_marine_flag_world"
+}
+
+skin skins/items/ctf_strogg_flag_world
+{
+	"textures/mp/ctf_flag"	"textures/mp/ctf_strogg_flag_world"
+}
+
+skin skins/items/ctf_marine_flag
+{
+	"textures/mp/ctf_flag"	"textures/mp/ctf_marine_flag"
+}
+
+skin skins/items/ctf_strogg_flag
+{
+	"textures/mp/ctf_flag"	"textures/mp/ctf_strogg_flag"
+}
+
+skin skins/items/ctf_one_flag
+{
+	"textures/mp/ctf_flag"	"textures/mp/ctf_neutral_flag"
+}
+
+skin skins/models/items/banner_flags/marine_flag_long
+{
+	"models/items/banner_flags/strogg_flag_long"	"models/items/banner_flags/marine_flag_long"
+}
+
+skin skins/models/items/banner_flags/marine_flag_short
+{
+	"models/items/banner_flags/strogg_flag_short"	"models/items/banner_flags/marine_flag_short"
+}
+
+skin skins/items/armor/base_red
+{
+
+"models/items/armor/base" "models/items/armor/base_red"
+
+}
+
+skin skins/items/armor/base_sp
+{
+
+"models/items/armor/base" "models/items/armor/base_sp"
+
+}
+
+
+////////////////asteroids///////////////
+
+
+skin skins/models/mapobjects/strogg/stroggos/a1b
+{
+	"models/mapobjects/strogg/stroggos/a1"
+"models/mapobjects/strogg/stroggos/a1b"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a1c
+{
+	"models/mapobjects/strogg/stroggos/a1"
+"models/mapobjects/strogg/stroggos/a1c"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a2b
+{
+	"models/mapobjects/strogg/stroggos/a2"
+"models/mapobjects/strogg/stroggos/a2b"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a2c
+{
+	"models/mapobjects/strogg/stroggos/a2"
+"models/mapobjects/strogg/stroggos/a2c"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a3b
+{
+	"models/mapobjects/strogg/stroggos/a3"
+"models/mapobjects/strogg/stroggos/a3b"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a3c
+{
+	"models/mapobjects/strogg/stroggos/a3"
+"models/mapobjects/strogg/stroggos/a3c"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a4b
+{
+	"models/mapobjects/strogg/stroggos/a4"
+"models/mapobjects/strogg/stroggos/a4b"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a4c
+{
+	"models/mapobjects/strogg/stroggos/a4"
+"models/mapobjects/strogg/stroggos/a4c"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a5b
+{
+	"models/mapobjects/strogg/stroggos/a5"
+"models/mapobjects/strogg/stroggos/a5b"
+}
+
+skin skins/models/mapobjects/strogg/stroggos/a5c
+{
+	"models/mapobjects/strogg/stroggos/a5"
+"models/mapobjects/strogg/stroggos/a5c"
+}
+
+//////////////////////////////////new hover tank alternate skin///////////////////////////////////
+
+skin skins/models/vehicles/hovertank/nht_dirty
+{
+	"models/vehicles/hovertank/nht"
+"models/vehicles/hovertank/nht_dirty"
+}
+
+
+
+
+///skin skins/models/pick_ups/mp_pickups/mp_healthb
+///{
+///	"skin skins/models/pick_ups/mp_pickups/mp_health"                          
+///"skin skins/models/pick_ups/mp_pickups/mp_healthb"
+///}
+
+
+///skin skins/models/pick_ups/mp_pick_ups/mp_healthc
+///{
+///	"skin skins/models/pick_ups/mp_pickups/mp_health"                          
+///"skin skins/models/pick_ups/mp_pickups/mp_healthc"
+///}
+
+
+///skin skins/models/pick_ups/mp_pickups/mp_healthd
+///{
+///	"skin skins/models/pick_ups/mp_pickups/mp_health"                          
+///"skin skins/models/pick_ups/mp_pickups/mp_healthd"
+///}
+
+///////////////////////ravencube alternatives//////////////////////////
+
+skin skins/models/test/ravencubeb
+{
+	"models/test/ravencube"
+"models/test/ravencubeb"
+}
+
+skin skins/models/test/ravencubec
+{
+	"models/test/ravencube"
+"models/test/ravencubec"
+}
+
+skin skins/models/test/ravencubed
+{
+	"models/test/ravencube"
+"models/test/ravencubed"
+}
+
+skin skins/models/test/ravencubee
+{
+	"models/test/ravencube"
+"models/test/ravencubee"
+}
+
+skin skins/models/test/ravencubef
+{
+	"models/test/ravencube"
+"models/test/ravencubef"
+}
+
+skin skins/models/test/ravencubeg
+{
+	"models/test/ravencube"
+"models/test/ravencubeg"
+}
+
+skin skins/models/test/ravencubeh
+{
+	"models/test/ravencube"
+"models/test/ravencubeh"
+}
+
+skin skins/models/test/ravencubei
+{
+	"models/test/ravencube"
+"models/test/ravencubei"
+}
+
+skin skins/models/test/ravencubej
+{
+	"models/test/ravencube"
+"models/test/ravencubej"
+}
+
+skin skins/models/test/ravencubek
+{
+	"models/test/ravencube"
+"models/test/ravencubek"
+}

@@ -1,0 +1,315 @@
+//-----------------------------------------------------------
+
+gfx/effects/smoke/cloud_add_snd
+{
+	qer_editorimage	gfx/effects/smoke/cloud_add.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/smoke/cloud_add.tga
+		red 		sound * Parm0
+ 		green 		sound * Parm1
+		blue 		sound * Parm2
+	}	
+}
+
+
+gfx/effects/smoke/cloud_add
+{
+	qer_editorimage	gfx/effects/smoke/cloud_add.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/smoke/cloud_add.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/smoke/cloud_alpha3
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/cloud_alpha3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/soft_alpha_trail
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/soft_alpha_trail.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/cloud_alpha2
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/cloud_alpha2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/cloud
+{
+	qer_editorimage	gfx/effects/smoke/cloud.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend filter
+		map gfx/effects/smoke/cloud.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/smoke/steam_alpha
+{
+	qer_editorimage	gfx/effects/smoke/steam_alpha.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/effects/smoke/steam_alpha.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/smoke/underlit_alpha
+{
+	qer_editorimage	gfx/effects/smoke/underlit_alpha.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/effects/smoke/underlit_alpha.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/smoke/underlit_alpha2
+{
+	qer_editorimage	gfx/effects/smoke/underlit_alpha2.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/effects/smoke/underlit_alpha2.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/smoke/cloud_alpha
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/cloud_alpha.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/impact_smoke
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/impact_smoke.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/impact_smoke3
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/impact_smoke3.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/smoke/white_alpha
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/white_alpha.tga
+		clamp
+		vertexColor
+	}
+
+}
+
+gfx/effects/smoke/steam_source
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/steam_source.tga
+		clamp
+		vertexColor
+	}
+
+}
+
+gfx/effects/smoke/steam_green
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/steam_green.tga
+		clamp
+		vertexColor
+	}
+
+}
+
+gfx/effects/smoke/blacksmokepuff
+{
+	qer_editorimage gfx/effects/smoke/blacksmokepuff.tga
+	noShadows
+	{
+		blend		gl_zero, gl_one_minus_src_color
+		map gfx/effects/smoke/blacksmokepuff.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/smoke/smoke
+{
+	qer_editorimage gfx/effects/smoke/basic.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/smoke/basic.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/smoke_underlit
+{
+	qer_editorimage gfx/effects/smoke/underlit.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/smoke/underlit.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/smoke_alpha
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/alpha.tga
+		vertexColor
+	}
+
+}
+
+
+//------------------------------------------------------------------------------
+
+gfx/effects/testhaze
+{
+	translucent
+	{
+		vertexProgram	heatHaze.vfp
+		vertexParm		0		0 , 0
+		vertexParm		1		3
+		fragmentProgram	heatHaze.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		textures/test/lava1_local.tga
+	}
+}
+
+gfx/effects/testmonochrome
+{
+	{
+		blend		blend
+//		map			textures/stroyent/foam_2_d.tga
+		
+		vertexProgram	monochrome.vfp
+		fragmentProgram	monochrome.vfp
+		fragmentMap		0		textures/stroyent/foam_2_d.tga
+	}
+}
+
+gfx/effects/testbumpenvirons
+{
+	{
+		vertexProgram	bumpyEnvironment.vfp
+		vertexParm		0		1
+		fragmentProgram	bumpyEnvironment.vfp
+		fragmentMap		0		cubeMap gfx/env/artest
+		fragmentMap		1		textures/test/lava1_local.tga
+	}
+}
+
+
+
+gfx/effects/smoke/smoke_dark
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/smoke/smoke_dark.tga
+		vertexColor
+	}
+}
+
+gfx/effects/smoke/smoke_dark2
+{
+	noshadows
+	translucent
+	
+	{
+		maskcolor				
+	    map	makealpha(gfx/effects/smoke/smoke_dark_mask.tga)
+	    vertexColor
+	}
+	{
+	    blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map    gfx/effects/smoke/smoke_dark.tga
+		vertexColor
+	}
+	
+}

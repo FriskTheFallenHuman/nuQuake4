@@ -1,0 +1,61 @@
+
+/***********************************************************************
+pistonB.def
+
+***********************************************************************/
+
+export pistonB
+{		
+	options -prefix PISTB_ -align ALL -sourcedir work/models/mapobjects/strogg/machines/pistonb -destdir models/mapobjects/strogg/machines/pistonb
+		  
+	mesh	pistonB_idle.ma		-dest pistonB_mesh
+	anim	pistonB_idle.ma		-dest idle
+	anim	pistonB_cycle.ma 	-dest cycle
+}
+
+entityDef env_pistonB
+{
+	"model"							"model_env_pistonB"
+	"spawnclass"					"idAnimated"
+
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"animated_piston"
+	
+	"combatModel"					"1"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+//	--------------------------------- Effects ---------------------------------
+	"fx_energy"								"effects/mapobjects/pistonb.fx"
+	"fx_impact"								"effects/mapobjects/pistonb_impact.fx"
+	"fx_release"							"effects/mapobjects/pistonb_release.fx"
+	"fx_arc"								"effects/mapobjects/pistonb_arc.fx"
+	"fx_guide"								"effects/mapobjects/pistonb_guide.fx"
+}
+
+model model_env_pistonB
+{						
+	mesh					models/mapobjects/strogg/machines/pistonb/pistonb_mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/machines/pistonb/idle.md5anim
+	anim cycle				models/mapobjects/strogg/machines/pistonb/cycle.md5anim
+	{
+		frame	2						sound				vertical_piston_cap_down
+		frame	35			fx			fx_impact			base
+		frame	35,116,218				sound				piston_lock
+		frame	55			fx			fx_energy			piston_joint
+		frame	63,142					sound				piston_unlock
+		frame	67						sound				horizontal_piston_in
+		frame	145						sound				vertical_piston_cap_up
+		frame	220			fx			fx_arc				piston_joint	base
+		frame	220			fx			fx_release			piston_joint
+		frame	1,220					sound				effects_steam_blast
+		frame	222						sound				horizontal_piston_out
+		frame	142			fx			fx_guide			guide
+	}
+}
+
+

@@ -1,0 +1,6 @@
+#include "doom_resource.h"
+
+// Visual resources recovered from the matching retail quake4.exe.  Keep the
+// original numeric identifiers because the Win32 code loads them directly.
+IDI_ICON1       ICON    "retail\\quake4\\icons\\1024_1033.ico"
+IDB_BITMAP_LOGO BITMAP  "retail\\quake4\\bitmaps\\4001_1033.bmp"

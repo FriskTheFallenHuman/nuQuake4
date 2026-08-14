@@ -1,0 +1,565 @@
+
+
+sound grunt_sight
+{
+	description	"growl!"
+
+	minDistance	40
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/grunt/sight1
+	shakeData 0 cmrrtussttptnpkkimgjikihfbbbbbcbbaaaaa
+	sound/strogg/grunt/sight2
+	shakeData 1 chpptrrtxxwvtvurwstpolmlninjlbcejfeeccaa
+	sound/strogg/grunt/rush1
+	shakeData 2 qyzzzzzyyxwtrppqmorrurrnprsrwttuvsvuutstttuttuuutsssqommhhdccbaaaaaaaaaa
+	sound/strogg/grunt/rush2
+	shakeData 3 vzzzzuyzzwzwuoqorosppqnqmorsvutwtvvvvwwusuvuwwuuvsrrsommmnmjnknkkjjgddaaaaaa
+}
+
+
+sound grunt_anger
+{
+	description	"growl!"
+
+	minDistance	400
+	maxDistance	2000
+	volumeDb	6
+	shakes		0.5
+
+	sound/strogg/grunt/anger1
+	shakeData 0 jnyxzzzzzyzyzxxyvxzyxwxxwtvwuutrroqpnmmjgdcaaaa
+	sound/strogg/grunt/anger2
+	shakeData 1 irvyzzzzzzzzzzxyyvzzyxxtxwwvstssqopmmjhdcbaaa
+	sound/strogg/grunt/anger3
+	shakeData 2 eikosxyzzzyzzyyyxyuwxxvvuxwwuvuwvwvturqrtrrrrqpnifdbbaaa
+}
+
+
+sound grunt_anger_noshakes
+{
+	description	"growl!"
+
+	minDistance	400
+	maxDistance	2000
+	volumeDb	6
+
+	sound/strogg/grunt/anger1
+	shakeData 0 jnyxzzzzzyzyzxxyvxzyxwxxwtvwuutrroqpnmmjgdcaaaa
+	sound/strogg/grunt/anger2
+	shakeData 1 irvyzzzzzzzzzzxyyvzzyxxtxwwvstssqopmmjhdcbaaa
+	sound/strogg/grunt/anger3
+	shakeData 2 eikosxyzzzyzzyyyxyuwxxvvuxwwuvuwvwvturqrtrrrrqpnifdbbaaa
+}
+
+
+sound grunt_rush
+{
+	description	"growl!"
+
+	minDistance	40
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/grunt/rush1
+	shakeData 0 qyzzzzzyyxwtrppqmorrurrnprsrwttuvsvuutstttuttuuutsssqommhhdccbaaaaaaaaaa
+	sound/strogg/grunt/rush2
+	shakeData 1 vzzzzuyzzwzwuoqorosppqnqmorsvutwtvvvvwwusuvuwwuuvsrrsommmnmjnknkkjjgddaaaaaa
+}
+
+
+sound grunt_footsteps
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/animal/default1
+	shakeData 0 xkkmnlokmgffeecbcbaaaaaaaaa
+	sound/strogg/footsteps/animal/default2
+	shakeData 1 xpnigeddfebbccbaaaaaaa
+	sound/strogg/footsteps/animal/default4
+	shakeData 2 tllijjihfeeddccbbaaaaaaaaaaaa
+}
+
+
+sound grunt_footsteps_dirt
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	no_dups
+
+	sound/strogg/footsteps/animal/dirt1
+	shakeData 0 yqptropijfedddbbbbaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/dirt2
+	shakeData 1 xqnjppefhfbcccbaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/dirt3
+	shakeData 2 ulmlolhhicdcccabbbbbbbaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/dirt4
+	shakeData 3 srihhjjhffedccbbaaaaaaaaaaaaa
+}
+
+
+sound grunt_footsteps_hollow_metal
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	no_dups
+
+	sound/strogg/footsteps/animal/h_metal1
+	shakeData 0 xnkihfgefddcbbbabaaaaaaaa
+	sound/strogg/footsteps/animal/h_metal2
+	shakeData 1 ymjkgkfeeccbbbbaaaaaaaaa
+	sound/strogg/footsteps/animal/h_metal3
+	shakeData 2 ugjiiifeeddccbbbbabaaaaaaaa
+	sound/strogg/footsteps/animal/h_metal4
+	shakeData 3 wmqljghffeedccbbbaaaaaaaaaa
+}
+
+
+sound grunt_footsteps_water
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	no_dups
+
+	sound/strogg/footsteps/animal/water1
+	shakeData 0 wxpqpknjmhfgfeecdbbbaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/water2
+	shakeData 1 ywilgihgkjeedddbbaaaaaaaaaa
+	sound/strogg/footsteps/animal/water3
+	shakeData 2 wzpnnjjhkddefecccccbccbbaaaaaaaaaa
+	sound/strogg/footsteps/animal/water4
+	shakeData 3 uykmijkkolhgeeedcbbaaaaaaaaaaaaa
+}
+
+
+sound grunt_pain
+{
+	description	"random choice of pain grunts"
+
+	minDistance	400
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/grunt/pain1
+	shakeData 0 zzzzzzzzzzzzzzzzzzwecaa
+	sound/strogg/grunt/pain2
+	shakeData 1 zzzzzzzzzzzzzyljbaa
+	sound/strogg/grunt/pain3
+	shakeData 2 zzzzzzzzzzyojecbaa
+	sound/strogg/grunt/pain4
+	shakeData 3 zzzzzzzzzzzzzzzzzzzzzhb
+}
+
+
+sound grunt_wiff
+{
+	description	"grunt swings arm in melee attack and we hear a wiff of air. Only when he misses"
+
+	minDistance	200
+	maxDistance	800
+	volumeDb	0
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+	sound/strogg/grunt/growl01
+	shakeData 4 dgyzwzwzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyvuulskhfbbaaa
+	sound/strogg/grunt/growl02
+	shakeData 5 zzzzzzzzzzzzzzzzzzzxqeecbaaa
+}
+
+
+sound grunt_punch
+{
+	description	"SLAMMO!!"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+	frequencyshift	0.8,1.2
+
+	sound/weapons/impact/whooshes_melee/melee_hit1
+	shakeData 0 ahrzzzzzuxmhedcbbaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit2
+	shakeData 1 ewzzzzzpnjlhfedcaaaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit3
+	shakeData 2 zzzzzzxkfbaaaaaaa
+}
+
+
+sound grunt_adrenaline
+{
+	description	"sound of piston pumping a shot of adrenaline into grunt"
+
+	minDistance	160
+	maxDistance	1000
+	volumeDb	0
+	frequencyshift	0.9,1.1
+
+	sound/strogg/grunt/adren
+	shakeData 0 unmwztzxwtmmlleddcbaaaaaa
+	sound/strogg/grunt/adren2
+	shakeData 1 ollpsorvrljjiidccbbabaaa
+}
+
+
+sound grunt_jump
+{
+	description	"light grunt if grunt jumps"
+
+	minDistance	400
+	maxDistance	1000
+	volumeDb	-4
+
+	sound/strogg/grunt/jump
+	shakeData 0 npvzzzzzzzzzzzzyumrsurqsmkmifedcccbbaaa
+}
+
+
+sound grunt_fall
+{
+	description	"random choice of grunt falling on surface"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	-4
+
+	sound/strogg/grunt/fall1
+	shakeData 0 adovxxxxxwxxpkovttnwtwpxseffebbaadbbaaaaaa
+	sound/strogg/grunt/fall2
+	shakeData 1 awxxwvxytryyvwwvsuvwwmeiekdbacdabaaaaa
+	sound/strogg/grunt/fall3
+	shakeData 2 aaawyxxxxwxxxxtxmhuppownfdedbaaacbabaaaaaa
+}
+
+
+sound grunt_fall_special
+{
+	description	"this is a special fall sound for the chainlink animation"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	shakes		0.3
+
+	sound/strogg/grunt/fall_special
+	shakeData 0 rwxwvyxtsxkeikgbaebbaaaaa
+}
+
+
+sound grunt_fall_special_noshakes
+{
+	description	"this is a special fall sound for the chainlink animation"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/grunt/fall_special
+	shakeData 0 rwxwvyxtsxkeikgbaebbaaaaa
+}
+
+
+sound grunt_blaster
+{
+	description	"test gun sound for grunt blaster"
+
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	frequencyshift	0.8,1.2
+
+	sound/strogg/grunt/blaster01
+	shakeData 0 zyxtsrronljjigeedcbbaaaaa
+	sound/strogg/grunt/blaster02
+	shakeData 1 zzxuuspmolkjiiggedcbbbaaaaaaa
+	sound/strogg/grunt/blaster03
+	shakeData 2 zwtwtqrnnmkjgffedccbbaaaaaa
+}
+
+
+sound grunt_gatling
+{
+	description	"test gun sound for grunt gatling"
+
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	frequencyshift	0.8,1.2
+
+	sound/strogg/grunt/gatling01
+	shakeData 0 pyzsnhjgfddcccbbbbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/grunt/gatling02
+	shakeData 1 tzzvrknhgfdcdcbccbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/grunt/gatling03
+	shakeData 2 vyzsplklhdddccbbbabaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound grunt_breathe
+{
+	description	"breathing"
+
+	minDistance	200
+	maxDistance	800
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/grunt/breath01
+	shakeData 0 dhjsmpskljihdccccbcbbbbbaaaaa
+	sound/strogg/grunt/breath02
+	shakeData 1 cfhptqsplkhgeeeihdddbbaa
+	sound/strogg/grunt/breath03
+	shakeData 2 gmptpvsutuplkdedfdeeddecbaaaaa
+	sound/strogg/grunt/breath04
+	shakeData 3 ijmtuuwmpnhhiiggedcbbccbbbbaaaa
+}
+
+
+sound grunt_breathe_quiet
+{
+	description	"breathing"
+
+	minDistance	200
+	maxDistance	800
+	volumeDb	-9
+	no_dups
+
+	sound/strogg/grunt/breath01
+	shakeData 0 dhjsmpskljihdccccbcbbbbbaaaaa
+	sound/strogg/grunt/breath02
+	shakeData 1 cfhptqsplkhgeeeihdddbbaa
+	sound/strogg/grunt/breath03
+	shakeData 2 gmptpvsutuplkdedfdeeddecbaaaaa
+	sound/strogg/grunt/breath04
+	shakeData 3 ijmtuuwmpnhhiiggedcbbccbbbbaaaa
+}
+
+
+sound grunt_breathing
+{
+	description	"breathing"
+
+	minDistance	200
+	maxDistance	600
+	volumeDb	0
+
+	sound/strogg/grunt/breathing
+	shakeData 0 beffggggfghhfegfdedeeeffeeedfedddcabacbbcdefdddbcbaabaabaaabcdcccbffebbbcabccffgeddcdccccbbbaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound grunt_growl
+{
+	description	"grrrr"
+
+	minDistance	400
+	maxDistance	1200
+	volumeDb	-4
+
+	sound/strogg/grunt/growl01
+	shakeData 0 dgyzwzwzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyvuulskhfbbaaa
+	sound/strogg/grunt/growl02
+	shakeData 1 zzzzzzzzzzzzzzzzzzzxqeecbaaa
+}
+
+
+sound grunt_breakthru
+{
+	description	"breaking through the door"
+
+	minDistance	200
+	maxDistance	1200
+	volumeDb	-4
+
+	sound/strogg/grunt/breakthru
+	shakeData 0 rvustusnpnmttrrqsrrqqppolgehedcccccccbbbbbbaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound grunt_fence_land
+{
+	description	"landing on a chain link fence."
+
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+	shakes		0.2
+
+	sound/strogg/grunt/fence_land
+	shakeData 0 cjeeehmqrotvuxzxvxtooolgeecbbbaa
+}
+
+
+sound grunt_fence_break
+{
+	description	"breaking that same fence wide open."
+
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/strogg/grunt/fence_break
+	shakeData 0 qqxyxwxzyzxyyyxyzyyyrlqmjffdcbbaaaaa
+}
+
+
+sound grunt_fence_climb
+{
+	description	"Grunt on the monkey bars.  Silly Grunt."
+
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/strogg/grunt/fence_climb1
+	shakeData 0 geehhgdcbbbbbaaaaa
+	sound/strogg/grunt/fence_climb2
+	shakeData 1 kheecpqfccbbbaaaaaaaaaa
+	sound/strogg/grunt/fence_climb3
+	shakeData 2 mlihffedbbbcbbaaa
+	sound/strogg/grunt/fence_climb4
+	shakeData 3 jkhfvkfcccebbaaaaaaaaa
+}
+
+
+sound grunt_poundground
+{
+	description	"Angry grunt smacking the ground with rage!"
+
+	minDistance	200
+	maxDistance	1200
+	volumeDb	2
+
+	sound/strogg/grunt/pound1
+	shakeData 0 zyyywxwxtuvvstpqonqkmlkkiggfeccdcccbcbbbbbbaaaaaaa
+}
+
+
+sound grunt_death
+{
+	description	"Angry grunt leaving the mortal coil and such..."
+
+	minDistance	400
+	maxDistance	1400
+	volumeDb	0
+
+	sound/strogg/grunt/die01
+	shakeData 0 zzzzzzzzzzzyyzurruyyzzzzyzzzzzzzzzzzzyttsvxxxutuuuuvupokhhggeddcbbaaaaa
+	sound/strogg/grunt/die02
+	shakeData 1 abcdgikorvxwwwxuywxxyvyvywvvvxwwxwvwxwwwwvrnmkhifddcbaaa
+}
+
+
+sound grunt_hit_glass
+{
+	description	"Thump!!"
+
+	minDistance	400
+	maxDistance	800
+	volumeDb	0
+	shakes		0.2
+
+	sound/strogg/grunt/glass_hit1
+	shakeData 0 zzvzzxyvzyupheedccbbaaaaa
+	sound/strogg/grunt/glass_hit2
+	shakeData 1 zzyzyyxzyqqheedccbaaaa
+	sound/strogg/grunt/glass_crack
+	shakeData 2 uqwysuzotonplnjhggdedbbabaaaaaaaaa
+}
+
+
+sound grunt_glass_crack
+{
+	description	"Krakk!!"
+
+	minDistance	400
+	maxDistance	800
+	volumeDb	0
+
+	sound/strogg/grunt/glass_crack
+	shakeData 0 uqwysuzotonplnjhggdedbbabaaaaaaaaa
+}
+
+
+sound grunt_debris
+{
+	minDistance	200
+	maxDistance	1000
+	volumeDb	-6
+	no_dups
+
+	sound/effects/generic/debris1
+	shakeData 0 hdffegjhjgfehhedefeedejgkjjifgffdjfejfffddchecdhdedccifedcccbcddcccbbccbbbbbbaaaaaaaaaa
+	sound/effects/generic/debris2
+	shakeData 1 dccdhggeeeefedeedecehgiklhdepkggffikffefkgknrokigpijkjhgmlihifffefbcdeccccbbcbbbbbbbbbbbaaaaaaa
+	sound/effects/generic/debris3
+	shakeData 2 ddegfeflidddedgdddeeehedeededdnhdedgfgecgkkmhellmiikigddfdeeedgdddcccdbbaaaa
+	sound/effects/generic/debris4
+	shakeData 3 fhhghegjflfihgjfheffgfdfefgdddhjggfhkkllighhiihhhhiighhfegfefeghedccddbbbbbaaaaaaaaaaaa
+}
+
+
+sound grunt_chatter_idle
+{
+	description	"chitter-chatter"
+
+	minDistance	200
+	maxDistance	1000
+	volumeDb	-9
+
+	sound/strogg/grunt/chatter_idle1
+	shakeData 0 abghilmpqrqrrqrqqqqrrqqqsrqpqqruswrrprrppsrrqikjkhlkkhhikjjkmijinnmmmlspmllfeedccbaaaaaaa
+	sound/strogg/grunt/chatter_idle2
+	shakeData 1 aagfemjlqrrprprrropqrpquoqorrrqqsprsqqsrqrrmpsrrxqostumunkuhklemndfecbbbbcbbaaaaaaaa
+	sound/strogg/grunt/chatter_idle3
+	shakeData 2 aaabcfhjkrrpprqrrqqqrqqrrrqrqqrrqqrrqqupqqprnsqrroomsrrnwwkjjuunlnqfhkspqlxfwkstdddbbafaaaaaaaaaaaa
+}
+
+
+sound grunt_chatter_combat
+{
+	description	"chitter-chatter"
+
+	minDistance	200
+	maxDistance	1000
+	volumeDb	-6
+
+	sound/strogg/grunt/chatter_idle1
+	shakeData 0 abghilmpqrqrrqrqqqqrrqqqsrqpqqruswrrprrppsrrqikjkhlkkhhikjjkmijinnmmmlspmllfeedccbaaaaaaa
+	sound/strogg/grunt/chatter_idle2
+	shakeData 1 aagfemjlqrrprprrropqrpquoqorrrqqsprsqqsrqrrmpsrrxqostumunkuhklemndfecbbbbcbbaaaaaaaa
+	sound/strogg/grunt/chatter_idle3
+	shakeData 2 aaabcfhjkrrpprqrrqqqrqqrrrqrqqrrqqrrqqupqqprnsqrroomsrrnwwkjjuunlnqfhkspqlxfwkstdddbbafaaaaaaaaaaaa
+}
+
+
+
+

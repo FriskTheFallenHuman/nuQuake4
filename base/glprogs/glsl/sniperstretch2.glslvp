@@ -1,0 +1,11 @@
+varying vec2  	texCoord;
+varying vec2	scopeTexCoord;
+uniform vec2 	textureScale;
+
+void main(void)
+{
+    texCoord    	= gl_MultiTexCoord0.xy * textureScale;
+    scopeTexCoord 	= texCoord / textureScale;
+    
+    gl_Position = ftransform();
+}

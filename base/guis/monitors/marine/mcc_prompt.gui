@@ -1,0 +1,113 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	windowDef bg
+	{
+		rect	0,0,639,481
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc_prompt_all"
+		matcolor	1,1,1,1
+	}
+	windowDef txt_logout
+	{
+		rect	403,430,127,40
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200705"
+		textscale	0.6
+		font	"fonts/marine"
+	}
+	windowDef txt_prompt
+	{
+		rect	71,382,375,28
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200706"
+		textscale	0.36
+		font	"fonts/marine"
+	}
+	windowDef s
+	{
+		rect	34,-16,41,56
+		visible	1
+		forecolor	1,1,1,1
+		text	"s"
+		textscale	0.9
+		font	"fonts/marine"
+	}
+	windowDef m
+	{
+		rect	57,-16,41,56
+		visible	1
+		forecolor	1,1,1,1
+		text	"m"
+		textscale	0.9
+		font	"fonts/marine"
+	}
+	windowDef c
+	{
+		rect	86,-16,41,56
+		visible	1
+		forecolor	1,1,1,1
+		text	"c"
+		textscale	0.9
+		font	"fonts/marine"
+	}
+	windowDef cursor
+	{
+		rect	273,390,7,13
+		visible	1
+		backcolor	0.819,0.835,0.325,0.607
+
+		onTime 0 {
+			transition "backcolor" "0.819,0.835,0.325,0.107" "0.819,0.835,0.325,0.607" "550" ;
+		}
+
+		onTime 550 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef monitor_darkedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+		windowDef sline
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_line8"
+			matcolor	0.105,0.105,0.105,0.392
+		}
+		windowDef sline1
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_line4"
+			matcolor	0.603,0.603,0.603,0.0980
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches3"
+			matcolor	0.831,0.854,0.603,0.121
+			matscalex	-1
+			matscaley	-1
+		}
+		windowDef topreflect
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_glow3"
+			matcolor	0.470,0.470,0.219,0.694
+		}
+	}
+}

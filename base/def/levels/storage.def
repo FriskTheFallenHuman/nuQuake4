@@ -1,0 +1,691 @@
+/***********************************************************************************************************************
+Storage
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+// -- Specialty Grunt ------------------------------------------------------------------------------------
+
+model model_storage_monster_grunt
+{
+	inherit												"model_monster_grunt"
+	
+	anim storage_rubble_idle							models/monsters/grunt/storage_rubble_idle.md5anim
+	anim storage_rubble								models/monsters/grunt/storage_rubble.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	1										ai_disableDamage
+		frame 	1										sound_voice			snd_breathe
+		frame	15										sound_voice			snd_anger
+		frame	16										sound				storage_grunt_grate_clang
+		frame	19										sound				generic_rock_impact_large
+		frame	17										sound				effects_debris_heavy
+		frame	18,20,22								sound				generic_rock_impact_small
+		frame	21										sound				effects_debris_light			
+		frame	35										ai_enablePain
+		frame	35										ai_enableDamage
+	}
+	anim storage_stepped_on								models/monsters/grunt/storage_stepped_on.md5anim
+	{
+		//shot in the head
+		frame 33								fx	fx_gib		head
+	}
+
+	anim droppod_crash_slow								models/monsters/grunt/droppod_crash.md5anim
+	{
+		rate	.5
+		frame	1										event			disableClip
+		frame	1										event			disableGravity
+		frame	40										call			map_storage1::gruntGrowl
+	}
+}
+
+entityDef storage_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"editor_menu"										"level"
+
+	"model"												"model_storage_monster_grunt"
+	
+	"sg_category"										"None"
+}
+
+
+// --------------------------------------------------------------------------------------
+// Specialty Repair Bot, for putting out a fire
+//	just inherits the normal repair bot but replaces repair
+//	effect with a water spraying effect
+// --------------------------------------------------------------------------------------
+model model_storage_firebot
+{
+	inherit						"model_monster_repair_bot"
+	
+	anim repair					models/monsters/repair_bot/repair.md5anim
+	{
+		frame	5,13,31			sound	snd_servo
+		frame	1				fx		fx_spray			l_fx
+		frame	5				fx		fx_spray			r_fx
+	}
+}
+
+entityDef storage_monster_firebot
+{
+	"inherit"							"monster_repair_bot"
+	"model"								"model_storage_firebot"
+
+	"editor_menu"						"level"
+	
+	"fx_spray"							"effects/levels/storage/fireBotSpray.fx"	
+}
+
+
+
+// -- Pod Crash------------------------------------------------------------------------------------------
+
+export pod_crash
+{
+	options -scale 1 -sourcedir work/models/mapobjects/strogg/storage/animations -destdir models/mapobjects/strogg/storage/pod_crash
+
+	mesh pod_crash_BONE_CONSTRAINER_idle.ma			-dest pod_crash_2
+	anim pod_crash_BONE_CONSTRAINER_anim.ma			-dest pod_crash_2
+	anim pod_crash_BONE_CONSTRAINER_idle.ma			-dest idle_2
+}
+
+entityDef env_pod_crash
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for core"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_pod_crash"
+	"anim"						"idle"
+}
+model model_pod_crash
+{
+	mesh					models/mapobjects/strogg/storage/pod_crash/pod_crash_2.md5mesh
+	anim pod_crash			models/mapobjects/strogg/storage/pod_crash/pod_crash_2.md5anim
+	anim idle				models/mapobjects/strogg/storage/pod_crash/idle_2.md5anim
+}
+
+/*------------------------------------------------------------------------------------
+
+	Pod Crash for Storage1
+
+-------------------------------------------------------------------------------------*/
+model model_storage_drop_pod
+{
+	mesh							models\vehicles\marine_drop_pod\drop_pod.md5mesh
+	
+	channel torso	( *origin )
+	
+	anim idle						models\vehicles\marine_drop_pod\idle.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+
+	anim storage_crash				models\vehicles\marine_drop_pod\storage_crash.md5anim
+	{
+		rate	.5
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	12, 17, 56, 94					call			map_storage1::playTubeCrashSnd
+		frame	5						call			map_storage1::podGrunt
+		frame	30						call			map_storage1::playGib
+		
+		frame	56						call			map_storage1::shaftWallA
+		frame	85						call			map_storage1::shaftWallB
+		frame	90						call			map_storage1::shaftWallB_back
+		
+		frame	90						call			map_storage1::byeGrunt
+		frame	134						call			map_storage1::tubeHallA
+		frame	146						call			map_storage1::tubeHallB
+		
+		frame	153						call			map_storage1::lastWall
+
+		frame	56,87,92,136,148,156,174				call			map_storage1::playExplode
+
+	}
+
+	anim storage1_pod_skyfall		models\vehicles\marine_drop_pod\storage1_pod_skyfall.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}	
+	anim storage1_pod_skyfall_fast		models\vehicles\marine_drop_pod\storage1_pod_skyfall.md5anim
+	{
+		rate	1.5
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}	
+
+/*
+	anim doors_opening				models\vehicles\marine_drop_pod\doors_opening.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim doors_closing				models\vehicles\marine_drop_pod\doors_closing.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}	
+*/
+}
+
+entityDef storage_drop_pod
+{
+	"model"						"model_storage_drop_pod"
+	"editor_menu"					"level"
+
+	"spawnclass"					"idAnimated"
+	
+	"anim"							"idle"
+	
+	"mins"							"-92 -24 -32"
+	"maxs"							"92 24 10"
+	"size"							"24 24 24"
+	
+	"hidesurface1"					"models/characters/marine/body"
+
+	"editor_usage"					"Drop pod vehicle."
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-40 -8 0"
+	"editor_maxs"					"40 8 36"
+	"editor_rotatable"				"1"
+}
+
+
+//  Storage Rubble Over Creature  //
+export storage_rubble_on_creature
+{
+	options -prefix RUBBLE_ -scale 1 -sourcedir work/models/monsters/Grunt/animations -destdir models/mapobjects/strogg/storage/rubble
+	anim gnt_storage_rubble2.ma		-range 87 88 -dest rubble
+	anim gnt_storage_rubble2.ma		-range 87 88 -dest idle_rubble
+	anim gnt_storage_rubble2.ma			-range 88 128 -dest rubble_move
+}
+entityDef env_storage_rubble_on_creature
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for core"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_storage_rubble_on_creature"
+	"anim"						"idle"
+}
+model model_storage_rubble_on_creature
+{
+	mesh				models/mapobjects/strogg/storage/rubble/rubble.md5mesh
+	anim idle			models/mapobjects/strogg/storage/rubble/idle_rubble.md5anim
+	anim rubble			models/mapobjects/strogg/storage/rubble/rubble_move.md5anim
+	
+}
+
+/*
+===============================================================================
+
+	Marine (char_marine)
+
+===============================================================================
+*/
+model  storage_model_char_marine
+{
+	inherit								model_char_marine
+
+	anim 	idle_wrist_gui_start_fast				models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast					models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+	anim	ad_cpr_1   						models/characters/marine/ad_cpr_loop1.md5anim
+	{
+		ai_no_look
+	}
+	anim	ad_cpr_2   						models/characters/marine/ad_cpr_loop2.md5anim
+	{
+		ai_no_look
+		frame	1						event			disableClip
+		frame 	1						sound			snd_labored_breathing
+	}
+	
+	anim ad_wounded_on_knee				models/characters/marine/ad_wounded_on_knee.md5anim
+	anim ad_wounded_on_knee_dead					models/characters/marine/ad_wounded_on_knee_loop.md5anim
+	{
+		rate	.001
+	}
+	
+	anim		step_on_grunt_MARINE					models/characters/marine/storage_step_on_grunt.md5anim
+  	{
+		frame 33								fx	fx_base_flash		MG_muzzle_flash
+		frame 33									sound_weapon		snd_base_flash
+  	}
+  	
+  	anim aim_snappy_1					models/characters/marine/m_stand_aim_snappy_1.md5anim
+	anim aim_snappy_2					models/characters/marine/m_stand_aim_snappy_2.md5anim
+	
+	anim	player_gift_start					models/characters/marine/player_gift_start.md5anim					
+	anim	player_gift_loop					models/characters/marine/player_gift_loop.md5anim			
+	anim	player_gift_end						models/characters/marine/player_gift_end.md5anim	
+	
+	anim	player_gift2_start					models/characters/marine/player_gift2_start.md5anim					
+	anim	player_gift2_loop					models/characters/marine/player_gift2_loop.md5anim			
+	anim	player_gift2_end					models/characters/marine/player_gift2_end.md5anim	
+
+	anim	explosion_injured				models/characters/marine/explosion_injured.md5anim
+	{
+		ai_no_look
+	}
+	anim	explosion_injured_loop			models/characters/marine/explosion_injured_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	explosion_assist				models/characters/marine/explosion_assist.md5anim
+	{
+		ai_no_look
+	}
+	anim	explosion_assist_loop			models/characters/marine/explosion_assist_loop.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim	recomp_mod_hyper						models/characters/marine/recomp_mod_hyper.md5anim
+	
+	anim idle_scan_2					models/characters/marine/idle_scan_2.md5anim
+}
+
+entityDef storage_char_marine
+{
+	"inherit"									"char_marine"
+	"model"										"storage_model_char_marine"
+
+	"editor_menu"								"level"
+}
+
+entityDef storage_char_marine_ship
+{
+	"inherit"									"char_marine"
+	"model"										"storage_model_char_marine"
+
+	"editor_menu"								"level"
+	"def_head"								"char_marinehead_helmet"
+}
+
+// --------------------------------------------------------------------------------------
+// Specialty marine that walks up and pops a dying grunt in the head with a gunshot
+// --------------------------------------------------------------------------------------
+model model_storage_tech_marine
+{
+	inherit									storage_model_char_marine
+ 	
+  	mesh					models/characters/marine_tech/marine_tech.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	// Re-define Heal anims	-----------------------------------------------------------------------------------------		
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+entityDef storage_tech_marine
+{
+	"inherit"										"char_marine_tech_armed"
+	"editor_menu"										"level"
+
+	"model"											"model_storage_tech_marine"
+	
+	"sg_category"										"None"	
+	
+	// ------------------------------------------------------------------------------
+	// Just when I think the Strogg can't sink any lower, I see shit like this.
+	"lipsync_vo_3_1_2_100_1"								"vo_3_1_2_100_1"
+	
+	// Why? Why would Strogg do this?
+	"lipsync_vo_3_1_2_120_1"								"vo_3_1_2_120_1"
+	
+	// Whatever the hell it is, leave it alone.  It looks Dangerous
+	"lipsync_vo_3_1_2_160_1"								"vo_3_1_2_160_1"
+	
+	// Wish all our missions were this easy...hey, what's that?
+	"lipsync_vo_3_1_2_190_1"								"vo_3_1_2_190_1"
+
+	// I know a little about Strogg weaponry. Mind if I take a look at your rail gun?
+	"lipsync_vo_3_1_2_85_1"									"vo_3_1_2_85_1"
+
+	// I just upped the field output by 300%. Now that rail gun is gonna really rip the Strogg a new asshole.
+	"lipsync_vo_3_1_2_85_2"									"vo_3_1_2_85_2"
+}
+
+/*
+===============================================================================
+
+	Storage1 Second Rhodes	(char_marine)
+
+===============================================================================
+*/
+
+entityDef storage_rhodes_char_marine
+{
+	"inherit"									"char_marine_hyperblaster"
+	"model"										"storage_model_char_marine"
+
+	"editor_menu"									"level"
+
+	"def_persona"									"persona_rhino_rhodes_cpl_act2"
+
+	"lipsync_vo_3_1_3_170_1"							"vo_3_1_3_170_1"
+	"lipsync_vo_3_1_3_170_2"							"vo_3_1_3_170_2"
+	"lipsync_vo_3_1_3_170_3"							"vo_3_1_3_170_3"
+
+	"lipsync_vo_3_1_3_180_1"							"vo_3_1_3_180_1"
+	"lipsync_vo_3_1_3_180_3"							"vo_3_1_3_180_3"
+
+	"lipsync_vo_3_1_4_10_1"								"vo_3_1_4_10_1"
+	"lipsync_vo_3_1_4_10_2"								"vo_3_1_4_10_2"
+
+	"lipsync_vo_3_1_4_20_1"								"vo_3_1_4_20_1"
+	"lipsync_vo_3_1_4_20_2"								"vo_3_1_4_20_2"
+	"lipsync_vo_3_1_4_20_3"								"vo_3_1_4_20_3"	
+	
+	"lipsync_vo_3_1_4_30_1"								"vo_3_1_4_30_1"		
+	
+	"lipsync_vo_3_1_4_40_1"								"vo_3_1_4_40_1"		
+	"lipsync_vo_3_1_4_50_1"								"vo_3_1_4_50_1"		
+
+	"lipsync_vo_3_1_4_60_1"								"vo_3_1_4_60_1"		
+
+	"lipsync_vo_3_1_4_80_2"								"vo_3_1_4_80_2"		
+					    
+		
+}
+
+
+//-------------------------------------------------
+// Storage 2 - Mills - Marine #5
+//-------------------------------------------------
+entityDef char_marine_npc_mills_storage2
+{
+	"inherit"										"storage_char_marine"
+
+	"editor_menu"										"char_npc_storage2"
+
+	"followRange"										"90 150"
+	
+	"def_persona"										"persona_marine_act2_5_helmet"
+
+	// ------------------------------------------------------------------------------
+	// Is this what the Strogg have planned for all of us if they take over the Earth?
+	"lipsync_vo_3_1_2_110_1"								"vo_3_1_2_110_1"
+	
+	// This is like something out of a nightmare.
+	"lipsync_vo_3_1_2_140_1"								"vo_3_1_2_140_1"
+	
+	// Something about that gives me the creeps.  Don't touch it.
+	"lipsync_vo_3_1_2_160_2"								"vo_3_1_2_160_2"
+	
+	// This wasn't such a tough mission.  Hmm, what's that doing?
+	"lipsync_vo_3_1_2_190_2"								"vo_3_1_2_190_2"
+}
+
+
+//-------------------------------------------------
+// Storage 2 - Rutger - Marine #8
+//-------------------------------------------------
+entityDef char_marine_npc_rutger_storage2
+{
+//	"inherit"										"char_marine"
+	"inherit"										"storage_tech_marine"
+	
+	"editor_menu"										"char_npc_storage2"
+
+	"followRange"										"120 150"
+	
+
+	"def_persona"									"persona_marine_act2_8_helmet"
+	
+	// ------------------------------------------------------------------------------
+	// Just when I think the Strogg can't sink any lower, I see shit like this.
+	"lipsync_vo_3_1_2_100_1"								"vo_3_1_2_100_1"
+	
+	// Why? Why would Strogg do this?
+	"lipsync_vo_3_1_2_120_1"								"vo_3_1_2_120_1"
+	
+	// Whatever the hell it is, leave it alone.  It looks Dangerous
+	"lipsync_vo_3_1_2_160_1"								"vo_3_1_2_160_1"
+	
+	// Wish all our missions were this easy...hey, what's that?
+	"lipsync_vo_3_1_2_190_1"								"vo_3_1_2_190_1"
+
+	// I know a little about Strogg weaponry. Mind if I take a look at your rail gun?
+	"lipsync_vo_3_1_2_85_1"									"vo_3_1_2_85_1"
+
+	// I just upped the field output by 300%. Now that rail gun is gonna really rip the Strogg a new asshole.
+	"lipsync_vo_3_1_2_85_2"									"vo_3_1_2_85_2"
+}
+
+
+//  Storage Floor for Guardian sequence 
+//-------------------------------------------------
+export storage_floor
+{
+	options -prefix SF_ -scale .3937 -sourcedir work\models\mapobjects\strogg\storage\animations\floor -destdir models/mapobjects/strogg/storage
+	mesh idle.ma		-dest floor_mesh
+	anim idle.ma		-dest floor_idle
+	anim busted.ma		-dest busted
+}
+entityDef env_storage_floor
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted storage floor busted"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_storage_floor"
+	"anim"						"idle"
+}
+model model_storage_floor
+{
+	mesh				models/mapobjects/strogg/storage/floor_mesh.md5mesh
+	anim idle			models/mapobjects/strogg/storage/floor_idle.md5anim
+	anim busted			models/mapobjects/strogg/storage/busted.md5anim
+}
+
+//  IRON_MAIDEN_CINEMATIC_CASKET
+//-------------------------------------------------
+export storage_casket_cin
+{
+	options -prefix CASKET_ -align ALL -keep fx1 fx2 fx3 fx4 fx5 fx6 fx7 fx8 fx9 -scale .3937 -sourcedir work\models\cinematics\iron_maiden_intro -destdir models/mapobjects/strogg/storage/casket_cin
+	mesh casket_idle.ma				-dest casket_mesh
+	anim casket_idle.ma				-dest casket_idle
+	anim casket_open.ma				-dest casket_open
+	
+}
+entityDef env_storage_casket_cin
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"storage iron maiden cinematic casket"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"model_storage_casket_cin"
+	"anim"							"idle"
+	
+	"fx_steam"						"effects/steam/puff.fx"
+	"fx_doors1"						"effects/mapobjects/casket_doorsteam.fx"
+	"fx_doors1_inv"					"effects/mapobjects/casket_doorsteam_inv.fx"
+	"fx_casket_main"				"effects/mapobjects/casket_mainsteam.fx"
+	"fx_casket_main_inv"			"effects/mapobjects/casket_mainsteam_inv.fx"
+	"fx_doors2"						"effects/mapobjects/casket_door2.fx"
+	"fx_doors2_inv"					"effects/mapobjects/casket_door2_inv.fx"
+	"fx_casket_break"				"effects/monsters/iron_maiden/casket_break.fx"
+	"fx_casket_puff"				"effects/mapobjects/casket_puff.fx"
+	
+}
+model model_storage_casket_cin
+{
+	mesh						models/mapobjects/strogg/storage/casket_cin/casket_mesh.md5mesh
+	anim idle					models/mapobjects/strogg/storage/casket_cin/casket_idle.md5anim
+//	anim casket_bone			models/mapobjects/strogg/storage/casket_cin/casket_bone.md5anim
+	anim casket_open			models/mapobjects/strogg/storage/casket_cin/casket_open.md5anim
+	{
+		frame 	23			fx		fx_steam				fx9 
+		frame 	29			fx		fx_steam				fx8
+		frame 	27			fx		fx_steam				fx6
+		frame 	33			fx		fx_steam				fx7
+		frame 	136			fx		fx_casket_puff			fx3
+		
+		frame 	486			fx		fx_doors1				fx2 
+		frame 	489			fx		fx_doors1_inv			fx1
+		frame 	486			fx		fx_doors2				fx2 
+		frame 	486			fx		fx_doors2_inv			fx1 	
+		frame 	486			fx		fx_casket_main			fx5 
+		frame 	486			fx		fx_casket_main_inv		fx4 	
+//sparks
+		frame 	486			fx		fx_casket_break			fx2 
+		frame 	489			fx		fx_casket_break			fx1
+		frame 	486			fx		fx_casket_break			fx2 
+		frame 	486			fx		fx_casket_break			fx1 	
+		frame 	486			fx		fx_casket_break			fx5 
+		frame 	486			fx		fx_casket_break			fx4 	
+	}
+	
+}
+
+/*************************************************************************
+ 		KANE_IRON_MAIDEN_INTRO
+*************************************************************************/
+
+model model_storage_stroggified_kane
+{
+	"inherit"						"model_char_kane_strogg"
+
+	anim	storage_iron_intro1		models/characters/marine/storage_iron_intro1.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		
+	}
+	anim	storage_iron_intro2		models/characters/marine/storage_iron_intro2.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		
+	}
+	anim	storage_iron_intro3		models/characters/marine/storage_iron_intro3.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		
+	}
+}
+
+entityDef storage_stroggified_kane
+{
+	"inherit"									"char_kane_strogg"
+
+	"model"										"model_storage_stroggified_kane"
+	"editor_menu"								"level"
+}
+
+
+/*************************************************************************
+ 		Storage Guardian
+*************************************************************************/
+
+model model_storage_guardian
+{
+//	"inherit"						"model_monster_network_guardian"
+
+	mesh								models/monsters/network_guardian/mesh.md5mesh
+	
+	channel	torso										( *waist )
+	channel	legs										( *hip body origin)
+
+	anim af_pose						models/monsters/network_guardian/af_pose.md5anim
+
+	anim melee_attack1					models/monsters/network_guardian/melee01.md5anim
+
+	anim	break_floor					models/monsters/network_guardian/break_floor.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 72,94										footstep
+		//frame 25,45,150					sound			snd_growl
+		frame 45,150					sound			snd_growl
+		frame 45,150					sound			snd_voice_stereo
+		frame 45						fx			fx_camshake
+		frame 25,45						sound			snd_impact
+		frame 63,73						sound			snd_wing_unfold
+		frame 77,180						sound			snd_engine_blast
+		frame 90						ai_attack		rocket			r_muzzle_flash
+		frame 90						fx			fx_rocket_flash		r_muzzle_flash		
+		frame 92						call			map_storage1::tossMarines
+		frame 104						fx			fx_rocket_flash		r_muzzle_flash
+		frame 104						ai_attack		rocket			r_muzzle_flash
+		frame 118						fx			fx_rocket_flash		r_muzzle_flash
+		frame 118						ai_attack		rocket			r_muzzle_flash
+		frame 120						call			map_storage1::tossMarines2
+		frame 158						call			map_storage1::swapCatwalk
+		frame 159						fx			fx_camshake
+		frame 159						sound			snd_impact
+		frame 45						call			map_storage1::guardianJetsOn
+		frame 259						call			map_storage1::guardianJetsOff
+	}
+}
+
+entityDef storage_guardian
+{
+	"inherit"									"monster_network_guardian"
+
+	"model"										"model_storage_guardian"
+	"editor_menu"								"level"
+}
+
+entityDef storage_dropship
+{
+	"inherit"									"env_dropship"
+
+	"model"										"model_storage_dropship"
+	"editor_menu"								"level"		
+}
+
+model model_storage_dropship
+{
+	mesh								models\vehicles\dropship_exterior\dropship.md5mesh
+		
+	anim hangar_land					models\vehicles\dropship_exterior\hangar_land.md5anim
+	anim hangar_idle					models\vehicles\dropship_exterior\hangar_idle.md5anim	
+
+}

@@ -1,0 +1,3384 @@
+//---------------------------------------------------------------------------------------
+// Convoy1.script
+//
+// (c) Raven Software 2005
+//---------------------------------------------------------------------------------------
+namespace map_convoy1
+{
+float	numTurrets		= 0;
+float	numDropTurrets	= 0;
+float	allowOccupance	= 0;
+float	allowChatter	= 0;
+float	inRange			= 1;
+
+void madisonBeam(entity target);
+
+//--------------------------------------------------------------------------
+// void manageConvoyHealth()
+//
+// Makes the tram regenerate as if it had a shield
+//
+// Apr 2005 | gc & twhitaker
+//--------------------------------------------------------------------------
+void manageConvoyHealth( entity convoy )
+{
+	float maxHealth = convoy.getHealth();
+	float currentHealth = convoy.getHealth();
+	float regenRate = 50; // how many health units are recovered per second
+	float waitTime = 5; // how many seconds the tram must go without being damaged before it can regenerate
+	float timeWaited = 0; // how many seconds it has been since the tram last took damage
+	float timeStep = 0.1; // the number of seconds per loop--decrease this number for accuracy, increase for speed
+
+	while (1)
+	{
+		sys.wait(timeStep);
+		
+		if (convoy.getHealth() < maxHealth) // do nothing if the tram is at full hit points
+		{
+			if (convoy.getHealth() < currentHealth)
+			{
+				// the tram has taken damage, so reset the time counter
+				currentHealth = convoy.getHealth(); 
+				timeWaited = 0; // reset the counter
+			}
+			else if (convoy.getHealth() > currentHealth)
+			{
+				// the tram is in the process of healing, so continue the healing
+				currentHealth = convoy.getHealth();
+				currentHealth += regenRate * timeStep; // units/second * seconds = units to heal
+                convoy.setHealth(currentHealth);
+			}
+			else 
+			{
+				// the tram is damaged and waiting to regenerate
+				if (timeWaited < waitTime)
+				{
+					// keep track of the time that has passed without taking damage
+					timeWaited += timeStep;
+				}
+				else
+				{
+					// done waiting!
+					currentHealth = convoy.getHealth();
+					currentHealth += regenRate * timeStep; // units per second * seconds = units to heal
+					convoy.setHealth(currentHealth);
+				}
+			}
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------
+// void startTracerFire()
+//
+// Starts tracer fire.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void startTracerFire(entity tracerFX, float delay, float deltaDelay)
+{
+	//sys.println("void startTracerFire::begin");
+
+	// Name the thread.
+	sys.threadname("thread_STF_" + tracerFX.getName());
+
+	// Setup initial entities.
+	entity tracerTarget		= tracerFX.randomTarget("");
+	entity tracerMover		= tracerTarget.randomTarget("");
+	entity tracerPosOld		= tracerMover.randomTarget("");
+	entity tracerPos		= tracerPosOld;
+	
+	tracerMover.setWorldOrigin(tracerPosOld.getWorldOrigin());
+	tracerTarget.setWorldOrigin(tracerMover.getWorldOrigin());
+
+	// Remove the target we are currently at and setup movement.
+	tracerMover.removeTarget(tracerPosOld);
+	tracerTarget.bind(tracerMover);
+	tracerMover.time(delay);
+
+	while(1)
+	{
+		// Get a new location.
+		tracerPos = tracerMover.randomTarget("");		
+		tracerMover.moveTo(tracerPos);		
+		tracerFX.start();
+		sys.wait(delay);
+		tracerFX.stop();
+		tracerMover.removeTarget(tracerPos);
+		tracerMover.appendTarget(tracerPosOld);
+		tracerPosOld = tracerPos;
+		sys.wait(sys.random(deltaDelay));
+	}
+
+	//sys.println("void startTracerFire::end");
+
+} //-------------- End void startTracerFire ---------------
+
+void HaltTracerFire(entity ent)
+{
+	//sys.println("Halting tracer fire on " + ent.getName());
+	sys.killthread("thread_STF_" + ent.getName());
+}
+
+
+//-------------------------------------------------------------------------------
+// void addTurretNum()
+//
+// Adds a turret count. Easier than hard coding the number of turrets. 
+// This way I can copy paste the turrets with no  additional setup.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void addTurretNum()
+{
+	//sys.println("void addTurretNum::begin");
+	
+	numTurrets++;
+
+	//sys.println("void addTurretNum::end");
+
+} //-------------- End void addTurretNum ---------------
+
+
+//-------------------------------------------------------------------------------
+// void addTurretKill()
+//
+// Subtracts a turret count.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void addTurretKill()
+{
+	//sys.println("void addTurretKill::begin");
+	
+	if(numTurrets)
+		numTurrets--;
+
+	if(!numTurrets)
+	{
+		sys.trigger($func_remove_dropturrets);
+		sys.trigger($item_objectivecomplete_3);
+
+		entity ent;
+		while(qListCount($active_list))
+		{
+			ent = qListRandom($active_list);
+			madisonBeam(ent);
+			sys.wait(1);
+		}
+	}
+
+	//sys.println("void addTurretKill::end");
+
+} //-------------- End void addTurretKill ---------------
+
+void addKillCount()
+{
+	// because I'm dumb and can't figure out the functions above.  Plus there is a trigger_counter that works well.
+
+	//sys.println("turret counter");
+
+	sys.waitFrame();
+	sys.trigger($turretCounter);
+}
+
+//-------------------------------------------------------------------------------
+// void madisonBeam()
+//
+// Madison kills a target.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void madisonBeam(entity target)
+{
+	//sys.println("void madisonBeam::begin");
+
+	entity beamEffect;
+	entity beamLocation;
+
+	// Find a valid effect and effect spawn point that are not in use.
+	beamEffect = qListRandom($madison_beams);
+	beamLocation = qListRandom($madison_nulls);
+
+	// Remove them from consideration.
+	qListRemove($madison_beams, beamEffect);
+	qListRemove($madison_nulls, beamLocation);
+
+	// Move the effect into position.
+	beamEffect.setWorldOrigin(target.getWorldOrigin());
+	beamEffect.getTarget(0).setWorldOrigin(beamLocation.getWorldOrigin());
+	sys.waitFrame();
+	beamEffect.lookAtTarget();
+	sys.waitFrame();
+	beamEffect.start();
+	sys.wait(1);
+	sys.trigger($shakeFx);
+
+	// If we are trying to blow up an actual turret.
+	if(target.isA("monster_turret_flying"))
+	{
+		target.directDamage(target, "damage_triggerhurt_1000");
+	}
+
+	else if(target.isA("func_fx"))
+	{
+		//sys.println("Halting tracer fire on " + target.getName());
+		HaltTracerFire(target);
+	}
+
+	// While the effect and location are in use, wait.
+	while(beamEffect.isActive())
+	{
+		sys.waitFrame();
+	}
+
+	// Insert back into the consideration list.
+	qListInsert($madison_beams, beamEffect);
+	qListInsert($madison_nulls, beamLocation);
+
+	//sys.println("void madisonBeam::end");
+
+} //-------------- End void madisonBeam ---------------
+
+
+//-------------------------------------------------------------------------------
+// void randomDropturretKill()
+//
+// This randomly kills a drop turret in the active list.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void randomDropturretKill()
+{
+	//sys.println("void randomDropturretKill::begin");
+
+	entity turret;
+
+	while(1)
+	{
+		// Wait 10-15 seconds.
+		sys.wait(sys.random(5) + 10);
+
+		if(!qListCount($active_list))
+			continue;
+
+		// Pick a random turret and destroy it.
+		turret = qListRandom($active_list);
+		madisonBeam(turret);
+	}
+
+	//sys.println("void randomDropturretKill::end");
+
+} //-------------- End void randomDropturretKill ---------------
+
+
+//-------------------------------------------------------------------------------
+// void randomStaticBeam()
+//
+// This makes the USS Madison shoot in random locations around the building b arena.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void randomStaticBeam()
+{
+	//sys.println("void randomStaticBeam::begin");
+
+	entity target;
+
+	while(1)
+	{
+		sys.wait(5);
+
+		if(!qListCount($madison_targets))
+			continue;
+
+		// Pick a random location and shoot it.
+		target = qListRandom($madison_targets);
+		madisonBeam(target);
+	}
+
+	//sys.println("void randomStaticBeam::end");
+
+} //-------------- End void randomStaticBeam ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spawnTurret()
+//
+// Spawns a random amount of turrets.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void spawnTurret(entity trig)
+{
+	if(numDropTurrets  == 4 || !numTurrets)
+		return;
+
+	numDropTurrets++;
+
+	//sys.println("void spawnTurret::begin");
+
+	// Temp variables.
+	entity	spawnGroup = sys.getEntity("turret_group_" + trig.getIntKey("group"));
+	entity	spawnTarget;
+	entity	turret;
+
+	// Find a spawn target and remove it from consideration.
+	spawnTarget = qListRandom(spawnGroup);
+	qListRemove(spawnGroup, spawnTarget);
+
+	// Set up turret spawn args.
+	sys.setSpawnArg("origin", spawnTarget.getWorldOrigin());
+	sys.setSpawnArg("script_death", "dropTurretKill");
+
+	// Spawn the turret and tell it who spawned him and what group he came from.
+	turret = sys.spawn("monster_turret_flying");
+	turret.setKey("spawnTarget", spawnTarget.getName());
+	turret.setKey("spawnGroup", spawnGroup.getName());
+
+	//sys.println(turret.getName() + " : " + spawnTarget.getName() + " : " + spawnGroup.getName());
+
+	sys.wait(1);
+
+	while(sys.vecLength(turret.getLinearVelocity()) > 1)
+	{
+		sys.waitFrame();
+	}	
+
+	// Append to active list.
+	qListInsert($active_list, turret);
+
+	// 30% chance to get sploded by USS Madison
+	if(randomRoundFloat(1, 10) < 4)
+	{
+		//sys.println("Trying to destroy turret");
+		sys.wait(1);	
+		madisonBeam(turret);
+	}
+
+	//sys.println("void spawnTurret::end");
+
+} //-------------- End void spawnTurret ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropTurret()
+//
+// Drops a turret.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void dropTurret(entity trig)
+{
+	//sys.println("void dropTurret::begin");
+
+	float randomVal = randomRoundFloat(1, 3);
+
+	//sys.println("Trying to spawn " + randomVal + " turrets");
+	float i = 0;
+
+	for(i; i < randomVal; i++)
+	{
+		thread spawnTurret(trig);
+		sys.wait(sys.random(3) + 1);
+	}
+
+	//sys.println("void dropTurret::end");
+
+} //-------------- End void dropTurret ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropTurretKill()
+//
+// Kills a drop turret.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void dropTurretKill(entity turret)
+{
+	//sys.println("void dropTurretKill::begin");
+
+	// Get the group number off the turret and who spawned him so we can add back to the consideration list.
+	qListInsert(sys.getEntity(turret.getKey("spawnGroup")), sys.getEntity(turret.getKey("spawnTarget")));
+
+	//sys.println(turret.getName() + " : " + turret.getKey("spawnTarget") + " : " + turret.getKey("spawnGroup"));
+
+	// Dead so remove from active list.
+	qListRemove($active_list, turret);
+
+	numDropTurrets--;
+
+	//sys.println("void dropTurretKill::end");
+
+} //-------------- End void dropTurretKill ---------------
+
+//-------------------------------------------------------------------------------
+// void followTruck1Spline()
+//
+// Starts the following trucks to move on their splines
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void followTruck1Spline()
+{
+	//sys.println("void followTruck1Spline::begin");
+
+	$vehicle_flatbed_2.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck1b , 5 , 3 , 0 );
+	$mvr_truck1b.startSpline( $spline_truck1b_lz_forward );
+	sys.waitFor($mvr_truck1b);
+
+	setNewTimes( $mvr_truck1b , 24 , 0 , 0 );
+	$mvr_truck1b.startSpline( $spline_truck1a_lz );
+	sys.waitFor($mvr_truck1b);
+
+	setNewTimes( $mvr_truck1b , 23 , 0 , 0 );
+	$mvr_truck1b.startSpline( $spline_truck1a_tunnel1 );
+	sys.waitFor($mvr_truck1b);
+
+	setNewTimes( $mvr_truck1b , 19 , 0 , 1.5 );
+	$mvr_truck1b.startSpline( $spline_truck1b_runAway );
+	sys.waitFor($mvr_truck1b);
+
+	//sys.println("void followTruck1Spline::end");
+
+} //-------------- End void followTruck1Spline ---------------
+
+//-------------------------------------------------------------------------------
+// void followTruck2Spline()
+//
+// Starts the following trucks to move on their splines
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void followTruck2Spline()
+{
+	//sys.println("void followTruck2Spline::begin");
+
+	$vehicle_flatbed_3.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck1c , 8 , 3 , 0 );
+	$mvr_truck1c.startSpline( $spline_truck1c_lz_forward );
+	sys.waitFor($mvr_truck1c);
+
+	sys.trigger($light_9270);
+
+	setNewTimes( $mvr_truck1c , 24 , 0 , 0 );
+	$mvr_truck1c.startSpline( $spline_truck1a_lz );
+	sys.waitFor($mvr_truck1c);
+
+	setNewTimes( $mvr_truck1c , 23, 0 , 0 );
+	$mvr_truck1c.startSpline( $spline_truck1a_tunnel1 );
+	sys.waitFor($mvr_truck1c);
+
+	setNewTimes( $mvr_truck1c , 15 , 0 , 1.5 );
+	$mvr_truck1c.startSpline( $spline_truck1c_runAway );
+	sys.waitFor($mvr_truck1c);
+	
+	$vehicle_flatbed_3.hide();
+
+	//sys.println("void followTruck2Spline::end");
+
+} //-------------- End void followTruck2Spline ---------------
+
+
+//-------------------------------------------------------------------------------
+// void gotMarinesSpline()
+//
+// Hawkins looks around
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void hawkinsAlive()
+{
+	//sys.println("void hawkinsAlive::begin");
+
+	sys.wait(10);
+	aiScriptedAnimWait($Hawkins, "aim_snappy_2", 16, 1);
+	
+	//sys.println("void hawkinsAlive::end");
+
+} //-------------- End void gotMarinesSpline ---------------
+
+
+//-------------------------------------------------------------------------------
+// void firstTruckSpline()
+//
+// Starts the trucks to move on their first spline
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void firstTruckSpline()
+{
+	//sys.println("void firstTruckSpline::begin");
+
+	thread followTruck1Spline();
+	thread followTruck2Spline();
+
+	$vehicle_flatbed_1.setAngles ('0 0 0');
+
+	setNewTimes( $mvr_truck1a , 25 , 5 , 0 );
+	$mvr_truck1a.startSpline( $spline_truck1a_lz );
+	sys.waitFor($mvr_truck1a);
+
+	thread hawkinsAlive();
+
+	setNewTimes( $mvr_truck1a , 25 , 0 , 0 );
+	$mvr_truck1a.startSpline( $spline_truck1a_tunnel1 );
+	sys.waitFor($mvr_truck1a);
+
+	sys.trigger($runAwayMusic);
+
+	setNewTimes( $mvr_truck1a , 20 , 0 , 1.5 );
+	$mvr_truck1a.startSpline( $spline_truck1a_runAway );
+	sys.waitFor($mvr_truck1a);
+
+	//sys.println("Wait for Marines to get onto trucks");
+
+	//sys.println("void firstTruckSpline::end");
+
+} //-------------- End void firstTruckSpline ---------------
+
+//-------------------------------------------------------------------------------
+// void safeMarinesSpline1b()
+//
+// Triggered after the marines get onto the rear truck.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void safeMarinesSpline1b()
+{
+	//sys.println("void safeMarinesSpline1b::begin");
+	
+	setNewTimes( $mvr_truck1b , 3 , 2.5 , 0 );
+	$mvr_truck1b.startSpline( $spline_truck1b_safeMarines );
+	sys.waitFor($mvr_truck1b);
+
+	setNewTimes( $mvr_truck1b , 30 , 0 , 0 );
+	$mvr_truck1b.startSpline( $spline_truck1a_gotMarines );
+	sys.waitFor($mvr_truck1b);
+	
+	setNewTimes( $mvr_truck1b , 15 , 0 , 8 );
+	$mvr_truck1b.startSpline( $spline_truck1b_safeZone );
+	sys.waitFor($mvr_truck1b);
+	
+	//sys.println("void safeMarinesSpline1b::end");
+
+} //-------------- End void safeMarinesSpline1b ---------------
+
+//-------------------------------------------------------------------------------
+// void safeMarinesSpline1c()
+//
+// Triggered after the marines get onto the rear truck.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void safeMarinesSpline1c()
+{
+	//sys.println("void safeMarinesSpline1c::begin");
+	
+	$vehicle_flatbed_3.show();
+	
+	setNewTimes( $mvr_truck1c , 5 , 2.5 , 0 );
+	$mvr_truck1c.startSpline( $spline_truck1c_safeMarines );
+	sys.waitFor($mvr_truck1c);
+
+	setNewTimes( $mvr_truck1c , 30 , 0 , 0 );
+	$mvr_truck1c.startSpline( $spline_truck1a_gotMarines );
+	sys.waitFor($mvr_truck1c);
+
+	//sys.println("void safeMarinesSpline1c::end");
+
+} //-------------- End void safeMarinesSpline1c ---------------
+
+//-------------------------------------------------------------------------------
+// void gotMarinesSpline()
+//
+// Triggered after the marines get onto the rear truck.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void gotMarinesSpline()
+{
+	//sys.println("void gotMarinesSpline::begin");
+	
+	$tun_marine_1.hide();
+	$tun_marine_2.hide();
+	$tun_marine_3.hide();
+
+	thread safeMarinesSpline1b();
+	thread safeMarinesSpline1c();
+
+	setNewTimes( $mvr_truck1a , 30 , 2.5 , 0 );
+	$mvr_truck1a.startSpline( $spline_truck1a_gotMarines );
+	sys.waitFor($mvr_truck1a);
+	
+	setNewTimes( $mvr_truck1a , 15 , 0 , 10 );
+	$mvr_truck1a.startSpline( $spline_truck1a_safeZone );
+	sys.waitFor($mvr_truck1a);
+	
+	// turn on the hover light.
+	sys.trigger($light_9272);
+	
+	sys.trigger($func_remove_wraparound);
+
+	$func_door_280.lock(1);
+	$func_door_281.lock(1);
+
+	$Spencer.forcePosture(AIPOSTURE_RELAXED);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_70_10");
+
+	$Spencer.setTalkState(TALK_OK);
+	$Hawkins.setTalkState(TALK_OK);
+
+	$Hawkins.forcePosture(AIPOSTURE_RELAXED);
+	
+	sys.trigger($firstTruckGuysPassive);
+
+	// Locate Bidwell
+	sys.trigger($item_objective_5);
+	
+	// Quick Save
+	sys.trigger($func_savegame_1);
+
+	$player1.unbind();
+	sys.waitFrame();
+	$vehicle_flatbed_1.lock(1);
+	
+	sys.wait(.5);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_80_10");
+
+	//sys.println("void gotMarinesSpline::end");
+
+} //-------------- End void gotMarinesSpline ---------------
+
+
+//-------------------------------------------------------------------------------
+// void startArena()
+//
+// Turns on tracer fires and starts the drop turret killing.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void startArena()
+{
+	//sys.println("void startArena::begin");
+
+	entity ent;
+	entity tracers = $arena_tracers;
+	qListForEach(tracers, ent)
+	{
+		thread startTracerFire(ent, 6, 3);
+	}
+
+	thread randomDropturretKill();
+	thread randomStaticBeam();
+
+	float t;
+	for (t = 1; t <= 2; t++)	
+	{
+		thread map_airdefense1::maintainStroggFlyerSprite( sys.getEntity("mvr_fx_strogg_flyer_" + t), sys.getEntity("fx_air_strogg_fighter_" + t), sys.getEntity("fx_air_strogg_fighter_" + (t + 6) ), $tgt_strogg_flyer_hangar, $tgr_strogg_flyer_end, '-1 0 .1' );
+		thread map_airdefense1::maintainStroggFlyerSprite( sys.getEntity("mvr_fx_marine_flyer_" + t), sys.getEntity("fx_air_marine_fighter_" + t), sys.getEntity("fx_air_marine_fighter_" + (t + 6) ), $tgt_marine_flyer_hangar, $tgr_marine_flyer_end, '1 0 .1' );
+	}
+
+	float temp;
+	while(1)
+	{
+		temp = randomRoundFloat(1, 3);
+		sys.trigger(sys.getEntity("func_fx_canyon_1_flyers_" + temp));
+		sys.wait(sys.random(5) + 5);
+	}
+
+	//sys.println("void startArena::end");
+
+} //-------------- End void startArena ---------------
+
+
+//-------------------------------------------------------------------------------
+// void stroggFighterBanking()
+//
+// This controls the banking for the strogg fighter, who is dodging bullets.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void stroggFighterBanking()
+{
+	//sys.println("void stroggFighterBanking::begin");
+
+	sys.wait(.1);
+	setNewTimes($strogg_fighter_1, 1, .2, .2);
+	$strogg_fighter_1.rotateOnce('90 0 0');
+	sys.waitFor($strogg_fighter_1);
+	setNewTimes($strogg_fighter_1, 1, .2, .2);
+	$strogg_fighter_1.rotateOnce('-270 0 0');
+
+	//sys.println("void stroggFighterBanking::end");
+
+} //-------------- End void stroggFighterBanking ---------------
+
+
+//-------------------------------------------------------------------------------
+// void marineFighterBanking()
+//
+// This controls the banking for the marine fighter, who is shooting.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void marineFighterBanking()
+{
+	//sys.println("void marineFighterBanking::begin");
+
+	sys.wait(.5);
+
+	setNewTimes($marine_fighter_pitch, 1, .5, .5);
+	$marine_fighter_pitch.rotateOnce('0 0 -45');
+	sys.waitFor($marine_fighter_pitch);
+
+	setNewTimes($marine_fighter_pitch, 1, .5, .5);
+	$marine_fighter_pitch.rotateOnce('0 0 90');
+
+	//sys.println("void marineFighterBanking::end");
+
+} //-------------- End void marineFighterBanking ---------------
+
+
+//-------------------------------------------------------------------------------
+// void fighterCombat()
+//
+// Combat between the fighters over the trenches.
+//
+// mekberg | mrenner | May 2005
+//-------------------------------------------------------------------------------
+void fighterCombat()
+{
+	//sys.println("void fighterCombat::begin");
+	//sys.println("void randomWalkerAttack::begin");
+
+	thread stroggFighterBanking();
+	thread marineFighterBanking();
+
+	$strogg_fighter_base_1.speed(2000);
+	$strogg_fighter_base_1.startSpline($strogg_fighter_spline);
+	sys.trigger($strogg_fighter_setup_1);
+	sys.trigger($strogg_fighter_speaker_1);
+
+	sys.wait(.5);
+	
+	sys.trigger($marine_fighter_gun);
+	sys.wait(.1);
+	$strogg_fighter_thrusters_1.remove();
+	sys.wait(.5);
+	$strogg_fighter_explosion_1.unbind();
+	$strogg_fighter_explosion_1.start();
+	$strogg_fighter_1.remove();
+	$strogg_fighter_airburst_1.unbind();
+	$strogg_fighter_airburst_1.start();
+	$marine_fighter_gun.remove();
+
+	sys.wait(.25);
+	$marine_fighter_base.speed(2000);
+	$marine_fighter_base.startSpline($marine_fighter_spline);
+	sys.trigger($marine_fighter_setup);
+	sys.trigger($marine_fighter_speaker);
+
+	sys.wait(.5);
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_49_1");
+
+	sys.waitFor($marine_fighter_base);
+
+	$marine_fighter_base.remove();
+	$strogg_fighter_base_1.remove();
+
+	radioChatterPlay($chatter, "vo_1_2_0_45_1");
+
+	//sys.println("void fighterCombat::end");
+
+} //-------------- End void fighterCombat ---------------
+
+
+//-------------------------------------------------------------------------------
+// void fighter1Shooting()
+//
+// Timing for the first fighter's shooting.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void fighter1Shooting()
+{
+	//sys.println("void fighter1Shooting::begin");
+
+	sys.wait(1.2);
+	sys.trigger($strogg_fighter_2_gun_1);
+	sys.trigger($strogg_fighter_2_gun_2);
+	sys.wait(1.4);
+	$strogg_fighter_2_gun_1.remove();
+	$strogg_fighter_2_gun_2.remove();
+	sys.trigger($strogg_fighter_speaker_2);
+
+	//sys.println("void fighter1Shooting::end");
+
+} //-------------- End void fighter1Shooting ---------------
+
+//-------------------------------------------------------------------------------
+// void fighter2Shooting()
+//
+// Timing for the second fighter's shooting.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void fighter2Shooting()
+{
+	//sys.println("void fighter2Shooting::begin");
+
+	sys.wait(1.2);
+	sys.trigger($strogg_fighter_3_gun_1);
+	sys.trigger($strogg_fighter_3_gun_2);
+	sys.wait(.8);
+	$strogg_fighter_3_gun_1.remove();
+	$strogg_fighter_3_gun_2.remove();
+	sys.trigger($strogg_fighter_speaker_3);
+	setNewTimes($strogg_fighter_3, 1, .25, .25);
+	$strogg_fighter_3.rotateOnce('-75 0 0');
+
+	//sys.println("void fighter2Shooting::end");
+
+} //-------------- End void fighter2Shooting ---------------
+
+
+//-------------------------------------------------------------------------------
+// void flybyFighters()
+//
+// Strogg fighters buz the player.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void flybyFighters()
+{
+	//sys.println("void flybyFighters::begin");
+
+	$strogg_fighter_base_2.speed(2000);
+	$strogg_fighter_base_2.startSpline($strogg_flyby_1);
+	sys.trigger($strogg_fighter_setup_2);
+
+	$strogg_fighter_base_3.speed(2000);
+	$strogg_fighter_base_3.startSpline($strogg_flyby_2);
+	sys.trigger($strogg_fighter_setup_3);
+
+	thread fighter1Shooting();
+	thread fighter2Shooting();
+	
+	sys.waitFor($strogg_fighter_base_2);
+	$strogg_fighter_base_2.remove();
+
+	sys.waitFor($strogg_fighter_base_3);
+	$strogg_fighter_base_3.remove();
+
+	//sys.println("void flybyFighters::end");
+
+} //-------------- End void flybyFighters ---------------
+
+
+//-------------------------------------------------------------------------------
+// void flybyTanksVO()
+//
+// VO for the tanks and flyer.
+//
+// mekberg | mrenner | Jun 2005
+//-------------------------------------------------------------------------------
+void flybyTanksVO()
+{
+	//sys.println("void flybyTanksVO::begin");
+
+//	sys.wait(4);
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_56_2");
+	radioChatterPlayWait($chatter, "vo_1_2_0_56_3");
+
+	//sys.println("void flybyTanksVO::end");
+
+} //-------------- End void flybyTanksVO ---------------
+
+void deadFlyer()
+{
+	$shotFlyer.show();
+	playAnimWait($shotFlyer, ANIMCHANNEL_ALL, "convoy1_crash");
+	sys.trigger($flyer_explosion_1);
+	sys.trigger($func_fx_wall_crash_explosion_2);
+//	$shotFlyer.hide();
+
+	$tankCrashFlybySnd.remove();
+}
+
+//-------------------------------------------------------------------------------
+// void flybyTanks()
+//
+// This makes the flyer strafe the tanks and then crash into one of them.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void flybyTanks()
+{
+	//sys.println("void flybyTanks::begin");
+
+	$func_vehicle_driver_tank_1.enterVehicle($tank_1);
+	$func_vehicle_driver_tank_2.enterVehicle($tank_2);
+
+//	thread flybyTanksVO();
+
+	aiScriptedMove($func_vehicle_driver_tank_2, $target_vehicle_path_tank_2, 0, 0);
+	aiScriptedMove($func_vehicle_driver_tank_1, $target_vehicle_path_tank_1, 0, 0);
+
+	sys.wait(4.5);
+
+	$Spencer.lookAt($flyerTarget);
+
+	thread deadFlyer();
+
+	$func_vehicle_driver_tank_1.lookAt($flyerTarget);
+	$func_vehicle_driver_tank_2.lookAt($flyerTarget);
+
+	$func_vehicle_driver_tank_1.fireWeapon(1, 4);
+	sys.wait(.25);
+	$func_vehicle_driver_tank_2.fireWeapon(1, 4);
+	sys.wait(.2);
+
+	$func_fx_flyer_smoke.start();
+	setNewTimes($flyer, 3.75, 4, 0);
+	$flyer.rotateOnce('990 0 0');
+
+//	sys.wait(1.5);
+	sys.trigger($tankCrashFlybySnd);
+	
+	sys.wait(.1);
+	$Spencer.lookAt($null_entity);
+
+	$flyer_base.remove();
+
+	$func_vehicle_driver_tank_1.lookAt($null_entity);
+
+	aiScriptedMoveWait($func_vehicle_driver_tank_1, $target_vehicle_path_9, 0, 0);
+
+	//sys.println("void flybyTanks::end");
+
+} //-------------- End void flybyTanks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void flybyTrucks()
+//
+// The flyer bombs one of the convoy trucks.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void blowUpTruck()
+{
+	$vehicle_flatbed_3.unbind();
+	$func_vehicle_driver_3.exitVehicle(1);
+
+	$vehicle_flatbed_3.applyImpulse($vehicle_flatbed_3, $vehicle_flatbed_3.getWorldOrigin(), '0 0 5000000');
+	
+	$truck_explosion.unbind();
+	$truck_explosion.start();
+	sys.trigger($truck_speaker);
+	$monster_turret_flying_1.directDamage($vehicle_flatbed_3, "damage_gib");
+
+	sys.wait(2);
+
+	$vehicle_flatbed_3.hide();
+
+	sys.trigger($func_fx_wall_crash_explosion_3);
+	sys.trigger($flyer_explosion_2);
+
+}
+
+void flybyTrucks()
+{
+	//sys.println("void flyby::begin");
+
+	$vehicle_flatbed_3.setHealth(1);
+
+	$flyer_base.speed(2000);
+	$flyer_base.startSpline($truck_flyby);
+	sys.trigger($flyer_setup);
+
+	sys.wait(1.6);
+	sys.trigger($flyer_speaker);
+	sys.trigger($rocket1);
+	sys.wait(.1);
+	sys.trigger($rocket2);
+	sys.wait(.3);
+
+	setNewTimes($flyer, 2, .5, .5);
+	$flyer.rotateOnce('75 0 0');
+
+	sys.wait(.6);
+
+//	vector v = $vehicle_flatbed_3.getWorldOrigin();
+//	v_x += 100;
+
+	thread blowUpTruck();
+
+/*
+	entity ent;
+	entity ent1;
+	sys.setSpawnArg("origin", $body_launch.getWorldOrigin());
+	ent = sys.spawn("env_dead_half");
+	sys.waitFrame();
+	ent.applyImpulse(ent, ent.getWorldOrigin(), '-50000 -300000  90000');
+
+	sys.setSpawnArg("origin", $truck_speaker.getWorldOrigin());
+	ent1 = sys.spawn("env_dead_no_arm");
+	sys.waitFrame();
+	ent1.applyImpulse(ent1, ent1.getWorldOrigin(), '-80000 -110000  70000');
+*/
+	sys.wait(1);
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_56_1");
+
+	thread flybyTanksVO();
+
+	//sys.println("void flyby::end");
+
+} //-------------- End void flybyTrucks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void mineShooting()
+//
+// The strogg flyer shoots while flying over the player in the mine area.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void mineShooting()
+{
+	//sys.println("void mineShooting::begin");
+
+	sys.wait(2);
+	sys.trigger($strogg_fighter_4_gun_1);
+	sys.trigger($strogg_fighter_4_gun_2);
+	sys.wait(1.2);
+	$strogg_fighter_4_gun_1.remove();
+	$strogg_fighter_4_gun_2.remove();
+	sys.trigger($strogg_fighter_speaker_4);
+
+	//sys.println("void mineShooting::end");
+
+} //-------------- End void mineShooting ---------------
+
+
+//-------------------------------------------------------------------------------
+// void flybyMines()
+//
+// Fighters flyby the mines.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void flybyMines()
+{
+	//sys.println("void flybyMines::begin");
+
+	sys.trigger($strogg_fighter_setup_4);
+	thread mineShooting();
+	$strogg_fighter_base_4.speed(2000);
+	$strogg_fighter_base_4.startSpline($mine_flyby);
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_4, 1, .25, .25);
+	$strogg_fighter_4.rotateOnce('-30 0 0');
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_4, 2, .5, .5);
+	$strogg_fighter_4.rotateOnce('-40 0 0');
+
+	sys.waitFor($strogg_fighter_base_4);
+	$strogg_fighter_base_4.remove();
+
+	//sys.println("void flybyMines::end");
+
+} //-------------- End void flybyMines ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipVO()
+//
+// Dropship crashing VO independently timed from the crash.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+void dropshipVO()
+{
+	//sys.println("void dropshipVO::begin");
+
+	sys.wait(.25);
+	sys.trigger($dropship_speaker);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_55_1");
+	
+	sys.wait(3.35);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_55_2");
+
+	//sys.println("void dropshipVO::end");
+
+} //-------------- End void dropshipVO ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipCrash()
+//
+// Makes the dropship crash into the wall.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void dropshipCrash()
+{
+	//sys.println("void dropshipCrash::begin");
+
+	sys.trigger($dropship_setup);
+	$dropship.playAnim(ANIMCHANNEL_ALL, "idle_all_closed");
+	$dropship_base.speed(2500);
+	setNewTimes($dropship_rotate, 2.8, .5, .5);
+	$dropship_base.startSpline($dropship_crash);
+	$dropship_rotate.rotateOnce('0 0 360');
+
+	thread dropshipVO();
+
+	sys.wait(2.35);
+
+	sys.trigger($trigger_relay_wall_crash);
+
+	sys.trigger($shakeFx);
+
+//	sys.wait(1);
+
+//	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_55_2");
+
+	//sys.println("void dropshipCrash::end");
+
+} //-------------- End void dropshipCrash ---------------
+
+
+//-------------------------------------------------------------------------------
+// void marineFighterFlyby()
+//
+// Marine fighters flyby the player at the beginning.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void marineFighterFlyby()
+{
+	//sys.println("void marineFighterFlyby::begin");
+
+	sys.trigger($marine_fighter_1_setup);
+	sys.trigger($marine_fighter_2_setup);
+
+	$marine_fighter_base_1.speed(2000);
+	$marine_fighter_base_1.startSpline($marine_fighter_flyby);
+
+	sys.wait(2);
+	sys.trigger($marine_fighter_speaker_1);
+	sys.trigger($marine_fighter_speaker_2);
+
+	sys.waitFor($marine_fighter_base_1);
+	$marine_fighter_base_1.remove();
+
+	//sys.println("void marineFighterFlyby::end");
+
+} //-------------- End void marineFighterFlyby ---------------
+
+
+//-------------------------------------------------------------------------------
+// void buildingbFighter1Shooting()
+//
+// First fighter shooting.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void buildingbFighter1Shooting()
+{
+	//sys.println("buildingbFighter1Shooting::begin");
+
+	sys.wait(3);
+	sys.trigger($strogg_fighter_5_gun_1);
+	sys.trigger($strogg_fighter_5_gun_2);
+	sys.wait(2);
+	$strogg_fighter_5_gun_1.remove();
+	$strogg_fighter_5_gun_2.remove();
+	sys.trigger($strogg_fighter_speaker_5);
+
+	//sys.println("buildingbFighter1Shooting::end");
+
+} //-------------- End void buildingbFighter1Shooting ---------------
+
+
+//-------------------------------------------------------------------------------
+// void buildingbFighter2Shooting()
+//
+// Second fighter shooting.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void buildingbFighter2Shooting()
+{
+	//sys.println("buildingbFighter2Shooting::begin");
+
+	sys.wait(2.8);
+	sys.trigger($strogg_fighter_6_gun_1);
+	sys.trigger($strogg_fighter_6_gun_2);
+	sys.wait(1.8);
+	$strogg_fighter_6_gun_1.remove();
+	$strogg_fighter_6_gun_2.remove();
+	sys.trigger($strogg_fighter_speaker_6);
+
+	//sys.println("buildingbFighter2Shooting::end");
+
+} //-------------- End void buildingbFighter2Shooting ---------------
+
+
+//-------------------------------------------------------------------------------
+// void buildingbFighterFlyby()
+//
+// This makes the two fighters come from the west side of the arena and attack the player.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void buildingbFighterFlyby()
+{
+	//sys.println("void buildingbFighterFlyby::begin");
+
+	entity fighter1;
+	entity fighter2;
+
+	$strogg_fighter_base_5.speed(1750);
+	$strogg_fighter_base_6.speed(1750);
+
+	$strogg_fighter_base_5.startSpline($arena_flyby_1);
+	$strogg_fighter_base_6.startSpline($arena_flyby_2);
+
+	thread buildingbFighter1Shooting();
+	thread buildingbFighter2Shooting();
+
+	sys.waitFor($strogg_fighter_base_5);
+	$strogg_fighter_base_5.remove();
+
+	sys.waitFor($strogg_fighter_base_6);
+	$strogg_fighter_base_6.remove();
+
+	//sys.println("void buildingbFighterFlyby::end");
+
+} //-------------- End void buildingbFighterFlyby ---------------
+
+
+//-------------------------------------------------------------------------------
+// void updateVehicleHud()
+//
+// Updates the vehicle's hud.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void updateVehicleHud()
+{
+	//sys.println("void updateVehicleHud::begin");
+
+	$player1.setGuiFloat("flatbed_healthpct", $vehicle_flatbed_6.getHealth() / 750.0);
+
+	//sys.println("void updateVehicleHud::end");
+
+} //-------------- End void updateVehicleHud ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerHawkinsBegin()
+//
+// Spencer and Hawkins begin their first conversation.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerHawkinsBegin()
+{
+	//sys.println("void spencerHawkinsBegin::begin");
+
+	$Spencer.lookAt($Hawkins);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_42_1");
+	sys.wait(.5);
+	$Hawkins.lookAt($Spencer);
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_42_2");
+	$Spencer.lookAt($null_entity);
+/*
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_42_3");
+	$Hawkins.lookAt($null_entity);
+	$Spencer.lookAt($null_entity);	
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_42_4");
+*/
+	
+	//sys.println("void spencerHawkinsBegin::end");
+
+} //-------------- End void spencerHawkinsBegin ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerHawkinsCannon()
+//
+// Spencer and Hawkins mention the Airdefense cannon.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerHawkinsCannon()
+{
+	//sys.println("void spencerHawkinsCannon::Cannon");
+	
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_43_1");
+	$Spencer.lookAt($player1);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_43_2");
+	$Spencer.lookAt($null_entity);		
+	sys.wait(.1);
+	$Hawkins.lookAt($null_entity);			
+	//sys.println("void spencerHawkinsCannon::end");
+
+} //-------------- End void spencerHawkinsCannon ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerHawkinsRhino()
+//
+// Spencer and Hawkins talk about Rhino squad.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerHawkinsRhino()
+{
+	//sys.println("void spencerHawkinsRhino::Rhino");
+
+//	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_44_1");
+	$Spencer.lookAt($player1);
+	$Hawkins.lookAt($player1);
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_44_2");
+	$Spencer.lookAt($Hawkins);		
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_44_3");
+	$Hawkins.lookAt($Spencer);		
+//	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_44_4");
+	sys.wait(.1);
+	$Hawkins.lookAt($null_entity);		
+	$Spencer.lookAt($null_entity);		
+			
+	//sys.println("void spencerHawkinsRhino::end");
+
+} //-------------- End void spencerHawkinsRhino ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerHawkinsWar()
+//
+// Spencer and Hawkins talk about the war.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerHawkinsWar()
+{
+	//sys.println("void spencerHawkinsWar::War");
+
+	$Spencer.lookAt($Hawkins);		
+	$Hawkins.lookAt($Spencer);	
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_46_1");
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_46_2");
+	$Spencer.lookAt($null_entity);		
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_46_3");
+	$Hawkins.lookAt($null_entity);					
+	//sys.println("void spencerHawkinsWar::end");
+
+} //-------------- End void spencerHawkinsWar ---------------
+
+
+//-------------------------------------------------------------------------------
+// void brownTalks()
+//
+// Brown says the coast is clear.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void brownTalks()
+{
+	//sys.println("void brownTalks::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_16_1");
+
+	//sys.println("void brownTalks::end");
+
+} //-------------- End void brownTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerHawkinsVO()
+//
+// Timing for all of the Spencer and Hawkins VO
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void spencerHawkinsVO()
+{
+	//sys.println("void spencerHawkinsVO::begin");
+
+	spencerHawkinsBegin();
+	sys.wait(4);
+	spencerHawkinsRhino();
+	sys.wait(3);
+//	spencerHawkinsWar();
+	sys.wait(2);
+	brownTalks();
+
+	//sys.println("void spencerHawkinsVO::end");
+
+} //-------------- End void spencerHawkinsVO ---------------
+
+
+//-------------------------------------------------------------------------------
+// void doyleWarns()
+//
+// Doyle (the driver) warns the crew to keep alert.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void doyleWarns()
+{
+	//sys.println("void doyleWarns::begin");
+
+	radioChatterPlay($chatter, "vo_1_2_0_45_1");
+
+	//sys.println("void doyleWarns::end");
+
+} //-------------- End void doyleWarns ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerWarns()
+//
+// Spencer tells the player to keep his head down.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerWarns()
+{
+	//sys.println("void spencerWarns::begin");
+
+	$Spencer.lookAt($player1);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_50_1");
+	$Spencer.lookAt($null_entity);
+
+	//sys.println("void spencerWarns::end");
+
+} //-------------- End void spencerWarns ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerKillVO()
+//
+// Random VO from Spencer when he kills someone.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerKillVO()
+{
+	//sys.println("spencerKillVO::begin");
+
+	float val = sys.random(10) + 1;
+	string vo = "lipsync_1_2_0_60_" + val;
+
+	if(val > 6)
+	{
+		$Spencer.lookAt($player1);
+		aiSpeakWait($Spencer, vo);
+		$Spencer.lookAt($null_entity);
+	}
+
+	else
+	{
+		aiSpeakWait($Spencer, vo);
+	}
+	
+	//sys.println("spencerKillVO::end");
+
+} //-------------- End void spencerKillVO ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerHawkinsRaven()
+//
+// Spencer and Hawkins talk about Raven Squad.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerHawkinsRaven()
+{
+	//sys.println("void spencerHawkinsRaven::begin");
+	
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_62_1");
+	sys.wait(.5);
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_62_2");
+
+	//sys.println("void spencerHawkinsRaven::end");
+
+} //-------------- End void spencerHawkinsRaven ---------------
+
+
+//-------------------------------------------------------------------------------
+// void firstTruckSet()
+//
+// This is the first set of trucks that follow the spline
+//
+// mekberg | Mar 2005
+//-------------------------------------------------------------------------------
+void firstTruckSet()
+{
+	if(!allowOccupance)
+		return;
+
+	//sys.println("void firstTruckSet::begin");
+
+	sys.trigger($item_objectivecomplete_1);
+
+	$player1.exitVehicle(1);
+	sys.waitFrame();
+	$player1.setWorldOrigin($target_null_playerpos.getWorldOrigin());
+	$player1.bindPosition($target_null_playerpos);
+	//MCG: Let the player shoot through the shield of the flatbed he's riding on...
+	$player1.setExtraProjPassEntity($vehicle_flatbed_1);
+
+	// Static scenery.
+	$marine_crate.show();
+	aiScriptedAnimLoop($convoy_char_marine_front, "lugging_crate_front", 0);
+	aiScriptedAnimLoop($convoy_char_marine_rear, "lugging_crate_rear", 0);
+
+	vector startPos = $vehicle_flatbed_1.getWorldOrigin();
+	vector startAng = $vehicle_flatbed_1.getAngles();
+
+	$vehicle_flatbed_1.lock(1);
+
+	// Stop looking at the player.
+	$Spencer.lookAt($null_entity);
+
+	$func_bigdoor_5.lock(0);
+	$func_bigdoor_6.lock(0);
+	
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_40_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_0_40_2");
+	sys.wait(1);
+
+	thread spencerHawkinsVO();
+	
+	$a1.playAnim(ANIMCHANNEL_ALL, "convoy_ride_1");
+	$vehicle_flatbed_1.bindToJoint($a1, "bind_hovertruck", 1);	
+	$vehicle_flatbed_2.bindToJoint($a1, "bind_hovertruck_2", 1);
+	$vehicle_flatbed_3.bindToJoint($a1, "bind_hovertruck_3", 1);
+	playAnimWait($a1, ANIMCHANNEL_ALL, "convoy_ride_1");
+
+	sys.trigger($func_remove_wraparound);
+
+	$func_door_280.lock(1);
+	$func_door_281.lock(1);
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_70_10");
+
+	$player1.unbind();
+	sys.wait(.5);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_80_10");
+
+	//sys.println("void firstTruckSet::end");
+
+} //-------------- End void firstTruckSet ---------------
+
+//-------------------------------------------------------------------------------
+// void enterTruck()
+//
+// Setting the truck onto a func_splinemover
+//
+// mrenner | May 2005
+//-------------------------------------------------------------------------------
+void enterTruck()
+{
+	if(!allowOccupance)
+		return;
+
+	//sys.println("void enterTruck::begin");
+
+	$Nguyen.hide();
+	$Pitman.hide();
+
+	// turn off the hover light.
+	sys.trigger($light_9272);
+	
+	sys.trigger($item_objectivecomplete_1);
+
+	$vehicle_flatbed_1.lock(0);
+	$player1.exitVehicle(1);
+
+	sys.waitFrame();
+	$vehicle_flatbed_1.lock(1);
+	$player1.setWorldOrigin($target_null_playerpos.getWorldOrigin());
+	$player1.bindPosition($target_null_playerpos);
+	//MCG: Let the player shoot through the shield of the flatbed he's riding on...
+	$player1.setExtraProjPassEntity($vehicle_flatbed_1);
+
+	// Static scenery.
+	$marine_crate.show();
+	aiScriptedAnimLoop($convoy_char_marine_front, "lugging_crate_front", 0);
+	aiScriptedAnimLoop($convoy_char_marine_rear, "lugging_crate_rear", 0);
+
+	vector startPos = $vehicle_flatbed_1.getWorldOrigin();
+	vector startAng = $vehicle_flatbed_1.getAngles();
+
+	// Stop looking at the player.
+	$Spencer.lookAt($null_entity);
+
+	$func_bigdoor_5.lock(0);
+	$func_bigdoor_6.lock(0);
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_40_1");
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_40_2");
+	
+	// start the trucks moving on the spline path.
+	thread firstTruckSpline();
+
+	sys.wait(.5);	
+	thread spencerHawkinsVO();
+
+	//sys.println("void enterTruck::end");
+
+} //-------------- End void enterTruck ---------------
+
+
+//-------------------------------------------------------------------------------
+// void trucksResume()
+//
+// The trucks catch back up to the first.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void trucksResume()
+{
+	//sys.println("void secondTruckResume::begin");
+
+	inRange = 1;
+
+	while(inRange)
+	{
+		if(numTurrets)
+			sys.wait(1);
+
+		else
+		{
+			$a2_2.playAnim(ANIMCHANNEL_ALL, "second_truck_end");
+			playAnimWait($a2_3, ANIMCHANNEL_ALL, "third_truck_end");
+			//sys.println("Done with the truck thing");
+
+			inRange = 0;
+		}
+	}	
+
+	//sys.println("void secondTruckResume::end");
+
+} //-------------- End void trucksResume ---------------
+
+
+//-------------------------------------------------------------------------------
+// void trucksCantResume()
+//
+// The trucks catch back up to the first.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void trucksCantResume()
+{
+	//sys.println("void secondTruckResume::begin");
+
+	inRange = 0;
+
+	//sys.println("void secondTruckResume::end");
+
+} //-------------- End void trucksCantResume ---------------
+
+
+//-------------------------------------------------------------------------------
+// void secondTruckSet()
+//
+// This is the second set of trucks that follow the spline
+//
+// mekberg | Mar 2005
+//-------------------------------------------------------------------------------
+void secondTruckSet()
+{
+	if(!allowOccupance)
+		return;
+
+	//sys.println("void secondTruckSet::begin");
+
+	sys.trigger($item_objective_2);
+
+	allowOccupance = 0;
+	$vehicle_flatbed_6.lock(1);
+
+	sys.sendNamedEvent(GUI_PLAYERHUD, "enterFlatbed");
+	
+	// set the health of the truck.
+	//sys.println("truck health to 750");
+	$vehicle_flatbed_6.setHealth(750);
+	sys.waitFrame();
+
+	updateVehicleHud();
+
+	thread manageConvoyHealth( $vehicle_flatbed_6 );
+
+	$func_vehicle_driver_4.enterVehicle($vehicle_flatbed_4);
+	$func_vehicle_driver_5.enterVehicle($vehicle_flatbed_5);
+	$func_vehicle_driver_6.enterVehicle($vehicle_flatbed_6);
+
+	// Remove anything that could get in the way of the trucks.
+//	$remove_1.remove();
+	$remove_2.remove();
+	$remove_3.remove();
+	$remove_4.remove();
+	$remove_5.remove();
+
+	$Ness.remove();
+	$DeGroff.remove();
+	$Sledge.remove();
+	$Cortez.remove();
+	$Kovak.remove();
+	$Rodeman.remove();
+	$Morris.remove();
+	$Bidwell.remove();
+	$Rhodes.remove();
+
+	$func_door_3.lock(0);
+	$func_door_4.lock(0);	
+	$func_door_3.open();
+
+	sys.wait(3);
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_80_1");
+
+	$env_marine_emp_2.playAnim(ANIMCHANNEL_ALL, "closed");
+
+	$a2_2.playAnim(ANIMCHANNEL_ALL, "second_truck_start");
+	$vehicle_flatbed_5.bindToJoint($a2_2, "bind_hovertruck_2", 1);
+
+	$a2_3.playAnim(ANIMCHANNEL_ALL, "third_truck_start");
+	$vehicle_flatbed_4.bindToJoint($a2_3, "bind_hovertruck_3", 1);
+
+
+	$vehicle_flatbed_6.bindToJoint($a2_1, "bind_hovertruck", 1);
+	playAnimWait($a2_1, ANIMCHANNEL_ALL, "front_truck_start");
+
+	$a2_2.playCycle(ANIMCHANNEL_ALL, "second_truck_idle");
+	$a2_3.playCycle(ANIMCHANNEL_ALL, "third_truck_idle");
+
+	do
+	{
+		playAnimWait($a2_1, ANIMCHANNEL_ALL, "front_truck_loop");
+	}
+	while(numTurrets);
+
+	playAnimWait($a2_1, ANIMCHANNEL_ALL, "front_truck_end");
+
+	sys.trigger($item_objectivecomplete_2);
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_180_1");
+	$player1.exitVehicle(1);
+	sys.waitFrame();
+	$vehicle_flatbed_6.lock(0);
+	radioChatterPlayWait($chatter, "vo_1_2_1_190_1");
+	allowChatter = 1;
+
+	//sys.println("void secondTruckSet::end");
+
+} //-------------- End void secondTruckSet ---------------
+
+
+//-------------------------------------------------------------------------------
+// void firstMine()
+//
+// Rhodes runs out to clear the mines.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void bigGuys_1()
+{
+	$monster_big_hh_tank_convoy_2.show();
+	setNewTimes( $func_mover_5 , 5 , 0 , 1 );
+	$func_mover_5.startSpline( $func_splinemover_2 );
+	
+	sys.wait(3);
+	sys.trigger($func_door_299);
+	
+	sys.waitFor( $func_mover_5 );
+	sys.waitFrame();
+	$monster_big_hh_tank_convoy_2.unbind();
+	sys.waitFrame();
+//	sys.trigger($aggressiveBug_4);
+	sys.trigger($monster_big_hh_tank_convoy_2);
+
+	sys.waitFrame();
+	$monster_big_hh_tank_convoy_2.setHealth(1200);
+
+}
+
+void bigGuys_2()
+{
+	$monster_big_hh_tank_convoy_1.show();
+	setNewTimes( $func_mover_4 , 5 , 0 , 1 );
+	$func_mover_4.startSpline( $func_splinemover_1 );
+	sys.waitFor( $func_mover_4 );
+	sys.waitFrame();
+	$monster_big_hh_tank_convoy_1.unbind();
+	sys.waitFrame();
+//	sys.trigger($aggressiveBug_4);
+	sys.trigger($monster_big_hh_tank_convoy_1);
+}
+void bigGuys()
+{
+	thread bigGuys_1();
+//	thread bigGuys_2();
+	
+	sys.trigger($bigGuysSnd);
+}
+void protectRhodes()
+{
+	$bumperTrig.remove();
+
+	$mineRhodes.lookAt($roadMine1);
+	sys.trigger($mineRhodes);
+	sys.trigger($ai_tether_radius_39);
+	sys.trigger($ai_trigger_once_2);
+	
+	// save game right before Rhodes mine sequence.
+	sys.trigger($func_savegame_3);
+	
+	sys.wait(2);
+	//sys.println("wall gap spawner");
+//	sys.trigger($spawnerWallGap);		// Strogg Marines and Hover Tanks
+//	sys.trigger($ai_tether_radius_44);
+//	sys.trigger($ai_tether_radius_45);
+
+	sys.trigger($spawnerWallGap_1);		// Grunts and Berserkers.
+	sys.trigger($ai_tether_radius_57);
+	sys.trigger($ai_tether_radius_58);
+	sys.trigger($ai_tether_radius_59);
+	
+}
+void firstMine()
+{
+	//sys.println("void firstMine::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_108_1");
+	radioChatterPlayWait($chatter, "vo_1_2_1_108_2");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_109_1");
+	radioChatterPlayWait($chatter, "vo_1_2_1_109_2");
+
+	//sys.println("void firstMine::end");
+
+} //-------------- End void firstMine ---------------
+
+//-------------------------------------------------------------------------------
+// void clear1stMine()
+//
+// Rhodes runs out to clear the mines.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void clear1stMine()
+{
+	//sys.println("void clear1stMine::begin");
+
+	$mineRhodes.lookAt($null_entity);
+
+	aiScriptedAnimWait($mineRhodes, "stand_to_crouch", 4, 1);
+	aiScriptedAnimWait($mineRhodes, "medic_treating", 12, 1);
+	
+	if ( isLivingEntity( $mineRhodes))
+	{
+		radioChatterPlay($chatter, "vo_1_2_1_110_1");
+	}
+	
+	$roadMine1.hide();
+	
+	//sys.println("RHODES:  One down!  Looks like there are a few more.");
+
+	aiScriptedAnimWait($mineRhodes, "crouch_to_relaxed", 4, 1);
+
+	$mineRhodes.lookAt($roadMine2);
+	sys.trigger($ai_tether_radius_40);
+	sys.trigger($ai_trigger_once_3);
+
+	//sys.println("void clear1stMine::end");
+
+} //-------------- End void clear1stMine ---------------
+
+//-------------------------------------------------------------------------------
+// void clear2ndMine()
+//
+// Rhodes runs out to clear the mines.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void clear2ndMine()
+{
+	//sys.println("void clear2ndMine::begin");
+
+	$mineRhodes.lookAt($null_entity);
+
+	aiScriptedAnimWait($mineRhodes, "stand_to_crouch", 4, 1);
+	aiScriptedAnimWait($mineRhodes, "medic_treating", 12, 1);
+	
+	if ( isLivingEntity( $mineRhodes))
+	{
+		radioChatterPlay($chatter, "vo_1_2_1_111_1");
+	}
+	
+	$roadMine2.hide();
+	aiScriptedAnimWait($mineRhodes, "crouch_to_relaxed", 4, 1);
+
+	$mineRhodes.lookAt($roadMine3);
+	sys.trigger($ai_tether_radius_41);
+	sys.trigger($ai_trigger_once_4);
+
+	//sys.println("void clear2ndMine::end");
+
+} //-------------- End void clear2ndMine ---------------
+
+
+//-------------------------------------------------------------------------------
+// void clear3rdMine()
+//
+// Rhodes runs out to clear the mines.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void clear3rdMine()
+{
+	//sys.println("void clear3rdMine::begin");
+
+//	thread bigGuys();
+
+	$mineRhodes.lookAt($null_entity);
+
+	aiScriptedAnimWait($mineRhodes, "stand_to_crouch", 4, 1);
+	
+	if ( isLivingEntity( $mineRhodes))
+	{
+		radioChatterPlay($chatter, "vo_1_2_1_111_2");
+	}
+	
+	aiScriptedAnimWait($mineRhodes, "medic_treating", 12, 1);
+	
+	if ( isLivingEntity( $mineRhodes))
+	{
+		radioChatterPlay($chatter, "vo_1_2_1_111_3");
+	}
+
+	$roadMine3.hide();
+	aiScriptedAnimWait($mineRhodes, "crouch_to_relaxed", 4, 1);
+
+	$mineRhodes.lookAt($roadMine4);
+	sys.trigger($ai_tether_radius_42);
+	sys.trigger($ai_trigger_once_5);
+
+	//sys.println("void clear3rdMine::end");
+
+} //-------------- End void clear3rdMine ---------------
+
+//-------------------------------------------------------------------------------
+// void clear4thMine()
+//
+// Rhodes runs out to clear the mines.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void clear4thMine()
+{
+	//sys.println("void clear4thMine::begin");
+
+	$mineRhodes.lookAt($null_entity);
+
+	aiScriptedAnimWait($mineRhodes, "stand_to_crouch", 4, 1);
+	aiScriptedAnimWait($mineRhodes, "medic_treating", 12, 1);
+
+//	sys.trigger($rhodesSpawnerTrig);
+
+	if ( isLivingEntity( $mineRhodes))
+	{
+		radioChatterPlay($chatter, "vo_1_2_1_111_4");
+	}
+
+	$roadMine4.hide();
+	
+	aiScriptedAnimWait($mineRhodes, "crouch_to_relaxed", 4, 1);
+
+	sys.trigger($ai_tether_radius_43);
+	sys.trigger($ai_trigger_once_6);
+	
+	if ( isLivingEntity( $mineRhodes))
+	{
+		radioChatterPlayWait($chatter, "vo_1_2_1_112_1");
+	}
+
+	//sys.println("void clear4thMine::end");
+
+} //-------------- End void clear4thMine---------------
+
+
+//-------------------------------------------------------------------------------
+// void truck2a_bumper()
+//
+// Intro lift going down.
+//
+// jdischler, because mrenner asked | Mar 2005
+//-------------------------------------------------------------------------------
+void truck2a_bumper( entity entityHit )
+{
+//	//sys.println("void truck2a_bumper::start");
+
+	// ignore entities already hit
+	if ( entityHit.getKey( "alreadyHit" ) == "true" )
+	{
+		return;
+	}
+
+	// mark this entity as hit so future collisions will be ignored
+	entityHit.setKey( "alreadyHit", "true" );
+
+	// Set up the throw
+	// ...convert the truck angles to a forward vector so that we can push entityHit in the correct direction automagically
+	vector vDir = sys.angToForward( $f.getAngles());
+
+	// scale vector up to a useful impulse range
+	vDir *= sys.random(50000) + 150000;
+
+	// add an additional upward push to better launch entityHit
+	vDir_z += 50000;
+
+	// Do the throw
+	entityHit.kill();
+	sys.waitFrame();
+	entityHit.applyImpulse( entityHit, entityHit.getWorldOrigin(), vDir );	
+
+//	//sys.println("void truck2a_bumper::end");
+} //-------------- End void truck2a_bumper ---------------
+
+
+void killFrontTurrets()
+{
+	$monster_turret_flying_13.kill();
+	$monster_turret_flying_7.kill();
+	$monster_turret_flying_9.kill();
+}
+
+void killRearTurrets()
+{
+	$monster_turret_flying_10.kill();
+	$monster_turret_flying_11.kill();
+	$monster_turret_flying_12.kill();
+	$monster_turret_bunker_13.kill();
+	$monster_turret_bunker_10.kill();
+
+}
+
+//-------------------------------------------------------------------------------
+// void afterMinefield_2b()
+//
+// Rhodes gets back to the truck after clearing the mines.  The convoy moves again.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void afterMinefield_2b()
+{
+	//sys.println("void afterMinefield_2b::begin");
+
+	setNewTimes( $mvr_truck2b , 3.5 , 3.5 , 0 );
+	$mvr_truck2b.startSpline( $spline_truck2b_afterMines );
+	sys.waitFor($mvr_truck2b);
+
+	if($mineRhodes == $null_entity)
+	{
+		radioChatterPlay($chatter, "vo_1_2_1_113_1");
+	}
+	
+	setNewTimes( $mvr_truck2b , 24 , 0 , 0 );
+	$mvr_truck2b.startSpline( $spline_truck2a_afterMines );
+	sys.waitFor($mvr_truck2b);
+
+	setNewTimes( $mvr_truck2b , 28 , 0 , 5 );
+	$mvr_truck2b.startSpline( $spline_truck2b_lastTunnel );
+	sys.waitFor($mvr_truck2b);
+
+	//sys.println("void afterMinefield_2b::end");
+
+} //-------------- End void afterMinefield_2b ---------------
+
+
+//-------------------------------------------------------------------------------
+// void afterMinefield_2c()
+//
+// Rhodes gets back to the truck after clearing the mines.  The convoy moves again.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void afterMinefield_2c()
+{
+	//sys.println("void afterMinefield_2c::begin");
+
+	setNewTimes( $mvr_truck2c , 5 , 5 , 0 );
+	$mvr_truck2c.startSpline( $spline_truck2c_afterMines );
+	sys.waitFor($mvr_truck2c);
+
+	setNewTimes( $mvr_truck2c , 24 , 0 , 0 );
+	$mvr_truck2c.startSpline( $spline_truck2a_afterMines );
+	sys.waitFor($mvr_truck2c);
+
+	setNewTimes( $mvr_truck2c , 32 , 0 , 8 );
+	$mvr_truck2c.startSpline( $spline_truck2c_lastTunnel );
+	sys.waitFor($mvr_truck2c);
+
+	//sys.println("void afterMinefield_2c::end");
+
+} //-------------- End void afterMinefield_2c ---------------
+
+
+//-------------------------------------------------------------------------------
+// void afterMinefield()
+//
+// Rhodes gets back to the truck after clearing the mines.  The convoy moves again.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void afterMinefield()
+{
+	//sys.println("void afterMinefield::begin");
+
+	if ( isLivingEntity( $mineRhodes))
+	{
+
+//	sys.trigger($bumperTrig_3);
+	
+	$mineRhodes.hide();
+	$mineRhodes.setKey("undying", 1);
+	sys.wait(1);
+		
+	thread afterMinefield_2b();
+	thread afterMinefield_2c();
+
+	setNewTimes( $mvr_truck2a , 25 , 5 , 0 );
+	$mvr_truck2a.startSpline( $spline_truck2a_afterMines );
+	sys.waitFor($mvr_truck2a);
+
+	setNewTimes( $mvr_truck2a , 26 , 0 , 3 );
+	$mvr_truck2a.startSpline( $spline_truck2a_lastTunnel );
+	sys.waitFor($mvr_truck2a);
+
+	sys.wait(1);
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_90_1");
+	sys.trigger($item_objective_3);
+
+//	radioChatterPlayWait($chatter, "vo_1_2_0_90_2");
+//	radioChatterPlayWait($chatter, "vo_1_2_0_90_3");
+
+	$mvr_truck2a.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 25 , 2 , 1 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena1 );
+		
+	thread randomDropturretKill();
+	thread randomStaticBeam();
+		
+	sys.wait(23);
+	radioChatterPlay($chatter, "vo_1_2_0_94_1");
+	sys.waitFor($mvr_truck2a);
+
+	$mvr_truck2a.setAngles ('0 180 0');
+	setNewTimes( $mvr_truck2a , 6 , 1 , 1 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena2 );
+	sys.waitFor($mvr_truck2a);
+	
+	$mvr_truck2a.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 35 , 2 , 3 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena3 );
+	sys.wait(8);
+	radioChatterPlay($chatter, "vo_1_2_0_94_3");
+	sys.waitFor($mvr_truck2a);
+	
+	sys.wait(12);
+	sys.trigger($monster_turret_flying_10);
+	sys.wait(1);	
+		
+	$mvr_truck2a.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 40 , 2 , 5 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena4 );
+
+	sys.wait(1);
+	sys.trigger($monster_turret_flying_11);
+	sys.waitFor($mvr_truck2a);
+	
+	// Save Game
+	sys.trigger($func_savegame_2);
+	
+	thread killRearTurrets();
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_180_1");
+
+	sys.trigger($item_objectivecomplete_2);
+
+	$vehicle_flatbed_6.lock(0);
+	$player1.exitVehicle(1);
+	
+	sys.waitFrame();
+	// move the player to the starting position.
+	$player1.setWorldOrigin( $offTruckSpot.getWorldOrigin());
+	$player1.setViewAngles ( '0 315 0' );
+	
+	sys.sendNamedEvent(GUI_PLAYERHUD, "leaveFlatbed");
+//	sys.waitFrame();
+	$vehicle_flatbed_6.lock(1);
+	radioChatterPlayWait($chatter, "vo_1_2_1_190_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_3_30_1");
+	
+	}
+	
+	//sys.println("void afterMinefield::end");
+
+} //-------------- End void afterMinefield ---------------
+
+
+//-------------------------------------------------------------------------------
+// void hideTrucks()
+//
+// Hide last 2 trucks to speed up area. maybe?
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void hideTrucks()
+{
+	//sys.println("void hideTrucks::begin");
+
+	$vehicle_flatbed_4.hide();
+	$env_marine_emp_2.hide();
+	$func_static_53339.hide();
+
+	$vehicle_flatbed_5.hide();
+
+	//sys.println("void hideTrucks::end");
+}
+
+
+//-------------------------------------------------------------------------------
+// void last2Trucks()
+//
+// Move the last two trucks up to the entrance of building_B.
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void last2Trucks()
+{
+	//sys.println("void last2Trucks::begin");
+
+	$vehicle_flatbed_4.show();
+	$env_marine_emp_2.show();
+	$func_static_53339.show();
+
+	$vehicle_flatbed_5.show();
+
+	setNewTimes( $mvr_truck2b , 15 , 0 , 3 );
+	$mvr_truck2b.startSpline( $spline_truck2b_toBuilding_b );
+
+	sys.wait(3);
+	setNewTimes( $mvr_truck2c , 18 , 0 , 7 );
+	$mvr_truck2c.startSpline( $spline_truck2c_toBuilding_b );
+
+	//sys.println("void last2Trucks::end");
+}
+
+
+//-------------------------------------------------------------------------------
+// void secondTruckSpline2b()
+//
+// Starts the trucks to move on their second spline, now with a mounted gun
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void secondTruckSpline2b()
+{
+	//sys.println("void secondTruckSpline2b::begin");
+
+	$vehicle_flatbed_5.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2b , 7 , 7 , 0 );
+	$mvr_truck2b.startSpline( $spline_truck2b_setup );
+	sys.waitFor($mvr_truck2b);
+
+	setNewTimes( $mvr_truck2b , 26 , 0 , 0 );
+	$mvr_truck2b.startSpline( $spline_truck2a_manyStrogg );
+	sys.waitFor($mvr_truck2b);
+
+	setNewTimes( $mvr_truck2b , 25 , 0 , 0 );
+	$mvr_truck2b.startSpline( $spline_truck2a_tunnel1 );
+	sys.waitFor($mvr_truck2b);
+
+	setNewTimes( $mvr_truck2b , 25 , 0 , 2.5 );
+	$mvr_truck2b.startSpline( $spline_truck2b_preMines );
+	sys.waitFor($mvr_truck2b);
+
+	//sys.println("void secondTruckSpline2b::end");
+
+} //-------------- End void secondTruckSpline2b ---------------
+
+
+//-------------------------------------------------------------------------------
+// void secondTruckSpline2c()
+//
+// Starts the trucks to move on their second spline, now with a mounted gun
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void secondTruckSpline2c()
+{
+	//sys.println("void secondTruckSpline2c::begin");
+
+	$vehicle_flatbed_4.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2c , 9 , 5 , 0 );
+	$mvr_truck2c.startSpline( $spline_truck2c_setup );
+	sys.waitFor($mvr_truck2c);
+
+	setNewTimes( $mvr_truck2c , 26 , 0 , 0 );
+	$mvr_truck2c.startSpline( $spline_truck2a_manyStrogg );
+	sys.waitFor($mvr_truck2c);
+
+	setNewTimes( $mvr_truck2b , 25 , 0 , 0 );
+	$mvr_truck2c.startSpline( $spline_truck2a_tunnel1 );
+	sys.waitFor($mvr_truck2c);
+
+	setNewTimes( $mvr_truck2c , 25 , 0 , 5 );
+	$mvr_truck2c.startSpline( $spline_truck2c_preMines );
+	sys.waitFor($mvr_truck2c);
+
+	thread protectRhodes();
+
+	//sys.println("void secondTruckSpline2c::end");
+
+} //-------------- End void secondTruckSpline2c ---------------
+
+void secondTruckTesting()
+{
+	setNewTimes( $mvr_truck2a , 26 , 0 , 3 );
+	$mvr_truck2a.startSpline( $spline_truck2a_lastTunnel );
+	sys.waitFor($mvr_truck2a);
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_90_1");
+	sys.trigger($item_objective_3);
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_90_2");
+	radioChatterPlayWait($chatter, "vo_1_2_0_90_3");
+
+	$mvr_truck2a.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 25 , 2 , 1 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena1 );
+
+		thread randomDropturretKill();
+		thread randomStaticBeam();
+
+	sys.wait(23);
+	radioChatterPlay($chatter, "vo_1_2_0_94_1");
+	sys.waitFor($mvr_truck2a);
+
+	$mvr_truck2a.setAngles ('0 180 0');
+	setNewTimes( $mvr_truck2a , 6 , 1 , 1 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena2 );
+	sys.waitFor($mvr_truck2a);
+
+	$mvr_truck2a.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 35 , 2 , 3 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena3 );
+	sys.wait(8);
+	radioChatterPlay($chatter, "vo_1_2_0_94_3");
+	sys.waitFor($mvr_truck2a);
+
+	sys.wait(12);
+	sys.trigger($monster_turret_flying_10);
+	sys.wait(1);	
+	
+	$mvr_truck2a.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 40 , 2 , 5 );
+	$mvr_truck2a.startSpline( $spline_truck2a_arena4 );
+
+	sys.wait(1);
+	sys.trigger($monster_turret_flying_11);
+	sys.waitFor($mvr_truck2a);
+
+	sys.trigger($item_objectivecomplete_2);
+	
+	radioChatterPlayWait($chatter, "vo_1_2_1_180_1");
+	$player1.exitVehicle(1);
+	
+	sys.sendNamedEvent(GUI_PLAYERHUD, "leaveFlatbed");
+	sys.waitFrame();
+	$vehicle_flatbed_6.lock(1);
+	radioChatterPlayWait($chatter, "vo_1_2_1_190_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_3_30_1");
+}
+
+//-------------------------------------------------------------------------------
+// void secondTruckSpline()
+//
+// Starts the trucks to move on their second spline, now with a mounted gun
+//
+// mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void secondTruckSpline()
+{
+	//sys.println("void secondTruckSpline::begin");
+
+//	thread secondTruckTesting();
+
+//	sys.trigger($bumperTrig);
+//	sys.trigger($bumperTrig_1);
+//	sys.trigger($bumperTrig_2);
+
+	sys.trigger($trigger_touch_1);
+	sys.trigger($trigger_touch_2);
+	sys.trigger($trigger_touch_3);
+
+	sys.trigger($item_objective_2);
+
+	$vehicle_flatbed_6.lock(1);
+	sys.trigger($light_9275);
+
+	sys.sendNamedEvent(GUI_PLAYERHUD, "enterFlatbed");
+
+	// set the health of the truck.
+	//sys.println("truck health to 750");
+	$vehicle_flatbed_6.setHealth(750);
+	sys.waitFrame();
+
+	updateVehicleHud();
+
+	thread manageConvoyHealth( $vehicle_flatbed_6 );
+	
+	updateVehicleHud();
+
+	$Ness.remove();
+	$DeGroff.remove();
+	$Sledge.remove();
+	$Cortez.remove();
+	$Morris.remove();
+	$Bidwell.remove();
+	$Rhodes.remove();
+
+	sys.trigger($func_door_4);
+	
+	$env_marine_emp_2.playAnim(ANIMCHANNEL_ALL, "closed");
+	$empClip.show();
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_80_1");
+	sys.trigger($vossReport);
+	radioChatterPlayWait($chatter, "vo_1_2_1_120_1");
+
+	thread secondTruckSpline2b();
+	thread secondTruckSpline2c();
+
+	sys.trigger($gunMusic);
+
+	$vehicle_flatbed_6.setAngles ('0 0 0');
+	setNewTimes( $mvr_truck2a , 30 , 10 , 0 );
+	$mvr_truck2a.startSpline( $spline_truck2a_manyStrogg );
+	sys.waitFor($mvr_truck2a);
+
+	setNewTimes( $mvr_truck2a , 25 , 0 , 0 );
+	$mvr_truck2a.startSpline( $spline_truck2a_tunnel1 );
+	sys.waitFor($mvr_truck2a);
+
+	setNewTimes( $mvr_truck2a , 25 , 0 , 5 );
+	$mvr_truck2a.startSpline( $spline_truck2a_preMines );
+	sys.waitFor($mvr_truck2a);
+	
+	thread firstMine();
+
+	//sys.println("void secondTruckSpline::end");
+
+} //-------------- End void secondTruckSpline ---------------
+
+
+//-------------------------------------------------------------------------------
+// void firstRoomPrep()
+//
+// Preps the first room of the convoy (Rhino Squad) for the player.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void firstRoomPrep()
+{
+	//sys.println("void firstRoomPrep::begin");
+
+	// Trigger in all the guys.
+	sys.trigger($Ness);
+	sys.trigger($DeGroff);
+	sys.trigger($Cortez);
+	sys.trigger($Sledge);
+
+	$Rhodes.setTalkState(TALK_OK);
+
+	aiScriptedAnimLoop($Ness, "sarge_briefing_7", 5);
+	$Ness.lookAt($DeGroff);
+
+	// Make the EMP play the correct cycle.
+	$env_marine_emp_2.playCycle(ANIMCHANNEL_ALL, "open");
+
+	//sys.println("void firstRoomPrep::end");
+
+} //-------------- End void firstRoomPrep ---------------
+
+
+//-------------------------------------------------------------------------------
+// void secondRoomPrep()
+//
+// Preps the second room of the convoy (Rhino Squad) for the player.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void secondRoomPrep()
+{
+	//sys.println("void secondRoomPrep::begin");
+
+	sys.trigger($Morris);
+	sys.trigger($Bidwell);
+	sys.trigger($Rhodes);
+
+//	$Bidwell.lookAt($player1);
+	
+	//sys.println("void secondRoomPrep::end");
+
+} //-------------- End void secondRoomPrep ---------------
+
+
+//-------------------------------------------------------------------------------
+// void nessDeGroffSequence()
+//
+// Ness and $DeGroff doing their thing next to the EMP.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void nessDeGroffSequence()
+{
+	//sys.println("void nessDeGroffSequence::begin");
+
+	$Ness.setTalkState(TALK_WAIT);
+	$DeGroff.setTalkState(TALK_WAIT);
+
+	aiScriptedAnimLoop($DeGroff, "console_idle", 0);
+
+	// tell ness to talk
+	aiSpeakWait($Ness, "lipsync_vo_1_2_1_20_1");
+
+	sys.wait(.5);
+	aiSpeakWait($DeGroff, "lipsync_vo_1_2_1_20_2");
+	
+	// $DeGroff get's back to work and Ness retorts
+//	aiScriptedAnimLoop($Ness, "sarge_briefing_1", 5);
+	sys.wait(.5);
+	aiSpeakWait($Ness, "lipsync_vo_1_2_1_20_3");
+	
+	// switch animations again for a more interesting sequence
+//	aiScriptedAnimLoop($Ness, "sarge_briefing_5", 5);
+	
+	// $DeGroff can now talk to the player
+	aiScriptedFace($DeGroff, $player1, 1);
+	$Ness.lookAt($player1);
+	$DeGroff.setPassivePrefix("player");
+	$DeGroff.setTalkState(TALK_OK);
+
+	//sys.println("void nessDeGroffSequence::end");
+
+} //-------------- End void nessDeGroffSequence ---------------
+
+
+//-------------------------------------------------------------------------------
+// void kovakRodemanSequence()
+//
+// Kovak and Rodeman discuss the mission.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void kovakRodemanSequence()
+{
+	//sys.println("kovakRodemanSequence::begin");
+
+	$Rodeman.setTalkState(TALK_WAIT);
+	$Kovak.setTalkState(TALK_WAIT);
+
+	aiSpeakWait($Rodeman, "lipsync_vo_1_2_1_30_1");
+	sys.wait(.5);
+	aiSpeakWait($Kovak, "lipsync_vo_1_2_1_30_2");
+
+	aiSpeakWait($Rodeman, "lipsync_vo_1_2_1_30_4");
+	sys.wait(.5);
+	$Kovak.lookAt($player1);
+	aiSpeakWait($Kovak, "lipsync_vo_1_2_1_30_5");
+	$Rodeman.setTalkState(TALK_OK);
+
+	$Kovak.lookAt($null_entity);
+	$Rodeman.lookAt($null_entity);
+
+	//sys.println("kovakRodemanSequence::end");
+
+} //-------------- End void kovakRodemanSequence ---------------
+
+
+//-------------------------------------------------------------------------------
+// void cortezTalks()
+//
+// Cortez talks to the player.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void cortezTalks()
+{
+	//sys.println("void cortezTalks::begin");
+
+	sys.wait(1);
+	$Cortez.lookAt($player1);
+	aiSpeakWait($Cortez, "lipsync_vo_1_2_1_10_1");
+	$Cortez.lookAt($null_entity);
+	$Cortez.setTalkState(TALK_OK);
+
+	//sys.println("void cortezTalks::end");
+
+} //-------------- End void cortezTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void sledgeTalks()
+//
+// Sledge talks to the player.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void sledgeTalks()
+{
+	//sys.println("void sledgeTalks::begin");
+
+	$Sledge.lookAt($player1);
+	aiSpeakWait($Sledge, "lipsync_vo_1_2_1_05_1");
+	$Sledge.setTalkState(TALK_OK);
+
+	//sys.println("void sledgeTalks::end");
+
+} //-------------- End void sledgeTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void morrisTalks()
+//
+// Morris talks to the player.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void morrisTalks()
+{
+	//sys.println("void morrisTalks::begin");
+
+	aiSpeakWait($Morris, "lipsync_vo_1_2_1_40_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_40_2");
+	sys.wait(.5);
+	aiSpeakWait($Morris, "lipsync_vo_1_2_1_40_3");
+	$Morris.setTalkState(TALK_OK);
+
+	//sys.println("void morrisTalks::end");
+
+} //-------------- End void morrisTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void bidwellTalks()
+//
+// bidwell talks to the player.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void bidwellTalks()
+{
+	//sys.println("void bidwellTalks::begin");
+	
+	// Locate Bidwell
+	sys.trigger($item_objectivecomplete_4);
+
+	$Bidwell.setTalkState(TALK_OK);
+	aiSpeak($Bidwell, "lipsync_vo_1_2_1_60_1");
+	sys.wait(2.75);
+	aiScriptedAnim($Bidwell, "point_back", 4, 1);
+	aiSpeakDone( $Bidwell );	
+	$Bidwell.lookAt($null_entity);
+	$vehicle_flatbed_6.lock(0);
+
+	//sys.println("void bidwellTalks::end");
+
+} //-------------- End void bidwellTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void cassidyDropTurret()
+//
+// Cassidy tells the player about drop turrets.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void cassidyDropTurret()
+{
+	radioChatterPlayWait($chatter, "vo_1_2_1_102_1");
+	allowChatter = 1;
+
+} //-------------- End void cassidyDropTurret ---------------
+
+
+//-------------------------------------------------------------------------------
+// void cassidyMines()
+//
+// Cassidy warns the player of mines.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void cassidyMines()
+{
+	//sys.println("void cassidyMines::begin");
+
+	while(!allowChatter)
+	{
+		sys.wait(1);
+	}
+
+	radioChatterPlay($chatter, "vo_1_2_1_100_1");
+
+	allowChatter = 0;
+
+	//sys.println("void cassidyMines::end");
+
+} //-------------- End void cassidyMines ---------------
+
+
+//-------------------------------------------------------------------------------
+// void endSecondRide()
+//
+// Radiochatter when the player gets out of the truck.
+//
+// mekberg | mrenner | Mar 2005
+//-------------------------------------------------------------------------------
+void endSecondRide()
+{
+	radioChatterPlayWait($chatter, "vo_1_2_1_200_1");
+	radioChatterPlayWait($chatter, "vo_1_2_1_200_2");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_200_3");
+	radioChatterPlayWait($chatter, "vo_1_2_1_200_4");
+	radioChatterPlayWait($chatter, "vo_1_2_1_200_5");
+	sys.trigger($item_objective_4);
+
+	$monster_turret_bunker_7.kill();
+	$monster_turret_bunker_12.kill();
+	$monster_turret_bunker_14.kill();
+	$monster_turret_flying_6.kill();
+	$monster_turret_bunker_6.kill();
+	$monster_turret_bunker_11.kill();
+	$monster_turret_flying_5.kill();
+	$monster_turret_bunker_19.kill();
+	
+	sys.wait(.3);
+	radioChatterPlayWait($chatter, "vo_1_2_0_94_6");
+	sys.wait(.2);
+	radioChatterPlayWait($chatter, "vo_1_2_0_96_1");
+
+} //-------------- End void endSecondRide ---------------
+
+
+//-------------------------------------------------------------------------------
+// void exitSecondTruck()
+//
+// Player exits the truck to run into the building.
+//
+// mrenner | Mar 2005
+//-------------------------------------------------------------------------------
+void exitSecondTruck()
+{
+	$bumperTrig_3.remove();
+	$bumperTrig_1.remove();
+	$bumperTrig_2.remove();
+
+	$vehicle_flatbed_6.lock(1);
+	sys.trigger($light_9275);
+
+	$func_door_106.lock(1);
+
+} //-------------- End void exitSecondTruck ---------------
+
+
+//-------------------------------------------------------------------------------
+// void startingElevator()
+//
+// Intro lift going down.
+//
+// mekberg | mrenner | Mar 2005
+//-------------------------------------------------------------------------------
+void startingElevator()
+{
+	setNewTimes($hangar_floor, 10, .5, .5);
+	$hangar_floor.moveTo( $hangarFloorDown );
+
+	$mcc.show();
+	$mcc.playAnim(ANIMCHANNEL_ALL, "door_open_idle");
+	
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_0_10_1");
+
+	sys.trigger($item_objective_1);
+
+} //-------------- End void startingElevator ---------------
+
+
+//-------------------------------------------------------------------------------
+// void startingElevatorUp()
+//
+// Intro lift going up and removing everything that isn't needed.
+//
+// mrenner | Mar 2005
+//-------------------------------------------------------------------------------
+void startingElevatorUp()
+{
+	$liftClip.show();
+	setNewTimes($hangar_floor, 10, .5, .5);
+	$hangar_floor.moveTo( $hangarFloorUp );
+	
+	sys.wait(3);
+	$liftClip.hide();
+	
+	sys.waitFor($hangar_floor);
+		
+	playAnimWait($mcc, ANIMCHANNEL_ALL, "door_close");	
+	$hangar_guts.hide();
+	$hangar_floor.hide();
+	$shaftPiston.hide();
+	$innerShaftPiston.hide();
+	$light_8412.remove();
+	$corey_light_3424.remove();
+	
+} //-------------- End void startingElevatorUp ---------------
+
+
+//-------------------------------------------------------------------------------
+// void warTalks1()
+//
+// War proceeds to checkpoint one.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void warTalks1()
+{
+	//sys.println("void warTalks1::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_115_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_115_2");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_115_3");
+
+	sys.wait(2);
+	// Moved from void bravo8Talks.
+	radioChatterPlayWait($chatter, "vo_1_2_1_125_1");
+
+	//sys.println("void warTalks1::end");
+
+} //-------------- End void warTalks1 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void pitmanTalks()
+//
+// Pitman talks to the player, telling him to head to the convoy.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void pitmanTalks()
+{
+	//sys.println("void pitmanTalks::begin");
+
+	thread startingElevatorUp();
+
+	$Pitman.lookAt($player1);
+	aiSpeak($Pitman, "lipsync_vo_1_2_0_12_1");
+	$Pitman.setTalkState(TALK_OK);
+	aiScriptedAnimWait($Pitman, "point_back", 4, 1);
+	aiSpeakDone( $Pitman );	
+	
+	sys.wait(sys.random(1) + 1);
+	warTalks1();
+	
+	//sys.println("void pitmanTalks::end");
+
+} //-------------- End void pitmanTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void brownTalks1()
+//
+// Brown says the coast is clear.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void brownTalks1()
+{
+	//sys.println("void brownTalks1::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_0_11_1");
+
+	//sys.println("void brownTalks1::end");
+
+} //-------------- End void brownTalks1 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spencerTalks()
+//
+// spencer says the coast is clear.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void spencerTalks()
+{
+	//sys.println("void spencerTalks::begin");
+
+	thread marineFighterFlyby();
+
+	$Spencer.lookAt($player1);
+//	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_20_1");
+//	sys.wait(1);
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_30_1");
+
+	//sys.println("void spencerTalks::end");
+
+} //-------------- End void spencerTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void famineTalks()
+//
+// Famine is in transit
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void famineTalks()
+{
+	//sys.println("void famineTalks::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_105_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_105_2");
+
+	//sys.println("void famineTalks::end");
+
+} //-------------- End void famineTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void vossWarning1()
+//
+// Voss warns Kane.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void vossWarning1()
+{
+	//sys.println("void vossWarning1::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_120_1");
+
+	//sys.println("void vossWarning1::end");
+
+} //-------------- End void vossWarning1 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void bravo8Talks()
+//
+// Bravo 8 does a flyby.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void bravo8Talks()
+{
+	//sys.println("void bravo8Talks::begin");
+
+//	radioChatterPlayWait($chatter, "vo_1_2_1_125_1");
+
+	sys.wait(3);
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_52_1");
+
+	//sys.println("void bravo8Talks::end");
+
+} //-------------- End void bravo8Talks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void deathTalks1()
+//
+// Death tells HQ they are moving forward.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void deathTalks1()
+{
+	//sys.println("void deathTalks1::begin");
+
+	sys.trigger($firstTruckGuysPassive);
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_135_1");
+
+//	sys.wait(1);
+//	aiSpeak($Spencer, "lipsync_vo_1_2_0_58_1");
+
+	//sys.println("void deathTalks1::end");
+
+} //-------------- End void deathTalks1 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void warTalks2()
+//
+// War is under attack from infantry.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void warTalks2()
+{
+	//sys.println("void warTalks2::begin");
+
+//	radioChatterPlayWait($chatter, "vo_1_2_1_145_1");
+//	sys.wait(.5);
+//	radioChatterPlayWait($chatter, "vo_1_2_1_145_2");
+
+	sys.wait(2);
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_147_1");
+	sys.wait(.4);
+	radioChatterPlayWait($chatter, "vo_1_2_1_147_2");
+	radioChatterPlayWait($chatter, "vo_1_2_1_147_3");
+	radioChatterPlayWait($chatter, "vo_1_2_1_147_4");
+
+	//sys.println("void warTalks2::end");
+
+} //-------------- End void warTalks2 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void vossWarning2()
+//
+// Voss warns the player again.
+//
+// mekberg | mrenner | Apr 2005
+//-------------------------------------------------------------------------------
+void vossWarning2()
+{
+	//sys.println("void vossWarning2::begin");
+
+	//radioChatterPlayWait($chatter, "vo_1_2_1_140_1");
+	//sys.wait(1);
+
+	$trigger_touch_1.remove();
+	$trigger_touch_2.remove();
+	$trigger_touch_3.remove();
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_145_1");
+	radioChatterPlayWait($chatter, "vo_1_2_1_145_2");
+
+	warTalks2();
+
+	//sys.println("void vossWarning2::end");
+
+} //-------------- End void vossWarning2 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void pestilenceTalks()
+//
+// Pestilence tells HQ about their status.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void pestilenceTalks()
+{
+	//sys.println("void pestilenceTalks::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_150_1");
+	sys.wait(2);
+	brownTalks1();
+
+	//sys.println("void pestilenceTalks::end");
+
+} //-------------- End void pestilenceTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void deathTalks2()
+//
+// Death is asked about status.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void deathTalks2()
+{
+	//sys.println("void deathTalks2::begin");
+
+	radioChatterPlayWait($chatter, "vo_1_2_1_170_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_170_2");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_1_170_3");
+
+	//sys.println("void deathTalks2::end");
+
+} //-------------- End void deathTalks2 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void firstMarineExplosion()
+//
+// Makes the guy run for cover.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void firstMarineExplosion()
+{
+	//sys.println("void firstMarineExplosion::begin");
+
+	aiScriptedAnimWait($convoy_char_marine_1, "take_cover2_mid", 4, 1);
+	aiScriptedAnimLoop($convoy_char_marine_1, "take_cover2_end", 4);
+
+	//sys.println("void firstMarineExplosion::end");
+
+} //-------------- End void firstMarineExplosion ---------------
+
+
+//-------------------------------------------------------------------------------
+// void secondMarineExplosion()
+//
+// Makes the guy run for cover.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void secondMarineExplosion()
+{
+	//sys.println("void secondMarineExplosion::begin");
+
+	aiScriptedAnimWait($convoy_char_marine_2, "take_cover1_mid", 4, 1);
+	aiScriptedAnimLoop($convoy_char_marine_2, "take_cover1_end", 4);
+
+	//sys.println("void secondMarineExplosion::end");
+
+} //-------------- End void secondMarineExplosion ---------------
+
+
+//-------------------------------------------------------------------------------
+// void cannonExplosion()
+//
+// Cannon explosion with two marines.
+//
+// mekberg | mrenner | May 2005
+//-------------------------------------------------------------------------------
+void cannonExplosion()
+{
+	//sys.println("void cannonExplosion::begin");
+
+	$convoy_char_marine_front.remove();
+	$convoy_char_marine_rear.remove();
+	$marine_crate.remove();
+
+//	thread spencerHawkinsCannon();
+
+	sys.trigger($convoy_char_marine_1);
+	sys.trigger($convoy_char_marine_2);
+	sys.waitFrame();
+	
+//	aiScriptedAnimLoop($convoy_char_marine_1, "take_cover2_start", 4);
+//	aiScriptedAnimLoop($convoy_char_marine_2, "take_cover1_start", 4);
+
+	sys.wait(6);
+	
+	sys.trigger($speaker_explosion);
+	sys.trigger($cannon_explosion);
+	sys.trigger($cannon_smoke);
+
+	sys.trigger($ai_tether_radius_60);
+	
+//	thread firstMarineExplosion();
+//	thread secondMarineExplosion();
+
+	$Hawkins.forcePosture(AIPOSTURE_CROUCH);
+	sys.wait(.25);
+	$Spencer.forcePosture(AIPOSTURE_CROUCH);
+
+	sys.wait(.75);
+	
+//	sys.trigger($cannonTankTether);
+
+	sys.trigger($speaker_explosion_hh);
+
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_48_1");
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_48_2");
+
+	//sys.println("void cannonExplosion::end");
+
+} //-------------- End void cannonExplosion ---------------
+
+
+//-------------------------------------------------------------------------------
+// void tunnelSequence()
+//
+// Sequence with rescuing marines in the tunnel.
+//
+// mekberg | mrenner | Jun 2005
+//-------------------------------------------------------------------------------
+void tunnelSequence()
+{
+	//sys.println("void tunnelSequence::begin");
+
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_54_2");
+	
+	sys.wait(2);
+
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_54_3");
+
+	sys.wait(2);
+
+	sys.trigger($tun_end_3);
+	sys.trigger($ai_trigger_once_1);
+
+	//sys.println("void tunnelSequence::end");
+
+} //-------------- End void tunnelSequence ---------------
+
+
+//-------------------------------------------------------------------------------
+// void tunnelVO()
+//
+// Sequence with rescuing marines in the tunnel.
+//
+// mekberg | mrenner | Jun 2005
+//-------------------------------------------------------------------------------
+void tunnelVO()
+{
+	//sys.println("void tunnelVO::begin");
+
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_54_1");
+	
+	aiSpeakWait($Spencer, "lipsync_vo_1_2_0_54_2");
+	
+	sys.wait(2);
+
+	aiSpeakWait($Hawkins, "lipsync_vo_1_2_0_54_3");
+
+	sys.wait(2);
+
+	sys.trigger($tun_end_3);
+	sys.trigger($ai_trigger_once_1);
+	
+	//sys.println("void tunnelVO::end");
+
+} //-------------- End void tunnelVO ---------------
+
+//-------------------------------------------------------------------------------
+// void trucksMarines()
+//
+// Setup the trucks and marines
+//
+// mrenner | Jun 2005
+//-------------------------------------------------------------------------------
+void trucksMarines()
+{
+	//sys.println("void trucksMarines::begin");
+
+	$vehicle_flatbed_1.lock(0);
+
+	$vehicle_flatbed_2.lock(1);
+	$vehicle_flatbed_3.lock(1);
+	$vehicle_flatbed_4.lock(1);
+	$vehicle_flatbed_5.lock(1);
+	$vehicle_flatbed_6.lock(1);
+
+	sys.trigger($Pitman);
+	sys.trigger($Spencer);
+	sys.trigger($Hawkins);
+	sys.trigger($Nguyen);
+	//	sys.trigger($Yongue);
+
+	//sys.println("void trucksMarines::end");
+
+} //-------------- End void trucksMarines ---------------
+
+void forTesting()
+{
+	//sys.println("void forTesting::begin");
+
+	thread enterTruck();
+}
+
+//-------------------------------------------------------------------------------
+// void main()
+//
+// Main function. Called on worldspawn.
+//
+// mekberg | Mar 2005
+//-------------------------------------------------------------------------------
+void main()
+{
+	sys.sendNamedEvent( GUI_PLAYERHUD, "showHud" );
+	sys.fadeIn( '0 0 0', 2);
+
+	allowOccupance = 1;
+
+	$Spencer.setTalkState(TALK_WAIT);
+	$Hawkins.setTalkState(TALK_WAIT);
+
+	$player1.enableWeapon();
+	$player1.enableTarget();
+
+	// Elevator going down with marine escort
+	thread startingElevator();
+	
+	// twhitaker: added convoy truck health regeneration
+	thread manageConvoyHealth( $vehicle_flatbed_1 );
+
+	// setup the trucks and marines
+	thread trucksMarines();
+	
+	// fill the player up on everthing he needs before the level trans.
+	$player1.setHealth(100);
+	$player1.setArmor(100);
+	$player1.refillAmmo();
+	$player1.selectWeapon( "weapon_grenadelauncher" );
+
+	$vehicle_flatbed_2.show();
+	sys.wait(1.5);
+	$vehicle_flatbed_3.show();
+//	thread forTesting();
+
+	$vehicle_flatbed_6.setHealth(99999999999999999999999999);
+
+} //-------------- End void main ---------------
+
+void unbindPlayer()
+{
+	$player1.unbind();
+	//MCG: Reset the player's proj passEntity
+	$player1.setExtraProjPassEntity( $null_entity );
+}
+
+}	//end namespace

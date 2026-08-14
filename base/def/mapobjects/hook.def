@@ -1,0 +1,39 @@
+/***********************************************************************
+HOOK_BASE
+***********************************************************************/
+
+export hook
+{
+	options -prefix HOOK_ -scale .3937
+
+	mesh	work/models/characters/tube_marine/animations/tubemarine_hook_idle.ma		-dest models/mapobjects/strogg/stroyent/dispersal/hook_base_idle
+	anim	work/models/characters/tube_marine/animations/tubemarine_hook_idle.ma		-dest models/mapobjects/strogg/stroyent/dispersal/hook_base_idle
+	anim	work/models/characters/tube_marine/animations/tubemarine_hook_idle2.ma		-dest models/mapobjects/strogg/stroyent/dispersal/hook_base_idle2
+	anim	work/models/characters/tube_marine/animations/tubemarine_hook_anim.ma		-dest models/mapobjects/strogg/stroyent/dispersal/hook_base_anim
+	anim	work/models/characters/tube_marine/animations/hook_base_origin.ma			-dest models/mapobjects/strogg/stroyent/dispersal/hook_base_origin
+	
+}
+
+model model_env_hook_base
+{
+	mesh					models/mapobjects/strogg/stroyent/dispersal/hook_base_idle.md5mesh
+	anim idle				models/mapobjects/strogg/stroyent/dispersal/hook_base_idle.md5anim
+	anim idle2				models/mapobjects/strogg/stroyent/dispersal/hook_base_idle2.md5anim
+	anim hook_base_anim		models/mapobjects/strogg/stroyent/dispersal/hook_base_anim.md5anim	
+	anim hook_base_origin	models/mapobjects/strogg/stroyent/dispersal/hook_base_origin.md5anim	
+}
+
+entityDef env_hook_base
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted hook for dispersal2"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_env_hook_base"
+	"start_anim"			"idle"
+	"anim"					"hook_base_anim"
+}

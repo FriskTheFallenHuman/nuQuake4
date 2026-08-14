@@ -1,0 +1,144 @@
+//----------------------------------------------------------------
+// mp.def
+//
+// Copyright 2002-2004 Raven Software
+//----------------------------------------------------------------
+
+entityDef mp_ctf_flag
+{
+	"spawnclass"		"rvItemCTFFlag"
+	"size"				"40 40 68"
+	"triggerbounds"		"40 40 68"
+	"model" 			"models/mp/mp_flag.lwo"
+	"fx_respawn"		"effects/mp/itemrespawn.fx"
+	"editor_ignore"		"1"
+	"net_syncPhysics"	"1"
+}
+
+entityDef mp_ctf_marine_flag
+{
+	"inherit"			"mp_ctf_flag"
+	"skin"				"skins/items/ctf_marine_flag"
+	"editor_color"			".3 .3 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 32"
+	"editor_usage"			"CTF Marine Flag"
+	"filter_CTF"			"1"
+	"filter_One Flag CTF"		"1"
+	"filter_Arena CTF"		"1"
+	"filter_Arena One Flag CTF" 	"1"
+	
+	"inv_name"			"#str_107421"
+	"team"				"0"
+	"editor_ignore"			"0"
+}
+
+entityDef mp_ctf_strogg_flag
+{
+	"inherit"			"mp_ctf_flag"
+	"skin"				"skins/items/ctf_strogg_flag"
+	"editor_color"			".3 .3 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 32"
+	"editor_usage"			"CTF Strogg Flag"
+	"filter_CTF"			"1"
+	"filter_One Flag CTF"		"1"
+	"filter_Arena CTF"		"1"
+	"filter_Arena One Flag CTF" 	"1"
+	
+	"inv_name"			"#str_107422"
+	"team"				"1"
+	"editor_ignore"			"0"
+}
+
+entityDef mp_ctf_one_flag
+{
+	"inherit"			"mp_ctf_flag"
+	"skin"				"skins/items/ctf_one_flag"
+	"editor_color"			".3 .3 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 32"
+	"editor_usage"			"CTF Strogg Flag"
+	"filter_One Flag CTF"		"1"
+	"filter_Arena One Flag CTF" 	"1"
+	
+	"inv_name"			""
+	"team"				"2"
+	"editor_ignore"			"0"
+}
+
+entityDef mp_ctf_flag_pole
+{
+	"size"				"64 64 72"
+	"model" 			"models/mapobjects/multiplayer/ctf_base/flag_projector_pole.lwo"
+	"joint"				"shoulders"
+	"origin"			"-8 0 -16"
+	"angles"			"-40.22 41.66 107.72"
+	
+	"editor_ignore"			"1"
+}
+
+entityDef mp_ctf_flag_world
+{
+	"size"				"64 64 72"
+	"model" 			"models/mp/mp_flag_world.lwo"
+	"joint"				"shoulders"
+	"origin"			"-6 0 6"
+	"angles"			"-40.22 41.66 107.72"
+	
+	"editor_ignore"			"1"
+}
+
+entityDef mp_ctf_marine_flag_world
+{
+	"inherit"			"mp_ctf_flag_world"
+	"skin"				"skins/items/ctf_marine_flag_world"
+}
+
+entityDef mp_ctf_strogg_flag_world
+{
+	"inherit"			"mp_ctf_flag_world"
+	"skin"				"skins/items/ctf_strogg_flag_world"
+}
+
+entityDef mp_ctf_assaultpoint {
+	"editor_color"			"1 0 0"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 64"
+	"editor_showangle"		"1"
+
+	"editor_usage"			"Assault Point for CTF games"
+	"editor_var targetStroggAP"	"The next Assault Point on the way to the Strogg flag."
+	"editor_var targetMarineAP"	"The next Assault Point on the way to the Marine flag."
+	
+	"spawnclass"			"rvCTF_AssaultPoint"
+	"model"				"models/mapobjects/fuel_barrel/exp_barrel.lwo"
+	"skin"				"skins/ddynerman/white"
+}
+
+entityDef env_heartpump_mp {
+	"inherit"			"env_heartpump"
+	"snd_pump_in"			"heart_pump_in_mp"
+	"snd_pump_out"			"heart_pump_out_mp"
+	"editor_ignore"			"1"
+}
+
+entityDef mp_icon {
+	"model"				"_sprite"
+}
+
+// The lowest number of players is 4 and assumed if less than the first entry.
+// The first column is GHz and the second column is max players.  Note that the
+// code driving this system compares against the max players in the server.
+entityDef MPCPUIntelPlayerLimit {
+	"1.8"				"8"
+	"2.4"				"12"
+	"2.8"				"16"
+}
+
+entityDef MPCPUAMDPlayerLimit {
+	"1.4"				"8"
+	"1.8"				"12"
+	"2.0"				"16"
+}
+

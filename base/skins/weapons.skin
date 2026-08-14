@@ -1,0 +1,24 @@
+
+
+skin skins/nailgun_quaddamage
+{
+	"*"		"models/quaddamage"
+}
+
+skin skins/weapons/hyperblaster/nobounce
+{
+	"models/weapons/hyperblaster/battery1"		"textures/common/nodraw"
+	"models/weapons/hyperblaster/battery2"		"textures/common/nodraw"
+}
+
+skin skins/weapons/hyperblaster/bounce1
+{
+	"models/weapons/hyperblaster/battery2"		"textures/common/nodraw"
+	"models/weapons/hyperblaster/battery3"		"textures/common/nodraw"
+}
+
+skin skins/weapons/hyperblaster/bounce2
+{
+	"models/weapons/hyperblaster/battery1"		"textures/common/nodraw"
+	"models/weapons/hyperblaster/battery3"		"textures/common/nodraw"
+}

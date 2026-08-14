@@ -1,0 +1,47 @@
+
+/**********************************************************************
+CRUCIFIED MARINE
+
+***********************************************************************/
+
+export crucified
+{		
+	options -prefix CRU_ -align ALL 
+		  
+	mesh	work/models/mapobjects/strogg/bio_machines/crucified_guy/animation/crucified_idle.ma	-dest models/mapobjects/strogg/bio_machines/crucified_guy/mesh
+	anim	work/models/mapobjects/strogg/bio_machines/crucified_guy/animation/crucified_idle.ma	-dest models/mapobjects/strogg/bio_machines/crucified_guy/idle
+}
+
+entityDef env_crucified
+{
+	
+
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Animated crucified guy"
+	"model"							"model_env_crucified"
+	"spawnclass"						"idAnimated"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"						"idle"
+	
+	"snd_crucified"					"generic_crucified"
+	
+
+}
+
+model model_env_crucified
+{
+	mesh					models/mapobjects/strogg/bio_machines/crucified_guy/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/bio_machines/crucified_guy/idle.md5anim
+	{
+		frame 1						sound	snd_crucified
+	}
+	
+
+}
+

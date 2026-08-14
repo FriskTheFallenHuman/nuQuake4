@@ -1,0 +1,4341 @@
+lights/defaultPointLight
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	// this will also be the falloff for any
+																	// point light shaders that don't specify one
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/default_global_startoff
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		if (global1>0)
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/default_global_starton
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		if (global1==0)
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+//Sound causes the light to dim.
+lights/defaultPointLight_snd_reverse
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	// this will also be the falloff for any
+																	// point light shaders that don't specify one
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		red 		Parm0 - (.8 * sound)
+		green 		Parm1 - (.8 * sound)
+		blue 		Parm2 - (.8 * sound)
+
+		zeroClamp
+	}
+}
+
+lights/defaultProjectedLight
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/defaultProjectedLight_snd_reverse
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		red 		Parm0 - (.8 * sound)
+		green 		Parm1 - (.8 * sound)
+		blue 		Parm2 - (.8 * sound)
+
+		zeroClamp
+	}
+}
+
+// an ambient light will do non-directional bump mapping, and won't have specular lighting
+// or shadows
+lights/ambientLight
+{
+	ambientLight
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	{
+		map gfx/lights/squarelight1a.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/ambientLight2
+{
+	ambientLight
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	{
+		map gfx/lights/squarelight1a.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/ambientLight_nofall
+{
+	ambientLight
+
+	lightFalloffImage	_white
+
+	{
+		map _white
+		colored
+		zeroClamp
+	}
+}
+
+lights/grenade_flicker
+{	
+	{
+		map		gfx/lights/round.tga
+		red		parm0 * guitable_random1[time * 2]  
+		green		parm1 * guitable_random1[time * 2]  
+		blue		parm2 * guitable_random1[time * 2]  
+					
+		zeroclamp
+	}
+}
+
+
+//parm 3=flicker speed	parm 4=offset
+
+lights/killtest
+{
+	{
+		if ( parm6 == 1 )
+		map		gfx/lights/squarelight1.tga
+		red 		( ( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * (Parm0 * acceleratorfade [ time / 7 ] ) )
+		green 		( ( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * (Parm1 * acceleratorfade [ time / 7 ] ) )
+		blue 		( ( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * (Parm2 * acceleratorfade [ time / 7 ] ) )
+		zeroclamp
+	}
+	{
+		if ( parm6 == 0 )
+		map		gfx/lights/squarelight1.tga
+		red 		( ( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * Parm0 )
+		green 		( ( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * Parm1 )
+		blue 		( ( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * Parm2 )
+		zeroclamp
+	}
+}
+
+lights/hovertruck
+{
+	{
+		map	gfx/lights/hovertruck.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/hovertruck_snd
+{
+	{
+		map	gfx/lights/hovertruck.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/square
+{
+	{
+		map	gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/square_snd
+{
+	{
+		map	gfx/lights/squarelight1.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/square_snd_global_starton
+{
+	{
+		if (global1==0)
+		map	gfx/lights/squarelight1.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+	
+}
+
+lights/square_snd_global_startoff
+{
+
+	{
+		if (global1>0)
+		map	gfx/lights/squarelight1.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+	
+}
+
+lights/square_techflash
+{
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		( lightning [Parm4 + (time * (8 * Parm3)) ]) * Parm0
+		green 		( lightning [Parm4 + (time * (8 * Parm3)) ]) * Parm1
+		blue 		( lightning [Parm4 + (time * (8 * Parm3)) ]) * Parm2
+		zeroClamp
+	}
+}
+
+lights/squareish
+{
+	{
+		map	gfx/lights/squareishlight.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/squareish_snd
+{
+	{
+		map	gfx/lights/squarelight1.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/outdoor_flash
+{
+	{
+		map		gfx/lights/squarelight1.tga
+		RGB		1 + ((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+		zeroClamp
+	}
+}
+
+lights/outdoor_flash_black
+{
+	{
+		map		gfx/lights/squarelight1.tga
+		RGB		((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+		zeroClamp
+	}
+}
+
+/* removed - corey
+lights/outdoor_biggun
+{
+	{
+		map		gfx/lights/squarelight1.tga
+		red		((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+		green	((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+		blue	((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+//		red 	( canyon_lightning [Parm4 + (time * (8 * Parm3)) ]) * Parm0
+//		green 	( canyon_lightning [Parm4 + (time * (8 * Parm3)) ]) * Parm1
+//		blue 	( canyon_lightning [Parm4 + (time * (8 * Parm3)) ]) * Parm2
+		zeroClamp
+	}
+}
+*/
+lights/square_blast
+{
+	{
+
+		map		gfx/lights/squarelight1.tga
+		red 		( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * Parm0
+		green 	( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * Parm1
+		blue 		( blasttable [Parm4 + (time / 6 * (Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/square_strobe
+{
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		( blinktable2 [Parm4 + (time * (6 * Parm3)) ]) * Parm0
+		green 		( blinktable2 [Parm4 + (time * (6 * Parm3)) ]) * Parm1
+		blue 		( blinktable2 [Parm4 + (time * (6 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/square_brokenneon2
+{	
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		( neontable2 [Parm4 + (time * (.15 * Parm3)) ]) * Parm0
+		green 		( neontable2 [Parm4 + (time * (.15 * Parm3)) ]) * Parm1
+		blue 		( neontable2 [Parm4 + (time * (.15 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/square_brokenneon1
+{	
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		( neontable1 [Parm4 + (time * (.2 * Parm3)) ]) * Parm0
+		green 		( neontable1 [Parm4 + (time * (.2 * Parm3)) ]) * Parm1
+		blue 		( neontable1 [Parm4 + (time * (.2 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+
+lights/square_flicker2
+{	
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		( flashtable [Parm4 + (time * (.25 * Parm3)) ]) * Parm0
+		green 	( flashtable [Parm4 + (time * (.25 * Parm3)) ]) * Parm1
+		blue 		( flashtable [Parm4 + (time * (.25 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/square_flicker
+{			//used by ken in dispersal	
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm0
+		green 	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm1
+		blue 		((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm2
+		zeroclamp
+	}
+}
+
+
+lights/round
+{
+	{
+		map gfx/lights/round.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/round_snd
+{	
+	{
+		map		gfx/lights/round.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroclamp
+	}
+}
+
+lights/round_sin
+{	
+	{
+		map			gfx/lights/round.tga
+		red 		( sintable [Parm4 + (time * Parm3)] ) * Parm0
+		green 		( sintable [Parm4 + (time * Parm3)] ) * Parm1
+		blue 		( sintable [Parm4 + (time * Parm3)] ) * Parm2
+		zeroclamp
+	}
+}
+
+//start roger
+
+lights/round_pulse_roger
+{	
+	{
+		map			gfx/lights/round.tga
+		red		1.000000 * blinktable[time * 2]  
+		green		0.266667 * blinktable[time * 2]  
+		blue		0.000000 * blinktable[time * 2] 
+		zeroclamp
+	}
+}
+
+//end roger
+
+
+lights/round_pulse
+{	
+	{
+		map			gfx/lights/round.tga
+		red			Parm0 * blinktable[time * 2]  
+		green		Parm1 * blinktable[time * 2]  
+		blue		Parm2 * blinktable[time * 2] 
+		zeroclamp
+	}
+}
+
+
+lights/round_pulse_long
+{
+	lightFalloffImage	makeIntensity( gfx/lights/Falloff_MSlow.tga )	
+	{
+		map			gfx/lights/round.tga
+		red			Parm0 * blinktable[time * 2]  
+		green		Parm1 * blinktable[time * 2]  
+		blue		Parm2 * blinktable[time * 2] 
+		zeroclamp
+	}
+}
+
+lights/round_strobe
+{	
+	{
+		map		gfx/lights/round.tga
+		red 		( blinktable2 [Parm4 + (time * (6 * Parm3)) ]) * Parm0
+		green 	( blinktable2 [Parm4 + (time * (6 * Parm3)) ]) * Parm1
+		blue 		( blinktable2 [Parm4 + (time * (6 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/round_brokenneon2
+{	
+	{
+		map		gfx/lights/round.tga
+		red 		( neontable2 [Parm4 + (time * (.15 * Parm3)) ]) * Parm0
+		green 	( neontable2 [Parm4 + (time * (.15 * Parm3)) ]) * Parm1
+		blue 		( neontable2 [Parm4 + (time * (.15 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/round_brokenneon1
+{	
+	{
+		map		gfx/lights/round.tga
+		red 		( neontable1 [Parm4 + (time * (.2 * Parm3)) ]) * Parm0
+		green 	( neontable1 [Parm4 + (time * (.2 * Parm3)) ]) * Parm1
+		blue 		( neontable1 [Parm4 + (time * (.2 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/round_flicker
+{	
+	{
+		map		gfx/lights/round.tga
+		red 		((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm0
+		green 	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm1
+		blue 		((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm2
+		zeroclamp
+	}
+}
+
+lights/round_flicker2
+{	
+	{
+		map		gfx/lights/round.tga
+		red 		( flashtable [Parm4 + (time * (.25 * Parm3)) ]) * Parm0
+		green 	( flashtable [Parm4 + (time * (.25 * Parm3)) ]) * Parm1
+		blue 		( flashtable [Parm4 + (time * (.25 * Parm3)) ]) * Parm2
+		zeroclamp
+	}
+}
+
+lights/round2
+{
+	{
+		map gfx/lights/round2.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/round2_snd
+{	
+	{
+		map		gfx/lights/round2.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/round3
+{
+	{
+		map gfx/lights/round3.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/floor3_1_round
+{
+	{
+		map gfx/lights/floor3_1_round.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/mlight01
+
+{
+	{
+		map	gfx/lights/mlight01.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/spot01
+{			//used by ken in dispersal
+	{
+		map	gfx/lights/spot01.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/squarelight1a
+{	
+	{
+
+		map	makeIntensity( gfx/lights/squarelight1a.tga )
+		colored
+		zeroClamp
+	}
+}
+
+lights/squarelight1
+{
+	{
+		map	gfx/lights/squarelight1.tga
+		colored
+		zeroclamp
+	}
+}
+
+lights/flashlight3
+{
+	{
+		map	gfx/lights/flashlight3.tga
+		zeroClamp
+		colored
+                rotate	time * .01
+	}
+}
+
+
+lights/walker
+{
+	{
+		map gfx/lights/Rav_Spot_02.tga
+		highQuality
+		zeroClamp
+		colored
+	}
+}
+
+lights/redlight01
+{
+	{
+		map	gfx/lights/redcircuit.tga
+		zeroClamp
+	}
+}
+
+lights/aqua2
+{			//used by ken in dispersal
+	{
+
+		map	gfx/lights/aqua2.tga
+
+		zeroClamp
+		colored
+	}
+}
+
+lights/warm_cool1
+{			//used by ken in dispersal
+	{
+
+		map	gfx/lights/warm_cool1.tga
+		zeroClamp
+		colored
+	}
+}
+
+
+lights/s_water
+{			//used by ken in dispersal
+	{
+
+		map	gfx/lights/s_water.tga
+		zeroClamp
+		colored
+	}
+}
+
+
+
+lights/j_nofall
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/j_nofall_strobe1
+{
+
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+		red	raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ] *  Parm0
+		green	raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ]	* Parm1
+		blue	raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ] 	* Parm2
+		zeroClamp
+	}
+}
+
+
+
+lights/j_nofall_pulse
+{
+
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+		red	raven_flicker1[ time * 1 ] * raven_flicker2[ time * 2 ]	* Parm0
+		green	raven_flicker1[ time * 1 ] * raven_flicker2[ time * 2 ]	* Parm1
+		blue	raven_flicker1[ time * 1 ] * raven_flicker2[ time * 2 ] 	* Parm2
+		zeroClamp
+	}
+}
+
+
+
+
+
+lights/j_nofall2
+{
+	lightFalloffImage	makeIntensity( gfx/lights/j_falloff2.tga ) 		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/j_nofall_spot1
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_spot1.tga
+		colored
+		zeroClamp
+		
+	}
+
+
+	{
+
+		if (parm4 == 1)
+		map gfx/lights/j_spot1.tga
+		colored
+		rgb raven_ramp_down [time * .1]	
+		zeroClamp
+
+
+	}
+
+
+	{
+
+		if (parm4 == 2)
+		map gfx/lights/j_spot1.tga
+		colored
+		rgb raven_power_drain [time * .1]	
+		zeroClamp
+
+
+	}
+
+
+	{
+
+		if (parm4 == 3)
+		map gfx/lights/j_spot1.tga
+		colored
+		rgb raven_ramp_up[time * .1]	
+		zeroClamp
+
+
+	}
+
+	{
+
+		if (parm4 == 4)
+		map gfx/lights/j_spot1.tga
+		colored
+		rgb raven_flicker3[time * .1]	
+		zeroClamp
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+}
+
+
+lights/j_nofall_spot1b
+{
+
+
+	{
+
+		map gfx/lights/j_spot1.tga
+		colored
+		rgb raven_ramp_down [parm5]	
+		zeroClamp
+
+
+	}
+
+
+}
+
+
+lights/j_swirl
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_swirl.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/chad_mesh
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/chad_mesh.tga )
+		colored
+		zeroClamp
+	}
+}
+
+lights/chad_mesh_blink1
+
+{	
+
+
+
+	{
+
+		map	gfx/lights/chad_mesh.tga 
+		red	raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ] *  Parm0
+		green	raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ]	* Parm1
+		blue	raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ] 	* Parm2
+
+
+
+		zeroClamp
+	}
+
+
+}
+
+
+
+lights/j_t
+{
+	{
+		map gfx/lights/test.tga
+		colored
+		zeroClamp
+		rotate	time * 3
+	}
+}
+
+
+
+lights/wall_light_1_4
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_4.tga )
+		colored
+		zeroClamp
+	}
+}
+
+
+
+lights/wall_light_1_5
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_5.tga )
+		colored
+		zeroClamp
+	}
+}
+
+
+
+lights/wall_light_1_5_flicker1
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_5.tga )
+
+		red	raven_flicker1[ time * 2 ] * raven_slight_flash[ time * 1 ] * Parm0
+		green	raven_flicker1[ time * 2 ] * raven_slight_flash[ time * 1 ]	* Parm1
+		blue	raven_flicker1[ time * 2 ] * raven_slight_flash[ time * 1 ] * Parm2
+
+
+		zeroClamp
+	}
+}
+
+
+
+
+lights/wall_light_1_6
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_6.tga )
+		red	raven_strobe1[ time * .2 ] * raven_blast[ time * .1 ] *  Parm0
+		green	raven_strobe1[ time * .2 ] * raven_blast[ time * .1 ]	* Parm1
+		blue	raven_strobe1[ time * .2 ] * raven_blast[ time * .1 ] 	* Parm2
+		zeroClamp
+	}
+}
+
+
+lights/wall_light_1_6b
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_6b.tga )
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/wall_light_1_6_flicker1
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_6.tga )
+		colored
+		rgb		raven_flicker1[ time * 1 ]
+
+		zeroClamp
+	}
+}
+
+lights/wall_light_1_6_flicker2
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_6.tga )
+		colored
+		rgb		raven_flicker2[ time * 1 ]
+
+		zeroClamp
+	}
+}
+
+
+lights/wall_light_1_6_slightflash
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_6.tga )
+		colored
+		rgb		raven_slight_flash[ time * 2 ]
+
+		zeroClamp
+	}
+}
+
+
+
+
+lights/wall_light_1_7
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7.tga )
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/wall_light_1_7_snd
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7.tga )
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		
+		zeroClamp
+	}
+}
+
+
+
+
+
+
+lights/wall_light_1_7b
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7b.tga )
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/wall_light_1_7b_snd
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7b.tga )
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		
+		zeroClamp
+	}
+}
+
+
+
+
+
+
+
+lights/wall_light_1_7_flicker1
+
+{	
+	{
+
+		map	 gfx/lights/wall_light_1_7.tga 
+		
+		red	parm0 * raven_flicker1[time]
+		green	parm1 * raven_flicker1[time]
+		blue    parm2 * raven_flicker1[time]
+		zeroClamp
+	}
+}
+
+
+
+lights/wall_light_1_7_flicker2
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7.tga )
+		colored
+		red	parm0 * raven_flicker2[time]
+		green	parm1 * raven_flicker2[time]
+		blue    parm2 * raven_flicker2[time]
+		
+		
+		zeroClamp
+	}
+}
+
+
+
+lights/wall_light_1_7_slightflash
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7.tga )
+		colored
+		rgb		raven_slight_flash[ time * 1 ]
+		zeroClamp
+	}
+}
+
+
+
+lights/wall_light_1_7_slightflash2
+// colored works in this version
+{	
+	{
+
+		map	makeIntensity( gfx/lights/wall_light_1_7.tga )
+		colored
+		red	parm0 * raven_slight_flash[ time * 1 ]
+		green	parm1 * raven_slight_flash[ time * 1 ]
+		blue    parm2 * raven_slight_flash[ time * 1 ]
+		zeroClamp
+	}
+}
+
+
+
+lights/room_light1
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/j_square2.tga )
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/room_light1_strobe
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/j_square2.tga )
+		colored
+		rgb		raven_strobe1[ time * 3 ]
+		zeroClamp
+	}
+}
+
+lights/room_light1_strobeblast
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/j_square2.tga )
+		colored
+		rgb		raven_strobe1[ time * 6 ] * raven_blast[ time * .1 ]
+		zeroClamp
+	}
+}
+
+lights/gui2_circle
+
+{	
+	{
+
+		map	makeIntensity( gfx/lights/gui2_circle.tga )
+		colored
+		rotate 0.1 * time
+
+		zeroClamp
+	}
+
+	{
+
+		map	makeIntensity( gfx/lights/gui2_circle_top.tga )
+		colored
+		zeroClamp
+	}
+
+
+}
+
+lights/med_light_1
+
+{	
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+
+	{
+		if ( parm6 == 0 )
+		map	makeIntensity( gfx/lights/med_light_1.tga )
+		colored
+
+		zeroClamp
+	}
+
+
+		{
+		if ( parm6 == 1 )
+		map	makeIntensity( gfx/lights/med_light_1.tga )
+		colored
+		rgb		raven_strobe1[ time * 3 ] * raven_slight_flash [ time * .7 ]
+
+		zeroClamp
+	}
+
+
+
+
+}
+
+
+lights/med_light_2
+
+{	
+//	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+
+	{
+
+		map	makeIntensity( gfx/lights/med_light_2.tga )
+		colored
+		zeroClamp
+	}
+}
+
+lights/med_light_3
+
+{	
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+
+	{
+		map	makeIntensity( gfx/lights/med_light_3.tga )
+		colored
+
+		zeroClamp
+	}
+
+}
+
+lights/med_light_3a
+
+{	
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+
+	{
+		map	makeIntensity( gfx/lights/med_light_3a.tga )
+		colored
+
+		zeroClamp
+	}
+
+}
+
+lights/med_light_3_snd
+
+{	
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+
+	{
+		map	makeIntensity( gfx/lights/med_light_3.tga )
+		colored
+		red	sound * parm0
+		green	sound * parm1
+		blue	sound * parm2
+		zeroClamp
+	}
+
+}
+
+
+
+
+
+
+
+lights/conv_door_flash
+{
+	{
+		map	gfx/lights/squarelight1.tga
+		colored
+		rgb raven_strobe1[ time * 3 ] * raven_gun_flash [ time * .9 ] 
+		zeroclamp
+	}
+}
+
+
+lights/fanblade_j
+{
+
+lightFalloffImage	_noFalloff		
+
+
+	{
+		map	gfx/lights/chad_mesh.tga
+		colored
+		zeroclamp
+	}
+
+	{
+		map	gfx/lights/fanblade_j.tga
+		colored
+		zeroclamp
+		rotate parm6 * time
+	}
+
+
+
+}
+
+lights/fanblade_nomesh
+{
+
+lightFalloffImage	_noFalloff		
+
+
+	{
+		map	gfx/lights/fanblade_j.tga
+		colored
+		zeroclamp
+		rotate parm6 * time
+	}
+
+}
+
+
+
+lights/med_fluid
+
+{
+
+	lightFalloffImage	_noFalloff
+
+	{
+		if ( parm4 != 1 )
+		map	gfx/lights/r_spot1.tga
+		colored
+		zeroclamp
+
+	}
+
+
+
+	{
+		if ( parm4 == 1 )
+		map	gfx/lights/med_fluid.tga
+		colored
+		rotate time * .07
+		zeroclamp
+	}
+
+
+	{
+
+		if ( parm4 == 1 )
+		map	gfx/lights/med_fluid2.tga
+		colored
+		rotate time * .03
+		zeroclamp
+	}
+
+
+
+}
+
+//----------------------------------------------------------------------------
+lights/RD_EdgedFill_01
+{	
+	lightFalloffImage		makeIntensity(gfx/lights/Falloff_MSlow.tga)	//New light falloff TGA
+
+	{
+	map		gfx/lights/GreyGreenFill.tga
+	rgb		bathroomtable[ time *.3 ]
+	colored
+	zeroClamp
+	}
+}
+
+lights/sw_ReflectedWater_01
+{	//Light bouncing off the water with a caustic pattern.	
+
+	lightFalloffImage		_noFalloff
+
+	{
+	map		gfx/lights/sw_waterReflect_01.tga
+	translate	sintable[time / 40],sintable[time / 30]
+	scale		3,3
+	colored
+	}
+}
+//----------------------------------------------------------------------------
+lights/sw_ReflectedWater_02
+{	//Light bouncing off the water, with the sewer rust colors in it.
+
+	//lightFalloffImage		makeIntensity(lights\Falloff_waterbounce.tga)
+	lightFalloffImage		_noFalloff
+
+
+	{
+	map		gfx/lights/sw_bounce_01.tga
+	translate	.1 * sintable[time / 40], .1 * sintable[time / 30]
+	colored
+	}
+}
+//----------------------------------------------------------------------------
+
+lights/stream_light1
+{
+
+	lightFalloffImage	_noFalloff		
+
+
+
+	{
+
+		map	gfx/lights/grid1.tga
+		colored
+		rgb raven_slight_flash [ time *1 ]
+		rotate time *.03
+		zeroclamp
+			
+
+	}
+
+
+}
+
+table green_blink { { 1, 1.4, 1.1, 1.2, 1.3, 1, 1.2 } }
+
+
+
+
+lights/stream_light2
+{
+	lightFalloffImage	_noFalloff		
+
+
+
+//	{
+//		blend add
+//		map	lights/stream2.tga
+//		colored
+//		scale 1, 8 
+//
+//		rgb 		stream_blink [time * 4] * 1
+//
+// 		red      stream_blink [time * 4] * 1
+	//	green    green_blink [time * .4] * 1
+// 		blue 	   stream_blink [time * 1] * 1		
+//		scroll  	time * -.1 , stream_scrollup [time * 11]
+//	}
+
+	{
+		blend add
+		map gfx/lights/stream2_blue.tga
+		red 	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) + .75 ) * Parm0
+		green 	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) + .75 ) * Parm1
+		blue 	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) + .75 ) * Parm2
+	}
+}
+
+
+lights/stream3
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+	{
+		map gfx/lights/stream3.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/stream3_turn
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+	{
+		map gfx/lights/stream3.tga
+		colored
+		rgb raven_med_light [ time * .3 ] 
+		rotate time * .002
+		zeroClamp
+	}
+}
+
+
+lights/ren_noise
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		
+		map	gfx/lights/ren_stream_blue.tga
+		rgb	ren_stream_flicker2[ time * .05] * ren_stream_flicker1 [time * .05]
+		zeroclamp
+
+	}
+}
+
+
+lights/streambit_noise
+{
+	{
+
+		map	textures/Stream/Stream_Patchwork_lines.tga		
+		rgb	flickerblink[ time * 20] * raven_flicker2[time *2]
+		scroll time * 12 , time * 0	
+	}
+	{
+		
+		map	textures/Stream/Stream_Patchwork_lines.tga
+		rgb	flickerblink[ time * 2] * .7
+		zeroclamp
+	}
+
+}
+
+lights/streambit_noise2
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+
+	{
+		map	gfx/lights/stream_green.tga
+		scroll time * 12 , time * 0	
+		zeroclamp
+	}
+
+	{
+
+		map	textures/Stream/Stream_Patchwork_lines.tga		
+		rgb	flickerblink[ time * 20] * raven_flicker2[time *2]
+		scroll time * 12 , time * 0	
+	}
+	{
+		
+		map	textures/Stream/Stream_Patchwork_lines.tga
+		rgb	flickerblink[ time * 2] * .7
+		zeroclamp
+	}
+
+}
+
+lights/terminal_grid
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/terminal_grid.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/terminal_grid_flicker
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/terminal_grid.tga
+		red 		((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm0
+		green 	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm1
+		blue 		((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm2
+		zeroClamp
+	}
+}
+
+
+lights/t3_htrim_01
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t3_htrim_01.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t3_htrim_01_2
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t3_htrim_01_2.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_snd
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a.tga
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_1x2
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_1x2.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_1x2_snd
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_1x2.tga
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_1x3
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_1x3.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_1x3_snd
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_1x3.tga
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_1x4
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_1x4.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_1x4_snd
+{			//used by ken in dispersal and renner
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_1x4.tga
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_flicker1
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a.tga
+		colored
+		rgb		raven_flicker3[ time * 15 ]
+		zeroClamp
+	}
+}
+
+lights/t_floor_1a_2
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/t_floor_1a_2.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/rav_squarebevel
+{			//used by renner, dimond, corey, jim...
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/rav_squarebevel.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/rav_turretfire
+{
+	ambientLight	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		map gfx/lights/rav_squarebevel_02.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------
+
+lights/rav_squarebevel_02
+{	// Version if the Rav_SquareBevel that does not go to the edge...
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/Rav_Squarebevel_02.tga
+		colored
+		zeroClamp
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+
+lights/Square_flickering
+{	// Version if the Rav_SquareBevel that does not go to the edge...
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map 		gfx/lights/Rav_Squarebevel_02.tga
+		red			Parm0 * flickerblink[ time * Parm4 ]
+		green		Parm1 * flickerblink[ time * Parm4 ]
+		blue		Parm2 * flickerblink[ time * Parm4 ]
+		//colored
+		zeroClamp
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+
+lights/rav_spot
+{			//used by renner
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map				gfx/lights/rav_spot_02.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/rav_spot_global_startoff
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		if (global1>0)
+		map				gfx/lights/rav_spot_02.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/rav_spot_global_starton
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		if (global1==0)
+		map				gfx/lights/rav_spot_02.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------
+lights/rav_spot_02
+{	// Version of the Rav_Spot that does not go to the edge...
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map				gfx/lights/Rav_Spot_02.tga
+		colored
+		zeroClamp
+	}
+}
+//------------------------------------------------------------------------------------------------
+lights/rav_spot_long
+{	// Version of the Rav_Spot with a longer falloff.
+	lightFalloffImage	makeIntensity( gfx/lights/Falloff_MSlow.tga )
+
+	{
+		map				gfx/lights/Rav_Spot_02.tga
+		colored
+		zeroClamp
+	}
+}
+//------------------------------------------------------------------------------------------------
+lights/rav_squarebevel_long
+{	//Squarebevel light with a longer falloff
+	lightFalloffImage	makeIntensity( gfx/lights/Falloff_MSlow.tga )
+
+	{
+		map gfx/lights/rav_squarebevel.tga
+		colored
+		zeroClamp
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+lights/sc2_girder1_light2x
+{	//Light with shadows to match the doubled sc2_girder1 texture
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map 			gfx/lights/sc2_Girder1_light2x.tga
+		colored
+	}
+	
+}
+
+//------------------------------------------------------------------------------------------------
+
+lights/sc2_girder1_light2x_b
+{	//Light with shadows to match the doubled sc2_girder1 texture with flicker
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map 			gfx/lights/sc2_Girder1_light2x.tga
+		red				Parm0 * flickerblink[ time * Parm5 ]
+		green			Parm1 * flickerblink[ time * Parm5 ]
+		blue			Parm2 * flickerblink[ time * Parm5 ]
+		//colored
+	}
+	
+}
+
+//------------------------------------------------------------------------------------------------
+
+
+lights/rav_spot_nofall
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/rav_spot.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+
+
+
+
+
+lights/p_light1
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/p_light1.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/p_light2
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		if ( parm6 != 1 )
+		map gfx/lights/p_light2.tga
+		colored
+		zeroClamp
+	}
+
+	{
+		
+		if ( parm6 == 1 )
+		map makeIntensity (gfx/lights/p_light2.tga)
+		colored
+		rgb		raven_med_light [ time * .7 ]
+			
+
+		zeroClamp
+	}
+	
+}
+
+lights/p_light2_snd
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		
+		map gfx/lights/p_light2.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		
+		zeroClamp
+	}
+
+}
+
+
+
+
+
+
+lights/p_light1_double
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/p_light1_double.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+
+lights/fire1
+{
+	lightFalloffImage	makeIntensity( gfx/lights/fire1.tga )
+
+	{
+		map gfx/lights/fire1.tga
+		colored
+		rgb	prison_fire1[ time * .8 ] 
+//		rotate	prison_fire1_rotate [time * .001]
+		zeroClamp
+	}
+}
+
+
+lights/fire2
+{
+	{
+		forceHighQuality
+		map	gfx/lights/fireround.tga
+		red 	( firetable2 [Parm4 + (time / 6) ]) * Parm0
+		green 	( firetable2 [Parm4 + (time / 6) ]) * Parm1
+		blue 	( firetable2 [Parm4 + (time / 6) ]) * Parm2
+		rotate	firelightrot [ time * (2 * parm3) ]
+		zeroClamp
+	}
+}
+
+//use this for bigger fires that should fully light areas with a flicker - corey
+lights/fire2_fill
+{
+	{
+		forceHighQuality
+		map	gfx/lights/fireround2.tga
+		red 	( firetable2 [Parm4 + (time / 6) ]) * Parm0
+		green 	( firetable2 [Parm4 + (time / 6) ]) * Parm1
+		blue 	( firetable2 [Parm4 + (time / 6) ]) * Parm2
+		rotate	firelightrot [ time * (2 * parm3) ]
+		zeroClamp
+	}
+}
+
+lights/c2_ceiling_2
+{
+	lightFalloffImage	makeIntensity( gfx/lights/c2_ceiling_2.tga )
+
+	{
+		map gfx/lights/c2_ceiling_2.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/p_roomwash1
+{
+	lightFalloffImage	makeIntensity( gfx/lights/p_roomwash1.tga )
+
+	{
+		map gfx/lights/p_roomwash1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/p_roomwash1_nofall
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/p_roomwash1.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+
+
+
+
+
+lights/p_roomwash2
+{
+	lightFalloffImage	makeIntensity( gfx/lights/p_roomwash2.tga )
+
+	{
+		map gfx/lights/p_roomwash2.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+
+lights/fred_grunttest
+{
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/rav_squarebevel.tga
+		colored
+		rgb fredtest[ time * 1.3 ]
+		zeroClamp
+	}
+}
+
+lights/terminal_elevator_base
+{			//used by ken and renner
+	lightFalloffImage	makeIntensity( gfx/lights/p_roomwash1.tga )
+
+	{
+		map gfx/lights/terminal_elevator_base.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/sec_light1
+{
+	lightFalloffImage	_nofalloff
+	{
+		map gfx/lights/sec_light1_scan.tga
+		colored
+		rgb	blinktable [ time * 15 ] 
+		zeroClamp
+	}
+}
+
+lights/squarelight1_snd
+{	
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroclamp
+	}
+}
+
+lights/rav_squarebevel_snd
+{				//used by renner
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/rav_squarebevel.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/rav_squarebevel_snd_global_startoff
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		if (global1>0)
+		map gfx/lights/rav_squarebevel.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/rav_spot_snd
+{			//used by ken in dispersal
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/rav_spot.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/rav_spot_nofall_snd
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/rav_spot.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+lights/j_nofall_snd
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+
+		zeroClamp
+	}
+}
+
+
+lights/rav_SlowFalloff_snd
+{			//used by renner
+	lightFalloffImage	makeIntensity(gfx/lights/SlowFalloff_01.tga)
+
+	{
+		map gfx/lights/rav_squarebevel.tga
+
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+
+		zeroClamp
+	}
+}
+
+
+
+lights/aqua2_flicker
+{			//used by ken in dispersal
+	{
+
+		map	gfx/lights/aqua2.tga
+		
+		red	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm0
+		green	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm1
+		blue	((.25 * blinktable [Parm4 + (time * (15 * Parm3)) ]) +.75) * Parm2
+
+		zeroClamp
+	}
+}
+
+//---------------------------------------------------------------------------------------
+lights/Spinner
+{	//Spinning light- use for warning lights or sirens.
+	lightFalloffImage		makeIntensity(gfx/lights/squarelight1a.tga)
+	
+	{	// Spinning cone
+		map			gfx/lights/Spinner_01.tga
+
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		
+		rotate		time * .8
+		
+		colored
+		zeroClamp
+	}
+}
+
+//---------------------------------------------------------------------------------------
+lights/ProcessLight
+{	// Version of the Rav_Spot that does not go to the edge...
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map				gfx/lights/ProcessSpot01.tga
+		colored
+		zeroClamp
+		rotate			(time / -12)
+		red 		(Parm0 * .5) + (Parm0 * sound * .5)
+		green 		(Parm1 * .5) + (Parm1 * sound * .5)
+		blue 		(Parm2 * .5) + (Parm2 * sound * .5)
+	}
+}
+
+
+//---------------------------------------------------------------------------------------
+lights/Flashing
+{	//Flashing light- use for warning lights or sirens.
+	lightFalloffImage		makeIntensity(gfx/lights/squarelight1a.tga)
+	
+	{	// Flashing light
+		map			gfx/lights/rav_squarebevel.tga
+		red			Parm0 * sintable[time * Parm5]
+		green		Parm1 * sintable[time * Parm5]
+		blue		Parm2 * sintable[time * Parm5]
+		//colored
+		zeroClamp
+	}
+}
+//---------------------------------------------------------------------------------------
+lights/Alarm05
+{	//Light for alarm05. Can have a triggered "strobe" effect on parm8
+	{
+		map			gfx/lights/round.tga
+		colored
+		zeroClamp
+	}
+	
+	{
+		if			(global5 == 1)
+		map			gfx/lights/StrobeCircles02.tga
+		rotate		time
+
+		red			(Parm0 + .5) * sintable[.5 + (time * .95)]
+		green		(Parm1 + .5) * sintable[.5 + (time * .95)]
+		blue		(Parm2 + .5) * sintable[.5 + (time * .95)]
+
+//		red			Parm0 * sound
+//		green		Parm1 * sound
+//		blue		Parm2 * sound
+	}
+
+	{
+		if			(global5 == 1)
+		map			gfx/lights/StrobeCircles02.tga
+		rotate		time * (-1)
+
+		red			Parm0 * sintable[.5 + (time * .95)] * .5
+		green		Parm1 * sintable[.5 + (time * .95)] * .5
+		blue		Parm2 * sintable[.5 + (time * .95)] * .5
+	}
+
+
+
+}
+
+lights/gear_hole
+{
+
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/gear_hole.tga
+		
+		rgb	raven_blast [ time * .3 ]
+		rotate	 time * .1 
+		colored
+		zeroClamp
+	}
+}
+
+//---------------------------------------------------------------------------------------
+
+// this is placed in front of the guis on view weapons, like the plasma gun and machinegune
+lights/viewWeaponGuiLight
+{	
+	noShadows
+	{
+
+		map	gfx/lights/squareishlight.tga
+		colored
+//		red		parm0 // * guiLightTable[ time ]
+//		green	parm1 // * guiLightTable[ time ]
+//		blue	parm2 // * guiLightTable[ time ]
+//		alpha   parm3
+		zeroClamp
+	}
+}
+
+
+lights/mpCTFLight
+{	
+	noShadows
+	{
+		map gfx/lights/rav_spot.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+//------------------------------- Fog shaders --------------------------------------------------
+
+lights/jerseyfog
+{
+	blendLight
+	lightFalloffImage	gfx/lights/squarelight1a
+
+	{
+		blend			blend		
+		map			gfx/lights/j_fogtest.tga
+		zeroclamp			
+		colored				
+	}
+}
+
+//-------------------------------
+lights/prison_fog
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	fogLight
+	noShadows
+	
+	{
+		map			gfx/lights/j_square.tga
+		zeroclamp				
+		colored					
+	}
+
+}
+
+//-------------------------------
+lights/Fog_generic
+{	//used by renner, jim, dimond, corey
+	fogLight			
+	noShadows
+
+	{
+		map 		gfx/lights/rav_squarebevel.tga
+		colored		// take rgba from entity shaderparms
+	}
+}
+
+//-------------------------------
+lights/Fog_outside
+{	//used by renner
+	//attempt at an outside falloff. Dist from parm3, color from entity color
+	fogLight			
+	noShadows
+
+	{
+		map 		gfx/lights/Fog_circle_01.tga
+		colored	// take rgba from entity shaderparms
+	}
+}
+
+//-------------------------------
+lights/fog_ambient
+{	//Attempt at using fog to fake an ambient light.
+	blendLight
+	noShadows
+	lightFalloffImage	_white		//Be everywhere.
+
+	{
+		blend		add
+		map			_fog
+		colored
+	}
+}
+
+//-------------------------------
+lights/stream_fog
+{
+	blendLight
+	noShadows
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+		red	raven_flicker1[ time * 1 ] * raven_flicker2[ time * 2 ]	* Parm0
+		green	raven_flicker1[ time * 1 ] * raven_flicker2[ time * 2 ]	* Parm1
+		blue	raven_flicker1[ time * 1 ] * raven_flicker2[ time * 2 ] 	* Parm2
+		zeroClamp
+	}
+
+}
+
+//-------------------------------
+lights/Fog_process
+{	//Light bound to fog in process
+	fogLight			
+	noShadows
+
+	{
+		map 		gfx/lights/rav_squarebevel.tga
+		colored		// take rgba from entity shaderparms
+		red 		(Parm0 * .5) + (Parm0 * sound * .5)
+		green 		(Parm1 * .5) + (Parm1 * sound * .5)
+		blue 		(Parm2 * .5) + (Parm2 * sound * .5)
+	}
+}
+
+lights/fog_hangar
+{
+	fogLight			// tell the engine it is fog and not a light
+	noShadows
+	{
+		map		_fog	// the internal fog image
+		colored			// take rgba from entity shaderparms
+		zeroClamp
+	}
+}
+
+lights/fog_hangar_imaweirdo
+{
+	fogLight			// tell the engine it is fog and not a light
+	noShadows
+	{
+		map		_fog	// the internal fog image
+		colored			// take rgba from entity shaderparms
+		red	(parm0)
+		green	(parm1)
+		blue	(parm2)
+		alpha	(halfsinTable[ time / 12 ] * .8) + (0.1) * (parm3)
+		zeroClamp
+	}
+}
+
+lights/fog_hangar_imaweirdo_inverselight
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	// this will also be the falloff for any
+																	// point light shaders that don't specify one
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		red	(halfsinTable[ time / 12 ] * 0.5) + (0.5) * (parm0)
+		blue	(halfsinTable[ time / 12 ] * 0.5) + (0.5) * (parm1)
+		green	(halfsinTable[ time / 12 ] * 0.5) + (0.5) * (parm2)
+		zeroClamp
+	}
+}
+
+
+//--------------------------------------------------------------------------------------------
+lights/Warning_light
+
+//Spinning alarm sirens stolen from ricks mcc stuff, altered the falloff image and speed 
+
+{	
+
+
+	lightFalloffImage	_noFalloff
+	
+											
+	{
+		map		gfx/lights/mcc_SpinSiren_01.tga
+		colored
+		zeroClamp
+		rotate	time * parm3 + parm4	// speed and offset for neighboring lights
+	}
+}
+
+lights/Warning_light_snd
+
+//Spinning alarm sirens stolen from ricks mcc stuff, altered the falloff image and speed 
+
+{	
+
+
+	lightFalloffImage	_noFalloff
+	
+											
+	{
+		map		gfx/lights/mcc_SpinSiren_01.tga
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+		rotate	time * 1
+	}
+}
+//--------------------------------------------------------------------------------------------
+
+lights/Warning_light_snd_reverse
+
+//Spinning alarm sirens stolen from ricks mcc stuff, altered the falloff image and speed 
+
+{	
+
+
+	lightFalloffImage	_noFalloff
+	
+											
+	{
+		map		gfx/lights/mcc_SpinSiren_01.tga
+		colored
+		red 		Parm0 - (.5 * sound)
+		green 		Parm1 - (.5 * sound)
+		blue 		Parm2 - (.5 * sound)
+		zeroClamp
+		rotate	time * 1
+	}
+}
+
+lights/fence01
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/fence01.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/fence01_snd
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/fence01.tga
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroClamp
+	}
+}
+
+//process2 --------------------------------------------------------------------------------------------
+
+lights/process2_text1
+{
+
+	//lightFalloffImage	_noFalloff
+	lightFalloffImage	makeIntensity( gfx/lights/fog_circle_01.tga )
+	
+	{
+
+		map	gfx/lights/process2_text1.tga
+		//Red	parm0 * linear_flicker[ time * 1 ]
+		//Green	parm1 * linear_flicker[ time * 1 ]
+		//Blue	parm2 * linear_flicker[ time * 1 ]
+		colored
+		rotate time *.03
+		zeroclamp	
+
+	}
+
+}
+
+lights/process2_text1_norotate
+{
+
+	//lightFalloffImage	_noFalloff
+	lightFalloffImage	makeIntensity( gfx/lights/fog_circle_01.tga )
+	
+	{
+
+		map	gfx/lights/process2_text1.tga
+		//Red	parm0 * linear_flicker[ time * 1 ]
+		//Green	parm1 * linear_flicker[ time * 1 ]
+		//Blue	parm2 * linear_flicker[ time * 1 ]
+		colored
+		//Rotate time *.03
+		zeroclamp	
+
+	}
+
+}
+
+lights/process2_pulse1
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+																	
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		//rgb		process2_pulse1[ time * .25 ]
+		red 	( process2_pulse1[ time * .5 ]) * Parm0
+		green   ( process2_pulse1[ time * .5 ]) * Parm1
+		blue 	( process2_pulse1[ time * .5 ]) * Parm2
+		zeroClamp
+	}
+}
+
+lights/process2_pulse1_bright
+{
+	lightFalloffImage	makeIntensity( gfx/lights/fog_circle_01.tga )
+																	
+	{
+		map gfx/lights/fog_circle_01.tga
+		colored
+		//rgb		process2_pulse1[ time * .25 ]
+		red 	( process2_pulse1[ time * .5 ]) * Parm0
+		green   ( process2_pulse1[ time * .5 ]) * Parm1
+		blue 	( process2_pulse1[ time * .5 ]) * Parm2
+		zeroClamp
+	}
+}
+
+lights/process2_scroll1
+{
+	{
+		map	gfx/lights/process2_scroll1.tga
+		colored
+		translate time * .5, 0
+		//translate	( senescrollightable [Parm4 + (time * (2 * Parm3)) ]) , 0
+		//red 	( process2_pulse1[ time * .5 ]) * Parm0
+		//green   ( process2_pulse1[ time * .5 ]) * Parm1
+		//blue 	( process2_pulse1[ time * .5 ]) * Parm2
+		zeroclamp
+	}
+}
+
+//--Putrafication Lights...------------------------------------------------------------------
+lights/putra1
+{
+	{
+
+		map	gfx/lights/putra1.tga
+
+		zeroClamp
+		colored
+	}
+}
+
+
+lights/putra1_nofalloff
+{
+	lightFalloffImage	_noFalloff
+	
+	{
+
+		map	gfx/lights/putra1.tga
+
+		zeroClamp
+		colored
+	}
+}
+
+lights/putra1_snd
+{
+	{
+
+		map	gfx/lights/putra1.tga
+
+		zeroClamp
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+	}
+}
+
+
+lights/putra1_nofalloff_snd
+{
+	lightFalloffImage	_noFalloff
+	
+	{
+
+		map	gfx/lights/putra1.tga
+
+		zeroClamp
+		colored
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+	}
+}
+
+lights/putra1_water
+{
+	{
+
+		map	gfx/lights/putra1.tga
+		
+		zeroClamp
+		colored
+		translate .1 *sintable[time / 40], .1 * sintable[time / 30]
+	}
+}
+
+lights/putra1_nofalloff_water
+{
+	lightFalloffImage	_noFalloff
+	
+	{
+
+		map	gfx/lights/putra1.tga
+
+		zeroClamp
+		colored
+		translate .1 *sintable[time / 40], .1 * sintable[time / 30]
+	}
+}
+
+//--------------------------------------------------------------------------------------------
+
+
+lights/stroy_floor_06a
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/stroy_floor_06a.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/stroy_floor_06a_global_startoff
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if (global1>0)
+		map gfx/lights/stroy_floor_06a.tga
+		colored
+		zeroClamp
+	}
+}
+
+// terminal textures specific lights
+
+
+lights/t5_ceiling_1
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/t5_ceiling_1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t5_ceiling_1_global_startoff
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if (global1>0)
+		map gfx/lights/t5_ceiling_1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/t5_ceiling_1_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/t5_ceiling_1.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+
+}
+
+
+lights/floor_06a
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/floor_06a.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/floor_06a2
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/floor_06a2.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/floor_06a_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/floor_06a.tga
+		
+				
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		
+		zeroClamp
+	}
+}
+
+lights/floor_06a2_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/floor_06a2.tga
+		
+		
+		
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		
+		zeroClamp
+	}
+}
+
+lights/floor_06a3
+{	
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/floor_06a3.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/floor_06a3_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/floor_06a3.tga
+		
+		
+		
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		
+		zeroClamp
+	}
+}
+
+lights/t_window_1_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/t_window_1.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+
+}
+
+
+lights/t_window_2_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/t_window_2.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+
+}
+
+lights/t_window_4_snd
+{	
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/t_window_4.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+
+}
+
+lights/shadow_wash1
+{
+	lightFalloffImage	makeIntensity( gfx/lights/shadow_wash1.tga )
+
+	{
+		map gfx/lights/shadow_wash1.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/shadow_wash1_snd
+{
+	lightFalloffImage	makeIntensity( gfx/lights/shadow_wash1.tga )
+
+	{
+		map gfx/lights/shadow_wash1.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+}
+
+lights/caustics1
+{
+	lightFalloffImage		_noFalloff
+
+	{
+		map		gfx/lights/sw_waterReflect_01.tga
+		//translate	sintable[time / 300],sintable[time / 300]
+		translate	.1 * sintable[time / 40], .1 * sintable[time / 30]
+		scale		3, 3
+		colored
+	}
+}
+
+
+
+lights/prison_scroll
+{
+	
+	lightFalloffImage		_noFalloff
+	
+	{
+	
+	
+		
+		map	gfx/lights/rav_squarebevel_02.tga
+		
+		translate  stream_scroll  [time * .7] , stream_scroll [time * 0]		
+		red 	sound * parm0 		
+		green	sound * parm1 	
+		blue	sound * parm2 	
+
+		zeroclamp
+	}
+	
+}
+
+
+// -- Start Stream Hub Lights
+
+lights/hublight1
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/hublight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/hublight1_snd
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/hublight1.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+}
+
+// -- End Stream Hub Lights
+
+
+// -- Start of MCC lights
+
+lights/mcc_floornew3
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/mcc_floornew3.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/mcc_floornew3_half
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/mcc_floornew3_half.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/mcc_floornew3_half_snd
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/mcc_floornew3_half.tga
+		red 	sound * parm0 
+		green 	sound * parm1 
+		blue 	sound * parm2 
+		zeroClamp
+	}
+}
+
+lights/mcc_floornew3_1x2
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/mcc_floornew3_1x2.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/mcc_floornew3_1x3
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/mcc_floornew3_1x3.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/mcc_floornew3_2x1
+{			
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		map gfx/lights/mcc_floornew3_2x1.tga
+		colored
+		zeroClamp
+	}
+}
+
+// -- End of MCC lights
+
+// AReis: New caustic animation.
+lights/rvCaustics1
+{
+	qer_editorimage gfx/effects/caustics1/caustics_strip.tga
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	discrete
+	nonsolid
+	noimpact
+
+	{
+		map		gfx/effects/caustics1/caustics_strip.tga
+		scale	1 / 32 , 1
+		scroll	table32[ time * 1 ] , 0
+		noclamp
+	}
+}
+
+//roger: light from glowing impact damage in network storage---------------
+/*lights/roger_embers
+{
+lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	
+	{
+		map	makeIntensity( gfx/lights/rav_squarebevel.tga )
+		red	ember1 [ time * parm7 ] * parm0
+		green	ember1 [ time * parm7 ] * parm1
+		blue	ember1 [ time * parm7 ] * parm2
+		zeroClamp
+	}
+}
+*/
+lights/roger_embers2
+{
+lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	
+	{
+		map	makeIntensity( gfx/lights/rav_squarebevel.tga )
+		red	ember1 [ time * .33 ] * parm0
+		green	ember1 [ time * .33 ] * parm1
+		blue	ember1 [ time * .33 ] * parm2
+		zeroClamp
+	}
+}
+
+
+lights/embers_round
+{
+lightFalloffImage	makeIntensity( gfx/lights/round.tga )	
+	{
+		map	makeIntensity( gfx/lights/round.tga )
+		red		ember1 [ time * parm7 ] * parm0
+		green	ember1 [ time * parm7 ] * parm1
+		blue	ember1 [ time * parm7 ] * parm2
+		zeroClamp
+	}
+}
+
+lights/embers_round2
+{
+lightFalloffImage	makeIntensity( gfx/lights/round.tga )	
+	{
+		map	makeIntensity( gfx/lights/round.tga )
+		red		ember1 [ time * .33 ] * parm0
+		green	ember1 [ time * .33 ] * parm1
+		blue	ember1 [ time * .33 ] * parm2
+		zeroClamp
+	}
+}
+
+lights/embers_square
+{
+lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	
+	{
+		map	makeIntensity( gfx/lights/squarelight1a.tga )
+		red		ember1 [ time * .33 ] * parm0
+		green	ember1 [ time * .33 ] * parm1
+		blue	ember1 [ time * .33 ] * parm2
+		zeroClamp
+	}
+}
+
+//-------------------------------------------------------------------------
+// Hangar lights
+//-------------------------------------------------------------------------
+
+lights/hangar_halfcircle
+// for half circle spaces in fuel storage room
+{
+		lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	
+	{
+		map	makeIntensity( gfx/lights/hangar_halfcircle.tga )
+		colored
+		zeroClamp
+	}
+}
+
+lights/hangar_squarecircle_dim
+{
+	lightFalloffImage	gfx/lights/squarelight1.tga
+
+	{
+		forceHighQuality
+		map	gfx/lights/hangar_squarecircle_dim.tga
+		zeroClamp
+		colored
+	}
+}
+
+lights/hangar_squarecircle_medium
+{
+	lightFalloffImage	gfx/lights/squarelight1.tga
+
+	{
+		forceHighQuality
+		map	gfx/lights/hangar_squarecircle_medium.tga
+		zeroClamp
+		colored
+	}
+}
+
+lights/hangar_squarecircle_bright
+{
+	lightFalloffImage	gfx/lights/squarelight1.tga
+
+	{
+		forceHighQuality
+		map	gfx/lights/hangar_squarecircle_bright.tga
+		zeroClamp
+		colored
+	}
+}
+
+lights/hangar_squarecircle_medium_p1
+{
+	lightFalloffImage	gfx/lights/squarelight1.tga
+
+	{
+		forceHighQuality
+		map	gfx/lights/hangar_squarecircle_medium.tga
+		zeroClamp
+		colored
+
+		rgb	(halfsinTable[ time * .25 ] / 4) + (0.75)
+	}
+}
+
+lights/hangar_squarecircle_medium_p2
+{
+	lightFalloffImage	gfx/lights/squarelight1.tga
+
+	{
+		forceHighQuality
+		map	gfx/lights/hangar_squarecircle_medium.tga
+		zeroClamp
+		colored
+
+		red	(halfsinTable[ time * .25 ] / 4) + (0.725) + (halfsinTable[ time * .375 ] / 40) * parm0
+		green	(halfsinTable[ time * .25 ] / 4) + (0.70) + (halfsinTable[ time * .125 ] / 20) * parm1
+		blue	(halfsinTable[ time * .25 ] / 4) + (0.75) * parm2
+	}
+}
+
+lights/hangar_door_normal
+{
+	lightFalloffImage	gfx/lights/squarelight1.tga
+
+	{
+		forceHighQuality
+		map	gfx/lights/hangar_squarecircle_medium.tga
+		zeroClamp
+		colored
+
+		rgb	(halfsinTable[ time * .25 ] / 2.5) + (0.6)
+
+		//red	(halfsinTable[ time * .25 ] / 4) + (0.725) + (halfsinTable[ time * .375 ] / 40) * parm0
+		//green	(halfsinTable[ time * .25 ] / 4) + (0.70) + (halfsinTable[ time * .125 ] / 20) * parm1
+		//blue	(halfsinTable[ time * .25 ] / 4) + (0.75) * parm2
+	}
+}
+
+
+//-------------------------------------------------------------------------
+
+
+//scrolling cloud light shader for outdoor areas?--------------------------
+
+lights/clouds_1
+{	
+	lightFalloffImage	_white
+	{
+		forceHighQuality
+		map		gfx/lights/clouds_1.tga
+		translate	(time * 0.5 * parm5), (time * -1 * parm5)
+		colored
+	}
+}
+
+//-------------------------------------------------------------------------
+
+//caustic reflection for hangar2-------------------------------------------
+
+lights/hangar_caustics
+{
+	lightfalloffimage	gfx/lights/rav_squarebevel.tga
+	{
+		map		gfx/lights/caustic_b_blue.tga
+		centerscale	sfx_light_squash[time*0.0525], sfx_light_squash[time*0.0525]
+		rotate  	cosine[time*0.0125]
+		rgba		fluid_inverse_surge[time*0.05]
+		zeroclamp
+	}
+	
+	{
+		blend		add
+		map		gfx/lights/caustic_b_blue.tga
+		centerscale	(sfx_light_squash[time*0.057]*1.1), (sfx_light_squash[time*0.057]*1.1)
+		rotate		cosine[time*-0.0044]
+		shear		sfx_light_shear[time*0.125], (sfx_light_shear[time*0.125]*-1)
+		rgba		fluid_inverse_surge[time*.05]
+		zeroclamp
+	}
+	
+	{
+		map		gfx/lights/caustic_b_orange.tga
+		centerscale	sfx_light_squash[time*0.0525], sfx_light_squash[time*0.0525]
+		rotate  	cosine[time*0.0125]
+		rgba		fluid_surge[time*0.05]
+		zeroclamp
+	}
+	
+	{
+		blend		add
+		map		gfx/lights/caustic_b_orange.tga
+		centerscale	(sfx_light_squash[time*0.057]*1.1), (sfx_light_squash[time*0.057]*1.1)
+		rotate		cosine[time*-0.0044]
+		shear		sfx_light_shear[time*0.125], (sfx_light_shear[time*0.125]*-1)
+		rgba		fluid_surge[time*.05]
+		zeroclamp
+	}
+
+}
+	
+
+//caustic reflection for medlabs-------------------------------------------
+
+//pulsing caustics---------------------------------------------------------
+
+lights/medlabs_caustic_pulse
+{	
+	lightFalloffImage	gfx/lights/rav_squarebevel.tga //gfx/lights/round.tga
+	{
+		map		gfx/lights/caustic_b.tga
+		
+		centerscale	sfx_light_squash[time*0.0525], sfx_light_squash[time*0.0525]
+		rotate  	cosine[time*0.0125]
+				
+		red	(( medlabs_fluid_pulse[time*.25*parm4] + 0.75 )*parm0)
+		green	(( medlabs_fluid_pulse[time*.25*parm4] + 0.75 )*parm1)
+		blue	(( medlabs_fluid_pulse[time*.25*parm4] + 0.75 )*parm2)
+		zeroClamp
+		
+	}
+	{
+		blend		add
+		map		gfx/lights/caustic_b.tga
+		
+		centerscale	(sfx_light_squash[time*0.057]*1.1), (sfx_light_squash[time*0.057]*1.1)
+		rotate		cosine[time*-0.0044]
+		shear		sfx_light_shear[time*0.125], (sfx_light_shear[time*0.125]*-1)
+		
+		red	(( medlabs_fluid_pulse[time*.25*parm4] + 0.75 )*parm0)
+		green	(( medlabs_fluid_pulse[time*.25*parm4] + 0.75 )*parm1)
+		blue	(( medlabs_fluid_pulse[time*.25*parm4] + 0.75 )*parm2)
+		zeroClamp
+		
+	}
+	/*{
+		blend		add
+		map		gfx/lights/caustic_d.tga
+		colored
+		red		parm0
+		green		parm1
+		blue		parm2
+		zeroClamp
+	}*/
+}
+
+//-------------------------------------------------------------------------
+
+//new projection shadows---------------------------------------------------
+
+lights/test_shadow_01
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/test_shadow_01.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/test_shadow_02
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/test_shadow_02.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/test_shadow_03
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		map gfx/lights/test_shadow_03.tga
+		colored
+		zeroClamp
+	}
+}
+	
+
+//-------------------------------------------------------------------------
+
+lights/brainroom_spectrum7light
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	spectrum 7	
+
+	{
+	map gfx/lights/paired_spectrum_01.tga
+	colored
+	zeroClamp
+	}
+}
+
+lights/brainroom_spectrum8light
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	spectrum 8	
+
+	{
+	map gfx/lights/paired_spectrum_02.tga
+	colored
+	zeroClamp
+	}
+}
+
+
+//------------------------------------------------------------------
+
+lights/ctf_pulsor_marine
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	
+										
+	{
+		if (global1 == 0)
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+	{
+		if (global1 == 1)
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+		red		( parm0 * flag_gone_pulse[time * 0.25] )
+		green		( parm1 * flag_gone_pulse[time * 0.25] )
+		blue		( parm2 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+lights/ctf_pulsor_strogg
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	
+										
+	{
+		if (global2 == 0)
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+	{
+		if (global2 == 1)
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+		red		( parm0 * flag_gone_pulse[time * 0.25] )
+		green		( parm1 * flag_gone_pulse[time * 0.25] )
+		blue		( parm2 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+
+
+lights/ctf_pulsor_ceil_marine
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		if (global1 == 0)
+		map textures/common_lights/ceil_light1_g.tga
+		colored
+		zeroClamp
+	}
+	{
+		if (global1 == 1)
+		map textures/common_lights/ceil_light1_g.tga
+		colored
+		zeroClamp
+		red		( parm0 * flag_gone_pulse[time * 0.25] )
+		green		( parm1 * flag_gone_pulse[time * 0.25] )
+		blue		( parm2 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+lights/ctf_pulsor_ceil_strogg
+{
+	lightFalloffImage	_nofalloff
+
+	{
+		if (global2 == 0)
+		map textures/common_lights/ceil_light1_g.tga
+		colored
+		zeroClamp
+	}
+	{
+		if (global2 == 1)
+		map textures/common_lights/ceil_light1_g.tga
+		colored
+		zeroClamp
+		red		( parm0 * flag_gone_pulse[time * 0.25] )
+		green		( parm1 * flag_gone_pulse[time * 0.25] )
+		blue		( parm2 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+// Temp, will replace after the Oct2004 milestone
+
+lights/ken_fog1
+{	
+	fogLight			
+	noShadows
+
+	{
+		map 		gfx/lights/rav_squarebevel.tga
+		colored		
+	}
+}
+
+//----------------------------------------------------------------------------------
+//    Materials file for the StreamEnd lights
+//----------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------
+lights/SE_GreenSpot
+{
+	lightFalloffImage	gfx/lights/Falloff_long.tga
+	{
+		map gfx/lights/SE_Greenspot_1.tga
+		colored
+		zeroClamp
+		rotate	time / 4
+	}
+}
+//----------------------------------------------------------------------------------
+lights/SE_CorridorFog
+{
+	//blendLight
+	foglight
+	noShadows
+	lightFalloffImage		textures/streamend/SE_FogFalloff_02.tga
+
+	{
+	blend		blend
+	//map		textures/streamend/SE_FogSquare_01.tga
+	map		textures/streamend/SE_CloudsOpaque_01.tga
+	alphazeroclamp
+	red		.65
+	green		.15
+	blue		.35
+	}
+}
+//----------------------------------------------------------------------------------
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////MCC_Lights////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+//--------------------------------------------------------------------------------------------
+//Specific lights for the MCC
+//--------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------
+
+
+
+
+//--------------------------------------------------------------------------------------------
+/*
+lights/defaultPointLight
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )	// this will also be the falloff for any
+											// point light shaders that don't specify one
+	{
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}
+
+
+lights/j_nofall
+{
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	{
+		map gfx/lights/j_square.tga
+		colored
+		zeroClamp
+	}
+}
+*/
+//--------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------
+lights/mcc_SpinSiren_01
+{	//Spinning alarm sirens
+
+	//lightFalloffImage	_noFalloff
+	lightFalloffImage		makeIntensity(gfx/lights/squarelight1a.tga)
+											
+	{
+		map		gfx/lights/mcc_SpinSiren_01.tga
+		colored
+		zeroClamp
+		rotate	time * .8
+	}
+}
+//--------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------
+lights/MCC_MeshFlicker
+{	//glare lights through the common_misc grating
+	lightFalloffImage	_noFalloff
+
+	{
+	map		gfx/lights/Grate_01.tga
+	scale		10,10
+	rgb		.5 * GrateFlicker[time]
+	rotate	.125
+//	colored
+//	zeroClamp
+	}
+}
+//--------------------------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------------------------------
+lights/rav_SlowFalloff
+{
+	lightFalloffImage	makeIntensity(gfx/lights/SlowFalloff_01.tga)
+
+	{
+		map gfx/lights/rav_squarebevel.tga
+		colored
+		zeroClamp
+	}
+}
+//---------------------------------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------------------------------
+lights/rav_SlowFalloff_Flicker_01
+{
+	lightFalloffImage	makeIntensity(gfx/lights/SlowFalloff_01.tga)
+
+	{
+		map		gfx/lights/rav_squarebevel.tga
+		red		MCC_flicker1[ time * 1 ] * MCC_flicker2[ time * 2 ] * Parm0
+		green		MCC_flicker1[ time * 1 ] * MCC_flicker2[ time * 2 ] * Parm1
+		blue		MCC_flicker1[ time * 1 ] * MCC_flicker2[ time * 2 ] * Parm2
+		//colored
+		zeroClamp
+	}
+}
+//---------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------
+lights/rav_SlowFalloff_Flicker_02
+{
+	lightFalloffImage	makeIntensity(gfx/lights/SlowFalloff_01.tga)
+
+	{
+		map		gfx/lights/rav_squarebevel.tga
+		red			((.25 * blinktable [Parm4 + (time * (500 * Parm3)) ]) + .75) * parm0
+		green		((.25 * blinktable [Parm4 + (time * (500 * Parm3)) ]) + .75) * parm1
+		blue		((.25 * blinktable [Parm4 + (time * (500 * Parm3)) ]) + .75) * parm2			
+		//colored
+		zeroClamp
+	}
+}
+//---------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------
+lights/rav_Squarebevel_Flicker_01
+{
+	lightFalloffImage	makeIntensity(gfx/lights/squarelight1a.tga)
+
+	{
+		map		gfx/lights/rav_squarebevel.tga
+		red		MCC_flicker1[ time * Parm5 ] * MCC_flicker2[ time * Parm6 ] * Parm1
+		green		MCC_flicker1[ time * Parm5 ] * MCC_flicker2[ time * Parm6 ] * Parm2
+		blue		MCC_flicker1[ time * Parm5 ] * MCC_flicker2[ time * Parm6 ] * Parm3
+		//vertexcolor
+		zeroClamp
+	}
+}
+//---------------------------------------------------------------------------------------------------
+
+lights/stream_spectrum7
+{
+	lightFalloffImage	makeIntensity( gfx/lights/round2.tga )	
+	spectrum 7													
+	{
+		map gfx/lights/stream_spectrum7.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/stream_spectrum8
+{
+	lightFalloffImage	makeIntensity( gfx/lights/round2.tga )	
+	spectrum 8
+	{
+		map gfx/lights/round2.tga
+		colored
+		zeroClamp
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
+// Storage global-defined lights --------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
+
+lights/storage_global_spot
+
+{
+
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if		(global1 == 0)							// modulated orange
+		map		gfx/lights/rav_spot_02.tga
+		red 		1.00 * storage_pulse[time*0.5]
+		green 		0.71 * storage_pulse[time*0.5]
+		blue 		0.00 * storage_pulse[time*0.5]
+		zeroClamp
+	}
+	
+	{
+		if		(global1 && time - global1 < .25)				// ramp to known orange
+		map		gfx/lights/rav_spot_02.tga
+		red		(1.00 * storage_pulse[global1*0.5]) + ((1.00 - storage_pulse[global1*0.5]) * storage_fadein[(time-global1)*4])
+		green		(0.71 * storage_pulse[global1*0.5]) + ((0.71 - (0.71 * storage_pulse[global1*0.5])) * storage_fadein[(time-global1)*4])
+		blue		0
+		zeroClamp
+	}
+	{
+		if		(global1 && time - global1 >= 0.25 && time - global1 < 2.25 )	// fade to blue
+		map		gfx/lights/rav_spot_02.tga
+		red		storage_light_r[(time-global1-.25)*0.5]
+		green		storage_light_g[(time-global1-.25)*0.5]
+		blue		storage_light_b[(time-global1-.25)*0.5]
+		zeroClamp
+	}
+	
+	{
+		if		(global1 && time - global1 >= 2.25)
+		map		gfx/lights/rav_spot_02.tga
+		red		0.58
+		green		0.82
+		blue		1.00
+		zeroClamp
+	}
+	
+}
+
+lights/storage_global_fog
+
+{
+
+	fogLight			
+	noShadows
+
+	{
+		map		gfx/lights/rav_squarebevel.tga
+		red 		parm0
+		green 		parm1
+		blue 		parm2
+		zeroClamp
+	}
+	
+}
+
+lights/waste_bb_round2_deep_orange_to_red
+
+{
+
+	//lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if		(parm4 == 0)						// modulated orange
+		map		gfx/lights/round2.tga
+		red 		0.88 // * storage_pulse[time*0.5]
+		green 		0.4  // * storage_pulse[time*0.5]
+		blue 		0.00 // * storage_pulse[time*0.5]
+		zeroClamp
+	}
+	
+	/*{
+		if		(parm4 && time - parm4 < .25)				// ramp to known orange
+		map		gfx/lights/round2.tga
+		red		(1.00 * storage_pulse[parm4*0.5]) + ((1.00 - storage_pulse[parm4*0.5]) * storage_fadein[(time-parm4)*4])
+		green		(0.71 * storage_pulse[parm4*0.5]) + ((0.71 - (0.71 * storage_pulse[parm4*0.5])) * storage_fadein[(time-parm4)*4])
+		blue		0
+		zeroClamp
+	}*/
+	
+	{
+		if		(parm4 && time - parm4 < 0.5 )				// fade to red
+		map		gfx/lights/round2.tga
+		red		waste_light_round2_deep_orange_to_red_r[(time-parm4)*2]
+		green		waste_light_round2_deep_orange_to_red_g[(time-parm4)*2]
+		blue		waste_light_round2_deep_orange_to_red_b[(time-parm4)*2]
+		zeroClamp
+	}
+	
+	{
+		if		(parm4 && time - parm4 >= 0.5)
+		map		gfx/lights/round2.tga
+		red		0.52*waste_bb_pulse[(time-parm4-0.5)*0.5]
+		green		0
+		blue		0
+		zeroClamp
+	}
+	
+}
+
+lights/waste_bb_round_deep_orange_to_red
+
+{
+
+	//lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if		(parm4 == 0)						// modulated orange
+		map		gfx/lights/round.tga
+		red 		0.54 // * storage_pulse[time*0.5]
+		green 		0.25  // * storage_pulse[time*0.5]
+		blue 		0.00 // * storage_pulse[time*0.5]
+		zeroClamp
+	}
+	
+	/*{
+		if		(parm4 && time - parm4 < .25)				// ramp to known orange
+		map		gfx/lights/round2.tga
+		red		(1.00 * storage_pulse[parm4*0.5]) + ((1.00 - storage_pulse[parm4*0.5]) * storage_fadein[(time-parm4)*4])
+		green		(0.71 * storage_pulse[parm4*0.5]) + ((0.71 - (0.71 * storage_pulse[parm4*0.5])) * storage_fadein[(time-parm4)*4])
+		blue		0
+		zeroClamp
+	}*/
+	
+	{
+		if		(parm4 && time - parm4 < 0.5 )				// fade to red
+		map		gfx/lights/round.tga
+		red		waste_light_round_deep_orange_to_red_r[(time-parm4)*2]
+		green		waste_light_round_deep_orange_to_red_g[(time-parm4)*2]
+		blue		waste_light_round_deep_orange_to_red_b[(time-parm4)*2]
+		zeroClamp
+	}
+	
+	{
+		if		(parm4 && time - parm4 >= 0.5)
+		map		gfx/lights/round.tga
+		red		0.52*waste_bb_pulse[(time-parm4-0.5)*0.5]
+		green		0
+		blue		0
+		zeroClamp
+	}
+	
+}
+
+lights/waste_bb_round_ambient_to_orange
+
+{
+
+	//lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if		(parm4 == 0)						// modulated orange
+		map		gfx/lights/round.tga
+		red 		0.79 // * storage_pulse[time*0.5]
+		green 		0.86  // * storage_pulse[time*0.5]
+		blue 		0.76 // * storage_pulse[time*0.5]
+		zeroClamp
+	}
+	
+	/*{
+		if		(parm4 && time - parm4 < .25)				// ramp to known orange
+		map		gfx/lights/round2.tga
+		red		(1.00 * storage_pulse[parm4*0.5]) + ((1.00 - storage_pulse[parm4*0.5]) * storage_fadein[(time-parm4)*4])
+		green		(0.71 * storage_pulse[parm4*0.5]) + ((0.71 - (0.71 * storage_pulse[parm4*0.5])) * storage_fadein[(time-parm4)*4])
+		blue		0
+		zeroClamp
+	}*/
+	
+	{
+		if		(parm4 && time - parm4 < 0.5 )				// fade to red
+		map		gfx/lights/round.tga
+		red		waste_light_round_ambient_to_orange_r[(time-parm4)*2]
+		green		waste_light_round_ambient_to_orange_g[(time-parm4)*2]
+		blue		waste_light_round_ambient_to_orange_b[(time-parm4)*2]
+		zeroClamp
+	}
+	
+	{
+		if		(parm4 && time - parm4 >= 0.5)
+		map		gfx/lights/round.tga
+		red		0.54*waste_bb_pulse[(time-parm4-0.5)*0.5]
+		green		0.25*waste_bb_pulse[(time-parm4-0.5)*0.5]
+		blue		0
+		zeroClamp
+	}
+	
+}
+
+lights/waste_bb_squarelight1_orange_to_red
+
+{
+
+	//lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	
+	{
+		if		(parm4 == 0)						// modulated orange
+		map		gfx/lights/squarelight1.tga
+		red 		0.64 // * storage_pulse[time*0.5]
+		green 		0.4  // * storage_pulse[time*0.5]
+		blue 		0.15 // * storage_pulse[time*0.5]
+		zeroClamp
+	}
+	
+	/*{
+		if		(parm4 && time - parm4 < .25)				// ramp to known orange
+		map		gfx/lights/round2.tga
+		red		(1.00 * storage_pulse[parm4*0.5]) + ((1.00 - storage_pulse[parm4*0.5]) * storage_fadein[(time-parm4)*4])
+		green		(0.71 * storage_pulse[parm4*0.5]) + ((0.71 - (0.71 * storage_pulse[parm4*0.5])) * storage_fadein[(time-parm4)*4])
+		blue		0
+		zeroClamp
+	}*/
+	
+	{
+		if		(parm4 && time - parm4 < 0.5 )				// fade to red
+		map		gfx/lights/squarelight1.tga
+		red		waste_light_squarelight1_orange_to_red_r[(time-parm4)*2]
+		green		waste_light_squarelight1_orange_to_red_g[(time-parm4)*2]
+		blue		waste_light_squarelight1_orange_to_red_b[(time-parm4)*2]
+		zeroClamp
+	}
+	
+	{
+		if		(parm4 && time - parm4 >= 0.5)
+		map		gfx/lights/squarelight1.tga
+		red		0.52*waste_bb_pulse[(time-parm4-0.5)*0.5]
+		green		0
+		blue		0
+		zeroClamp
+	}
+	
+}
+
+//////////////////////////////////////////
+//                                      //
+//     YE OLDE AIR DEFENSE HACKERY      //
+//                                      //
+//////////////////////////////////////////
+
+lights/airdefense_square_dim_on_cannon_fire_a
+
+{
+	
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/squarelight1.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/squarelight1.tga
+		red		airdefense_global_dim_a[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_a[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_a[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_square_dim_on_cannon_fire_b
+
+{
+	
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/squarelight1.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/squarelight1.tga
+		red		airdefense_global_dim_b[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_b[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_b[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_round_dim_on_cannon_fire_a
+
+{
+	
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/round.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/round.tga
+		red		airdefense_global_dim_a[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_a[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_a[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_round_dim_on_cannon_fire_b
+
+{
+	
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/round.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/round.tga
+		red		airdefense_global_dim_b[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_b[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_b[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_round2_dim_on_cannon_fire_a
+
+{
+	
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/round2.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/round2.tga
+		red		airdefense_global_dim_a[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_a[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_a[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_round2_dim_on_cannon_fire_b
+
+{
+	
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/round2.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/round2.tga
+		red		airdefense_global_dim_b[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_b[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_b[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_cannon_flash
+
+{
+	
+	{
+		if		(global1 == 0)						// off
+		map		gfx/lights/rav_squarebevel.tga
+		red		parm0
+		green	parm1
+		blue		parm2	
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// cannon flash 0.85 0.91 1
+		map		gfx/lights/rav_squarebevel.tga
+		red		airdefense_global_cannon[(time-global1)*0.25]*0.85 + parm0
+		green	airdefense_global_cannon[(time-global1)*0.25]*0.91 + parm1
+		blue		airdefense_global_cannon[(time-global1)*0.25]*1 + parm2
+		zeroClamp
+	}
+	
+}
+
+lights/airdefense_intro_cinematic_dim
+{
+	{
+		if		(Parm4 == 0)						// normal light
+		map		gfx/lights/round.tga
+		red		parm0
+		green	parm1
+		blue	parm2		
+		zeroClamp
+	}
+	{
+		if		(Parm4 > 0)						// dim and then get back normal
+		map		gfx/lights/round.tga
+		red		airdefense_global_dim_a[(time-Parm4)*0.4]*parm0
+		green	airdefense_global_dim_a[(time-Parm4)*0.4]*parm1
+		blue	airdefense_global_dim_a[(time-Parm4)*0.4]*parm2
+		zeroClamp
+	}
+}
+
+lights/hangar_test_fire
+
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+		if		(parm4 > 0)		
+		map		gfx/lights/rav_squarebevel.tga
+
+		red		hangar_engine_fire[(time-parm4)*0.2]*parm0
+		green	hangar_engine_fire[(time-parm4)*0.2]*parm1
+		blue		hangar_engine_fire[(time-parm4)*0.2]*parm2
+		
+		zeroClamp
+	}
+
+}
+
+lights/headlights
+{
+	{
+		map gfx/lights/headlights.tga
+		colored
+		zeroClamp
+	}
+}
+
+lights/flashlight
+{
+	{
+		map gfx/lights/flashlight5.tga
+		colored
+		zeroClamp
+	}
+}
+
+// Fat Guy Event Lights (possibly useful elsewhere)
+
+/*
+	{
+		if		(global1 == 0)						// normal light
+		map		gfx/lights/round2.tga
+		red		parm0
+		green	parm1
+		blue		parm2		
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)						// dim and then get back normal
+		map		gfx/lights/round2.tga
+		red		airdefense_global_dim_b[(time-global1)*0.25]*parm0
+		green	airdefense_global_dim_b[(time-global1)*0.25]*parm1
+		blue		airdefense_global_dim_b[(time-global1)*0.25]*parm2
+		zeroClamp
+	}
+*/
+
+lights/round2_flicker_off_a
+{
+	{
+		if		(global1 == 0)
+		map 		gfx/lights/round2.tga
+		red		parm0
+		green	parm1
+		blue		parm2
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)
+		map		gfx/lights/round2.tga
+		red		flicker_off_a[(time-global1)*( 1 / parm4 )]*parm0
+		green	flicker_off_a[(time-global1)*( 1 / parm4 )]*parm1
+		blue		flicker_off_a[(time-global1)*( 1 / parm4 )]*parm2
+		zeroclamp
+	}
+}
+
+lights/round2_flicker_off_b
+{
+	{
+		if		(global1 == 0)
+		map 		gfx/lights/round2.tga
+		red		parm0
+		green	parm1
+		blue		parm2
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)
+		map		gfx/lights/round2.tga
+		red		flicker_off_b[(time-global1)*(1 / parm4)]*parm0
+		green	flicker_off_b[(time-global1)*(1 / parm4)]*parm1
+		blue		flicker_off_b[(time-global1)*(1 / parm4)]*parm2
+		zeroclamp
+	}
+}
+
+lights/squarelight1_flicker_off_a
+{
+	{
+		if		(global1 == 0)
+		map		gfx/lights/squarelight1.tga
+		red		parm0
+		green	parm1
+		blue		parm2
+		zeroclamp
+	}
+	
+	{
+		if		(global1 > 0)
+		map		gfx/lights/squarelight1.tga
+		red		flicker_off_a[(time-global1)*(1 / parm4)]*parm0
+		green	flicker_off_a[(time-global1)*(1 / parm4)]*parm1
+		blue		flicker_off_a[(time-global1)*(1 / parm4)]*parm2
+		zeroclamp
+	}
+}
+
+lights/squarelight1_flicker_off_b
+{
+	{
+		if		(global1 == 0)
+		map		gfx/lights/squarelight1.tga
+		red		parm0
+		green	parm1
+		blue		parm2
+		zeroclamp
+	}
+	
+	{
+		if		(global1 > 0)
+		map		gfx/lights/squarelight1.tga
+		red		flicker_off_b[(time-global1)*(1 / parm4)]*parm0
+		green	flicker_off_b[(time-global1)*(1 / parm4)]*parm1
+		blue		flicker_off_b[(time-global1)*(1 / parm4)]*parm2
+		zeroclamp
+	}
+}
+
+lights/rav_SlowFalloff_flicker_off_a
+{
+	lightFalloffImage	makeIntensity(gfx/lights/SlowFalloff_01.tga)
+
+	{
+		if		(global1 == 0)
+		map		gfx/lights/rav_squarebevel.tga
+		red		parm0
+		green	parm1
+		blue		parm2
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)
+		map		gfx/lights/rav_squarebevel.tga
+		red		flicker_off_a[(time-global1)*(1 / parm4)]*parm0
+		green	flicker_off_a[(time-global1)*(1 / parm4)]*parm1
+		blue		flicker_off_a[(time-global1)*(1 / parm4)]*parm2
+		zeroclamp
+	}
+}
+
+lights/rav_SlowFalloff_flicker_off_b
+{
+	lightFalloffImage	makeIntensity(gfx/lights/SlowFalloff_01.tga)
+
+	{
+		if		(global1 == 0)
+		map		gfx/lights/rav_squarebevel.tga
+		red		parm0
+		green	parm1
+		blue		parm2
+		zeroClamp
+	}
+	
+	{
+		if		(global1 > 0)
+		map		gfx/lights/rav_squarebevel.tga
+		red		flicker_off_b[(time-global1)*(1 / parm4)]*parm0
+		green	flicker_off_b[(time-global1)*(1 / parm4)]*parm1
+		blue		flicker_off_b[(time-global1)*(1 / parm4)]*parm2
+		zeroclamp
+	}
+}
+
+lights/round2_fat_dead_pulse
+{
+	{
+		if		(global1 > 0)
+		map		gfx/lights/round2.tga
+		red		waste_bb_pulse[(time-global1)*0.5]*parm0
+		green	waste_bb_pulse[(time-global1)*0.5]*parm1
+		blue		waste_bb_pulse[(time-global1)*0.5]*parm2
+		zeroclamp
+	}
+}
+
+lights/round2_fat_dead_fill
+{
+	{
+		if		(global1 > 0)
+		map		gfx/lights/round2.tga
+		red		linear[(time-global1)*0.5]*parm0
+		green	linear[(time-global1)*0.5]*parm1
+		blue		linear[(time-global1)*0.5]*parm2
+		zeroclamp
+	}
+}
+
+//----------------------------------------------------------
+
+lights/spot_spectrum_7
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	spectrum 7	
+
+	{
+		map gfx/lights/spot_spectrum.tga
+		red		cosinish[time*0.125]*parm0
+		green		cosinish[time*0.125]*parm1
+		blue		cosinish[time*0.125]*parm2
+		zeroClamp	
+	}
+}
+
+lights/spot_surround_spectrum_8
+{
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+	spectrum 8	
+
+	{
+		map gfx/lights/spot_surround_spectrum.tga
+		zeroClamp
+		red		cosine[time*0.125]*parm0
+		green		cosine[time*0.125]*parm1
+		blue		cosine[time*0.125]*parm2
+	}
+	{
+		blend add
+		map gfx/lights/squarelight1.tga
+		red 		cosine[(time*0.125)-0.5]*parm0
+		green		cosine[(time*0.125)-0.5]*parm1
+		blue		cosine[(time*0.125)-0.5]*parm2
+		zeroclamp
+	}
+}

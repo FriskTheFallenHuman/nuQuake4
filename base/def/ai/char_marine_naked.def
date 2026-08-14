@@ -1,0 +1,158 @@
+/*
+===============================================================================
+
+	Naked Marine (char_marine_naked)
+
+===============================================================================
+*/
+
+export naked_marine
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -keep l_elbo_tweak r_elbo_tweak body neckcontrol SPINNER legs_channel head_channel -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/naked_marine/animations -destdir models/characters/naked_marine
+//	options -scale .4 -prefix PLAYER_ -align ALL -keep body shoulders neckcontrol legs_channel head_channel SG_muzzle_flash MG_muzzle_flash HB_muzzle_flash HB_base HB_front_rotate HB_battery MG_stock_joint MG_clip_joint SG_stock SG_clip SG_pump_joint l_ring_03 r_ring_03 -parent SG_stock r_wrist -parent MG_stock_joint r_wrist -parent HB_base r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/naked_marine/animations -destdir models/characters/naked_marine
+		
+	mesh	idle.ma							-dest naked_marine
+	anim	idle.ma 						-dest idle
+	anim	walk.ma 						-dest walk
+	anim	run.ma 							-dest run
+	anim	recomp_prison_release.ma 		-dest recomp_prison_release
+	anim	med_tube_float.ma 				-dest med_tube_float
+	anim	med1_surgery_1.ma 				-dest med1_surgery_1
+	anim	med1_surgery_2.ma 				-dest med1_surgery_2
+	anim	med2_tube_raise.ma 				-dest med2_tube_raise
+//	anim	cinematic_med2_nanocyte_takes_voss.ma 	-dest med2_nanocyte_kills_voss
+	anim	recomp_console_Exit.ma 			-range 10 64 -dest console_exit_idle
+	anim	recomp_console_Exit.ma  		-range 65 152 -dest console_exit
+	anim	af_pose.ma						-dest af_pose
+	anim	patient.ma						-dest patient
+	anim	sleeping.ma						-dest sleeping
+	anim	surgery_table.ma				-dest surgery_table
+
+}
+
+/*
+===============================================================================
+
+	Naked Marine Model
+
+===============================================================================
+*/
+
+model model_char_marine_naked
+{
+	offset							( 0 0 1 )
+
+	//this would be nice.
+	//inherit						model_char_marine
+
+	mesh							models/characters/naked_marine/naked_marine.md5mesh
+
+	channel torso					( *waist -*legs_channel )
+	channel legs					( *origin *hips -*waist )
+	channel head					( legs_channel )
+
+	anim idle						models/characters/naked_marine/idle.md5anim
+	anim console_exit				models/characters/naked_marine/console_exit.md5anim
+	anim console_exit_idle			models/characters/naked_marine/console_exit_idle.md5anim
+	anim walk						models/characters/naked_marine/walk.md5anim
+	anim run						models/characters/naked_marine/run.md5anim
+	anim recomp_prison_release 		models/characters/naked_marine/recomp_prison_release.md5anim
+	{
+		frame	220					speak "lipsync_vo_2_2_4_40_1"
+
+	}
+
+	anim af_pose					models/characters/naked_marine/af_pose.md5anim
+	anim med_tube_float				models/characters/naked_marine/med_tube_float.md5anim
+	anim patient					models/characters/naked_marine/patient.md5anim
+	{
+		frame	1						event			disableClip
+	}	
+	anim sleeping					models/characters/naked_marine/sleeping.md5anim
+	{
+		frame	1						event			disableClip
+	}
+	anim surgery_table				models/characters/naked_marine/surgery_table.md5anim
+		
+	//anim med2_tube_raise 			models/characters/naked_marine/med2_tube_raise.md5anim
+	//anim med2_nanocyte_kills_voss 	models/characters/naked_marine/med2_nanocyte_kills_voss.md5anim
+}
+
+/*
+===============================================================================
+
+	Naked Marine Entity Definition
+
+===============================================================================
+*/
+
+entityDef char_marine_naked
+{
+	"inherit"									"actor_default"
+	"spawnclass"								"rvAITactical"
+
+	// --------------------------------- Body ------------------------------------
+	"model"										"model_char_marine_naked"
+	"team"										"0"
+	"size"										"32 32 72"
+	"use_aas"									"aas32"
+	"articulatedFigure"							"marine3"
+	"ragdoll"									"marine3"
+	"health"									"150"
+	"talks"										"1"
+	"npc_name"									"I_am_a_chap_who_does_talk"
+
+	"look_at_player"							"128"
+
+//	"def_head"									"char_marinehead_default"
+	"joint_head"								"chest"
+	"joint_eyeOffset"							"Rt_EyeBall"
+
+	"copy_joint neckcontrol"					"neckcontrol"
+	"copy_joint shoulders"						"shoulders"
+	"copy_joint legs_channel"					"legs_channel"
+		
+//	"skin"										"skins/characters/marine/nohead"
+
+//	"hidesurface1"								"models/weapons/mp_guns/w_sg"
+//	"hidesurface2"								"models/weapons/mp_guns/w_sg_mod_ammo"
+//	"hidesurface3"								"models/weapons/mp_guns/w_hb"
+
+	
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"							"0.2 0.3 0"
+	  "look_joint chest"						"0.3 0.4 0"
+	    "look_joint shoulders"					"0.2 0.2 0"
+	      "look_joint legs_channel"				"0.2 0.2 0"
+//	        "look_joint head_1"					"0.2 0.2 0"
+	
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"									"Naked Marine"
+	"dbText"									"Description Text of the Naked Marine"
+}
+
+entityDef env_tube_marines
+{
+	"model"							"model_tube_marine"
+	"spawnclass"					"idAnimated"
+	
+	"editor_usage"					"Marines for tubes that aren't AI"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 72"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"float"
+	"start_anim"					"float"	
+}
+
+model model_tube_marine
+
+{
+	mesh					models/characters/naked_marine/naked_marine.md5mesh
+	anim idle				models/characters/naked_marine/idle.md5anim
+	anim float				models/characters/naked_marine/med_tube_float.md5anim
+	anim tube_raise 		models/characters/naked_marine/med2_tube_raise.md5anim
+
+}

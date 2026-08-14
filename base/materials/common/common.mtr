@@ -1,0 +1,348 @@
+///////////////////////////////////////////
+//////// COLLISION surfaces ///////////////
+///////////////////////////////////////////
+
+
+
+textures/common/collision_flesh
+{
+	noShadows
+	collision
+	materialType flesh
+}
+
+textures/common/collision_rock
+{
+	noShadows
+	collision
+	materialType rock
+}
+
+textures/common/collision_concrete
+{
+	noShadows
+	collision
+	materialType concrete
+}
+
+
+
+textures/common/collision_rubber
+{
+	noShadows
+	collision
+	materialType rubber
+}
+
+textures/common/collision_electronics
+{
+	noShadows
+	collision
+	materialType electronics
+}
+
+
+////////////////////////////maya texture
+////////////////////////////
+///////////////////////////
+
+models/monsters/maya_texture/maya_surface
+{
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+models/monsters/maya_texture/maya_surface2
+{
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture2_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+models/monsters/maya_texture/maya_surface3
+{
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture3_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+models/monsters/maya_texture/maya_surface_orange
+{
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture_orange_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+models/monsters/maya_texture/maya_surface_green
+{
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture_green_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+models/monsters/maya_texture/maya_surface_yellow
+{
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture_yellow_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+
+///////// editor texture sizes
+
+//--------------------------------------------------------------------
+textures/common/32_32
+{
+	qer_editorimage 	textures/editor/32_32.tga
+
+	diffusemap		textures/editor/32_32.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/32_64
+{
+	qer_editorimage 	textures/editor/32_64.tga
+
+	diffusemap		textures/editor/32_64.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/32_128
+{
+	qer_editorimage 	textures/editor/32_128.tga
+
+	diffusemap		textures/editor/32_128.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/32_256
+{
+	qer_editorimage 	textures/editor/32_256.tga
+
+	diffusemap		textures/editor/32_256.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/64_64
+{
+	qer_editorimage 	textures/editor/64_64.tga
+
+	diffusemap		textures/editor/64_64.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/64_128
+{
+	qer_editorimage 	textures/editor/64_128.tga
+
+	diffusemap		textures/editor/64_128.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/64_256
+{
+	qer_editorimage 	textures/editor/64_256.tga
+
+	diffusemap		textures/editor/64_256.tga
+}
+
+//--------------------------------------------------------------------
+textures/common/128_128
+{
+	qer_editorimage 	textures/editor/128_128.tga
+
+	diffusemap		textures/editor/128_128.tga
+
+}
+
+textures/common/128_128_ut
+{
+	qer_editorimage 	textures/editor/128_128.tga
+	unSmoothedTangents
+	diffusemap		textures/editor/128_128.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/128_256
+{
+	qer_editorimage 	textures/editor/128_256.tga
+
+	diffusemap		textures/editor/128_256.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/common/256_256
+{
+	qer_editorimage 	textures/editor/256_256.tga
+
+	diffusemap		textures/editor/256_256.tga
+
+}
+
+
+//--------------------------------------------------------------------
+textures/common/64_grid
+{
+	qer_editorimage 	textures/editor/64_grid.tga
+
+	diffusemap		textures/editor/64_grid.tga
+
+}
+
+//--------------------------------------------------------------------
+textures/editor/combat
+{
+	qer_editorimage 	textures/common/combat.tga
+
+	diffusemap		textures/common/combat.tga
+
+}
+
+
+textures/editor/128_128_modview
+{
+	qer_editorimage 	textures/editor/128_128_modview.tga
+
+	noshadows
+	
+	{
+		map		textures/editor/128_128_modview.tga
+	}
+}
+
+gfx/guis/soundmeter
+{
+	{
+		blend add
+		soundMap	waveform
+	}
+}
+
+gfx/guis/wav
+{	
+	{
+		Blend blend
+		Map   gfx/guis/common/wavflat.tga
+		colored
+	}
+	{
+		Blend blend
+		Map   gfx/guis/common/wav.tga
+		colored
+		centerscale	1, wavTable[time * 0.6]
+		scroll time * 1, 0
+		scale 2, 1
+	}
+}
+
+//--------------------------------------------------------------------
+// flat black textures
+//--------------------------------------------------------------------
+
+textures/common/flatblack
+
+ {
+	description "used for big boxes no light no shadows"
+	noSelfShadow
+	noshadows
+	forceOpaque			// will still seal levels
+
+	qer_editorimage textures/common/flatblack_qer.tga
+
+	{	
+		map	textures/common/flatblack.tga
+	}
+	
+}
+
+textures/common/flatblack_lit
+
+ {
+	description "used for big boxes no light no shadows"
+	noSelfShadow
+	noshadows
+	forceOpaque			// will still seal levels
+
+	qer_editorimage textures/common/flatblack_qer.tga
+
+	{	
+		blend	diffusemap
+		map		textures/common/flatblack.tga
+	}
+	
+}
+
+textures/common/flatblack_noimpact
+
+ {
+	description "used for big boxes no light no shadows no impact"
+	noSelfShadow
+	noshadows
+	forceOpaque			// will still seal levels
+	noimpact
+
+	qer_editorimage textures/common/flatblack.tga
+
+	{	
+		map	textures/common/flatblack.tga
+	}
+	
+}
+
+textures/common/flatblack_glass
+
+ {
+	description "used for big boxes no light no shadows"
+	noSelfShadow
+//	noshadows
+//	forceOpaque			// will still seal levels
+	materialType glass
+
+	qer_editorimage textures/common/flatblack.tga
+
+	{	
+		blend diffuseMap
+		map	textures/common/flatblack.tga
+	}
+	
+}
+
+//--------------------------------------------------------------------
+// fast debug graph material
+//--------------------------------------------------------------------
+
+textures/common/debuggraph
+{
+	translucent
+	noShadows
+
+	{
+		forceHighQuality
+		nearest
+		nopicmip
+		colored
+		//blend add
+		map textures/common/debuggraph.tga
+	}
+}

@@ -1,0 +1,69 @@
+/***********************************************************************
+
+monster_gunner
+
+***********************************************************************/
+
+export ben {
+	options -prefix GUN_ -align ALL -scale .4
+	mesh	models/gunner/walk9.ma -dest models/md5/meshes/gunner
+	anim	models/gunner/walk9.ma -dest models/md5/anims/gunner/walk
+	anim	models/gunner/idle.ma -dest models/md5/anims/gunner/idle
+	anim	models/gunner/run16.ma -dest models/md5/anims/gunner/run
+	anim	models/gunner/punch7.ma -dest models/md5/anims/gunner/punch
+	anim	models/gunner/backhand.ma -dest models/md5/anims/gunner/backhand
+	anim	models/gunner/attack.ma -dest models/md5/anims/gunner/attack
+	anim	models/gunner/walk_attack.ma -dest models/md5/anims/gunner/walk_attack
+	anim	models/gunner/strafe2.ma -dest models/md5/anims/gunner/strafe
+	anim	models/gunner/pain1.ma -dest models/md5/anims/gunner/pain1
+
+
+
+
+
+}
+/*
+
+entityDef test_ben_gunner {
+	"inherit"						"char_default"
+	"size"							"40 40 90"
+	"use_aas"						"aas96"
+	"team"							"1"
+	"rank"							"4"
+	"health"						"40"
+	"melee_damage" 					"20"
+	"melee_range"					"64"
+	"leap_range"					"480"
+	"leap_rate"					"8"
+	"pivot"						"0"
+	"missile_range_min"				"64"
+	"missile_range_max"				"1024"
+	"run_range"					"320"
+	"head_look"					"0"
+	"spawnclass"					"idAI"
+	"anim_states"					"def/monster.state"
+	"attack_rate"					"10"
+
+	"model"					"models/md5/meshes/gunner.md5mesh"
+
+	"channel torso"					"*origin"
+	"channel legs"					"*hips"
+
+	"anim walk"				"models/md5/anims/gunner/run.md5anim"
+	"anim idle"				"models/md5/anims/gunner/idle.md5anim"
+	"anim run"				"models/md5/anims/gunner/walk.md5anim"
+	"anim pain1"				"models/md5/anims/gunner/pain1.md5anim"
+	"anim melee_attack"			"models/md5/anims/gunner/punch.md5anim"
+	"anim backhand"				"models/md5/anims/gunner/backhand.md5anim"
+	"anim attack"				"models/md5/anims/gunner/attack.md5anim"			
+	"anim walk_attack"			"models/md5/anims/gunner/walk_attack.md5anim"
+	"anim strafe"				"models/md5/anims/gunner/strafe.md5anim"
+	
+	"frame melee_attack:8"			"melee melee_gunner"
+//	"frame melee_attack:9"			"sound snd_Q4Melee_attack_1"
+	"melee_damage" 					"70"
+	"melee_range"					"64"
+	
+	"sound Q4Melee_attack_1"		"punch"
+}
+*/

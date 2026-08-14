@@ -1,0 +1,1079 @@
+//------------------------------------------------------------------------------------
+// AirDefense2.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+namespace map_airdefense2	
+{
+//------------------------------------------------------------------------------------
+// Globals
+//------------------------------------------------------------------------------------
+
+//trench effect flags
+float g_trenchOneEffects = 0;
+float g_trenchTwoEffects = 0;
+
+//this is when the strogg flyer can target Bidwell, Sledge and Morris,
+float g_flyerInRange = 0;
+
+// fire in the same direction until the player enters the second trench
+float g_useStaticGunAngle = 1;
+
+// determine the localized length of bidwell's "we're just gettin' started" speech for timing
+float localizationHack;
+
+//------------------------------------------------------------------------------------
+// Prototypes
+//------------------------------------------------------------------------------------
+
+//an actual strogg fighter flying along, keeping the marines pinned down.
+// entFighter = entity to fly along with
+// fValue = playback to start with, 0 < fValue <= fMaxPlaybacks
+// fMaxPlaybacks = maximum number of playbacks in sequence
+void maintainFighterStrafe(entity entFighter, float fValue, float fMaxPlaybacks);
+
+//move the initial wreckage debris out of the way
+void moveDebris();
+
+//launches a strogg body into the air and down into the trench
+void flingStroggBody();
+
+//starts the runs of the three trench fighters
+void startTrenchCombat();
+
+//strafe the tunnel in the trench!
+void tunnelBomb();
+
+//Walker one, the one that gets hit and all blowed up
+void walkerOne();
+
+//This one lives. Yay life.
+void walkerTwo();
+
+//Flyer loop, maintains the shooting and aiming of the animated flyer
+void flyerTrenchLoop();
+void flyerRocketLoop();
+void trenchStrafeRun();
+void trenchStrafeRun2();
+
+
+//maintains the big gun
+void maintainBigGun();
+
+//the conversation in the trench between four NPCs and the player
+void trenchConversation(); 
+
+//handles a marine who is guarding the trenches
+void marineOnTrenchWall(entity entMarine);
+
+//determines which cool walker firing anim he'll use
+void walkerFireManager(entity entDriver);
+
+//Use this to manage the tracer fire out back
+void activateTrenchTracers(float fStart, float fEnd);
+void deactivateTrenchTracers(float fStart, float fEnd);
+
+// This will turn on all the effects in trench one (the west one)
+void activateTrenchOneEffects();
+void deactivateTrenchOneEffects();
+
+void activateTrenchTwoEffects();
+void deactivateTrenchTwoEffects();
+
+void maintainSecondTrenchExplosions();
+void maintainFirstTrenchExplosions();
+
+//When the flyer that roves around the 2nd trench is in range, certain things happen.
+void trenchFlyerInRange();
+void trenchFlyerOutRange();
+
+//keeps the marines down when under fire
+void marineCowerLoop( entity entMarine, string strAnim );
+
+//underwood rolls into the trench
+void underwoodRoll();
+
+//------------------------------------------------------------------------------------
+// Functions
+//------------------------------------------------------------------------------------
+
+//move the initial wreckage debris out of the way
+//---------------------------------------------------------
+void moveDebris()	
+{
+	$player1.setWorldOrigin( $tgt_player_intro_1.getWorldOrigin());
+	$player1.bind( $mov_intro);
+
+	sys.fadeIn( '0 0 0', 5);
+	sys.wait(5);
+
+	//animate
+	aiScriptedAnim( $npc_debris, "remove_debris", 4, 1);
+	
+	sys.wait(1);
+
+	//move!
+	$mov_debris_1.time(3);
+	$mov_debris_1.accelTime(3);
+	$mov_debris_1.moveTo( $tgt_debris_move);
+	sys.waitFor($mov_debris_1);
+	
+	//change from mover to physics object
+	$mvb_debris.unbind();
+	sys.waitFrame();
+	$mov_debris_1.bind( $mvb_debris);
+	sys.waitFrame();
+	$mvb_debris.applyImpulse( $mvb_debris, $mvb_debris.getWorldOrigin(), '0 0 -2000');
+
+	sys.wait(1.5);
+
+	//accelerate the whole time	
+	$mov_intro.time(2.4);
+	$mov_intro.accelTime(2.4);
+
+	//lift the player up
+	$mov_intro.moveTo( $tgt_player_intro_2);
+	
+	//set him down
+	sys.waitFor( $mov_intro);
+	$player1.unbind();
+	$mov_intro.remove();
+}
+
+
+//launches a strogg body into the air and down into the trench
+//---------------------------------------------------------
+void flingStroggBody()	
+{
+	//spawn a strogg marine at that point
+	entity entStrogg = $mon_strogg_trench; //sys.spawn("monster_strogg_marine");
+	entStrogg.setWorldOrigin( $tgt_strogg_trench_launch.getWorldOrigin() );
+	sys.trigger( entStrogg);
+	sys.waitFrame();
+
+	//set off the foom and kill the strogg
+	sys.trigger( $fx_strogg_trench_explosion);
+	entStrogg.kill();
+	sys.waitFrame();
+
+	//fling!
+	entStrogg.applyImpulse( entStrogg, entStrogg.getWorldOrigin(), '0 -80000 90000');
+}
+
+//starts the runs of the three trench fighters
+//----------------------------------------------
+void startTrenchCombat()	
+{
+	//three strafing fighters, this might go.
+	//thread maintainFighterStrafe( $mon_fighter_trench_1, 1, 3);
+	//thread maintainFighterStrafe( $mon_fighter_trench_2, 3, 3);
+	//thread maintainFighterStrafe( $mon_fighter_trench_3, 2, 3);
+
+	sys.trigger( $radio_walker_trench_1);
+
+	//walkers
+	thread walkerOne();
+	thread walkerTwo();
+
+	thread trenchStrafeRun();
+
+	//flyer
+//	thread flyerTrenchLoop();
+
+	//big gun in action - NOTE: currently started from main because the global lighting
+	//	thing Roger set up is rigged into this.  At some future point, maybe it
+	//	would be better to have a function that handles the flashes until we get to this
+	//	point, then we kill the other thread and let the read dude take over that task
+//	thread maintainBigGun();
+
+	//marine holding the trench
+	thread marineOnTrenchWall($npc_judkins);
+//	thread marineOnTrenchWall($npc_ripkey); - removed this guy for now. cpeters
+
+	//asplosions
+	thread maintainSecondTrenchExplosions();
+	thread maintainFirstTrenchExplosions();
+}
+
+//an actual strogg fighter flying along, keeping the marines pinned down.
+//----------------------------------------------
+void maintainFighterStrafe(entity entFighter, float fValue, float fMaxPlaybacks)	
+{
+	entFighter.show();
+	string strPlaybackDef = "playback_ad_trench_";
+	
+	while(1)
+	{
+		while(fValue <= fMaxPlaybacks)	
+		{
+			sys.wait(sys.random(10));
+			entFighter.setHealth(200);
+	
+			//fly along the path
+			aiScriptedPlaybackMoveWait ( entFighter, "playback_ad_trench_" + fValue, PBFL_GET_POSITION | PBFL_GET_ANGLES_FROM_VEL, 4);
+			fValue++;
+
+			//if the fighter got blown up, quit out of this loop
+			if( entFighter == $null_entity)	
+			{
+				return;
+			}
+		}
+		fValue = 1;
+		sys.waitFrame();
+	}
+}
+
+//strafe the tunnel in the trench!
+//----------------------------------------------
+void tunnelBomb()	
+{
+	// bombxor!!
+	sys.trigger( $fx_tunnel_bomb_1);
+	sys.trigger( $fx_tunnel_dust_1);
+	sys.wait(0.4);
+	sys.trigger( $fx_tunnel_bomb_2);
+	sys.trigger( $fx_tunnel_dust_3);
+	sys.wait(0.6);
+	sys.trigger( $fx_tunnel_bomb_3);
+	sys.trigger( $fx_tunnel_dust_2);
+	sys.wait(0.7);
+	sys.trigger( $fx_tunnel_bomb_4);
+
+	// blow up the second walker
+	sys.wait(2);
+	$death.directDamage( $walker_trench_2, "damage_gib");
+}
+
+//----------------------------------------------
+void trenchStrafeRun()
+{
+	return;
+//	sys.wait(4);
+//	$strogg_flyer_trench_2.show();
+//	$strogg_flyer_trench_2.playAnim( ANIMCHANNEL_ALL, "ad_strafe3" );
+}
+
+//----------------------------------------------
+void trenchStrafeRun2()
+{
+	return;
+//	sys.wait(3);
+//	$strogg_flyer_trench_2.show();
+//	$strogg_flyer_trench_2.playAnim( ANIMCHANNEL_ALL, "ad_strafe3" );
+}
+
+//----------------------------------------------------------------------------------------------------
+void safeTrigger( entity ent )
+{
+	if ( isValidEntity(ent))
+	{
+		sys.trigger(ent);
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+void strafeFlyerShoot( float preDelay, entity projectileOne, entity projectileTwo, entity projectileBomb, float burst )	
+{
+	sys.wait(preDelay);
+	while( burst > 0 )
+	{
+		// Fire away!
+		safeTrigger( projectileOne );
+		sys.wait( 0.1 );
+		safeTrigger( projectileTwo );
+		sys.wait( 0.15 );
+		
+		// decrement burst counter
+		burst--;
+	}
+	sys.wait(sys.random(.3)+.4);
+	safeTrigger(projectileBomb);
+
+	// randomly drop another
+	if ( sys.random(1) > 0.4 )
+	{
+		sys.wait(.3);
+		safeTrigger(projectileBomb);
+	}
+}
+//----------------------------------------------
+void walkerShoot( entity driver, entity vehicle )
+{
+	while ( isValidEntity(vehicle) && isValidEntity(driver) && vehicle.getHealth() > 0 )
+	{
+		driver.fireWeapon(0,.1);
+		sys.wait(sys.random(.5)+.2);
+	}
+}
+//----------------------------------------------
+void driveWalkerToDeath()
+{
+	$aiDriver_1.enterVehicle( $walker_trench_1 );
+	aiScriptedMove( $aiDriver_1, $tgt_trench_walker_1, 32, 0 );
+	thread walkerShoot($aiDriver_1, $walker_trench_1);
+
+	sys.wait(4);
+	sys.trigger( $nuke_walker );
+	sys.wait(1.5);
+	aiScriptedAnimWait( $walker_trench_1, "knocked_down", 0, 0);
+	sys.wait(.8);
+	$death.directDamage( $walker_trench_1, "damage_gib");
+}
+
+// just cruise along the splines
+//----------------------------------------------
+void maintainSecondTrenchStrafer()
+{
+	//$stroggFighter_1.setAngles( '0 0 0' );
+	$stroggFighter_1.time(1.8); // should be less than 2, which is half of 4, which is the time it takes to travel its path
+	while (1)
+	{
+		$stroggFighter_1.show();
+		$stroggFighterBase_1.time(4);
+		$stroggFighterBase_1.startSpline( $stroggFighterFlyover_1 );
+		thread strafeFlyerShoot( sys.random(1.5), $target_launchprojectile_5, $target_launchprojectile_6, $target_launchprojectile_7, 1);
+	$stroggFighter_1.rotateOnce( '45 0 0' );
+	sys.waitFor( $stroggFighter_1 );
+	$stroggFighter_1.rotateOnce( '-45 0 0' );
+		sys.waitFor( $stroggFighterBase_1 );
+		$stroggFighter_1.hide();
+		sys.wait(5);
+
+		$stroggFighter_1.show();
+		$stroggFighterBase_1.time(4);
+		$stroggFighterBase_1.startSpline( $stroggFighterFlyover_3 );
+			thread strafeFlyerShoot( sys.random(1)+.4, $target_launchprojectile_5, $target_launchprojectile_6, $target_launchprojectile_7, 2);
+	$stroggFighter_1.rotateOnce( '45 0 0' );
+	sys.waitFor( $stroggFighter_1 );
+	$stroggFighter_1.rotateOnce( '-45 0 0' );
+		sys.waitFor( $stroggFighterBase_1 );
+		$stroggFighter_1.hide();
+		sys.wait(5);
+
+		$stroggFighter_1.show();
+		$stroggFighterBase_1.time(4);
+		$stroggFighterBase_1.startSpline( $stroggFighterFlyover_2 );
+			thread strafeFlyerShoot( sys.random(1.5), $target_launchprojectile_5, $target_launchprojectile_6, $target_launchprojectile_7, 1);
+	$stroggFighter_1.rotateOnce( '45 0 0' );
+	sys.waitFor( $stroggFighter_1 );
+	$stroggFighter_1.rotateOnce( '-45 0 0' );
+		sys.waitFor( $stroggFighterBase_1 );
+		$stroggFighter_1.hide();
+		sys.wait(5 + sys.random(2));
+	}
+}
+
+//----------------------------------------------
+void doAmbientFlyer()
+{
+	sys.wait(.5);
+
+	// Show fighter
+	$stroggFighter_1.show();
+	sys.trigger($speaker_8);
+	//sys.trigger($func_fx_772);
+
+	// Start on spline path and bank accordingly
+	$stroggFighterBase_1.startSpline( $stroggFighterFlyover );
+	$stroggFighter_1.rotateOnce( '-15 0 0' );
+	sys.waitFor( $stroggFighter_1 );
+	$stroggFighter_1.rotateOnce( '15 0 0' );
+	sys.waitFor( $stroggFighter_1 );
+//	thread strafeFlyerShoot( .7, $target_launchprojectile_5, $target_launchprojectile_6, 4);
+//	$stroggFighter_1.rotateOnce( '-30 0 0' );
+//	sys.waitFor( $stroggFighter_1 );
+//	$stroggFighter_1.rotateOnce( '-90 0 0' );
+	
+	// Wait for base to reach destination, then hide fighter
+	sys.waitFor( $stroggFighterBase_1 );
+
+	$stroggFighter_1.hide();	
+}
+//----------------------------------------------------------------------------------------------------
+
+
+// Walker one, the one that gets hit and all blowed up
+//----------------------------------------------------------
+void walkerOne()	
+{
+	thread driveWalkerToDeath();
+}
+
+//----------------------------------------------
+void walkerTwo()	
+{
+	//put the driver in the walker
+	$aiDriver_2.enterVehicle( $walker_trench_2);
+	sys.wait(3);
+	thread walkerFireManager( $aiDriver_2);
+	sys.wait(3);
+	aiScriptedMove( $aiDriver_2, $tgt_trench_walker_2, 1, 1);
+}
+
+//determines which cool walker firing anim he'll use
+//----------------------------------------------
+void walkerFireManager(entity entDriver)	
+{
+	entDriver.setKey("alive", "true");
+
+	//shoot like mad!
+	while(entDriver.getKey("alive") == "true")	
+	{
+		float fFire = sys.random(100);
+
+		if(fFire < 14)
+		{
+			$aiDriver_2.fireWeapon( 0, 0.1);
+		}
+		else if (fFire < 20)	
+		{
+			float fBurst = 0;
+			for( fBurst = 0; fBurst < 10; fBurst++)	
+			{
+				$aiDriver_2.fireWeapon( 1, 1);
+				sys.wait(0.05);
+			}
+		}
+		
+		sys.waitFrame();
+	}
+}
+
+//maintains the flyer over the trenches
+//----------------------------------------------
+void flyerTrenchLoop()	
+{
+	$flyer_trench_strafe.show();
+	$flyer_trench_strafe.playCycle( ANIMCHANNEL_ALL, "ad_strafe");
+
+	thread flyerRocketLoop();
+
+	while(1)	
+	{
+		if( g_trenchTwoEffects == 1 && ( (sys.random(100) < 30) ||  g_flyerInRange == 1) )	
+		{
+			//do some shootin
+			float fShoot = sys.getTime() + 4;
+			while( sys.getTime() < fShoot)	
+			{
+				sys.trigger( $tgt_flyergun_left);
+				sys.wait(0.1);
+				sys.trigger( $tgt_flyergun_right);
+				sys.wait(0.1);
+			
+				if( sys.random(20) < 1)	
+				{
+					sys.trigger( $tgt_flyergun_rocket);
+				}
+			}
+		}
+		
+		sys.wait(2);
+	}
+}
+
+//this assumes the flyer is in rocket range
+//----------------------------------------------
+void flyerRocketLoop()	
+{
+	while(1)	
+	{
+		if(g_flyerInRange == 1 && g_trenchTwoEffects == 1)	
+		{
+			sys.trigger( $tgt_flyergun_rocket);
+			sys.wait(0.1 + sys.random(0.3));
+		}
+		sys.wait(0.1);
+	}
+}
+
+//keeps the marine ducking when underfire, 
+void marineCowerLoop(entity entMarine, string strAnim)	
+{
+	//this marine is set to cower
+	entMarine.setKey("cower","yes");	
+
+	while (entMarine.getKey("cower") == "yes")	
+	{
+		//if the flyer is shooting at the right area, start ducking
+		if (g_flyerInRange == 1)	
+		{
+			sys.wait( sys.random(1));
+
+			aiScriptedAnimWait( entMarine, "cowering_start", 12, 0);
+			aiScriptedAnimLoop( entMarine, "cowering_idle", 12);
+
+			//while he's cowering wait for the all clear
+			while( entMarine.getKey("cower") == "yes" && g_flyerInRange == 1)	
+			{
+				sys.wait(sys.random(1.5));
+			}
+			
+			//get up and return to idle
+			aiScriptedAnimWait( entMarine, "cowering_end", 12, 0);
+			aiScriptedAnimLoop( entMarine, strAnim, 12);
+		}
+
+		sys.wait(sys.random(1));
+	}
+}
+
+//fires an FX rocket from one point to another
+//----------------------------------------------
+void fireFXRocket(entity mvr, entity entFx, entity entStart, entity dest, entity impactEffect, float fSpeed) 
+{
+	//orient and start the effect
+	entFx.appendTarget( dest);
+	entFx.start();
+
+	//slam it into the target
+	mvr.setWorldOrigin( entStart.getWorldOrigin() );
+	mvr.speed( fSpeed);
+	mvr.moveTo( dest);
+	sys.waitFor( mvr);
+	//sys.println(" Collision! ");
+	mvr.setWorldOrigin( entStart.getWorldOrigin() );
+	
+	//play the hit effect
+	entFx.stop();
+	entFx.removeTarget( dest);
+	impactEffect.setWorldOrigin( dest.getWorldOrigin() );
+	impactEffect.start();
+}
+
+//---------------------------------------------------------------------------------
+// void triggerBigGunDust()
+//
+// This function triggers entities func_fx_cannondust_1 -> func_fx_cannondust_53
+//---------------------------------------------------------------------------------
+void triggerBigGunDust()
+{
+	entity ent;
+	float fCt;
+
+	// currently there are 1-53 of these bad boys
+	for ( fCt=1; fCt<=53; fCt=fCt+1 )
+	{
+		ent = sys.getEntity( "func_fx_cannondust_" + fCt );
+		if ( ent == $null_entity )
+		{
+			break;
+		}
+		sys.trigger(ent);
+	}
+}
+
+//---------------------------------------------------------------------------------
+void manageBigGunCharging()
+{
+	$airdefense_big_gun.setShaderParm(4,sys.getTime());
+	sys.wait(1);
+	sys.trigger( $fx_biggun_charge);
+	sys.trigger( $fx_biggun_charge_1);
+	sys.wait(3);
+	$airdefense_big_gun.setShaderParm(4,0);
+}
+
+// the angle is fixed until you hit a certain trigger.  This is done to keep
+//	the gun shooting such that it can be seen in the first trench
+//----------------------------------------------
+void enableRandomGunAngles()
+{
+	// now use randomness
+	g_useStaticGunAngle = 0;
+
+	// we also start off the second trench strafe runs
+	thread maintainSecondTrenchStrafer();
+}
+
+//this should get the big gun to turn and fire
+//----------------------------------------------
+void maintainBigGun()	
+{
+	float fAngle = 0;
+	float fNewAngle = 0;
+	fAngle = $mvr_biggun.getFloatKey("angle");
+	$mvr_biggun.time(5);
+
+	$ai_biggun_driver.enterVehicle( $airdefense_big_gun);
+
+	$mvr_biggun.accelTime(2);
+	$mvr_biggun.decelTime(2);
+
+	while(1)	
+	{
+		//between 90 and 270
+		if ( g_useStaticGunAngle == 1 )
+		{
+			fNewAngle = 30;
+		}
+		else
+		{
+			fNewAngle = (270 + sys.random(180));
+		}
+		if( fNewAngle >= 360)
+		{
+			fNewAngle -= 360;
+		}
+
+		//rotate up to, rotate down to...
+		/* 	0 degrees is pointing "north", 90 is east and 270 is west. So, 
+			A little bit of math jiggery pokery here
+		*/
+		//if both angles are in the same quadrant...
+		if ((fNewAngle >= 270 && fAngle >= 270) || (fNewAngle <= 90 && fAngle <= 90))
+		{
+			if (fNewAngle < fAngle)	
+			{
+				$mvr_biggun.rotateDownTo( 1, fNewAngle);
+			}
+			else
+			{
+				$mvr_biggun.rotateUpTo( 1, fNewAngle);
+			}
+		}
+		//new in q I, old in q IV -- rotate up (clockwise)
+		else if (fNewAngle <= 90 && fAngle >= 270)
+		{
+			$mvr_biggun.rotateUpTo( 1, fNewAngle);
+		} 
+		//new in q IV, old in q I, rotate down (counter clockwise)
+		else if (fNewAngle >= 270 && fAngle <= 90)
+		{
+			$mvr_biggun.rotateDownTo( 1, fNewAngle);
+		}
+		
+		//the move is five seconds long, the wait before the fire is .75 seconds.
+		//so that's 5.75. The effect is 4 seconds long... about...
+		sys.wait( 2.5 );
+		
+		thread manageBigGunCharging();
+
+		//now wait for the move to finish.
+		sys.waitFor( $mvr_biggun);
+		sys.wait(0.75);
+		
+		//fire!
+		$ai_biggun_driver.fireWeapon(0,1);
+		sys.trigger( $spkr_big_gun_muffled );
+
+		// set global lighting change, create some dust...
+		sys.setShaderParm(1, sys.getTime());
+		thread triggerBigGunDust();
+
+		// revert global lighting..roger had this set up with a 4 second delay from triggering, so I'm keeping that aspect of it
+		sys.wait(4);
+		sys.setShaderParm(1, 0);
+
+		// add a small amount of additional wait.
+		sys.wait( sys.random(1.5));
+
+		fAngle = fNewAngle;
+	}
+}
+
+//----------------------------------------------
+void setupRhodes()
+{
+	// spawn these dudes in as well
+	sys.trigger( $npc_bidwell );
+	sys.trigger( $npc_sledge );
+
+	$npc_rhodes.lookAt( $player1 );
+	aiScriptedAnimWait( $npc_rhodes, "idle_weapon_3_start", 0, 0 );
+	aiScriptedAnimLoop( $npc_rhodes, "idle_weapon_3_loop", 4 );
+}
+
+//----------------------------------------------
+void manageSledge()
+{
+	sys.trigger( $npc_sledge);
+	$npc_sledge.becomePassive(true);
+
+	$npc_sledge.setAnimRate( 0.85 );
+	aiScriptedAnimWait( $npc_sledge, "ad_cover_1",16, 0 );
+	$npc_sledge.setAnimRate( 0.9 ); //was .7
+	aiScriptedAnimWait( $npc_sledge, "idle_scan_2", 24,0 );
+	$npc_sledge.setAnimRate( 1 );
+	aiScriptedAnim( $npc_sledge, "idle",16,1 );
+}
+
+//----------------------------------------------
+void rhodesSpeaks()
+{
+	thread manageSledge();
+
+	$npc_rhodes.becomePassive(true);
+	$npc_rhodes.disableTarget();
+
+sys.trigger($tgt_fade_sounds_for_vo); // utilize sound class to reduce background noize so VO can be heard
+
+	sys.wait(0.5);
+	aiSpeakWait( $npc_rhodes, "lipsync_vo_1_1_3_80_1" );	// so you are alive!
+
+sys.trigger($tgt_restore_sounds_after_vo); // utilize sound class to restore background noize levels
+	aiScriptedAnimWait( $npc_rhodes, "idle_weapon_3_end", 12, 1 );
+}
+
+//reveal the team
+//----------------------------------------------
+void prepareConversation()	
+{
+	aiScriptedAnimWait( $npc_bidwell, "ad_bidwell_wave", 4, 0);
+	aiScriptedFaceWait( $npc_bidwell, $tgt_morris_trench_dest, 0 );
+	aiScriptedAnimLoop( $npc_bidwell, "idle", 16);
+}
+
+//----------------------------------------------
+void manageMorris()
+{
+	aiScriptedWait( $npc_morris );
+	aiScriptedFace( $npc_morris, $tgt_morris_face_here, 1 );
+}
+
+// Functions for timing within the trench conversation
+//----------------------------------------------
+
+// Bidwell points to the airdefense cannon and refers to the strogg flyers overhead
+void bidwellPointAndLook()	{
+	sys.wait( 1.5 );
+	$npc_bidwell.lookAt( $player1 );
+	aiScriptedAnim( $npc_bidwell , "point_back" , 8 , 0 );
+	sys.wait( 2.5 );
+	$npc_bidwell.lookAt( $null_entity );
+	aiScriptedAnim( $npc_bidwell , "point_up" , 12 , 1 );
+}
+
+// Bidwell reacts to Voss' radio transmission
+void bidwellReactsToVoss()	{
+	sys.wait( 1 );
+	$npc_bidwell.lookAt( $npc_morristgt_morris_face_here );
+	aiScriptedAnim( $npc_bidwell , "wrist_gui_2" , 10 , 0 );
+	sys.wait( 3.5 );
+	//aiScriptedAnimWait( $npc_bidwell, "com_link_start", 12, 0 );
+	aiScriptedAnimLoop( $npc_bidwell, "com_link_loop", 16  );
+}
+
+// Bidwell stands in another idle while Voss talks
+void bidwellIdles()	{
+	aiScriptedAnimWait( $npc_bidwell , "idle_weapon_3_start" , 5 , 0 );
+	aiScriptedAnimLoop( $npc_bidwell , "idle_weapon_3_loop" , 5 );
+}
+
+//the conversation in the trench between four NPCs and the player
+//----------------------------------------------
+void trenchConversation()	
+{
+	$npc_sledge.setTalkState(TALK_WAIT);
+	$npc_bidwell.setTalkState(TALK_WAIT);
+	$npc_morris.setTalkState(TALK_WAIT);
+
+	// here comes Morris, talking as he runs.
+	$npc_bidwell.lookAt( $npc_morris );
+	aiScriptedMove( $npc_morris, $tgt_morris_trench_dest, 24, 0);
+	sys.trigger($tgt_fade_sounds_for_vo); // utilize sound class to reduce background noize so VO can be heard
+
+	sys.wait(2);
+	aiSpeak( $npc_morris, "lipsync_vo_1_1_3_80_2");	 // hello ladies!
+	aiSpeakDone( $npc_morris );
+
+	// remove morris as a script-flow dependency for right now
+	thread manageMorris();
+
+	// slight pause between VO...then bidwell explains that we're stuck
+	sys.wait(0.1);
+	thread bidwellPointAndLook();
+	aiSpeak( $npc_bidwell, "lipsync_vo_1_1_3_80_3" ); // we're just getting started.
+	sys.wait( localizationHack - .25 ); // Wait just a little less than the length of the sound file
+
+	// Voss chimes in and Bidwell reacts
+	thread bidwellReactsToVoss();
+	radioChatterPlayWait( $radio_voss_trench_1 , "");
+	
+	sys.wait(.1);
+
+	// bidwell replies
+	$npc_bidwell.lookAt( $player1 );
+	aiSpeakWait( $npc_bidwell, "lipsync_vo_1_1_3_80_5" ); // he's right here, sir!
+	aiScriptedAnim( $npc_bidwell, "com_link_end", 5, 1 );
+
+	// voss pipes up over the radio
+	thread bidwellIdles();
+	radioChatterPlayWait( $radio_voss_trench_2 , ""); // ~8.5 secs
+
+	aiScriptedAnimWait( $npc_bidwell , "idle_weapon_3_end" , 5 , 1 );
+	//aiScriptedAnim( $npc_bidwell, "idle", 4 , 0 );
+
+	// bidwell replies-- you've got your orders so go! // give objective
+	aiSpeak( $npc_bidwell, "lipsync_vo_1_1_3_80_7" ); // you heard the man, kane
+	sys.wait( .5 );
+	aiScriptedFaceWait( $npc_bidwell , $npc_morris , 1 );
+	aiScriptedAnim( $npc_bidwell , "point_forward" , 4 , 0 );	
+	sys.wait( .9 );
+	aiScriptedAnim( $npc_bidwell , "point_right" , 24 , 0 );
+	aiSpeakDone( $npc_bidwell );
+	sys.trigger( $objectiveHangar);
+
+	//morris follows you.
+	$npc_morris.setLeader($player1);
+	$npc_morris.becomeAggressive();
+
+	//sys.wait(1);
+	aiScriptedWait( $npc_bidwell );
+
+	//remove the temp brush that is blocking the player.
+	sys.trigger( $func_static_temp_player_block );
+	
+	// move out of the way for the player
+	$npc_bidwell.setMoveSpeed( AIMOVESPEED_WALK);
+	aiScriptedMoveWait( $npc_bidwell, $tgt_bidwell_here, 8, 0 );
+	$npc_bidwell.setMoveSpeed( AIMOVESPEED_RUN);
+	aiScriptedFaceWait( $npc_bidwell, $npc_sledge, 1 );
+	
+	//aiSpeakDone( $npc_bidwell );
+	$npc_sledge.setTalkState(TALK_BUSY);
+	$npc_bidwell.setTalkState(TALK_BUSY);
+	$npc_morris.setTalkState(TALK_BUSY);
+	$npc_rhodes.setTalkState(TALK_BUSY);
+sys.trigger($tgt_restore_sounds_after_vo); // utilize sound class to restore background noize levels
+
+}
+
+//These guys run out of the second trench, towards Rhodes
+//----------------------------------------------
+void removeBidwellAndSledge()
+{
+	sys.trigger($ai_tether_radius_sledge_hide);
+	sys.wait(.2);
+	sys.trigger($ai_tether_radius_bidwell_hide);
+	
+	/*
+	aiScriptedMove( $npc_sledge, $tgt_null_sledge_goes_here, 32, 1 );
+	sys.wait(0.1);
+	aiScriptedMoveWait( $npc_bidwell, $npc_rhodes, 32, 1 );
+*/
+	// we could alternately leave these guys to hang out near rhodes in case the player heads
+	//	back in that direction.
+//	$npc_sledge.remove();
+//	$npc_bidwell.remove();
+//	$npc_rhodes.remove();
+}
+
+//handles a marine who is guarding the trenches
+//----------------------------------------------
+void marineOnTrenchWall(entity entMarine)	
+{
+	while(entMarine)	
+	{
+		//put this marine into a kneeling / fighting pose
+		aiScriptedAnimLoop( entMarine, "crouch_cover_idle", 4);
+
+		sys.wait(2 + sys.random(4));
+		float fPhrase = sys.random(50);
+
+		if (fPhrase < 10)
+			fPhrase = 1;
+		else if (fPhrase < 20)
+			fPhrase = 2;
+		else if (fPhrase < 30)
+			fPhrase = 3;
+		else if (fPhrase < 40)
+			fPhrase = 4;
+		else 
+			fPhrase = 5;
+
+		//shoot, say the phrase
+		aiSpeak( entMarine, "lipsync_trench_jive_" + fPhrase);
+		aiScriptedAnimWait( entMarine, "crouch_popup_shoot", 4, 0);
+		aiScriptedAnimWait( entMarine, "crouch_cover_reload", 4, 0);			
+	}
+}
+
+//used to manage the tracers out in the trenches
+//----------------------------------------------
+void activateTrenchTracers(float fStart, float fEnd)	
+{
+	float t;
+	entity entFx;
+
+	for (t = fStart; t<= fEnd; t++)	
+	{
+		sys.getEntity( "fx_tracer_trench_" + t).start();
+	}
+}
+
+//----------------------------------------------
+void deactivateTrenchTracers(float fStart, float fEnd)	
+{
+	float t;
+	entity entFx;
+
+	for (t = fStart; t<= fEnd; t++)	
+	{
+		sys.getEntity( "fx_tracer_trench_" + t).stop();
+	}
+
+	//sys.println("Tracers off");
+}
+
+// This will turn on all the effects in trench one (the west one)
+//----------------------------------------------
+void activateTrenchOneEffects()	
+{
+	//turn on tracers 0 - 13
+	activateTrenchTracers(0, 13);
+
+	//enable the rocket attacks
+	g_trenchOneEffects = 1;
+}
+
+//and this will turn them all off
+//----------------------------------------------
+void deactivateTrenchOneEffects()	
+{
+	//turn off tracers 0 - 13
+	deactivateTrenchTracers(0, 13);
+
+	//enable the rocket attacks
+	g_trenchOneEffects = 0;
+}
+
+
+// This will turn on all the effects in trench two, on the east
+//----------------------------------------------
+void activateTrenchTwoEffects()	
+{
+	//turn on tracers 14- 26
+	activateTrenchTracers(14, 26);
+	g_trenchTwoEffects = 1;
+}
+
+//and this will turn them all off
+//----------------------------------------------
+void deactivateTrenchTwoEffects()	
+{
+	//turn on tracers 14- 26
+	deactivateTrenchTracers(14, 26);
+	g_trenchTwoEffects = 0;
+}
+
+//random explosions in the second trench
+//----------------------------------------------
+void maintainSecondTrenchExplosions()	
+{
+	float fNum = 0;
+
+	while(1)	
+	{
+		if(g_trenchTwoEffects)	
+		{
+			fNum = sys.random(8);
+			fNum *= 1000;
+			fNum = (fNum % 7) + 1;
+			sys.trigger( sys.getEntity( "fx_foom_trench_second_" + fNum));
+
+			// projectiles
+			shootFromTo( $projectile_bunker_3, $tgt_line_of_fire_1, $tgt_line_of_fire_3 );
+			// randomly shoot one with a reversed direction
+			if ( sys.random(1) > 0.5 )
+			{
+				shootFromTo( $projectile_bunker_3, $tgt_line_of_fire_1, $tgt_line_of_fire_3 );
+			}
+		}
+
+		sys.wait( sys.random(3)+2);
+	}
+}
+
+//----------------------------------------------
+void maintainFirstTrenchExplosions()	
+{
+	float fNum = 0;
+
+	while(1)	
+	{
+		if(g_trenchOneEffects)	
+		{
+			fNum = sys.random(8);
+			fNum *= 1000;
+			fNum = (fNum % 7) + 1;
+			sys.trigger( sys.getEntity( "fx_foom_trench_first_" + fNum));
+
+			// The first trench has two sets of rocket launchers..  This was done because launching rockets
+			//	over the road wasn't what I wanted..
+			shootFromTo( $projectile_bunker_1, $tgt_fire_line_1_start, $tgt_rocket_dest );
+			sys.wait(sys.random(2));
+			shootFromTo( $projectile_bunker_2, $tgt_fire_line_2_start, $tgt_rocket_dest );
+		}
+
+		sys.wait( sys.random(4)+0.5);
+	}
+}
+
+// towards the end of the map is a strogg on top of the trenches that jumps down and rushes the player.
+//---------------------------------------------------
+void stroggTrenchJumpDown()
+{
+	aiScriptedAnimWait( $strogg_jumpTrench, "shuffle_right", 8, 0 );
+	aiScriptedAnim( $strogg_jumpTrench, "jump_trench", 8, 1 );
+}
+
+//----------------------------------------------
+void trenchFlyerInRange()	
+{
+	g_flyerInRange = 1;
+}
+//----------------------------------------------
+void trenchFlyerOutRange()	
+{
+	g_flyerInRange = 0;
+}
+
+//----------------------------------------------
+void trenchFlyerShoot()
+{
+	float hnd = $strogg_flyer_trench_2.getJointHandle( "left_gun" );
+	$tgt_flyergun_l.setWorldOrigin( $strogg_flyer_trench_2.getJointPos( hnd));
+	$tgt_flyergun_l.setAngles( $strogg_flyer_trench_2.getJointAngle( hnd ));
+	sys.trigger( $tgt_flyergun_l);
+
+	hnd = $strogg_flyer_trench_2.getJointHandle( "right_gun" );
+	$tgt_flyergun_r.setWorldOrigin( $strogg_flyer_trench_2.getJointPos( hnd));
+	$tgt_flyergun_r.setAngles( $strogg_flyer_trench_2.getJointAngle( hnd ));
+	sys.trigger( $tgt_flyergun_r);
+}
+
+// Underwood rolls into the trench
+//----------------------------------------------
+void underwoodRoll()  
+{
+	aiScriptedAnimWait( $npc_underwood, "crouch_to_stand", 8, 0 );
+	sys.trigger( $fx_underwood_bomb );
+	aiScriptedAnimWait( $npc_underwood, "roll_trench", 4, 0);
+	aiScriptedFace( $npc_underwood, $player1, 1);
+	aiSpeakWait( $npc_underwood, "lipsync_vo_1_1_3_20_1");
+	$npc_underwood.setLeader( $player1);
+}
+
+//----------------------------------------------
+void main()	
+{
+	//strogg vs marine airpower go!
+	float t;
+	
+	//originally, there were six planes per side. Now we're using 2, and that might change too. But the
+	//+6 for the 3rd parameter is because originally the damaged versions of the sprites started at 7.
+	for (t = 1; t <= 2; t++)	
+	{
+		thread map_airdefense1::maintainStroggFlyerSprite( sys.getEntity("mvr_fx_strogg_flyer_" + t), sys.getEntity("fx_air_strogg_fighter_" + t), sys.getEntity("fx_air_strogg_fighter_" + (t + 6) ), $tgt_strogg_flyer_hangar, $tgr_strogg_flyer_end, '-1 0 .1' );
+		thread map_airdefense1::maintainStroggFlyerSprite( sys.getEntity("mvr_fx_marine_flyer_" + t), sys.getEntity("fx_air_marine_fighter_" + t), sys.getEntity("fx_air_marine_fighter_" + (t + 6) ), $tgt_marine_flyer_hangar, $tgr_marine_flyer_end, '1 0 .1' );
+	}
+
+	// started from here
+	thread maintainBigGun();
+	
+	localizationHack = $target_localizedTimingHack.startSound( "snd_hack" , SND_CHANNEL_ANY , 0 );
+}
+
+}	// end namespace : map_airdefense2

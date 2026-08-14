@@ -1,0 +1,104 @@
+
+/***********************************************************************
+BATTERY 1
+
+***********************************************************************/
+
+export battery1
+{		
+	options -prefix bt1_ -align ALL -keep muzzle_flash
+		  
+	mesh	work/models/mapobjects/strogg/bio_machines/human_battery_1/animation/battery_1_idle.ma	-dest models/mapobjects/strogg/bio_machines/human_battery_1/mesh
+	anim	work/models/mapobjects/strogg/bio_machines/human_battery_1/animation/battery_1_idle.ma	-dest models/mapobjects/strogg/bio_machines/human_battery_1/idle
+}
+
+entityDef env_battery1
+{
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Animated torso battery1"
+	"model"							"model_env_battery1"
+	"spawnclass"					"idAnimated"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+	
+	"snd_breathe"					"ambient_tsd_breathe"
+	"combatModel"					"1"
+	
+//--------------------------------effects-----------------------------------------------------
+
+
+	"fx_breath"						"effects/ambient/cold_breath"
+}
+
+model model_env_battery1
+{						
+	mesh					models/mapobjects/strogg/bio_machines/human_battery_1/mesh.md5mesh
+//	anim idle 				models/mapobjects/strogg/bio_machines/human_battery_1/idle.md5anim
+	
+	anim idle											models/mapobjects/strogg/bio_machines/human_battery_1/idle.md5anim
+	{
+		frame	1										sound		snd_breathe
+		frame 42, 122, 167								fx			fx_breath			muzzle_flash
+	}	
+
+}
+
+
+
+/***********************************************************************
+BATTERY 2
+
+***********************************************************************/
+
+export battery2
+{		
+	options -prefix bt2_ -align ALL -keep muzzle_flash
+		  
+	mesh	work/models/mapobjects/strogg/bio_machines/human_battery_2/animation/battery_2_idle.ma	-dest models/mapobjects/strogg/bio_machines/human_battery_2/mesh
+	anim	work/models/mapobjects/strogg/bio_machines/human_battery_2/animation/battery_2_idle.ma	-dest models/mapobjects/strogg/bio_machines/human_battery_2/idle
+}
+
+entityDef env_battery2
+{
+	
+
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Animated torso battery2"
+	"model"							"model_env_battery2"
+	"spawnclass"					"idAnimated"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+	"snd_breathe"					"ambient_tsd_breathe"
+
+	"combatModel"					"1"
+
+//--------------------------------effects-----------------------------------------------------
+
+	"fx_breath"						"effects/ambient/cold_breath"
+}
+
+model model_env_battery2
+{
+	mesh					models/mapobjects/strogg/bio_machines/human_battery_2/mesh.md5mesh
+//	anim idle 				models/mapobjects/strogg/bio_machines/human_battery_2/idle.md5anim
+	
+anim idle					models/mapobjects/strogg/bio_machines/human_battery_2/idle.md5anim
+	{
+		frame	1										sound		snd_breathe
+		frame 1, 20, 114, 187							fx			fx_breath			muzzle_flash
+	}	
+
+}

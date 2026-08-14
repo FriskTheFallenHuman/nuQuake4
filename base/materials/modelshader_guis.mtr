@@ -1,0 +1,736 @@
+//----------------------------------
+// common strogg mediamonitor flatframe
+//----------------------------------
+
+strogg/mediamonitor/flatframe/guiSurf {
+	discrete
+	qer_editorimage	textures/editor/gui.tga
+	guiSurf	guis/models/mediamonitor2a.gui
+}
+
+
+//----------------------------------
+// common strogg console set 1d
+//----------------------------------
+
+strogg/console/set_1d_1/guiSurf {
+	discrete
+	qer_editorimage	textures/editor/gui.tga
+	guiSurf	guis/models/set_1d_1.gui
+}
+
+strogg/console/set_1d_2/guiSurf {
+	discrete
+	qer_editorimage	textures/editor/gui.tga
+	guiSurf	guis/models/set_1d_2.gui
+}
+
+
+//----------------------------------
+// common strogg console set 1e
+//----------------------------------
+
+strogg/console/set_1e/guiSurf {
+	discrete
+	qer_editorimage	textures/editor/gui.tga
+	guiSurf	guis/models/circle_screen.gui
+}
+
+
+//----------------------------------
+// terminal elev 1
+//----------------------------------
+
+models/mapobjects/strogg/terminal/elevator/terminal_elevator_light
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/terminal_elev_light.tga
+		red	guitable_1_92 [ time * 1.63 ]
+		green	guitable_1_92 [ time * 1.63 ]
+		blue	guitable_1_92 [ time * 1.63 ]
+		alpha	parm3
+	}
+}
+
+//----------------------------------
+// mconsole set1 monitor gui1
+//----------------------------------
+
+models/mapobjects/strogg/console/console_set1a_monitor/gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/console_set1a_monitor_gui1.tga
+		red	guitable_1_92 [ time * 1.63 ]
+		green	guitable_1_92 [ time * 1.63 ]
+		blue	guitable_1_92 [ time * 1.63 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/console/console_set1a_monitor/gui2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/console_set1a_monitor_gui2.tga
+		scroll 0, .4 * time
+		red	guitable_1_92 [ time * 2.38 ]
+		green	guitable_1_92 [ time * 2.38 ]
+		blue	guitable_1_92 [ time * 2.38 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/console/console_set1a_monitor/gui3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/console_set1a_monitor_gui3.tga
+		red	guitable_1_92 [ time * 1.36 ]
+		green	guitable_1_92 [ time * 1.36 ]
+		blue	guitable_1_92 [ time * 1.36 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/console_set1a_monitor_gui3b.tga
+		red	guitable_10_0 [ time * 2.58 ]
+		green	guitable_10_0 [ time * 2.58 ]
+		blue	guitable_10_0 [ time * 2.58 ]
+		alpha	parm3
+	}
+
+}
+
+models/mapobjects/strogg/console/console_set1a_monitor/gui4
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/console_set1a_monitor_gui4.tga
+		red	guitable_1_92 [ time * 1.15 ]
+		green	guitable_1_92 [ time * 1.15 ]
+		blue	guitable_1_92 [ time * 1.15 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/console_set1a_monitor_gui4b.tga
+		red	guitable_10_0 [ time * .67 ]
+		green	guitable_10_0 [ time * .67 ]
+		blue	guitable_10_0 [ time * .67 ]
+		alpha	parm3
+	}
+
+}
+
+//----------------------------------
+// mediamonitor 3
+//----------------------------------
+
+models/mapobjects/strogg/screens/mediamonitor_3_gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/mediamonitor_3_gui1.tga
+		red	guitable_1_92 [ time * 2.86 ]
+		green	guitable_1_92 [ time * 2.86 ]
+		blue	guitable_1_92 [ time * 2.86 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/screens/mediamonitor_3_gui2
+{	
+	noShadows
+	translucent
+	sort near
+	{
+		blend add
+		Map gfx/guis/modelshader/mediamonitor_3_gui2.tga
+		red	guitable_1_92 [ time * 1.25 ]
+		green	guitable_1_92 [ time * 1.25 ]
+		blue	guitable_1_92 [ time * 1.25 ]
+		alpha	parm3
+	}
+}
+
+//----------------------------------
+// security console g
+//----------------------------------
+
+models/mapobjects/strogg/security_consoles/sec_console01g/gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01g_gui1.tga
+		red	guitable_1_92 [ time * 1.27 ]
+		green	guitable_1_92 [ time * 1.27 ]
+		blue	guitable_1_92 [ time * 1.27 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01g/gui2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01g_gui2.tga
+		scroll 0, .05 * time
+		red	guitable_1_92 [ time * 2.38 ]
+		green	guitable_1_92 [ time * 2.38 ]
+		blue	guitable_1_92 [ time * 2.38 ]
+		alpha	parm3
+	}
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01g_gui2b.tga
+		scroll 0, .2 * time
+		red	guitable_1_92 [ time * 2.38 ]
+		green	guitable_1_92 [ time * 2.38 ]
+		blue	guitable_1_92 [ time * 2.38 ]
+		alpha	parm3
+	}
+}
+
+
+
+//----------------------------------
+// security console h
+//----------------------------------
+
+models/mapobjects/strogg/security_consoles/sec_console01h/gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01h_gui1.tga
+		red	guitable_1_92 [ time * 3 ]
+		green	guitable_1_92 [ time * 3 ]
+		blue	guitable_1_92 [ time * 3 ]
+		alpha	parm3
+	}
+}
+
+
+models/mapobjects/strogg/security_consoles/sec_console01h/gui2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01h_gui2.tga
+		red	guitable_1_92 [ time * 1 ]
+		green	guitable_1_92 [ time * 1 ]
+		blue	guitable_1_92 [ time * 1 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01h_gui2b.tga
+		red	guitable_10_0 [ time * 15 ]
+		green	guitable_10_0 [ time * 15 ]
+		blue	guitable_10_0 [ time * 15 ]
+		alpha	parm3
+	}
+
+}
+
+
+models/mapobjects/strogg/security_consoles/sec_console01h/gui3
+{	
+	noShadows
+	translucent
+	{
+		blend		add
+		if ( ( time * .4 ) % 3 == 0 )
+		Map		gfx/guis/modelshader/sec_console01h_gui3a.tga
+		red	guitable_1_92 [ time * 5 ]
+		green	guitable_1_92 [ time * 5 ]
+		blue	guitable_1_92 [ time * 5 ]
+		alpha	parm3
+	}
+
+	{
+		blend		add
+		if ( ( time * .4 ) % 3 == 1 )
+		Map		gfx/guis/modelshader/sec_console01h_gui3b.tga
+		red	guitable_1_92 [ time * 3 ]
+		green	guitable_1_92 [ time * 3 ]
+		blue	guitable_1_92 [ time * 3 ]
+		alpha	parm3
+	}
+
+	{
+		blend		add
+		if ( ( time * .4 ) % 3 == 2 )
+		Map		gfx/guis/modelshader/sec_console01h_gui3c.tga
+		red	guitable_1_92 [ time * 3 ]
+		green	guitable_1_92 [ time * 3 ]
+		blue	guitable_1_92 [ time * 3 ]
+		alpha	parm3
+	}
+}
+
+//----------------------------------
+// security console i
+//----------------------------------
+
+models/mapobjects/strogg/security_consoles/sec_console01i/gui1
+{	
+	noShadows
+	translucent
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui1b.tga
+		scroll -1 * time, 0
+		red	guitable_1_92 [ time * .5 ]
+		green	guitable_1_92 [ time * .5 ]
+		blue	guitable_1_92 [ time * .5 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui1b.tga
+		scroll -2 * time, 0
+		centerscale 1, 1.5
+		red	.5* guitable_1_92 [ time * 1 ]
+		green	.5* guitable_1_92 [ time * 1 ]
+		blue	.5* guitable_1_92 [ time * 1 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui1b.tga
+		scroll -9 * time, 0
+		centerscale 2, .6
+		red	.3* guitable_1_92 [ time * 1 ]
+		green	.3* guitable_1_92 [ time * 1 ]
+		blue	.3* guitable_1_92 [ time * 1 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui1d.tga
+		scroll -2 * time, 0
+		red	guitable_1_92 [ time * 1 ]
+		green	guitable_1_92 [ time * 1 ]
+		blue	guitable_1_92 [ time * 1 ]
+		alpha	parm3
+	}
+
+
+	{
+		blend blend
+		Map gfx/guis/modelshader/sec_console01i_gui1c.tga
+		colored
+	}
+
+
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01i/gui2
+{	
+	noShadows
+	translucent
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui2.tga
+		red	guitable_1_92 [ time * 1 ]
+		green	guitable_1_92 [ time * 1 ]
+		blue	guitable_1_92 [ time * 1 ]
+		alpha	parm3
+	}
+
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui2a.tga
+		red	guitable_10_0 [ time * .2 ]
+		green	guitable_10_0 [ time * .2 ]
+		blue	guitable_10_0 [ time * .2 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui2b.tga
+		red	guitable_10_0 [ time * .5 ]
+		green	guitable_10_0 [ time * .5 ]
+		blue	guitable_10_0 [ time * .5 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui2c.tga
+		red	guitable_10_0 [ time * 1 ]
+		green	guitable_10_0 [ time * 1 ]
+		blue	guitable_10_0 [ time * 1 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01i_gui2d.tga
+		red	guitable_10_0 [ time * .3 ]
+		green	guitable_10_0 [ time * .3 ]
+		blue	guitable_10_0 [ time * .3 ]
+		alpha	parm3
+	}
+
+}
+
+//----------------------------------
+// security console k
+//----------------------------------
+
+
+models/mapobjects/strogg/security_consoles/sec_console01k/gui2
+{	
+	noShadows
+	translucent
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui2.tga
+		red	guitable_1_92 [ time * .8 ]
+		green	guitable_1_92 [ time * .8 ]
+		blue	guitable_1_92 [ time * .8 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui2a.tga
+		red	guitable_10_0 [ time * 1 ]
+		green	guitable_10_0 [ time * 1 ]
+		blue	guitable_10_0 [ time * 1 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01k/gui1
+{	
+	noShadows
+	translucent
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui1.tga
+		red	guitable_1_92 [ time * 1 ]
+		green	guitable_1_92 [ time * 1 ]
+		blue	guitable_1_92 [ time * 1 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui1a.tga
+		red	guitable_10_0 [ time * 1 ]
+		green	guitable_10_0 [ time * 1 ]
+		blue	guitable_10_0 [ time * 1 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui1b.tga
+		red	guitable_10_0 [ time * .5 ]
+		green	guitable_10_0 [ time * .5 ]
+		blue	guitable_10_0 [ time * .5 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui1c.tga
+		red	guitable_10_0 [ time * .2 ]
+		green	guitable_10_0 [ time * .2 ]
+		blue	guitable_10_0 [ time * .2 ]
+		alpha	parm3
+	}
+
+	{
+		blend		add
+		if ( ( time * .4 ) % 3 == 0 )
+		Map gfx/guis/modelshader/sec_console01k_gui1d.tga
+		red	guitable_1_92 [ time * 3 ]
+		green	guitable_1_92 [ time * 3 ]
+		blue	guitable_1_92 [ time * 3 ]
+		alpha	parm3
+	}
+
+	{
+		blend		add
+		if ( ( time * .4 ) % 3 == 1 )
+		Map gfx/guis/modelshader/sec_console01k_gui1e.tga
+		red	guitable_1_92 [ time * 3 ]
+		green	guitable_1_92 [ time * 3 ]
+		blue	guitable_1_92 [ time * 3 ]
+		alpha	parm3
+	}
+
+	{
+		blend		add
+		if ( ( time * .4 ) % 3 == 2 )
+		Map gfx/guis/modelshader/sec_console01k_gui1f.tga
+		red	guitable_1_92 [ time * 3 ]
+		green	guitable_1_92 [ time * 3 ]
+		blue	guitable_1_92 [ time * 3 ]
+		alpha	parm3
+	}
+
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01k/gui3
+{	
+	noShadows
+	translucent
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui3.tga
+		red	guitable_1_92 [ time * 1.7 ]
+		green	guitable_1_92 [ time * 1.7 ]
+		blue	guitable_1_92 [ time * 1.7 ]
+		alpha	parm3
+	}
+
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01k_gui3a.tga
+		red	guitable_10_0 [ time * .45 ]
+		green	guitable_10_0 [ time * .45 ]
+		blue	guitable_10_0 [ time * .45 ]
+		alpha	parm3
+	}
+}
+
+//----------------------------------
+// security console f
+//----------------------------------
+
+models/mapobjects/strogg/security_consoles/sec_console01f/gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01f_gui1.tga
+		red	guitable_1_92 [ time * 2.2 ]
+		green	guitable_1_92 [ time * 2.2 ]
+		blue	guitable_1_92 [ time * 2.2 ]
+		alpha	parm3
+	}
+}
+
+//----------------------------------
+// security console b
+//----------------------------------
+
+models/mapobjects/strogg/security_consoles/sec_console01b/gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui1.tga
+		red	guitable_1_92 [ time * .63 ]
+		green	guitable_1_92 [ time * .63 ]
+		blue	guitable_1_92 [ time * .63 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui1a.tga
+		red	guitable_10_0 [ time * .41 ]
+		green	guitable_10_0 [ time * .41 ]
+		blue	guitable_10_0 [ time * .41 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui1b.tga
+		red	guitable_10_0 [ time * .74 ]
+		green	guitable_10_0 [ time * .74 ]
+		blue	guitable_10_0 [ time * .74 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01b/gui2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui2.tga
+		red	guitable_1_92 [ time * 1.83 ]
+		green	guitable_1_92 [ time * 1.83 ]
+		blue	guitable_1_92 [ time * 1.83 ]
+		alpha	parm3
+	}
+
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui2a.tga
+		red	guitable_10_0 [ time * .24 ]
+		green	guitable_10_0 [ time * .24 ]
+		blue	guitable_10_0 [ time * .24 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui2b.tga
+		red	guitable_10_0 [ time * .52 ]
+		green	guitable_10_0 [ time * .52 ]
+		blue	guitable_10_0 [ time * .52 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01b/gui3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui3.tga
+		red	guitable_1_92 [ time * 1.2 ]
+		green	guitable_1_92 [ time * 1.2 ]
+		blue	guitable_1_92 [ time * 1.2 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui3a.tga
+		red	guitable_10_0 [ time * .35 ]
+		green	guitable_10_0 [ time * .35 ]
+		blue	guitable_10_0 [ time * .35 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui3b.tga
+		red	guitable_10_0 [ time * .127 ]
+		green	guitable_10_0 [ time * .127 ]
+		blue	guitable_10_0 [ time * .127 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01b/gui4
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui4.tga
+		red	guitable_1_92 [ time * 15 ]
+		green	guitable_1_92 [ time * 15 ]
+		blue	guitable_1_92 [ time * 15 ]
+		alpha	parm3
+	}
+}
+
+models/mapobjects/strogg/security_consoles/sec_console01b/gui5
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui5.tga
+		red	guitable_1_92 [ time * .92 ]
+		green	guitable_1_92 [ time * .92 ]
+		blue	guitable_1_92 [ time * .92 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01b_gui5a.tga
+		red	guitable_10_0 [ time * .72 ]
+		green	guitable_10_0 [ time * .72 ]
+		blue	guitable_10_0 [ time * .72 ]
+		alpha	parm3
+	}
+}
+
+//----------------------------------
+// security console j
+//----------------------------------
+
+models/mapobjects/strogg/security_consoles/sec_console01j/gui1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01j_gui1.tga
+		red	guitable_1_92 [ time * 2.73 ]
+		green	guitable_1_92 [ time * 2.73 ]
+		blue	guitable_1_92 [ time * 2.73 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01j_gui1a.tga
+		red	guitable_10_0 [ time * .273 ]
+		green	guitable_10_0 [ time * .273 ]
+		blue	guitable_10_0 [ time * .273 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01j_gui1b.tga
+		red	guitable_10_0 [ time * 1.12 ]
+		green	guitable_10_0 [ time * 1.12 ]
+		blue	guitable_10_0 [ time * 1.12 ]
+		alpha	parm3
+	}
+
+	{
+		blend add
+		Map gfx/guis/modelshader/sec_console01j_gui1c.tga
+		red	guitable_10_0 [ time * .52 ]
+		green	guitable_10_0 [ time * .52 ]
+		blue	guitable_10_0 [ time * .52 ]
+		alpha	parm3
+	}
+
+}

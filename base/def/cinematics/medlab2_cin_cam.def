@@ -1,0 +1,22 @@
+export cin_med2_cam
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/voss_kidnapping/animations -destdir models/cinematics/medlabs2
+	camera	vossKidnap_CAMERA.ma			-dest cin_med2_cam
+}
+
+camera cin_med2cam
+{
+	anim med2cam					"models/cinematics/medlabs2/cin_med2_cam.md5camera"
+}
+
+entityDef cin_med2_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_med2cam"
+}

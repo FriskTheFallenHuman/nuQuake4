@@ -1,0 +1,294 @@
+////////////////////////////////////////////////////////////////////
+///SMALL HAND HELD STROGG STUFF////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+
+models/mapobjects/strogg/misc_equipment/pipes01
+{
+      	noselfShadow
+	unSmoothedTangents
+
+	renderBump  -size  512  512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/pipes01_local.tga work/models/mapobjects/strogg/misc_equipment/pipes01_high.lwo
+	materialType hollowmetal
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/pipes01_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/pipes01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/pipes01_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/pipes01_s.tga
+
+}
+
+
+//torture_manacles-------------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/torture_manacles
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size  512 512-aa 2 -MergeHigh -trace .03  models/mapobjects/strogg/misc_equipment/torture_manacles_local.tga work/models/mapobjects/strogg/misc_equipment/torture_manacles_hi.lwo
+	materialType solidmetal
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/torture_manacles_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/torture_manacles_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/torture_manacles_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/torture_manacles_s.tga
+
+}
+//bonesaw-----------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/misc_equipment/bonesaw01_lo 
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size  256  512-aa 2 -MergeHigh -trace .03  models/mapobjects/strogg/misc_equipment/bonesaw01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/bonesaw01_hi.lwo
+	materialType solidmetal
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/bonesaw01_lo_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/bonesaw01_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/bonesaw01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/bonesaw01_lo_s.tga
+
+}
+//skewer----------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/skewer01_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 64 256 -aa 2 -MergeHigh -trace .03  models/mapobjects/strogg/misc_equipment/skewer01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/skewer01_hi.lwo
+	materialType solidmetal
+	bumpmap			models/mapobjects/strogg/misc_equipment/skewer01_lo_local.tga
+	diffusemap		models/mapobjects/strogg/misc_equipment/skewer01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/skewer01_lo_s.tga
+
+}
+
+
+//tray----------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/tray01_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialType solidmetal
+	renderBump  -size 128 256 -aa 2 -MergeHigh -trace .02  models/mapobjects/strogg/misc_equipment/tray01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/tray01_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/misc_equipment/tray01_lo_local.tga
+	diffusemap		models/mapobjects/strogg/misc_equipment/tray01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/tray01_lo_s.tga
+
+}
+
+
+//scalpel----------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/scalpel01_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialType solidmetal
+	renderBump  -size 64 256 -aa 2 -MergeHigh -trace .03  models/mapobjects/strogg/misc_equipment/scalpel01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/scalpel01_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/misc_equipment/scalpel01_lo_local.tga
+	diffusemap		models/mapobjects/strogg/misc_equipment/scalpel01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/scalpel01_lo_s.tga
+
+}
+
+//pincers01---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/misc_equipment/pincers01_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialType solidmetal
+	renderBump  -size 128 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/pincers01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/pincers01_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/misc_equipment/pincers01_lo_local.tga
+	diffusemap		models/mapobjects/strogg/misc_equipment/pincers01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/pincers01_lo_s.tga
+}
+
+//needle---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/misc_equipment/needle01_lo  
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 256 256 -aa 2 -MergeHigh -trace .03  models/mapobjects/strogg/misc_equipment/needle01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/needle01_hi.lwo
+	materialType solidmetal
+	bumpmap			models/mapobjects/strogg/misc_equipment/needle01_lo_local.tga
+	diffusemap		models/mapobjects/strogg/misc_equipment/needle01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/needle01_lo_s.tga
+}
+
+//vaccine_gun---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo 
+{
+      	noselfShadow
+	unsmoothedtangents
+ 	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo_local.tga work/models/mapobjects/strogg/misc_equipment/vaccine_gun01_hi.lwo
+
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo_s.tga
+	{ 
+		blend add
+		map models/mapobjects/strogg/misc_equipment/vaccine_gun01_lo_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+
+	
+	
+}
+
+//wheel_table2---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/misc_equipment/table_wheels03_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/table_wheels03_lo_local.tga work/models/mapobjects/strogg/misc_equipment/table_wheels03_hi.lwo
+	materialType solidmetal
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/table_wheels03_lo_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/table_wheels03_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/table_wheels03_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/table_wheels03_lo_s.tga
+}
+
+//wheel_table2---------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/table_wheels02_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/table_wheels02_lo_local.tga work/models/mapobjects/strogg/misc_equipment/table_wheels02_hi.lwo
+	materialType solidmetal
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/table_wheels02_lo_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/table_wheels02_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/table_wheels02_lo_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/table_wheels02_lo_s.tga
+}
+
+
+//machine6---------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/machine6_low
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine6_low_local.tga work/models/mapobjects/strogg/misc_equipment/machine6_hi.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine6_low_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine6_low_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine6_low_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine6_low_s.tga
+}
+
+//machine4---------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/machine4_low
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine4_low_local.tga work/models/mapobjects/strogg/misc_equipment/machine4_high.lwo
+	
+	bumpMap		addnormals (models/mapobjects/strogg/misc_equipment/machine4_low_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine4_low_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine4_low_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine4_low_s.tga
+}
+
+//machine2---------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/machine2_low
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine2_low_local.tga work/models/mapobjects/strogg/misc_equipment/machine2_high6.lwo
+	
+	bumpMap		addnormals (models/mapobjects/strogg/misc_equipment/machine2_low_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine2_low_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine2_low_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine2_low_s.tga
+}
+
+//machine1---------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/machine1_low
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine1d_local.tga work/models/mapobjects/strogg/misc_equipment/machine1_high.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine1_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine1_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine1_s.tga
+}
+
+//machine7---------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/misc_equipment/machine7_low
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .09  models/mapobjects/strogg/misc_equipment/machine7new1_local.tga work/models/mapobjects/strogg/misc_equipment/machine7b_high.lwo
+	 
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine7_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine7_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine7_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine7_s.tga
+}
+
+models/mapobjects/strogg/misc_equipment/machine5
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine5f_local.tga work/models/mapobjects/strogg/misc_equipment/machine5_high.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine5_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine5_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine5_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine5_s.tga
+}
+
+models/mapobjects/strogg/misc_equipment/machine3
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .09  models/mapobjects/strogg/misc_equipment/machine3_flat_local.tga work/models/mapobjects/strogg/misc_equipment/machine3b_high.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine3_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine3_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine3_s.tga
+}
+
+models/mapobjects/strogg/misc_equipment/machine10
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine10f_local.tga work/models/mapobjects/strogg/misc_equipment/machine10_hi.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine10_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine10_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine10_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine10_s.tga
+}
+
+models/mapobjects/strogg/misc_equipment/machine11
+{
+      	noselfShadow
+	unsmoothedtangents
+     
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/machine11side2_local.tga work/models/mapobjects/strogg/misc_equipment/machine11_hi.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/machine11_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/machine11_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/machine11_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/machine11_s.tga
+}
+
+models/mapobjects/strogg/misc_equipment/table02 
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size  512  512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/misc_equipment/table02_local.tga work/models/mapobjects/strogg/misc_equipment/table02_hi.lwo
+	
+	bumpmap		addnormals (models/mapobjects/strogg/misc_equipment/table02_local.tga, heightmap (models/mapobjects/strogg/misc_equipment/table02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/misc_equipment/table02_d.tga
+	specularmap		models/mapobjects/strogg/misc_equipment/table02_s.tga
+
+}

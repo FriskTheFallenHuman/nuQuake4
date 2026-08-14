@@ -1,0 +1,77 @@
+//------------------------------------------------------------------------------
+// medbed.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+entityDef vehicle_tableMover 
+{
+	"inherit"					"func_mover_spline"
+	"spawnclass"				"rvSplineMover"
+	"editor_usage"				""
+	"editor_var health"			""
+	"health"					"300"
+	"accel"						"50"
+	"decel"						"50"
+	"speed"						"50"
+	"snd_speed_normal_tram"		"med_labs_gurney_start"
+	"snd_speed_excessive_tram"	"med_labs_gurney_move"
+}
+
+entityDef vehicle_bodytable
+{
+	"inherit"					"func_mover_spline"
+	"spawnclass"				"rvVehicleRigid"
+	"editor_usage"				""
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-40 -8 0"
+	"editor_maxs"				"40 8 36"
+	"editor_rotatable"			"1"
+	"model"						"model_bodytable_wide"
+	"mins"						"-40 -8 0"
+	"maxs"						"40 8 36"
+	"anim"						"idle"
+	"def_position_driver"		"vehicle_medbed_patient"
+	"health"					"1000"
+	"mass"						"10"
+	"size"						"80 16 36"
+	"gui_hud"					"guis/vehicles/medchange.gui"
+}
+
+model model_bodytable_wide
+{
+	inherit		"model_bodytable"
+	mesh		models/mapobjects/strogg/medlabs/bodytable/bodytable_wide.md5mesh
+}
+
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+entityDef vehicle_medbed_patient
+{
+	"eyeJoint"					"head"
+	"eyeoffset"					"-1 0 1"
+	"depthHack"					"0"
+	"def_part_turn"				"vehicle_medbed_turn"
+	"exitPosOffset"				"0 32 0"
+	"exitAxisOffset"			"0 0 0"
+	"angles_offset"				"0 -90 0"
+}
+
+entityDef vehicle_medbed_turn
+{
+	"spawnclass"				"rvVehicleTurret"
+	"joint"						"head"	
+	"yaw"						"0"
+	"pitch"						"1"
+	"minyaw"					"-25"
+	"maxyaw"					"25"
+	"minpitch"					"-4"
+	"maxpitch"					"30"	
+	"pitchinvert"				"1"
+	"turnrate"					"50"
+}

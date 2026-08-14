@@ -1,0 +1,168 @@
+
+
+sound strogg_flyer_loop
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	1
+	frequentlyUsed
+	looping
+
+	sound/strogg/flyer/flight_loop
+	shakeData 0 upqpnsqmspnmompsnooqkmmnmnqnmmnpslpnlokookmpmlompnomnmiqpnlnmomlnoljnnmmonmimqmmpnopmnomjnooppnqnjplprtmpoknnloooqpolmqor
+}
+
+
+sound strogg_flyer_takeoff
+{
+	minDistance	200
+	maxDistance	2000
+	volumeDb	1
+
+	sound/strogg/flyer/take_off
+	shakeData 0 nrwsxwvxwvvxywvvwxutuxyvxuvuttuyxuvsrxwvvrtrqswpxvvpruquwqpoooqommlmnmnnjjjhhgffeefeecdccbbaaa
+}
+
+
+sound strogg_flyer_bombrun
+{
+	minDistance	250
+	maxDistance	2500
+	volumeDb	1
+
+	sound/strogg/flyer/bomb_run
+	shakeData 0 lmmqnpnmmlknnmoprnqppospvqrrnqrstnqpoqnorqqrntolroopompnstqnokonqrqpqooonqorpqqopnmokmspponnnnopoonsnnokkolmmjlijkjhjkihliklijjhghkjjfhggfhffggegffddceeddcddccbbbbbbbbbaaaaaa
+}
+
+
+sound strogg_flyer_bomb_whistle
+{
+	minDistance	250
+	maxDistance	2500
+	volumeDb	-4
+	frequentlyUsed
+
+	sound/strogg/flyer/bomb_whistle1
+	shakeData 0 dfgfhgfegeghissrjigjihghhfgfffeedbbbaaaaaaaaaaa
+	sound/strogg/flyer/bomb_whistle2
+	shakeData 1 igighhffgeffdeedbbbaaaaaaaaaaaa
+}
+
+
+sound strogg_flyer_fire
+{
+	minDistance	250
+	maxDistance	2500
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/turrets/network_turretfire01
+	shakeData 0 zzzxtrljhfeeddccbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/turrets/network_turretfire02
+	shakeData 1 zzzystlmghfedeedcbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound strogg_dropship_alarm
+{
+	minDistance	500
+	maxDistance	5000
+	volumeDb	0
+
+	sound/strogg/flyer/landing_alarm
+	shakeData 0 gnzzyyxyzyzzzzzyyxxyzzwyzyyyzxzxkebbaaa
+}
+
+
+sound strogg_dropship_liftoff
+{
+	minDistance	500
+	maxDistance	5000
+	volumeDb	0
+
+	sound/strogg/flyer/dropship_liftoff
+	shakeData 0 lqorsssswxtqttvusyxtxxvxvzzzzzzzzzzzzzzzzzyyzzyzzywxzyyzzzywyzyzxvxwyxywxzxxwsqqwtxzyvttrtqtponqlmnljgfiggfeeefeeddddccccccbbbbaaaaaaaaaaaaa
+}
+
+
+sound strogg_dropship_hover
+{
+	minDistance	500
+	maxDistance	5000
+	volumeDb	0
+	looping
+
+	sound/strogg/flyer/dropship_hover
+	shakeData 0 mroqmupqpqqrmmrtstposrnpsromspknsnnpmnolnlnqrllmlllnjliknnnknpoonmoikmpknlmkmjmjnnmolqmnnlimmjkmjjkkjqlkmolnljkomnlkijlmlnllpmnpnnpnorpj
+}
+
+
+sound strogg_dropship_land
+{
+	minDistance	500
+	maxDistance	5000
+	volumeDb	0
+
+	sound/strogg/flyer/dropship_land
+	shakeData 0 aacfhmlmootvuvyywzwwzxuzwwuswvuvztzxzyyvyvuuxzxywvwszzxyzuzzzzzyyyzzzyzzzzzyzzzzzzzyzzzzzzzzzzzzzzzxzzzzzzzyyzwyvwyxwsxvxyvwuvwotrpupopnlonmjjninljkihhhfegdgecfeeccdddddcbcbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound strogg_dropship_idle
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	0
+	looping
+
+	sound/strogg/flyer/dropship_idle
+	shakeData 0 ghhhijjjjjhiiiiiihihihkiihiihhhhjhhkhhihhhih
+}
+
+
+sound strogg_flyer_strafe
+{
+	minDistance	200
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/flyer/flyer_strafe1
+	shakeData 0 bcefeghgigilkjnppuvutwuxwxyzzzzzzzzzzzzzzzzxxwvxzxzyyxwwuwvxwvvuwurqrsutuvquomkikhhjhghhgfgfgfgfefdedddddddccccccbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/flyer/flyer_strafe2
+	shakeData 1 aaabcdfikjmpprrsvvtwzyyzzzzzzzzzzzzzzzzzyzzyzzzzyxyxvsvtuttrpppqnlmlmklkjkjilhihhjihghgfhggeefeeeeffedededdeeddedcbbbbcccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/flyer/flyer_strafe3
+	shakeData 2 aaabbcdehklkmmoqnorsrwwyxvtywywzzyzzzyzxzyzxvxxyzsuvtxvyxwwxsutxyuutvwsqsrstsqtutpqlojkiifhghghggffigeeedcdddddddcccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound strogg_flyer_explosion
+{
+	minDistance	1000
+	maxDistance	5000
+	volumeDb	0
+
+	sound/strogg/flyer/explosion
+	shakeData 0 zzzzzzzzzyzzzyxyzxzzyywxvzuvxpwuvsuusmqqrsonpommjljljkjiigefefgdfccccbcbbbbbbbbbabaaaaabaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound strogg_flyer_explosion2
+{
+	minDistance	585
+	maxDistance	5000
+	volumeDb	0
+
+	sound/weapons/grenade/explode1
+	shakeData 0 zzzsxvyroolknmmtjkhgolihlliromokjjjkjhjhjigffedddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode2
+	shakeData 1 zznotvvtrrnmpmomhimhkhgifgiplkmliikigijghggffeecdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode3
+	shakeData 2 zzywwzxxxtvupnmhfhhhjggfefglihigfefdddddccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode4
+	shakeData 3 zzswpwxxuysppjjjkhlkikhjlmpmjkkmkjkiihhgffhfgedecccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+
+

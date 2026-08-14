@@ -1,0 +1,2056 @@
+
+
+textures/terminal/t_window_alpha_02_glass
+{
+	qer_editorimage textures/terminal/t_window_alpha_02_d.tga
+	twoSided
+	noshadows
+		
+
+
+	{
+	 	uncompressed
+		blend blend
+		map textures/glass/clean_d_alpha.tga
+		ignoreAlphaTest
+		
+	}
+	{
+		blend  add
+		cubeMap		gfx/env/terminal3
+		texgen		reflect
+		maskAlpha	
+		ignoreAlphaTest	
+	}	
+	
+	{
+	blend bumpMap
+	map addnormals	( textures/terminal/t_window_alpha_02_local.tga, heightmap ( textures/terminal/t_window_alpha_02_h.tga, 1 ) )
+	}
+	
+	{
+	blend specularMap
+	map		textures/terminal/t_window_alpha_02_s.tga       
+	}
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/terminal/t_window_alpha_02_d.tga
+	 alphaTest .5
+	}
+}
+
+//please put tables in the tables.mtr---------------------------------------------------------------------------
+guide textures/terminal/t2_floor2a generic_typeshader("terminal/t2_floor2a", "solidmetal")
+guide textures/terminal/t4_walltrim_7 generic_terminal_replaceglow("terminal/t4_walltrim_7","terminal/t4_walltrim_7_add")
+guide textures/terminal/t1_floor1a generic_shader("terminal/t1_floor1a")
+
+guide textures/terminal/c3_step_1a generic_alpha ("terminal/c3_step_1a")
+guide textures/terminal/c3_step_3 generic_alpha ("terminal/c3_step_3")
+
+guide textures/terminal/square_hole generic_alpha("terminal/square_hole")
+
+
+textures/terminal/t1_metal1
+{
+	qer_editorimage textures/terminal/t1_metal1_d.tga
+	materialType hollowmetal
+
+	bumpmap addnormals	( textures/terminal/t1_metal_local.tga, heightmap ( textures/terminal/t1_metal1_h.tga, 1 ) )
+	specularmap		textures/terminal/t1_metal1_s.tga       
+      	diffusemap 		textures/terminal/t1_metal1_d.tga
+}
+
+textures/terminal/t1_metal1light
+{
+	qer_editorimage textures/terminal/t1_metal1light_ed.tga
+	materialType hollowmetal
+	
+	bumpmap addnormals	( textures/terminal/t1_metal_local.tga, heightmap ( textures/terminal/t1_metal1_h.tga, 1 ) )
+	specularmap		textures/terminal/t1_metal1light_s.tga       
+      	diffusemap 		textures/terminal/t1_metal1light_d.tga
+}
+
+textures/terminal/t1_metal1dark
+{
+	qer_editorimage textures/terminal/t1_metal1dark_d.tga
+	materialType hollowmetal
+	bumpmap addnormals	( textures/terminal/t1_metal_local.tga, heightmap ( textures/terminal/t1_metal1_h.tga, 1 ) )
+	specularmap		textures/terminal/t1_metal1dark_s.tga       
+      	diffusemap 		textures/terminal/t1_metal1dark_d.tga
+}
+
+textures/terminal/t1_metal2
+{
+	qer_editorimage textures/terminal/t1_metal2_d.tga
+	materialType hollowmetal
+	
+	bumpmap addnormals	( textures/terminal/t1_metal_local.tga, heightmap ( textures/terminal/t1_metal1_h.tga, 1 ) )
+	specularmap		textures/terminal/t1_metal2_s.tga       
+      	diffusemap 		textures/terminal/t1_metal2_d.tga
+}
+
+textures/terminal/t1_metal3
+{
+	qer_editorimage textures/terminal/t1_metal3_ed.tga
+	materialType hollowmetal
+	
+	bumpmap addnormals	( textures/terminal/t1_metal3_local.tga, heightmap ( textures/terminal/t1_metal3_h.tga, 1 ) )
+	specularmap		textures/terminal/t1_metal3_s.tga       
+      	diffusemap 		textures/terminal/t1_metal3_d.tga
+}
+
+guide textures/terminal/t1_wall3 generic_shader("terminal/t1_wall3")
+guide textures/terminal/t1_trim1 generic_shader("terminal/t1_trim1")
+guide textures/terminal/t1_trim1a generic_shader("terminal/t1_trim1a")
+guide textures/terminal/t1_ceiling1 generic_terminal_replaceglow("terminal/t1_ceiling1","terminal/t1_ceiling1_add")
+guide textures/terminal/t1_ceiling2 generic_terminal_replaceglow("terminal/t1_ceiling2","terminal/t1_ceiling2_add")
+guide textures/terminal/t1_floor2 generic_shader("terminal/t1_floor2")
+guide textures/terminal/t1_floor2a generic_shader("terminal/t1_floor2a")
+guide textures/terminal/t2_ceiling1 generic_shader("terminal/t2_ceiling1")
+guide textures/terminal/t2_ceiling2a generic_shader("terminal/t2_ceiling2a")
+guide textures/terminal/t2_floor1 generic_typeshader("terminal/t2_floor1", "solidmetal")
+
+textures/terminal/floor_mp
+{
+	forceOverlays
+	qer_editorimage textures/terminal/floor1_mp_d.tga
+    {
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/core
+        texgen		reflect
+
+	}
+	bumpmap heightmap ( textures/terminal/floor1_mp_h.tga, 1 ) 
+	specularmap			textures/terminal/floor1_mp_s.tga       
+    diffuseMap 			textures/terminal/floor1_mp_d.tga
+
+}
+
+
+
+guide textures/terminal/t2_floor1a generic_typeshader("terminal/t2_floor1a", "solidmetal")
+guide textures/terminal/t2_floor2 generic_typeshader("terminal/t2_floor2", "solidmetal")
+
+guide textures/terminal/t2_trim1 generic_shader("terminal/t2_trim1")
+guide textures/terminal/t2_walltrim2 generic_shader("terminal/t2_walltrim2")
+guide textures/terminal/t3_floor_01 generic_shader("terminal/t3_floor_01")
+guide textures/terminal/t3_floor_02 generic_shader("terminal/t3_floor_02")
+guide textures/terminal/t3_htrim_01 generic_shader("terminal/t3_htrim_01")
+guide textures/terminal/t3_vtrim_01 generic_shader("terminal/t3_vtrim_01")
+guide textures/terminal/t3_ceiling_01 generic_shader("terminal/t3_ceiling_01")
+guide textures/terminal/t3_wall_01 generic_shader("terminal/t3_wall_01")
+guide textures/terminal/t3_wall_02 generic_shader("terminal/t3_wall_02")
+guide textures/terminal/t3_wall_02a generic_colorvariant("terminal/t3_wall_02a", "terminal/t3_wall_02")
+guide textures/terminal/t4_ceiling_1 generic_shader("terminal/t4_ceiling_1")
+guide textures/terminal/t4_ceiling_2 generic_shader("terminal/t4_ceiling_2")
+guide textures/terminal/t4_floor_1 generic_shader("terminal/t4_floor_1")
+guide textures/terminal/t4_floor_1a generic_shader("terminal/t4_floor_1a")
+guide textures/terminal/t4_floor_2 generic_shader("terminal/t4_floor_2")
+guide textures/terminal/t4_floor_2a generic_shader("terminal/t4_floor_2a")
+guide textures/terminal/t4_wall_01a generic_colorvariant("terminal/t4_wall_1a", "terminal/t4_wall_1")
+guide textures/terminal/t4_wall_2 generic_shader("terminal/t4_wall_2")
+
+textures/terminal/t3_htrim_01b
+{
+	qer_editorimage textures/terminal/t3_htrim_01b_d.tga
+
+	
+	bumpmap addnormals	( textures/terminal/t3_htrim_01b_local.tga, heightmap ( textures/terminal/t3_htrim_01_h.tga, 1 ) )
+	specularmap		textures/terminal/t3_htrim_01b_s.tga       
+     	diffusemap 		textures/terminal/t3_htrim_01b_d.tga
+}
+//--------------------------------------------------------------------------
+
+
+textures/terminal/t3_htrim_01glow
+{
+	qer_editorimage textures/terminal/t3_htrim_01c_glowed.tga
+	
+	bumpmap addnormals	( textures/terminal/t3_htrim_01c_local.tga, heightmap ( textures/terminal/t3_htrim_01_h.tga, 1 ) )
+	specularmap		textures/terminal/t3_htrim_01c_s.tga       
+     	diffusemap 		textures/terminal/t3_htrim_01c_d.tga
+	
+	{	//glow pass 
+		blend add
+		map 	textures/terminal/t3_htrim_01c_g.tga
+//		rgb 	terminalflicktable [time * .5]
+	}
+
+}
+
+
+guide textures/terminal/t_wall_1a generic_shader("terminal/t_wall_1a")
+guide textures/terminal/t_floor_1a generic_alpha("terminal/t_floor_1a")
+
+guide textures/terminal/t_wall_plating2 generic_shader("terminal/t_wall_plating2")
+guide textures/terminal/t_wall_platesvert generic_shader("terminal/t_wall_platesvert")
+guide textures/terminal/t_wirecap generic_alpha("terminal/t_wirecap")
+guide textures/terminal/tn_45deg_plate_1 generic_shader("terminal/tn_45deg_plate_1")
+guide textures/terminal/tn_45deg_plate_2 generic_shader("terminal/tn_45deg_plate_2")
+guide textures/terminal/tn_ceiling_1 generic_shader("terminal/tn_ceiling_1")
+guide textures/terminal/tn_ceiling_2 generic_shader("terminal/tn_ceiling_2")
+guide textures/terminal/tn_circuit_2 generic_shader("terminal/tn_circuit_2")
+guide textures/terminal/tn_flooraccess_1 generic_shader("terminal/tn_flooraccess_1")
+guide textures/terminal/tn_fronta_1 generic_shader("terminal/tn_fronta_1")
+guide textures/terminal/tn_halfside_1 generic_shader("terminal/tn_halfside_1")
+guide textures/terminal/tn_halfside_2 generic_shader("terminal/tn_halfside_2")
+guide textures/terminal/tn_sidea_1 generic_alpha("terminal/tn_sidea_1")
+guide textures/terminal/tn_sidea_2 generic_alpha("terminal/tn_sidea_2")
+guide textures/terminal/t_shaft1 generic_terminal_replaceglow2("terminal/t_shaft1", "terminal/t_shaft1_g")
+guide textures/terminal/t_shaft2 generic_terminal_replaceglow2("terminal/t_shaft2", "terminal/t_shaft2_g")
+guide textures/terminal/t_shaft3 generic_terminal_replaceglow2("terminal/t_shaft3", "terminal/t_shaft3_g")
+guide textures/terminal/t_shaft_trim generic_typeshader("terminal/t_shaft_trim", "solidmetal")
+guide textures/terminal/t5_walltrim_3 generic_shader("terminal/t5_walltrim_3")
+guide textures/terminal/t5_walltrim_2 generic_shader("terminal/t5_walltrim_2")
+guide textures/terminal/t5_walltrim_1 generic_shader("terminal/t5_walltrim_1")
+guide textures/terminal/t5_ceilingtrim_1 generic_typeshader("terminal/t5_ceilingtrim_1", "solidmetal")
+guide textures/terminal/t5_ceiling_1 generic_shader("terminal/t5_ceiling_1")
+guide textures/terminal/t6_wall_1 generic_terminal_replaceglow("terminal/t6_wall_1","terminal/t6_wall_1_add")
+guide textures/terminal/t6_wall_2 generic_terminal_replaceglow("terminal/t6_wall_2","terminal/t6_wall_2_add")
+guide textures/terminal/t6_wall_4 generic_terminal_replaceglow("terminal/t6_wall_4","terminal/t6_wall_4_add")
+guide textures/terminal/t6_wall_6 generic_terminal_replaceglow("terminal/t6_wall_6","terminal/t6_wall_6_add")
+guide textures/terminal/t6_wall_7 generic_terminal_replaceglow("terminal/t6_wall_7","terminal/t6_wall_7_add")
+guide textures/terminal/t6_wall_8 generic_terminal_replaceglow("terminal/t6_wall_8","terminal/t6_wall_8_add")
+guide textures/terminal/t6_walltrim_2 generic_terminal_replaceglow("terminal/t6_walltrim_2","terminal/t6_walltrim_2_add")
+guide textures/terminal/t7_wall_1 generic_terminal_replaceglow("terminal/t7_wall_1","terminal/t7_wall_1_add")
+guide textures/terminal/t7_wall_2 generic_terminal_replaceglow("terminal/t7_wall_2","terminal/t7_wall_2_add")
+guide textures/terminal/t7_wall_3 generic_terminal_replaceglow("terminal/t7_wall_3","terminal/t7_wall_3_add")
+guide textures/terminal/t7_wall_5 generic_terminal_replaceglow2("terminal/t7_wall_5","terminal/t7_wall_5_add")
+guide textures/terminal/t7_wall_6 generic_terminal_replaceglow("terminal/t7_wall_6","terminal/t7_wall_6_add")
+guide textures/terminal/t7_wall_7 generic_terminal_replaceglow("terminal/t7_wall_7","terminal/t7_wall_7_add")
+guide textures/terminal/t7_wall_8 generic_shader("terminal/t7_wall_8")
+guide textures/terminal/t7_wall_9 generic_shader("terminal/t7_wall_9")
+guide textures/terminal/t7_wall_10 generic_shader("terminal/t7_wall_10")
+guide textures/terminal/t7_walltrim_1 generic_shader("terminal/t7_walltrim_1")
+guide textures/terminal/t7_walltrim_2 generic_shader("terminal/t7_walltrim_2")
+guide textures/terminal/t7_walltrim_3 generic_shader("terminal/t7_walltrim_3")
+guide textures/terminal/t7_walltrim_3_label generic_shader("terminal/t7_walltrim_3_label")
+guide textures/terminal/t7_walltrim_4 generic_shader("terminal/t7_walltrim_4")
+guide textures/terminal/t7_walltrim_5 generic_shader("terminal/t7_walltrim_5")
+guide textures/terminal/t7_walltrim_6 generic_typeshader("terminal/t7_walltrim_6", "plastic")
+guide textures/terminal/t7_walltrimvert_1 generic_shader("terminal/t7_walltrimvert_1")
+guide textures/terminal/t8_pillar_1 generic_shader("terminal/t8_pillar_1")
+guide textures/terminal/t8_pillar_2 generic_shader("terminal/t8_pillar_2")
+guide textures/terminal/t8_pillar_2a generic_shader("terminal/t8_pillar_2a")
+guide textures/terminal/t8_pillar_3 generic_shader("terminal/t8_pillar_3")
+guide textures/terminal/t8_trim_1 generic_typeshader("terminal/t8_trim_1", "solidmetal")
+guide textures/terminal/t8_trim_1b generic_typeshader("terminal/t8_trim_1b", "solidmetal")
+guide textures/terminal/t8_trim_1c generic_typeshader("terminal/t8_trim_1c", "solidmetal")
+guide textures/terminal/t8_square_2 generic_shader("terminal/t8_square_2")
+guide textures/terminal/t8_square_3 generic_shader("terminal/t8_square_3")
+guide textures/terminal/t8_square_3a generic_shader("terminal/t8_square_3a")
+guide textures/terminal/t8_square_1 generic_shader("terminal/t8_square_1")
+guide textures/terminal/t8_square_1a generic_shader("terminal/t8_square_1a")
+guide textures/terminal/t4_walltrim_1 generic_shader("terminal/t4_walltrim_1")
+guide textures/terminal/t4_walltrim_2 generic_shader("terminal/t4_walltrim_2")
+guide textures/terminal/t4_walltrim_3 generic_shader("terminal/t4_walltrim_3")
+guide textures/terminal/t4_walltrim_4 generic_typeshader("terminal/t4_walltrim_4", "hollowmetal")
+guide textures/terminal/t4_walltrim_6 generic_shader("terminal/t4_walltrim_6")
+guide textures/terminal/t_walltrim_02 generic_shader("terminal/t_walltrim_02")
+guide textures/terminal/t_walltrim_04 generic_shader("terminal/t_walltrim_04")
+guide textures/terminal/t_trim_02 generic_shader("terminal/t_trim_02")
+guide textures/terminal/t_trim_04 generic_shader("terminal/t_trim_04")
+guide textures/terminal/t_trim_05 generic_shader("terminal/t_trim_05")
+guide textures/terminal/t_trim_06 generic_shader("terminal/t_trim_06")
+
+textures/terminal/t_floor_1a_noshadow_2sided
+{
+	qer_editorimage textures/terminal/t_floor_1a_d.tga
+	noshadows	
+	twosided
+
+	bumpmap addnormals	( textures/terminal/t_floor_1a_local.tga, heightmap ( textures/terminal/t_floor_1a_h.tga, 1 ) )
+	specularmap		textures/terminal/t_floor_1a_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/terminal/t_floor_1a_d.tga
+	 alphaTest .5
+	}
+
+}
+
+//-----------------------------------
+
+textures/terminal/alpha_filler_nomip
+{
+	qer_editorimage textures/terminal/alpha_filler_d
+
+	
+	twosided	
+
+	bumpmap addnormals ( textures/terminal/alpha_filler_local, heightmap ( textures/terminal/alpha_filler_h, 1 ) )
+	specularmap	textures/terminal/alpha_filler_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/terminal/alpha_filler_d.tga
+		alphaTest	.5
+		linear
+		nopicmip
+	}
+}
+
+textures/terminal/alpha_filler_01_nomip
+{
+	qer_editorimage textures/terminal/alpha_filler_01_d
+
+	
+	twosided	
+
+	bumpmap addnormals ( textures/terminal/alpha_filler_01_local, heightmap ( textures/terminal/alpha_filler_01_h, 1 ) )
+	specularmap	textures/terminal/alpha_filler_01_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/terminal/alpha_filler_01_d.tga
+		alphaTest	.5
+		linear
+		nopicmip
+	}
+}
+
+//-----------------------------------
+
+guide textures/terminal/alpha_filler generic_shader2sidedalpha("terminal/alpha_filler")
+guide textures/terminal/alpha_filler_01 generic_shader2sidedalpha("terminal/alpha_filler_01")
+
+textures/terminal/t_window_alpha_01
+{
+	qer_editorimage textures/terminal/t_window_alpha_01_d.tga
+
+	twoSided
+	noshadows
+
+	bumpmap addnormals	( textures/terminal/t_window_alpha_01_local.tga, heightmap ( textures/terminal/t_window_alpha_01_h.tga, 1 ) )
+
+	specularmap		textures/terminal/t_window_alpha_01_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/terminal/t_window_alpha_01_d.tga
+	 alphaTest .5
+	}
+
+}
+
+textures/terminal/t_window_alpha_01extra
+{
+	qer_editorimage textures/terminal/t_window_alpha_01extra_d.tga
+
+	twoSided
+	noshadows
+
+	materialImage textures/terminal/t_window_alpha_01extra_hit.tga
+
+	bumpmap addnormals	( textures/terminal/t_window_alpha_01_local.tga, heightmap ( textures/terminal/t_window_alpha_01extra_h.tga, 1 ) )
+	specularMap		textures/terminal/t_window_alpha_01extra_s.tga       
+
+	{       
+    	blend	diffuseMap 
+	 map	textures/terminal/t_window_alpha_01extra_d.tga
+	 alphaTest .5
+	}
+
+}
+
+
+textures/terminal/t_window_alpha_01_onesided
+{
+	qer_editorimage textures/terminal/t_window_alpha_01_d.tga
+
+	noshadows
+
+	bumpmap addnormals	( textures/terminal/t_window_alpha_01_local.tga, heightmap ( textures/terminal/t_window_alpha_01_h.tga, 1 ) )
+	specularMap		textures/terminal/t_window_alpha_01_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/terminal/t_window_alpha_01_d.tga
+	 alphaTest .5
+	}
+
+}
+
+textures/terminal/t_window_alpha_01_scroll
+
+{
+
+	qer_editorimage textures/terminal/t_window_alpha_01_d.tga
+
+	twoSided
+	noshadows
+
+
+
+	{
+		blend	bumpmap
+		map		addnormals ( textures/terminal/t_window_alpha_01_local.tga, heightmap ( textures/terminal/t_window_alpha_01_h.tga, 1 ) )
+		translate	time * parm6 , time * 0
+	}
+	
+
+	{
+		blend	specularmap
+		map		textures/terminal/t_window_alpha_01_s.tga       
+		translate	time * parm6 , time * 0
+
+	}
+
+
+	{       
+      	blend	diffuseMap 
+		map	textures/terminal/t_window_alpha_01_d.tga
+		alphaTest .5
+		translate	time * parm6 , time * 0
+
+	}
+
+
+
+
+}
+
+textures/terminal/t_window_alpha_02
+{
+	qer_editorimage textures/terminal/t_window_alpha_02_d.tga
+
+	twoSided
+	noShadows
+	materialImage	textures/terminal/t_window_alpha_02_hit.tga
+
+	bumpmap addnormals	( textures/terminal/t_window_alpha_02_local.tga, heightmap ( textures/terminal/t_window_alpha_02_h.tga, 1 ) )
+
+	specularmap		textures/terminal/t_window_alpha_02_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/terminal/t_window_alpha_02_d.tga
+	 alphaTest .5
+	}
+
+}
+
+textures/terminal/t_window_alpha_02_onesided
+{
+	qer_editorimage textures/terminal/t_window_alpha_02_d.tga
+
+	noshadows
+	materialImage	textures/terminal/t_window_alpha_02_hit.tga
+	bumpmap addnormals	( textures/terminal/t_window_alpha_02_local.tga, heightmap ( textures/terminal/t_window_alpha_02_h.tga, 1 ) )
+
+	specularmap		textures/terminal/t_window_alpha_02_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/terminal/t_window_alpha_02_d.tga
+	 alphaTest .5
+	}
+
+}
+
+
+
+
+guide textures/terminal/t_wirebundle_thick generic_shader2sidedalpha("terminal/t_wirebundle_thick")
+guide textures/terminal/t_wirebundle_thick_2 generic_shader2sidedalpha("terminal/t_wirebundle_thick_2")
+guide textures/terminal/t_wirebundle_thick_3 generic_shader2sidedalpha("terminal/t_wirebundle_thick_3")
+guide textures/terminal/t_wirebundle_thin generic_shader2sidedalpha("terminal/t_wirebundle_thin")
+guide textures/terminal/t_wirebundle_thin_2 generic_shader2sidedalpha("terminal/t_wirebundle_thin_2")
+
+
+textures/terminal/chiclightflat
+{
+	qer_editorimage textures/terminal/chiclightflat_d
+
+
+	noshadows
+	nonsolid
+
+	bumpmap addnormals ( textures/terminal/chiclightflat_local, heightmap ( textures/terminal/chiclightflat_h, 1 ) )
+	specularmap	textures/terminal/chiclightflat_s
+
+	{       
+	      	 blend	diffusemap 
+		 map	textures/terminal/chiclightflat_d
+		 alphaTest .5
+	}
+
+	{
+		if(Parm4!=1)
+		blend GL_ONE, GL_ONE
+		map textures/terminal/chiclightflat_g
+	}
+
+	{
+		if(Parm4 == 1)
+		blend add
+		map	textures/terminal/chiclightflat_g
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+	
+
+}
+
+
+
+
+guide textures/terminal/t_trim_02_b generic_shader("terminal/t_trim_02_b")
+guide textures/terminal/t11_trim01 generic_shader("terminal/t11_trim01")
+guide textures/terminal/t11_trim01_side generic_shader("terminal/t11_trim01_side")
+guide textures/terminal/t11_trim02 generic_shader("terminal/t11_trim02")
+guide textures/terminal/t11_wall01 generic_shader("terminal/t11_wall01")
+guide textures/terminal/t11_wall01a generic_shader("terminal/t11_wall01a")
+guide textures/terminal/t11_wall01b generic_shader("terminal/t11_wall01b")
+guide textures/terminal/t11_wall01d generic_shader("terminal/t11_wall01d")
+guide textures/terminal/t11_wall01e generic_shader("terminal/t11_wall01e")
+guide textures/terminal/t11_wall01f generic_shader("terminal/t11_wall01f")
+guide textures/terminal/t11_wall01g generic_shader("terminal/t11_wall01g")
+guide textures/terminal/t11_wall02 generic_shader("terminal/t11_wall02")
+guide textures/terminal/t11_wall03 generic_shader("terminal/t11_wall03")
+guide textures/terminal/t9_wall_1 generic_shader("terminal/t9_wall_1")
+guide textures/terminal/t9_wall_2 generic_shader("terminal/t9_wall_2")
+guide textures/terminal/t9_wall_3 generic_shader("terminal/t9_wall_3")
+guide textures/terminal/t10_wall_1 generic_shader("terminal/t10_wall_1")
+guide textures/terminal/t10_wall_2 generic_shader("terminal/t10_wall_2")
+guide textures/terminal/t10_wall_3 generic_shader("terminal/t10_wall_3")
+guide textures/terminal/t10_walltrim_1 generic_shader("terminal/t10_walltrim_1")
+guide textures/terminal/t10_walltrim_2 generic_shader("terminal/t10_walltrim_2")
+guide textures/terminal/t10_wall_4 generic_shader("terminal/t10_wall_4")
+guide textures/terminal/t10_wall_5a generic_shader("terminal/t10_wall_5a")
+guide textures/terminal/t10_wall_5b generic_shader("terminal/t10_wall_5b")
+guide textures/terminal/t10_wall_6 generic_shader("terminal/t10_wall_6")
+guide textures/terminal/t10_wall_7 generic_shader("terminal/t10_wall_7")
+guide textures/terminal/t10_wall_7b generic_shader("terminal/t10_wall_7b")
+guide textures/terminal/t10_wall_10 generic_shader("terminal/t10_wall_10")
+guide textures/terminal/t10_wall_8 generic_shader("terminal/t10_wall_8")
+guide textures/terminal/t10_wall_9 generic_shader("terminal/t10_wall_9")
+guide textures/terminal/t10_floor_1 generic_shader("terminal/t10_floor_1")
+guide textures/terminal/t_shaft_1 generic_shader("terminal/t_shaft_1")
+guide textures/terminal/t_shaft_2 generic_shader("terminal/t_shaft_2")
+guide textures/terminal/t_shaft_3 generic_shader("terminal/t_shaft_3")
+guide textures/terminal/t_shaft_3b generic_shader("terminal/t_shaft_3b")
+guide textures/terminal/t_shaft_2b generic_shader("terminal/t_shaft_2b")
+guide textures/terminal/t_shaft_4 generic_shader("terminal/t_shaft_4")
+guide textures/terminal/t_shaft_4b generic_shader("terminal/t_shaft_4b")
+guide textures/terminal/t_shaft_5 generic_shader("terminal/t_shaft_5")
+guide textures/terminal/t12_wall_1 generic_shader("terminal/t12_wall_1")
+guide textures/terminal/t12_wall_2 generic_shader("terminal/t12_wall_2")
+guide textures/terminal/t12_wall_3 generic_shader("terminal/t12_wall_3")
+guide textures/terminal/t12_ceiling_1 generic_typeshader("terminal/t12_ceiling_1", "solidmetal")
+guide textures/terminal/t13_wall_1 generic_shader("terminal/t13_wall_1")
+guide textures/terminal/t13_wall_2 generic_shader("Terminal/t13_wall_2")
+guide textures/terminal/t13_wall_3 generic_shader("terminal/t13_wall_3")
+guide textures/terminal/t13_wall_3_2s generic_shader2sided("terminal/t13_wall_3")
+guide textures/terminal/t13_wall_2b generic_shader("terminal/t13_wall_2b")
+guide textures/terminal/t13_trim_1 generic_shader("terminal/t13_trim_1")
+guide textures/terminal/t13_trim_2 generic_shader("terminal/t13_trim_2")
+guide textures/terminal/t13_trim_3 generic_shader("terminal/t13_trim_3")
+guide textures/terminal/t13_trim_4 generic_typeshader("terminal/t13_trim_4", "solidmetal")
+guide textures/terminal/t12_floor_1 generic_shader("terminal/t12_floor_1")
+guide textures/terminal/t13_floor_1 generic_shader("terminal/t13_floor_1")
+guide textures/terminal/t13_ceiling_1 generic_shader("terminal/t13_ceiling_1")
+guide textures/terminal/t_shaft_512 generic_shader("terminal/t_shaft_512")
+guide textures/terminal/t_shaft_512b generic_shader("terminal/t_shaft_512b")
+guide textures/terminal/t_shaft2_512 generic_shader("terminal/t_shaft2_512")
+guide textures/terminal/t_shaft2b_512 generic_shader("terminal/t_shaft2b_512")
+guide textures/terminal/t_shaft2c_512 generic_shader("terminal/t_shaft2c_512")
+guide textures/terminal/media_piece_front generic_terminal_replaceglow("terminal/media_piece_front","terminal/media_piece_front_add")
+guide textures/terminal/media_piece_side generic_shader("terminal/media_piece_side")
+guide textures/terminal/media_piece_tile generic_shader("terminal/media_piece_tile")
+guide textures/terminal/media_trim_1 generic_shader("terminal/media_trim_1")
+guide textures/terminal/media_trim_2 generic_shader("terminal/media_trim_2")
+guide textures/terminal/media_round_top generic_shader("terminal/media_round_top")
+guide textures/terminal/media_round_front generic_shader("terminal/media_round_front")
+guide textures/terminal/pipe_tile generic_shader("terminal/pipe_tile")
+guide textures/terminal/pipe_tile_end generic_terminal_replaceglow("terminal/pipe_tile_end","terminal/pipe_tile_end_add")
+guide textures/terminal/monitor_cap generic_shader("terminal/monitor_cap")
+guide textures/terminal/wire_tile generic_typeshader("terminal/wire_tile", "rubber")
+guide textures/terminal/wire_tile_a generic_typeshader("terminal/wire_tile_a", "rubber")
+guide textures/terminal/tunlight generic_terminal_replaceglow2("terminal/tunlight", "terminal/tunlight_g")
+guide textures/terminal/outdoor_wall1_13 generic_shader("terminal/outdoor_wall1_13")
+guide textures/terminal/c_wall_outside_01 generic_shader("terminal/c_wall_outside_01")
+guide textures/terminal/tr_rail generic_shader("terminal/tr_rail")
+
+guide textures/terminal/t_vertpipe1 generic_shader("terminal/t_vertpipe1")
+
+textures/terminal/process2_textglass1
+{
+	translucent
+	twoSided
+	noshadows
+	nonsolid
+	materialType glass
+	qer_editorimage		textures/terminal/process2_glasstext1.tga
+
+	{
+	 	uncompressed
+		blend add
+		map textures/terminal/process2_glasstext1.tga
+		scroll time * .2 , time * -0.1
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/terminal3
+		texgen		reflect
+	}	
+
+}
+
+//---------------------------------------------------------------------------------------------------
+textures/terminal/EnergyPipe_outer
+{
+	qer_EditorImage textures/terminal/EnergyPipe_d.tga
+
+	{
+	blend		bumpMap
+	map			textures/terminal/EnergyPipe_local.tga
+	}
+
+	{
+	blend		diffuseMap
+	map			textures/terminal/EnergyPipe_d.tga
+	alphaTest	.5
+	}
+}
+//-------------------------------------------------------------------------------------
+textures/terminal/EnergyPipe_flow
+{
+	qer_EditorImage textures/terminal/EnergyPipe_flow.tga
+	noShadows
+	noSelfShadow
+
+	{
+		blend		GL_ONE,GL_ZERO
+		map			textures/terminal/EnergyPipe_flow.tga
+		rgb			.7 + (.3 * sintable[time * Parm4])
+		translate	time * .3, time * .85
+		scale -1, 1 
+	}
+	
+	{
+		blend		GL_ONE,GL_ONE
+		map			textures/terminal/EnergyPipe_flow.tga
+		rgb			.7 + (.3 * sintable[time * Parm4])
+		translate	time * .46, time * 1.2
+	}
+}
+
+//-------------------------------------------------------------------------------------
+textures/terminal/EnergyPipe_flow_1
+{
+	qer_EditorImage textures/testing/EnergyPipe_flow.tga
+	noShadows
+	noSelfShadow
+
+	{
+	blend		GL_ONE,GL_ZERO
+	map			textures/terminal/EnergyPipe_flow.tga
+	rgb			.7 + (.3 * sintable[time * 2])
+	translate	0, time * 1.2
+	}
+}
+
+textures/terminal/t_Antenna
+{	//Antenna for the fan thing near Energy pipes
+	qer_editorimage textures/terminal/t_antenna.tga
+	twoSided
+	noShadows
+	noSelfShadow
+
+//	bumpmap addnormals	( textures/terminal/t1_metal_local.tga, heightmap ( textures/terminal/t1_metal1_h.tga, 1 ) )
+//	specularmap		textures/terminal/t1_metal1_s.tga       
+	{
+	blend			diffuseMap
+	map 			textures/terminal/t_antenna.tga
+	alphaTest		.5
+	}
+}
+
+//----------------------------------------------------------------------------------
+textures/terminal/Orange_Blinklight_01
+{	//Orange blinky sprite lights
+
+	qer_editorimage	textures/terminal/Orange_Blinklight_01.tga
+	noShadows
+	noSelfShadow
+	nonsolid
+	noimpact
+	deform		sprite
+	
+	{
+	blend		add
+	map		textures/terminal/Orange_Blinklight_01.tga
+	RGB		Canyon_Blinky01[time / 3]
+	}
+}
+
+//----------------------------------------------------------------------------------
+textures/terminal/Orange_Blinklight_02
+{	//Orange blinky sprite lights with a different blink pattern
+
+	qer_editorimage	textures/terminal/Orange_Blinklight_01.tga
+	noShadows
+	noSelfShadow
+	nonsolid
+	noimpact
+	deform		sprite
+	
+	{
+	blend		add
+	map		textures/terminal/Orange_Blinklight_01.tga
+	RGB		Canyon_Blinky02[time / 3]
+	}
+}
+//----------------------------------------------------------------------------------
+
+
+textures/terminal/t5_ceiling_1_color
+
+{
+	
+
+	
+	// qer_EditorImage		textures/terminal/t5_ceiling_1.tga
+	nonSolid
+	noShadows
+	bumpMap			textures/terminal/t5_ceiling_1_local.tga
+	diffuseMap		textures/terminal/t5_ceiling_1_d.tga
+	specularMap		textures/terminal/t5_ceiling_1_s.tga
+	
+	
+	{
+		blend		add
+		map			textures/terminal/t5_ceiling_1_g.tga
+		red		parm0 
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/terminal/t5_ceiling_1_color_global_startoff
+
+{
+	
+
+	
+	// qer_EditorImage		textures/terminal/t5_ceiling_1.tga
+	nonSolid
+	noShadows
+	bumpMap			textures/terminal/t5_ceiling_1_local.tga
+	diffuseMap		textures/terminal/t5_ceiling_1_d.tga
+	specularMap		textures/terminal/t5_ceiling_1_s.tga
+	
+	
+	{
+		if (global1>0)
+		blend		add
+		map			textures/terminal/t5_ceiling_1_g.tga
+		red		parm0 
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+// level specific lights
+
+
+textures/terminal/rect_light3_red
+{
+	qer_EditorImage		textures/terminal/rect_light3_red.tga
+	
+	nonSolid
+	noShadows
+	
+	
+	
+	bumpMap			textures/common_lights/rect_light3_local.tga
+	diffuseMap		textures/common_lights/rect_light3_d.tga
+	specularMap		textures/common_lights/rect_light3_s.tga
+
+
+	{
+		blend		add
+		map		textures/common_lights/rect_light3_g.tga
+		red		1 
+		green		0.2 
+		blue		0.2
+	}
+}
+
+
+textures/terminal/red_flare
+
+// red flare
+
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red 		 1
+		green		.2		
+		blue		.2
+		
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+
+textures/terminal/small_light7_orange
+{
+	qer_EditorImage		textures/common_lights/small_light7.tga
+	nonSolid
+	noShadows
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	
+	
+	{
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red		1 
+		green		0.49 
+		blue		0.15
+	}
+}
+
+
+
+textures/terminal/t13_wall_3_twosided
+{
+	qer_editorimage textures/terminal/t13_wall_3_d.tga
+
+	twoSided
+
+	bumpmap addnormals (textures/terminal/t13_wall_3_local.tga, heightmap (textures/terminal/t13_wall_3_h.tga, 1 ) )
+	diffusemap	textures/terminal/t13_wall_3_d.tga
+	specularmap	textures/terminal/t13_wall_3_s.tga
+}
+
+
+textures/terminal/t13_wall_3_twosided_ut
+{
+	qer_editorimage textures/terminal/t13_wall_3_d.tga
+	unSmoothedTangents
+	twoSided
+
+	bumpmap addnormals (textures/terminal/t13_wall_3_local.tga, heightmap (textures/terminal/t13_wall_3_h.tga, 1 ) )
+	diffusemap	textures/terminal/t13_wall_3_d.tga
+	specularmap	textures/terminal/t13_wall_3_s.tga
+}
+
+//----------------------------------------------------------------------------------------------------//
+//dropship impact stuff for network storage (and wherever)--------------------------------------------//
+//----------------------------------------------------------------------------------------------------//
+
+textures/terminal/t11_wall01b_impact
+
+{
+        noselfshadow
+	materialType rock       
+	qer_editorimage textures/terminal/t11_wall01b_d.tga
+
+
+
+
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/terminal/t11_wall01b_local.tga, heightmap ( textures/terminal/t11_wall01b_h.tga, 1 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/terminal/t11_wall01b_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/terminal/t11_wall01b_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	/*{
+		blend add
+		map	textures/common_misc/glow_embers_1.tga
+		rgb	random[time * 0.00428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_2.tga
+		rgb	random[time * 0.00358]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_3.tga
+		rgb	random[time * 0.00558]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_4.tga
+		rgb	random[time * 0.004428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_5.tga
+		rgb	random[time * 0.00328]
+		inverseVertexColor
+		zeroClamp
+	}*/
+
+}
+
+textures/terminal/c_pipe02_impact //there is no c_pipe02
+
+{
+        noselfshadow
+	materialType rock       
+	qer_editorimage textures/common_walls/c_p4_ceiling_1_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_walls/c_p4_ceiling_1_local.tga, heightmap ( textures/common_walls/c_p4_ceiling_1_h.tga, 1 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_walls/c_p4_ceiling_1_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_walls/c_p4_ceiling_1_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	/*{
+		blend add
+		map	textures/common_misc/glow_embers_1.tga
+		rgb	random[time * 0.00428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_2.tga
+		rgb	random[time * 0.00358]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_3.tga
+		rgb	random[time * 0.00558]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_4.tga
+		rgb	random[time * 0.004428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_5.tga
+		rgb	random[time * 0.00328]
+		inverseVertexColor
+		zeroClamp
+	}*/
+
+}
+
+textures/terminal/c2_ceiling_1_impact  ///there is no ceiling1
+
+{
+        noselfshadow
+	materialType rock       
+	qer_editorimage textures/common_misc/roger_trough_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_floors/c2_ceiling_2_local.tga, heightmap ( textures/common_floors/c2_ceiling_2_h.tga, 1 ) )
+		scale	2, 2
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_floors/c2_ceiling_2_d.tga
+		scale	2, 2
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_floors/c2_ceiling_2_s.tga
+		scale	2, 2
+		VertexColor
+	}
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/roger_trough_local.tga, heightmap ( textures/common_misc/roger_trough_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/roger_trough_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/roger_trough_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/roger_trough_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	0.6*ember1[time * 0.057]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	/*{
+		blend add
+		map	textures/common_misc/glow_embers_1.tga
+		rgb	random[time * 0.00428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_2.tga
+		rgb	random[time * 0.00358]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_3.tga
+		rgb	random[time * 0.00558]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_4.tga
+		rgb	random[time * 0.004428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_5.tga
+		rgb	random[time * 0.00328]
+		inverseVertexColor
+		zeroClamp
+	}*/
+
+}
+
+textures/terminal/c2_ceiling_1_impact_begin  ///there is no ceiling1
+
+{
+        noselfshadow
+	materialType rock       
+	qer_editorimage textures/common_misc/roger_trough_begin_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_floors/c2_ceiling_2_local.tga, heightmap ( textures/common_floors/c2_ceiling_2_h.tga, 1 ) )
+		scale	2, 2
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_floors/c2_ceiling_2_d.tga
+		scale	2, 2
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_floors/c2_ceiling_2_s.tga
+		scale	2, 2
+		VertexColor
+	}
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/roger_trough_begin_local.tga, heightmap ( textures/common_misc/roger_trough_begin_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/roger_trough_begin_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/roger_trough_begin_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/roger_trough_begin_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	0.6*ember1[time * 0.057]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	/*{
+		blend add
+		map	textures/common_misc/glow_embers_1.tga
+		rgb	random[time * 0.00428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_2.tga
+		rgb	random[time * 0.00358]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_3.tga
+		rgb	random[time * 0.00558]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_4.tga
+		rgb	random[time * 0.004428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_5.tga
+		rgb	random[time * 0.00328]
+		inverseVertexColor
+		zeroClamp
+	}*/
+
+}
+
+textures/terminal/c2_ceiling_1_impact_end ///there is no ceiling1
+
+{
+        noselfshadow
+	materialType rock       
+	qer_editorimage textures/common_misc/roger_trough_end_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_floors/c2_ceiling_2_local.tga, heightmap ( textures/common_floors/c2_ceiling_2_h.tga, 1 ) )
+		scale	2, 2
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_floors/c2_ceiling_2_d.tga
+		scale	2, 2
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_floors/c2_ceiling_2_s.tga
+		scale	2, 2
+		VertexColor
+	}
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/roger_trough_end_local.tga, heightmap ( textures/common_misc/roger_trough_end_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/roger_trough_end_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/roger_trough_end_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/roger_trough_end_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	0.6*ember1[time * 0.057]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	/*{
+		blend add
+		map	textures/common_misc/glow_embers_1.tga
+		rgb	random[time * 0.00428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_2.tga
+		rgb	random[time * 0.00358]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_3.tga
+		rgb	random[time * 0.00558]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_4.tga
+		rgb	random[time * 0.004428]
+		inverseVertexColor
+		zeroClamp
+	}
+	{
+		blend add
+		map	textures/common_misc/glow_embers_5.tga
+		rgb	random[time * 0.00328]
+		inverseVertexColor
+		zeroClamp
+	}*/
+
+}
+
+//----------------------------------------------------------------------------------
+//	Standard shaders from the terminal set with global-parm driven glow passes.
+//----------------------------------------------------------------------------------
+
+textures/terminal/t9_wall_2_glow
+{
+	qer_editorimage textures/terminal/t9_wall_2_d.tga
+
+	bumpmap addnormals ( textures/terminal/t9_wall_2_local.tga, heightmap ( textures/terminal/t9_wall_2_h.tga, 1 ) )
+	diffusemap	textures/terminal/t9_wall_2_d.tga
+	specularmap	textures/terminal/t9_wall_2_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_2_g.tga
+		//Green
+		red			.36
+		green		.69
+		blue		.27
+	}
+	
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_2_g.tga
+		//Orange
+		red			.65
+		green		.33
+		blue		.16
+	}
+	
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_2_g.tga
+		//Red
+		red			1 * StatusLights1[time]
+		green		0
+		blue		0
+	}
+	
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_2_g.tga
+		red			1 * StatusLights3[time * 2]
+		green		0
+		blue		0
+	}
+}
+
+//----------------------------------------------------------------------------------
+
+textures/terminal/t9_wall_3_glow
+{
+	qer_editorimage textures/terminal/t9_wall_3_d.tga
+
+	bumpmap addnormals ( textures/terminal/t9_wall_3_local.tga, heightmap ( textures/terminal/t9_wall_3_h.tga, 1 ) )
+	diffusemap	textures/terminal/t9_wall_3_d.tga
+	specularmap	textures/terminal/t9_wall_3_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_3_g.tga
+		//Orange
+		red			.65
+		green		.33
+		blue		.16
+	}
+	
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_3_g.tga
+		//Green
+		red			.36
+		green		.69
+		blue		.27
+	}
+	
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_3_g.tga
+		//Red
+		red			1 * StatusLights1[time]
+		green		0
+		blue		0
+	}
+	
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t9_wall_3_g.tga
+		red			1 * StatusLights3[time * 2]
+		green		0
+		blue		0
+	}
+}
+
+//----------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------
+textures/terminal/t10_wall_2_glow
+{
+	qer_editorimage textures/terminal/t10_wall_2_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_wall_2_local.tga, heightmap (textures/terminal/t10_wall_2_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_wall_2_d.tga
+	specularmap	textures/terminal/t10_wall_2_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_2_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_2_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_2_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_2_g.tga
+		rgb			.2
+	}
+}
+
+
+//----------------------------------------------------------------------------------
+textures/terminal/t10_wall_4_glow
+{
+	qer_editorimage textures/terminal/t10_wall_4_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_wall_4_local.tga, heightmap (textures/terminal/t10_wall_4_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_wall_4_d.tga
+	specularmap	textures/terminal/t10_wall_4_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_4_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_4_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_4_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_4_g.tga
+		rgb			.2
+	}
+}
+
+//----------------------------------------------------------------------------------
+textures/terminal/t10_wall_6_glow
+{
+	qer_editorimage textures/terminal/t10_wall_6_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_wall_6_local.tga, heightmap (textures/terminal/t10_wall_6_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_wall_6_d.tga
+	specularmap	textures/terminal/t10_wall_6_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_6_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_6_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_6_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_6_g.tga
+		rgb			.2
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t10_wall_7_glow
+{
+	qer_editorimage textures/terminal/t10_wall_7_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_wall_7_local.tga, heightmap (textures/terminal/t10_wall_7_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_wall_7_d.tga
+	specularmap	textures/terminal/t10_wall_7_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_7_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_7_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_7_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_7_g.tga
+		rgb			.2
+	}
+}
+
+//----------------------------------------------------------------------------------
+textures/terminal/t10_wall_9_glow
+{
+	qer_editorimage textures/terminal/t10_wall_9_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_wall_9_local.tga, heightmap (textures/terminal/t10_wall_9_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_wall_9_d.tga
+	specularmap	textures/terminal/t10_wall_9_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_9_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_9_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_9_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_9_g.tga
+		rgb			.2
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t10_wall_10_glow
+{
+	qer_editorimage textures/terminal/t10_wall_10_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_wall_10_local.tga, heightmap (textures/terminal/t10_wall_10_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_wall_10_d.tga
+	specularmap	textures/terminal/t10_wall_10_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_10_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_10_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_10_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_wall_10_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t10_walltrim_2_glow
+{
+	qer_editorimage textures/terminal/t10_walltrim_2_d.tga
+
+	bumpmap addnormals (textures/terminal/t10_walltrim_2_local.tga, heightmap (textures/terminal/t10_walltrim_2_h.tga, 1 ) )
+	diffusemap	textures/terminal/t10_walltrim_2_d.tga
+	specularmap	textures/terminal/t10_walltrim_2_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t10_walltrim_2_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t10_walltrim_2_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t10_walltrim_2_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t10_walltrim_2_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t12_wall_1_glow
+{
+	qer_editorimage textures/terminal/t12_wall_1_d.tga
+
+	bumpmap addnormals (textures/terminal/t12_wall_1_local.tga, heightmap (textures/terminal/t12_wall_1_h.tga, 1 ) )
+	diffusemap	textures/terminal/t12_wall_1_d.tga
+	specularmap	textures/terminal/t12_wall_1_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_1_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_1_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_1_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_1_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t12_wall_2_glow
+{
+	qer_editorimage textures/terminal/t12_wall_2_d.tga
+
+	bumpmap addnormals (textures/terminal/t12_wall_2_local.tga, heightmap (textures/terminal/t12_wall_2_h.tga, 1 ) )
+	diffusemap	textures/terminal/t12_wall_2_d.tga
+	specularmap	textures/terminal/t12_wall_2_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_2_g.tga
+			//Orange
+		red			.65 * StatusLights1[time / 2]
+		green		.33 * StatusLights1[time / 2]
+		blue		.16 * StatusLights1[time / 2]
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_2_g.tga
+			//Green
+		red			.36 * StatusLights2[time / 4]
+		green		.69 * StatusLights2[time / 4]
+		blue		.27 * StatusLights2[time / 4]
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_2_g.tga
+			//Yellow
+		red			.64 * StatusLights1[time / 4]
+		green		.64 * StatusLights1[time / 4]
+		blue		.24 * StatusLights1[time / 4]
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_2_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t12_wall_3_glow
+{
+	qer_editorimage textures/terminal/t12_wall_3_d.tga
+
+	bumpmap addnormals (textures/terminal/t12_wall_3_local.tga, heightmap (textures/terminal/t12_wall_3_h.tga, 1 ) )
+	diffusemap	textures/terminal/t12_wall_3_d.tga
+	specularmap	textures/terminal/t12_wall_3_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_3_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_3_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_3_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t12_wall_3_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t13_wall_1_glow
+{
+	qer_editorimage textures/terminal/t13_wall_1_d.tga
+
+	bumpmap addnormals (textures/terminal/t13_wall_1_local.tga, heightmap (textures/terminal/t13_wall_1_h.tga, 1 ) )
+	diffusemap	textures/terminal/t13_wall_1_d.tga
+	specularmap	textures/terminal/t13_wall_1_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_1_g.tga
+			//Green
+		red			.36 * StatusLights1[time / 3]
+		green		.69 * StatusLights1[time / 3]
+		blue		.27 * StatusLights1[time / 3]
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_1_g.tga
+ 			//Orange
+		red			.65 * StatusLights2[time / 5]
+		green		.33 * StatusLights2[time / 5]
+		blue		.16 * StatusLights2[time / 5]
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_1_g.tga
+			//Blue
+		red			.18 * StatusLights1[time / 4]
+		green		.30 * StatusLights1[time / 4]
+		blue		.58 * StatusLights1[time / 4]
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_1_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t13_wall_2_glow
+{
+	qer_editorimage textures/terminal/t13_wall_2_d.tga
+
+	bumpmap addnormals (textures/terminal/t13_wall_2_local.tga, heightmap (textures/terminal/t13_wall_2_h.tga, 1 ) )
+	diffusemap	textures/terminal/t13_wall_2_d.tga
+	specularmap	textures/terminal/t13_wall_2_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2_g.tga
+		map			textures/terminal/terminallights/t13_wall_2_g.tga
+			//Yellow
+		red			.64 * StatusLights2[time / 2]
+		green		.64 * StatusLights2[time / 2]
+		blue		.24 * StatusLights2[time / 2]
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2_g.tga
+			//Blue
+		red			.18 * StatusLights1[time / 4]
+		green		.30 * StatusLights1[time / 4]
+		blue		.58 * StatusLights1[time / 4]
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2_g.tga
+	 		//Orange
+		red			.65 * StatusLights1[time / 3]
+		green		.33 * StatusLights1[time / 3]
+		blue		.16 * StatusLights1[time / 3]
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t13_wall_2b_glow
+{
+	qer_editorimage textures/terminal/t13_wall_2b_d.tga
+
+	bumpmap addnormals (textures/terminal/t13_wall_2b_local.tga, heightmap (textures/terminal/t13_wall_2b_h.tga, 1 ) )
+	diffusemap	textures/terminal/t13_wall_2b_d.tga
+	specularmap	textures/terminal/t13_wall_2b_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2b_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2b_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2b_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_2b_g.tga
+		red			1 * StatusLights1[time * 3]
+		green		0
+		blue		0
+	}
+}
+//----------------------------------------------------------------------------------
+textures/terminal/t13_wall_3_glow
+{
+	qer_editorimage textures/terminal/t13_wall_3_d.tga
+
+	bumpmap addnormals (textures/terminal/t13_wall_3_local.tga, heightmap (textures/terminal/t13_wall_3_h.tga, 1 ) )
+	diffusemap	textures/terminal/t13_wall_3_d.tga
+	specularmap	textures/terminal/t13_wall_3_s.tga
+	
+	{	//Glowpass for global1 state
+		if(global1 == 1)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_3_g.tga
+		rgb			1
+	}
+
+	{	//Glowpass for global2 state
+		if(global1 == 2)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_3_g.tga
+		rgb			.7
+	}
+
+	{	//Glowpass for global3 state
+		if(global1 == 3)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_3_g.tga
+		rgb			.5
+	}
+
+	{	//Glowpass for global4 state
+		if(global1 == 4)
+		blend		add
+		map			textures/terminal/terminallights/t13_wall_3_g.tga
+		rgb			.2
+	}
+}
+//----------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+//Shaders for Data storage terminal objects
+//-----------------------------------------------------------------------------------------
+
+//-------------------------------
+textures/terminal/t13_trim_4_ut
+{
+	qer_editorimage textures/terminal/t13_trim_4_d.tga
+	unSmoothedTangents
+	
+	bumpmap addnormals	( textures/terminal/t13_trim_4_local.tga, heightmap ( textures/terminal/t13_trim_4_h.tga, 1 ) )
+	specularmap		textures/terminal/t13_trim_4_s.tga       
+    diffuseMap 		textures/terminal/t13_trim_4_d.tga
+}
+
+
+textures/terminal/t13_trim_1_ut
+{
+	qer_editorimage textures/terminal/t13_trim_1_d.tga
+	unSmoothedTangents
+	
+	bumpmap addnormals	( textures/terminal/t13_trim_1_local.tga, heightmap ( textures/terminal/t13_trim_1_h.tga, 1 ) )
+	specularmap		textures/terminal/t13_trim_1_s.tga       
+    diffuseMap 		textures/terminal/t13_trim_1_d.tga
+}
+
+
+textures/terminal/t8_pillar_2a_ut
+{
+	qer_editorimage textures/terminal/t8_pillar_2a_d.tga
+	unSmoothedTangents
+	
+	bumpmap addnormals	( textures/terminal/t8_pillar_2a_local.tga, heightmap ( textures/terminal/t8_pillar_2a_h.tga, 1 ) )
+	specularmap		textures/terminal/t8_pillar_2a_s.tga       
+    diffuseMap 		textures/terminal/t8_pillar_2a_d.tga
+}
+

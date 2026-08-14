@@ -1,0 +1,74 @@
+/*
+===============================================================================
+
+	Strogg troopcarrier
+
+===============================================================================
+*/
+
+export strogg_troopcarrier
+{
+	options -prefix STC_ -rotate 270 -keep muzzle_flash_l -keep muzzle_flash_r
+	mesh	work/models/vehicles/Strogg_troopcarrier/animation/strogg_troopcarrier_lift.ma	-dest models/monsters/troopcarrier/mesh.md5mesh
+	anim	work/models/vehicles/Strogg_troopcarrier/animation/strogg_troopcarrier_lift.ma	-range 143 145 -dest models/monsters/troopcarrier/idle.md5anim
+	anim	work/models/vehicles/Strogg_troopcarrier/animation/strogg_troopcarrier_lift.ma	-range 1 75 -dest models/monsters/troopcarrier/drop.md5anim
+	anim	work/models/vehicles/Strogg_troopcarrier/animation/strogg_troopcarrier_lift.ma	-range 80 85 -dest models/monsters/troopcarrier/dropidle.md5anim
+	anim	work/models/vehicles/Strogg_troopcarrier/animation/strogg_troopcarrier_lift.ma	-range 89 165 -dest models/monsters/troopcarrier/lift.md5anim
+	anim	work/models/vehicles/Strogg_troopcarrier/animation/strogg_troopcarrier_lift.ma	-range 166 168 -dest models/monsters/troopcarrier/idle_flat.md5anim
+
+}
+
+
+
+
+model model_env_strogg_troopcarrier
+{
+	mesh						models/monsters/troopcarrier/mesh.md5mesh	
+	channel legs										( origin )
+	channel torso										( *origin -origin )
+
+	anim idle					models/monsters/troopcarrier/idle.md5anim
+	anim drop					models/monsters/troopcarrier/drop.md5anim
+	{
+		frame 1							sound_voice	snd_drop
+		frame 40	call				strogg_dropship::showMonsters
+	}
+	anim dropidle					models/monsters/troopcarrier/dropidle.md5anim
+	anim lift					models/monsters/troopcarrier/lift.md5anim
+	{
+		frame 1							sound_item	snd_lift
+	}
+	anim idle_flat					models/monsters/troopcarrier/idle_flat.md5anim
+}
+
+
+
+
+
+
+entityDef env_strogg_troopcarrier	
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"idAnimated"
+
+
+	"use_aas"								"aas48"
+	"editor_usage"							"carries strogg troops"
+	"flying"								"1"
+
+	"remove_on_death"						"1"
+
+	"size"									"42 42 42"
+	"model"									"model_env_strogg_troopcarrier"
+	"mass"									"2000"
+	"suppress_range"						"3200"
+
+	"joint_gun_right"						"muzzle_flash_r"
+	"joint_gun_left"						"muzzle_flash_l"
+	
+	"snd_lift"								"strogg_dropship_liftoff"
+	"snd_drop"								"strogg_dropship_land"
+	
+	"combatModel"							"1"
+
+}

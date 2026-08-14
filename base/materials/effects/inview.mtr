@@ -1,0 +1,41 @@
+armorViewEffect
+{
+	{
+		blend blend
+		map makeAlpha(gfx/effects/armorViewEffect2.tga)
+		clamp
+		red 1.0
+		green 0.0
+		blue 0.0
+		alpha parm3
+	}
+}
+
+material view/doublevision
+{
+	sort gui
+	noshadows
+	
+	{
+		blend	gl_one, gl_zero
+		map		_scratch
+	}
+	
+	{
+		maskcolor
+		alpha	.5
+		map		_white
+	}
+}
+
+material view/doublevisionblend
+{
+	sort gui
+	noshadows
+
+	{
+		blend	gl_dst_alpha, gl_dst_alpha
+		map		_scratch
+	}
+}
+

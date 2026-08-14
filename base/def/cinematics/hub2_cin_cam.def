@@ -1,0 +1,48 @@
+export cin_hub2_cam
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/hub2 -destdir models/cinematics/hub2
+	camera	makron_cameras.ma			-dest cin_makron
+	camera	protector_cameras.ma		-dest cin_protectors
+}
+
+camera cin_hub2cam
+{
+	anim cin_makron					"models/cinematics/hub2/cin_makron.md5camera"
+	anim cin_protectors				"models/cinematics/hub2/cin_protectors.md5camera"
+}
+
+entityDef cin_hub2cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_hub2cam"
+}
+
+
+export cin_hub2cam2
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/hub2 -destdir models/cinematics/hub2
+	camera	protector_cameras.ma		-dest cin_protectors
+}
+
+camera cin_hub2cam2
+{
+	anim cin_protectors				"models/cinematics/hub2/cin_protectors.md5camera"
+}
+
+entityDef cin_hub2cam2 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_hub2cam2"
+}

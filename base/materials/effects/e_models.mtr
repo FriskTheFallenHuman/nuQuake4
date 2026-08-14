@@ -1,0 +1,10 @@
+gfx/effects/rock
+{
+	qer_editorimage gfx/effects/models/rock_d.tga
+	noShadows	
+
+	bumpmap addnormals	( gfx/effects/models/rock_local.tga, heightmap ( gfx/effects/models/rock_h.tga, 1 ) )
+	specularmap		gfx/effects/models/rock_s.tga       
+    diffusemap 		gfx/effects/models/rock_d.tga
+
+}

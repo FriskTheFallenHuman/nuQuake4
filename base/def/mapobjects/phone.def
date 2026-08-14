@@ -1,0 +1,42 @@
+/***********************************************************************
+Harpers phone in the outro cinematic
+***********************************************************************/
+
+
+export  phone
+{
+	options -scale .3937 -prefix PHONE_ -align ALL 
+
+	mesh work\models\cinematics\GAME_OUTRO\animation\outro_harper.ma			-range 1 2 	-dest models\mapobjects\marine\equipment\phone\phone 
+	anim work\models\cinematics\GAME_OUTRO\animation\outro_harper.ma					-dest models\mapobjects\marine\equipment\phone\idle
+
+}
+
+entityDef env_phone
+{
+	"model"						"model_env_phone"
+	"spawnclass"					"idAnimated"
+
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"animated_phone"
+
+	"snd_phonecall"						"cine_outro_harper_call"
+
+	
+
+	
+	
+}
+
+model model_env_phone
+{
+	mesh					models\mapobjects\marine\equipment\phone\phone.md5mesh
+	anim idle				models\mapobjects\marine\equipment\phone\idle.md5anim
+	{
+		frame	580						sound				snd_phonecall
+	}
+}
+

@@ -1,0 +1,72 @@
+gfx/effects/ships/SFlyer_high
+{	//sprite stogg flyer for high overflights
+//	qer_editorimage gfx/effects/ships/SFlyer_256_d.tga
+	qer_EditorImage gfx/effects/ships/flier_formation_d.tga
+
+	noShadows
+//	unSmoothedTangents
+
+	{	//normal image of ship
+		blend	blend
+//		map		gfx/effects/ships/SFlyer_256_d.tga
+		map		gfx/effects/ships/flier_formation_d.tga
+
+		vertexColor
+	}
+
+	{	//Add for lights and engine flares
+		blend	add
+//		map		gfx/effects/ships/SFlyer_256_d.tga
+		map		gfx/effects/ships/flier_formation_g.tga
+
+		rgb		.5 + MCC_flicker1[time * 3]
+	}
+}
+
+ 
+gfx/effects/ships/droppod
+{	
+	qer_EditorImage gfx/effects/ships/droppod.tga
+
+	noShadows
+	twoSided
+	{	
+		blend	blend
+		map		gfx/effects/ships/droppod.tga
+		vertexColor
+
+	}
+}
+
+
+gfx/effects/ships/marine_fighter
+{	
+	qer_EditorImage gfx/effects/ships/marine_fighter.tga
+
+	noShadows
+	twoSided
+	{	
+      	noPicMip
+      	
+      	blend		blend
+		map			gfx/effects/ships/marine_fighter.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/ships/strogg_fighter
+{	
+	qer_EditorImage gfx/effects/ships/strogg_fighter.tga
+
+	noShadows
+	twoSided
+
+	{	
+      	noPicMip
+      	
+      	blend		blend
+		map			gfx/effects/ships/strogg_fighter.tga
+		vertexColor
+	}
+}

@@ -1,0 +1,1580 @@
+/*
+===============================================================================
+
+	Marine Heads
+	
+	List of the heads so they are easier to find.  Please add the name when adding a new head.
+	
+	Main Characters:
+		char_marinehead_kane
+		char_marinehead_kane2
+		char_marinehead_rhodes
+		char_marinehead_morris
+		char_marinehead_general_harper
+		char_marinehead_sledge
+		char_marinehead_voss
+		char_marinehead_voss_strogg
+		char_marinehead_strassa
+		char_marinehead_bidwell
+		char_marinehead_cortez
+		char_marinehead_Anderson
+	
+	Generic:
+		//  Temp when skins get painted we can just change the def file to point to the correct skins.
+		char_marinehead_gen_african_american
+		char_marinehead_gen_african_american_2
+		char_marinehead_gen_african_american_3
+		
+		char_marinehead_gen_white
+		char_marinehead_gen_white_2
+		char_marinehead_gen_white_3
+		char_marinehead_gen_white_4
+
+		char_marinehead_gen_asian
+		char_marinehead_gen_asian_2
+		char_marinehead_gen_asian_3		
+		
+		char_marinehead_doctor
+		char_marinehead_doctor_masked
+
+	Helmets:
+		char_marinehead_helmet
+		char_marinehead_helmet_tech
+		char_marinehead_helmet_medic
+
+	Dead:
+		char_marinehead_half
+		char_marinehead_shot
+
+===============================================================================
+*/
+
+export char_marinehead_kane
+{
+	options -prefix LPSNC_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_kane_phonemes.ma		-dest models/lipsync/marine_head/head_kane_mesh
+	anim	work/models/lipsync/animation/head_kane_idle.ma			-dest models/lipsync/marine_head/head_kane_idle
+	anim	work/models/lipsync/animation/head_kane_phonemes.ma		-dest models/lipsync/marine_head/head_kane_phonemes
+	anim	work/models/lipsync/animation/head_kane_scared.ma		-dest models/lipsync/marine_head/head_kane_scared
+	anim	work/models/lipsync/animation/head_kane_confused.ma		-dest models/lipsync/marine_head/head_kane_confused
+	anim	work/models/lipsync/animation/head_kane_expressions.ma	-dest models/lipsync/marine_head/annosoft_expression
+	anim	work/models/lipsync/animation/head_kane_blink.ma		-dest models/lipsync/marine_head/blink
+}
+
+export char_marinehead_kane2
+{
+	options -prefix KANE2_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_kane2_idle.ma		-dest models/lipsync/marine_head/head_kane2_mesh
+	anim	work/models/lipsync/animation/head_kane2_idle.ma		-dest models/lipsync/marine_head/head_kane2_idle
+	anim	work/models/lipsync/animation/head_kane2_phonemes.ma	-dest models/lipsync/marine_head/head_kane2_phonemes
+	anim	work/models/lipsync/animation/head_kane2_blink.ma		-dest models/lipsync/marine_head/head_kane2_blink
+	anim	work/models/lipsync/animation/head_kane2_angry.ma		-dest models/lipsync/marine_head/head_kane2_angry
+	anim	work/models/lipsync/animation/head_kane2_intro.ma		-dest models/lipsync/marine_head/head_kane2_intro
+	anim	work/models/lipsync/animation/head_kane2_intro_idle.ma	-dest models/lipsync/marine_head/head_kane2_intro_idle
+	anim	work/models/lipsync/animation/head_kane2_box.ma			-dest models/lipsync/marine_head/head_kane2_box
+}
+
+export char_marinehead_kanestrg
+{
+	options -prefix KANE2_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_kanestrg_idle.ma		-dest models/lipsync/marine_head/head_kanestrg_mesh
+	anim	work/models/lipsync/animation/head_kanestrg_idle.ma		-dest models/lipsync/marine_head/head_kanestrg_idle
+//	anim	work/models/lipsync/animation/head_kanestrg_phonemes.ma	-dest models/lipsync/marine_head/head_kanestrg_phonemes
+	anim	work/models/lipsync/animation/head_kanestrg_blink.ma	-dest models/lipsync/marine_head/head_kanestrg_blink
+	anim	work/models/lipsync/animation/head_kanestrg_angry.ma	-dest models/lipsync/marine_head/head_kanestrg_angry
+	anim	work/models/lipsync/animation/head_kanestrg_box.ma		-dest models/lipsync/marine_head/head_kanestrg_box
+	anim	work/models/lipsync/animation/head_kanestrg_box_b.ma	-dest models/lipsync/marine_head/head_kanestrg_box_b
+	anim	work/models/lipsync/animation/head_kanestrg_box_hero.ma	-dest models/lipsync/marine_head/head_kanestrg_box_hero
+}
+
+export char_marinehead_rhodes
+
+{
+	options -prefix HVS_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+	
+	mesh	work/models/lipsync/animation/head_rhodes_idle.ma					-dest models/lipsync/marine_head/head_rhodes_mesh
+	anim	work/models/lipsync/animation/head_rhodes_idle.ma					-dest models/lipsync/marine_head/head_rhodes_idle
+	anim	work/models/lipsync/animation/head_rhodes_phonemes.ma				-dest models/lipsync/marine_head/head_rhodes_phonemes
+	anim	work/models/lipsync/animation/head_rhodes_scared.ma					-dest models/lipsync/marine_head/head_rhodes_scared
+	anim	work/models/lipsync/animation/head_rhodes_angry.ma					-dest models/lipsync/marine_head/head_rhodes_angry
+	anim	work/models/lipsync/animation/head_rhodes_confused.ma				-dest models/lipsync/marine_head/head_rhodes_confused
+	anim	work/models/lipsync/animation/head_rhodes_blink.ma					-dest models/lipsync/marine_head/head_rhodes_blink
+	anim	work/models/lipsync/animation/head_rhodes_happy.ma					-dest models/lipsync/marine_head/head_rhodes_happy
+	anim	work/models/lipsync/animation/head_rhodes_intro_talks.ma			-dest models/lipsync/marine_head/head_rhodes_intro
+	anim	work/models/lipsync/animation/head_rhodes_briefing.ma				-dest models/lipsync/marine_head/head_rhodes_briefing
+	anim	work/models/lipsync/animation/head_rhodes_pain.ma					-dest models/lipsync/marine_head/head_rhodes_pain
+	anim	work/models/lipsync/animation/head_rhodes_puzzled.ma				-dest models/lipsync/marine_head/head_rhodes_puzzled
+	anim	work/models/lipsync/animation/head_rhodes_intro_idle.ma				-dest models/lipsync/marine_head/head_rhodes_intro_idle
+	anim	work/models/lipsync/animation/head_rhodes_mcc2_talks.ma				-dest models/lipsync/marine_head/head_rhodes_mcc2_talks
+}
+
+export char_marinehead_morris
+{
+	options -prefix HAA_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_morris_idle.ma			-dest models/lipsync/marine_head/head_morris_mesh
+	anim	work/models/lipsync/animation/head_morris_idle.ma			-dest models/lipsync/marine_head/head_morris_idle
+	anim	work/models/lipsync/animation/head_morris_phonemes.ma		-dest models/lipsync/marine_head/head_morris_phonemes
+	anim	work/models/lipsync/animation/head_morris_scared.ma			-dest models/lipsync/marine_head/head_morris_scared
+	anim	work/models/lipsync/animation/head_morris_angry.ma			-dest models/lipsync/marine_head/head_morris_angry
+	anim	work/models/lipsync/animation/head_morris_confused.ma		-dest models/lipsync/marine_head/head_morris_confused
+	anim	work/models/lipsync/animation/head_morris_blink.ma			-dest models/lipsync/marine_head/head_morris_blink
+	anim	work/models/lipsync/animation/head_morris_intro.ma			-dest models/lipsync/marine_head/head_morris_intro
+	anim	work/models/lipsync/animation/head_morris_intro_idle.ma		-dest models/lipsync/marine_head/head_morris_intro_idle
+	anim	work/models/lipsync/animation/head_morris_briefing.ma		-dest models/lipsync/marine_head/head_morris_briefing
+	anim	work/models/lipsync/animation/head_morris_pain.ma			-dest models/lipsync/marine_head/head_morris_pain
+	anim	work/models/lipsync/animation/head_morris_puzzled.ma		-dest models/lipsync/marine_head/head_morris_puzzled
+	anim	work/models/lipsync/animation/head_morris_happy.ma			-dest models/lipsync/marine_head/head_morris_happy
+	anim	work/models/lipsync/animation/head_morris_mcc2_talks.ma		-dest models/lipsync/marine_head/head_morris_mcc2_talks
+	anim	work/models/lipsync/animation/head_morris_mcc2_scolds.ma	-dest models/lipsync/marine_head/head_morris_mcc2_scolds
+	anim	work/models/lipsync/animation/head_morris_ad_intro.ma		-dest models/lipsync/marine_head/head_morris_ad_intro
+}
+
+export char_marinehead_gen_white_2
+{
+	options -prefix HDC_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_gen_white_2_idle.ma			-dest models/lipsync/marine_head/head_gen_white_2_mesh
+	anim	work/models/lipsync/animation/head_gen_white_2_idle.ma			-dest models/lipsync/marine_head/head_gen_white_2_idle
+	anim	work/models/lipsync/animation/head_gen_white_2_phonemes.ma		-dest models/lipsync/marine_head/head_gen_white_2_phonemes
+	anim	work/models/lipsync/animation/head_gen_white_2_scared.ma		-dest models/lipsync/marine_head/head_gen_white_2_scared
+	anim	work/models/lipsync/animation/head_gen_white_2_angry.ma			-dest models/lipsync/marine_head/head_gen_white_2_angry
+	anim	work/models/lipsync/animation/head_gen_white_2_confused.ma		-dest models/lipsync/marine_head/head_gen_white_2_confused
+	anim	work/models/lipsync/animation/head_gen_white_2_blink.ma			-dest models/lipsync/marine_head/head_gen_white_2_blink
+	anim	work/models/lipsync/animation/head_gen_white_2_pain.ma			-dest models/lipsync/marine_head/head_gen_white_2_pain
+	anim	work/models/lipsync/animation/head_gen_white_2_happy.ma			-dest models/lipsync/marine_head/head_gen_white_2_happy
+	anim	work/models/lipsync/animation/head_gen_white_2_puzzled.ma		-dest models/lipsync/marine_head/head_gen_white_2_puzzled
+	anim	work/models/lipsync/animation/head_gen_white_2_test.ma			-dest models/lipsync/marine_head/head_gen_white_2_test
+}
+	
+export char_marinehead_general_harper
+{
+	options -prefix HBC_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_general_harper_idle.ma			-dest models/lipsync/marine_head/head_general_harper_mesh
+	anim	work/models/lipsync/animation/head_general_harper_idle.ma			-dest models/lipsync/marine_head/head_general_harper_idle
+	anim	work/models/lipsync/animation/head_general_harper_phonemes.ma		-dest models/lipsync/marine_head/head_general_harper_phonemes
+	anim	work/models/lipsync/animation/head_general_harper_scared.ma			-dest models/lipsync/marine_head/head_general_harper_scared
+	anim	work/models/lipsync/animation/head_general_harper_angry.ma			-dest models/lipsync/marine_head/head_general_harper_angry
+	anim	work/models/lipsync/animation/head_general_harper_confused.ma		-dest models/lipsync/marine_head/head_general_harper_confused
+	anim	work/models/lipsync/animation/head_general_harper_blink.ma			-dest models/lipsync/marine_head/head_general_harper_blink
+	anim	work/models/lipsync/animation/head_general_harper_puzzled.ma		-dest models/lipsync/marine_head/head_general_harper_puzzled
+	anim	work/models/lipsync/animation/head_general_harper_happy.ma			-dest models/lipsync/marine_head/head_general_harper_happy
+	anim	work/models/lipsync/animation/head_general_harper_mcc2_talks.ma		-dest models/lipsync/marine_head/head_general_harper_mcc2_talks	
+	anim	work/models/lipsync/animation/head_general_harper_outro_lipsync.ma	-dest models/lipsync/marine_head/head_general_harper_outro
+}
+
+export char_marinehead_gen_african_american
+{
+	options -prefix AAG_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_gen_africanamerican_idle.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_mesh
+	anim	work/models/lipsync/animation/head_gen_africanamerican_idle.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_idle
+	anim	work/models/lipsync/animation/head_gen_africanamerican_phonemes.ma		-dest models/lipsync/marine_head/head_gen_africanamerican_phonemes
+	anim	work/models/lipsync/animation/head_gen_africanamerican_scared.ma		-dest models/lipsync/marine_head/head_gen_africanamerican_scared
+	anim	work/models/lipsync/animation/head_gen_africanamerican_angry.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_angry
+	anim	work/models/lipsync/animation/head_gen_africanamerican_confused.ma		-dest models/lipsync/marine_head/head_gen_africanamerican_confused
+	anim	work/models/lipsync/animation/head_gen_africanamerican_blink.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_blink
+	anim	work/models/lipsync/animation/head_gen_africanamerican_blinkA.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_blinkA
+	anim	work/models/lipsync/animation/head_gen_africanamerican_pain.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_pain
+	anim	work/models/lipsync/animation/head_gen_africanamerican_happy.ma			-dest models/lipsync/marine_head/head_gen_africanamerican_happy
+	anim	work/models/lipsync/animation/head_gen_africanamerican_puzzled.ma		-dest models/lipsync/marine_head/head_gen_africanamerican_puzzled
+}
+
+export char_marinehead_sledge
+{
+	options -prefix SLDG_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_sledge_idle.ma			-dest models/lipsync/marine_head/head_sledge_mesh
+	anim	work/models/lipsync/animation/head_sledge_idle.ma			-dest models/lipsync/marine_head/head_sledge_idle
+	anim	work/models/lipsync/animation/head_sledge_phonemes.ma		-dest models/lipsync/marine_head/head_sledge_phonemes
+	anim	work/models/lipsync/animation/head_sledge_scared.ma			-dest models/lipsync/marine_head/head_sledge_scared
+	anim	work/models/lipsync/animation/head_sledge_angry.ma			-dest models/lipsync/marine_head/head_sledge_angry
+	anim	work/models/lipsync/animation/head_sledge_confused.ma		-dest models/lipsync/marine_head/head_sledge_confused
+	anim	work/models/lipsync/animation/head_sledge_blink.ma			-dest models/lipsync/marine_head/head_sledge_blink
+	anim	work/models/lipsync/animation/head_sledge_pain.ma			-dest models/lipsync/marine_head/head_sledge_pain
+	anim	work/models/lipsync/animation/head_sledge_puzzled.ma		-dest models/lipsync/marine_head/head_sledge_puzzled
+	anim	work/models/lipsync/animation/head_sledge_happy.ma			-dest models/lipsync/marine_head/head_sledge_happy
+	anim	work/models/lipsync/animation/head_sledge_intro_idle.ma			-dest models/lipsync/marine_head/head_sledge_intro_idle
+}
+
+export char_marinehead_helmet
+{
+	options -prefix HELM_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_helm_idle.ma			-dest models/lipsync/marine_head/head_helmet_mesh
+	anim	work/models/lipsync/animation/head_helm_idle.ma			-dest models/lipsync/marine_head/head_helm_idle
+}
+
+export char_marinehead_voss
+{
+	options -prefix voss_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_voss_idle.ma				-dest models/lipsync/marine_head/head_voss_mesh
+	anim	work/models/lipsync/animation/head_voss_idle.ma				-dest models/lipsync/marine_head/head_voss_idle
+	anim	work/models/lipsync/animation/head_voss_angry.ma			-dest models/lipsync/marine_head/head_voss_angry
+	anim	work/models/lipsync/animation/head_voss_blink.ma			-dest models/lipsync/marine_head/head_voss_blink
+	anim	work/models/lipsync/animation/head_voss_confused.ma			-dest models/lipsync/marine_head/head_voss_confused
+	anim	work/models/lipsync/animation/head_voss_phonemes.ma			-dest models/lipsync/marine_head/head_voss_phonemes
+//	anim	work/models/lipsync/animation/head_phon_exaggerate.ma		-dest models/lipsync/marine_head/head_voss_phonemes
+	anim	work/models/lipsync/animation/head_voss_talks1.ma			-dest models/lipsync/marine_head/head_voss_talks1
+	anim	work/models/lipsync/animation/head_voss_talks_medlabs.ma	-dest models/lipsync/marine_head/head_voss_talks_medlabs
+	anim	work/models/lipsync/animation/head_voss_briefing.ma			-dest models/lipsync/marine_head/head_voss_briefing
+	anim	work/models/lipsync/animation/head_voss_briefingE.ma		-dest models/lipsync/marine_head/head_voss_briefinge
+	anim	work/models/lipsync/animation/head_voss_briefingF.ma		-dest models/lipsync/marine_head/head_voss_briefingf
+	anim	work/models/lipsync/animation/head_voss_briefingG.ma		-dest models/lipsync/marine_head/head_voss_briefingg
+	anim	work/models/lipsync/animation/head_voss_briefingJ.ma		-dest models/lipsync/marine_head/head_voss_briefingj
+	anim	work/models/lipsync/animation/head_voss_intro.ma			-dest models/lipsync/marine_head/head_voss_intro
+	anim	work/models/lipsync/animation/head_voss_pain.ma				-dest models/lipsync/marine_head/head_voss_pain
+	anim	work/models/lipsync/animation/head_voss_puzzled.ma			-dest models/lipsync/marine_head/head_voss_puzzled
+	anim	work/models/lipsync/animation/head_voss_happy.ma			-dest models/lipsync/marine_head/head_voss_happy
+	
+}
+
+export char_marinehead_voss_strogg
+{
+	options -prefix voss_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_voss_strogg_idle.ma				-dest models/lipsync/marine_head/head_voss_strogg_mesh
+	anim	work/models/lipsync/animation/head_voss_strogg_idle.ma				-dest models/lipsync/marine_head/head_voss_strogg_idle
+	anim	work/models/lipsync/animation/bossbuddy_cinematic_lipsync.ma			-dest models/lipsync/marine_head/head_voss_strogg_intro
+	anim	work/models/lipsync/animation/head_voss_strogg_angry.ma				-dest models/lipsync/marine_head/head_voss_strogg_angry
+	anim	work/models/lipsync/animation/head_voss_strogg_blink.ma				-dest models/lipsync/marine_head/head_voss_strogg_blink
+	anim	work/models/lipsync/animation/head_voss_strogg_confused.ma			-dest models/lipsync/marine_head/head_voss_strogg_confused
+	anim	work/models/lipsync/animation/head_voss_strogg_phonemes.ma			-dest models/lipsync/marine_head/head_voss_strogg_phonemes
+}
+
+export char_marinehead_gen_asian
+{
+	options -prefix ASN_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_gen_asian_idle.ma			-dest models/lipsync/marine_head/gen_asian_mesh
+	anim	work/models/lipsync/animation/head_gen_asian_idle.ma			-dest models/lipsync/marine_head/head_gen_asian_idle
+	anim	work/models/lipsync/animation/head_gen_asian_angry.ma			-dest models/lipsync/marine_head/head_gen_asian_angry
+	anim	work/models/lipsync/animation/head_gen_asian_blink.ma			-dest models/lipsync/marine_head/head_gen_asian_blink
+	anim	work/models/lipsync/animation/head_gen_asian_confused.ma		-dest models/lipsync/marine_head/head_gen_asian_confused
+	anim	work/models/lipsync/animation/head_gen_asian_phonemes.ma		-dest models/lipsync/marine_head/head_gen_asian_phonemes
+	anim	work/models/lipsync/animation/head_gen_asian_scared.ma			-dest models/lipsync/marine_head/head_gen_asian_scared
+	anim	work/models/lipsync/animation/head_gen_asian_pain.ma			-dest models/lipsync/marine_head/head_gen_asian_pain
+	anim	work/models/lipsync/animation/head_gen_asian_happy.ma			-dest models/lipsync/marine_head/head_gen_asian_happy
+	anim	work/models/lipsync/animation/head_gen_asian_puzzled.ma			-dest models/lipsync/marine_head/head_gen_asian_puzzled
+	
+}
+
+export char_marinehead_gen_asian_2
+{
+	options -prefix ASN2_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_gen_asian_2_idle.ma			-dest models/lipsync/marine_head/gen_asian_2_mesh
+	anim	work/models/lipsync/animation/head_gen_asian_2_idle.ma			-dest models/lipsync/marine_head/head_gen_asian_2_idle
+	anim	work/models/lipsync/animation/head_gen_asian_2_angry.ma			-dest models/lipsync/marine_head/head_gen_asian_2_angry
+	anim	work/models/lipsync/animation/head_gen_asian_2_blink.ma			-dest models/lipsync/marine_head/head_gen_asian_2_blink
+	anim	work/models/lipsync/animation/head_gen_asian_2_confused.ma		-dest models/lipsync/marine_head/head_gen_asian_2_confused
+	anim	work/models/lipsync/animation/head_gen_asian_2_phonemes.ma		-dest models/lipsync/marine_head/head_gen_asian_2_phonemes
+	anim	work/models/lipsync/animation/head_gen_asian_2_scared.ma		-dest models/lipsync/marine_head/head_gen_asian_2_scared
+	anim	work/models/lipsync/animation/head_gen_asian_2_pain.ma			-dest models/lipsync/marine_head/head_gen_asian_2_pain
+	anim	work/models/lipsync/animation/head_gen_asian_2_happy.ma			-dest models/lipsync/marine_head/head_gen_asian_2_happy
+	anim	work/models/lipsync/animation/head_gen_asian_2_puzzled.ma		-dest models/lipsync/marine_head/head_gen_asian_2_puzzled
+	anim	work/models/lipsync/animation/head_gen_asian_2_sleep.ma			-dest models/lipsync/marine_head/head_gen_asian_2_sleep
+}
+
+export char_marinehead_gen_white
+{
+	options -prefix WG_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_gen_white_idle.ma			-dest models/lipsync/marine_head/gen_white_mesh
+	anim	work/models/lipsync/animation/head_gen_white_idle.ma			-dest models/lipsync/marine_head/head_gen_white_idle
+	anim	work/models/lipsync/animation/head_gen_white_angry.ma			-dest models/lipsync/marine_head/head_gen_white_angry
+	anim	work/models/lipsync/animation/head_gen_white_blink.ma			-dest models/lipsync/marine_head/head_gen_white_blink
+	anim	work/models/lipsync/animation/head_gen_white_confused.ma		-dest models/lipsync/marine_head/head_gen_white_confused
+	anim	work/models/lipsync/animation/head_gen_white_phonemes.ma		-dest models/lipsync/marine_head/head_gen_white_phonemes
+	anim	work/models/lipsync/animation/head_gen_white_scared.ma			-dest models/lipsync/marine_head/head_gen_white_scared
+	anim	work/models/lipsync/animation/head_gen_white_pain.ma			-dest models/lipsync/marine_head/head_gen_white_pain
+	anim	work/models/lipsync/animation/head_gen_white_happy.ma			-dest models/lipsync/marine_head/head_gen_white_happy
+	anim	work/models/lipsync/animation/head_gen_white_puzzled.ma			-dest models/lipsync/marine_head/head_gen_white_puzzled
+}
+//export char_marinehead_aa_generic
+//{
+//	options -prefix AAG_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+//
+//	mesh	work/models/lipsync/animation/head_aag_idle.ma			-dest models/lipsync/marine_head/aag_mesh
+//	anim	work/models/lipsync/animation/head_aag_idle.ma			-dest models/lipsync/marine_head/head_aag_idle
+//	anim	work/models/lipsync/animation/head_aag_angry.ma			-dest models/lipsync/marine_head/head_aag_angry
+//	anim	work/models/lipsync/animation/head_aag_blink.ma			-dest models/lipsync/marine_head/head_aag_blink
+//	anim	work/models/lipsync/animation/head_aag_confused.ma		-dest models/lipsync/marine_head/head_aag_confused
+//	anim	work/models/lipsync/animation/head_aag_phonemes.ma		-dest models/lipsync/marine_head/head_aag_phonemes
+//	anim	work/models/lipsync/animation/head_aag_scared.ma		-dest models/lipsync/marine_head/head_aag_scared
+//}
+
+export char_marinehead_strassa
+{
+	options -prefix STRA_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_strassa_idle.ma			-dest models/lipsync/marine_head/strassa_mesh
+	anim	work/models/lipsync/animation/head_strassa_idle.ma			-dest models/lipsync/marine_head/head_strassa_idle
+	anim	work/models/lipsync/animation/head_strassa_angry.ma			-dest models/lipsync/marine_head/head_strassa_angry
+	anim	work/models/lipsync/animation/head_strassa_blink.ma			-dest models/lipsync/marine_head/head_strassa_blink
+	anim	work/models/lipsync/animation/head_strassa_confused.ma		-dest models/lipsync/marine_head/head_strassa_confused
+	anim	work/models/lipsync/animation/head_strassa_phonemes.ma		-dest models/lipsync/marine_head/head_strassa_phonemes
+	anim	work/models/lipsync/animation/head_strassa_scared.ma		-dest models/lipsync/marine_head/head_strassa_scared
+	anim	work/models/lipsync/animation/head_strassa_intro.ma			-dest models/lipsync/marine_head/head_strassa_intro
+	anim	work/models/lipsync/animation/head_strassa_pain.ma			-dest models/lipsync/marine_head/head_strassa_pain
+	anim	work/models/lipsync/animation/head_strassa_puzzled.ma		-dest models/lipsync/marine_head/head_strassa_puzzled
+	anim	work/models/lipsync/animation/head_strassa_happy.ma			-dest models/lipsync/marine_head/head_strassa_happy
+	anim	work/models/lipsync/animation/head_strassa_intro_idle.ma	-dest models/lipsync/marine_head/head_strassa_intro_idle
+	anim	work/models/lipsync/animation/head_strassa_mcc2_talks2.ma	-dest models/lipsync/marine_head/head_strassa_mcc2_talks2
+	anim	work/models/lipsync/animation/head_strassa_mcc2_talks1.ma	-dest models/lipsync/marine_head/head_strassa_mcc2_talks1
+
+}
+
+export char_marinehead_bidwell
+{
+	options -prefix BID_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_bidwell_idle.ma			-dest models/lipsync/marine_head/bidwell_mesh
+	anim	work/models/lipsync/animation/head_bidwell_idle.ma			-dest models/lipsync/marine_head/head_bidwell_idle
+	anim	work/models/lipsync/animation/head_bidwell_angry.ma			-dest models/lipsync/marine_head/head_bidwell_angry
+	anim	work/models/lipsync/animation/head_bidwell_blink.ma			-dest models/lipsync/marine_head/head_bidwell_blink
+	anim	work/models/lipsync/animation/head_bidwell_confused.ma		-dest models/lipsync/marine_head/head_bidwell_confused
+	anim	work/models/lipsync/animation/head_bidwell_phonemes.ma		-dest models/lipsync/marine_head/head_bidwell_phonemes
+	anim	work/models/lipsync/animation/head_bidwell_scared.ma		-dest models/lipsync/marine_head/head_bidwell_scared
+	anim	work/models/lipsync/animation/head_bidwell_introA.ma		-dest models/lipsync/marine_head/head_bidwell_introa
+	anim	work/models/lipsync/animation/head_bidwell_introB.ma		-dest models/lipsync/marine_head/head_bidwell_introb
+	anim	work/models/lipsync/animation/head_bidwell_introC.ma		-dest models/lipsync/marine_head/head_bidwell_introc
+	anim	work/models/lipsync/animation/head_bidwell_pain.ma			-dest models/lipsync/marine_head/head_bidwell_pain
+	anim	work/models/lipsync/animation/head_bidwell_puzzled.ma		-dest models/lipsync/marine_head/head_bidwell_puzzled
+	anim	work/models/lipsync/animation/head_bidwell_happy.ma			-dest models/lipsync/marine_head/head_bidwell_happy
+	anim	work/models/lipsync/animation/head_bidwell_sleep.ma			-dest models/lipsync/marine_head/head_bidwell_sleep
+	anim	work/models/lipsync/animation/head_bidwell_intro_idle.ma		-dest models/lipsync/marine_head/head_bidwell_intro_idle
+}
+
+export char_marinehead_cortez
+{
+	options -prefix CORT_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone 
+	//-keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_cortez_idle.ma			-dest models/lipsync/marine_head/cortez_mesh
+	anim	work/models/lipsync/animation/head_cortez_idle.ma			-dest models/lipsync/marine_head/head_cortez_idle
+	anim	work/models/lipsync/animation/head_cortez_angry.ma			-dest models/lipsync/marine_head/head_cortez_angry
+	anim	work/models/lipsync/animation/head_cortez_blink.ma			-dest models/lipsync/marine_head/head_cortez_blink
+	anim	work/models/lipsync/animation/head_cortez_confused.ma		-dest models/lipsync/marine_head/head_cortez_confused
+	anim	work/models/lipsync/animation/head_cortez_phonemes.ma		-dest models/lipsync/marine_head/head_cortez_phonemes
+	anim	work/models/lipsync/animation/head_cortez_scared.ma			-dest models/lipsync/marine_head/head_cortez_scared
+	anim	work/models/lipsync/animation/head_cortez_pain.ma			-dest models/lipsync/marine_head/head_cortez_pain
+	anim	work/models/lipsync/animation/head_cortez_puzzled.ma		-dest models/lipsync/marine_head/head_cortez_puzzled
+	anim	work/models/lipsync/animation/head_cortez_happy.ma			-dest models/lipsync/marine_head/head_cortez_happy
+	anim	work/models/lipsync/animation/head_cortez_intro_idle.ma			-dest models/lipsync/marine_head/head_cortez_intro_idle
+}
+
+export char_marinehead_anderson
+{
+	options -prefix AND_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_anderson_idle.ma			-dest models/lipsync/marine_head/anderson_mesh
+	anim	work/models/lipsync/animation/head_anderson_idle.ma			-dest models/lipsync/marine_head/head_anderson_idle
+	anim	work/models/lipsync/animation/head_anderson_angry.ma		-dest models/lipsync/marine_head/head_anderson_angry
+	anim	work/models/lipsync/animation/head_anderson_blink.ma		-dest models/lipsync/marine_head/head_anderson_blink
+	anim	work/models/lipsync/animation/head_anderson_confused.ma		-dest models/lipsync/marine_head/head_anderson_confused
+	anim	work/models/lipsync/animation/head_anderson_phonemes.ma		-dest models/lipsync/marine_head/head_anderson_phonemes
+	anim	work/models/lipsync/animation/head_anderson_scared.ma		-dest models/lipsync/marine_head/head_anderson_scared
+	anim	work/models/lipsync/animation/head_anderson_pain.ma			-dest models/lipsync/marine_head/head_anderson_pain
+	anim	work/models/lipsync/animation/head_anderson_puzzled.ma		-dest models/lipsync/marine_head/head_anderson_puzzled
+	anim	work/models/lipsync/animation/head_anderson_happy.ma		-dest models/lipsync/marine_head/head_anderson_happy
+	anim	work/models/lipsync/animation/head_anderson_intro_idle.ma	-dest models/lipsync/marine_head/head_anderson_intro_idle
+	anim	work/models/lipsync/animation/head_anderson_death.ma		-dest models/lipsync/marine_head/head_anderson_death
+}
+
+export char_marinehead_doctor
+{
+	options -prefix DOC_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/lipsync/animation/head_doctor_mask_idle.ma			-dest models/lipsync/marine_head/head_doctor_mask_mesh
+	anim	work/models/lipsync/animation/head_doctor_mask_idle.ma			-dest models/lipsync/marine_head/head_doctor_mask_idle
+	anim	work/models/lipsync/animation/head_doctor_mask_blink.ma			-dest models/lipsync/marine_head/head_doctor_mask_blink
+}
+
+export char_marinehead_half
+{
+	options -prefix HEAD_HALF_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest ruplid rlolid luplid llolid -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/characters/Bodies_Parts/dead_marines/animations/dead_head_half_idle.ma			-dest models/lipsync/marine_head/head_dead_half
+	anim	work/models/characters/Bodies_Parts/dead_marines/animations/dead_head_half_idle.ma			-dest models/lipsync/marine_head/head_dead_half
+}
+
+export char_marinehead_shot
+{
+	options -prefix HEAD_SHOT_ -scale .3937 -rename head legs_channel -keep shoulders head_channel viseme_bone chest -rename chest origin -clearorigin -parent viseme_bone legs_channel -parent ruplip2 viseme_bone -parent rlip2 viseme_bone -parent llip2 viseme_bone -parent luplip2 viseme_bone -parent lsmile viseme_bone -parent rsmile viseme_bone -parent jaw  viseme_bone -parent lcheek viseme_bone -parent rcheek viseme_bone -parent rsneer viseme_bone -parent lsneer viseme_bone -parent miduplip viseme_bone -parent luplip viseme_bone -parent ruplip viseme_bone -parent llip viseme_bone -parent rlip viseme_bone -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_channel -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall
+
+	mesh	work/models/characters/Bodies_Parts/dead_marines/animations/dead_head_shot_idle.ma			-dest models/lipsync/marine_head/head_dead_shot
+	anim	work/models/characters/Bodies_Parts/dead_marines/animations/dead_head_shot_idle.ma			-dest models/lipsync/marine_head/head_dead_shot
+}
+
+/*
+===============================================================================
+
+	Marine: Kane
+
+===============================================================================
+*/
+	
+model char_marinehead_default
+{
+	mesh						models/lipsync/marine_head/head_kane_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_kane_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_kane_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/annosoft_expression.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_kane_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_kane_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_kane_idle.md5anim
+	anim emotion_blink			models/lipsync/marine_head/blink.md5anim	
+	anim blink					models/lipsync/marine_head/blink.md5anim
+}
+
+model char_marinehead_default_mp
+{
+	mesh						models/lipsync/marine_head/head_kane_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_kane_idle.md5anim	
+}
+
+entityDef char_marinehead_default
+{
+	"model"							"char_marinehead_default"
+	"anim"							"idle"
+
+	"spawnclass"					"idAFAttachment"
+	"bone_focus"					"eye_target"
+	
+	"sound_bone"					"viseme_bone"
+
+	"joint_leftEye"					"Lft_EyeBall"
+	"joint_rightEye"				"Rt_EyeBall"
+
+	"uses_lip_syncing"				"1"
+	
+	"networkSync"					"1"
+
+	"copy_joint1"					"neckcontrol"
+	"copy_joint2"					"shoulders"
+	"copy_joint3"					"legs_channel"
+
+	"noclipModel"					"1"
+}
+
+entityDef char_marinehead_kane
+{
+	"inherit"						"char_marinehead_default"
+}
+
+entityDef char_marinehead_kane_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_default_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: Rhodes
+	
+===============================================================================
+*/
+
+model char_marinehead_rhodes 
+{
+	mesh						models/lipsync/marine_head/head_rhodes_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_rhodes_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_rhodes_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_rhodes_angry.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_rhodes_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_rhodes_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_rhodes_idle.md5anim	
+	anim emotion_happy			models/lipsync/marine_head/head_rhodes_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_rhodes_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_rhodes_puzzled.md5anim
+	anim blink					models/lipsync/marine_head/head_rhodes_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_rhodes_blink.md5anim
+	anim rhodes_intro			models/lipsync/marine_head/head_rhodes_intro.md5anim
+	anim head_rhodes_briefing	models/lipsync/marine_head/head_rhodes_briefing.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_rhodes_intro_idle.md5anim
+	anim rhodes_mcc2_talks		models/lipsync/marine_head/head_rhodes_mcc2_talks.md5anim
+	
+}
+
+entityDef char_marinehead_rhodes
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_rhodes"
+}
+
+/*
+===============================================================================
+
+	Marine: morris
+
+===============================================================================
+*/
+
+model char_marinehead_morris
+{
+	mesh						models/lipsync/marine_head/head_morris_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_morris_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_morris_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_morris_angry.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_morris_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_morris_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_morris_idle.md5anim	
+	anim emotion_happy			models/lipsync/marine_head/head_morris_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_morris_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_morris_puzzled.md5anim
+	anim blink					models/lipsync/marine_head/head_morris_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_morris_blink.md5anim
+	anim morris_intro			models/lipsync/marine_head/head_morris_intro.md5anim
+	anim head_morris_briefing	models/lipsync/marine_head/head_morris_briefing.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_morris_intro_idle.md5anim
+	anim morris_mcc2_talks		models/lipsync/marine_head/head_morris_mcc2_talks.md5anim
+	anim morris_mcc2_scolds		models/lipsync/marine_head/head_morris_mcc2_scolds.md5anim
+	anim morris_ad_intro		models/lipsync/marine_head/head_morris_ad_intro.md5anim
+	
+}
+
+entityDef char_marinehead_morris
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_morris"
+}
+
+model char_marinehead_morris_mp
+{
+	mesh						models/lipsync/marine_head/head_morris_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_morris_idle.md5anim	
+}
+
+entityDef char_marinehead_morris_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_morris_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: gen_white_2
+
+===============================================================================
+*/
+
+model char_marinehead_gen_white_2
+{
+	mesh						models/lipsync/marine_head/head_gen_white_2_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_gen_white_2_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_gen_white_2_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_gen_white_2_angry.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_gen_white_2_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_gen_white_2_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_gen_white_2_idle.md5anim	
+	anim blink					models/lipsync/marine_head/head_gen_white_2_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_gen_white_2_blink.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_gen_white_2_happy.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_gen_white_2_puzzled.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_gen_white_2_pain.md5anim
+	anim emotion_test			models/lipsync/marine_head/head_gen_white_2_test.md5anim
+}
+
+entityDef char_marinehead_gen_white_2
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_gen_white_2"
+}
+
+/*
+
+===============================================================================
+
+	Marine: gen_african_american
+
+===============================================================================
+*/
+
+model char_marinehead_gen_african_american
+{
+	mesh						models/lipsync/marine_head/head_gen_africanamerican_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_gen_africanamerican_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_gen_africanamerican_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_gen_africanamerican_angry.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_gen_africanamerican_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_gen_africanamerican_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_gen_africanamerican_idle.md5anim	
+	anim blink					models/lipsync/marine_head/head_gen_africanamerican_blink.md5anim
+	anim emotion_blinkA			models/lipsync/marine_head/head_gen_africanamerican_blinkA.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_gen_africanamerican_happy.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_gen_africanamerican_puzzled.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_gen_africanamerican_pain.md5anim
+}
+
+entityDef char_marinehead_gen_african_american
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_gen_african_american"
+}
+
+entityDef char_marinehead_gen_african_american_2
+{
+	"inherit"					"char_marinehead_gen_african_american"
+	"skin"						"skins/models/characters/marine_heads/gen_africanamerican_version2"
+}
+
+entityDef char_marinehead_gen_african_american_3
+{
+	"inherit"					"char_marinehead_gen_african_american"
+	"skin"						"skins/models/characters/marine_heads/gen_africanamerican_version3"
+}
+
+/*
+===============================================================================
+
+	Marine: general harper
+
+===============================================================================
+*/
+
+model char_marinehead_general_harper 
+{
+	mesh						models/lipsync/marine_head/head_general_harper_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_general_harper_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_general_harper_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_general_harper_angry.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_general_harper_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_general_harper_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_general_harper_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_general_harper_happy.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_general_harper_puzzled.md5anim	
+	anim blink					models/lipsync/marine_head/head_general_harper_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_general_harper_blink.md5anim
+	anim mcc2_talks				models/lipsync/marine_head/head_general_harper_mcc2_talks.md5anim
+	anim harperhead_outro			models/lipsync/marine_head/head_general_harper_outro.md5anim
+}
+
+entityDef char_marinehead_general_harper
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_general_harper"
+
+}
+
+model char_marinehead_general_harper_mp
+{
+	mesh						models/lipsync/marine_head/head_general_harper_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_general_harper_idle.md5anim	
+}
+
+entityDef char_marinehead_general_harper_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_general_harper_mp"
+
+}
+
+/*
+===============================================================================
+
+	Marine: sledge
+
+===============================================================================
+*/
+
+model char_marinehead_sledge 
+{
+	mesh						models/lipsync/marine_head/head_sledge_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_sledge_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_sledge_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_sledge_angry.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_sledge_scared.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_sledge_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_sledge_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_sledge_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_sledge_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_sledge_puzzled.md5anim	
+	anim blink					models/lipsync/marine_head/head_sledge_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_sledge_blink.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_sledge_intro_idle.md5anim
+}
+
+entityDef char_marinehead_sledge
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_sledge"
+}
+/*
+===============================================================================
+
+	Marine: helmet
+
+===============================================================================
+*/
+
+model char_marinehead_helmet 
+{
+	mesh						models/lipsync/marine_head/head_helmet_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel )
+//	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_helm_idle.md5anim	
+}
+
+model char_marinehead_helmet_mp
+{
+	mesh						models/lipsync/marine_head/head_helmet_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel )
+//	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_helm_idle.md5anim	
+}
+
+model char_marinehead_helmet_bright_mp
+{
+	mesh						models/lipsync/marine_head/head_helmet_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel )
+//	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_helm_idle.md5anim	
+}
+
+model char_marinehead_helmet_medic 
+{
+	mesh						models/lipsync/marine_head/head_helmet_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel )
+//	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_helm_idle.md5anim	
+}
+
+model char_marinehead_helmet_tech 
+{
+	mesh						models/lipsync/marine_head/head_helmet_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel )
+//	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_helm_idle.md5anim	
+}
+
+entityDef char_marinehead_helmet
+{
+	"inherit"					"char_marinehead_default"
+	"model"						"char_marinehead_helmet"
+	"joint_eyeOffset"			"head_channel"
+}
+
+entityDef char_marinehead_helmet_mp
+{
+	"inherit"				"char_marinehead_default"
+	"model"					"char_marinehead_helmet_mp"
+	"joint_eyeOffset"			"head_channel"
+}
+
+entityDef char_marinehead_helmet_bright_mp
+{
+	"inherit"				"char_marinehead_default"
+	"model"					"char_marinehead_helmet_mp"
+	"skin"					"skins/multiplayer/marine_head_bright"
+	"joint_eyeOffset"			"head_channel"
+}
+
+entityDef char_marinehead_helmet_medic
+{
+	"inherit"					"char_marinehead_default"
+	"model"						"char_marinehead_helmet_medic"
+	"joint_eyeOffset"			"head_channel"
+	"skin"						"skins/models/characters/marine/m_helmet"
+}
+
+entityDef char_marinehead_helmet_tech
+{
+	"inherit"					"char_marinehead_default"
+	"model"						"char_marinehead_helmet_tech"
+	"joint_eyeOffset"			"head_channel"
+	"skin"						"skins/models/characters/marine/t_helmet"
+}
+
+
+/*
+===============================================================================
+
+	Marine: Voss
+
+===============================================================================
+*/
+
+model char_marinehead_voss 
+{
+	mesh						models/lipsync/marine_head/head_voss_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_voss_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_voss_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_voss_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_voss_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_voss_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_voss_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_voss_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_voss_puzzled.md5anim	
+	anim blink					models/lipsync/marine_head/head_voss_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_voss_blink.md5anim
+	anim head_voss_talks1		models/lipsync/marine_head/head_voss_talks1.md5anim
+	anim head_voss_talks_medlabs		models/lipsync/marine_head/head_voss_talks_medlabs.md5anim
+	anim head_voss_briefing		models/lipsync/marine_head/head_voss_briefing.md5anim
+	{
+		frame	1						event disableBlinking
+		frame 305						event enableBlinking
+	}
+	anim head_voss_briefinge	models/lipsync/marine_head/head_voss_briefinge.md5anim
+	{
+		frame	1						event disableBlinking
+		frame 390						event enableBlinking
+	}
+	anim head_voss_briefingf	models/lipsync/marine_head/head_voss_briefingf.md5anim
+	{
+		frame	1						event disableBlinking
+		frame 65						event enableBlinking
+	}
+	anim head_voss_briefingg	models/lipsync/marine_head/head_voss_briefingg.md5anim
+	{
+		frame	1						event disableBlinking
+		frame 115						event enableBlinking
+	}
+	anim head_voss_briefingj	models/lipsync/marine_head/head_voss_briefingj.md5anim
+	{
+		frame	1						event disableBlinking
+		frame 102						event enableBlinking
+	}
+	anim head_voss_intro		models/lipsync/marine_head/head_voss_intro.md5anim
+	anim emotion_medlabs		models/lipsync/marine_head/head_voss_talks_medlabs.md5anim
+}
+
+entityDef char_marinehead_voss
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_voss"
+}
+
+model char_marinehead_voss_mp
+{
+	mesh						models/lipsync/marine_head/head_voss_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_voss_idle.md5anim
+}
+
+entityDef char_marinehead_voss_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_voss_mp"
+}
+
+/*
+===============================================================================
+
+	Marine/Monster: Stroggified Voss
+
+===============================================================================
+*/
+
+model char_marinehead_voss_strogg 
+{
+	mesh						models/lipsync/marine_head/head_voss_strogg_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle				models/lipsync/marine_head/head_voss_strogg_idle.md5anim
+	anim lipsync			models/lipsync/marine_head/head_voss_strogg_phonemes.md5anim
+	
+	anim intro				models/lipsync/marine_head/head_voss_strogg_intro.md5anim
+	{
+	frame 1						event 	disableBlinking
+	}		
+
+	anim emotion_furrow		models/lipsync/marine_head/head_voss_strogg_angry.md5anim
+	anim emotion_confused	models/lipsync/marine_head/head_voss_strogg_confused.md5anim
+	anim emotion_idle		models/lipsync/marine_head/head_voss_strogg_idle.md5anim	
+	anim blink				models/lipsync/marine_head/head_voss_strogg_blink.md5anim
+	anim emotion_blink		models/lipsync/marine_head/head_voss_strogg_blink.md5anim
+}
+
+entityDef char_marinehead_voss_strogg
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_voss_strogg"
+}
+
+/*
+
+===============================================================================
+
+	Marine: gen asian
+
+===============================================================================
+*/
+
+model char_marinehead_gen_asian 
+{
+	mesh						models/lipsync/marine_head/gen_asian_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_gen_asian_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_gen_asian_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_gen_asian_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_gen_asian_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_gen_asian_idle.md5anim	
+	anim blink					models/lipsync/marine_head/head_gen_asian_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_gen_asian_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_gen_asian_scared.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_gen_asian_happy.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_gen_asian_puzzled.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_gen_asian_pain.md5anim
+}
+
+entityDef char_marinehead_gen_asian
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_gen_asian"
+}
+
+/*
+===============================================================================
+
+	Marine: gen asian 2
+
+===============================================================================
+*/
+
+model char_marinehead_gen_asian_2 
+{
+	mesh						models/lipsync/marine_head/gen_asian_2_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_gen_asian_2_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_gen_asian_2_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_gen_asian_2_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_gen_asian_2_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_gen_asian_2_idle.md5anim	
+	anim blink					models/lipsync/marine_head/head_gen_asian_2_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_gen_asian_2_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_gen_asian_2_scared.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_gen_asian_2_happy.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_gen_asian_2_puzzled.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_gen_asian_2_pain.md5anim
+	anim sleep					models/lipsync/marine_head/head_gen_asian_2_sleep.md5anim
+	{
+	frame 1						event 	disableBlinking
+	}
+}
+
+entityDef char_marinehead_gen_asian_2
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_gen_asian_2"
+}
+
+entityDef char_marinehead_gen_asian_3
+{
+	"inherit"					"char_marinehead_gen_asian_2"
+	"skin"						"skins/models/characters/marine_heads/gen_asian_2_version1"
+}
+
+
+/*
+===============================================================================
+
+	Marine: gen white
+
+===============================================================================
+*/
+
+model char_marinehead_gen_white 
+{
+	mesh						models/lipsync/marine_head/gen_white_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_gen_white_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_gen_white_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_gen_white_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_gen_white_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_gen_white_idle.md5anim	
+	anim blink					models/lipsync/marine_head/head_gen_white_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_gen_white_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_gen_white_scared.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_gen_white_happy.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_gen_white_puzzled.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_gen_white_pain.md5anim
+}
+
+entityDef char_marinehead_gen_white
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_gen_white"
+}
+
+entityDef char_marinehead_gen_white_3
+{
+	"inherit"					"char_marinehead_gen_white"
+	"skin"						"skins/models/characters/marine_heads/gen_white_version1"
+}
+
+entityDef char_marinehead_gen_white_4
+{
+	"inherit"					"char_marinehead_gen_white"
+	"skin"						"skins/models/characters/marine_heads/gen_white_version2"
+}
+
+/*
+===============================================================================
+
+	Marine: African American Generic
+
+===============================================================================
+
+
+model char_marinehead_aa_generic 
+{
+	mesh						models/lipsync/marine_head/aag_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_aag_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_aag_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_aag_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_aag_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_aag_idle.md5anim	
+	anim blink					models/lipsync/marine_head/head_aag_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_aag_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_aag_scared.md5anim
+}
+
+entityDef char_marinehead_aa_generic
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_aa_generic"
+}
+*/
+/*
+===============================================================================
+
+	Marine: Strassa
+
+===============================================================================
+*/
+
+model char_marinehead_strassa 
+{
+	mesh						models/lipsync/marine_head/strassa_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_strassa_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_strassa_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_strassa_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_strassa_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_strassa_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_strassa_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_strassa_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_strassa_puzzled.md5anim	
+	anim blink					models/lipsync/marine_head/head_strassa_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_strassa_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_strassa_scared.md5anim
+	anim strassa_intro			models/lipsync/marine_head/head_strassa_intro.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_strassa_intro_idle.md5anim
+	anim strassa_mcc2_talks1	models/lipsync/marine_head/head_strassa_mcc2_talks1.md5anim
+	anim strassa_mcc2_talks2	models/lipsync/marine_head/head_strassa_mcc2_talks2.md5anim
+}
+
+entityDef char_marinehead_strassa
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_strassa"
+}
+
+model char_marinehead_strassa_mp
+{
+	mesh						models/lipsync/marine_head/strassa_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_strassa_idle.md5anim
+}
+
+entityDef char_marinehead_strassa_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_strassa_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: Bidwell
+
+===============================================================================
+*/
+
+model char_marinehead_bidwell 
+{
+	mesh						models/lipsync/marine_head/bidwell_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_bidwell_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_bidwell_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_bidwell_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_bidwell_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_bidwell_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_bidwell_happy.md5anim
+	anim emotion_sleep			models/lipsync/marine_head/head_bidwell_sleep.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_bidwell_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_bidwell_puzzled.md5anim		
+	anim blink					models/lipsync/marine_head/head_bidwell_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_bidwell_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_bidwell_scared.md5anim
+	anim head_bidwell_introa	models/lipsync/marine_head/head_bidwell_introa.md5anim
+	anim head_bidwell_introb	models/lipsync/marine_head/head_bidwell_introb.md5anim
+	anim head_bidwell_introc	models/lipsync/marine_head/head_bidwell_introc.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_bidwell_intro_idle.md5anim
+}
+
+entityDef char_marinehead_bidwell
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_bidwell"
+}
+
+model char_marinehead_bidwell_mp
+{
+	mesh						models/lipsync/marine_head/bidwell_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_bidwell_idle.md5anim
+}
+
+entityDef char_marinehead_bidwell_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_bidwell_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: Cortez
+
+===============================================================================
+*/
+
+model char_marinehead_cortez 
+{
+	mesh						models/lipsync/marine_head/cortez_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_cortez_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_cortez_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_cortez_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_cortez_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_cortez_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_cortez_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_cortez_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_cortez_puzzled.md5anim	
+	anim blink					models/lipsync/marine_head/head_cortez_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_cortez_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_cortez_scared.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_cortez_intro_idle.md5anim
+}
+
+entityDef char_marinehead_cortez
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_cortez"
+}
+
+model char_marinehead_cortez_mp
+{
+	mesh						models/lipsync/marine_head/cortez_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_cortez_idle.md5anim
+}
+
+entityDef char_marinehead_cortez_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_cortez_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: Anderson
+
+===============================================================================
+*/
+
+model char_marinehead_anderson 
+{
+	mesh						models/lipsync/marine_head/anderson_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_anderson_idle.md5anim
+	anim lipsync				models/lipsync/marine_head/head_anderson_phonemes.md5anim	
+	anim emotion_furrow			models/lipsync/marine_head/head_anderson_angry.md5anim
+	anim emotion_confused		models/lipsync/marine_head/head_anderson_confused.md5anim
+	anim emotion_idle			models/lipsync/marine_head/head_anderson_idle.md5anim
+	anim emotion_happy			models/lipsync/marine_head/head_anderson_happy.md5anim
+	anim emotion_pain			models/lipsync/marine_head/head_anderson_pain.md5anim
+	anim emotion_puzzled		models/lipsync/marine_head/head_anderson_puzzled.md5anim	
+	anim blink					models/lipsync/marine_head/head_anderson_blink.md5anim
+	anim emotion_blink					models/lipsync/marine_head/head_anderson_blink.md5anim
+	anim emotion_scared			models/lipsync/marine_head/head_anderson_scared.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_anderson_intro_idle.md5anim
+	anim anderson_death			models/lipsync/marine_head/head_anderson_death.md5anim
+}
+
+entityDef char_marinehead_anderson
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_anderson"
+}
+
+model char_marinehead_anderson_mp
+{
+	mesh						models/lipsync/marine_head/anderson_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_anderson_idle.md5anim
+}
+
+entityDef char_marinehead_anderson_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_anderson_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: Doctor with Mask
+
+===============================================================================
+*/
+
+model char_marinehead_doctor_masked 
+{
+	mesh						models/lipsync/marine_head/head_doctor_mask_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_doctor_mask_idle.md5anim
+	anim blink					models/lipsync/marine_head/head_doctor_mask_blink.md5anim
+	anim emotion_blink			models/lipsync/marine_head/head_doctor_mask_blink.md5anim
+}
+
+entityDef char_marinehead_doctor_masked
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_doctor_masked"
+}
+
+/*
+===============================================================================
+
+	Marine: Dead Half Head
+
+===============================================================================
+*/
+
+model char_marinehead_half
+{
+	mesh						models/lipsync/marine_head/head_dead_half.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_dead_half.md5anim
+}
+
+entityDef char_marinehead_half
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_half"
+}
+
+/*
+===============================================================================
+
+	Marine: Dead Shot Head
+
+===============================================================================
+*/
+
+model char_marinehead_shot
+{
+	mesh						models/lipsync/marine_head/head_dead_shot.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_dead_shot.md5anim
+}
+
+entityDef char_marinehead_shot
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_shot"
+}
+
+/*
+===============================================================================
+
+	Marine: Kane2
+	
+===============================================================================
+*/
+
+model char_marinehead_kane2 
+{
+	mesh						models/lipsync/marine_head/head_kane2_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_kane2_idle.md5anim	
+	anim lipsync				models/lipsync/marine_head/head_kane2_phonemes.md5anim	
+	anim blink					models/lipsync/marine_head/head_kane2_blink.md5anim	
+	anim angry					models/lipsync/marine_head/head_kane2_angry.md5anim	
+	anim kane2_intro			models/lipsync/marine_head/head_kane2_intro.md5anim
+	anim intro_idle				models/lipsync/marine_head/head_kane2_intro_idle.md5anim
+	anim kane2_box				models/lipsync/marine_head/head_kane2_box.md5anim
+}
+
+entityDef char_marinehead_kane2
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_kane2"
+}
+
+model char_marinehead_kane2_mp
+{
+	mesh					models/lipsync/marine_head/head_kane2_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle				models/lipsync/marine_head/head_kane2_idle.md5anim	
+}
+
+entityDef char_marinehead_kane2_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_kane2_mp"
+}
+
+/*
+===============================================================================
+
+	Marine: Kane_Strogg
+	
+===============================================================================
+*/
+
+model char_marinehead_kanestrg 
+{
+	mesh						models/lipsync/marine_head/head_kanestrg_mesh.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_kanestrg_idle.md5anim	
+//	anim lipsync				models/lipsync/marine_head/head_kane2_phonemes.md5anim	
+//	anim blink					models/lipsync/marine_head/head_kanestrg_blink.md5anim	
+	anim angry					models/lipsync/marine_head/head_kanestrg_angry.md5anim	
+	anim kanestrg_box			models/lipsync/marine_head/head_kanestrg_box.md5anim	
+	anim kanestrg_box_b			models/lipsync/marine_head/head_kanestrg_box_b.md5anim
+	anim kanestrg_box_hero			models/lipsync/marine_head/head_kanestrg_box_hero.md5anim		
+}
+
+entityDef char_marinehead_kanestrg
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_kanestrg"
+}
+model char_marinehead_kanestrg_mp
+{
+	mesh						models/lipsync/marine_head/head_kanestrg_mesh_mp.md5mesh
+
+	channel legs				( *origin -*viseme_bone -*head_channel )
+	channel torso				( *viseme_bone  )
+	channel head				( *head_channel -ruplid -rlolid -luplid -llolid )
+	channel eyelids				( ruplid rlolid luplid llolid )
+
+	anim idle					models/lipsync/marine_head/head_kanestrg_idle.md5anim	
+//	anim lipsync				models/lipsync/marine_head/head_kane2_phonemes.md5anim	
+//	anim blink					models/lipsync/marine_head/head_kanestrg_blink.md5anim	
+	anim angry					models/lipsync/marine_head/head_kanestrg_angry.md5anim	
+	anim kanestrg_box			models/lipsync/marine_head/head_kanestrg_box.md5anim	
+	anim kanestrg_box_b			models/lipsync/marine_head/head_kanestrg_box_b.md5anim
+	anim kanestrg_box_hero			models/lipsync/marine_head/head_kanestrg_box_hero.md5anim		
+}
+
+entityDef char_marinehead_kanestrg_mp
+{
+	"inherit"						"char_marinehead_default"
+	"model"							"char_marinehead_kanestrg_mp"
+}

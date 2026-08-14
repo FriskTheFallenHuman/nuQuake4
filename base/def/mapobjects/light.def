@@ -1,0 +1,35 @@
+
+/***********************************************************************
+PRISON LIGHT
+
+***********************************************************************/
+
+export prisonlight
+{		
+	options -prefix LIGHT_ -align ALL 
+         
+	mesh	work/models/mapobjects/strogg/lights/prison/lightpose.ma	-dest models/mapobjects/strogg/lights/prison/mesh
+	anim	work/models/mapobjects/strogg/lights/prison/lightpose.ma	-dest models/mapobjects/strogg/lights/prison/afpose
+
+
+
+}
+
+entityDef env_prisonlight
+{
+	"model"							"prisonlight"
+	"spawnclass"						"idAnimated"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"afpose"
+	"start_anim"						"afpose"	
+}
+
+model model_env_prisonlight
+
+{
+	mesh					models/mapobjects/strogg/lights/prison/mesh.md5mesh
+	anim afpose				models/mapobjects/strogg/lights/prison/afpose.md5anim
+
+}

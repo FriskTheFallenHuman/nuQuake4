@@ -1,0 +1,593 @@
+/*
+===============================================================================
+
+	Berserker
+
+===============================================================================
+*/
+
+export berserker
+{		
+	options -prefix BEZ_ -keep end_spike -align ALL -scale .3937 -parent midBack lowerBack -parent upperBack midBack -keep eye_target lowerBack Lfteye_Focus Rteye_Focus -parent eye_target head -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall -sourcedir work/models/monsters/berserker/nick -destdir models/monsters/berserker
+	
+	mesh	mesh.ma					-dest berserker
+	anim	idle01.ma				-dest idle
+	anim	run01.ma				-dest run
+	anim	attack01.ma				-dest attack01
+	anim	attack02.ma				-dest attack02
+	anim	attack06.ma				-dest attack06
+	anim	attack05.ma				-dest attack05
+	anim	charge_attack.ma		-range 5 36 -dest leap_attack
+	anim	attack08.ma				-dest attack03
+	anim	attack05_idle.ma		-dest attack05_idle
+	anim	attack05_end.ma			-dest attack05_end
+	anim	attack05b_end.ma		-dest attack05b_end
+	anim	attack_side.ma			-dest attack09
+	anim	attack_up.ma			-dest attack10
+	anim	attack_fire.ma			-dest attack_fire
+	anim	walk.ma					-dest walk
+	anim	pain01.ma				-dest pain01
+	anim	pain02.ma				-dest pain02
+	anim	pain03.ma				-dest pain03
+	anim	pain_right.ma			-dest pain_right
+	anim	pain_left.ma			-dest pain_left
+	anim	dodge_left.ma			-dest dodge_left
+	anim	dodge_right.ma			-dest dodge_right
+	anim	jump_back.ma			-dest jump_back
+	anim	ad_berserker_intro.ma	-range 13 91 -dest ad_intro
+	anim	boss_buddy_jump.ma		-dest waste_jump
+	anim	af_pose.ma				-dest ragdoll
+	anim	fall.ma					-dest fall
+
+	anim    jump_down.ma			-range 6 21 -dest jumpdown_start
+	anim    jump_down.ma			-range 21 23 -dest jumpdown_loop
+	anim    jump_down.ma			-range 27 42 -dest jumpdown_stop
+
+	anim    pain_con.ma				-dest pain_con
+	anim    pain_con2.ma			-dest pain_con2
+	anim    pain_std.ma				-dest pain_std
+	anim    pain_std2.ma			-dest pain_std2
+	anim    pain_strm.ma			-range 1 4 -dest pain_strm_start
+	anim    pain_strm.ma			-range 4 12 -dest pain_strm_loop
+	anim    pain_strm.ma			-range 12 18 -dest pain_strm_stop
+	anim    pain_knock2.ma			-dest pain_knock
+	anim    jumpdown_loop.ma		-dest jumpdown_loopb
+	anim    jumpdown_end.ma			-dest jumpdown_endb
+	
+}
+
+/*
+===============================================================================
+
+	Berserker Model
+
+===============================================================================
+*/
+
+model model_monster_berserker
+{	// MONSTER_MODEL
+	mesh								models/monsters/berserker/berserker.md5mesh
+
+	channel	torso						( *lowerBack )
+	channel	legs						( *hips origin )
+
+	offset								( -8 0 0 )
+
+	anim    jumpdown_start				 models/monsters/berserker/jumpdown_start.md5anim
+	{
+		frame 2							sound_voice	snd_growl
+		frame 5							sound	snd_servo
+	}
+//	anim    jumpdown_loop				 models/monsters/berserker/jumpdown_loop.md5anim
+//	anim    jumpdown_end				 models/monsters/berserker/jumpdown_stop.md5anim
+	
+	anim	jumpdown_loop				models/monsters/berserker/jumpdown_loopb.md5anim
+	anim	jumpdown_end				models/monsters/berserker/jumpdown_endb.md5anim
+	{
+		frame	1						sound				snd_land
+		frame	1						fx					fx_land			origin
+		frame	1,2,6					footstep
+		frame	3						sound_voice			snd_growl
+		frame	23						sound				snd_servo
+	}
+
+//	anim ik_pose						models/monsters/berserker/ragdoll.md5anim
+
+	anim idle							models/monsters/berserker/idle.md5anim
+	{
+		frame 38,158					sound_voice			snd_breathe
+	}
+	anim walk							models/monsters/berserker/walk.md5anim
+	{
+		frame 2,12						sound				snd_servo
+		frame 7,19						footstep
+	}
+	anim run							models/monsters/berserker/run.md5anim
+	{
+		rate 1.13
+			frame 2,11						sound				snd_servo
+		frame 7,15						footstep
+	}
+
+	anim ranged_attack					models/monsters/berserker/attack_fire.md5anim
+	{
+		ai_no_turn
+
+		frame	2						fx					fx_ranged_charge	end_spike
+		frame	12						fx					fx_beam_mflash		end_spike
+		frame	12						ai_attack 			beam				end_spike
+		frame	12						sound				snd_lightning
+		frame   8						sound				snd_swing_blade
+		frame	9						sound_voice			snd_growl
+		frame 	2,6						sound				snd_servo
+	}
+
+	anim melee_attack1					models/monsters/berserker/attack01.md5anim
+	{
+		ai_no_turn
+
+		frame	12						fx					fx_mace			chain9
+		frame	16						ai_attack_melee 	mace
+		frame	14						sound_voice			snd_growl
+		frame   12						sound				snd_swing_mace
+		frame 	3,13					sound				snd_servo
+	}
+	anim melee_attack2					models/monsters/berserker/attack02.md5anim
+	{
+		ai_no_turn
+
+		frame	10						fx					fx_swipe			end_spike
+		frame	10						ai_attack_melee 	blade
+		frame   8						sound				snd_swing_blade
+		frame	9						sound_voice			snd_growl
+		frame 	2,6						sound				snd_servo
+	}
+	anim melee_attack3					models/monsters/berserker/attack03.md5anim
+	{
+		ai_no_turn
+
+		frame	1						sound				snd_servo
+		frame	12						sound				snd_swing_mace
+		frame	13						sound_voice			snd_growl
+		frame	14						sound				snd_swing_blade
+		frame	10						fx					fx_swipe			end_spike
+		frame	12						ai_attack_melee 	mace
+	}
+
+	anim melee_attack4					models/monsters/berserker/attack09.md5anim
+	{
+		ai_no_turn
+
+		frame	5						fx					fx_mace			chain9
+		frame	11						ai_attack_melee 	mace
+		frame	7						sound_voice			snd_growl
+		frame   5						sound				snd_swing_mace
+		frame 	4,25					sound				snd_servo
+	}
+	anim melee_attack5					models/monsters/berserker/attack10.md5anim
+	{
+		ai_no_turn
+
+		frame	5						fx					fx_mace			chain9
+		frame	11						ai_attack_melee 	mace
+		frame	7						sound_voice			snd_growl
+		frame   5						sound				snd_swing_mace
+		frame 	4,25					sound				snd_servo
+	}
+
+	
+	anim melee_popup					models/monsters/berserker/attack06.md5anim
+	{
+		ai_no_turn
+		
+		frame	11						fx					fx_swipe			end_spike
+		frame	13						ai_attack_melee		popup_a
+		frame	16						fx					fx_mace				chain9
+		frame	19						ai_attack_melee		popup_b
+		frame   12						sound				snd_swing_blade
+		frame   18						sound				snd_swing_mace
+		frame	3,17					sound				snd_servo
+		frame	13						sound_voice			snd_growl
+	}
+	anim ground_strike					models/monsters/berserker/attack05.md5anim
+	{
+		ai_no_turn
+		
+		frame	2						sound				snd_charge
+		frame	2						fx					fx_charge_up		end_spike
+		frame	6						sound_voice			snd_grunt
+		frame   14						sound				snd_swing_blade
+		frame	18						ai_disablePain
+		frame   19						sound				snd_blade_clang
+		frame	19						object_call			frame_ChargeGroundImpact
+		frame	21						object_call			frame_DoBlastAttack
+	}
+	anim ground_strike_pull_out			models/monsters/berserker/attack05_idle.md5anim
+	{
+		frame	1						ai_disablePain
+	}
+	anim ground_strike_recover_b		models/monsters/berserker/attack05b_end.md5anim
+	{
+		frame 	1						sound				snd_servo
+		frame	7						sound_voice			snd_pain
+		frame   12						sound				snd_blade_pull
+	}
+	anim ground_strike_recover			models/monsters/berserker/attack05_end.md5anim
+	{
+		ai_no_turn
+		frame	1						ai_disablePain
+		
+		frame	1						ai_disablePain
+		frame 	8,22					sound				snd_servo
+		frame	23						sound_voice			snd_pain
+		frame   27						sound				snd_blade_pull
+	}
+	anim leap_attack					models/monsters/berserker/leap_attack.md5anim
+	{
+		ai_no_turn
+		frame	3,7						sound				snd_servo
+		frame	1						sound_voice			snd_growl
+		frame	6,15,22,29				footstep
+		frame	28						sound				snd_breathe
+		frame	13						fx					fx_swipe		end_spike
+		frame	16						sound				snd_swing_blade
+		frame	18						ai_attack_melee		leap
+	}
+
+	anim pain1							models/monsters/berserker/pain_std.md5anim			
+	{
+		frame	1						sound_voice			snd_pain
+	}
+	anim pain2							models/monsters/berserker/pain_std2.md5anim			
+	{
+		frame	1						sound_voice			snd_pain
+	}
+	anim pain_concussive1				models/monsters/berserker/pain_con.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+	}
+	anim pain_concussive2				models/monsters/berserker/pain_con2.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+	}
+	anim pain_concussive3				models/monsters/berserker/pain_knock.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+	}
+	anim pain_concussive4				models/monsters/berserker/pain_knock.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+	}
+	anim pain_concussive5				models/monsters/berserker/pain_knock.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+	}
+
+	anim pain_stream_start				models/monsters/berserker/pain_strm_start.md5anim
+	anim pain_stream					models/monsters/berserker/pain_strm_loop.md5anim
+	anim pain_stream_end				models/monsters/berserker/pain_strm_stop.md5anim
+
+	anim af_pose						models/monsters/berserker/ragdoll.md5anim
+	anim evade_right					models/monsters/berserker/dodge_right.md5anim
+	{
+		ai_no_turn
+		frame 2							sound_voice			snd_growl
+		frame 5,16						sound				snd_servo
+		frame 11,13						footstep
+	}
+	anim evade_left						models/monsters/berserker/dodge_left.md5anim
+	{	
+		ai_no_turn
+		frame 2							sound_voice			snd_growl
+		frame 5,16						sound				snd_servo
+		frame 11,13 						footstep
+	}
+	anim backoff						models/monsters/berserker/jump_back.md5anim
+	{	
+		frame 3							sound_voice			snd_grunt
+		frame 5,20						sound				snd_servo
+		frame 17,18						footstep
+	}
+	
+	anim pain_left						models/monsters/berserker/pain_left.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+		frame	2						sound				snd_servo
+	}
+	anim pain_right						models/monsters/berserker/pain_right.md5anim
+	{
+		frame	1						sound_voice			snd_pain
+		frame	2						sound				snd_servo
+	}
+
+	//used in airdefense only, we may make a special version of him.
+	anim ad_intro						models/monsters/berserker/ad_intro.md5anim
+	{
+		frame	13						disableClip
+		frame	78						enableClip
+		frame	39,46					footstep
+		frame	33,41,50				sound				snd_servo
+		frame	41						sound				snd_slice
+		frame	42 						fx					fx_bloody_hit			R_lowerArm_Real
+		frame	40						sound				snd_swing_blade
+	}
+		
+		anim fall						models/monsters/berserker/fall.md5anim
+	{
+		frame	1						sound				snd_jump
+		frame	2						sound				snd_swing_blade
+		frame	6						sound				snd_bounce
+	}	
+}
+
+/*
+===============================================================================
+
+	Berserker Attacks
+
+===============================================================================
+*/
+
+
+entityDef melee_berserker_new
+{
+	"damage"								"30"
+	"knockback"								"80"
+	"kickDir"								"0 0 -1"
+	"kick_time"								"600"
+	"kick_amplitude"						"3"
+	"blob_time"								"1000"
+	"mtr_blob"								"textures/decals/genericdamage"
+	"blob_x"								"0"
+	"blob_y"								"-125"
+	"blob_width"							"600"
+	"blob_height"							"600"
+	"dv_time"								"750"
+	"dv_scale"								".1"
+	"tv_time"								"800"
+	"fx_wound"								""
+	"snd_flesh"								"bullet_impact_flesh"	
+	"deathPush"								"100"
+	"deathPushMin"							"3000 350"
+	"deathPushMax"							"5000 500"	
+	"bleed"									"1"
+}
+
+entityDef melee_berserker
+{
+	"inherit"								"damage_monster_base"
+	"damage"								"30"
+}
+
+entityDef melee_berserker_mace
+{
+//	"inherit"								"melee_berserker"
+	"inherit"								"melee_berserker_new"
+	"snd_hit"								"berserker_mace_impact"
+//	"snd_hit"								"effects_sparks02"
+	"fx_impact"								"effects/monsters/berserker/mace_impact.fx"
+}
+
+entityDef melee_berserker_blade
+{
+	"inherit"								"melee_berserker"
+	"snd_hit"								"berserker_blade_slice"
+}
+
+entityDef melee_berserker_leap
+{
+	"inherit"								"melee_monster_base"
+	"damage"								"40"
+	"knockback"								"120"
+	"snd_hit"								"berserker_blade_slice"
+}
+
+entityDef melee_berserker_popup_a
+{
+	"inherit"								"melee_monster_base"
+	"kickDir"								"-.2 0 1"
+	"knockback"								"60"
+	"damage"								"15"
+	"snd_hit"								"berserker_blade_slice"
+}
+
+entityDef melee_berserker_popup_b
+{
+//	"inherit"								"melee_monster_base"
+	"inherit"								"melee_berserker_new"
+	"damage"								"40"
+	"knockback"								"100"
+	"kickDir"								"1 0 .6"
+	"snd_hit"								"berserker_mace_impact"
+//	"snd_hit"								"effects_sparks02"
+	"fx_impact"								"effects/monsters/berserker/mace_impact.fx"
+}
+
+entityDef damage_berserker_energyBurst
+{
+	"inherit"								"damage_bullet_base"
+	"damage"								"5"
+	"dv_time"								"1000"
+}
+
+entityDef projectile_berserker_energyBurst
+{
+	"inherit"								"projectile_base"
+	"mins"									"-8 -8 0"
+	"maxs"									"8 8 64"
+
+	"def_damage"							"damage_berserker_energyBurst"
+
+	"velocity"								"300 0 0"
+	"fuse"									"1"
+
+	"fx_fly"								"effects/monsters/berserker/charge_fly.fx"
+	"fx_impact"								"effects/monsters/berserker/charge_burst.fx"
+}
+
+entityDef damage_berzerker_beam
+{
+	"inherit"							"damage_railgun_base"
+//	"damage"							"50"
+	"damage"							"30"
+	"kickdir"							"1 0 0"
+}
+
+entityDef hitscan_berzerker_beam
+{
+	"inherit"							"hitscan_base"
+//	"push"								"40000"
+	"def_damage"						"damage_berzerker_beam"
+	
+	"fx_impact"							"effects/weapons/lightninggun/impact.fx"
+	"fx_path"							"effects/monsters/berserker/trail_world.fx"
+}
+
+/*
+===============================================================================
+
+	Berserker Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_berserker
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterBerserker"
+
+	// --------------------------------- Actions ------------------------------------
+	"attackRange"							"0 500"
+	"actionTimer_evade_rate"				"8"
+	"actionTimer_specialAttack_rate"		"7"
+
+	"action_evadeLeft"						"1"
+	"action_evadeRight"						"1"
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_maxRange"			"100"
+	"action_jumpBack"						"1"
+	"action_leapAttack"						"1"
+
+	"action_leapAttack_minRange"			"100"
+	"action_leapAttack_maxRange"			"250"
+	
+	"action_chargeAttack"					"1"
+	"action_chargeAttack_minRange"			"100"
+	"action_chargeAttack_maxRange"			"275"
+	"action_chargeAttack_chance"			".5"
+	
+	"action_popupAttack"					"1"
+	"action_popupAttack_maxRange"			"125"
+	"action_popupAttack_chance"				".5"
+	"action_popupAttack_anim"				"melee_popup"
+	
+	"action_rangedAttack"					"1"
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"500"
+	"action_rangedAttack_anim"				"ranged_attack"
+	"action_rangedAttack_rate"				"0.25"
+	"action_rangedAttack_failrate"			"0.5"
+	"action_rangedAttack_chance"			"1"
+	"action_rangedAttack_nopain"			"1"
+
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_berserker"
+	"ragdoll"								"monster_berserker"	
+	"size"									"42 42 88"
+	"use_aas"								"aas48"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"300"
+	"painThreshold"							"20"
+
+	"melee_range"							"100"
+
+	"tactical_rush"							"1"		// Advance as close to the player as necessary?
+	"tactical_ranged"						"0"		// Stop at a valid attack range and remain there shooting?
+	"tactical_cover"						"0"		// Take cover?
+	"tactical_hide"							"0"		// Run away and hide if there is no way to attack enemy?
+
+	"def_attack_spike"						"projectile_berserker_energyBurst"
+	"def_attack_popup_a"					"melee_berserker_popup_a"
+	"def_attack_popup_b"					"melee_berserker_popup_b"
+	"def_attack_melee"						"melee_berserker"
+	"def_attack_mace"						"melee_berserker_mace"
+	"def_attack_blade"						"melee_berserker_blade"
+	"def_attack_leap"						"melee_berserker_leap"
+	
+	"def_attack_beam"						"hitscan_berzerker_beam"
+	"attack_beam_hitscan"					"1"
+	"attack_beam_accuracy"					"2"
+	"attack_beam_predict"					"1"
+
+	"joint_chestOffset"						"upperBack"
+	"joint_eyeOffset"						"rt_eyeball"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck"
+	"damage_zone legs"						"*hips origin"
+	"damage_scale head"						"2"	
+	"damage_scale legs"						".75"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint lowerBack"					"0.2 0.2 0"
+	  "look_joint midBack"					"0.2 0.2 0"
+	    "look_joint upperBack"				"0.2 0.2 0"
+	      "look_joint neck"					"0.2 0.2 0"
+	        "look_joint head"				"0.2 0.2 0"
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"							"berserker_alert"
+	"lipsync_rush"							"berserker_rush"
+	"lipsync_mandown"						"berserker_mandown"
+	"lipsync_victory"						"berserker_victory"
+	"lipsync_watchit"						"berserker_watchit"
+	"lipsync_moveup"						"berserker_moveup"
+
+
+	"snd_grunt"								"berserker_grunt"
+	"snd_bounce"							"generic_creature_fall_beefy"
+	
+	"snd_footstep"							"berserker_stomps"
+	"snd_footstep_sand"						"berserker_stomps"
+	"snd_footstep_dirt"						"berserker_stomps"
+	"snd_footstep_hollowmetal"				"berserker_stomps"
+	"snd_footstep_rock"						"berserker_stomps"
+	
+	"snd_servo"								"berserker_servo"
+	"snd_death"								"berserker_death"
+	"snd_jump"								"berserker_growl"
+	"snd_pain"								"berserker_pain"
+	"snd_swing_blade"						"berserker_swing_blade"
+	"snd_swing_mace"						"berserker_swing_mace"
+	"snd_blade_clang"						"berserker_blade_clang"
+	"snd_blade_pull"						"berserker_blade_pull"
+	"snd_breathe"							"berserker_breathe"
+	"snd_growl"								"berserker_growl"
+	"snd_charge"							"berserker_charge"
+	"snd_slice"								"berserker_blade_slice"
+	"snd_lightning"							"berserker_range_attack"
+	
+	"snd_land"								"ambient_deep_metal_thump_loud"
+	
+	"sound_bone"							"neck"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"
+	"fx_mace"								"effects/monsters/berserker/mace_charge.fx"
+	"fx_charge_up"							"effects/monsters/berserker/swipe_attack.fx"
+	"fx_ground_impact"						"effects/monsters/berserker/release_charge.fx"
+	"fx_land"								"effects/ambient/dust_impact.fx"
+	"fx_bloody_hit"							"effects/monsters/berserker/gut_hit.fx"
+	"fx_ambient_electricity"				"effects/monsters/berserker/electric_charge.fx"
+	"fx_ambient_electricity_mace"			"effects/monsters/berserker/mace_charge_int.fx"
+	"fx_beam_mflash"						"effects/monsters/berserker/muzzleflash.fx"
+	"fx_ranged_charge"						"effects/monsters/berserker/ranged_charge.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"					"effects_sparks02"
+	"fx_burn_lightning"						"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"						"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"				"effects/monsters/teleport4.fx"
+}

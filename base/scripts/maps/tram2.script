@@ -1,0 +1,149 @@
+//------------------------------------------------------------------------------------
+// Tram2.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_tram2	{
+
+void StartWaveDownTramCarSequence( entity self, string animName ) {
+	entity target;
+	
+	ForEachTargetOf( self, target ) {
+		if( !target.isA("char_marine") ) {
+			continue;
+		}
+		
+		aiScriptedAnim( target, animName, 0, true );
+	}
+}
+
+void CreateGunFightFinishedTriggerCount( entity self ) {
+	float	count = 0.0;
+	
+	ASSERT( self.numTargets() );
+	
+	entity	spawner;
+	ForEachTargetOf( self, spawner ) {
+		if( !spawner.isA("func_spawner") ) {
+			continue;
+		}
+		
+		count += spawner.numActiveEntities();
+	}
+	
+	tramCar_Scripts::PlayRadioChatter( self, "vo_3_1_10_200_3" );
+	
+	sys.setSpawnArg( "count", count );
+	sys.setSpawnArg( "delay", sys.random(2.0) + 2.0 );
+	sys.setSpawnArg( "call", "tramCar_Scripts::PlayRadioChatter vo_3_1_10_210_1" );
+	sys.setSpawnArg( "call2", "map_tram2::CompleteTargetObjectives" );
+	sys.setSpawnArg( "target_objective", "item_objectivecomplete_1" );// Ick!  I hate hardcoding names.
+	sys.setSpawnArg( "target", "startBoulderSequence" );
+	entity countTrigger = sys.spawn( "trigger_count" );
+	
+	entity selfProxy = self;
+	entity ai;
+	ForEachTargetOf( selfProxy, spawner ) {
+		if( !spawner.isA("func_spawner") ) {
+			continue;
+		}
+		
+		ForEachActiveEntityOf( spawner, ai ) {
+			ai.appendTarget( countTrigger );
+		}
+		
+		spawner.remove();
+	}
+}
+
+void CompleteTargetObjectives( entity self ) {
+	entity target;
+	
+	ForEachTargetOf( self, target ) {
+		if( !target.isA("item_objective") ) {
+			continue;
+		}
+		
+		sys.trigger( target );
+	}
+}
+
+void StartBoulderSequence( entity self ) {
+	entity spawner = $null_entity;
+	entity ai = $null_entity;
+	entity walker = $vehicle_walker_1;
+	
+	ForEachTargetOf( self, spawner ) {
+		if( !spawner.isA("func_spawner") ) {
+			continue;
+		}
+		
+		spawner.removeNullActiveEntities();
+		ai = spawner.getActiveEntity( sys.randomInt(spawner.numActiveEntities() - 1.0) );	
+		break;		
+	}
+	
+	ASSERT( ai != $null_entity );
+	
+	aiScriptedMoveWait( ai, walker, 68.0, true );
+	
+	ai.remove();
+	walker.activate( self );
+	
+	thread tramCar_Scripts::PlayRadioChatterDelay( self, "vo_3_1_10_220_1", 3.0 );
+}
+
+void ContinueBoulderSequence( entity self, entity vehicleDriver ) {	
+	aiScriptedMove( vehicleDriver, self.getTarget(0), 0.0, false );
+}
+
+void FireAtBoulders( entity vehicleDriver, entity targetMaster ) {
+	entity target;
+	float numShots;
+	
+	ASSERT( targetMaster.numTargets() );
+	
+	vehicleDriver.faceEntity( targetMaster );
+	aiScriptedWait( vehicleDriver );
+	
+	sys.wait( 0.5 );
+	
+	for( numShots = 4, target = targetMaster.randomTarget(""); numShots > 0; numShots--, target = target.randomTarget("") ) {
+		vehicleDriver.lookAt( target );
+		sys.wait( 1.0 );
+		vehicleDriver.fireWeapon( 2 * sys.randomInt(1), 0.5 );
+		sys.wait( 0.5 );
+	}
+	
+	tramCar_Scripts::SpawnTramEnteredTrigger( $player_tram, "A_3", 0.25 );
+	
+	thread tramCar_Scripts::PlayRadioChatterDelay( vehicleDriver, "vo_3_1_10_220_2", 3.0 );
+}
+
+void EvaluateDebugFilters( string filter ) {
+	entity target;
+	entity sourceEntity = $activateTurrets;
+	
+	sys.wait( 2.0 );
+	
+	if( filter == "debugOsterhaus" ) {
+		ForEachTargetOf( sourceEntity, target ) {
+			target.remove();
+		}
+	}
+}
+
+void main()	{
+	tramCar_Scripts::InitRadioChatter();
+	
+	thread EvaluateDebugFilters( sys.getcvar("si_entityFilter") );
+
+	tramCar_Scripts::SpawnTramEnteredTrigger( $player_tram, "A_1", 0.25 );
+	
+	tramCar_Scripts::OpenTramDoors( $player_tram );
+	
+	sys.fadeIn( '0 0 0', 2.0 );
+}
+
+}

@@ -1,0 +1,219 @@
+
+sound vo_2_1_2_220_1
+{
+	description	"All right, Marines, haul ass. The clock is ticking and this is one flight we don’t wanna miss."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_220_1
+}
+
+sound vo_2_1_2_230_1
+{
+	description	"H Q, this is Viper squad! Our Lieutenant is severely wounded. Request immediate evac."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_230_1
+}
+
+sound vo_2_1_2_230_2
+{
+	description	"I wish we could help but evac from your current location is impossible. That zone is too hot."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_230_2
+}
+
+sound vo_2_1_2_230_3
+{
+	description	"Shit. All right, thanks HQ. We’ll get out of here somehow."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_230_3
+}
+
+sound vo_2_1_2_240_1
+{
+	description	"This is Eagle 17, preparing to make a strafing run."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_240_1
+}
+
+
+sound vo_2_1_2_300_1
+{
+	description	"This is command HQ to all units. A full retreat has been ordered. All squads are to meet at Waste Facility for immediate evac."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_300_1
+}
+
+
+sound vo_2_1_2_320_1
+{
+	description	"H Q! H Q! This is Kodiak squad. Strogg have overrun our position. I request an immediate artillery barrage on our location!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_320_1
+}
+
+sound vo_2_1_2_330_1
+{
+	description	"Walker Squad Bison, you are directed to take up a defensive position at your current location."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_330_1
+}
+
+sound vo_2_1_2_330_2
+{
+	description	"H Q, there’s a shitload of Strogg on our tail."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_330_2
+}
+
+sound vo_2_1_2_330_3
+{
+	description	"I copy that, Bison. But you’re covering the retreat of four infantry squads."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_330_3
+}
+
+sound vo_2_1_2_330_4
+{
+	description	"Understood. Bison Squad, full halt and deploy weapons. We’re buying the evac some time."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_330_4
+}
+
+sound vo_2_1_2_340_1
+{
+	description	"Eagle 2, Eagle 9, this is Eagle 12. Form up on me.  Let’s see if we can’t offer Bison squad some assistance."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_340_1
+}
+
+sound vo_2_1_2_340_2
+{
+	description	"Roger that."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/2_1_2_340_2
+}
+
+sound vo_pa_walker_10
+{
+	description	"Hostile armor unit approaching sector five dispersal facility. Retract bridge and deploy drop turret offensive."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/pa_walker_10
+}
+
+sound vo_pa_walker_20
+{
+	description	"Warning: Bridge security compromised."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/pa_walker_20
+}
+
+sound vo_pa_walker_30
+{
+	description	"Ground units ineffective; deploy immediate aerial assault."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/pa_walker_30
+}
+
+sound vo_pa_walker_40
+{
+	description	"Rogue Transfer has breached dispersal perimeter. Intercept and terminate."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/pa_walker_40
+}
+
+sound vo_pa_walker_50
+{
+	description	"Tactical teams deployed to dispersal complex. Priority alpha, elimination of rogue transfer."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	8
+	onDemand
+
+	sound/vo/walker/pa_walker_50
+}
+

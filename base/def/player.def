@@ -1,0 +1,1467 @@
+/*
+===============================================================================
+
+	Player
+
+===============================================================================
+*/
+
+export player
+{
+	options -scale .4 -prefix PLAYER_ -align ALL -keep l_forarm_mp r_forarm_mp l_index_02 l_index_03 l_ring_01 l_ring_02 l_ring_03 r_index_02 r_index_03 r_ring_01 r_ring_02 r_ring_03 l_elbo_tweak r_elbo_tweak body neckcontrol SPINNER legs_channel head_channel PST_ATTACHER SG_ATTACHER MG_ATTACHER NG_ATTACHER HB_ATTACHER RKT_ATTACHER GN_ATTACHER LG_ATTACHER RG_ATTACHER DMG_ATTACHER GNT_ATTACHER -parent PST_ATTACHER r_wrist -parent SG_ATTACHER r_wrist -parent MG_ATTACHER r_wrist -parent NG_ATTACHER r_wrist -parent HB_ATTACHER r_wrist -parent RKT_ATTACHER r_wrist -parent GN_ATTACHER r_wrist -parent LG_ATTACHER r_wrist -parent RG_ATTACHER r_wrist -parent DMG_ATTACHER r_wrist -parent GNT_ATTACHER r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/marine/multiplayer -destdir models/characters/player
+
+	addoptions -skipmesh dummy_head
+	addoptions -skipmesh dummyHair1
+	addoptions -skipmesh dummyHair2
+	addoptions -skipmesh dummyHair3
+	addoptions -skipmesh dummyEyeR
+	addoptions -skipmesh dummyEyeL
+	addoptions -skipmesh PST_pistol_mesh 
+	addoptions -skipmesh SG_stock_mesh 
+	addoptions -skipmesh SG_clip_mesh
+	addoptions -skipmesh SG_pump_mesh 
+	addoptions -skipmesh MG_stock_mesh 
+	addoptions -skipmesh MG_clip_mesh 
+	addoptions -skipmesh MG_flare_mesh
+	addoptions -skipmesh NG_stock_mesh 
+	addoptions -skipmesh NG_handle_mesh 
+	addoptions -skipmesh NG_handlebase_mesh 
+	addoptions -skipmesh NG_drum_mesh 
+	addoptions -skipmesh NG_clip_mesh 
+	addoptions -skipmesh NG_clip_left_mesh 
+	addoptions -skipmesh NG_clip_right_mesh 
+	addoptions -skipmesh NG_scope_mesh 
+	addoptions -skipmesh NG_a1_mesh 
+	addoptions -skipmesh NG_a2_mesh 
+	addoptions -skipmesh NG_b1_mesh 
+	addoptions -skipmesh NG_b2_mesh 
+	addoptions -skipmesh NG_c1_mesh 
+	addoptions -skipmesh NG_c2_mesh 
+	addoptions -skipmesh NG_d1_mesh 
+	addoptions -skipmesh NG_d2_mesh 
+	addoptions -skipmesh NG_e1_mesh 
+	addoptions -skipmesh NG_e2_mesh 
+	addoptions -skipmesh NG_f1_mesh 
+	addoptions -skipmesh NG_f2_mesh 
+	addoptions -skipmesh HB_battery_mesh 
+	addoptions -skipmesh HB_barrel_mesh 
+	addoptions -skipmesh HB_stock_mesh 
+	addoptions -skipmesh HB_pump_mesh 
+	addoptions -skipmesh RKT_stock_mesh 
+	addoptions -skipmesh RKT_trigger_lft_mesh 
+	addoptions -skipmesh RKT_trigger_rt_mesh 
+	addoptions -skipmesh RKT_laser_sight_front_mesh 
+	addoptions -skipmesh RKT_laser_sight_back_mesh 
+	addoptions -skipmesh RKT_rack_mesh 
+	addoptions -skipmesh RKT_clasp_front_lft_mesh 
+	addoptions -skipmesh RKT_clasp_back_lft_mesh 
+	addoptions -skipmesh RKT_clasp_front_rt_mesh 
+	addoptions -skipmesh RKT_clasp_back_rt_mesh 
+	addoptions -skipmesh RKT_rocket_mesh 
+	addoptions -skipmesh RKT_fin_top_mesh 
+	addoptions -skipmesh RKT_fin_left_mesh 
+	addoptions -skipmesh RKT_fin_right_mesh
+	addoptions -skipmesh GN_stock_mesh 
+	addoptions -skipmesh GN_ammo_mesh  
+	addoptions -skipmesh LG_stock_mesh 
+	addoptions -skipmesh LG_center_rod_mesh 
+	addoptions -skipmesh LG_spire_1_mesh 
+	addoptions -skipmesh LG_spire_2_mesh 
+	addoptions -skipmesh LG_spire_3_mesh 
+	addoptions -skipmesh LG_spire_4_mesh 
+	addoptions -skipmesh LG_flap_top_1 
+	addoptions -skipmesh LG_flap_top_2 
+	addoptions -skipmesh LG_flap_left_1 
+	addoptions -skipmesh LG_flap_left_2 
+	addoptions -skipmesh LG_flap_right_1 
+	addoptions -skipmesh LG_flap_right_2 
+	addoptions -skipmesh RG_stock_mesh
+	addoptions -skipmesh DMG_body_mesh
+ 	addoptions -skipmesh DMG_l_magnet_mesh
+ 	addoptions -skipmesh DMG_r_magnet_mesh
+ 	addoptions -skipmesh DMG_outer_ring_mesh
+ 	addoptions -skipmesh DMG_middle_ring_mesh
+ 	addoptions -skipmesh DMG_inner_ring_mesh
+ 	addoptions -skipmesh GNT_gauntlet_body_mesh
+ 	addoptions -skipmesh GNT_blade_1_mesh
+ 	addoptions -skipmesh GNT_blade_2_mesh
+ 	addoptions -skipmesh GNT_blade_3_mesh
+ 	addoptions -skipmesh GNT_blade_4_mesh
+ 	addoptions -skipmesh GNT_blade_5_mesh
+ 	addoptions -skipmesh GNT_blade_6_mesh
+ 	addoptions -skipmesh GNT_blade_7_mesh
+ 	addoptions -skipmesh GNT_blade_8_mesh
+ 	addoptions -skipmesh GNT_blade_hub_top_mesh
+ 	addoptions -skipmesh GNT_blade_hub_bottom_mesh
+ 	addoptions -skipmesh GNT_fins_mesh1
+ 	addoptions -skipmesh r_fatigue_arm
+ 	addoptions -skipmesh l_fatigue_arm
+
+//	addoptions -skipmesh MAR_body_mesh 
+ 	addoptions -skipmesh KANE_strogg_mesh 
+ 	addoptions -skipmesh CORPSE_mesh 
+ 	addoptions -skipmesh TT_tactical_transfer_mesh 
+ 	addoptions -skipmesh HURTBODY_marine_body_mesh 
+ 	addoptions -skipmesh OFFICER_body_mesh
+ 	addoptions -skipmesh OFFICER_sidearm_mesh 
+ 	addoptions -skipmesh FATIGUE_marine_l_arm_mesh 
+ 	addoptions -skipmesh FATIGUE_marine_body_mesh 
+ 	addoptions -skipmesh FATIGUE_marine_r_arm_mesh 
+ 	addoptions -skipmesh FT_gut_1_mesh 
+ 	addoptions -skipmesh FT_gut_2_mesh 
+ 	addoptions -skipmesh FT_gut_3_mesh 
+ 	addoptions -skipmesh FT_up_teeth_mesh 
+ 	addoptions -skipmesh FT_lo_teeth_mesh 
+ 	addoptions -skipmesh FT_torso_mesh 
+ 	addoptions -skipmesh FT_legs_mesh 
+ 	addoptions -skipmesh ST_gut1_mesh 
+ 	addoptions -skipmesh ST_gut2_mesh 
+ 	addoptions -skipmesh ST_gut3_mesh 
+ 	addoptions -skipmesh ST_legs_mesh 
+ 	addoptions -skipmesh ST_torso_mesh 
+	addoptions -skipmesh r_eye_mesh1 
+	addoptions -skipmesh l_eye_mesh1 
+	addoptions -skipmesh HURTBODY_marine_r_eye_mesh 
+	addoptions -skipmesh HURTBODY_marine_l_eye_mesh 
+	addoptions -skipmesh FT_l_eye_mesh 
+	addoptions -skipmesh FT_r_eye_mesh 
+	addoptions -skipmesh ST_left_eye_mesh 
+	addoptions -skipmesh ST_right_eye_mesh 
+
+
+	mesh	idle.ma						-dest player
+	anim	run.ma 						-dest run
+	anim	run_backwards.ma 			-dest run_backwards
+	anim	idle.ma 					-dest idle
+	anim	idle_loadscreen.ma 			-dest idle_loadscreen
+	anim	crouch_walk_forward.ma 		-dest crouch_walk_forward
+	anim	crouch_walk_forward.ma 		-dest crouch_walk_backward
+	
+	anim	mp_walk4.ma					-dest walk
+	anim	mp_walk_backwards.ma		-dest walk_backwards
+	anim	mp_walk_right.ma			-dest walk_right
+	anim	mp_walk_left.ma				-dest walk_left
+	anim	mp_crouch_walk_forward.ma		-dest mp_crouch_walk
+	anim	mp_crouch_walk_backward.ma		-dest mp_crouch_walk_backward
+
+//	anim	crouch.ma					-range 30 142 -dest crouch
+//	anim	crouch.ma					-range 20 30 -dest crouch_down
+//	anim	crouch.ma					-range 142 150 -dest crouch_up
+
+	anim	crouch_lower.ma				-range 30 142 -dest crouch
+	anim	crouch_lower.ma				-range 20 30 -dest crouch_down
+	anim	crouch_lower.ma				-range 142 150 -dest crouch_up
+
+	anim	strafe_left.ma				-dest strafe_left
+	anim	strafe_right.ma 			-dest strafe_right
+	anim	strafe_jump_right.ma 		-dest strafe_jump_right
+	anim	strafe_jump_left.ma 		-dest strafe_jump_left
+	
+	anim	pistol_idle.ma				-dest pistol_idle
+	anim	pistol_idle_up.ma			-dest pistol_idle_up
+	anim	pistol_idle_down.ma			-dest pistol_idle_down
+	anim	pistol_aim.ma				-dest pistol_aim
+	anim	pistol_aim_up.ma			-dest pistol_aim_up
+	anim	pistol_aim_down.ma			-dest pistol_aim_down
+	anim	pistol_fire.ma				-dest pistol_fire
+	anim	pistol_fire_up.ma			-dest pistol_fire_up
+	anim	pistol_fire_down.ma			-dest pistol_fire_down
+	anim	pistol_lower.ma				-dest pistol_lower
+	anim	pistol_raise.ma				-dest pistol_raise
+			
+ 	anim	machinegun_idle.ma			-dest machinegun_idle
+ 	anim	machinegun_idle_up.ma		-dest machinegun_idle_up
+ 	anim	machinegun_idle_down.ma		-dest machinegun_idle_down
+ 	anim	machinegun_aim.ma			-dest machinegun_aim
+ 	anim	machinegun_aim_up.ma		-dest machinegun_aim_up
+ 	anim	machinegun_aim_down.ma		-dest machinegun_aim_down		
+	anim	machinegun_fire.ma			-dest machinegun_fire
+	anim	machinegun_fire_up.ma		-dest machinegun_fire_up
+	anim	machinegun_fire_down.ma		-dest machinegun_fire_down
+	anim	machinegun_raise.ma			-dest machinegun_raise
+	anim	machinegun_lower.ma			-dest machinegun_lower
+	
+	anim	hyperblaster_idle.ma		-dest hyperblaster_idle
+ 	anim	hyperblaster_idle_up.ma		-dest hyperblaster_idle_up
+ 	anim	hyperblaster_idle_down.ma	-dest hyperblaster_idle_down
+ 	anim	hyperblaster_aim.ma			-dest hyperblaster_aim
+ 	anim	hyperblaster_aim_up.ma		-dest hyperblaster_aim_up
+ 	anim	hyperblaster_aim_down.ma	-dest hyperblaster_aim_down		
+	anim	hyperblaster_fire.ma		-dest hyperblaster_fire
+	anim	hyperblaster_fire_up.ma		-dest hyperblaster_fire_up
+	anim	hyperblaster_fire_down.ma	-dest hyperblaster_fire_down
+	anim	hyperblaster_reload.ma		-dest hyperblaster_reload
+	
+	anim	nailgun_idle.ma				-dest nailgun_idle
+ 	anim	nailgun_idle_up.ma			-dest nailgun_idle_up
+ 	anim	nailgun_idle_down.ma		-dest nailgun_idle_down
+ 	anim	nailgun_aim.ma				-dest nailgun_aim
+ 	anim	nailgun_aim_up.ma			-dest nailgun_aim_up
+ 	anim	nailgun_aim_down.ma			-dest nailgun_aim_down		
+	anim	nailgun_fire.ma				-dest nailgun_fire
+	anim	nailgun_fire_up.ma			-dest nailgun_fire_up
+	anim	nailgun_fire_down.ma		-dest nailgun_fire_down
+	anim	nailgun_reload.ma			-dest nailgun_reload
+	anim	nailgun_raise.ma			-dest nailgun_raise
+	anim	nailgun_lower.ma			-dest nailgun_lower
+	
+	anim	grenadelauncher_idle.ma				-dest grenadelauncher_idle
+	anim	grenadelauncher_idle_up.ma			-dest grenadelauncher_idle_up
+	anim	grenadelauncher_idle_down.ma		-dest grenadelauncher_idle_down
+	anim	grenadelauncher_aim.ma				-dest grenadelauncher_aim
+	anim	grenadelauncher_aim_up.ma			-dest grenadelauncher_aim_up
+	anim	grenadelauncher_aim_down.ma			-dest grenadelauncher_aim_down
+	anim	grenadelauncher_fire.ma				-dest grenadelauncher_fire
+	anim	grenadelauncher_fire_up.ma			-dest grenadelauncher_fire_up
+	anim	grenadelauncher_fire_down.ma		-dest grenadelauncher_fire_down
+	anim	grenadelauncher_reload.ma			-dest grenadelauncher_reload
+	anim	grenadelauncher_raise.ma			-dest grenadelauncher_raise
+	anim	grenadelauncher_lower.ma			-dest grenadelauncher_lower
+	
+	anim	rocketlauncher_idle.ma				-dest rocketlauncher_idle
+	anim	rocketlauncher_idle_up.ma			-dest rocketlauncher_idle_up
+	anim	rocketlauncher_idle_down.ma			-dest rocketlauncher_idle_down
+	anim	rocketlauncher_aim.ma				-dest rocketlauncher_aim
+	anim	rocketlauncher_aim_up.ma			-dest rocketlauncher_aim_up
+	anim	rocketlauncher_aim_down.ma			-dest rocketlauncher_aim_down
+	anim	rocketlauncher_fire.ma				-dest rocketlauncher_fire
+	anim	rocketlauncher_fire_up.ma			-dest rocketlauncher_fire_up
+	anim	rocketlauncher_fire_down.ma			-dest rocketlauncher_fire_down
+	anim	rocketlauncher_reload.ma			-dest rocketlauncher_reload
+	anim	rocketlauncher_lower.ma				-dest rocketlauncher_lower
+	anim	rocketlauncher_raise.ma				-dest rocketlauncher_raise
+	
+	anim	lightninggun_idle.ma			-dest lightninggun_idle
+	anim	lightninggun_idle_up.ma			-dest lightninggun_idle_up
+	anim	lightninggun_idle_down.ma		-dest lightninggun_idle_down
+	anim	lightninggun_aim.ma				-dest lightninggun_aim
+	anim	lightninggun_aim_up.ma			-dest lightninggun_aim_up
+	anim	lightninggun_aim_down.ma		-dest lightninggun_aim_down
+	anim	lightninggun_fire.ma			-dest lightninggun_fire
+	anim	lightninggun_fire_up.ma			-dest lightninggun_fire_up
+	anim	lightninggun_fire_down.ma		-dest lightninggun_fire_down
+	anim	lightninggun_lower.ma			-dest lightninggun_lower
+	anim	lightninggun_raise.ma			-dest lightninggun_raise
+							
+	anim	shotgun_aim.ma				-dest shotgun_aim
+	anim	shotgun_aim_up.ma			-dest shotgun_aim_up
+	anim	shotgun_aim_down.ma			-dest shotgun_aim_down
+	anim	shotgun_fire.ma				-dest shotgun_fire
+	anim	shotgun_fire_up.ma			-dest shotgun_fire_up
+	anim	shotgun_fire_down.ma		-dest shotgun_fire_down	
+	anim	shotgun_reload.ma			-dest shotgun_reload
+//	anim	shotgun_reload.ma			-dest shotgun_reload_loop
+//	anim	shotgun_reload.ma			-dest shotgun_reload_end
+	anim	shotgun_idle.ma				-dest shotgun_idle
+	anim	shotgun_idle_up.ma			-dest shotgun_idle_up
+	anim	shotgun_idle_down.ma		-dest shotgun_idle_down
+	
+	anim	railgun_aim.ma				-dest railgun_aim
+	anim	railgun_aim_up.ma			-dest railgun_aim_up
+	anim	railgun_aim_down.ma			-dest railgun_aim_down
+	anim	railgun_fire.ma				-dest railgun_fire
+	anim	railgun_fire_up.ma			-dest railgun_fire_up
+	anim	railgun_fire_down.ma		-dest railgun_fire_down
+
+	anim	darkmattergun_idle.ma			-dest darkmattergun_idle
+	anim	darkmattergun_idle_up.ma		-dest darkmattergun_idle_up
+	anim	darkmattergun_idle_down.ma		-dest darkmattergun_idle_down
+	anim	darkmattergun_aim.ma			-dest darkmattergun_aim
+	anim	darkmattergun_aim.ma			-range 1 2 -dest darkmattergun_reload
+	anim	darkmattergun_aim_up.ma			-dest darkmattergun_aim_up
+	anim	darkmattergun_aim_down.ma		-dest darkmattergun_aim_down
+	anim	darkmattergun_fire.ma			-dest darkmattergun_fire
+	anim	darkmattergun_fire_up.ma		-dest darkmattergun_fire_up
+	anim	darkmattergun_fire_down.ma		-dest darkmattergun_fire_down
+	anim	darkmattergun_raise.ma			-dest darkmattergun_raise
+	anim	darkmattergun_lower.ma			-dest darkmattergun_lower
+
+//	anim	raise_lower.ma				-range 1 4 -dest pistol_lower
+//	anim	raise_lower.ma				-range 4 12 -dest pistol_raise
+	anim	jump.ma						-range 1 7 -dest jump
+	anim    jump.ma						-range 17 26 -dest soft_land
+	anim    jump_back_right.ma			-dest jump_back_right
+	anim    jump_back_left.ma			-dest jump_back_left
+	anim	jump.ma						-range 7 17 -dest fall
+	anim	pain.ma						-dest pain
+	anim	af_pose.ma					-dest af_pose
+
+	anim	gauntlet_fire_up.ma			-dest gauntlet_fire_up
+	anim	gauntlet_fire.ma			-dest gauntlet_fire
+	anim	gauntlet_fire_down.ma		-dest gauntlet_fire_down
+	anim	gauntlet_aim.ma				-dest gauntlet_aim
+	anim	gauntlet_aim_up.ma			-dest gauntlet_aim_up
+	anim	gauntlet_aim_down.ma		-dest gauntlet_aim_down
+	anim	gauntlet_lower.ma			-dest gauntlet_lower
+	anim	gauntlet_raise.ma			-dest gauntlet_raise
+
+	anim	MP_Cheer.ma					-dest cheer
+	anim	MP_Salute.ma				-dest salute
+	anim	MP_Taunt_1.ma				-dest taunt_1
+	anim	grab.ma						-dest grab_a
+	anim	grab_b.ma					-dest grab_b
+	anim	aim_tpose.ma				-dest aim_tpose
+/*
+	addoptions -keep l_index_01 l_thumb_03 r_index_01 r_thumb_03 l_toe r_toe   -sourcedir work/models/multiplayer_rigs/animations
+	mesh	tac_transfer_idle.ma			-dest player_tactical_transfer
+	mesh	officer_idle.ma					-dest player_officer
+	mesh	corpse_idle.ma					-dest player_corpse
+	mesh	failed_transfer_idle.ma			-dest player_failed_transfer
+	mesh	slimy_transfer_idle.ma			-dest player_slimy_transfer
+	mesh	kane_idle.ma					-dest player_strogg
+	mesh	fatigue_marine_idle.ma			-dest player_fatigue_marine
+	mesh	hurtbody_idle.ma				-dest underwear_marine
+*/
+}
+
+/*
+===============================================================================
+
+	Player Model
+
+===============================================================================
+*/
+
+model model_player_marine
+{
+	offset							( 0 0 1 )
+
+	mesh							models/characters/player/player.md5mesh
+
+	channel torso					( *waist)
+	channel legs					( *origin *hips -*waist )
+
+	anim head						models/characters/player/idle.md5anim
+	anim af_pose					models/characters/player/af_pose.md5anim
+//	anim ik_pose					models/characters/player/idle.md5anim
+	anim initial					models/characters/player/idle.md5anim
+
+	anim idle_loadscreen			models/characters/player/idle_loadscreen.md5anim
+
+	anim teleport					models/characters/player/idle.md5anim
+	anim exit						models/characters/player/idle.md5anim
+
+	anim idle						models/characters/player/idle.md5anim
+	anim crouch_down				models/characters/player/crouch_down.md5anim
+	anim crouch						models/characters/player/crouch.md5anim
+	anim crouch_up					models/characters/player/crouch_up.md5anim
+	anim crouch_walk				models/characters/player/crouch_walk_forward.md5anim
+	anim crouch_walk_backward		models/characters/player/crouch_walk_backward.md5anim
+	
+	anim mp_crouch_walk				models/characters/player/mp_crouch_walk.md5anim
+	anim mp_crouch_walk_backward	models/characters/player/mp_crouch_walk_backward.md5anim
+	anim strafe_jump_right			models/characters/player/strafe_jump_right.md5anim
+	anim strafe_jump_left			models/characters/player/strafe_jump_left.md5anim
+
+	anim run_forward				models/characters/player/run.md5anim	{
+		frame 2						sound_global	snd_gear2
+		frame 2						leftfoot
+		frame 9						sound_global	snd_gear2
+		frame 9						rightfoot
+	}
+	anim run_backwards				models/characters/player/run_backwards.md5anim {
+		frame 4						sound_global	snd_gear2
+		frame 4						rightfoot
+		frame 10					sound_global	snd_gear2
+		frame 10					leftfoot
+	}
+	anim run_strafe_left			models/characters/player/strafe_left.md5anim	{
+		frame 1						leftfoot
+		frame 1						sound_global	snd_gear2
+		frame 10					sound_global	snd_gear2
+		frame 10					rightfoot
+	}
+	anim run_strafe_right			models/characters/player/strafe_right.md5anim	{
+		frame 1						leftfoot
+		frame 1						sound_global	snd_gear2
+		frame 10					sound_global	snd_gear2
+		frame 10					rightfoot
+	}
+	
+	anim walk_forward				models/characters/player/walk.md5anim	
+	anim walk_backwards				models/characters/player/walk_backwards.md5anim	
+	anim walk_right					models/characters/player/walk_right.md5anim	
+	anim walk_left					models/characters/player/walk_left.md5anim	
+	anim jump						models/characters/player/jump.md5anim {
+		frame 1						sound	snd_jump
+	}
+	anim run_jump					models/characters/player/jump.md5anim {
+		frame 1						sound	snd_jump
+	}
+	anim soft_land					models/characters/player/soft_land.md5anim
+	anim hard_land					models/characters/player/idle.md5anim
+	
+	anim fall						models/characters/player/fall.md5anim
+
+	anim turn_left					models/characters/player/idle.md5anim
+	anim turn_right					models/characters/player/idle.md5anim
+
+	anim pain						models/characters/player/pain.md5anim
+	anim pain_head					models/characters/player/pain.md5anim
+	anim pain_right_arm				models/characters/player/pain.md5anim
+	anim pain_left_arm				models/characters/player/pain.md5anim
+	anim pain_chest					models/characters/player/pain.md5anim
+
+	anim blaster_raise				models/characters/player/machinegun_raise.md5anim
+	{
+	rate 1.3
+	}
+	anim blaster_idle				models/characters/player/pistol_aim_down.md5anim, models/characters/player/pistol_aim.md5anim, models/characters/player/pistol_aim_up.md5anim
+	anim blaster_aim				models/characters/player/pistol_aim_down.md5anim, models/characters/player/pistol_aim.md5anim, models/characters/player/pistol_aim_up.md5anim
+	anim blaster_fire1				models/characters/player/pistol_fire_down.md5anim, models/characters/player/pistol_fire.md5anim, models/characters/player/pistol_fire_up.md5anim
+//	anim blaster_reload				models/characters/player/shotgun_reload.md5anim
+	anim blaster_lower				models/characters/player/machinegun_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim shotgun_raise				models/characters/player/grenadelauncher_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim shotgun_idle				models/characters/player/shotgun_aim_down.md5anim, models/characters/player/shotgun_aim.md5anim, models/characters/player/shotgun_aim_up.md5anim
+	anim shotgun_aim				models/characters/player/shotgun_aim_down.md5anim, models/characters/player/shotgun_aim.md5anim, models/characters/player/shotgun_aim_up.md5anim
+	anim shotgun_fire				models/characters/player/shotgun_fire_down.md5anim, models/characters/player/shotgun_fire.md5anim, models/characters/player/shotgun_fire_up.md5anim
+	anim shotgun_reload				models/characters/player/shotgun_reload.md5anim
+//	anim shotgun_reload_loop		models/characters/player/shotgun_reload_loop.md5anim
+//	anim shotgun_reload_end			models/characters/player/shotgun_reload_end.md5anim
+	anim shotgun_lower				models/characters/player/grenadelauncher_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim machinegun_raise			models/characters/player/machinegun_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim machinegun_idle			models/characters/player/machinegun_aim_down.md5anim, models/characters/player/machinegun_aim.md5anim, models/characters/player/machinegun_aim_up.md5anim
+	anim machinegun_aim				models/characters/player/machinegun_aim_down.md5anim, models/characters/player/machinegun_aim.md5anim, models/characters/player/machinegun_aim_up.md5anim
+	anim machinegun_fire1			models/characters/player/machinegun_fire_down.md5anim, models/characters/player/machinegun_fire.md5anim, models/characters/player/machinegun_fire_up.md5anim
+	anim machinegun_reload			models/characters/player/shotgun_reload.md5anim
+	anim machinegun_lower			models/characters/player/machinegun_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim nailgun_raise				models/characters/player/grenadelauncher_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim nailgun_idle				models/characters/player/nailgun_aim_down.md5anim, models/characters/player/nailgun_aim.md5anim, models/characters/player/nailgun_aim_up.md5anim
+	anim nailgun_aim				models/characters/player/nailgun_aim_down.md5anim, models/characters/player/nailgun_aim.md5anim, models/characters/player/nailgun_aim_up.md5anim
+	anim nailgun_fire1				models/characters/player/nailgun_fire_down.md5anim, models/characters/player/nailgun_fire.md5anim, models/characters/player/nailgun_fire_up.md5anim
+	anim nailgun_reload				models/characters/player/nailgun_reload.md5anim
+	anim nailgun_lower				models/characters/player/grenadelauncher_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim hyperblaster_raise			models/characters/player/machinegun_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim hyperblaster_idle			models/characters/player/hyperblaster_aim_down.md5anim, models/characters/player/hyperblaster_aim.md5anim, models/characters/player/hyperblaster_aim_up.md5anim
+	anim hyperblaster_aim			models/characters/player/hyperblaster_aim_down.md5anim, models/characters/player/hyperblaster_aim.md5anim, models/characters/player/hyperblaster_aim_up.md5anim
+	anim hyperblaster_fire1			models/characters/player/hyperblaster_fire_down.md5anim, models/characters/player/hyperblaster_fire.md5anim, models/characters/player/hyperblaster_fire_up.md5anim
+	anim hyperblaster_reload		models/characters/player/hyperblaster_reload.md5anim
+	anim hyperblaster_lower			models/characters/player/machinegun_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim railgun_raise				models/characters/player/grenadelauncher_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim railgun_idle				models/characters/player/railgun_aim_down.md5anim, models/characters/player/railgun_aim.md5anim, models/characters/player/railgun_aim_up.md5anim
+	anim railgun_aim				models/characters/player/railgun_aim_down.md5anim, models/characters/player/railgun_aim.md5anim, models/characters/player/railgun_aim_up.md5anim
+	anim railgun_fire1				models/characters/player/railgun_fire_down.md5anim, models/characters/player/railgun_fire.md5anim, models/characters/player/railgun_fire_up.md5anim
+	anim railgun_reload				models/characters/player/shotgun_reload.md5anim
+	anim railgun_lower				models/characters/player/grenadelauncher_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim rocketlauncher_raise		models/characters/player/rocketlauncher_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim rocketlauncher_idle		models/characters/player/rocketlauncher_aim_down.md5anim, models/characters/player/rocketlauncher_aim.md5anim, models/characters/player/rocketlauncher_aim_up.md5anim
+	anim rocketlauncher_aim			models/characters/player/rocketlauncher_aim_down.md5anim, models/characters/player/rocketlauncher_aim.md5anim, models/characters/player/rocketlauncher_aim_up.md5anim
+	anim rocketlauncher_fire1		models/characters/player/rocketlauncher_fire_down.md5anim, models/characters/player/rocketlauncher_fire.md5anim, models/characters/player/rocketlauncher_fire_up.md5anim
+	anim rocketlauncher_reload		models/characters/player/rocketlauncher_reload.md5anim
+	anim rocketlauncher_lower		models/characters/player/rocketlauncher_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim napalmgun_raise				models/characters/player/rocketlauncher_raise.md5anim
+	{
+	rate 1.3
+	}
+
+	anim napalmgun_idle				models/characters/player/rocketlauncher_aim_down.md5anim, models/characters/player/rocketlauncher_aim.md5anim, models/characters/player/rocketlauncher_aim_up.md5anim
+	anim napalmgun_aim				models/characters/player/rocketlauncher_aim_down.md5anim, models/characters/player/rocketlauncher_aim.md5anim, models/characters/player/rocketlauncher_aim_up.md5anim
+	anim napalmgun_fire1				models/characters/player/rocketlauncher_fire_down.md5anim, models/characters/player/rocketlauncher_fire.md5anim, models/characters/player/rocketlauncher_fire_up.md5anim
+	anim napalmgun_reload				models/characters/player/rocketlauncher_reload.md5anim
+	anim napalmgun_lower				models/characters/player/rocketlauncher_lower.md5anim
+	{
+	rate 1.3
+	}
+
+
+	anim grenadelauncher_raise		models/characters/player/grenadelauncher_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim grenadelauncher_idle		models/characters/player/grenadelauncher_aim_down.md5anim, models/characters/player/grenadelauncher_aim.md5anim, models/characters/player/grenadelauncher_aim_up.md5anim
+	anim grenadelauncher_aim		models/characters/player/grenadelauncher_aim_down.md5anim, models/characters/player/grenadelauncher_aim.md5anim, models/characters/player/grenadelauncher_aim_up.md5anim
+	anim grenadelauncher_fire1		models/characters/player/grenadelauncher_fire_down.md5anim, models/characters/player/grenadelauncher_fire.md5anim, models/characters/player/grenadelauncher_fire_up.md5anim
+	anim grenadelauncher_reload		models/characters/player/grenadelauncher_reload.md5anim
+	anim grenadelauncher_lower		models/characters/player/grenadelauncher_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim lightninggun_raise			models/characters/player/machinegun_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim lightninggun_idle			models/characters/player/lightninggun_aim_down.md5anim, models/characters/player/lightninggun_aim.md5anim, models/characters/player/lightninggun_aim_up.md5anim
+	anim lightninggun_aim			models/characters/player/lightninggun_aim_down.md5anim, models/characters/player/lightninggun_aim.md5anim, models/characters/player/lightninggun_aim_up.md5anim
+	anim lightninggun_fire1			models/characters/player/lightninggun_fire_down.md5anim, models/characters/player/lightninggun_fire.md5anim, models/characters/player/lightninggun_fire_up.md5anim
+	anim lightninggun_reload		models/characters/player/shotgun_reload.md5anim
+	anim lightninggun_lower			models/characters/player/machinegun_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim dmg_raise					models/characters/player/rocketlauncher_raise.md5anim
+		{
+	rate 1.3
+	}
+	anim dmg_idle					models/characters/player/darkmattergun_aim_down.md5anim, models/characters/player/darkmattergun_aim.md5anim, models/characters/player/darkmattergun_aim_up.md5anim
+	anim dmg_reload					models/characters/player/darkmattergun_reload.md5anim
+	anim dmg_aim					models/characters/player/darkmattergun_aim_down.md5anim, models/characters/player/darkmattergun_aim.md5anim, models/characters/player/darkmattergun_aim_up.md5anim
+	anim dmg_fire					models/characters/player/darkmattergun_fire_down.md5anim, models/characters/player/darkmattergun_fire.md5anim, models/characters/player/darkmattergun_fire_up.md5anim
+	anim dmg_lower					models/characters/player/rocketlauncher_lower.md5anim
+		{
+	rate 1.3
+	}
+
+	anim gauntlet_fire			models/characters/player/gauntlet_fire_down.md5anim, models/characters/player/gauntlet_fire.md5anim, models/characters/player/gauntlet_fire_up.md5anim
+	anim gauntlet_aim			models/characters/player/gauntlet_aim_down.md5anim, models/characters/player/gauntlet_aim.md5anim, models/characters/player/gauntlet_aim_up.md5anim
+	anim gauntlet_idle			models/characters/player/gauntlet_aim_down.md5anim, models/characters/player/gauntlet_aim.md5anim, models/characters/player/gauntlet_aim_up.md5anim
+	anim gauntlet_lower			models/characters/player/machinegun_lower.md5anim
+		{
+	rate 1.3
+	}
+	anim gauntlet_raise			models/characters/player/machinegun_raise.md5anim
+		{
+	rate 1.3
+	}
+
+	anim cheer				models/characters/player/cheer.md5anim
+	anim salute				models/characters/player/salute.md5anim
+	anim taunt				models/characters/player/taunt_1.md5anim
+	anim grab_a				models/characters/player/grab_a.md5anim
+	anim grab_b				models/characters/player/grab_b.md5anim
+}
+
+model model_player_strogg
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_strogg.md5mesh
+}
+
+/*
+===============================================================================
+
+	PlayerView Definition
+
+===============================================================================
+*/
+entityDef playerView_marine {
+	"mtr_doubleVision"					"view/doublevision"
+	"mtr_doubleVisionBlend"				"view/doublevisionblend"
+	"mtr_tunnel"						"textures/decals/tunnelvision"
+	"mtr_armourEffect"					"armorViewEffect"
+	"mtr_bloodspray"					"textures/decals/bloodspray"
+}
+
+/*
+===============================================================================
+
+	Player Entity Definition
+
+===============================================================================
+*/
+
+entityDef player_marine 
+{
+	"spawnclass"						"idPlayer"
+
+	"hud"							"guis/hud.gui"
+	"mphud"							"guis/mphud.gui" // mphud is overlayed on hud in multiplayer
+	"cursor"						"guis/cursor.gui"
+	"cinematicHud"						"guis/cinematic.gui"
+	"wristcomm"						"guis/wristcomm.gui"
+
+	"blink_min"						"0.5"
+	"blink_max"						"4.8"
+
+	"bleed"							"1"
+	"gib"							"1"
+	
+	"joint_head"						"chest"
+	"joint_hips"						"hips"
+	"joint_chest"						"chest"
+	"joint_eyeOffset"					""
+	"joint_chestOffset"					"chest"
+
+	"model"							"model_player_marine"
+	"articulatedFigure"					"player"
+	"ragdoll"						"player"
+
+	"def_head"						"char_marinehead_kane2"
+	//NOTE: fov really only used to determine if a monster spawner spawn point is visible to the player
+	// on second thought, let's leave these alone unless we NEED to override the defaults
+	//-MCG
+	//"fov"							"200"
+	//"fovClose"						"200"
+
+	"copy_joint neckcontrol"				"neckcontrol"
+	"copy_joint shoulders"					"shoulders"
+	"copy_joint legs_channel"				"legs_channel"
+
+	// weapon slots
+	"def_weapon0"						"weapon_blaster"
+	"weapon0_best"						"1"			// whether weapon should be chosen when out of ammo
+	"weapon0_cycle"						"1"			// whether weapon should be selected when using next/prev weapon
+	"weapon0_toggle"					"0"			// whether selecting weapon twice switches between current and previous weapons
+	"weapon0_flashlight"					"1"
+
+	"def_weapon1"						"weapon_machinegun"
+	"weapon1_best"						"1"
+	"weapon1_cycle"						"1"
+	"weapon1_flashlight"					"1"
+
+	"def_weapon2"						"weapon_shotgun"
+	"weapon2_best"						"1"
+	"weapon2_cycle"						"1"
+	"weapon2_flashlight"					"0"
+
+	"def_weapon3"						"weapon_hyperblaster"
+	"weapon3_best"						"1"
+	"weapon3_cycle"						"1"
+
+	"def_weapon4"						"weapon_grenadelauncher"
+	"weapon4_best"						"0"
+	"weapon4_cycle"						"1"
+
+	"def_weapon5"						"weapon_nailgun"
+	"weapon5_best"						"1"
+	"weapon5_cycle"						"1"
+
+	"def_weapon6"						"weapon_rocketlauncher"
+	"weapon6_best"						"0"
+	"weapon6_cycle"						"1"
+
+	"def_weapon7"						"weapon_railgun"
+	"weapon7_best"						"0"
+	"weapon7_cycle"						"1"
+
+	"def_weapon8"						"weapon_lightninggun"
+	"weapon8_best"						"1"
+	"weapon8_cycle"						"1"
+
+	"def_weapon9"						"weapon_dmg"
+	"weapon9_best"						"0"
+	"weapon9_cycle"						"1"
+
+	"def_weapon10"						"weapon_napalmgun"
+	"weapon10_best"						"0"
+	"weapon10_cycle"					"1"	
+
+	"mtr_wound"						"textures/decals/hurt02"
+	"mtr_splat"						"textures/decals/dsplat2"
+	"mtr_splat2"						"textures/decals/dsplat5"
+	"mtr_splat3"						"textures/decals/dsplat7"
+	"mtr_splat4"						"textures/decals/dsplat11"
+
+	// default weapons
+	// seperate multiple weapons with commas (no spaces).
+	// NOTE: default ammo must be specified explicitly.
+	"weapon"						"weapon_blaster"
+	"current_weapon"					"0"
+
+	"pm_jumpheight"						"48"
+	"pm_stepsize"						"16"
+	"pm_speed"						"160"  	//DOOM speed was 140
+	"pm_walkspeed"						"80"
+	"pm_crouchspeed"					"80"
+	"pm_noclipspeed"					"270"	
+	"pm_minviewpitch"					"-89"	// looking up
+//	"pm_maxviewpitch"					"53"	// looking down
+//	"pm_maxviewpitch"					"73"	// looking down
+	"pm_maxviewpitch"					"89"	// looking down
+	"pm_stamina"						"12"
+	"pm_staminathreshold"					"4"
+	"pm_staminarate"					"0.75"
+	"pm_crouchheight"					"38"
+	"pm_crouchviewheight"					"32"
+	"pm_normalheight"					"74"
+	"pm_normalviewheight"					"68"
+	"pm_deadheight"						"20"
+	"pm_deadviewheight"					"10"
+	"pm_crouchrate"						"0.87"
+	"pm_bboxwidth"						"32"
+	"pm_modelview"						"0"			// 0 == normal, 1 == view inside model, 2 == view inside model when dead
+	"pain_delay"						"0.5"		// how long to wait before playing pain sound
+	"respawn_delay"						"1.7"		// minimum delay for respawning after death
+
+	// stats
+	"health"						"100"
+	"maxhealth"						"100"
+	"armor"							"0"
+	"maxarmor"						"100"
+	"minRestoreHealth0"					"20"		// Minimum health when loading a game for skill level 0
+	"minRestoreHealth1"					"10"		// Minimum health when loading a game for skill level 1
+
+	// ammo
+	"ammo_railgun"						"0"
+	"ammo_machinegun"					"0"
+	"ammo_nailgun"						"0"
+	"ammo_blaster"						"-1"
+	"ammo_shotgun"						"0"
+	"ammo_hyperblaster"					"0"
+	"ammo_rocketlauncher"					"0"
+	"ammo_grenadelauncher"					"0"
+	"ammo_lightninggun"					"0"
+	"ammo_none"						"-1"
+
+	"max_ammo_blaster"					"-1"
+	"max_ammo_railgun"					"50"
+	"max_ammo_machinegun"					"300"
+	"max_ammo_nailgun"					"300"
+	"max_ammo_shotgun"					"50"
+	"max_ammo_hyperblaster"					"400"
+	"max_ammo_napalmgun"					"100"
+	"max_ammo_rocketlauncher"				"40"
+	"max_ammo_grenadelauncher"				"50"
+	"max_ammo_lightninggun"					"400"
+	"max_ammo_dmg"						"25"
+	"max_ammo_none"						"-1"
+
+	// inventory items
+	"key_blue"							"0"
+	"key_red"							"0"
+	"data_linker"						"0"
+	"pda"								"0"
+	"video"								""
+
+	"snd_death"							"player_sounds_death"
+	"snd_water_wade"					"player_sounds_water_wade"
+	"snd_pain_small"					"player_sounds_pain_small"
+	"snd_pain_medium"					"player_sounds_pain_medium"
+	"snd_pain_large"					"player_sounds_pain_large"
+	"snd_pain_huge"						"player_sounds_pain_huge"
+	"snd_pain_low_health"					"player_sounds_pain_lowhealth"
+	
+	"snd_footstep"						"player_sounds_footstep"
+	"snd_footstep_sand"					"player_steps_dirt"
+	"snd_footstep_dirt"					"player_steps_dirt"
+	"snd_footstep_hollowmetal"			"player_steps_hollow_metal"
+	"snd_footstep_rock"					"player_sounds_footstep"
+	"snd_footstep_flesh"				"player_steps_liquid"
+	"snd_footstep_water"				"player_sounds_water"
+	"snd_gear2"							"player_gear_movement2"
+	
+	"snd_jump"						"player_gear_movement"
+
+	"snd_stepladder"					"player_steps_ladder"
+
+	"snd_land_hard"						"player_jump_land_hard"
+	"snd_land_soft"						"player_jump_land" //todo: different landing sound for soft versus hard?
+	"snd_type"							"weapon_blaster_fire"
+	
+	"snd_guienter"						"player_sounds_guienter"
+	"snd_guiexit"						"player_sounds_guiexit"
+
+	// mekberg: this is a temp fix until I can determine why 
+	//			gui sounds aren't pre-cached when the gui is loaded
+	"snd_wristcomm"						"guisounds_click"
+
+	"snd_powerup_regen"					"player_sounds_powerup_regen"
+	"snd_powerup_wearoff"				"player_sounds_powerup_wearoff"
+	
+	"fx_lightning_crawl"				"effects/weapons/lightninggun/crawl.fx"
+	"fx_whizby"							"effects/weapons/bullet/whizby.fx"
+
+	// these used to be hard coded values from id
+	// doom 3 SP values, fatal 65, hard 45, soft 30, no fall 7
+	"fatal_fall_delta"					"65"
+	"hard_fall_delta"					"45"
+	"soft_fall_delta"					"30"
+	"no_fall_delta"						"7" 
+	
+	"def_playerView"					"playerView_marine"
+}
+
+entityDef player_strogg
+{
+	"inherit"							"player_marine"
+	"hud"								"guis/hud_strogg.gui"
+	"wristcomm"							"guis/wristcomm_strogg.gui"
+	"pm_speed"							"230" 			
+	"pm_walkspeed"						"115"
+	"strogg"							"1"		
+
+	"def_head"							"char_marinehead_kanestrg"
+	"model"								"model_player_strogg"
+
+	// stats
+	"health"							"125"
+	"maxhealth"							"125"
+	"armor"								"0"
+	"maxarmor"							"125"
+}
+
+/*
+===============================================================================
+
+	Multiplayer Player Entity Definition
+
+===============================================================================
+*/
+
+model model_player_officer
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_officer.md5mesh
+}
+
+model model_player_fatigue_marine
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_fatigue_marine.md5mesh
+}
+
+model model_player_tactical_transfer
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_tactical_transfer.md5mesh
+}
+
+model model_player_failed_transfer
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_failed_transfer.md5mesh
+}
+
+model model_player_slimy_transfer
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_slimy_transfer.md5mesh
+}
+
+model model_player_corpse
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/player_corpse.md5mesh
+}
+
+model model_player_underwear_marine
+{
+	inherit							model_player_marine
+	mesh							models/characters/player/underwear_marine.md5mesh
+}
+
+model model_player_marine_ui {
+	offset							( 0 0 1 )
+
+	mesh							models/characters/player/player.md5mesh
+
+	channel torso					( *waist)
+	channel legs					( *origin *hips -*waist )
+
+	anim head						models/characters/player/idle.md5anim
+	anim af_pose					models/characters/player/af_pose.md5anim
+//	anim ik_pose					models/characters/player/idle.md5anim
+	anim initial					models/characters/player/idle.md5anim
+
+	anim teleport					models/characters/player/idle.md5anim
+	anim exit						models/characters/player/idle.md5anim
+
+	anim idle						models/characters/player/idle.md5anim
+}
+
+// Team-less models (for DM)
+playerModel model_player_failed_transfer {
+	"model"			"model_player_failed_transfer"
+	"def_head"		""
+	"skin"			""
+	"description"		"#str_108000"
+}
+
+playerModel model_player_slimy_transfer {
+	"model"			"model_player_slimy_transfer"
+	"def_head"		""
+	"skin"			""
+	"description"		"#str_108001"
+}
+
+playerModel model_player_corpse {
+	"model"			"model_player_corpse"
+	"def_head"		""
+	"skin"			""
+	"team"			""
+	"description"		"#str_108002"
+}
+
+playerModel model_player_tactical_elite {
+	"model"			"model_player_strogg"
+	"def_head"		"char_marinehead_kanestrg_client"
+	"def_head_ui"		"char_marinehead_kanestrg_mp"
+	"skin"			"skins/characters/kane_strogg/tactical_elite"
+	"description"		"#str_108017"
+}
+
+
+playerModel model_player_tactical_command {
+	"model"			"model_player_strogg"
+	"def_head"		"char_marinehead_kanestrg_client"
+	"def_head_ui"		"char_marinehead_kanestrg_mp"
+	"skin"			"skins/characters/kane_strogg/tactical_command"
+	"description"		"#str_108018"
+}
+
+// Marine team models
+playerModel model_player_marine {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_kane2_client"
+	"def_head_ui"		"char_marinehead_kane2_mp"
+	"skin"			"skins/multiplayer/marine"
+	"team"			"marine"
+	"description"		"#str_108003"
+}
+
+playerModel model_player_marine_morris {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_morris_client"
+	"def_head_ui"		"char_marinehead_morris_mp"
+	"skin"			"skins/multiplayer/marine"
+	"team"			"marine"
+	"description"		"#str_108004"
+}
+
+playerModel model_player_marine_voss {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_voss_client"
+	"def_head_ui"		"char_marinehead_voss_mp"
+	"skin"			"skins/multiplayer/marine"
+	"team"			"marine"
+	"description"		"#str_108005"
+}
+
+playerModel model_player_marine_cortez {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_cortez_client"
+	"def_head_ui"		"char_marinehead_cortez_mp"
+	"skin"			"skins/multiplayer/marine"
+	"team"			"marine"
+	"description"		"#str_108006"
+}
+
+playerModel model_player_marine_helmeted {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_helmet_client"
+	"def_head_ui"		"char_marinehead_helmet_mp"
+	"skin"			"skins/multiplayer/marine"
+	"team"			"marine"
+	"description"		"#str_108007"
+}
+
+playerModel model_player_marine_helmeted_bright {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_helmet_bright_client"
+	"def_head_ui"		"char_marinehead_helmet_bright_mp"
+	"skin"			"skins/multiplayer/marine_bright"
+	"team"			"marine"
+	"description"		"#str_110100"
+}
+
+playerModel model_player_marine_medic {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_anderson_client"
+	"def_head_ui"		"char_marinehead_anderson_mp"
+	"skin"			"skins/characters/marine/medic_anderson_mp"
+	"team"			"marine"
+	"description"		"#str_108009"
+}
+
+playerModel model_player_marine_officer {
+	"model"			"model_player_officer"
+	"def_head"		"char_marinehead_general_harper_client"
+	"def_head_ui"		"char_marinehead_general_harper_mp"
+	"team"			"marine"
+	"description"		"#str_108010"
+}
+
+playerModel model_player_marine_fatigues {
+	"model"			"model_player_fatigue_marine"
+	"def_head"		"char_marinehead_bidwell_client"
+	"def_head_ui"		"char_marinehead_bidwell_mp"
+	"skin"			"skins/models/characters/marine/fatigues5_armsb"
+	"team"			"marine"
+	"description"		"#str_108011"
+}
+
+playerModel model_player_marine_tech {
+	"model"			"model_player_marine"
+	"def_head"		"char_marinehead_strassa_client"
+	"def_head_ui"		"char_marinehead_strassa_mp"
+	"skin"			"skins/characters/marine/tech_strauss_mp"
+	"description"		"#str_108008"
+}
+
+// Strogg team models
+playerModel model_player_tactical_transfer {
+	"model"			"model_player_tactical_transfer"
+	"def_head"		""
+	"team"			"strogg"
+	"description"		"#str_108013"
+}
+
+playerModel model_player_tactical_transfer_bright {
+	"model"			"model_player_tactical_transfer"
+	"def_head"		""
+	"skin"			"skins/multiplayer/strogg_bright"
+	"team"			"strogg"
+	"description"		"#str_110101"
+}
+
+playerModel model_player_kane_strogg {
+	"model"			"model_player_strogg"
+	"def_head"		"char_marinehead_kanestrg_client"
+	"def_head_ui"		"char_marinehead_kanestrg_mp"
+	"skin"			""
+	"team"			"strogg"
+	"description"		"#str_108014"
+}
+
+entityDef player_marine_mp  
+{
+	"inherit"			"player_marine"
+
+	"weapon"			"weapon_machinegun,weapon_gauntlet"
+	"current_weapon"		"1"
+
+	// replce blaster with gauntlet in MP
+	"def_weapon0"						"weapon_gauntlet"
+	"weapon0_best"						"1"
+	"weapon0_cycle"						"1"
+	"weapon0_flashlight"					"0"
+
+	// remove MG flashlight in MP
+	"weapon1_flashlight"		"0"
+	
+	// re-add gren, rocket, rail, DMG, and Napalm Launcher to weapon switch list
+	"weapon4_best"			"1"
+	"weapon6_best"			"1"
+	"weapon7_best"			"1"
+	"weapon9_best"			"1"
+	"weapon10_best"			"1"
+
+	// stats
+	"health"			"125"
+	"armor"				"0"
+
+	"ammo_none"			"-1"
+	"ammo_railgun"			"0"
+	"ammo_machinegun"		"100"
+	"ammo_nailgun"			"0"
+	"ammo_blaster"			"-1"
+	"ammo_shotgun"			"0"
+	"ammo_hyperblaster"		"0"
+	"ammo_rocketlauncher"		"0"
+	"ammo_grenadelauncher"		"0"
+
+	"powerup_effect_joints"		"*body -*r_wrist r_wrist -*l_wrist l_wrist"
+
+	"pm_crouchspeed"		"160"
+	"pm_speed"			"320"
+	"pm_walkspeed"			"160"
+
+	"fx_spawn"			"effects/mp/player/spawn.fx"
+	"fx_teleport"			"effects/mp/player/teleport.fx"
+	"fx_teleport_enter"		"effects/mp/player_teleport.fx"	
+	
+	// Quad Damage Effects
+	"fx_quaddamage_crawl"		"effects/mp/quaddamage_player.fx"
+	"fx_quaddamage"			"effects/mp/quaddamage_chest.fx"
+	"mtr_quaddamage_overlay"	"models/quaddamage_overlay"
+	"snd_quaddamage_idle"		"quad_hum"
+	
+	// Dead Zone Effects
+	"fx_deadzone"			"effects/mp/deadzone_chest.fx"
+	
+	
+	// Regeneration Effects
+	"fx_regeneration"		"effects/mp/regen_player.fx"
+	"mtr_regeneration_overlay"	"models/regeneration_overlay"
+	
+	// Haste Effects
+	"fx_haste"			"effects/mp/haste_player.fx"
+	"mtr_haste_overlay"		"models/haste_overlay"
+	
+	// Invisibility Effects
+	"skin_invisibility"		"skins/characters/player/invisibility"			
+	"mtr_invisibility_overlay"	"models/invisibility_overlay"
+	
+	// Guard Effects
+	"fx_guard"			"effects/mp/guard_player.fx"
+	
+	// Scout Effects
+	"fx_scout"			"effects/mp/scout_player.fx"
+	
+	// Ammo Regen Effects
+	"fx_ammoregen"			"effects/mp/ammoregen_player.fx"
+	
+	// Doubler Effects
+	"fx_doubler"			"effects/mp/doubler_player.fx"
+
+	// Gib FX
+	"fx_gib"				"effects/mp/gib.fx"
+	
+	"joint_leftEye"			"Lfteye_Focus"
+	"joint_rightEye"		"Rteye_Focus"
+	
+	"articulatedFigure"		"player"
+	"ragdoll"			"player"
+
+	// Gib information
+	"skin_gibskin"			"skins/characters/player/marine_mp_death"
+
+	"def_clientgib1"		"moveable_gib_head_pork"
+	"clientgib1_joint"		"head_channel"
+
+	"def_clientgib2"		"moveable_gib_torso_pork"
+	"clientgib2_joint"		"chest"
+
+	"def_clientgib3"		"moveable_gib_rup_arm_pork"
+	"clientgib3_joint"		"r_up_arm"
+
+	"def_clientgib4"		"moveable_gib_left_waist_pork"
+	"clientgib4_joint"		"waist"
+
+	"def_clientgib5"		"moveable_gib_lup_leg_pork"
+	"clientgib5_joint"		"l_upleg"
+
+	"def_clientgib6"		"moveable_gib_rup_leg_pork"
+	"clientgib6_joint"		"r_upleg"
+
+	"def_clientgib7"		"moveable_gib_rup2_leg_pork"
+	"clientgib7_joint"		"r_loleg"
+
+	"def_clientgib8"		"moveable_gib_pelvis_pork"
+	"clientgib8_joint"		"hips"
+
+	"def_clientgib9"		"moveable_gib_skull"
+	"clientgib9_joint"		"shoulders"
+
+	"snd_weaponHit"			"weapon_hit"
+	"snd_armorHit"			"armor_hit"
+	
+	"snd_chat"			"mp_incoming_message"
+	"snd_teamchat"			"mp_incoming_message_team"
+
+	"snd_dzpulse_happy"		"mp_dz_happy_pulse"
+	"snd_dzpulse_unhappy"		"mp_dz_unhappy_pulse"
+	"snd_buying_givecash"		"mp_buying_givecash"
+
+	"snd_land_hard"			"player_jump_land_hard_mp"
+	"snd_land_hard_pain"		"player_jump_land_hard_pain_mp"
+	
+	"snd_footstep"			"player_mp_footstep"
+	"snd_footstep_sand"		"player_mp_footstep"
+	"snd_footstep_dirt"		"player_mp_footstep"
+	"snd_footstep_hollowmetal"	"player_mp_footstep"
+	"snd_footstep_rock"		"player_mp_footstep"
+	"snd_footstep_flesh"		"player_mp_footstep"
+	"snd_footstep_water"		"player_mp_footstep"
+	"snd_jump"			"player_jump_mp"
+	
+	// these are new values for mp
+	// quake3 values: FAR fall = 60, Medium = 40, Short = 7
+	"fatal_fall_delta"		"0"
+	"hard_fall_delta"		"60"
+	"soft_fall_delta"		"40"
+	"no_fall_delta"			"7" 
+	
+	// snd_award_X, X must match an award name as in StatManager.cpp/inGameAwardInfo
+	"snd_award_capture"		"mp_announce_award_capture"
+	"snd_award_humiliation"		"mp_announce_award_humiliation"
+	"snd_award_impressive"		"mp_announce_award_impressive"
+	"snd_award_excellent"		"mp_announce_award_excellent"
+	"snd_award_assist"		"mp_announce_award_assist"
+	"snd_award_defense"		"mp_announce_award_defense"
+	"snd_award_combo_kill"		"mp_announce_award_combo_kill"
+	"snd_award_rampage"		"mp_announce_award_rampage"
+	"snd_award_holy_shit"		"mp_announce_award_holy_shit"
+	
+	// mtr_award_X, X must match an award name as in StatManager.cpp/inGameAwardInfo
+	"mtr_award_capture"		"textures/mp/awards/capture"
+	"mtr_award_humiliation"		"textures/mp/awards/humiliation"
+	"mtr_award_impressive"		"textures/mp/awards/impressive"
+	"mtr_award_excellent"		"textures/mp/awards/excellent"
+	"mtr_award_assist"		"textures/mp/awards/assist"
+	"mtr_award_defense"		"textures/mp/awards/defense"
+	"mtr_award_combo_kill"		"textures/mp/awards/combo_kill"
+	"mtr_award_rampage"		"textures/mp/awards/rampage"
+	"mtr_award_holy_shit"		"textures/mp/awards/holy_shit"
+
+
+	// Custom Crosshairs
+	"mtr_crosshair1"		"gfx/guis/crosshairs/crosshair_blaster.tga"
+	"mtr_crosshair2"		"gfx/guis/crosshairs/crosshair_grenadelauncher.tga"
+	"mtr_crosshair3"		"gfx/guis/crosshairs/crosshair_lightninggun.tga"
+	"mtr_crosshair4"		"gfx/guis/crosshairs/crosshair_machinegun.tga"
+	"mtr_crosshair5"		"gfx/guis/crosshairs/crosshair_nailgun.tga"
+	"mtr_crosshair6"		"gfx/guis/crosshairs/crosshair_railgun.tga"
+	"mtr_crosshair7"		"gfx/guis/crosshairs/crosshair_rocketlauncher.tga"
+	"mtr_crosshair8"		"gfx/guis/crosshairs/crosshair_shotgun.tga"
+	"mtr_crosshair9"		"gfx/guis/crosshairs/crosshair_q3_1.tga"
+	"mtr_crosshair10"		"gfx/guis/crosshairs/crosshair_q3_2.tga"
+	"mtr_crosshair11"		"gfx/guis/crosshairs/crosshair_q3_3.tga"
+	"mtr_crosshair12"		"gfx/guis/crosshairs/crosshair_q3_4.tga"
+	"mtr_crosshair13"		"gfx/guis/crosshairs/crosshair_q3_5.tga"
+	"mtr_crosshair14"		"gfx/guis/crosshairs/crosshair_q3_6.tga"
+	"mtr_crosshair15"		"gfx/guis/crosshairs/crosshair_q3_7.tga"
+	"mtr_crosshair16"		"gfx/guis/crosshairs/crosshair_q3_8.tga"
+	"mtr_crosshair17"		"gfx/guis/crosshairs/crosshair_q3_9.tga"
+	"mtr_crosshair18"		"gfx/guis/crosshairs/crosshair_q3_10.tga"
+	
+	// enabled friend icon
+	"icon fde"			"gfx/guis/hud/icons/icon_friend.tga"
+	// disabled friend icon
+	"icon fdd"			"gfx/guis/hud/icons/icon_friend_disabled.tga"
+	// enabled voice chat icon
+	"icon vce"			"gfx/guis/hud/icons/icon_speaker.tga"
+	// disabled voice chat icon (mute)
+	"icon vcd"			"gfx/guis/hud/icons/icon_speaker_disabled.tga"
+	// marine flag
+	"icon flm"			"gfx/guis/hud/icons/sb_flag_marine.tga"
+	// strogg flag
+	"icon fls"			"gfx/guis/hud/icons/sb_flag_strogg.tga"
+		
+	// ready icon
+	"icon yrd"			"gfx/guis/hud/icons/icon_ready.tga"
+	"icon nrd"			"gfx/guis/hud/icons/icon_notready.tga"
+		
+	// ** -> If you change these, change the wkX_text and dmX_text messages below <- **
+	// VV
+	"icon w00"			"gfx/guis/hud/icons/item_gauntlet_colored"
+	"icon w01"			"gfx/guis/hud/icons/item_machinegun_colored"
+	"icon w02"			"gfx/guis/hud/icons/item_shotgun_colored"
+	"icon w03"			"gfx/guis/hud/icons/item_hyperblaster_colored"
+	"icon w04"			"gfx/guis/hud/icons/item_grenade_colored"
+	"icon w05"			"gfx/guis/hud/icons/item_nailgun_colored"
+	"icon w06"			"gfx/guis/hud/icons/item_rocket_colored"
+	"icon w07"			"gfx/guis/hud/icons/item_railgun_colored"
+	"icon w08"			"gfx/guis/hud/icons/item_lightning_colored"
+	"icon w09"			"gfx/guis/hud/icons/item_darkmatter_colored"
+	"icon w10"			"gfx/guis/hud/icons/item_fire_colored"
+	
+	"icon dm0"			"gfx/guis/hud/icons/kill_self.tga"
+	"icon dm1"			"gfx/guis/hud/icons/kill_telefrag.tga"
+	// ^^
+	
+	// Text equivalents for console death messages
+	// First %s will be substituted with victim name, second with attacker
+	"w00_text"			"%s was pummeled by %s"
+	"w01_text"			"%s was machinegunned by %s"
+	"w02_text"			"%s ate %s's boomstick"
+	"w03_text"			"%s was hyperblasted by %s"
+	"w04_text"			"%s ate %s's pineapple"
+	"w05_text"			"%s was nailed by %s"
+	"w06_text"			"%s rode %s's rocket"
+	"w07_text"			"%s was railed by %s"
+	"w08_text"			"%s accepted %s's discharge"
+	"w09_text"			"%s was compressed into a singularity by %s"
+	"w10_text"			"%s was toasted by %s"
+	
+	"dm0_text"			"%s was killed by %s"
+	"dm1_text"			"%s was telefragged by %s"
+	
+	"mtr_team_icon_strogg"		"textures/mp/strogg_icon"
+	"team_icon_height_strogg"	"0 0 85"
+	"mtr_team_icon_marine"		"textures/mp/marine_icon"
+	"team_icon_height_marine"	"0 0 85"
+	
+	// chat bubble over head
+	"mtr_icon_chatting"		"gfx/guis/hud/chat"
+	
+	"def_default_model"		"model_player_marine"
+	"def_default_model_marine"	"model_player_marine"
+	"def_default_model_strogg"	"model_player_kane_strogg"
+	
+	"pm_crouchheight"		"49"
+	"pm_normalheight"		"77"
+
+	"anim crouch_walk"		"mp_crouch_walk"
+	"anim crouch_walk_backward"	"mp_crouch_walk_backward"
+	
+	"fx_ctf_marine_flag_world"	"effects/mp/carryflag_marine.fx"
+	"fx_ctf_strogg_flag_world"	"effects/mp/carryflag_strogg.fx"
+	"flagEffectOrigin"		"0 0 0"
+	"flagEffectJoint"		"shoulders"
+	
+	// make sure ctf models get precached
+	"def_flag_pole"			"mp_ctf_flag_pole"
+	"def_flag_marine_world"		"mp_ctf_marine_flag_world"
+	"def_flag_strogg_world"		"mp_ctf_strogg_flag_world"
+
+	// max ammo changes from SP	
+	"max_ammo_railgun"		"50"
+	"max_ammo_rocketlauncher"	"40"	
+	"max_ammo_dmg"			"20"
+}
+
+entityDef player_ui_anims {
+	"model"								"model_player_marine_ui"
+}
+
+entityDef player_marine_mp_ui
+{
+	"joint_head"						"chest"
+	"joint_hips"						"hips"
+	"joint_chest"						"chest"
+	"joint_eyeOffset"					""
+	"joint_chestOffset"					"chest"
+
+	"def_default_model"					"model_player_marine"
+	"def_default_model_marine"				"model_player_marine"
+	"def_default_model_strogg"				"model_player_kane_strogg"
+	
+	"powerup_effect_joints"				"*body -*r_wrist r_wrist -*l_wrist l_wrist"
+
+	"joint_leftEye"						"Lfteye_Focus"
+	"joint_rightEye"						"Rteye_Focus"
+
+	"articulatedFigure"					"player"
+	"ragdoll"							"player"
+	
+	// Custom Crosshairs
+	"mtr_crosshair1"					"gfx/guis/crosshairs/crosshair_blaster.tga"
+	"mtr_crosshair2"					"gfx/guis/crosshairs/crosshair_grenadelauncher.tga"
+	"mtr_crosshair3"					"gfx/guis/crosshairs/crosshair_lightninggun.tga"
+	"mtr_crosshair4"					"gfx/guis/crosshairs/crosshair_machinegun.tga"
+	"mtr_crosshair5"					"gfx/guis/crosshairs/crosshair_nailgun.tga"
+	"mtr_crosshair6"					"gfx/guis/crosshairs/crosshair_railgun.tga"
+	"mtr_crosshair7"					"gfx/guis/crosshairs/crosshair_rocketlauncher.tga"
+	"mtr_crosshair8"					"gfx/guis/crosshairs/crosshair_shotgun.tga"
+	"mtr_crosshair9"					"gfx/guis/crosshairs/crosshair_q3_1.tga"
+	"mtr_crosshair10"					"gfx/guis/crosshairs/crosshair_q3_2.tga"
+	"mtr_crosshair11"					"gfx/guis/crosshairs/crosshair_q3_3.tga"
+	"mtr_crosshair12"					"gfx/guis/crosshairs/crosshair_q3_4.tga"
+	"mtr_crosshair13"					"gfx/guis/crosshairs/crosshair_q3_5.tga"
+	"mtr_crosshair14"					"gfx/guis/crosshairs/crosshair_q3_6.tga"
+	"mtr_crosshair15"					"gfx/guis/crosshairs/crosshair_q3_7.tga"
+	"mtr_crosshair16"					"gfx/guis/crosshairs/crosshair_q3_8.tga"
+	"mtr_crosshair17"					"gfx/guis/crosshairs/crosshair_q3_9.tga"
+	"mtr_crosshair18"					"gfx/guis/crosshairs/crosshair_q3_10.tga"
+
+	"spawnclass"						"idPlayer"
+
+	"blink_min"							"0.5"
+	"blink_max"							"8.0"
+	
+	"model"								"model_player_marine_ui"
+	"def_head"							"char_marinehead_default"
+
+	"copy_joint neckcontrol"			"neckcontrol"
+	"copy_joint shoulders"				"shoulders"
+	"copy_joint legs_channel"			"legs_channel"
+
+	"weapon"							"weapon_blaster_gui"
+}
+
+entityDef player_marine_client {
+	"spawnclass"					"rvClientAFEntity"
+	"articulatedFigure"				"player"
+	"ragdoll"					"player"
+	"model"						"model_player_marine"
+}
+
+entityDef char_marinehead_default_client {
+	"inherit"					"char_marinehead_default_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_strassa_client {
+	"inherit"					"char_marinehead_strassa_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_kanestrg_client {
+	"inherit"					"char_marinehead_kanestrg_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_kane2_client {
+	"inherit"					"char_marinehead_kane2_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_morris_client {
+	"inherit"					"char_marinehead_morris_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_voss_client {
+	"inherit"					"char_marinehead_voss_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_cortez_client {
+	"inherit"					"char_marinehead_cortez_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_helmet_client {
+	"inherit"					"char_marinehead_helmet_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_helmet_bright_client {
+	"inherit"					"char_marinehead_helmet_bright_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_anderson_client {
+	"inherit"					"char_marinehead_anderson_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_general_harper_client {
+	"inherit"					"char_marinehead_general_harper_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+entityDef char_marinehead_bidwell_client {
+	"inherit"					"char_marinehead_bidwell_mp"
+	"spawnclass"					"rvClientAFAttachment"
+}
+
+// removing network entity spawn by typenum
+// need entity defs for those
+
+entityDef player_viewweapon {
+	"spawnclass"				"rvViewWeapon"
+}
+
+entityDef player_animatedentity {
+	"spawnclass"				"idAnimatedEntity"
+	"networkSync"				"1"
+}

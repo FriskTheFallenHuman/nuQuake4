@@ -1,0 +1,1777 @@
+//------------------------------------------------------------------------------------
+// hangar2.script
+//
+// (C) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_hangar2
+{
+float chargeCount =0;
+float killTally =0;
+float turretsDead =0;
+//float needRhodes =1;
+
+//this is the one shot "spook" turret monster
+float gTurretMonster = 0;
+
+/*
+//this is the count of slain monsters in the north and south hangars. When the rooms are clear,
+//Rhodes will be able to plant a bomb.
+float gSouthHangarCount = 0;
+float gNorthHangarCount = 0;
+
+float gPlantingBomb = 0;
+
+
+void southHangarCount()	{ gSouthHangarCount++; };
+void northHangarCount()	{ gNorthHangarCount++; };
+
+*/
+
+void showLoots();
+void hideLoots();
+
+/*
+// Music fadin'
+void fadeIntroLoop()	{
+	$intro_music.fadeSound( SND_CHANNEL_ANY, -80, 10);
+	sys.wait(10);
+	$intro_music.remove();
+}
+*/
+
+// debug for rhodes
+void rhodesUndying()
+{
+	$rhodes.setUndying(1);
+}
+
+// --------------------------------------------
+// drawbridge1 and 2
+// --------------------------------------------
+
+void drawbridge1( entity bridgeTrigger )
+{
+	string state;
+
+	state = bridgeTrigger.getKey( "bridgeState" );
+
+	$drawbridge_origin1_1.time(9);
+	$drawbridge_origin1_1.accelTime(4);
+	$drawbridge_origin1_1.decelTime(4);
+
+	$drawbridge_origin2_1.time(12);
+	$drawbridge_origin2_1.accelTime(3);
+	$drawbridge_origin2_1.decelTime(6);
+
+	$drawbridge_innerarms_1.accelTime(0.15);
+	$drawbridge_innerarms_1.decelTime(0.15);
+
+	if ( state == "down" )
+	{
+		$drawbridge_light_1.fadeInLight( 1 );
+
+		sys.wait(0.5);
+
+		$drawbridge_origin1_1.rotateOnce( '0 0 80' );
+		$drawbridge_origin2_1.rotateOnce( '0 0 -180' );
+
+		sys.waitFor($drawbridge_origin2_1);
+		sys.wait(0.5);
+
+		$drawbridge_innerarms_1.time(0.75);
+		$drawbridge_innerarms_1.move( DOWN , 16 );
+
+		sys.waitFor($drawbridge_innerarms_1);
+		sys.wait(0.25);
+
+		$drawbridge_innerarms_1.time(1.5);
+		$drawbridge_innerarms_1.move( SOUTH , 24 );
+
+		sys.waitFor($drawbridge_innerarms_1);
+
+		bridgeTrigger.setKey( "bridgeState" , "up" );
+
+		$drawbridge_light_1.fadeOutLight( 1 );
+	}
+
+	else if ( state == "up" )
+	{
+		$drawbridge_light_1.fadeInLight( 1 );
+
+		sys.wait(0.5);
+
+		$drawbridge_innerarms_1.time(1.5);
+		$drawbridge_innerarms_1.move( NORTH , 24 );
+
+		sys.waitFor($drawbridge_innerarms_1);
+		sys.wait(0.25);
+
+		$drawbridge_innerarms_1.time(0.75);
+		$drawbridge_innerarms_1.move( UP , 16 );
+
+		sys.waitFor($drawbridge_innerarms_1);
+		sys.wait(0.5);
+
+		$drawbridge_origin1_1.rotateOnce( '0 0 -80' );
+		$drawbridge_origin2_1.rotateOnce( '0 0 180' );
+
+		sys.waitFor($drawbridge_origin2_1);
+
+		bridgeTrigger.setKey( "bridgeState" , "down" );
+
+		$drawbridge_light_1.fadeOutLight( 1 );
+	}
+}
+
+void drawbridge2( entity bridgeTrigger )
+{
+	string state;
+
+	state = bridgeTrigger.getKey( "bridgeState" );
+
+	$drawbridge_origin1_2.time(9);
+	$drawbridge_origin1_2.accelTime(4);
+	$drawbridge_origin1_2.decelTime(4);
+
+	$drawbridge_origin2_2.time(12);
+	$drawbridge_origin2_2.accelTime(3);
+	$drawbridge_origin2_2.decelTime(6);
+
+	$drawbridge_innerarms_2.accelTime(0.5);
+	$drawbridge_innerarms_2.decelTime(0.5);
+
+	if ( state == "down" )
+	{
+		$drawbridge_light_2.fadeInLight( 1 );
+
+		sys.wait(0.5);
+
+		$drawbridge_origin1_2.rotateOnce( '0 0 -80' );
+		$drawbridge_origin2_2.rotateOnce( '0 0 180' );
+
+		sys.waitFor($drawbridge_origin2_2);
+		sys.wait(0.5);
+
+		$drawbridge_innerarms_2.time(0.75);
+		$drawbridge_innerarms_2.move( DOWN , 16 );
+
+		sys.waitFor($drawbridge_innerarms_2);
+		sys.wait(0.25);
+
+		$drawbridge_innerarms_2.time(1.5);
+		$drawbridge_innerarms_2.move( NORTH , 24 );
+
+		sys.waitFor($drawbridge_innerarms_2);
+
+		bridgeTrigger.setKey( "bridgeState" , "up" );
+
+		$drawbridge_light_2.fadeOutLight( 1 );
+	}
+
+	else if ( state == "up" )
+	{
+		$drawbridge_light_2.fadeInLight( 1 );
+
+		sys.wait(0.5);
+
+		$drawbridge_innerarms_2.time(1.5);
+		$drawbridge_innerarms_2.move( SOUTH , 24 );
+
+		sys.waitFor($drawbridge_innerarms_2);
+		sys.wait(0.25);
+
+		$drawbridge_innerarms_2.time(0.75);
+		$drawbridge_innerarms_2.move( UP , 16 );
+
+		sys.waitFor($drawbridge_innerarms_2);
+		sys.wait(0.5);
+
+		$drawbridge_origin1_2.rotateOnce( '0 0 80' );
+		$drawbridge_origin2_2.rotateOnce( '0 0 -180' );
+
+		sys.waitFor($drawbridge_origin2_2);
+
+		bridgeTrigger.setKey( "bridgeState" , "down" );
+
+		$drawbridge_light_2.fadeOutLight( 1 );
+	}
+}
+
+// --------------------------------------------
+// Move north elevator up, from hangar1 (start of map)
+// --------------------------------------------
+
+void elevNorthGoUp()
+{
+	// No talking on the way up.
+	if( isLivingEntity( $puccini ) )	{
+		$puccini.setTalkState( TALK_WAIT );		
+	}
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.setTalkState( TALK_WAIT );		
+	}	
+	
+	setNewTimes( $elevNorth , 60 , 0 , 2 );
+	$elevNorth.moveTo( $elevNorthMoveUpTo );
+	sys.waitFor( $elevNorth );
+	$mahlerClip.remove();
+	
+	$upElevGUI.guiEvent( "anim_up_reset" );
+	$fakeCallLiftGUI.guiEvent( "greyout" );
+	//$lift_sound_1.remove();
+	
+	$mover_elevTopGate.move( DOWN , 64 );
+	aiScriptedFace( $puccini , $mover_elevTopGate , 1 );
+	sys.wait( .75 );
+		
+	$elevGateClip.hide();
+	setNewTimes( $elevGate , 1 , .5 , .2 );
+	$elevGate.rotateOnce( '0 0 90' );
+	sys.waitFor( $elevGate );
+	
+	//Trigger tethers to get guys off the elevator
+	sys.trigger( $ai_tether_mahlerOffElev );
+	sys.wait( .25 );
+	sys.trigger( $ai_tether_elgarOffElev );
+	sys.wait( .5 );
+	sys.trigger( $ai_tether_pucciniOffElev );
+	
+	//Talking and healing allowed
+	if( isLivingEntity( $puccini ) )	{
+		$puccini.setTalkState( TALK_OK );		
+		$puccini.enableHeal();
+		sys.wait( 1 ) ;
+	}
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.setTalkState( TALK_OK );		
+		$elgar.enableHeal();
+	}	
+}
+
+void viperDown()	{
+	// Rotate the gate back up
+	$elevGate.rotateOnce( '0 0 -90' );
+	sys.wait( .75 );
+	
+	// Move the rails back up
+	$mover_elevTopGate.move( UP , 64 );
+	sys.waitFor( $mover_elevTopGate );
+	
+	// Put the elevator clip back on and remove the stay back clip brush
+	$elevGateClip.show();
+	$stayBack.remove();
+	sys.wait( 1 );
+	
+	// Send the elevator down.
+	setNewTimes( $elevNorth , 30 , 2 , 0 );
+	$elevNorth.move( DOWN, 1024);
+	$upElevGUI.guiEvent( "anim_down" );
+	
+	// Wait for a while, then remove everything when it's out of view
+	sys.waitFor( $elevNorth);
+	$mahler.remove();
+	$elgar.remove();
+	$puccini.remove();
+	sys.waitFrame();
+	$elevNorth.remove();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+////////////////////////Start of script additions by Chad/////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////
+////Crane moving flyers as elevator rises///
+///////////////////////////////////////////
+
+void crane_moving()
+{
+	$rail_1.time(5);
+	$rail_1.moveTo($rail_1_point_2);
+	sys.waitFor($rail_1);
+	
+	$base_1.time(5);
+	$base_1.moveTo($base_1_point_2);
+	sys.waitFor($base_1);
+	
+	$flyer_2.unbind();
+	$flyer_2.bind($platform_1);
+	
+	$axis_1.rotateOnce('-90 0 0');
+	sys.waitFor($rail_1);
+	
+	sys.wait(1);
+	$rail_1.time(5);
+	$rail_1.moveTo($rail_1_point_1);
+	$base_1.time(5);
+	$base_1.moveTo($base_1_point_1);
+	sys.wait(5);
+	
+	$crane_1.time(25);
+	$crane_1.moveTo($crane_1_point_2);
+	$platform_1.time(10);
+	$platform_1.rotateOnce('0 90 0');
+	sys.wait(10);
+	$platform_1.rotateOnce('0 90 0');
+	sys.waitFor($crane_1);
+	//$elgar.lookAt($null_entity);
+}
+
+////////////////////////////////////////
+///Mahler giving quick briefing////////
+//////////////////////////////////////
+
+void starting_vo()
+{
+	sys.wait(1);
+	if(isLivingEntity( $puccini ) )	{
+		$puccini.speak("lipsync_how_intriguing");
+	}
+	sys.wait(26);
+	$mahler.speak("lipsync_talk_clearing");
+	
+}
+
+//////////////////////////////////////////////////
+///Objective activated after radio chatter////////
+//////////////////////////////////////////////////
+
+void obj_clear_hangar()
+{
+	sys.wait(4);
+	sys.trigger($objClearHangar);
+}
+
+// Set leader
+void viperFollows()
+{
+	$mahler.setLeader( $player1 );
+	
+	if( isLivingEntity( $puccini ) )	{
+		$puccini.setLeader( $player1 );
+	}
+	
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.setLeader( $player1 );
+	}
+}
+
+// Break leader
+void viperUnFollows()	{
+	$mahler.setLeader( $null_entity );
+	if( isLivingEntity( $puccini ) )	{
+		$puccini.setLeader( $null_entity );
+	}
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.setLeader( $null_entity );
+	}
+}
+
+/////////////////////////////////////
+//bind minepack to rhodes///////////
+///////////////////////////////////
+
+void bind_minepack()
+{
+	aiScriptedAnim( $rhodes , "af_pose" , 0 , 1 );
+	$mine_pack.bindToJoint($rhodes, "waist", 1);
+	$rhodes.hide();
+}
+
+///////////////////////////////////////
+//Hostiles cleared and team arrives///
+/////////////////////////////////////
+
+void team_arrived()
+{
+	//$light_warning_1.On(); 
+	//why was this here?
+
+	sys.trigger($trigger_once_5);
+	sys.trigger($trigger_once_37);
+	sys.wait(2);
+
+	//have the team relax and Mahler call the all clear. This will pull everyone back to the center too
+	sys.trigger( $ai_become_passive_1);
+	sys.trigger($objClearHangarComplete);
+	
+	aiScriptedAnimWait( $mahler , "idle_wrist_gui_start_fast" , 5 , 0 );
+	aiScriptedAnimLoop( $mahler , "idle_wrist_gui_loop" , 5 );
+	aiSpeakWait( $mahler, "lipsync_all_clear");
+	aiScriptedAnimWait( $mahler , "idle_wrist_gui_end_fast" , 5 , 1 );
+	sys.wait( 1 );
+	
+	// Moved this here for better timing on the way back to meet rhodes - keeps guys closer. (aweldon sept 05 )
+	thread viperFollows();
+
+	//Morris will send in radio details
+	radioChatterPlayWait( $func_radiochatter_3, "");
+	sys.wait(.5);
+	radioChatterPlayWait( $rhodesYesIAm, "");
+	sys.trigger( $objLCD );
+	
+	//Rhodes is ready to go.
+	$mine_pack.show();
+	$rhodes.show();
+
+	//unlock the door
+	sys.trigger( $clampDoorLock_4 );
+
+	// Make the guys follow the player and clear their tether
+	//thread viperFollows();
+	sys.trigger( $ai_tether_none_1);
+	
+	// Keep the player off the elevator
+	sys.trigger( $stayBack );
+}
+
+////////////////////////////////////
+//Player meets demolition team/////
+//////////////////////////////////
+
+// Functions for rhodes to do stuff
+void rhodesFollow()	{
+	$rhodes.setLeader( $player1 );
+}
+
+void rhodesLook()	{
+	$rhodes.lookAt( $player1 );
+	aiScriptedFace( $rhodes , $player1 , 1 );
+}
+
+void rhodesNoLook()	{
+	$rhodes.lookAt( $null_entity );	
+	aiScriptedStop( $rhodes );
+}
+
+void mahlerToRhodes()	{
+	$mahler.setLeader( $null_entity );
+	aiScriptedMoveWait( $mahler , $mahler_here , 8 , 1 );
+	aiScriptedFaceWait( $mahler , $rhodes , 1 );
+	$mahler.lookAt( $rhodes );
+	aiScriptedAnimWait( $mahler , "idle_weapon_1_start" , 4 , 0 );
+	aiScriptedAnimLoop( $mahler , "idle_weapon_1_loop" , 4 );
+}
+
+void pucciniToRhodes()	{
+	if( isLivingEntity( $puccini ) )	{
+		$puccini.setLeader( $null_entity );
+		$puccini.disableHeal();
+		aiScriptedMoveWait( $puccini, $puccini_here , 8 , 1 );
+		aiScriptedFaceWait( $puccini , $rhodes , 1 );
+		$puccini.lookAt( $rhodes );
+		aiScriptedAnimWait( $puccini , "idle_weapon_2_start" , 4 , 0 );
+		aiScriptedAnimLoop( $puccini , "idle_weapon_2_loop" , 4 );
+	}
+}
+
+void elgarToRhodes()	{
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.setLeader( $null_entity );
+		$elgar.disableHeal();
+		aiScriptedMoveWait( $elgar , $elgar_here , 8 , 1 );
+		aiScriptedFaceWait( $elgar , $rhodes , 1 );
+		$elgar.lookAt( $rhodes );
+		aiScriptedAnimWait( $elgar , "idle_weapon_1_start" , 4 , 0 );
+		aiScriptedAnimLoop( $elgar , "idle_weapon_1_loop" , 4 );
+	}
+}
+
+void flashlightsOff()	{
+	$mahler.flashlight( 0 );
+	sys.wait( .5 );
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.flashlight( 0 );
+		sys.wait( .75 );
+	}
+	if( isLivingEntity( $puccini ) )	{	
+		$puccini.flashlight( 0 );
+	}
+}
+
+void marinesToPositions()	{
+	
+	sys.trigger( $objLCDComplete );
+	
+	// Positions, everyone!
+	thread mahlerToRhodes();
+	thread pucciniToRhodes();
+	thread elgarToRhodes();
+		
+	// Make all the goodies show up.	
+	thread showLoots();
+	
+	//lights
+	thread flashlightsOff();
+	
+	aiScriptedMoveWait( $rhodes, $rhodes_here, 32, true);
+}
+
+void viperBackToElev()	{
+	
+	// Get out of the idle anims and clear look targets
+	aiScriptedAnim( $mahler , "idle_weapon_1_end" , 4 , 1 );
+	$mahler.lookAt( $null_entity );
+	sys.wait( .25 );
+	if(isLivingEntity( $elgar ) )	{
+		$elgar.lookAt( $null_entity );
+		aiScriptedAnimWait( $elgar  , "idle_weapon_1_end" , 4 , 1 );
+	}
+	sys.wait( .25 );
+	if(isLivingEntity( $puccini ) )	{
+		aiScriptedAnimWait( $puccini, "idle_weapon_2_end" , 4 , 1 );
+		$puccini.lookAt( $null_entity );
+	}
+	
+	// trigger tethers to send the guys back to the elevator
+	sys.trigger( $viperReturnToElev_1 );
+	sys.wait( .1 );
+	sys.trigger( $viperReturnToElev_2 );
+	sys.wait( .25 );
+	sys.trigger( $viperReturnToElev_3 );
+	sys.trigger( $checkGuysAtElev );
+}
+
+// Meeting with Rhodes
+void marines_join()
+{
+	// Lock the door when reaching this point (evil, I know... :( )
+	$clampDoorTop_3.lock(1);
+		
+	// No talking!
+	$rhodes.setTalkState( TALK_WAIT );
+	if( isLivingEntity( $elgar ) )	{
+		$elgar.setTalkState( TALK_WAIT );
+	}
+	if( isLivingEntity( $puccini ) )	{
+		$puccini.setTalkState( TALK_WAIT );
+	}
+	
+	// Rhodes faces and looks at mister player
+	aiScriptedFaceWait( $rhodes, $player1 , 1 );
+	$rhodes.lookAt($player1);
+	
+	// Rhodes speaks
+	aiSpeak( $rhodes, "lipsync_still_kicking" );
+	aiScriptedAnimWait( $rhodes , "idle_weapon_3_start" , 4 , 0 );
+	aiScriptedAnimLoop( $rhodes , "idle_weapon_3_loop" , 4 );
+	aiSpeakDone( $rhodes );
+	$mahler.lookAt($player1);
+	$rhodes.lookAt($mahler);
+	
+	$puccini.lookAt( $mahler );
+	aiSpeakWait( $mahler , "lipsync_the_kane" );
+	
+	aiScriptedAnim( $rhodes , "idle_weapon_3_end" , 4 , 1 );
+	radioChatterPlayWait( $func_radiochatter_4 , "" );
+	$rhodes.lookAt($mahler);
+	
+	aiScriptedAnimWait( $rhodes , "idle_wrist_gui_start_fast" , 5 , 0 );
+	aiScriptedAnimLoop( $rhodes , "idle_wrist_gui_loop" , 4 );
+	aiSpeak( $rhodes, "lipsync_on_way" );
+	sys.wait( 1.5 );
+	aiScriptedAnimWait( $rhodes , "idle_wrist_gui_end_fast" , 5 , 0 );
+	aiScriptedAnim( $rhodes , "point_right" , 4 , 1 );
+	sys.wait( .25 );
+	aiSpeakDone( $rhodes );
+	
+	//send the whole team out to the elevator. (timed here for precision!)
+	thread viperBackToElev();
+	
+	// Yes, sir.
+	aiSpeakWait($mahler, "lipsync_yes_sir");
+	
+	$rhodes.lookAt($player1);
+	aiSpeakWait( $rhodes , "lipsync_protect_me" );
+	$rhodes.setLeader( $player1 );
+	sys.wait( .5 );
+	sys.trigger( $rhodesStarts );
+	sys.trigger( $rhodesFollows );
+	sys.trigger( $trigger_rhodesFollowFuel );
+	aiSpeak( $rhodes, "lipsync_come_on" );
+	
+	// Unlock the door
+	$clampDoorTop_3.lock(0);
+	
+	sys.trigger( $objEscortDemo );
+	sys.trigger( $clampDoorLock_5 );
+	
+	//sys.trigger( $setRhodesToFollow );
+	sys.trigger( $toggleRhodesLight_1 );
+	sys.trigger( $toggleRhodesLight_2 );
+	
+	//clear look
+	$rhodes.lookAt($null_entity);
+	
+	$rhodes.setTalkState( TALK_OK );
+}
+
+////////////////////////////////////////////////
+/////Rhodes taking player to view explosion////
+//////////////////////////////////////////////
+
+void hack_door()
+{
+	$rhodes.lookAt($null_entity);
+	aiScriptedMoveWait($rhodes, $rhodes_lead_1 , 20, false);
+	sys.waitFor($rhodes);
+	aiScriptedFace ( $rhodes, $rhodes_look, true );
+	aiScriptedAnimWait($rhodes, "plant_tnt_high", 4, true );
+	sys.trigger( $clampDoorLock_14 );
+	sys.wait( .25 );
+	sys.trigger( $rhodesEnterControl );
+	sys.trigger( $rhodesEnterControlCheck );
+	$rhodes.speak("lipsync_see_fireworks");
+		
+	//sys.trigger($objEscortComplete); appears to be a duplicate for "objEscortDemoComplete" -corey
+}
+
+void moveToHackPosition( string hangar )	{
+
+	if( hangar == "south" )	{
+		//sys.println("MOVING TO LEAD FOR SOUTH HANGAR");
+		sys.trigger( $rhodesLeads );
+		sys.trigger( $rhodesLeads_cond );	
+	}
+	
+	else if( hangar == "north" )	{
+		//sys.println("MOVING TO LEAD FOR NORTH HANGAR");
+		sys.trigger( $rhodesLeads_0 );
+		sys.trigger( $rhodesLeads_cond_0 );	
+	}
+}
+
+////////////////////////////////////////
+/////Rhodes planting charges///////////
+//////////////////////////////////////
+
+//--
+// Conditional trigger - only fire if the associated condition is true.		aweldon Jul 05
+//--
+
+// NOT CURRENTLY USED
+void checkTriggerCondition( entity combatTrigger )	{
+	
+	entity target = combatTrigger.getTarget(0);
+	entity master = combatTrigger.getTarget(1);
+	
+	// Store condition on the master entity in the "condition" key ( 1 for true, 0 for false )
+	float cond = master.getFloatKey( "condition" );
+	
+	// Only trigger the target if the condition is met
+	if( cond )	{
+		sys.trigger( target );
+	}
+}
+
+//--
+// End conditional
+
+void removeCombatTriggers()	{
+	$rhodesCombatTrigger_1.remove();
+	$rhodesCombatTrigger_2.remove();
+	$rhodesCombatTrigger_3.remove();
+	$rhodesCombatTrigger_4.remove();
+	$rhodesCombatTrigger_5.remove();
+	$rhodesCombatTrigger_6.remove();
+}
+
+// variable for toggling Rhodes' flashlight in the dark bits.
+float rhodesLightOn=0;
+
+// Toggle Rhodes' light off and on as he enters/exits dark spots.
+void rhodesLight()	{
+	
+	// His light is off, turn it on.
+	if( !rhodesLightOn )	{
+		$rhodes.flashlight(1);
+		rhodesLightOn=1;
+	} else	{
+		$rhodes.flashlight(0);	
+		rhodesLightOn=0;
+	}
+}
+
+void deLeaderRhodes()	{
+	$rhodes.setLeader( $null_entity );
+}
+
+float currentHangar = 0;
+entity hangarExitTrigger;
+string hangar = "";
+
+void fadeCombatLoop()	{
+	$bombRunMusic.fadeSound( SND_CHANNEL_ANY, -80, 10);
+	sys.wait(10);
+	$bombRunMusic.remove();
+}
+
+float southPlantTrigger = 0;
+float northPlantTrigger = 0;
+
+void canPlantSouth()	{
+	if( southPlantTrigger < 1 )	{
+		southPlantTrigger++;	
+	}	
+	else	{
+		sys.trigger( $plantSouthBombTrigger );
+	}
+}
+
+void canPlantNorth()	{
+	if( northPlantTrigger < 1 )	{
+		northPlantTrigger++;	
+	}	
+	else	{
+		sys.trigger( $plantNorthBombTrigger );
+	}
+}
+
+// Call this when the bombing run is done
+void finishPlant()	{
+	
+	// Get Rhodes out of the looping anim
+	aiScriptedAnimWait( $rhodes , "plant_tnt_low_end" , 4 , 1 );
+	
+	// The bomb has been planted.
+	$rhodes.lookAt( $player1 );
+	aiScriptedFaceWait( $rhodes , $player1 , 1 );
+	
+	if( hangar =="south" )	{
+		//sys.println("UNLOCKING SOUTH DOOR");
+		sys.trigger( $clampDoorLock_7 );
+		sys.trigger( $clampDoorLock_10 );	
+	} else if( hangar == "north" )	{
+		//sys.println("UNLOCKING NORTH DOOR");
+		sys.trigger( $clampDoorLock_10 );	
+		sys.trigger( $clampDoorLock_7 );
+	}	
+	
+	if (chargeCount==0)	{
+		//sys.println("FIRST CHARGE, MOVE ON");
+		// If this is the first charge
+		aiSpeakWait( $rhodes , "lipsync_thats_one" );
+		
+		// Clear Rhodes' look target and leader, then set Aggressive
+		$rhodes.lookAt( $null_entity );	
+		$rhodes.setLeader( $player1 );
+		$rhodes.becomeAggressive();
+		
+		// Increase charge count to skip this bit next time
+		chargeCount++;
+		
+		// Trigger the appropriate tether on a per-hangar basis
+		if( hangar == "south" )	{
+			//sys.println("TRIGGERING ARENA FROM SOUTH");
+			sys.trigger( $arenaFromSouthTrigger );
+		} else if( hangar == "north" )	{
+			//sys.println("TRIGGERING ARENA FROM NORTH");
+			sys.trigger( $arenaFromNorthTrigger );
+		}
+		
+		// Save the game before the barrage of madness
+		sys.trigger($saveGame);
+	} else	{
+		//sys.println("SECOND CHARGE");
+		// If this is the second charge
+		aiSpeakWait( $rhodes , "lipsync_thats_two" );
+		
+		// Clear Rhodes' look target
+		$rhodes.lookAt( $null_entity );	
+		
+		// Fade out music
+		thread fadeCombatLoop();
+		
+		// Move to initial guiding position
+		thread moveToHackPosition( hangar );
+		
+		// Objective complete!
+		sys.trigger($objEscortDemoComplete);
+		
+		// Rhodes might still have things to beat up
+		$rhodes.becomeAggressive();
+	}
+	
+	$rhodes.setTalkState( TALK_OK );
+}
+
+float hangarClear=1;
+
+// The South hangar (left as you enter the fuel room)
+void plantSouth()	{
+	
+	$rhodes.setTalkState( TALK_WAIT );
+	
+	// Lock the door and set the current hangar
+	//sys.println("PLANTING IN SOUTH HANGAR");
+	sys.trigger( $clampDoorLock_7 );
+	hangar = "south";
+	currentHangar = 1;
+	
+	// Clear tethers, leaders, and make passive
+	sys.trigger( $rhodesTetherNoneMaster );
+	$rhodes.setLeader( $null_entity );
+	$rhodes.becomePassive( 1 );
+	$rhodes.lookAt( $charge_1 );
+	
+	// Plant the bomb
+	aiScriptedMoveWait( $rhodes , $bomb_spot_1 , 8 , true);
+	aiScriptedFaceWait( $rhodes , $face_here_1 , true );
+	aiScriptedAnimWait( $rhodes , "plant_tnt_low_start" , 8 , 0 );
+	//aiScriptedAnimLoop( $rhodes , "plant_tnt_low_loop" , 4 );
+	// while ( !hangarClear ) {	sys.waitFrame(); }
+	aiScriptedAnimWait( $rhodes , "plant_tnt_low_loop" , 4 , 0 );
+	thread finishPlant();
+}
+
+// The North hangar (right as you enter the fuel room)
+void plantNorth()	{
+	
+	$rhodes.setTalkState( TALK_WAIT );
+	
+	// Lock the door and set the current hangar
+	//sys.println("PLANTING IN NORTH HANGAR");
+	sys.trigger( $clampDoorLock_10 );
+	hangar = "north";
+	currentHangar = 2;
+	
+	// Clear tethers, leaders, and make with the passive	
+	sys.trigger( $rhodesTetherNoneMaster );
+	$rhodes.setLeader( $null_entity );
+	$rhodes.becomePassive(1);
+	
+	// Plant mistar bomb
+	$rhodes.lookAt($charge_2);
+	aiScriptedMoveWait($rhodes, $bomb_spot_2, 8, true);
+	aiScriptedFaceWait( $rhodes, $face_here_2, true );
+	aiScriptedAnimWait( $rhodes , "plant_tnt_low_start" , 8 , 0 );
+	//aiScriptedAnimLoop( $rhodes , "plant_tnt_low_loop" , 4 );
+	// while ( !hangarClear ) {	sys.waitFrame(); }
+	aiScriptedAnimWait( $rhodes , "plant_tnt_low_loop" , 4 , 0 );
+	thread finishPlant();
+
+}
+
+void showCharge()	{
+	// Establish entities for the function	
+	entity charge = sys.getEntity( "charge_" + currentHangar );
+	entity normalMon = sys.getEntity( "normalMonitor_" + currentHangar );
+	entity staticMon = sys.getEntity( "staticMonitor_" + currentHangar );
+	
+	// Show the charge
+	charge.show();
+	
+	// Hide the normal monitor, show the static one.
+	sys.trigger( normalMon );
+	sys.trigger( staticMon );
+}
+
+
+//////////////////////////////////////////////
+//////////tracer fire in the skys////////////
+////////////////////////////////////////////
+
+void tracer_effects()
+{
+	while(1)
+	{
+		sys.wait(2);
+		sys.trigger($tracer_relay_1);
+		sys.trigger($tracer_relay_2);
+		sys.trigger($tracer_relay_3);
+	}
+}
+
+void tracer_1_moving()
+{
+	while(1)
+	{
+		$tracer_1_mover.time(5);
+		$tracer_1_mover.moveTo($tracer_1_point_1);
+		sys.waitFor($tracer_1_mover);
+		$tracer_1_mover.time(5);
+		$tracer_1_mover.moveTo($tracer_1_point_2);
+		sys.waitFor($tracer_1_mover);
+	}
+}
+
+void tracer_2_moving()
+{
+	while(1)
+	{
+		$tracer_2_mover.time(5);
+		$tracer_2_mover.moveTo($tracer_2_point_1);
+		sys.waitFor($tracer_2_mover);
+		$tracer_2_mover.time(5);
+		$tracer_2_mover.moveTo($tracer_2_point_2);
+		sys.waitFor($tracer_2_mover);
+	}
+}
+
+void tracer_3_moving()
+{
+	while(1)
+	{
+		$tracer_3_mover.time(5);
+		$tracer_3_mover.moveTo($tracer_3_point_1);
+		sys.waitFor($tracer_3_mover);
+		$tracer_3_mover.time(5);
+		$tracer_3_mover.moveTo($tracer_3_point_2);
+		sys.waitFor($tracer_3_mover);
+	}
+}
+
+void tracers()
+{
+	thread tracer_effects();
+	thread tracer_1_moving();
+	thread tracer_2_moving();
+	thread tracer_3_moving();
+}
+
+//////////////////////////////////////
+//////Game Over if they die//////////
+////////////////////////////////////
+
+void rhodes_dead()
+{
+	sys.trigger($objEscortDemoFailed);
+}
+
+//////////////////////////////////////
+//Flyer launching out of Hangar Bay//
+////////////////////////////////////
+
+void flyer_launch()
+{
+	sys.wait(1);
+	$drawbridge_light_1.fadeInLight( 1 );
+	sys.wait(0.5);
+	$drawbridge_origin1_1.time(1);
+	sys.trigger($bridge_sound);
+	$drawbridge_origin1_1.rotateOnce( '0 0 80' );
+	$drawbridge_origin2_1.rotateOnce( '0 0 -180' );
+	sys.waitFor($drawbridge_origin2_1);
+	sys.wait(0.5);
+	$drawbridge_innerarms_1.time(0.75);
+	$drawbridge_innerarms_1.move( DOWN , 16 );
+	sys.waitFor($drawbridge_innerarms_1);
+	sys.wait(0.25);
+	$drawbridge_innerarms_1.time(1.5);
+	$drawbridge_innerarms_1.move( SOUTH , 24 );
+	sys.waitFor($drawbridge_innerarms_1);
+	$drawbridge_light_1.fadeOutLight( 1 );
+		
+	//sys.println("flyer launching");
+	$flyer_1.time(2);
+	$flyer_1.moveTo($flyer_point_1);
+	sys.waitFor($flyer_1);
+	sys.trigger($flyer_fx);
+	sys.trigger($take_off);
+	sys.wait(.3);
+	$flyer_1.time(.5);
+	$flyer_1.moveTo($flyer_point_2);
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.4);
+	$flyer_1.moveTo($flyer_point_3);
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.3);
+	$flyer_1.moveTo($flyer_point_4);
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.2);
+	$flyer_1.moveTo($flyer_point_5);
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.2);
+	$flyer_1.moveTo($flyer_point_6);
+	$flyer_1.rotateOnce( '0 0 10' );
+	$flyer_1.rotateOnce( '20 0 0' );
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.2);
+	$flyer_1.moveTo($flyer_point_7);
+	$flyer_1.rotateOnce( '0 0 10' );
+	$flyer_1.rotateOnce( '25 0 0' );
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.2);
+	$flyer_1.moveTo($flyer_point_8);
+	$flyer_1.rotateOnce( '0 0 10' );
+	$flyer_1.rotateOnce( '30 0 0' );
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.1);
+	$flyer_1.moveTo($flyer_point_9);
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.1);
+	$flyer_1.moveTo($flyer_point_10);
+	sys.waitFor($flyer_1);
+	$flyer_1.time(.1);
+	$flyer_1.moveTo($flyer_point_11);
+	sys.waitFor($flyer_1);
+	$flyer_1.remove();
+	$flyer_fx.remove();
+	$engine_sound.remove();
+	$take_off.remove();
+}
+
+
+
+// Hangar flyer movement
+
+void genericRodentCaveFlyers()	{
+	
+	//set top piece movement time and move from storage position
+	setNewTimes( $genericRodentCaveFlyerTop_1 , 10 , 1.5 , 1.5 );
+	$genericRodentCaveFlyerTop_1.moveTo($genericRodentCaveMoveTarget_1);
+	
+	sys.wait(5);
+		
+	// rotatey movey goodness!	
+	setNewTimes( $genericRodentCaveFlyerClamp_1 , 5 , 1.5 , 1.5 );
+	setNewTimes( $genericRodentCaveFlyerExtend_1 , 5 , 1.5 , 1.5 );
+	$genericRodentCaveFlyerClamp_1.rotateOnce('0 -90 0');
+	$genericRodentCaveFlyerClamp_1.move( UP , 80 );
+	sys.wait(2.5);
+	sys.waitFor( $genericRodentCaveFlyerExtend_1 );
+	$genericRodentCaveFlyerExtend_1.move( UP , 80 );
+	sys.wait(1);	
+	
+	// move out of the way before Flyer 2 starts
+	$genericRodentCaveFlyerTop_1.moveTo($genericRodentCaveMoveTarget_2);
+	
+	sys.wait(5);
+	
+	// repeat operation in reverse for Flyer 2!
+	
+	setNewTimes( $genericRodentCaveFlyerTop_2 , 10 , 1.5 , 1.5 );
+	$genericRodentCaveFlyerTop_2.moveTo($genericRodentCaveMoveTarget_1);
+	
+	sys.wait(5);
+		
+	// rotatey movey goodness!	
+	setNewTimes( $genericRodentCaveFlyerClamp_2 , 5 , 1.5 , 1.5 );
+	setNewTimes( $genericRodentCaveFlyerExtend_2 , 5 , 1.5 , 1.5 );
+	$genericRodentCaveFlyerClamp_2.rotateOnce('0 -90 0');
+	$genericRodentCaveFlyerClamp_2.move( UP , 80 );
+	sys.wait(2.5);
+		
+	sys.waitFor( $genericRodentCaveFlyerExtend_2 );
+	$genericRodentCaveFlyerExtend_2.move( UP , 80 );
+	sys.wait(1);
+	
+	// cross fingers and hope the elevator is out of the way!
+	$genericRodentCaveFlyerTop_2.moveTo($genericRodentCaveMoveTarget_3);
+}
+
+//--
+// Some polish for the ride up
+//--
+
+float mahlerIsScanning=1;
+
+void elgarScans()	{
+	// Making this a separate function to time Mahler's movements more accurately
+	aiScriptedFaceWait( $elgar , $elgarFace , 1 );
+	aiScriptedAnimLoop( $elgar , "aim_snappy_2" , 20 );
+}
+
+void pucciniScans()	{
+	// Making this a separate function to time Mahler's movements more accurately
+	aiScriptedFaceWait( $puccini , $pucciniFace , 1 );
+	aiScriptedAnimLoop( $puccini , "aim_snappy_1" , 20 );
+}
+
+void elgarRelaxes()	{
+	// Again, a separate function for timing reasons
+	aiScriptedAnim( $elgar, "idle" , 10 , 1 );
+	sys.wait( .5 );
+	aiScriptedAnim( $elgar, "weapon_check_1" , 10 , 1 );
+}
+
+void pucciniRelaxes()	{
+	// Again, a separate function for timing reasons
+	aiScriptedAnim( $puccini, "idle" , 10 , 1 );
+	sys.wait( .75 );
+	aiScriptedAnim( $puccini, "weapon_check_3" , 10 , 1 );
+}
+
+void mahlerScans()	{
+	// Make Mahler look back and forth a bit
+	while( mahlerIsScanning )	{
+		$mahler.lookAt( $mahlerLook_1 );
+		sys.wait( 1 + sys.random(3) );
+		$mahler.lookAt( $mahlerLook_2 );
+		sys.wait( 1.5 + sys.random(3) );
+	}	
+	
+	// Re-set his lookAt status as the function ends.
+	$mahler.lookAt( $null_entity );
+}
+
+void strikeAPose()	{
+
+	aiScriptedAnim( $mahler , "weapon_check_2" , 10 , 1 );
+	sys.wait( .3 );
+	
+	// if Elgar is alive, do this.
+	if( isLivingEntity( $elgar ) )	{
+		thread elgarScans();
+	}
+	
+	sys.wait( .5 );
+	
+	// if Puccini is alive, do this.
+	if( isLivingEntity( $puccini ) )	{
+		thread pucciniScans();		
+	}
+	
+	// Mahler crouches and scans the area
+	sys.wait( 1.7 );
+	aiScriptedFaceWait( $mahler , $mahlerFace , 0 );
+	aiScriptedAnimWait( $mahler , "stand_to_crouch_scripted" , 15 , 0 );
+	aiScriptedAnimLoop( $mahler , "crouch_idle" , 5 );
+	thread mahlerScans();
+}
+
+void takeABreather()	{
+	// Make Elgar and Puccini relax and check their guns
+	if( isLivingEntity( $elgar ) ) {
+		thread elgarRelaxes();	
+	}
+	
+	sys.wait( 1 );
+	
+	if( isLivingEntity( $puccini ) ) {
+		thread pucciniRelaxes();	
+	}
+}
+
+void exposedAgain()	{
+	// The marines on the lift are exposed again, get back to scanning.
+	if( isLivingEntity( $elgar ) )	{
+		thread elgarScans();
+	}
+	
+	sys.wait( .5 );
+	
+	if( isLivingEntity( $puccini ) )	{
+		thread pucciniScans();		
+	}
+	
+}
+
+void unPose()	{
+	
+	// Get all the marines back to their proper idle status
+	if( isLivingEntity( $elgar ) ) {
+		aiScriptedAnim( $elgar, "idle" , 10 , 1 );	
+	}
+	sys.wait( .25 );
+	
+	if( isLivingEntity( $puccini ) ) {
+		aiScriptedAnimWait( $puccini, "idle" , 10 , 1 );	
+		aiScriptedFace( $puccini, $mahler , 1 );
+	}
+	sys.wait( .5 );
+	
+	mahlerIsScanning=0;
+	aiScriptedAnimWait( $mahler , "crouch_to_stand_scripted" , 4 , 1 );
+	
+}
+
+//--
+// End lift polish
+
+
+// Scripting for new combat area before fuel zone
+// Turrets and secondary spawner wave, which fires after 2 turrets die.
+// Also fires all clear trigger to start demo team arrival sequence.
+
+void turretCount()	{
+	turretsDead++;
+	if (turretsDead == 2)	{
+		//sys.println("Release the Hounds!");
+		sys.trigger($turretSpawner);
+	}
+
+	else if (turretsDead == 4)	{
+		//sys.println("Triggering All Clear");
+		sys.trigger($allClearCounter);
+	}
+}
+
+// Turret spawner used up
+
+void turretSpawnerDead()	{
+	gTurretMonster++;
+	if( gTurretMonster == 6)	{
+		//sys.println("Triggering All Clear");
+		sys.trigger($allClearCounter);
+	}
+}
+
+//Separate functions to track individual turret deaths
+//to remove bound lights and flares
+
+void turretDeath_1()	{
+	$turretLight_1.remove();
+	$turretFlare_1.remove();
+	thread turretCount();
+}
+
+void turretDeath_2()	{
+	$turretLight_2.remove();
+	$turretFlare_2.remove();
+	thread turretCount();
+}
+
+void turretDeath_3()	{
+	$turretLight_3.remove();
+	$turretFlare_3.remove();
+	thread turretCount();
+}
+
+void turretDeath_4()	{
+	$turretLight_4.remove();
+	$turretFlare_4.remove();
+	thread turretCount();
+}
+
+// --------------------------------------------
+// dropTurretDoor
+//
+// Opens a turret door and drops down a turret.
+// --------------------------------------------
+void dropTurretDoor( float fDoor )	{
+
+	//door entities
+	entity leftDoor = sys.getEntity( "mvr_turretdoor_left_" + fDoor);
+	entity rightDoor = sys.getEntity( "mvr_turretdoor_right_" + fDoor);
+	entity turret = sys.getEntity( "monster_turret_" + fDoor);
+	entity mvr = sys.getEntity( "mvr_turret_" + fDoor);
+	entity turretLight = sys.getEntity( "turretLight_" + fDoor);
+
+	leftDoor.time(0.5);
+	rightDoor.time(0.5);
+	mvr.time(1);
+
+
+	//open the doors
+	leftDoor.move( WEST, 36);
+	rightDoor.move( EAST, 36);
+	//sys.println(" door " + fDoor + " opening." );
+	sys.waitFor( leftDoor);
+	//sys.println(" door " + fDoor + " opened." );
+
+	//wake up the turret
+	sys.trigger( turret);
+	turretLight.On();
+	mvr.move( DOWN, 112);
+		
+}
+
+// --------------------------------------------
+// dimTurretLights
+//
+// shorts out and dims the turret lights
+// --------------------------------------------
+void dimTurretLights()	{
+
+	float fTime = sys.getTime() + 2;
+	float fParm;
+	entity ent;
+	float t;
+
+	while( sys.getTime() < fTime)	{
+		fParm = sys.random(0.5);
+
+		for( t=1; t<=7; t++)	{
+			ent = sys.getEntity("light_turret_" + t);
+			ent.setLightParms( fParm, fParm, fParm, 1);
+		}
+		
+		for( t=0; t< $tgt_turret_lights.numTargets(); t++)	{
+			ent = $tgt_turret_lights.getTarget( t);
+			ent.setLightParms( fParm, fParm, fParm, 1);
+		}
+		
+		sys.wait(.1 + sys.random(0.2));
+	}
+
+	//fade them out.
+	for( t=1; t<=7; t++)	{
+		ent = sys.getEntity("light_turret_" + t);
+
+		//don't give me any 255 blue crap, 1,1,1 is how they were in the editor!!
+		ent.setLightParms( 1, 1, 1, 1);
+		ent.fadeOutLight(1);
+	}
+
+	for( t=0; t< $tgt_turret_lights.numTargets(); t++)	{
+		ent = $tgt_turret_lights.getTarget( t);
+		ent.setLightParms( 1, 1, 1, 1);
+		ent.fadeOutLight(0.25);
+	}
+
+	
+
+}
+
+// Separate movement/anim functions to be threaded from main breach function
+// Guys will now move to specific spots instead of random spots in a small tether
+// Keeps animations out of the wall. Boo.
+
+// Mahler can't die, always do this
+void mahlerToBreachSpot()	{
+	// Move to position
+	aiScriptedMoveWait( $mahler , $target_breach_mahlerMove , 8 , 1 );
+	aiScriptedFaceWait( $mahler , $target_breach_mahlerFace , 1 );
+	
+	// Animate
+	aiScriptedAnim( $mahler , "idle_scan_2" , 5 , 1 );
+	
+	// Flashlight
+	$mahler.flashlight( 1 );
+	$mahler.startSound( "snd_flashlight", SND_CHANNEL_ANY, 1);
+}
+
+void pucciniToBreachSpot()	{
+	// Only if he lives
+	if( isLivingEntity( $puccini ) )	{
+		// Move to position
+		aiScriptedMoveWait( $puccini, $target_breach_pucciniMove , 8 , 1 );
+		aiScriptedFaceWait( $puccini , $target_breach_pucciniFace , 1 );
+		
+		// Animate
+		aiScriptedAnim( $puccini , "idle_scan_3" , 5 , 1 );	
+		
+		// Flashlight
+		sys.wait( .5 );
+		$puccini.flashlight( 1);
+		$puccini.startSound( "snd_flashlight", SND_CHANNEL_ANY, 1);
+	}
+}
+
+void elgarToBreachSpot()	{
+	// Only if he lives
+	if( isLivingEntity( $elgar ) )	{
+		// Move to position
+		aiScriptedMoveWait( $elgar, $target_breach_elgarMove , 8 , 1 );
+		aiScriptedFaceWait( $elgar , $target_breach_elgarFace , 1 );
+		
+		// Animate
+		aiScriptedAnim( $elgar , "idle_scan_1" , 5 , 1 );				
+		
+		// Flashlight
+		sys.wait(0.75);
+		$elgar.flashlight( 1);
+		$elgar.startSound( "snd_flashlight", SND_CHANNEL_ANY, 1);
+	}
+}
+
+// --------------------------------------------
+// hitTheLights
+//
+// This dims all the lights in the area.
+// --------------------------------------------
+void hitTheLights()	{
+
+	// Sounds and dimming lights
+	sys.trigger( $spkr_turret_room);
+	thread dimTurretLights();
+	
+	// Set guys to be aggressive and turn on the spinny light thing
+	sys.trigger( $ai_become_aggressive_1 );
+	sys.trigger( $light_warning_1 );
+
+	// Clear leaders for the following sequence
+	thread viperUnFollows();
+	
+	// Move guys to position and animate accordingly
+	thread pucciniToBreachSpot();
+	thread elgarToBreachSpot();
+	mahlerToBreachSpot();
+
+	//mahler speaks
+	aiSpeakWait( $mahler, "lipsync_aint_this_sweet");
+	sys.wait(1);
+		
+	// Bring Mahler back to idle
+	aiScriptedAnim( $mahler , "idle" , 6 , 1 );
+	sys.wait( .25 );
+	sys.trigger( $ai_tether_breach_mahler );
+	aiSpeakWait( $mahler, "lipsync_hold_up");
+
+	// Bring Elgar back to idle
+	if( isLivingEntity( $elgar ) )	{
+		aiScriptedAnim( $elgar, "idle" , 6 , 1 );
+		sys.wait( .25 );
+		sys.trigger( $ai_tether_breach_elgar );
+	}
+	
+	// Bring Puccini back to idle
+	if( isLivingEntity( $puccini ) )	{
+		aiScriptedAnimWait( $puccini, "idle" , 6 , 1 );
+		sys.wait( .25 );
+		sys.trigger( $ai_tether_breach_puccini );
+	}
+
+	sys.wait(2);
+
+	//go in
+	aiSpeakWait( $mahler, "lipsync_ready_go");
+
+	//unlock the door.
+	sys.trigger( $clampDoorLock_4 );
+	sys.trigger($tether_turret_behind);
+}
+
+void turretMonsterDropped()	{
+	
+	gTurretMonster++;
+}
+
+// --------------------------------------------
+// turretRoom
+//
+// Once everyone is in position, the show is on the road...
+// --------------------------------------------
+void turretRoom()	{
+
+	//this function is called once all the AI is in position. To make sure
+	//the player is in the room, check his X against the X of a tgt_null placed near the door.
+
+	vector vTarget = $tgt_player_in_turretroom.getWorldOrigin();
+	vector vPlayer = $player1.getOrigin();
+	
+	while( vPlayer_x >= vTarget_x)	{
+		vPlayer = $player1.getOrigin();
+		sys.waitFrame();
+	}
+
+	//close and lock the door behind you.
+	sys.trigger( $clampDoorLock_4 );
+
+	//mahler says things are safe.
+	aiSpeakWait( $mahler, "lipsync_seems_secure");
+
+
+	//this should spring out one monster
+	sys.trigger( $turret_cheapshot_spawn);
+	sys.wait(2);
+	aiSpeakWait( $mahler, "lipsync_not_secure");
+
+
+	sys.wait(1);
+
+	//turrets!!
+	dropTurretDoor( 4 );
+	aiSpeak( $mahler, "lipsync_get_those_turrets");
+	sys.wait(1);
+	dropTurretDoor( 1 );
+	sys.wait(1);
+	dropTurretDoor( 2 );
+	sys.wait(2);
+	dropTurretDoor( 3 );
+}
+
+/*
+void pucciniDeath()	{
+	aiSpeak( $mahler, "lipsynic_puccini_down");
+}
+
+void elgarDeath()	{
+	aiSpeak( $mahler, "lipsynic_elgar_down");
+}
+*/
+
+// Hide and show loots for return trip!
+void hideLoots()	{
+
+	float numToHide = $marineGearMaster.numTargets();
+	float currentHide = 0;
+	entity loot;
+		
+	while( currentHide < numToHide )	{
+		loot = $marineGearMaster.getTarget( currentHide );
+		loot.hide();
+		currentHide++;
+		sys.waitFrame();
+	}
+}
+
+void showLoots()	{
+
+	float numToShow = $marineGearMaster.numTargets();
+	float currentShow = 0;
+	entity loot;
+		
+	while( currentShow < numToShow )	{
+		loot = $marineGearMaster.getTarget( currentShow );
+		loot.show();
+		currentShow++;
+		sys.waitFrame();
+	}
+}
+
+
+//--
+// Hangar explosion - Cleaned version of Rhodes detonating charges	aweldon Aug 05
+//--
+
+void rhodesPoint()	{
+	// Point toward the hangar
+	aiScriptedAnim( $rhodes , "point_forward" , 5 , 0 );
+	sys.wait( 1.25 );
+	aiScriptedAnimLoop( $rhodes , "idle_wrist_gui_loop" , 6 );
+	
+}
+
+void rhodesOccupiesHimself()	{
+	// Rhodes moves to position
+	aiScriptedMoveWait( $rhodes , $target_rhodesBusy , 2 , 0 );
+	aiScriptedFaceWait( $rhodes , $func_static_54018 , 0 );
+	
+	//Look up a bit
+	$rhodes.lookAt( $target_rhodesLookEnd );
+	
+	// And he fiddles.
+	aiScriptedAnimWait( $rhodes , "console_stand_start" , 5 , 0 );
+	aiScriptedAnimLoop( $rhodes , "console_stand_loop" , 4 );
+}
+
+void hangar_boom()
+{
+	$rhodes.setTalkState( TALK_WAIT );
+	$rhodes.becomePassive(1);
+	
+	// Lock the door and clear Rhodes' tether/leader
+	sys.trigger( $clampDoorLock_14 );
+	sys.trigger( $rhodesTetherNoneMaster );
+	$rhodes.setLeader( $null_entity );
+	
+	// Move to position
+	aiScriptedMoveWait( $rhodes, $rhodes_lead_2 , 20, true);
+	aiScriptedFaceWait( $rhodes, $rhodes_watch, true );
+	
+	// Rhodes gestures to the hangar and speaks
+	thread rhodesPoint();
+	aiSpeakWait( $rhodes , "lipsync_over_there" );
+	aiScriptedAnimWait( $rhodes , "idle_wrist_gui_end_fast" , 4 , 1 );
+
+	// Face to position while the radio transmission plays
+	aiScriptedFace ( $rhodes, $rhodes_watch, true );
+	radioChatterPlayWait( $hq , "" );
+		
+	// Marines win!
+	sys.trigger( $hangars_boom );
+	sys.trigger( $glassDecals );
+	sys.trigger( $speaker_glassBreak );
+	sys.trigger( $tgr_start_explosions );
+	sys.trigger( $hangar_fire_2 );
+	sys.trigger( $hangar_fire_3 );
+	sys.trigger( $hangar_smoke_relay );
+	sys.trigger( $fire_light );
+	$tracers_1.remove();
+	$tracers_2.remove();
+	
+	// Complete the objective
+	sys.trigger( $keepingDownComplete );
+	
+	sys.wait(1);
+	aiSpeakWait( $rhodes ,"lipsync_hangars_closed" );
+	sys.wait(.25);
+	aiScriptedFace ( $rhodes, $player1, true );
+	
+	// Morris chimes in
+	sys.trigger($morris_1);
+	sys.wait(6);
+	
+	// Rhodes replies
+	aiScriptedAnimWait( $rhodes , "idle_wrist_gui_start_fast" , 4 , 0 );
+	aiScriptedAnimLoop( $rhodes , "idle_wrist_gui_loop" , 6 );
+	aiSpeakWait( $rhodes , "lipsync_blow_up" );
+	sys.wait( .1 );
+	aiScriptedAnim( $rhodes , "idle_wrist_gui_end_fast" , 4 , 1 );
+	
+	// Too bad for Rhodes
+	radioChatterPlayWait( $morris_2 , "" );
+	
+	// Poo.
+	aiSpeakWait( $rhodes , "lipsync_seeya_later" );
+	
+	// Set Rhodes' chatter lines and let him say them
+	$rhodes.setKey( "lipsync_canihelpyou1" , "vo_1_1_6_85_1" );
+	$rhodes.setKey( "lipsync_canihelpyou2" , "vo_1_1_6_85_2" );
+	$rhodes.setKey( "lipsync_canihelpyou3" , "vo_1_1_6_85_3" );
+	$rhodes.setTalkState( TALK_OK ); // , "idle");
+	
+	// Rhodes finds something to do in the meantime.
+	thread rhodesOccupiesHimself();
+		
+	// Trigger new objective.
+	sys.trigger($objRegroup);
+}
+
+//--
+// End hangar explosion
+//--
+
+//--
+// Adding flyovers from airdefense
+//--
+
+//moves one flyer sprite across the sky over the trenches
+//------------------------------------------------------------------------------------
+void maintainStroggFlyerSprite(entity entMover, entity fxNormal, entity fxDamage, entity entHangar, entity entTgrEnd, vector vDirection)
+{	
+	sys.wait( sys.random(10) );
+	
+	//will the planes be swervey?
+	float fSwerve = 0;
+	float fWaitTime = 0;
+	float fAmplitude = 0;
+
+	while(1)	
+	{
+		//place the mover on the "hangar" line, equal in the X but displaced in the Y by +/- ___ units
+		// +/- Y displacement
+		float fDisplacementMax = 2000;
+		float fDelta = 0;
+
+		//start location for the flyer
+		vector vStart = entHangar.getWorldOrigin();
+		vector vSpeed = '0 0 0';
+		vector vAngs;
+
+		//flyer speed
+		float fSpeed = 900 + (sys.random(600));
+
+		fSwerve = sys.random(200) + 100;
+		fAmplitude = sys.random(90) + 30;
+
+		//stop the flyer-- move him into position after we figure out where he goes.
+		entMover.setLinearVelocity( '0 0 0');
+
+		//mathery mcmath
+		fDelta = (0 - fDisplacementMax + sys.random( fDisplacementMax * 2));
+		vStart_y += fDelta;
+
+		//move to position
+		entMover.setWorldOrigin( vStart );
+		sys.waitFrame();
+		
+		//set the direction as speed
+		vSpeed = vDirection * fSpeed;	
+		vSpeed_z = 0;
+
+		// set initial angle in case this is a non-swerving dude..
+		vAngs = sys.VecToAngles(vSpeed);
+		entMover.setAngles(vAngs);
+	
+		fWaitTime = sys.getTime() +  sys.random(2.5);
+	
+		//turn on the regular plane, turn off the alternate
+		fxNormal.start();
+		fxDamage.stop();	
+		
+		while( sys.getTime() < fWaitTime)	
+		{
+			//fly!
+			entMover.setLinearVelocity( vSpeed);
+
+			//swerve if need be
+			if( fSwerve != 0)	
+			{
+				vSpeed_y = sys.sin( sys.getTime() * fAmplitude ) *  fSwerve;
+
+				// update facing so effects can draw properly
+				vAngs = sys.VecToAngles(vSpeed);
+				entMover.setAngles(vAngs);
+			}
+
+			//if somehow the ship has escaped the skybox, break
+			if( entMover.touches( entTgrEnd))	
+			{
+				break;
+			}
+			//decend on the way out
+			sys.waitFrame();
+		}
+
+		//second loop, descend.
+		vSpeed_z = 0;
+
+		if(sys.random(20) < 2)
+		{
+			//sys.println("Damaged!");
+
+			//slow down and fly off course, descend faster
+			vSpeed_x *= 0.25;
+			if (vSpeed_y < 10 && vSpeed_y > -10)	
+			{
+				vSpeed_y += ( -800 + sys.random(1600));
+			} else	
+			{
+				vSpeed_y *= 4;
+			}
+			vSpeed_z *= 1.25;
+
+			//no more swerving
+			fSwerve = 0;
+
+			//switch to damaged effect, and explode
+			fxNormal.stop();
+			fxDamage.start();
+			$fx_flyer_damage.setWorldOrigin( entMover.getWorldOrigin() );
+			sys.trigger( $fx_flyer_damage);
+		}
+		
+		fWaitTime = sys.getTime() +  5;
+
+		//after the possible damage time, remove once the ship has left the skybox
+		while( (sys.getTime() < fWaitTime) && ( !entMover.touches( entTgrEnd))  )	
+		{
+			//fly!
+			entMover.setLinearVelocity( vSpeed);
+
+			//swerve if need be
+			if( fSwerve != 0)	
+			{
+				vSpeed_y = sys.sin( sys.getTime() * fAmplitude ) *  fSwerve;
+				// update facing so effects can draw properly
+				vAngs = sys.VecToAngles(vSpeed);
+				entMover.setAngles(vAngs);
+			}
+
+			//decend on the way out
+			sys.waitFrame();
+		}
+	}
+}
+
+// --------------------------------------------
+// MAIN
+// --------------------------------------------
+
+void main()
+{
+	thread bind_minepack();
+	
+	thread hideLoots();
+	
+	thread elevNorthGoUp();
+	
+	$upElevGUI.guiEvent( "anim_up" );
+	
+	sys.fadeIn( '0 0 0' , 1 );
+	
+	// Get the flyer sprites going on map load
+	float t;
+	
+	for (t = 1; t <= 2; t++)	
+	{
+		thread maintainStroggFlyerSprite( sys.getEntity("mvr_fx_strogg_flyer_" + t), sys.getEntity("fx_air_strogg_fighter_" + t), sys.getEntity("fx_air_strogg_fighter_" + (t + 6) ), $tgt_strogg_flyer_hangar, $tgr_strogg_flyer_end, '-1 0 .1' );
+		thread maintainStroggFlyerSprite( sys.getEntity("mvr_fx_marine_flyer_" + t), sys.getEntity("fx_air_marine_fighter_" + t), sys.getEntity("fx_air_marine_fighter_" + (t + 6) ), $tgt_marine_flyer_hangar, $tgr_marine_flyer_end, '1 0 .1' );
+	}
+}
+
+} // end of namespace map_hangar2

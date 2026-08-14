@@ -1,0 +1,71 @@
+export cin_camera2_outro_cin
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/game_outro/animation   -destdir models/cinematics/outro
+	camera	outro_scene.ma		-dest outro_cin_camera2
+}
+
+camera outro_cin_camera2
+{
+	anim outro_cin_camera2				"models/cinematics/outro/outro_cin_camera2.md5camera"
+
+	{
+	
+		frame	1							call  map_core::camera2Start
+		frame	1							call  map_core::cinFadein2
+
+		frame	1							call  map_core::animateDropship_outro_dropship	
+		
+		frame	123							call  map_core::cinFadeout2
+		frame	192							call  map_core::cinFadein3
+
+		frame	150							trigger door_uppper_right_1
+		frame	192							trigger door_uppper_right_2
+
+		frame	274, 298, 322, 346					trigger dusty	
+	
+
+		frame	434							call  map_core::kaneIdle
+		frame	498							call  map_core::animateMorris_morris_idle
+		frame	498							call  map_core::animateRhodes_rhodes_idle
+		frame	502							call  map_core::animateStrauss_strauss_idle
+		frame	518							call  map_core::animateHarper_harper_idle
+		frame	518							call  map_core::animatePhone_idle
+
+		frame	532							call  map_core::animateSledge_sledge_idle		
+		frame	568							call  map_core::animateCortez_cortez_idle
+		
+		frame	669							call  map_core::playVO_3_2_10_10_4
+		frame	773							call  map_core::playVO_3_2_10_10_5
+		frame	867							call  map_core::playVO_3_2_10_10_6
+		frame	998							call  map_core::playVO_3_2_10_10_7
+		frame	998							call  map_core::quietMusic		
+		frame	1097							call  map_core::playVO_3_2_10_10_8
+		//frame	1194							call  map_core::playVO_3_2_10_10_14
+		//frame	1213							call  map_core::playVO_3_2_10_10_15
+		frame	1250							call  map_core::playVO_3_2_10_10_11		
+		//frame	1255							call  map_core::playVO_3_2_10_10_16
+		//frame	1344							call  map_core::playVO_3_2_10_10_17
+		frame	1362							call  map_core::playVO_3_2_10_10_12		
+		//frame	1422							call  map_core::playVO_3_2_10_10_18
+		frame	1530							call  map_core::endingMusic
+		//frame	1624							call  map_core::cinFadeout3
+		frame	1624							call  map_core::showEndlogo
+//		frame	1624							trigger outro_speaker_4
+	
+	}
+
+}
+
+entityDef  cin_camera2_outro_cin
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"outro_cin_camera2"
+}
+
+

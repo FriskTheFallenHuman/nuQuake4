@@ -1,0 +1,533 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	comment	"set 'gui_parm_strogg' for unreadable version - set 'gui_parm_closed' to start the seal closed"
+	definevec4	"bg_green"	0.329,0.627,0.662,1
+	definevec4	"bg_red"	0.760,0.474,0.211,1
+	definevec4	"ar_green"	0.352,0.678,0.525,1
+	definevec4	"ar_green_4"	0.352,0.678,0.525,0.4
+	definevec4	"ar_red"	0.862,0.321,0.160,1
+	definevec4	"ar_red_4"	0.862,0.321,0.160,0.4
+	float	"active"	0
+	float	"open"	1
+
+	onInit {
+		if ( "gui::gui_parm_strogg" == 1 ) {
+			set "label::visible" "1";
+			set "label_r::visible" "0";
+		} else {
+			set "label::visible" "0";
+			set "label_r::visible" "1";
+		}
+		
+		if ( "gui::gui_parm_closed" == 1 ) {
+			set "p_closearrows::visible" "0" ;
+			set "p_openarrows::visible" "1" ;
+			
+			set "tl_bg::matcolor" "$desktop::bg_red" ;
+			set "tr_bg::matcolor" "$desktop::bg_red" ;
+			set "bl_bg::matcolor" "$desktop::bg_red" ;
+			set "br_bg::matcolor" "$desktop::bg_red" ;
+			
+			set "tl_ar2::matcolor" "$desktop::ar_red_4" "0" ;
+			set "tr_ar2::matcolor" "$desktop::ar_red_4" "0" ;
+			set "bl_ar2::matcolor" "$desktop::ar_red_4" "0" ;
+			set "br_ar2::matcolor" "$desktop::ar_red_4" "0" ;
+			
+			set "tl_ar1::matcolor" "$desktop::ar_red" "0" ;
+			set "tr_ar1::matcolor" "$desktop::ar_red" "0" ;
+			set "bl_ar1::matcolor" "$desktop::ar_red" "0" ;
+			set "br_ar1::matcolor" "$desktop::ar_red" "0" ;
+			
+			set "tl_ar3::matcolor" "$desktop::ar_red_4" "0" ;
+			set "tr_ar3::matcolor" "$desktop::ar_red_4" "0" ;
+			set "bl_ar3::matcolor" "$desktop::ar_red_4" "0" ;
+			set "br_ar3::matcolor" "$desktop::ar_red_4" "0" ;
+			
+			set "label::text" "#str_200363" ;
+			set "label_r::text" "#str_200363" ;
+			
+			set "desktop::open" "0" ;
+			set "desktop::active" "0" ;
+			
+		} 
+		
+	}
+
+	windowDef p_main
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef tl_bg
+		{
+			rect	0,0,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_bg"
+			matcolor	0.329,0.627,0.662,1
+		}
+		windowDef bl_bg
+		{
+			rect	0,240,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_bg"
+			matcolor	0.329,0.627,0.662,1
+			matscaley	-1
+		}
+		windowDef tr_bg
+		{
+			rect	320,0,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_bg"
+			matcolor	0.329,0.627,0.662,1
+			matscalex	-1
+		}
+		windowDef br_bg
+		{
+			rect	320,240,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_bg"
+			matcolor	0.329,0.627,0.662,1
+			matscaley	-1
+			matscalex	-1
+		}
+		windowDef tl_ar1
+		{
+			rect	0,0,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar1"
+			matcolor	0.352,0.678,0.525,1
+		}
+		windowDef tr_ar1
+		{
+			rect	320,0,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar1"
+			matcolor	0.352,0.678,0.525,1
+			matscalex	-1
+		}
+		windowDef tl_ar2
+		{
+			rect	0,105,320,60
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar2"
+			matcolor	0.352,0.678,0.525,.4
+		}
+		windowDef tr_ar2
+		{
+			rect	320,105,320,60
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar2"
+			matcolor	0.352,0.678,0.525,.4
+			matscalex	-1
+		}
+		windowDef tl_ar3
+		{
+			rect	0,1,320,120
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar3"
+			matcolor	0.352,0.678,0.525,.4
+		}
+		windowDef tr_ar3
+		{
+			rect	320,1,320,120
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar3"
+			matcolor	0.352,0.678,0.525,.4
+			matscalex	-1
+		}
+		windowDef bl_ar1
+		{
+			rect	0,240,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar1"
+			matcolor	0.352,0.678,0.525,1
+			matscaley	-1
+		}
+		windowDef br_ar1
+		{
+			rect	320,240,320,240
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar1"
+			matcolor	0.352,0.678,0.525,1
+			matscaley	-1
+			matscalex	-1
+		}
+		windowDef bl_ar2
+		{
+			rect	0,315,320,60
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar2"
+			matcolor	0.352,0.678,0.525,.4
+			matscaley	-1
+		}
+		windowDef br_ar2
+		{
+			rect	320,315,320,60
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar2"
+			matcolor	0.352,0.678,0.525,.4
+			matscaley	-1
+			matscalex	-1
+		}
+		windowDef bl_ar3
+		{
+			rect	0,359,320,120
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar3"
+			matcolor	0.352,0.678,0.525,.4
+			matscaley	-1
+		}
+		windowDef br_ar3
+		{
+			rect	320,359,320,120
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_ar3"
+			matcolor	0.352,0.678,0.525,.4
+			matscalex	-1
+			matscaley	-1
+		}
+	}
+	windowDef label_r
+	{
+		rect	36,195,560,83
+		visible	0
+		forecolor	1,1,1,.86
+		text	"#str_200364"
+		textscale	1.5
+		font	"fonts/r_strogg"
+		textalign	1
+		textspacing	-5
+	}
+	windowDef label
+	{
+		rect	37,204,560,73
+		visible	0
+		forecolor	1,1,1,.86
+		text	"#str_200364"
+		textscale	2
+		font	"fonts/strogg"
+		textalign	1
+	}
+	windowDef p_closearrows
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef t_arrowclose
+		{
+			rect	50,-77,540,80
+			visible	1
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.509,1,0.678,1
+			matscaley	-1
+		}
+		windowDef d_t_arrowclose
+		{
+			rect	100,80,440,80
+			visible	0
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.509,1,0.678,1
+			matscaley	-1
+		}
+		windowDef b_arrowclose
+		{
+			rect	49,481,539,80
+			visible	1
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.509,1,0.678,1
+		}
+		windowDef d_b_arrowclose
+		{
+			rect	100,318,440,80
+			visible	0
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.509,1,0.678,1
+		}
+	}
+	windowDef p_openarrows
+	{
+		rect	0,0,640,479
+		visible	0
+		windowDef t_arrowopen
+		{
+			rect	100,80,440,80
+			visible	1
+			background	"gfx/guis/common/arrow2"
+			matcolor	1,0.5,0.4,0
+		}
+		windowDef d_t_arrowopen
+		{
+			rect	50,-77,540,80
+			visible	0
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.509,1,0.678,1
+			matscaley	-1
+		}
+		windowDef b_arrowopen
+		{
+			rect	100,318,440,80
+			visible	1
+			background	"gfx/guis/common/arrow2"
+			matcolor	1,0.5,0.4,0
+			matscaley	-1
+		}
+		windowDef d_b_arrowopen
+		{
+			rect	49,481,539,80
+			visible	0
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.509,1,0.678,1
+			matscaley	-1
+		}
+	}
+	windowDef l_dot
+	{
+		rect	33,184,50,112
+		visible	1
+		background	"gfx/guis/common/strogg/genericseal_dot"
+		matcolor	1,1,1,.6*guitable_10_0[time*0.0015]
+	}
+	windowDef r_dot
+	{
+		rect	556,184,50,112
+		visible	1
+		background	"gfx/guis/common/strogg/genericseal_dot"
+		matcolor	1,1,1,.6*guitable_10_0[time*0.0015]
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef static
+		{
+			visible	1
+			rect	0,-213,640,806
+			background	"gfx/guis/common/static2"
+			matcolor	0.325,1,0.250,0.298
+			matscalex	-1
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-86,640,568
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.494,0.494,0.494,1
+		}
+		windowDef dirt
+		{
+			rect	0,-144,672,772
+			visible	1
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.286,0.258,0.172,.8
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches5"
+			matcolor	0.749,0.984,1,.6
+		}
+		windowDef blackedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+		windowDef addlines
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/add_lines1"
+			matcolor	0.250,0.250,0.250,1
+		}
+	}
+	windowDef anim_close
+	{
+		rect	0,0,640,480
+		visible	1
+		notime	1
+
+		onTime 0 {
+			set "desktop::active" "1" ;
+			
+			set "p_closearrows::visible" "0" ;
+			set "p_openarrows::visible" "0" ;
+			
+			transition "tl_bg::matcolor" "$desktop::bg_green" "$desktop::bg_red" "250" ;
+			transition "tr_bg::matcolor" "$desktop::bg_green" "$desktop::bg_red" "250" ;
+			transition "bl_bg::matcolor" "$desktop::bg_green" "$desktop::bg_red" "250" ;
+			transition "br_bg::matcolor" "$desktop::bg_green" "$desktop::bg_red" "250" ;
+		}
+
+		onTime +250 {
+			transition "tl_ar3::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+			transition "tr_ar3::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+			transition "bl_ar3::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+			transition "br_ar3::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+		}
+
+		onTime +250 {
+			transition "tl_ar3::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			transition "tr_ar3::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			transition "bl_ar3::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			transition "br_ar3::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			
+			transition "tl_ar2::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+			transition "tr_ar2::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+			transition "bl_ar2::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+			transition "br_ar2::matcolor" "$desktop::ar_green_4" "$desktop::ar_red" "250" ;
+		}
+
+		onTime +250 {
+			transition "tl_ar2::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			transition "tr_ar2::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			transition "bl_ar2::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			transition "br_ar2::matcolor" "$desktop::ar_red" "$desktop::ar_red_4" "250" ;
+			
+			transition "tl_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_red" "250" ;
+			transition "tr_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_red" "250" ;
+			transition "bl_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_red" "250" ;
+			transition "br_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_red" "250" ;
+			
+			set "label::text" "#str_200363" ;
+			set "label_r::text" "#str_200363" ;
+			
+			set "p_closearrows::visible" "0" ;
+			set "p_openarrows::visible" "1" ;
+		}
+
+		onTime +250 {
+			set "desktop::open" "0" ;
+			set "desktop::active" "0" ;
+		}
+
+	}
+	windowDef anim_open
+	{
+		rect	0,0,640,480
+		visible	1
+		notime	1
+
+		onTime 0 {
+			set "desktop::active" "1" ;
+			
+			set "p_closearrows::visible" "0" ;
+			set "p_openarrows::visible" "0" ;
+			
+			transition "tl_ar1::matcolor" "$desktop::ar_red" "$desktop::ar_green" "250" ;
+			transition "tr_ar1::matcolor" "$desktop::ar_red" "$desktop::ar_green" "250" ;
+			transition "bl_ar1::matcolor" "$desktop::ar_red" "$desktop::ar_green" "250" ;
+			transition "br_ar1::matcolor" "$desktop::ar_red" "$desktop::ar_green" "250" ;
+		}
+
+		onTime +250 {
+			transition "tl_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "tr_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "bl_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "br_ar1::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			
+			transition "tl_ar2::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+			transition "tr_ar2::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+			transition "bl_ar2::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+			transition "br_ar2::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+		}
+
+		onTime +250 {
+			transition "tl_ar2::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "tr_ar2::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "bl_ar2::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "br_ar2::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			
+			transition "tl_ar3::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+			transition "tr_ar3::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+			transition "bl_ar3::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+			transition "br_ar3::matcolor" "$desktop::ar_red_4" "$desktop::ar_green" "250" ;
+		}
+
+		onTime +250 {
+			transition "tl_ar3::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "tr_ar3::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "bl_ar3::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			transition "br_ar3::matcolor" "$desktop::ar_green" "$desktop::ar_green_4" "250" ;
+			
+			transition "tl_bg::matcolor" "$desktop::bg_red" "$desktop::bg_green" "250" ;
+			transition "tr_bg::matcolor" "$desktop::bg_red" "$desktop::bg_green" "250" ;
+			transition "bl_bg::matcolor" "$desktop::bg_red" "$desktop::bg_green" "250" ;
+			transition "br_bg::matcolor" "$desktop::bg_red" "$desktop::bg_green" "250" ;
+			
+			transition "tl_ar1::matcolor" "$desktop::ar_green_4" "$desktop::ar_green" "250" ;
+			transition "tr_ar1::matcolor" "$desktop::ar_green_4" "$desktop::ar_green" "250" ;
+			transition "bl_ar1::matcolor" "$desktop::ar_green_4" "$desktop::ar_green" "250" ;
+			transition "br_ar1::matcolor" "$desktop::ar_green_4" "$desktop::ar_green" "250" ;
+			
+			set "label::text" "#str_200364" ;
+			set "label_r::text" "#str_200364" ;
+			
+			set "p_closearrows::visible" "1" ;
+			set "p_openarrows::visible" "0" ;
+		}
+
+		onTime +250 {
+			set "desktop::open" "1" ;
+			set "desktop::active" "0" ;
+		}
+
+	}
+	windowDef anim_closearrows
+	{
+		rect	0,0,640,480
+		visible	1
+
+		onTime 0 {
+			transition "t_arrowclose::rect" "$t_arrowclose::rect" "$d_t_arrowclose::rect" "800" "50" "400" ;
+			transition "b_arrowclose::rect" "$b_arrowclose::rect" "$d_b_arrowclose::rect" "800" "50" "400" ;
+			
+			transition "t_arrowclose::matcolor_w" ".28" "0" "800" ;
+			transition "b_arrowclose::matcolor_w" ".28" "0" "800" ;
+		}
+
+		onTime +1000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef anim_openarrows
+	{
+		rect	0,0,640,480
+		visible	1
+
+		onTime 0 {
+			transition "t_arrowopen::rect" "$t_arrowopen::rect" "$d_t_arrowopen::rect" "800" "400" "50" ;
+			transition "b_arrowopen::rect" "$b_arrowopen::rect" "$d_b_arrowopen::rect" "800" "400" "50" ;
+			
+			transition "t_arrowopen::matcolor_w" "0" ".28" "800" ;
+			transition "b_arrowopen::matcolor_w" "0" ".28" "800" ;
+		}
+
+		onTime +1000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef button
+	{
+		rect	0,0,640,480
+		visible	1
+
+		onAction {
+			if ( "desktop::active" == 0 ) {
+				
+				set "cmd" "play guisound_beep2 ; activate" ;
+				
+				if ( "desktop::open" == 1 ) {
+					resettime "anim_close" "0" ;
+				} else {
+					resettime "anim_open" "0" ;
+				}
+			}
+		}
+
+	}
+}

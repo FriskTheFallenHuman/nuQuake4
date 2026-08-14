@@ -1,0 +1,342 @@
+//strogg containers here-----------------------------------------------------------------------------
+
+models/mapobjects/strogg/barrels/medium1_low
+{
+     noselfShadow
+	renderbump  -size 256 256 -trace .2 -aa 2  models/mapobjects/barrel/barrel1_low_local.tga models/mapobjects/barrel/barrel1_high.lwo
+
+		diffusemap		models/mapobjects/strogg/barrels/medium1_low_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium1_low_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium1_low_s.tga
+}
+
+//skin file for medium barrel 3----------------------------------------------
+models/mapobjects/strogg/barrels/medium1_a
+{
+     noSelfShadow
+		diffusemap		models/mapobjects/strogg/barrels/medium1_a_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium1_a_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium1_a_s.tga
+}
+
+
+models/mapobjects/strogg/barrels/medium1_b
+{
+     noSelfShadow
+     
+
+		diffusemap		models/mapobjects/strogg/barrels/medium1_b_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium1_b_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium1_b_s.tga
+}
+
+
+models/mapobjects/strogg/barrels/medium1_c
+{
+     noSelfShadow
+
+
+		diffusemap		models/mapobjects/strogg/barrels/medium1_c_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium1_c_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium1_c_s.tga
+}
+
+models/mapobjects/strogg/barrels/medium1_a_burt
+{
+	{
+		map	_black
+	}		
+	bumpmap addnormals ( models/mapobjects/strogg/barrels/medium1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium1_c_h.tga, 1 ) )
+	specularmap		models/mapobjects/strogg/barrels/medium1_c_s.tga
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
+models/mapobjects/strogg/barrels/medium2_low
+{
+      noselfShadow
+	renderbump  -size 256 256 -trace .2 -aa 2  models/mapobjects/strogg/barrels/medium2_low_local.tga work/models/mapobjects/strogg/barrels/medium2_high.lwo
+
+		diffusemap		models/mapobjects/strogg/barrels/medium2_low_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium2_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium2_low_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium2_low_s.tga
+}
+
+models/mapobjects/strogg/barrels/medium2_a
+{
+     noSelfShadow
+   
+
+		diffusemap		models/mapobjects/strogg/barrels/medium2_a_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium2_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium2_a_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium2_a_s.tga
+}
+
+
+models/mapobjects/strogg/barrels/medium2_b
+{
+     noSelfShadow
+    
+
+		diffusemap		models/mapobjects/strogg/barrels/medium2_b_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium2_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium2_b_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium2_b_s.tga
+}
+
+
+models/mapobjects/strogg/barrels/medium2_c
+{
+     noSelfShadow
+    
+
+		diffusemap		models/mapobjects/strogg/barrels/medium2_c_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/medium2_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/medium2_c_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/medium2_c_s.tga
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/barrels/large1_low
+{
+      noSelfShadow
+     
+      
+	renderbump  -size 256 256 -trace .2 -aa 2  models/mapobjects/strogg/barrels/medium2_low_local.tga work/models/mapobjects/strogg/barrels/medium2_high.lwo
+
+		diffusemap		models/mapobjects/strogg/barrels/large1_low_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/large1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/large1_low_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/large1_low_s.tga
+}
+
+models/mapobjects/strogg/barrels/large1_dirty
+{
+      noSelfShadow
+     
+      
+		diffusemap		models/mapobjects/strogg/barrels/large1_dirty_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/large1_low_local.tga, heightmap ( models/mapobjects/strogg/barrels/large1_dirty_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/large1_dirty_s.tga
+}
+
+///---------------------------------------------------------------------------------------------------------------
+
+
+//crate3_lo----------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/crates/crate3_lo
+{
+      noSelfShadow
+      
+	renderbump  -size 512 512 -MergeHigh -trace 0.7 -aa 2  models/mapobjects/strogg/crates/crate3_lo_local.tga work/models/kevin/crate3_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/crates/crate3_lo_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/crates/crate3_lo_local.tga, heightmap ( models/mapobjects/strogg/crates/crate3_lo_h.tga, 2 ) )
+		specularmap		models/mapobjects/strogg/crates/crate3_lo_s.tga
+
+		{
+			blend add
+			map models/mapobjects/strogg/crates/crate3_lo_g.tga
+		}
+
+}
+
+//crate3b_lo----------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/crates/crate3b_lo
+{
+      noSelfShadow
+      
+	renderbump  -size 512 512 -MergeHigh -trace 0.7 -aa 2  models/mapobjects/strogg/crates/crate3_lo_local.tga work/models/kevin/crate3_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/crates/crate3b_lo_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/crates/crate3_lo_local.tga, heightmap ( models/mapobjects/strogg/crates/crate3b_lo_h.tga, 2 ) )
+		specularmap		models/mapobjects/strogg/crates/crate3b_lo_s.tga
+
+}
+
+//  strogg cargo_containerV2------------------------------------------------------------------------  
+
+models/mapobjects/strogg/cargo_container/generic_lgV2
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/cargo_container/generic_lgV2_local.tga work/models/mapobjects/strogg/cargo_container/generic_lgv2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/cargo_container/generic_lgV3_local.tga, heightmap (models/mapobjects/strogg/cargo_container/generic_lgV2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/cargo_container/generic_lgV2_d.tga
+	specularmap		models/mapobjects/strogg/cargo_container/generic_lgV2_s.tga
+
+}
+//  strogg cargo_containerv3------------------------------------------------------------------------  
+
+models/mapobjects/strogg/cargo_container/generic_lgv3
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/cargo_container/generic_lgv3_local.tga work/models/mapobjects/strogg/cargo_container/generic_lgv2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/cargo_container/generic_lgv3_local.tga, heightmap (models/mapobjects/strogg/cargo_container/generic_lgv3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/cargo_container/generic_lgv3_d.tga
+	specularmap		models/mapobjects/strogg/cargo_container/generic_lgv3_s.tga
+
+}
+
+//dispersal barrel and junk-----------------------------------------------------
+
+
+models/mapobjects/strogg/barrels/stroyent
+{
+     noselfShadow	
+     unSmoothedTangents
+
+
+	renderbump  -size 256 256 -trace .05 -aa 2 -mergehigh models/mapobjects/strogg/barrels/stroyent_local.tga work/models/mapobjects/strogg/barrels/dispersal/stroyent_barrel_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/barrels/stroyent_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/stroyent_local.tga, heightmap ( models/mapobjects/strogg/barrels/stroyent_h.tga, 1 ) )
+		specularMap		models/mapobjects/strogg/barrels/stroyent_s.tga
+		{
+			blend add
+			map models/mapobjects/strogg/barrels/stroyent_g.tga
+		}
+}
+
+models/mapobjects/strogg/barrels/stroyent_b
+{
+     noselfShadow	
+     unSmoothedTangents
+
+
+		diffusemap		models/mapobjects/strogg/barrels/stroyent_b_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/stroyent_local.tga, heightmap ( models/mapobjects/strogg/barrels/stroyent_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/stroyent_s.tga
+		{
+			blend add
+			map models/mapobjects/strogg/barrels/stroyent_b_g.tga
+		}
+
+}
+
+models/mapobjects/strogg/barrels/stroyent_c
+{
+     noselfShadow	
+     unsmoothedtangents
+	
+
+		diffusemap		models/mapobjects/strogg/barrels/stroyent_c_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/stroyent_local.tga, heightmap ( models/mapobjects/strogg/barrels/stroyent_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/barrels/stroyent_s.tga
+		{
+			blend add
+			map models/mapobjects/strogg/barrels/stroyent_c_g.tga
+		}
+
+}
+
+models/mapobjects/strogg/barrels/stroyent_group_2
+{
+      	noselfShadow
+	unSmoothedTangents
+	
+	
+	renderbump  -size 512 256 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/barrels/stroyent_group_2_frame_local.tga work/models/mapobjects/strogg/barrels/dispersal/stroyent_group_2_frame_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/barrels/stroyent_group_2_local.tga, heightmap (models/mapobjects/strogg/barrels/stroyent_group_2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/barrels/stroyent_group_2_d.tga
+	specularmap		models/mapobjects/strogg/barrels/stroyent_group_2_s.tga
+	{
+		blend add
+		map models/mapobjects/strogg/barrels/stroyent_group_2_g.tga
+	}
+
+}
+
+// Barrel for Slimy Transfer--------------------------------------------------------------------
+
+models/mapobjects/strogg/barrels/barrel_st_lo
+{
+     noselfShadow	
+     unsmoothedtangents
+	
+	
+	renderbump  -size 512 512 -trace .05 -aa 2 -mergehigh models/mapobjects/strogg/barrels/barrel_st_local.tga work/models/mapobjects/strogg/barrels/barrel_slimytransfer/barrel_st_knobs_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/barrels/barrel_st_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/barrels/barrel_st_local.tga, heightmap ( models/mapobjects/strogg/barrels/barrel_st_h.tga, 2 ) )
+		specularmap		models/mapobjects/strogg/barrels/barrel_st_s.tga
+
+}
+
+//crate1hm-------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/crates/crate1hm_lo
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderbump  -size 512 512 -trace 0.5 -aa 2  models/mapobjects/crate/crate1hm_lo_local.tga work/models/mapobjects/strogg/crates/crate1/crate1_hic.lwo
+
+		diffusemap		models/mapobjects/strogg/crates/crate1hm_lo_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/crates/crate1hm_lo_local.tga, heightmap ( models/mapobjects/strogg/crates/crate1hm_lo_h.tga, 1 ) )
+
+		specularmap		models/mapobjects/strogg/crates/crate1hm_lo_s.tga
+
+}
+
+
+//strogg_ammo_crate-------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/crates/sac
+{
+      noselfShadow
+	renderbump  -size 512 512 -trace 0.5 -aa 2  models/mapobjects/strogg/crates/sac_local.tga work/models/mapobjects/strogg/crates/strogg_ammocrate/models/sac_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/crates/sac_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/crates/sac_local.tga, heightmap ( models/mapobjects/strogg/crates/sac_h.tga, 4 ) )
+
+		specularmap		models/mapobjects/strogg/crates/sac_s.tga
+		
+		{
+		blend add
+		map models/mapobjects/strogg/crates/sac_g.tga
+		}
+
+}
+
+//strogg_ammo_crate_lid-------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/crates/sacl
+{
+      noselfShadow
+	renderbump  -size 256 512 -trace 0.2 -aa 2  models/mapobjects/strogg/crates/sacl_local.tga work/models/mapobjects/strogg/crates/strogg_ammocrate/models/lid_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/crates/sacl_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/crates/sacl_local.tga, heightmap ( models/mapobjects/strogg/crates/sacl_h.tga, 4 ) )
+
+		specularmap		models/mapobjects/strogg/crates/sacl_s.tga
+
+}
+
+
+//decals for strogg crate1_lo-------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/crates/crate1_lo_decal1
+{
+	qer_editorimage models/mapobjects/strogg/crates/crate1_lo_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/mapobjects/strogg/crates/crate1_lo_decal1.tga
+	}
+}

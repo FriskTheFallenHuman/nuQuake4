@@ -1,0 +1,335 @@
+//Strogg lights--------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/lights/small/light1
+{
+//	noselfShadow
+//	check path	renderbump  -size 64 128 -trace 0.2 -aa 3 models/mapobjects/lights/small_light1_local.tga models/mapobjects/lights/small_light1_hi.lwo
+
+
+	bumpmap			models/mapobjects/strogg/lights/small/light1_local.tga
+	diffusemap		models/mapobjects/strogg/lights/small/light1_d.tga
+	specularmap		models/mapobjects/strogg/lights/small/light1_s.tga
+
+	{
+//		blend GL_ONE, GL_ONE
+//		map models/mapobjects/strogg/lights/small/light1_glow.tga
+		blend		add 
+		map 		models/mapobjects/strogg/lights/small/light1_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+//--------------------------------------------------------------------------
+
+models/mapobjects/strogg/lights/small/light2
+{
+//	noSelfShadow
+//	check path	renderbump  -size 128 64 -trace 0.2 -aa 2 models/mapobjects/lights/small_light2_local.tga models/mapobjects/lights/small_light2_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/lights/small/light2_local.tga
+	diffusemap		models/mapobjects/strogg/lights/small/light2_d.tga
+	specularmap		models/mapobjects/strogg/lights/small/light2_s.tga
+
+	{
+		blend		add 
+		map 		models/mapobjects/strogg/lights/small/light2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+//special case light for underground area of building_b
+models/mapobjects/strogg/lights/small/light2_noshadows
+{
+	noShadows
+	bumpMap			models/mapobjects/strogg/lights/small/light2_local.tga
+	diffuseMap		models/mapobjects/strogg/lights/small/light2_d.tga
+	specularMap		models/mapobjects/strogg/lights/small/light2_s.tga
+
+	{
+		blend		add 
+		map 		models/mapobjects/strogg/lights/small/light2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+//--------------------------------------------------------------------------
+
+models/mapobjects/strogg/lights/hanging/box1
+{
+      noselfShadow
+//check path	renderbump  -size 256 256 -trace 0.2 -aa 2 models/mapobjects/lights/hanging_light1_local.tga models/mapobjects/lights/hanging_light_hi.lwo
+
+
+	bumpmap			models/mapobjects/strogg/lights/hanging/box1_local.tga
+	diffusemap		models/mapobjects/strogg/lights/hanging/box1_d.tga
+	specularmap		models/mapobjects/strogg/lights/hanging/box1_d.tga
+
+/*	{
+
+		blend GL_ONE, GL_ONE
+		map models/mapobjects/strogg/lights/hanging_light1_glow.tga
+
+	}
+*/
+}
+
+//--------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/lights/medium/wide_128
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	//check path	renderbump  -size 128 256 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/lights/light_wide_128_local.tga models/mapobjects/strogg/lights/light_wide_128_high.lwo
+
+	bumpMap		addnormals (models/mapobjects/strogg/lights/medium/wide_128_local.tga, heightmap (models/mapobjects/strogg/lights/medium/wide_128_h.tga, 2))
+	diffuseMap	models/mapobjects/strogg/lights/medium/wide_128_d.tga
+	specularMap	models/mapobjects/strogg/lights/medium/wide_128_s.tga
+		
+	{
+		blend	add
+		map		models/mapobjects/strogg/lights/medium/wide_128_g.tga
+		red		parm0
+		green	parm1
+		blue	parm2
+	}
+
+}
+
+//-------------------------------------------------------------------------
+
+models/mapobjects/strogg/lights/medlabs/m_large
+{
+		noSelfShadow
+		unSmoothedTangents
+      //renderbump  -size 512 512  -trace .1 -aa 1  models/mapobjects/med_big_light/med_big_light_local.tga models/mapobjects/med_big_light/big_light_hi_final.lwo
+
+		diffusemap			models/mapobjects/strogg/lights/medlabs/m_large_d.tga 
+		bumpmap addnormals 	( models/mapobjects/strogg/lights/medlabs/m_large_local.tga , heightmap ( models/mapobjects/strogg/lights/medlabs/m_large_h.tga , 0 ) )
+		specularmap			models/mapobjects/strogg/lights/medlabs/m_large_s.tga 
+
+}
+
+
+//-----------------------------------------------------------------------
+
+
+
+models/mapobjects/strogg/lights/medlabs/m_large_b
+{
+      noselfShadow
+	renderbump  -size 512 512  -trace .05 -aa 1  models/mapobjects/med_big_light/med_big_light_localb.tga models/mapobjects/med_big_light/big_light_hi_final.lwo
+	unSmoothedTangents
+	
+	diffusemap			models/mapobjects/strogg/lights/medlabs/m_large_b_d.tga 
+	bumpmap addnormals ( models/mapobjects/strogg/lights/medlabs/m_large_b_local.tga , heightmap ( models/mapobjects/strogg/lights/medlabs/m_large_b_h.tga , 2 ) )
+	specularmap			models/mapobjects/strogg/lights/medlabs/m_large_b_s.tga 
+
+	{
+		blend	add
+		map		models/mapobjects/strogg/lights/medlabs/m_large_b_glow.tga
+		red		parm0
+		green	parm1
+		blue	parm2
+	}
+/* added above parms.  use combine or _color for control over this light - corey
+
+		{
+			if ( parm6 != 1 )
+			blend add
+			map models/mapobjects/strogg/lights/medlabs/m_large_b_glow.tga
+		}
+
+		{
+			if ( parm6 == 1 )
+			blend add
+			map models/mapobjects/strogg/lights/medlabs/m_large_b_glow.tga
+			rgb		raven_strobe1[ time * 3 ] * raven_slight_flash [ time * .7 ]
+		}
+*/
+
+}
+
+
+//-------------------------------------------------------------------------
+
+/*
+models/mapobjects/med_big_light/half_a
+{
+      noselfShadow
+
+		diffusemap		models/mapobjects/med_big_light/half_a_d.tga 
+		bumpmap addnormals ( models/mapobjects/med_big_light/half_a_local.tga , heightmap ( models/mapobjects/med_big_light/half_a_h.tga , 0 ) )
+		specularmap		models/mapobjects/med_big_light/half_a_s.tga 
+
+}
+
+models/mapobjects/med_big_light/half_b
+{
+      noselfShadow
+
+		diffusemap		models/mapobjects/med_big_light/half_b_d.tga 
+		bumpmap addnormals ( models/mapobjects/med_big_light/half_b_local.tga , heightmap ( models/mapobjects/med_big_light/half_b_h.tga , 0 ) )
+		specularmap		models/mapobjects/med_big_light/half_b_s.tga 
+		
+		{
+			if ( parm6 != 1 )
+			blend add
+			map models/mapobjects/med_big_light/half_b_glow.tga
+		}
+
+		{
+			if ( parm6 == 1 )
+			blend add
+			map models/mapobjects/med_big_light/half_b_glow.tga
+			rgb		raven_strobe1[ time * 3 ] * raven_slight_flash [ time * .7 ]
+
+		}
+
+		
+
+}
+
+*/
+
+//-------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/lights/prison/square_frame
+{
+      noselfShadow
+	renderbump  -size 256 256 -trace 0.1 -aa 2 models/mapobjects/prison_light/prisonlight_local.tga models/mapobjects/prison_light/prisonlight_hi_pipes.lwo
+
+
+	bumpmap		addnormals	(models/mapobjects/strogg/lights/prison/square_frame_local.tga, heightmap(models/mapobjects/strogg/lights/prison/square_frame_h.tga,1))
+	diffusemap				models/mapobjects/strogg/lights/prison/square_frame_d.tga
+	specularMap				models/mapobjects/strogg/lights/prison/square_frame_s.tga
+
+	{
+	blend add
+	map 		models/mapobjects/strogg/lights/prison/square_frame_g.tga
+	}
+}
+
+
+//-------------------------------------------------------------------------
+
+
+
+models/mapobjects/strogg/lights/prison/2_frame
+{
+//	noselfShadow
+//	renderbump  -size 256 256 -trace .07 -aa 2 models/mapobjects/prison_light/prisonlight2_local.tga models/mapobjects/prison_light/prisonlight2_hi.lwo
+
+	bumpmap	addnormals	(models/mapobjects/strogg/lights/prison/2_frame_local.tga,heightmap(models/mapobjects/strogg/lights/prison/2_frame_h.tga,1))
+	diffusemap			models/mapobjects/strogg/lights/prison/2_frame_d.tga
+	specularMap			models/mapobjects/strogg/lights/prison/2_frame_s.tga
+
+	{
+		blend		add 
+		map 		models/mapobjects/strogg/lights/prison/2_frame_g.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+/*
+	{
+	if ( parm6 == 1 )
+	blend add
+	map 	models/mapobjects/strogg/lights/prison/2_frame_g.tga
+	}
+	
+	{
+	if ( parm6 == 0 )
+	blend add
+	map 				models/mapobjects/strogg/lights/prison/2_frame_g.tga
+
+	red		parm0  * sound
+	green		parm1  * sound
+	blue		parm2  * sound
+	}
+*/
+}
+
+models/mapobjects/strogg/lights/mini/rec_frame
+{
+	noselfshadow
+	unsmoothedTangents
+
+//check path	renderbump  -size 256 256 -aa 2  -colormap models/mapobjects/terminal/chiclight_local.tga models/mapobjects/terminal/chiclight/render/chic_light_hi.lwo
+
+	diffusemap	models/mapobjects/strogg/lights/mini/rec_frame_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/lights/mini/rec_frame_local.tga, heightmap (models/mapobjects/strogg/lights/mini/rec_frame_h.tga,1))
+	specularmap	models/mapobjects/strogg/lights/mini/rec_frame_s.tga
+	{
+	blend add
+	map models/mapobjects/strogg/lights/mini/rec_frame_g.tga
+	}
+}
+
+//--------------------------------------------------------------------------
+
+models/mapobjects/strogg/lights/small/square
+{
+	noselfshadow
+	unsmoothedTangents
+
+	renderbump  -size 128 128 -aa 2 -trace .07  -colormap models/mapobjects/terminal/sm_light_local.tga models/mapobjects/terminal/chiclight/render/sm_light_hi_render.lwo
+
+	diffusemap	models/mapobjects/strogg/lights/small/square_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/lights/small/square_local.tga, heightmap (models/mapobjects/strogg/lights/small/square_h.tga,1))
+	specularmap	models/mapobjects/strogg/lights/small/square_s.tga
+
+	{
+	blend add
+	map models/mapobjects/strogg/lights/small/square_g.tga
+	}
+
+}
+
+//  Chain light  --------------------------------------------------------------------------
+
+models/mapobjects/strogg/lights/hanging/chain_light_lo
+{
+	noselfshadow
+	unsmoothedTangents
+	
+
+	renderbump  -size 256 256 -aa 2 -trace .09  models/mapobjects/strogg/lights/hanging/chain_light_lo_local.tga work/models/mapobjects/strogg/lights/chain_light/chain_light_hi.lwo
+
+	diffusemap	models/mapobjects/strogg/lights/hanging/chain_light_lo_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/lights/hanging/chain_light_lo_local.tga, heightmap (models/mapobjects/strogg/lights/hanging/chain_light_lo_h.tga,1))
+	specularmap	models/mapobjects/strogg/lights/hanging/chain_light_lo_s.tga
+	
+	{
+	blend add
+	map 		models/mapobjects/strogg/lights/hanging/chain_light_lo_g.tga
+	}
+}
+
+
+models/mapobjects/strogg/lights/hanging/light_swing01_lo
+{
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/lights/hanging/light_swing01_lo_hit.tga
+//	renderBump  -size 256 512 -aa 2 -MergeHigh -trace .05  _local.tga   models/mapobjects/strogg/lights/hanging/light_swing01_lo_local.tga work/models/mapobjects/strogg/lights/hanging/light_swing01_hi.lwo
+
+	bumpMap	addnormals (models/mapobjects/strogg/lights/hanging/light_swing01_lo_local.tga, heightmap (models/mapobjects/strogg/lights/hanging/light_swing01_lo_h.tga, 2))
+	diffusemap			models/mapobjects/strogg/lights/hanging/light_swing01_lo_d.tga
+	specularmap			models/mapobjects/strogg/lights/hanging/light_swing01_lo_s.tga
+
+	{
+		blend		add 
+		map 		models/mapobjects/strogg/lights/hanging/light_swing01_lo_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}

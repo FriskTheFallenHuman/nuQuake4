@@ -1,0 +1,308 @@
+/***********************************************************************************************************************
+Core
+
+Unique entities created for the core level
+************************************************************************************************************************/
+
+model model_terminal_giant_brain
+{
+	mesh					"models/mapobjects/strogg/terminal/brainstalk/brainstalk.md5mesh"
+	anim charge				"models/mapobjects/strogg/terminal/brainstalk/charge.md5anim"
+	anim idle				"models/mapobjects/strogg/terminal/brainstalk/idle.md5anim"
+
+}
+
+entityDef core_Brainstalk
+{
+	"model"					"model_terminal_giant_brain"
+	"editor_menu"			"level"
+
+	"anim"					"idle"
+
+}
+
+entityDef projectile_core_elevator_spawner
+{
+	"inherit"					"projectile_teleportDropper_spawner"
+	"spawner"					"spawnerCoreElevator"
+
+	"speed"						"1000"
+	"angular_velocity"			"10 -10 10"			
+	"linear_friction"			"0.5"
+	"angular_friction"			"0.4"
+	"contact_friction"			"0.5"
+	"bounce"					"0.2"
+	"gravity"					"1"	
+
+	"snd_ricochet"				"grenade_bounce"		
+
+}
+
+
+//  Core Tram Tunnel Collapse  //
+
+export core_tunnel_collapse
+{
+	options -prefix core_ -scale 1 -sourcedir work/models/mapobjects/strogg/core/core_tunnel/animations -destdir models/mapobjects/strogg/core/tunnel_collapse
+
+	mesh anim_idle.ma			-dest tunnel
+	anim anim_collapse.ma			-dest tunnel_collapse
+	anim anim_idle.ma			-dest idle
+}
+entityDef env_core_tunnel_collapse
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for core"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_core_tunnel_collapse"
+	"anim"						"idle"
+}
+model model_core_tunnel_collapse
+{
+	mesh					models/mapobjects/strogg/core/tunnel_collapse/tunnel.md5mesh
+	anim tunnel_collapse	models/mapobjects/strogg/core/tunnel_collapse/tunnel_collapse.md5anim
+	anim idle				models/mapobjects/strogg/core/tunnel_collapse/idle.md5anim
+}
+
+// Core tactical for the one anim that shows up on one guy!
+model core1_model_monster_tactical
+{
+	inherit					model_monster_tactical
+
+	anim console_idle					models/characters/marine/console_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	
+}
+
+entityDef core1_monster_tactical
+{
+	"inherit"				"monster_tactical_mgun"
+	
+	"model"					"core1_model_monster_tactical"
+	"editor_menu"				"level"
+}
+
+// Ending Cinematic Marines //
+
+
+model model_char_marine_npc_kane_core
+{
+	inherit							model_char_kane_strogg
+
+	anim kain_glory					models/characters/marine_kanestrogg/kain_glory.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	33,60,80,529,551,567,584,602,618,634,648	sound	npc_steps_default
+		frame	215										sound	generic_comm_link
+		frame	499										call	map_core::playFinale
+	}
+	anim kain_idle				models/characters/marine_kanestrogg/kain_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	54,69,91				sound	npc_steps_ladder
+		frame	108,126,143,160,180,198			sound	npc_steps_default
+	}
+	
+
+}
+
+entityDef char_marine_npc_kane_core
+{
+	"inherit"											"char_kane_strogg"
+	"model"										"model_char_marine_npc_kane_core"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+
+}
+
+model model_char_fatigue_marine_npc_core
+{
+	mesh									models/characters/marine_fatigues_mocap/fatigue_marine_mesh.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+/*
+	anim idle						models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim
+	anim walk						models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim unarmed_walk				models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim unarmed_idle				models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim	
+	
+	anim af_pose							models/characters/marine_fatigues_mocap/af_pose.md5anim
+*/
+		
+	anim rhodes_idle						models/characters/marine_fatigues_mocap/rhodes_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	489,511,601,624,649						sound	npc_steps_default
+		frame	518										sound	cine_outro_marine_shoulder_clap
+	}
+	anim sledge_idle						models/characters/marine_fatigues_mocap/sledge_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	51,62,71,74,83,92,101,111,119,130,141	sound	cine_outro_marine_clap
+	}
+	anim morris_idle						models/characters/marine_fatigues_mocap/morris_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	65,81,100,120,141,160,249,297			sound	npc_steps_default
+		frame	256										sound	cine_outro_marine_shoulder_clap
+	}
+	anim cortez_idle						models/characters/marine_fatigues_mocap/cortez_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	31,39									sound	cine_outro_marine_clap
+	}
+	anim strauss_idle						models/characters/marine_fatigues_mocap/strauss_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	37,50,68,86,102,119,135					sound	npc_steps_default
+	}
+	anim harper_idle						models/characters/marine_fatigues_mocap/harper_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	61,77,93,108,126,147,651,667,895,919	sound npc_steps_default
+
+		frame 676				sound_voice		snd_yes
+		frame 695				sound_voice		snd_yes_sir
+		frame 737				sound_voice		snd_but_sir
+		frame 826				sound_voice		snd_see_to_it
+		frame 904				sound_voice		snd_new_orders
+
+
+	}
+
+}
+
+
+entityDef char_marine_npc_morris_core
+{
+	"inherit"									"char_marine_fatigues"
+	"editor_menu"									"char_npc_core"
+	"annoyed"									"0"
+	"model"										"model_char_fatigue_marine_npc_core"
+	
+	"skin"										"skins/models/characters/marine/fatigues8"
+
+	"lipsync_vo_3_2_10_10_4"							"vo_3_2_10_10_4" // "not a bad bit of work"
+	
+}
+
+entityDef char_marine_npc_strauss_core
+{
+	"inherit"											"char_marine_fatigues"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+	"model"										"model_char_fatigue_marine_npc_core"
+	
+	"skin"										"skins/models/characters/marine/fatigues6"
+
+	"lipsync_vo_3_2_10_10_5"							"vo_3_2_10_10_5" // "may plan"
+	
+}
+
+entityDef char_marine_npc_sledge_core
+{
+	"inherit"											"char_marine_fatigues"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+	"model"										"model_char_fatigue_marine_npc_core"
+
+	"lipsync_vo_3_2_10_10_6"							"vo_3_2_10_10_6" // "strogg forces"
+	
+}
+
+entityDef char_marine_npc_rhodes_core
+{
+	"inherit"											"char_marine_fatigues"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+	"model"										"model_char_fatigue_marine_npc_core"
+
+	"lipsync_vo_3_2_10_10_7"							"vo_3_2_10_10_7" // "voss would be proud"
+	"lipsync_vo_3_2_10_10_11"							"vo_3_2_10_10_11" // "double or nothing"
+	
+}
+
+entityDef char_marine_npc_cortez_core
+{
+	"inherit"											"char_marine_fatigues"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+	"model"										"model_char_fatigue_marine_npc_core"
+
+	"lipsync_vo_3_2_10_10_8"							"vo_3_2_10_10_8" // "I won the bet"
+	"lipsync_vo_3_2_10_10_12"							"vo_3_2_10_10_12" // (everyone laughing)
+	
+}
+
+entityDef char_marine_npc_harper_core
+{
+	"inherit"											"char_marine_fatigues"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+	"model"										"model_char_fatigue_marine_npc_core"
+
+	
+	"snd_yes"				vo_3_2_10_10_14
+	"snd_yes_sir"				vo_3_2_10_10_15
+	"snd_but_sir"				vo_3_2_10_10_16				
+	"snd_see_to_it"				vo_3_2_10_10_17
+	"snd_new_orders"			vo_3_2_10_10_18
+/*
+	"lipsync_vo_3_2_10_10_14"							"vo_3_2_10_10_14" // "yes?"
+	"lipsync_vo_3_2_10_10_15"							"vo_3_2_10_10_15" // "what is it?"
+	"lipsync_vo_3_2_10_10_16"							"vo_3_2_10_10_16" // "kane just got back"
+	"lipsync_vo_3_2_10_10_17"							"vo_3_2_10_10_17" // "I'll see to it"
+	"lipsync_vo_3_2_10_10_18"							"vo_3_2_10_10_18" // "you have new orders"
+*/	
+}
+
+
+model model_char_marine_npc_officer_core
+{
+	inherit							model_char_marine_fatigues
+	mesh							models/characters/marine_fatigues_mocap/officer_mesh.md5mesh
+	anim harper_idle					models/characters/marine_fatigues_mocap/harper_idle.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	61,77,93,108,126,147,651,667,895,919	footstep
+	}
+}
+
+entityDef char_marine_npc_officer_core
+{
+	"inherit"											"char_marine_fatigues"
+	"editor_menu"										"char_npc_core"
+	"annoyed"											"0"
+	"model"										"model_char_marine_npc_officer_core"
+	"def_head"									"char_marinehead_general_harper"
+
+	"lipsync_vo_3_2_10_10_14"							"vo_3_2_10_10_14" // "yes?"
+	"lipsync_vo_3_2_10_10_15"							"vo_3_2_10_10_15" // "what is it?"
+	"lipsync_vo_3_2_10_10_16"							"vo_3_2_10_10_16" // "kane just got back"
+	"lipsync_vo_3_2_10_10_17"							"vo_3_2_10_10_17" // "I'll see to it"
+	"lipsync_vo_3_2_10_10_18"							"vo_3_2_10_10_18" // "you have new orders"
+}
+
+entityDef monster_strogg_marine_mgun_core
+{
+	"inherit"							"monster_strogg_marine_mgun"
+	"attackRange"						"150 1000"
+}

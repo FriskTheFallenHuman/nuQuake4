@@ -1,0 +1,513 @@
+textures/hub/techpipe1_1
+{
+	qer_EditorImage	textures/hub/techpipe1_1_d.tga
+	bumpMap			textures/hub/techpipe1_1_local.tga
+	diffuseMap		textures/hub/techpipe1_1_d.tga
+	specularMap		textures/hub/techpipe1_1_s.tga
+	{
+		blend		add
+		map			textures/hub/techpipe1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+// ----------------------------------------------------------------------
+// electrified version:
+// ----------------------------------------------------------------------
+
+textures/hub/techpipe1_1_hazard
+{
+	qer_EditorImage	textures/hub/techpipe1_1_d.tga
+	bumpMap			textures/hub/techpipe1_1_local.tga
+	diffuseMap		textures/hub/techpipe1_1_d.tga
+	specularMap		textures/hub/techpipe1_1_s.tga
+	{
+		blend		add
+		map		textures/hub/techpipe1_1_add.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+	{
+		blend		add
+		map		textures/hub/techpipe1_1_hazard_add.tga
+		rgb		grunttable[time*2]*0.125
+		scroll		0, (time*0.125)
+	}
+	/*{
+		blend		add
+		map		textures/hub/techpipe1_1_hazard_add2.tga
+		scroll		0, (time*1.5)
+		rgb		grunttable[time]
+		scale		1, 0.125
+	}*/
+	{
+		blend		add
+		map		textures/hub/techpipe1_1_hazard_add3.tga
+		scroll		flickerblink[time*0.125], flickerblink[time*0.35]*-0.6
+		rgb		flickerblink[time*0.45]*0.2
+		scale		0.25, 1
+	}
+}
+
+// ----------------------------------------------------------------------
+
+textures/hub/cpu1_1
+{
+	qer_EditorImage	textures/hub/cpu1_1_d.tga
+	bumpMap			textures/hub/cpu1_1_local.tga
+	diffuseMap		textures/hub/cpu1_1_d.tga
+	specularMap		textures/hub/cpu1_1_s.tga
+	{
+		blend		add
+		map			textures/hub/cpu1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/hub/floor1_1 generic_shader("hub/floor1_1")
+guide textures/hub/floor1_2 generic_shader("hub/floor1_2")
+guide textures/hub/floor2_1 generic_shader("hub/floor2_1")
+
+textures/hub/floor3_1_onesided
+{	//This shader is 2-sided, uses an alphatest, but does not cast shadows
+
+	qer_editorimage textures/hub/floor3_1_d
+	noshadows
+	
+	bumpmap addnormals (textures/hub/floor3_1_local, heightmap (textures/hub/floor3_1_h, 1 ) )
+	specularmap	textures/hub/floor3_1_s
+
+	{       
+     	blend		diffusemap 
+		map			textures/hub/floor3_1_d.tga
+		alphaTest	.5
+	}
+
+}
+
+textures/hub/floor3_1_twosided
+{	//This shader is 2-sided, uses an alphatest, but does not cast shadows
+
+	qer_editorimage textures/hub/floor3_1_d
+	noshadows
+	twosided
+
+	bumpmap addnormals (textures/hub/floor3_1_local, heightmap (textures/hub/floor3_1_h, 1 ) )
+	specularmap	textures/hub/floor3_1_s
+
+	{       
+     	blend		diffusemap 
+		map			textures/hub/floor3_1_d.tga
+		alphaTest	.5
+	}
+
+}
+
+textures/hub/techfloor1_1
+{
+	qer_EditorImage	textures/hub/techfloor1_1_d.tga
+	bumpMap			textures/hub/techfloor1_1_local.tga
+	diffuseMap		textures/hub/techfloor1_1_d.tga
+	specularMap		textures/hub/techfloor1_1_s.tga
+}
+
+
+
+
+guide textures/hub/trim1_1 generic_shader("hub/trim1_1")
+guide textures/hub/trim1_2 generic_shader("hub/trim1_2")
+guide textures/hub/trim1_2a generic_shader("hub/trim1_2a")
+guide textures/hub/trim1_3 generic_shader("hub/trim1_3")
+
+guide textures/hub/trim2_1 generic_shader("hub/trim2_1")
+guide textures/hub/trim2_2 generic_shader("hub/trim2_2")
+
+textures/hub/step1_1
+{
+	qer_EditorImage	textures/hub/step1_1_d.tga
+	bumpMap			textures/hub/step1_1_local.tga
+	diffuseMap		textures/hub/step1_1_d.tga
+	specularMap		textures/hub/step1_1_s.tga
+	{
+		blend		add
+		map			textures/hub/step1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/hub/step1_2 generic_shader("hub/step1_2")
+
+
+//lights
+guide textures/hub/sh_light1 generic_glow("hub/sh_light1", "hub/sh_light1_g.tga")
+guide textures/hub/sh_light2 generic_glow("hub/sh_light2", "hub/sh_light2_g.tga")
+
+
+//normal wall textures
+guide textures/hub/sh_wall1 generic_shader("hub/sh_wall1")
+guide textures/hub/sh_wall2 generic_shader("hub/sh_wall2")
+guide textures/hub/sh_wall3 generic_shader("hub/sh_wall3")
+guide textures/hub/sh_wall4 generic_shader("hub/sh_wall4")
+guide textures/hub/sh_wall5 generic_shader("hub/sh_wall5")
+guide textures/hub/sh_wall6 generic_shader("hub/sh_wall6")
+guide textures/hub/sh_wallpanel1 generic_shader("hub/sh_wallpanel1")
+guide textures/hub/sh_wallpanel1a generic_shader("hub/sh_wallpanel1a")
+guide textures/hub/sh_basepanel1 generic_shader("hub/sh_basepanel1")
+guide textures/hub/sh_basepanel2a generic_shader("hub/sh_basepanel2a")
+guide textures/hub/sh_basepanel2c generic_shader("hub/sh_basepanel2c")
+guide textures/hub/sh_basepanel5 generic_shader("hub/sh_basepanel5")
+guide textures/hub/sh_basepanel6 generic_shader("hub/sh_basepanel6")
+guide textures/hub/sh_basepanel7 generic_shader("hub/sh_basepanel7")
+guide textures/hub/sh_basepanel8 generic_shader("hub/sh_basepanel8")
+guide textures/hub/sh_basepanel9 generic_shader("hub/sh_basepanel9")
+guide textures/hub/sh_basepanel10 generic_shader("hub/sh_basepanel10")
+guide textures/hub/sh_squarepanel1 generic_shader("hub/sh_squarepanel1")
+guide textures/hub/sh_squarepanel3 generic_shader("hub/sh_squarepanel3")
+guide textures/hub/sh_vertpanel1 generic_shader("hub/sh_vertpanel1")
+guide textures/hub/sh_vertpanel2 generic_shader("hub/sh_vertpanel2")
+guide textures/hub/sh_vertpanel3 generic_shader("hub/sh_vertpanel3")
+guide textures/hub/sh_vertpanel4 generic_shader("hub/sh_vertpanel4")
+guide textures/hub/sh_vertpanel5 generic_shader("hub/sh_vertpanel5")
+guide textures/hub/sh_vertpanel6 generic_shader("hub/sh_vertpanel6")
+guide textures/hub/sh_vertpanel7a generic_shader("hub/sh_vertpanel7a")
+guide textures/hub/sh_vertpanel9 generic_shader("hub/sh_vertpanel9")
+guide textures/hub/sh_vertpanel10 generic_shader("hub/sh_vertpanel10")
+guide textures/hub/sh_wallsection_01a generic_shader("hub/sh_wallsection_01a")
+guide textures/hub/sh_wallsection_01a_glow generic_glow("hub/sh_wallsection_01a", "hub/sh_wallsection_01a_g.tga")
+guide textures/hub/sh_wallsection_02 generic_shader("hub/sh_wallsection_02")
+guide textures/hub/sh_wallsection_07 generic_shader("hub/sh_wallsection_07")
+guide textures/hub/sh_wallsection_08 generic_shader("hub/sh_wallsection_08")
+
+textures/hub/sh_longtrim
+{
+	qer_editorimage textures/hub/sh_longtrim_qer.tga
+
+	bumpmap addnormals ( textures/hub/sh_longtrim_local.tga, heightmap ( textures/hub/sh_longtrim_h.tga, 1 ) )
+	diffusemap	textures/hub/sh_longtrim_d.tga
+	specularmap	textures/hub/sh_longtrim_s.tga
+
+}
+
+
+guide textures/hub/sh_trim1 generic_shader("hub/sh_trim1")
+guide textures/hub/sh_squarepanel1a generic_shader("hub/sh_squarepanel1a")
+guide textures/hub/sh_wallpanel1b generic_shader("hub/sh_wallpanel1b")
+guide textures/hub/sh_step1 generic_shader("hub/sh_step1")
+guide textures/hub/sh_bigtube_00 generic_shader("hub/sh_bigtube_00")
+guide textures/hub/sh_bigtube_02 generic_shader("hub/sh_bigtube_02")
+
+
+textures/hub/sh_grate_01
+{	//diagonal grating with thicker bars
+
+	qer_editorimage	textures/hub/sh_grate_01_qer.tga
+	noshadows
+	twosided
+
+	{
+	blend		bumpmap
+	map		addnormals(textures/hub/sh_grate_01_local.tga,heightmap(textures/hub/sh_grate_01_h.tga,4))
+	rotate	.125
+	scale		10,10
+	}
+
+	{
+	blend		diffusemap
+	map		textures/hub/sh_grate_01_d.tga
+	rotate	.125
+	scale		10,10
+	alphatest	.5
+	}
+
+	{
+	blend		specularmap
+	map		textures/hub/sh_grate_01_s.tga
+	rotate	.125
+	scale		10,10
+	}
+}
+
+guide textures/hub/sh2_panel1a generic_shader("hub/sh2_panel1a")
+guide textures/hub/sh2_panel1b generic_shader("hub/sh2_panel1b")
+guide textures/hub/sh2_panel1c generic_shader("hub/sh2_panel1c")
+
+//-----------------------------
+// floors
+//-----------------------------
+
+guide textures/hub/sh2_floorrun1 generic_shader("hub/sh2_floorrun1")
+guide textures/hub/sh2_floorrun2 generic_shader("hub/sh2_floorrun2")
+guide textures/hub/sh_floormat1 generic_shader("hub/sh_floormat1")
+guide textures/hub/floortrim1_1 generic_shader("hub/floortrim1_1")
+
+textures/hub/floortrim1_2
+{
+	qer_EditorImage	textures/hub/floortrim1_2_d.tga
+	bumpMap			textures/hub/floortrim1_2_local.tga
+	diffuseMap		textures/hub/floortrim1_2_d.tga
+	specularMap		textures/hub/floortrim1_2_s.tga
+	{
+		blend		add
+		map			textures/hub/floortrim1_2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+
+textures/hub/sh_vertpipe2
+{
+	qer_editorimage textures/hub/sh_vertpipe2_d
+
+	bumpmap addnormals ( textures/hub/sh_vertpipe1_local.tga, heightmap ( textures/hub/sh_vertpipe2_h.tga, 1 ) )
+	diffusemap	textures/hub/sh_vertpipe2_d.tga
+	specularmap	textures/hub/sh_vertpipe2_s.tga
+}
+
+textures/hub/sh_vertpipe1b
+{
+	qer_editorimage textures/hub/sh_vertpipe1b_d
+
+	bumpmap addnormals ( textures/hub/sh_vertpipe1a_local.tga, heightmap ( textures/hub/sh_vertpipe1a_h.tga, 1 ) )
+	diffusemap	textures/hub/sh_vertpipe1b_d.tga
+	specularmap	textures/hub/sh_vertpipe1a_s.tga
+}
+
+textures/hub/sh_vertpipe1b_nowshadows
+{
+	qer_editorimage textures/hub/sh_vertpipe1b_noshadows_qer.tga
+	
+	noShadows
+	nonSolid
+	bumpmap addnormals ( textures/hub/sh_vertpipe1a_local.tga, heightmap ( textures/hub/sh_vertpipe1a_h.tga, 1 ) )
+	diffusemap	textures/hub/sh_vertpipe1b_d.tga
+	specularmap	textures/hub/sh_vertpipe1a_s.tga
+}
+
+textures/hub/sh_vertpipe1c
+{
+	qer_editorimage textures/hub/sh_vertpipe1c_d
+
+	bumpmap addnormals ( textures/hub/sh_vertpipe1a_local.tga, heightmap ( textures/hub/sh_vertpipe1a_h.tga, 1 ) )
+	diffusemap	textures/hub/sh_vertpipe1c_d.tga
+	specularmap	textures/hub/sh_vertpipe1a_s.tga
+}
+
+//-----------------------------
+// misc
+//-----------------------------
+
+guide textures/hub/sh_cpu32_side generic_shader("hub/sh_cpu32_side")
+
+
+
+//-----------------------------
+// outside textures for building
+//-----------------------------
+
+guide textures/hub/sh_outerwalltop_1 generic_shader("hub/sh_outerwalltop_1")
+guide textures/hub/sh_outerwallverticalstack_1 generic_shader("hub/sh_outerwallverticalstack_1")
+guide textures/hub/sh_outerwalltrim_1 generic_shader("hub/sh_outerwalltrim_1")
+guide textures/hub/sh_outerwalltrim_2 generic_shader("hub/sh_outerwalltrim_2")
+guide textures/hub/sh_outerwalltrim_4 generic_shader("hub/sh_outerwalltrim_4")
+
+
+//-----------------------------
+// flares
+//-----------------------------
+
+// standard flares (combine for colour/blinky lights)
+textures/hub/flare_4
+{
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	4
+	qer_editorimage	textures/common_misc/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/hub/flare_8
+{
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	8
+	qer_editorimage	textures/common_misc/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+// core blue flare
+textures/hub/flareblue_4
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		4
+	qer_EditorImage	textures/common_misc/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.65
+		green		.8
+		blue		.96
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+// core blue flare
+textures/hub/flareblue_8
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		8
+	qer_EditorImage	textures/common_misc/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.65
+		green		.8
+		blue		.96
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+// core orange flare
+textures/hub/flareorange_8
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		8
+	qer_EditorImage	textures/common_misc/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.9
+		green		.42
+		blue		0
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+// core orange flare
+textures/hub/flareorange_16
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		16
+	qer_EditorImage	textures/common_misc/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.9
+		green		.42
+		blue		0
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+
+
+// -- Start Stream Hub Flares
+
+textures/hub/flare_mini_blue
+
+// very small blue flare
+{
+	
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.2
+		green		.3
+		blue		1
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+// -- End Stream Hub Flares
+
+// -- Start Stream Hub Fluids
+
+textures/hub/fluid_blue_bubble
+
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+		
+	{
+		blend diffuseMap	
+		map textures/hub/fluid_blue_bubble1.tga
+		scroll 0, time * .1
+	}
+
+	{ 
+		blend add
+		map textures/hub/fluid_blue_bubble2.tga
+		scroll	0, time * .5
+	}
+	
+	{
+		blend add
+		map textures/hub/fluid_blue_bubble3.tga
+		scroll 0, time * .3
+	}
+
+}	
+
+// -- End Stream Hub Fluids

@@ -1,0 +1,321 @@
+//-----------------------------------------------------------------------------
+//
+//								DAMAGE DEFINITIONS
+//
+//-----------------------------------------------------------------------------
+
+entityDef damage_monster_base 
+{	// MONSTER_DAMAGE
+	// Fixme!  Make sure to list EVERY useful key/value pair here.
+	"damage"											"8"
+
+	"mtr_blob"											""
+	"blob_time"											"0"
+	"blob_x"											"0"
+	"blob_y"											"0"
+	"blob_width"										"0"
+	"blob_height"										"0"
+
+	"noArmor"											"0"
+	"radius"											"0"						// Only applied in RadiusDamage.
+
+	"knockback"											"10"
+	"push"												"0"						// Only applied in RadiusDamage.  Values need to be crazy huge (~30000).
+	"nopush"											"0"						// Disables push, for some reason.
+
+	"kick_time"											"100"
+	"kick_amplitude"									".4"
+
+	"gib"												"0"
+
+	"dv_time"											"50"
+	"dv_scale"											".2"
+
+	"fx_wound"											""
+
+	"snd_flesh"											"bullet_impact_flesh"	
+
+	"deathPush"											"100"
+	"deathPushMin"										"2000 250"
+	"deathPushMax"										"5000 500"
+}
+
+entityDef damage_railgun_base
+{	// MONSTER_DAMAGE
+	"inherit"											"damage_monster_base"
+	"damage"											"100"
+	"mtr_wound"											"textures/decals/hurt02"
+	"mtr_splat"											""
+	"knockback"											"40"
+	"gib"												"1"
+
+	"dv_time"											"500"
+
+	"fx_wound"											"effects/wounds/energy.fx"
+
+	"deathPush"											"200"
+	"deathPushMin"										"4000 400"
+	"deathPushMax"										"7000 500"
+}
+
+entityDef damage_bullet_base
+{	// MONSTER_DAMAGE
+	"inherit"											"damage_monster_base"
+	"knockback"											"1"
+	"bleed"												"1"
+}
+
+//-----------------------------------------------------------------------------
+//
+//								MELEE DEFINITIONS
+//
+//-----------------------------------------------------------------------------
+
+entityDef melee_monster_base
+{	// MONSTER_MELEE
+	"inherit"							"damage_monster_base"
+
+	"knockback"							"30"
+
+	"mtr_blob"							"textures/decals/genericDamage"
+//	"blob_time"							"500"
+	"blob_time"							"0"
+	"blob_x"							"0"
+	"blob_y"							"0"
+	"blob_width"						"600"
+	"blob_height"						"600"
+
+	// Special Melee-Only Key Values
+
+	"kickDir"							"1 0 0"
+	"snd_hit"							"grunt_punch"
+	"snd_miss"							"grunt_wiff"
+}
+
+//-----------------------------------------------------------------------------
+//
+//								HITSCAN DEFINITIONS
+//
+//-----------------------------------------------------------------------------
+
+entityDef hitscan_base
+{	// MONSTER_PROJECTILE
+	"spawnclass"										"rvHitScan"
+
+	"range"												"40000"
+	
+	"push"												"7500"
+
+	"def_damage"										"damage_monster_base"
+	
+	"fx_path"											""
+
+	"fx_impact"											""
+	"fx_impact_concrete"								""
+	"fx_impact_dirt"									""
+	"fx_impact_rock"									""
+	"fx_impact_sand"									""
+	"fx_impact_gravel"									""
+	"fx_impact_flesh"									""
+	
+	"fx_tracer"											""
+	"tracerchance"										".4"
+	"reflect_powerup"									"1"
+
+	"num_projectiles"									"1"
+	"attack_spread_horizontal"							"0"		// This is the amount the shot will deviate, in degrees.
+	"attack_spread_vertical"							"0"		// This is the amount the shot will deviate, in degrees.
+//	"use_hit_chance"									"1"		// Whether or not this attack type is affected by special enemy inaccuracy.
+}
+
+entityDef hitscan_bullet_base
+{
+	"inherit"											"hitscan_base"
+
+	"fx_tracer"											"effects/monsters/grunt/bullet_tracer.fx"
+	"tracerchance"										".3"
+	"doWhizz"											"1"
+
+	"fx_impact"											"effects/weapons/machinegun/impact_default.fx"
+	"fx_impact_concrete"								"effects/weapons/machinegun/impact_concrete.fx"
+	"fx_impact_electronics"								"effects/weapons/machinegun/impact_electronics.fx"
+	"fx_impact_flesh"									"effects/weapons/machinegun/impact_flesh.fx"						
+	"fx_impact_glass"									"effects/weapons/machinegun/impact_glass.fx"
+}
+
+entityDef hitscan_shotgun_base
+{
+	"inherit"											"hitscan_base"
+
+	"fx_impact"											"effects/weapons/shotgun/impact_default.fx"
+	"fx_impact_concrete"								"effects/weapons/shotgun/impact_concrete.fx"
+	"fx_impact_electronics"								"effects/weapons/shotgun/impact_electronics.fx"
+	"fx_impact_flesh"									"effects/weapons/shotgun/impact_flesh.fx"						
+	"fx_impact_glass"									"effects/weapons/shotgun/impact_glass.fx"
+
+	"num_projectiles"									"12"
+	"attack_spread"										"10"
+	"range"												"600"
+	"attack_spread_horizontal"							"15"
+	"attack_spread_vertical"							"5"
+
+	"use_hit_chance"									"0"
+}
+
+//-----------------------------------------------------------------------------
+//
+//								PROJECTILE DEFINITIONS
+//
+//-----------------------------------------------------------------------------
+
+entityDef projectile_base
+{	// MONSTER_PROJECTILE
+	"spawnclass"										"idProjectile"
+	"mins"												"-1 -1 -1"				// BBox Mins
+	"maxs"												"1 1 1"					// BBox Maxs
+	"cone"												"3"						// Default physics shape.
+	"scale"												"0.1"					// ?
+	"noshadows"											"1"						// Don't cast shadows
+	"model" 											""
+
+	"snd_ricochet"										""						// Sound if Projectile Bounces off of World
+
+	"def_damage"										""						// Impact Damage
+	"def_splash_damage"									""						// Splash Damage
+
+	"health"											"0"						// amount of damage projectile can take if damaged (0 means it can't be destroyed)
+	"velocity"											"700 0 0"				// how fast the projectile leaves the gun (or distance if fuse is 0)
+	"angular_velocity"									"0 0 0"					// how the projectile is rotating when it leaves the gun
+	"thrust"											"0"						// the rate of acceleration (always in the direction of the projectiles model)
+	"thrust_start"										"0"						// when to start accelerating
+	"thrust_end"										"0"						// when to stop accelerating
+	"linear_friction"									"0"						// "air" friction
+	"angular_friction"									"0"	
+	"contact_friction"									"0"
+	"bounce"											"0"						// how much speed a projectile retains when it bounces off of objects (coefficient of restitution).  0 means no bounce.
+	"mass"												"5"
+	"gravity"											"0"						// how much gravity affects the trajectory.  gravity direction is same as the entity that fired it.
+	"fuse"												"4"						// how long before the projectile is removed or self-detonates.  Use 0 for beam weapons (velocity == distance).
+
+	"detonate_on_fuse"									"1"						// whether projectile should detonate when it's fuse runs out
+	"detonate_on_death"									"0"						// whether projectile should detonate when it's "killed" (health runs out)
+	"detonate_on_world"									"1"						// whether projectile should detonate when it hits an obstacle
+	"detonate_on_actor"									"1"						// whether projectile should detonate when it hits a character in the game
+//	"detonation_axis"									"0 0 1"						// If set, the axis that the detonation should be played at (this is a vector)
+
+	"impact_gib"										"1"						// whether projectile can gib a character or not (for example: bullets don't gib, but rockets do)
+
+	"bounce_count"										"-1"					// Number of times the projectile will bounce - -1 is infinite.
+	"bounce_center"										"0"						// Ignores real physics and forces the center of bounciness to be 0 0 0
+	"random_shader_spin"								"0"						// Sets shader parm 5 / SHADERPARM_DIVERSITY to a random value at proj launch.
+	"orient_towards_motion"								"0"						// Forces orientation to match velocity.
+	"solid"												"0"						// Sets proj contents to CONTENTS_BODY
+	"bindOnImpact"										"0"						// Binds the proj to whatever is impacted.
+	"delay_splash"										"0"						// How long the splash damage should be delayed.
+
+	"fx_impact"											""
+	"fx_impact_concrete"								""
+	"fx_impact_flesh"									""						
+	"fx_path"											""
+	"fx_trail"											""
+	"fx_fly"											""
+	"fx_pain"											""
+
+	"light_shader"										""
+	"light_color"										"0 0 0"
+	"light_radius"										"0"
+	"light_offset"										"0 0 0"
+
+	"detonate_light_shader"								""
+	"detonate_light_color"								"0 0 0"
+	"detonate_light_radius"								"0"
+	"detonate_light_removetime"							"0"
+}
+
+entityDef projectile_bullet_base
+{	// MONSTER_PROJECTILE
+	"inherit"											"projectile_base"
+	"def_damage"										"damage_bullet"
+	
+	"velocity"											"7200 0 0"
+	"bounce"											"0.6"
+	"mass"												"0.115"
+	
+	"detonate_on_fuse"									"0"
+	"fuse"												"0"
+														
+	"fx_impact"											"effects/weapons/machinegun/impact_default.fx"
+	"fx_impact_concrete"								"effects/weapons/machinegun/impact_concrete.fx"
+	"fx_impact_flesh"									"effects/weapons/machinegun/impact_flesh.fx"						
+	"fx_path"											"effects/monsters/gunner/bullet_tracer.fx"
+	"effectchance path"									".3"
+
+	"snd_ricochet"										"bullet_ricochet"
+}
+
+entityDef projectile_nail_base
+{	// MONSTER_PROJECTILE
+	"inherit"											"projectile_base"
+	"cone"												"1"
+														
+	"model"												"models/weapons/nailgun/nail.ase"
+	"def_damage"										"damage_nailDirect"
+	"def_splash_damage"									"damage_nailSplash"
+																																	
+	"velocity"											"700 0 0"
+
+	"fx_trail"											"effects/weapons/nailgun/trail.fx"
+	"fx_fly"											"effects/weapons/nailgun/fly.fx"
+	"fx_impact"											"effects/weapons/nailgun/impact_default.fx"
+}
+
+entityDef projectile_blaster_base
+{	// MONSTER_PROJECTILE
+	"inherit"											"projectile_base"
+														
+	"def_damage"										"damage_monster_base"
+														
+	"velocity"											"850 0 0"
+	"bounce"											"0.6"
+														
+	"fx_fly"											""
+	"fx_impact"											""
+}
+
+entityDef projectile_grenade_base
+{	// MONSTER_PROJECTILE
+	"inherit"											"projectile_base"
+	"mins"												"-.1 -.1 -.1"
+	"maxs"												".1 .1 .1"
+
+	"clipmask_largeshot"		"1"
+
+	"fuse"												"2"
+	"fx_fly"											""
+	"fx_impact"											""		// this happens on collision
+	"fx_detonate"										""		// this happens when the fuse expires
+
+	"detonate_on_fuse"									"1"
+	"detonate_on_death"									"1"
+	"detonate_on_world"									"0"
+	"detonate_on_actor"									"0"
+	"detonation_axis"									"0 0 1"	
+
+	"def_splash_damage"									""
+
+	"speed"												"1000"
+	"angular_velocity"									"10 -10 10"			
+	"linear_friction"									"0.99"
+	"angular_friction"									"0.4"
+	"contact_friction"									"0.99"
+	"bounce"											"0.01"
+	"gravity"											"1"				
+}
+
+entityDef projectile_rocket_base
+{	// MONSTER_PROJECTILE
+	"inherit"											"projectile_base"
+	"fx_impact"											""		//this is the explosion effect
+	"def_splash_damage"									""
+	"clipmask_largeshot"		"1"
+}

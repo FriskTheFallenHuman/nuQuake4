@@ -1,0 +1,226 @@
+gfx/effects/electricity/vert_crawl
+{
+	qer_editorimage gfx/effects/weapons/lgun.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/lgun.tga
+		scale	1, 1
+		scroll time * (guitable_random3[time * -.04 ]), time * -0.6
+		red		Parm0 * .8
+		green	Parm1 * .8
+		blue	Parm2 * .9
+	}
+	{
+		blend add
+		map gfx/effects/weapons/lgun.tga
+		scale	1, .5
+		scroll time * (guitable_random3[time * .08 ]), time * -1.1
+		red		Parm0 * .6
+		green	Parm1 * .6
+		blue	Parm2 * .7
+	}
+	{
+		blend add
+		map gfx/effects/weapons/lgun.tga
+		scale	1, .25
+		scroll time * (guitable_random3[time * -.09 ]) , time * -1.8
+		red		Parm0 * .6
+		green	Parm1 * .6
+		blue	Parm2 * .7
+	}
+}
+
+
+gfx/effects/electricity/electric
+{
+	qer_editorimage gfx/effects/electricity/electric.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/electricity/electric.tga
+		vertexColor
+	}
+}
+
+gfx/effects/electricity/electricity
+{
+	qer_editorimage gfx/effects/electricity/electricity.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/electricity/electricity.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/electricity/electric_blue
+{
+	qer_editorimage gfx/effects/electricity/electric_blue.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/electricity/electric_blue.tga
+		vertexColor
+	}
+}
+
+gfx/effects/electricity/electric_orange
+{
+	qer_editorimage gfx/effects/electricity/electric_orange.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/electricity/electric_orange.tga
+		vertexColor
+	}
+}
+
+gfx/effects/electricity/electric_green
+{
+	qer_editorimage gfx/effects/electricity/electric_green.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/electricity/electric_green.tga
+		vertexColor
+	}
+}
+
+gfx/effects/electricity/electric_multicolor
+{
+	qer_editorimage gfx/effects/electricity/electric_multicolor.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/electricity/electric_multicolor.tga
+		vertexColor
+	}
+}
+
+gfx/effects/electricity/electric_blue_fade
+{
+	qer_editorimage gfx/effects/electricity/electric_blue_fade.tga
+	translucent
+	twoSided
+	noShadows
+
+	{
+		clamp		
+		blend add
+		map gfx/effects/electricity/electric_blue_fade.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/electricity/electric_blue_fade_last
+{
+	qer_editorimage gfx/effects/electricity/electric_blue_fade.tga
+	translucent
+	twoSided
+	noShadows
+	sort far
+	
+	{
+		clamp		
+		blend add
+		map gfx/effects/electricity/electric_blue_fade.tga
+		vertexColor
+	}
+}
+gfx/effects/electricity/electric_blue_fade_side
+{
+	qer_editorimage gfx/effects/electricity/electric_blue_fade_side.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/electricity/electric_blue_fade_side.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/electricity/black_lightning
+{
+	qer_editorimage gfx/test/lgun.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/electricity/b_lightning.tga
+//		vertexColor
+		scroll -5 * time, 0
+		scale	1,1
+	}
+	{
+		blend blend	
+		map gfx/effects/electricity/b_lightning.tga
+//		vertexColor
+		scroll -7.2 * time, 0
+		scale -1,1
+	}
+}
+
+
+gfx/effects/electricity/lgun
+{
+	qer_editorimage gfx/test/lgun.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/test/lgun.tga
+		vertexColor
+		scroll -5 * time, 0
+		scale	1,1
+	}
+	{
+		blend add
+		map gfx/test/lgun.tga
+		vertexColor
+		scroll -7.2 * time, 0
+		scale -1,1
+	}
+}
+
+gfx/effects/electricity/lgun_last
+{
+	qer_editorimage gfx/test/lgun.tga
+	translucent
+	twoSided
+	noShadows
+	sort far
+	{
+		blend add
+		map gfx/test/lgun.tga
+		vertexColor
+		scroll -5 * time, 0
+		scale	1,1
+	}
+	{
+		blend add
+		map gfx/test/lgun.tga
+		vertexColor
+		scroll -7.2 * time, 0
+		scale -1,1
+	}
+}

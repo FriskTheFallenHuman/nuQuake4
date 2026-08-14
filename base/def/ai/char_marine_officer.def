@@ -1,0 +1,123 @@
+/*
+===============================================================================
+
+	Marine Officer (char_marine_officer)
+
+===============================================================================
+*/
+
+export char_marine_officer
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -keep l_elbo_tweak r_elbo_tweak body shoulders neckcontrol r_thumb_02 l_ring_03 r_ring_03 legs_channel head_channel SG_muzzle_flash MG_muzzle_flash HB_muzzle_flash HB_base HB_front_rotate HB_battery MG_stock_joint MG_clip_joint SG_stock SG_clip SG_pump_joint l_ring_03 r_ring_03 -parent SG_stock r_wrist -parent MG_stock_joint r_wrist -parent HB_base r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/Officer/animations -destdir models/characters/marine_officer
+	
+	addoptions -skipmesh dummyEyeL
+	addoptions -skipmesh dummyEyeR
+	addoptions -skipmesh dummyHair1
+	addoptions -skipmesh dummyHair2
+	addoptions -skipmesh dummyHair3
+	addoptions -skipmesh dummy_head
+//	addoptions -skipmesh body_mesh_BASE
+	
+	addoptions -skipmesh PST_pistol_mesh
+ 	addoptions -skipmesh NG_stock_mesh 
+ 	addoptions -skipmesh NG_handle_mesh 
+ 	addoptions -skipmesh NG_handlebase_mesh 
+ 	addoptions -skipmesh NG_drum_mesh 
+ 	addoptions -skipmesh NG_clip_mesh 
+ 	addoptions -skipmesh NG_clip_left_mesh 
+ 	addoptions -skipmesh NG_clip_right_mesh 
+ 	addoptions -skipmesh NG_scope_mesh 
+ 	addoptions -skipmesh NG_a1_mesh 
+ 	addoptions -skipmesh NG_a2_mesh 
+ 	addoptions -skipmesh NG_b1_mesh 
+ 	addoptions -skipmesh NG_b2_mesh 
+ 	addoptions -skipmesh NG_c1_mesh 
+ 	addoptions -skipmesh NG_c2_mesh 
+ 	addoptions -skipmesh NG_d1_mesh 
+ 	addoptions -skipmesh NG_d2_mesh 
+ 	addoptions -skipmesh NG_e1_mesh 
+ 	addoptions -skipmesh NG_e2_mesh 
+ 	addoptions -skipmesh NG_f1_mesh 
+ 	addoptions -skipmesh NG_f2_mesh 
+ 	addoptions -skipmesh RKT_stock_mesh 
+ 	addoptions -skipmesh RKT_trigger_lft_mesh 
+ 	addoptions -skipmesh RKT_trigger_rt_mesh 
+ 	addoptions -skipmesh RKT_laser_sight_front_mesh 
+ 	addoptions -skipmesh RKT_laser_sight_back_mesh 
+ 	addoptions -skipmesh RKT_rack_mesh 
+ 	addoptions -skipmesh RKT_clasp_front_lft_mesh 
+ 	addoptions -skipmesh RKT_clasp_back_lft_mesh 
+ 	addoptions -skipmesh RKT_clasp_front_rt_mesh 
+ 	addoptions -skipmesh RKT_clasp_back_rt_mesh 
+ 	addoptions -skipmesh RKT_rocket_mesh 
+ 	addoptions -skipmesh RKT_fin_top_mesh 
+ 	addoptions -skipmesh RKT_fin_left_mesh 
+ 	addoptions -skipmesh RKT_fin_right_mesh 
+ 	addoptions -skipmesh GN_stock_mesh 
+ 	addoptions -skipmesh GN_ammo_mesh 
+ 	addoptions -skipmesh LG_stock_mesh 
+ 	addoptions -skipmesh LG_center_rod_mesh 
+ 	addoptions -skipmesh LG_spire_1_mesh 
+ 	addoptions -skipmesh LG_spire_2_mesh 
+ 	addoptions -skipmesh LG_spire_3_mesh 
+ 	addoptions -skipmesh LG_spire_4_mesh 
+ 	addoptions -skipmesh LG_flap_top_1 
+ 	addoptions -skipmesh LG_flap_top_2 
+ 	addoptions -skipmesh LG_flap_left_1 
+ 	addoptions -skipmesh LG_flap_left_2 
+ 	addoptions -skipmesh LG_flap_right_1 
+ 	addoptions -skipmesh LG_flap_right_2
+ 	addoptions -skipmesh RG_stock_mesh
+ 	addoptions -skipmesh DMG_body_mesh
+ 	addoptions -skipmesh DMG_l_magnet_mesh
+ 	addoptions -skipmesh DMG_r_magnet_mesh
+ 	addoptions -skipmesh DMG_outer_ring_mesh
+ 	addoptions -skipmesh DMG_middle_ring_mesh
+ 	addoptions -skipmesh DMG_inner_ring_mesh 
+ 	
+	mesh	officer_idle.ma			-dest officer
+
+}
+
+/*
+===============================================================================
+
+	Marine Officer
+
+===============================================================================
+*/
+
+model model_char_marine_officer
+{
+	inherit							model_char_marine
+
+	mesh							models/characters/marine_officer/officer.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+}
+	
+/*
+===============================================================================
+
+	Marine Officer Entity Definition
+
+===============================================================================
+*/
+
+entityDef char_marine_officer_unarmed
+{
+	"inherit"									"char_marine_unarmed"
+
+	// --------------------------------- Body ------------------------------------
+	"model"										"model_char_marine_officer"
+}
+
+entityDef char_marine_officer
+{
+	"inherit"									"char_marine"
+
+	// --------------------------------- Body ------------------------------------
+	"model"										"model_char_marine_officer"
+}
+

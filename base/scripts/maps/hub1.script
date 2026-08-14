@@ -1,0 +1,1334 @@
+
+//------------------------------------------------------------------------------------
+// Hub1.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+
+namespace map_hub1	{
+
+//------------------------------------------------------------------------------------
+// Prototypes
+
+
+
+//------------------------------------------------------------------------------------
+// Globals
+
+
+//------------------------------------------------------------------------------------
+// Functions
+
+void fadeMusicLoop1()
+{
+	$atmosphere_music_2.fadeSound( SND_CHANNEL_ANY, -80, 10);
+	sys.wait(10);
+	$atmosphere_music_2.remove();
+}
+
+void fadeMusicLoop2()
+{
+	$atmosphere_music_3.fadeSound( SND_CHANNEL_ANY, -80, 10);
+	sys.wait(10);
+	$atmosphere_music_3.remove();
+}
+
+void fadeCombatMusicLoop()
+{
+	$battle_music_1.fadeSound( SND_CHANNEL_ANY, -80, 10);
+	sys.wait(10);
+	$battle_music_1.remove();
+}
+
+
+// Chat between Strauss and Morris on the ride down
+// kbanks Apr 05
+
+void chat_1()
+{
+	sys.wait(2);
+	$strauss.lookAt($morris);
+	aiSpeakWait($strauss, "lipsync_how_far");
+	$morris.lookAt($strauss);
+	aiSpeakWait($morris, "lipsync_far_enough");
+	sys.wait(.4);
+	$strauss.lookAt($morris);
+	aiSpeakWait($strauss, "lipsync_what_mean");
+	aiSpeakWait($morris, "lipsync_on_own");
+	$strauss.lookAt($morris);
+	aiSpeakWait($strauss, "lipsync_several_minutes");
+	$morris.lookAt($strauss);
+	aiSpeakWait($morris, "lipsync_no_backup");
+	
+	/*
+	sys.wait(.6);
+	$strauss.lookAt($morris);
+	aiSpeakWait($strauss, "lipsync_no_idea");
+	$morris.lookAt($strauss);
+	aiSpeakWait($morris, "lipsync_brain_jar");
+	$strauss.lookAt($morris);
+	sys.wait(.4);
+	aiSpeakWait($strauss, "lipsync_you_amusing");
+	sys.wait(3);
+	*/
+	
+	sys.trigger($voss_lift_radio_1);
+	sys.wait(30);
+
+	sys.trigger($objective_1);
+	
+}
+
+// Preset all current envs to their correct anim, etc
+// kbanks Apr 11
+
+void hub1Preset()
+{
+	$strauss.show();
+	$morris.show();
+	$voss.show();
+	//$generic_marine_1.show();
+	$char_marine_tech_1.show();
+	
+	//strauss and morris and voss shouldn't talk when you click on them initially
+	$strauss.setTalkState(TALK_WAIT);
+	$morris.setTalkState(TALK_WAIT);
+	$voss.setTalkState(TALK_WAIT);
+	
+	//$voss.disableEyeFocus();
+	$env_marine_emp_1.playCycle(ANIMCHANNEL_ALL, "closed" );
+	$battle_hatch.playCycle(ANIMCHANNEL_ALL, "hub1_battle_closed" );
+	$battle_hatch_clip.bindToJoint($battle_hatch, "hatch04", 1);
+	aiScriptedAnimLoop( $char_marine_tech_1, "weld_loop_short", 2);
+	aiScriptedAnimLoop($voss,"idle", 4);
+	aiScriptedAnimLoop($morris,"Hub_elev_2", 4);
+	aiScriptedAnimLoop($strauss,"idle", 4);
+	$convoy_truck_1.playCycle(ANIMCHANNEL_ALL, "idle" );
+	sys.wait(1);
+	$convoy_truck_2.playCycle(ANIMCHANNEL_ALL, "idle" );
+	sys.wait(1.7);
+	$convoy_truck_3.playCycle(ANIMCHANNEL_ALL, "idle" );
+}
+
+void cold_breath()
+{
+	$cold_voss.bindToJoint($voss, "legs_channel", 1);
+	$cold_voss.setOrigin('0 0 0');
+	
+	$cold_strauss.bindToJoint($strauss, "legs_channel", 1);
+	$cold_strauss.setOrigin('0 0 0');
+	
+	$cold_morris.bindToJoint($morris, "legs_channel", 1);
+	$cold_morris.setOrigin('0 0 0');
+	
+	$cold_strader.bindToJoint($char_marine_tech_1, "legs_channel", 1);
+	$cold_strader.setOrigin('0 0 0');
+	
+	//$cold_cleveland.bindToJoint($generic_marine_1, "legs_channel", 1);
+	//$cold_cleveland.setOrigin('0 0 0');
+}
+
+
+// Ride down and map start
+// kbanks Apr 04
+
+void liftDown(){
+	
+	// disable heal during the sequence
+	//sys.println("disableHeal");
+	$strauss.disableHeal();
+	
+	//morris' eyes were screwed up in this anim
+	$morris.disableEyeFocus();
+	
+	//fade the view in from black over 8 seconds
+	sys.fadeIn( '0 0 0' , 8 );
+	
+	//set the lift speed and time parameters
+	$MVA_Lift.time(60);
+	$MVA_Lift.accelTime(1);
+	$MVA_Lift.decelTime(4);
+	
+	//move the lift down
+	$MVA_Lift.move( DOWN , 3200 );
+	
+	//ambient music
+	sys.trigger($atmosphere_music_1);
+	
+	//thread in the chat_1 function
+	thread chat_1();	
+	
+	//wait until the lift reaches bottom and fire off appropriate triggers
+	sys.waitFor($MVA_Lift);
+	sys.trigger($s_lift_stop); //stop sound
+	aiScriptedStop($strauss); // morris voss and struass need to stop any scripted loops
+	$strauss.lookAt($null_entity);
+	$morris.lookAt($null_entity);
+	
+	aiScriptedStop($voss);
+	aiScriptedStop($morris);
+	
+	sys.trigger($trigger_relay_13); //activate tethers
+	
+	$morris.enableEyeFocus();
+	
+	// sequence is done, enable heal
+	//sys.println("enableHeal");
+	$strauss.enableHeal();
+	
+	//strauss and morris can talk now
+	//sys.println("TALK_OK!");
+	$strauss.setTalkState(TALK_OK);
+	$morris.setTalkState(TALK_OK);
+}
+
+// Tech Opens locked door at beginning of map
+// kbanks Mar 31
+
+void techOpenDoor()
+{
+	//$strauss.setLeader($null_entity); //strauss breaks his follow
+	
+	$voss.setKey("allowPlayerPush", 0);
+	$voss.becomePassive(0); //voss becomes passive
+	//aiScriptedMoveWait($voss, $voss_spot_1, 0, 1);
+	aiScriptedFace($voss, $voss_face_1, 1);
+	aiScriptedFace($morris, $voss, 1);
+	aiScriptedFace($strauss, $voss, 1);
+	$strauss.lookAt($voss);
+	$morris.lookAt($voss);
+	aiSpeakWait($voss, "lipsync_glad_makeit");
+	//sys.wait(.5);
+	//aiSpeakWait($voss, "lipsync_brains_facility");
+	//sys.wait(.2);
+	//aiSpeakWait($voss, "lipsync_tetranode_routes");
+	//sys.wait(.3);
+	//aiSpeakWait($voss, "lipsync_nexus_down");
+	
+	
+	sys.wait(2);
+	
+	//$morris.enableEyeFocus();
+	//$strauss.enableEyeFocus();
+	//$voss.enableEyeFocus();
+	
+	//$voss.lookAt($char_marine_tech_1);
+	aiSpeakWait($char_marine_tech_1, "lipsync_all_clear");
+	$voss.lookAt($null_entity);
+	$strauss.lookAt($null_entity);
+	$morris.lookAt($null_entity);
+	$voss.becomeAggressive(); //voss becomes aggressive
+	sys.trigger($door_unlock); //fire relay with the sound, door, shaderparm, etc on it
+	
+	sys.wait(.5);
+	aiScriptedStop($char_marine_tech_1);
+	sys.waitFrame();
+	sys.trigger($trigger_relay_14); //tethers to make tech back off
+	aiSpeak($voss, "lipsync_move_out");
+	$voss.setKey("allowPlayerPush", 1);
+		
+	sys.trigger($atmosphere_music_2);
+	
+	sys.wait(1);
+	$voss.setTalkState(TALK_OK);
+}
+
+
+// Sentry Floats out of wall and into hole
+// kbanks Apr 04
+
+void sentryReaction()
+{
+	aiSpeakWait($morris, "lipsync_hellwas_that");
+	//sys.wait(.5);
+	//aiSpeakWait($voss, "lipsync_leave_alone");
+}
+
+void sentryScare()
+{
+	aiScriptedAnimLoop($scare_sentry,"idle", 2);
+	$sentry_mover.time(3);
+	$sentry_mover.startSpline($sentry_splinemover);
+	sys.trigger($sentry_sound);
+	sys.wait(1.5);
+	thread sentryReaction();
+	sys.wait(1.5);
+	$scare_sentry.remove();
+	$light_8157.remove();
+	$sentry_sound.remove();
+}
+
+// Repair Bot Ambience
+// kbanks Mar 31
+
+void botAmbience_23()	//ambience for repair bot 23
+{
+	$monster_repair_bot_23.show();
+	aiScriptedMoveWait ( $monster_repair_bot_23, $new_repairSpot_1, 2, 0 );
+	aiScriptedFaceWait ( $monster_repair_bot_23, $new_repairSpotFace_1, 0 );
+	
+	aiScriptedMoveWait ( $monster_repair_bot_23, $new_repairSpot_2, 2, 0 );
+	aiScriptedFaceWait ( $monster_repair_bot_23, $new_repairSpotFace_2, 0 );
+	aiScriptedActionWait ( $monster_repair_bot_23, $new_repairSpot_2, 0 );
+	
+	aiScriptedMoveWait ( $monster_repair_bot_23, $new_repairSpot_3, 2, 0 );
+	aiScriptedFaceWait ( $monster_repair_bot_23, $new_repairSpotFace_3, 0 );
+	aiScriptedActionWait ( $monster_repair_bot_23, $new_repairSpot_3, 0 );
+}
+
+// Morris and Cleveland turn off their flashlights.
+// I'm threading this in its own function so that 
+// I can put a delay in here without messing up the
+// timing of the original function
+void controlFlashlights()
+{
+	sys.wait(2);
+	$morris.flashlight(0);
+	//sys.wait(3);
+	//$generic_marine_1.flashlight(0);
+}
+
+
+// Control room stuff
+// kbanks Apr 06
+
+void controlRoom_1()
+{
+	// disable heal during the sequence
+	//sys.println("disableHeal");
+	$strauss.disableHeal();
+		
+	//strauss runs into the room and sets up at the console
+	$strauss.setKey("allowPlayerPush", 0);
+	//$strauss.setLeader($null_entity); //strauss breaks his follow
+	aiScriptedMoveWait($strauss, $strauss_spot_1, 0, 1);
+	aiScriptedFaceWait($strauss, $strauss_face_1, 1);
+	aiScriptedAnimWait($strauss, "console_stand_start", 4, 0);
+	aiScriptedAnimLoop($strauss, "console_stand_loop", 4);
+	sys.trigger($ctrl_lights); //strauss turns the lights on in the room
+	
+	thread controlFlashlights();
+
+// JD: this is for Zack...it uses a target_fadeSoundClass....this causes local
+//	volume to be reduced by a small amount to make it easier to hear the VO.
+//	the volume will be restored further down in this function...
+sys.trigger($tgt_fadeSoundForVO);
+
+	aiSpeakWait($strauss, "lipsync_ctrl_room");
+		
+	sys.wait(.7);
+	
+	aiSpeakWait($morris, "lipsync_freezing_ass");
+	
+	sys.wait(1.2);
+	
+	sys.trigger($trigger_relay_66);	//relay for the lock lights
+	aiSpeakWait($strauss, "lipsync_have_unlocked");
+	
+	$voss.setKey("allowPlayerPush", 0);
+	$voss.lookAt($null_entity);
+	//aiSpeakWait($voss, "lipsync_good_kane");
+	sys.wait(.2);
+	//$voss.lookAt($strauss);
+	//$strauss.lookAt($player1);
+	//aiSpeakWait($strauss, "lipsync_would_have");
+	$strauss.lookAt($null_entity);
+	$voss.lookAt($player1);
+	aiScriptedAnim($voss, "wrist_gui_2", 8, 1);
+	aiScriptedAnimWait($strauss, "console_stand_end", 4, 1);
+	aiSpeakWait($voss, "lipsync_open_hatchways");
+	$strauss.lookAt($voss);
+	$voss.lookAt($strauss);
+	$morris.lookAt($strauss);
+	//$generic_marine_1.lookAt($strauss);
+	aiScriptedFace($voss, $strauss, 1);
+	//aiScriptedFace($morris, $strauss, 1);
+	aiScriptedAnim($strauss, "wrist_gui_2", 8, 1);
+	aiSpeakWait($strauss, "lipsync_dont_open");
+	sys.wait(.9);
+	aiScriptedFace($strauss, $voss, 1);
+	aiSpeakWait($voss, "lipsync_good_reason");
+	sys.wait(.3);
+	aiSpeakWait($strauss, "lipsync_lungs_frozen");
+	sys.wait(.5);
+	aiSpeakWait($voss, "lipsync_what_do");
+	sys.wait(.2);
+	aiSpeakWait($strauss, "lipsync_must_find");
+	sys.wait(.1);
+	$voss.lookAt($player1);
+	$morris.lookAt($voss);
+	//$generic_marine_1.lookAt($null_entity);
+	aiSpeakWait($voss, "lipsync_find_console");
+	sys.trigger($objective_2);
+	thread fadeMusicLoop1();
+	$voss.lookAt($strauss);
+	aiSpeakWait($strauss, "lipsync_this_way");
+	$voss.lookAt($null_entity);
+	aiScriptedAnimLoop($voss,"idle", 2);
+	$voss.setKey("allowPlayerPush", 1);
+	
+	
+// JD: this is for Zack...it causes local volume to be restored.  (it was reduced above)
+sys.trigger($tgt_restoreSoundAfterVO);
+	
+	$strauss.lookAt($null_entity);
+	sys.trigger($trigger_relay_24); //activate strauss' tether to draw him over to the door
+	
+	sys.wait(1.5);
+	//aiScriptedFace($morris, $player1, 1);
+	$morris.lookAt($player1);
+	aiSpeakWait($morris, "lipsync_piss_off");
+	sys.wait(.5);
+	$morris.lookAt($null_entity);
+	aiScriptedStop($voss);
+}
+
+/*
+void controlRoom_2()
+{
+	//generic marine scans down the hallway with his flashlight
+	aiScriptedMoveWait($generic_marine_1, $scan_spot, 0, 1);
+	aiScriptedFaceWait($generic_marine_1, $scan_face, 0);
+	aiScriptedAnimWait($generic_marine_1, "Hub_scan_3", 4, 0);
+	aiScriptedAnimWait($generic_marine_1, "Hub_scan_4", 4, 1);
+	
+	sys.trigger($trigger_relay_35);	//falls back to a tether
+}
+*/
+
+
+void controlRoom_4()
+{
+	sys.wait(.6);
+	aiSpeak($voss, "lipsync_heavy_readings");
+	sys.trigger($voss_radio_5);
+}
+
+void controlRoomMarines()
+{
+	//sys.println("Firing controlRoomMarines");
+	$voss.setNeverDormant(1);
+	$morris.setNeverDormant(1);
+	//$generic_marine_1.setNeverDormant(1);
+	$voss.takeDamage(0);
+	$morris.takeDamage(0);
+}
+
+void controlRoomMarines2()
+{
+	//sys.println("Firing controlRoomMarines2");
+	$voss.setNeverDormant(0);
+	$morris.setNeverDormant(0);
+	//$generic_marine_1.setNeverDormant(0);
+	$voss.takeDamage(1);
+	$morris.takeDamage(1);
+}
+
+void controlRoomStrogg()
+{
+	//sys.println("Firing controlRoomStrogg");
+	$control_room_strogg_1.takeDamage(1);
+	$control_room_strogg_2.takeDamage(1);
+}
+
+void straussOpenDoor()
+{
+	$strauss.lookAt($null_entity);		
+	aiScriptedMoveWait($strauss, $strauss_spot_2, 4, 0);
+	aiScriptedFaceWait($strauss, $strauss_face_2, 0);
+	
+	aiScriptedAnimWait($strauss, "console_stand_start", 4, 0);
+	aiScriptedAnimLoop($strauss, "console_stand_loop", 4);
+	sys.wait(1);
+	aiScriptedAnimWait($strauss, "console_stand_end", 4, 1);
+	
+	//aiScriptedStop($strauss);
+	//$strauss.lookAt($null_entity);
+	//sys.waitFrame();
+	sys.trigger($door_unlock_2);	//fire relay with the sound, door, shaderparm, etc on it
+	sys.wait(.7);
+	aiScriptedFace($strauss, $player1, 1);	
+	//$strauss.lookAt($player1);
+	//aiSpeakWait($strauss, "lipsync_this_way");
+	$strauss.lookAt($null_entity);
+	$strauss.setKey("allowPlayerPush", 1);
+	
+	//sys.trigger($strauss_tether_1);
+	
+	$strauss.setLeader($player1);
+	$strauss.becomeAggressive();
+		
+	// sequence is done, enable heal
+	//sys.println("enableHeal");
+	$strauss.enableHeal();
+	
+	// Start more ambient music
+	sys.trigger($atmosphere_music_3);
+}
+
+
+// Strauss Commentary
+// kbanks Apr 11
+
+/*
+void straussComment_1()
+{
+	aiSpeak($strauss, "lipsync_pains_me");
+}
+
+void straussComment_2()
+{
+	aiSpeakWait($strauss, "lipsync_investigate_building");
+	sys.wait(1.5);
+	aiSpeak($strauss, "lipsync_benefit_mankind");
+}
+*/
+
+// Hide the inner pillar detail in the Pillar Room
+// kbanks Mar 23
+
+void hidePillars(){
+	$PR_InnerShell.hide();	
+}
+
+
+// Show the inner pillar detail in the Pillar Room
+// kbanks Mar 23
+
+void showPillars(){
+	$PR_InnerShell.show();	
+}
+
+
+// Raise the outer shells around the pillars.
+// kbanks Mar 23
+
+void raiseOuterShells(){
+		$PR_OuterShell.time( 4 );
+		$PR_OuterShell.accelTime( 1.5 );
+		$PR_OuterShell.decelTime( .5 );
+		$PR_OuterShell.move( UP , 320 );	
+}
+
+
+// Raise the inner shells around the pillars.
+// kbanks Apr 12
+
+void raiseInnerShells(){
+		$PR_InnerShell.time( 4 );
+		$PR_InnerShell.accelTime( 1.5 );
+		$PR_InnerShell.decelTime( .5 );
+		$PR_InnerShell.move( UP , 320 );
+}
+
+
+// Lower the platform with gladiator on it.
+// kbanks Mar 23
+
+void lowerPlatform(){
+	
+	$PR_Platform.time( 4 );
+	$PR_Platform.accelTime( .5 );
+	$PR_Platform.decelTime( 1.5 );	
+	
+	$PR_Platform.rotateOnce( '0 -360 0' );
+	$PR_Platform.move( DOWN , 384 );
+	//$PR_Platform.startSoundShader( "hub_gladiator_platform", SND_CHANNEL_ANY );
+	sys.trigger($Plat_Sound);
+		
+	//set the passive glatiator to become aggressive once the lift almost reaches bottom
+	sys.wait ( 3.5 );
+	$PR_gladiator_1.unbind();
+	$PR_gladiator_1.becomeAggressive();
+	//sys.wait(.5);
+	//sys.trigger($music_stinger);
+	
+	sys.wait(.5);
+	//strauss reacts to the gladiator
+	aiSpeak($strauss, "lipsync_react_gladiator");		
+}
+
+
+// Functions to call on the first pass through the Pillar Room.
+// kbanks Mar 23
+
+void pillarRoomFirst(){
+	thread showPillars();
+	thread raiseOuterShells();
+	thread lowerPlatform();
+}
+
+
+// Second pass through the Pillar Room
+// kbanks Apr 12
+
+void pillarRoomSecond()
+{
+	thread raiseInnerShells();
+	sys.trigger($door_lock_3);
+	sys.trigger($battle_music_1);
+}
+
+
+// Harvester walks by on bridge
+// kbanks  Apr 10
+
+void harvester_comment()
+{
+	sys.wait(6);
+	aiSpeak($strauss, "lipsync_ignore_harvester");
+}
+
+void harvester_bridge()
+{
+	thread harvester_comment();
+	aiScriptedMove($bridge_harvester, $bridge_spot_1, 0, 0);
+	sys.wait(35);
+	$bridge_harvester.remove();
+}
+
+
+// Switch Trucks for first tunnel segment
+// kbanks Apr 12
+
+void switchTrucks()
+{
+	$char_marine_tech_1.remove();
+	
+	$convoy_truck_1.remove();
+	$convoy_truck_2.remove();
+	$convoy_truck_3.remove();
+	
+	$convoy_truck_4.show();
+	$convoy_truck_5.show();
+	$convoy_truck_6.show();
+	
+	$env_marine_emp_2.show();
+	
+	sys.trigger($truck_lights_1);
+	
+	$env_marine_emp_2.playCycle(ANIMCHANNEL_ALL, "closed" );
+	
+	$convoy_truck_4.playCycle(ANIMCHANNEL_ALL, "idle" );
+	sys.wait(1);
+	$convoy_truck_5.playCycle(ANIMCHANNEL_ALL, "idle" );
+	sys.wait(1.7);
+	$convoy_truck_6.playCycle(ANIMCHANNEL_ALL, "idle" );
+	
+	//ammo crate in that hallway
+	$func_static_54061.show();
+	$func_static_54060.show();
+	$ammo_machinegun_4.show();
+	$ammo_machinegun_3.show();
+	$item_health_large_3.show();
+	$item_health_large_4.show();	
+		
+}
+
+
+
+// ----
+// Strauss works at the temperature console
+// kbanks Apr 11 | modified kbanks/jdischler Jul 26
+
+// script stuff to get him ready for his looping work state
+float gWorkingStateActive = 0;
+void straussWorkingState()
+{
+	// alter his idle anim
+	$strauss.setPassivePrefix( "working" );
+	// ignore enemies, they ignore him
+	$strauss.disableTarget();	
+	$strauss.becomePassive( 1 );
+	// keep him stationary
+	$strauss.disableMovement();
+	$strauss.setKey("allowPlayerPush", 0);
+	// keep him from playing his pain anim and screwing things up
+	$strauss.disablePain();
+	$strauss.takeDamage(0);
+	$strauss.disableDamage();
+	// won't look at you to screw things up
+	$strauss.setKey( "nolook", "1" );
+	// define the preheal anim
+	$strauss.setKey( "anim_preHeal", "console_stand_end" );
+	
+	gWorkingStateActive = 1;
+}
+
+
+// try to get him back to his work state with not much ugliness...
+void returnToWork()
+{
+	// if his working state hasn't been activated yet, we don't want to execute these custom postHeal actions.
+	if ( !gWorkingStateActive )
+	{
+		return;
+	}
+	aiScriptedFaceWait( $strauss, $strauss_face_3, 0 );
+	aiScriptedAnim( $strauss, "console_stand_start", 8, 1 );
+}
+
+
+
+// Initial setup as you approach the console
+void straussConsole_1()
+{
+	
+	// stop the ambient music from straussOpenDoor
+	thread fadeMusicLoop2();	
+	
+	$strauss.setLeader($null_entity);
+	sys.trigger($ai_tether_none_1);
+	
+	// disable heal during the sequence
+	//sys.println("disableHeal");
+	$strauss.disableHeal();
+	
+	sys.trigger($door_lock_temperature);	//lock door to pillar room, so player can't interfere with it later on
+	
+	straussWorkingState();
+		
+	aiScriptedMoveWait($strauss, $strauss_point_5, 4, 0);
+	aiScriptedFaceWait($strauss, $strauss_face_3, 0);
+	
+	aiScriptedAnimWait($strauss, "console_stand_start", 4, 1);
+		
+	aiSpeakWait($strauss, "lipsync_correct_console");
+	sys.wait(3);
+	
+	//relay that starts the whole sentry sequence
+	sys.trigger($sentry_start_1);
+}
+
+void straussProtectConsole()
+{
+	aiSpeak($strauss, "lipsync_cannot_move");
+}
+
+// After the sentries attack
+void straussConsole_2()
+{	
+	sys.trigger($objective_2_complete);
+	
+	aiSpeakWait($strauss, "lipsync_well_done");
+	sys.wait(.5);
+	//aiScriptedAnim($strauss, "wrist_gui_2", 2, 1);
+	//aiSpeakWait($strauss, "lipsync_must_remain");
+	
+	aiScriptedAnimWait($strauss, "console_stand_end", 4, 0);
+	aiScriptedAnim($strauss, "idle_wrist_gui_start_fast", 4, 0);
+	aiScriptedAnimLoop($strauss, "idle_wrist_gui_loop", 4);
+	aiSpeakWait($strauss, "lipsync_must_remain");
+	aiScriptedAnim($strauss, "idle_wrist_gui_end_fast", 4, 0);
+	aiScriptedAnimWait($strauss, "console_stand_start", 4, 1); //ends with idle because his idle is now the console typing anim, as defined his working state stuff
+	
+	sys.wait(.5);
+	//sys.trigger($voss_console_radio_1);
+	//sys.wait(3.2);
+	
+	radioChatterPlayWait($voss_console_radio_1, "");
+	
+	//aiScriptedAnim($strauss, "wrist_gui_2", 2, 1);
+	//aiSpeakWait($strauss, "lipsync_need_protection");
+	
+	aiScriptedAnimWait($strauss, "console_stand_end", 4, 0);
+	aiScriptedAnim($strauss, "idle_wrist_gui_start_fast", 4, 0);
+	aiScriptedAnimLoop($strauss, "idle_wrist_gui_loop", 4);
+	aiSpeakWait($strauss, "lipsync_need_protection");
+	aiScriptedAnim($strauss, "idle_wrist_gui_end_fast", 4, 0);
+	aiScriptedAnimWait($strauss, "console_stand_start", 4, 1); //ends with idle because his idle is now the console typing anim, as defined his working state stuff
+	
+	sys.wait(.5);
+	//sys.trigger($voss_console_radio_2);
+	radioChatterPlayWait($voss_console_radio_2, "");
+	
+	sys.trigger($objective_3);
+	
+	sys.trigger($second_pass_triggers);	//activate relay for the triggerFirst triggers on the backtrack through the area
+			
+	switchTrucks();				//switch out the trucks so the appear to have pulled forward
+	
+	// sequence is done, enable heal
+	//sys.println("enableHeal");
+	$strauss.enableHeal();
+
+	sys.wait(.5);
+
+	// Autosave
+	sys.trigger($func_savegame_1);
+	
+	sys.wait(.5);
+	
+	sys.trigger($door_unlock_temperature);	//unlock the door to the pillar room
+}
+
+// End of strauss console stuff
+// ----
+
+
+
+
+
+
+// Sentry Spawner Stuff
+// kbanks Apr 13
+//
+// For the sentries coming out of the wall tunnels.
+// To use: Place a func_spawner, and create the spawn points within the tunnels with target_nulls.
+// Set call_spawned on the func_spawner to call the sentryMaster function. On each of the target 
+// null spawn points, set spawn_spentry_spline to whatever spline path you want to connect the
+// spawaned sentry to, and set spawn_mover_time and spawn_mover_decel to the appropriate times.
+// It's done this way to allow for more precise control over individual tunnel lengths, etc.
+
+
+void sentrySpawner( entity Sentry )	//if call_spawned is used to call this function, the spawned
+					//sentry will take place of the Sentry parameter throughout.
+					
+{
+	vector spawnPoint = Sentry.getWorldOrigin();			//define the spawnpoint to use a reference for spawning the mover
+	entity splinePath = Sentry.getEntityKey( "sentry_spline" );	//define the splinepath as a variable
+	float moverTime = Sentry.getFloatKey( "mover_time" );		//define the movertime from the value on the target_null
+	float moverDecel = Sentry.getFloatKey( "mover_decel" );		//define the deceltime from the value on the target_null
+	
+	// Create and spawn a func_mover	
+	sys.setSpawnArg( "classname", "func_mover" );	//the classname needs to be specified
+	sys.setSpawnArg( "origin", spawnPoint );	//specify where the mover will spawn from
+	sys.setSpawnArg( "time", moverTime );		//take in the mover_time value on the target_null and apply it to the mover
+	sys.setSpawnArg( "decelTime", moverDecel );	//take in the mover_decel value on the target_null and apply it to the mover
+	entity SentryMover = sys.spawn( "func_mover" );	//spawn the mover
+	
+	Sentry.bind( SentryMover );			//bind the spawned sentry to the mover
+	SentryMover.startSpline( splinePath );		//start the mover on the spline
+	sys.waitFor( SentryMover );			
+	Sentry.unbind();				//unbind and set the spawned sentry free
+	SentryMover.remove();				//remove the created mover
+}
+
+void sentryMaster ( entity Sentry )			//threaded from a master function, so
+							//multiple sentries can use it without
+							//conflicting with each other.
+{
+	thread sentrySpawner( Sentry );
+}
+
+//////////
+//////////
+
+
+
+
+// Small Lift Stuff
+// kbanks Apr 15
+
+void smallLift_4()
+{
+	sys.trigger($lift_light_4);	//light
+	sys.trigger($lights_on_lift_4);	//sound
+	
+	$small_lift_4.move(DOWN, 400);	//move
+	//$small_lift_4.startSoundShader( "lift_01_move", SND_CHANNEL_ANY );
+	sys.waitFor($small_lift_4);
+	sys.trigger($small_lift_end_4);
+	$static_monster_clip_4.remove(); //remove monsterclip
+	
+	$monster_berserker_3.unbind();	
+	
+}
+
+void smallLift_3()
+{
+	sys.trigger($lift_light_3);	//light
+	sys.trigger($lights_on_lift_3);	//sound
+	
+	$small_lift_3.move(DOWN, 400);	//move
+	//$small_lift_3.startSoundShader( "lift_01_move", SND_CHANNEL_ANY );
+	sys.waitFor($small_lift_3);
+	sys.trigger($small_lift_end_3);
+	$static_monster_clip_3.remove(); //remove monsterclip
+	
+	$monster_grunt_1.unbind();
+}
+
+void smallLift_2()
+{
+	sys.trigger($lift_light_2);	//light
+	sys.trigger($lights_on_lift_2);	//sound
+	
+	$small_lift_2.move(DOWN, 400);	//move
+	//$small_lift_2.startSoundShader( "lift_01_move", SND_CHANNEL_ANY );
+	sys.waitFor($small_lift_2);
+	sys.trigger($small_lift_end_2);
+	$static_monster_clip_2.remove(); //remove monsterclip
+}
+
+void smallLift_1()
+{
+	sys.trigger($lift_light_1);	//light
+	sys.trigger($lights_on_lift_1);	//sound
+	
+	$small_lift_1.move(DOWN, 400);	//move
+	//$small_lift_1.startSoundShader( "lift_01_move", SND_CHANNEL_ANY );
+	sys.waitFor($small_lift_1);
+	sys.trigger($small_lift_end_1);
+	$static_monster_clip_1.remove(); //remove monsterclip
+	
+	$monster_berserker_4.unbind();
+}
+
+// Flashlights on guys for the U turn tunnel
+void marineFlashlights()
+{
+	$voss.flashlight(1);
+	//sys.wait(.5);
+	//$generic_marine_1.flashlight(1);
+	sys.wait(1);
+	$morris.flashlight(1);
+}
+
+
+// Player is told to shut down forcefield
+// kbanks Apr 11
+
+void fieldChat()
+{
+	sys.trigger($voss_tether_none);
+	$voss.setKey("allowPlayerPush", 0);		
+	aiScriptedMoveWait($voss, $voss_field_spot, 4, 0);
+	aiScriptedFaceWait($voss, $voss_field_face, 0);
+	aiScriptedAnimWait($voss, "console_stand_start", 4, 0);
+	aiScriptedAnimLoop($voss, "console_stand_loop", 4);
+	sys.wait(1);
+	aiScriptedAnimWait($voss, "console_stand_end", 4, 1);
+	sys.trigger($field_door_unlock);
+	aiSpeakWait($voss, "lipsync_a_forcefield");
+	sys.wait(.5);
+	sys.trigger($objective_4);
+	$voss.setKey("allowPlayerPush", 1);
+	sys.trigger($voss_field_tether);
+}
+
+void fieldStart()
+{
+	sys.trigger($morris_field_tether);
+	sys.trigger($voss_field_tether);	
+}
+
+// Get the pistons moving
+// kbanks Apr 27
+
+void startPistons()
+{
+	$env_pistonb_1.playCycle(ANIMCHANNEL_ALL, "cycle" );
+	sys.wait(2);
+	$env_pistonb_2.playCycle(ANIMCHANNEL_ALL, "cycle" );
+	$env_pistonb_3.playCycle(ANIMCHANNEL_ALL, "cycle" );
+}
+
+
+
+//==Stuff for the Harvester Main Event
+//====================================
+
+void eventIdles()
+{
+	//Marine idle anims for before the attack.
+	
+	aiScriptedAnimLoop($bidwell, "hub1_bidwell_idle_emp", 2);
+	aiScriptedAnimLoop($voss_2, "hub1_voss_idle_emp", 2);
+	aiScriptedAnimLoop($morris_2, "hub1_morris_idle_emp", 2);
+	aiScriptedAnimLoop($tech_1, "hub1_tech_idle_emp", 2);
+	
+	$bidwell.setTalkState(TALK_WAIT);
+	$voss_2.setTalkState(TALK_WAIT);
+	$morris_2.setTalkState(TALK_WAIT);
+	$tech_1.setTalkState(TALK_WAIT);
+}
+
+void eventSwitch()
+{
+	//sys.println("eventSwitch");
+	//Switch trucks and marines in preparation for the main event.
+	
+	$convoy_truck_4.remove();
+	$convoy_truck_5.remove();
+	$convoy_truck_6.remove();
+	
+	$convoy_truck_4_light.remove();
+	$convoy_truck_5_light.remove();
+	$convoy_truck_6_light.remove();
+	
+	$battle_truck_1.show();
+	$truck_clip_1.show();
+	$battle_truck_2.show();
+	$truck_clip_2.show();
+	$battle_truck_3.show();
+	$truck_clip_3.show();
+	$battle_emp.show();
+	$emp_clip.show();
+	
+	$battle_truck_1.playCycle(ANIMCHANNEL_ALL, "hub_truck1_begin_idle" );
+	$battle_truck_2.playCycle(ANIMCHANNEL_ALL, "hub_truck2_begin_idle" );
+	$battle_truck_3.playCycle(ANIMCHANNEL_ALL, "hub_truck3_begin_idle" );
+	$battle_emp.playCycle(ANIMCHANNEL_ALL, "hub1_emp_closed" );
+	
+	$truck_clip_1.bindToJoint($battle_truck_1, "emp_connection", 1);
+	$truck_clip_2.bindToJoint($battle_truck_2, "emp_connection", 1);
+	$truck_clip_3.bindToJoint($battle_truck_3, "emp_connection", 1);
+	//$emp_clip.bindToJoint($battle_emp, "extender", 1);
+		
+	$force_field.remove();
+	$fence_light.remove();
+	//sys.trigger($shaderparm_1);
+	//sys.trigger($door_unlock_1);
+	
+	$voss.remove();
+	//sys.println("voss removed");
+	$morris.remove();
+	//sys.println("morris removed");
+	//$generic_marine_1.remove();
+	$convoy_truck_1.remove();
+	$convoy_truck_2.remove();
+	$convoy_truck_3.remove();
+	$env_marine_emp_1.remove();
+		
+	$voss_2.show();
+	$morris_2.show();
+	$bidwell.show();
+	$tech_1.show();
+	
+	//sys.println("Threading eventIdles.");	
+	thread eventIdles();	
+	
+	sys.wait(1);
+	sys.trigger($voss_radio_4);
+	
+	sys.wait(5);	//will need adjusting after I can hear how long the vo is
+	
+	sys.trigger($objective_5);
+}
+
+void grate()
+{
+	sys.wait(1);
+	sys.trigger($grate_sound);
+	sys.wait(1.7);
+	sys.trigger($grate_sound);
+	sys.trigger($grate);
+	$grate.applyImpulse($grate, $grate.getWorldOrigin(), '0 0 -1000');
+	$grate_clip.hide();
+}
+
+void attackMorris()
+{
+	//Actions and animations for Morris during the attack
+	
+	$morris_2.becomePassive(1);
+	
+	aiScriptedAnimWait($morris_2, "hub1_morris_emp", 8, 1);
+	
+	$morris_2.setMoveSpeed( AIMOVESPEED_RUN );
+	
+	aiScriptedMoveWait($morris_2, $morris_attack_point_1, 4, 0);
+	aiScriptedFaceWait($morris_2, $morris_attack_face_1, 0);
+	
+	aiScriptedAnimWait($morris_2, "hub1_morris_mourn_start", 2, 0);
+	aiScriptedAnimLoop($morris_2, "hub1_morris_mourn_loop", 2);
+	
+}
+
+void attackVoss()
+{
+	//Actions and animations for Voss during the attack
+	
+	$voss_2.becomePassive(1); //don't want his AI interfering with the sequence
+	
+	aiSpeak($voss_2, "lipsync_open_fire");
+	
+	aiScriptedAnimWait($voss_2, "hub1_voss_emp", 2, 1);
+	
+	$voss_2.setMoveSpeed( AIMOVESPEED_RUN );
+	
+	aiScriptedMoveWait($voss_2, $voss_attack_point_1, 4, 0);
+	aiScriptedFaceWait($voss_2, $voss_attack_face_1, 0);
+	
+	aiScriptedAnimWait($voss_2, "hub1_voss_mourn_start", 2, 0);
+	aiScriptedAnimLoop($voss_2, "hub1_voss_mourn_loop", 2);
+	
+	//strauss vs. voss  radio  dialogue
+	radioChatterPlayWait($strauss_radio_3, "");
+	sys.wait(.2);
+	aiSpeakWait($voss_2, "lipsync_shut_up");
+	sys.wait(.5);
+	radioChatterPlayWait($strauss_radio_4, "");
+	
+	sys.wait(1);
+	
+	aiSpeakWait($voss_2, "lipsync_damn_it");
+			
+	aiScriptedAnimWait($voss_2, "hub1_voss_mourn_end", 2, 0);
+	
+	aiScriptedAnimWait($voss_2, "hub1_voss_com_start", 2, 0);		
+	aiScriptedAnimLoop($voss_2, "hub1_voss_com_loop", 2);
+	
+	aiSpeakWait($voss_2, "lipsync_any_ideas");
+	sys.wait(.8);
+	radioChatterPlayWait($strauss_radio_5, "");
+	sys.wait(.5);
+	aiSpeakWait($voss_2, "lipsync_kane_uninjured");
+	sys.wait(.8);
+	radioChatterPlayWait($strauss_radio_6, "");
+	sys.wait(.6);
+	aiSpeakWait($voss_2, "lipsync_a_plan");
+	
+		
+	aiScriptedAnimWait($voss_2, "hub1_voss_com_end", 2, 0);
+	
+	thread grate();
+	aiScriptedAnimWait($voss_2, "hub1_voss_grate", 2, 1);
+		
+	aiScriptedFaceWait($voss_2, $player1, 0);
+	$voss_2.lookAt($player1);
+	//$voss_2.setKey( "noLook", "1" );
+	
+	aiSpeakWait($voss_2, "lipsync_how_important");
+	
+	sys.wait(1);
+	
+	// Autosave
+	sys.trigger($func_savegame_1);
+	
+}
+
+void attackBidwellBlood()
+{
+	vector vPos = $bidwell.getJointPos( $bidwell.getJointHandle( "chest" ));
+
+	$bidwell_blood_target.setOrigin( vPos );
+	$bidwell_blood_target.bindToJoint( $bidwell, "chest", true );
+
+	// wait frame to let bind happen
+	sys.waitFrame();
+	$bidwell.setHealth(0);
+	sys.trigger( $bidwell_blood_launcher );
+
+	// let's also cause radius damage here.
+	if ($player1.distanceTo( $bidwell ) < 48 )	{
+		sys.radiusDamage( $player1.getWorldOrigin(), $battle_harvester,  $battle_harvester, $battle_harvester, "damage_gib", 1);
+	}
+
+}
+
+void attackBidwell()
+{
+	//Actions and animations for Bidwell during the attack
+	
+	$bidwell.becomePassive(1);
+	
+	aiSpeak($bidwell, "lipsync_open_fire");
+	
+	//main harvester reaction anims
+	aiScriptedAnimWait($bidwell, "hub1_bidwell_emp", 4, 0);
+	
+	//shut him up so he looks dead
+	$bidwell.setTalkState( TALK_NEVER );
+	$bidwell.takeDamage(0);
+		
+	//close his eyes
+	$bidwell.getHead().playCycle(ANIMCHANNEL_ALL, "emotion_sleep");
+	$bidwell.disableBlinking();
+	
+	//run the death loop
+	aiScriptedAnimLoop($bidwell, "hub1_bidwell_death", 2);
+	
+	$bidwell.stopThinking();	
+	
+}
+
+void attackTech()
+{
+	//Actions and animations for Strader during the attack
+	
+	$tech_1.becomePassive(1);
+	
+	aiScriptedAnimWait($tech_1, "hub1_tech_emp", 2, 1);
+	$tech_1.setUndying(0);
+	$tech_1.kill();
+	sys.waitFrame();
+	$tech_1.applyImpulse( $tech_1 , $tech_1.getWorldOrigin() , '40000 -80000 6000' );
+}
+
+void attackHarvester()
+{
+	//Actions and animations for the harvester and door during the attack
+	
+	sys.trigger($func_door_193);
+	$battle_hatch.playAnim(ANIMCHANNEL_ALL, "hub1_battle" );
+	aiScriptedAnimWait($battle_harvester, "hub1_battle", 2, 0);
+	$battle_harvester.remove();
+}
+
+void attackFire()
+{
+	sys.wait(4);
+	sys.trigger($attackFire_4);
+	sys.trigger($attackFire_3);
+	sys.trigger($fire_hurt_1);
+	sys.trigger($fire_hurt_3);
+	sys.trigger($fire_light_2);
+	sys.wait(12);
+	sys.trigger($attackFire_2);
+	sys.trigger($attackFire_1);
+	sys.trigger($fire_hurt_2);
+	sys.trigger($fire_hurt_4);
+	sys.trigger($fire_light_3);
+}
+
+void attackTrucks()
+{
+	//Animations for the trucks and emp during the attack
+	
+	$battle_truck_1.playAnim(ANIMCHANNEL_ALL, "hub_truck1" );
+	$battle_truck_2.playAnim(ANIMCHANNEL_ALL, "hub_truck2" );
+	$battle_truck_3.playAnim(ANIMCHANNEL_ALL, "hub_truck3" );
+	$battle_emp.playAnim(ANIMCHANNEL_ALL, "hub1_battle" );
+			
+	sys.wait(8);
+	
+	//fire off the emp
+	sys.trigger($emp_fire);
+	sys.trigger($emp_light_1);
+	sys.trigger($emp_light_2);
+	sys.trigger($emp_light_3);
+	sys.wait(.25);
+	sys.trigger($emp_light_1);
+	sys.trigger($emp_light_2);
+	sys.trigger($emp_light_3);
+	
+	sys.wait(1);
+	sys.trigger($emp_damage_1);
+	sys.trigger($emp_damage_2);
+	sys.trigger($emp_damage_3);
+}
+
+void mainEvent()
+{
+	//The main event, starting when the harvester breaks through the door
+	
+	thread attackFire();
+	thread attackTrucks();
+	thread attackHarvester();
+	thread attackTech();
+	thread attackBidwell();
+	thread attackVoss();
+	thread attackMorris();
+	
+	sys.trigger($harvester_music);
+}
+
+void eventStart()
+{
+	//Precursor to the main event, where we get the buildup sounds and start off the sequence
+	
+	$attackClip.show();
+	
+	$battle_emp.playAnim(ANIMCHANNEL_ALL, "hub1_emp_opens" );
+	sys.wait(2);
+	aiSpeakWait($tech_1, "lipsync_going_on");
+	sys.trigger($harvester_step);	
+	sys.wait(1);	
+	aiSpeakWait($voss_2, "lipsync_wait_listen");	
+	sys.wait(2);	
+	//sys.trigger($harvester_step);	
+	sys.wait(.5);
+	aiSpeakWait($voss_2, "lipsync_quick_fire");
+	aiSpeakWait($tech_1, "lipsync_almost_there");
+	sys.wait(1.2);
+	//sys.trigger($harvester_step);
+	sys.wait(.2);
+	
+	$emp_clip.bindToJoint($battle_emp, "extender", 1);
+					
+	thread mainEvent();
+}
+
+
+
+// Harvester and marines battle it out above the player
+// Old from Chad
+
+void harvester_event_2()
+{
+	$battle_truck_1.remove();
+	$truck_clip_1.remove();
+	$battle_truck_2.remove();
+	$truck_clip_2.remove();
+	$battle_truck_3.remove();
+	$truck_clip_3.remove();
+	$battle_emp.remove();
+	$battle_hatch.remove();
+	$voss_2.remove();
+	$morris_2.remove();
+	$tech_1.remove();
+	$tech_1.remove();
+	$bidwell.remove();
+
+	
+	//$battle_wall.show();
+	$harvester_2.show();
+	$fodder_1.show();
+	$fodder_2.show();
+	$fodder_3.show();
+	$fodder_crate_1.show();
+	$fodder_crate_2.show();
+	sys.trigger($fodder_1);
+	sys.trigger($fodder_2);
+	sys.trigger($fodder_3);
+	$wrecked_truck_3.show();
+	sys.trigger($truck_fire_1);
+	sys.trigger($fire_light);
+	sys.trigger($blood_drip);
+	//$blood_pool.show();
+	$hyperblaster.show();
+	$glass_on_floor.show();
+	$broken_glass.show();
+	$unbroken_glass.hide();
+	sys.waitFrame();
+	sys.trigger($dead_guy);
+	$func_fx_162.remove();
+	aiScriptedAnimLoop($harvester_2,"hub_tunnel_a", 4);
+	//aiScriptedAnimLoop($hatch_3_a,"tunnel_open_idle", 4);
+}
+
+
+// Call the lift down at the end of the level
+// kbanks May 01
+
+/*
+void liftToTetra()
+{
+	sys.println("firing liftToTetra");
+	$lift_to_tetra.gotoFloor(2);		//lift starts to move down
+	sys.waitFor($lift_to_tetra);		//wait for it to finish moving
+	$end_lift_console.guiEvent("reset");	//force the gui screen on the console to reset back to normal once the lift has moved down
+	sys.trigger($exit_trigger);		//flip on the triggerFirst trigger for the end level warning
+}
+*/
+
+
+// MAIN
+
+void main()	
+{
+	//anything that you want to occur at the start of the map should be called or threaded
+	//from here.
+	
+	thread hub1Preset();
+	thread liftDown(); 	//start the map with the ride down
+	thread hidePillars();	//hide the pillars in the pillar room for overdraw performance
+	thread cold_breath();
+		
+}
+
+
+}	//end namespace

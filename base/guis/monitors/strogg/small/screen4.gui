@@ -1,0 +1,70 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	windowDef screen4
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/small/screen4"
+		matcolor	0.878,0.423,0.121,1
+	}
+	windowDef p_scrolltext
+	{
+		visible	1
+		rect	243,185,377,96
+		windowDef scrolltext
+		{
+			visible	1
+			rect	0,0,377,777
+			background	"gfx/guis/common/strogg/scrolltext1"
+			matcolor	0.627,0.623,0.505,1
+		}
+	}
+	windowDef screen4_img
+	{
+		rect	45,-26,652,247
+		visible	1
+		background	"gfx/guis/monitors/strogg/small/screen4_img"
+		matcolor	1,1,1,1
+	}
+	windowDef screen4_btn
+	{
+		rect	0,240,640,240
+		visible	1
+		background	"gfx/guis/monitors/strogg/small/screen4_btn"
+		matcolor	0.874,0.529,0.215,1
+
+		onTime 0 {
+			transition "matcolor" "0.874,0.529,0.215,1" "0.823,0.749,0.443,1" "500" ;
+		}
+
+		onTime 500 {
+			transition "matcolor" "0.823,0.749,0.443,1" "0.874,0.529,0.215,1" "500" ;
+		}
+
+		onTime 2000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-557,640,1704
+			background	"gfx/guis/common/monitor_line4"
+			matcolor	0.819,0.862,0.862,0.2
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/gradient"
+			matcolor	1,1,0,0.2*guitable_random1[time*.0005]
+		}
+	}
+}

@@ -1,0 +1,244 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	visible	1
+	windowDef bg
+	{
+		rect	0,278,639,265
+		visible	1
+		background	"gfx/guis/maps/process2/nodecontroller_bg"
+		matcolor	0.917,0.458,0,1
+
+		onTime 0 {
+			transition "matcolor" "1,0.64,0.1,1" "0.768,0.384,0,1" "550" ;
+		}
+
+		onTime 550 {
+			transition "matcolor" "0.768,0.384,0,1" "1,0.64,0.1,1" "550" ;
+		}
+
+		onTime 1100 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef bg2
+	{
+		rect	-2,-65,639,265
+		visible	1
+		background	"gfx/guis/maps/process2/nodecontroller_bg"
+		matcolor	0.913,0.454,0,1
+		matscaley	-1
+
+		onTime 0 {
+			transition "matcolor" "1,0.64,0.1,1" "0.768,0.384,0,1" "550" ;
+		}
+
+		onTime 550 {
+			transition "matcolor" "0.768,0.384,0,1" "1,0.64,0.1,1" "550" ;
+		}
+
+		onTime 1100 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef top
+	{
+		rect	0,0,640,79
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_top"
+		matcolor	0.435,0.0745,0.0352,1
+	}
+	windowDef bottom
+	{
+		rect	0,401,640,79
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_top"
+		matcolor	0.435,0.0745,0.0352,1
+		matscaley	-1
+	}
+	windowDef transparent
+	{
+		rect	88,128,328,226
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_transparent"
+		matcolor	1,0,0,0.30
+	}
+	windowDef txt_title
+	{
+		rect	152,150,235,53
+		visible	1
+		forecolor	0.996,0.705,0.313,0.819
+		text	"fdmf wgn"
+		textscale	1.1
+		font	"fonts/strogg"
+	}
+	windowDef txt_body
+	{
+		rect	286,289,107,42
+		visible	1
+		forecolor	0.968,0.878,0.717,1
+		text	"dfooyme hoowpqnge sng znyyt mlp oodifkt gh sdmpool klqw.g twws mfosp m powcvbg gmnkw lmo qaswd ztfmbj jiou uisiz. oiuhgdmlla waklx lnmoiuhfnz sewna qiosjgu njbvos mno sd esasdnbb owprss mjkoks qwa"
+		textscale	0.27
+		font	"fonts/strogg"
+	}
+	windowDef scrolltext1
+	{
+		rect	154,204,141,119
+		visible	1
+		background	"gfx/guis/common/strogg/scrolltext2fast"
+		matcolor	0.952,0.890,0.796,0.7
+	}
+	windowDef static
+	{
+		visible	1
+		rect	100,132,308,219
+		background	"gfx/guis/common/static2"
+		matcolor	1,0,0,0.5
+	}
+	windowDef bracket_right
+	{
+		rect	396,107,79,267
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_rightbracket"
+		matcolor	0.521,0.223,0.0274,1
+	}
+	windowDef bracket_top
+	{
+		rect	118,106,326,29
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_topbracket"
+		matcolor	0.521,0.223,0.0274,1
+	}
+	windowDef bracket_bottom
+	{
+		rect	118,348,326,28
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_topbracket"
+		matcolor	0.521,0.223,0.0274,1
+		matscaley	-1
+	}
+	windowDef left
+	{
+		rect	-9,1,169,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_left"
+		matcolor	0.709,0.333,0.109,1
+	}
+	windowDef right
+	{
+		rect	479,0,169,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/act1/3_right"
+		matcolor	0.709,0.333,0.109,1
+	}
+	windowDef decal
+	{
+		rect	529,95,90,83
+		visible	1
+		background	"gfx/guis/common/strogg/decal"
+		matcolor	0.2,0.0941,0,1
+	}
+	windowDef arrow1
+	{
+		rect	103,401,32,32
+		visible	1
+		background	"gfx/guis/common/arrow6"
+		matcolor	0.980,0.239,0.0196,1
+		matscaley	-1
+		rotate	-90
+	}
+	windowDef txt_lil
+	{
+		rect	140,406,235,29
+		visible	1
+		forecolor	0.984,0.694,0.301,0.807
+		text	"dude wtf man"
+		textscale	0.5
+		font	"fonts/strogg"
+
+		onTime 0 {
+			set "text" "duzde wtf man" ;
+		}
+
+		onTime +1000 {
+			set "text" "omg notfair" ;
+		}
+
+		onTime +700 {
+			set "text" "ratndom text" ;
+		}
+
+		onTime +1600 {
+			set "text" "omglyol" ;
+		}
+
+		onTime +300 {
+			set "text" "scr ollk butitons" ;
+		}
+
+		onTime +1100 {
+			set "text" "melty cr eaqtusr" ;
+		}
+
+		onTime +1600 {
+			set "text" "universal txt" ;
+		}
+
+		onTime +2200 {
+			set "text" "som ethingdu mb" ;
+		}
+
+		onTime +1100 {
+			set "text" "osdxxd" ;
+		}
+
+		onTime +1400 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	0,-4,640,485
+			background	"gfx/guis/common/monitor_line8"
+			matcolor	0.329,0.239,0.113,0.227
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,481
+			visible	1
+			background	"gfx/guis/common/screen_scratches"
+			matcolor	0.988,0.988,0.913,0.403
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,0,640,484
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.4,0.196,0.156,1
+		}
+		windowDef monitor_dirt
+		{
+			visible	1
+			rect	0,-17,640,500
+			background	"gfx/guis/common/screen_dirt7"
+			matcolor	0,0,0,0.494
+			matscalex	-1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

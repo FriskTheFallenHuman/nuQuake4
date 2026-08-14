@@ -1,0 +1,236 @@
+
+
+sound lights_off
+{
+	minDistance	39
+	maxDistance	40
+	volumeDb	0
+
+	sound/ambience/network/lights/lights_off
+	shakeData 0 cgjlrmpltrjkljjlkjjjggfghfhgffgfghggffeeeeddedddccccdccccccccbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound piston_lock
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/mech_servo/lock1
+	shakeData 0 yvxytlpkmwwofdiliggedcaa
+}
+
+
+sound piston_unlock
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/mech_servo/unlock1
+	shakeData 0 zyxvuyrujyrjjkfhggdddccbaaaaaaa
+}
+
+
+sound vertical_piston_up
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/vert_up1
+	shakeData 0 iqpskhhfggegffffffefffeefefdfdedfeeedeefeeeedcededdededefeeedeefddcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/pistons/vert_up2
+	shakeData 1 hroqkiihhgfeggfeheegfdfeeffefefefefefdeffdfefefefdfdfffefeeeecbbbbbbbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vertical_piston_down
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/vert_down1
+	shakeData 0 flqokkjigggfhggefffefeeffffefeefeegefefefefffffffefffefffefeeefeeefefeffeefccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/pistons/vert_down2
+	shakeData 1 hmrrkjhhggggfgfffeegffffefefeeefffeeeefeefeeefeeeffeeeefefefefffefeeeeefffeccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vertical_piston_cap_up
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	-6
+
+	sound/objects/pistons/cap_up
+	shakeData 0 abbccdiihgdededededdddedddcdeeeeefefgggdddeefeeeeegnkgggeeccccccbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vertical_piston_cap_down
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	-6
+
+	sound/objects/pistons/cap_down
+	shakeData 0 abccdihfedededddcddddcdefeeeddceeecfggfeeefeedeeefeeelihdddcddccbbbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound horizontal_piston_in
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/hori_in
+	shakeData 0 ddeddcffiigfggfgddgfddddededccccddbcddccccddddggmjijfhfhjigghilggeefhfdddeeccbccbbbbbbbbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound horizontal_piston_out
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/hori_out
+	shakeData 0 edddddfgkfggiigffggffdefedeeffffeefffeddddeddcdcdccccccdcccccccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound horizontal_piston_stop
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/hori_stop
+	shakeData 0 cfljjgdgehghfgihkgfeefheddcedccbccbbbbbbbbabaaaaaaaaaaaaaaaa
+}
+
+
+sound horizontal_piston_spin
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/hori_spin
+	shakeData 0 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccbabaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound control_room_spike_up_short
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/spike_up_short
+	shakeData 0 jhhihhiihggghhhhihiklifeedccccbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound control_room_spike_up_long
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/spike_up_long
+	shakeData 0 ijpkonnnooonljmlijklklomommjjlpnqnllkkkjiknmnnnmomljllkkknmoonhhffdddcdcbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound control_room_monitors_down
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/monitors_down
+	shakeData 0 jmmnnprnntrmqmomroqpmkmkgjggkmnljkkkihjjiiijiiihhigfffffffgggffgfffedeedddddddeeeeedddddededdedddddddddddedddddddddccddeeeedddddddddddcdfjkkhffefddcccbbbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound control_room_spike_down
+{
+	minDistance	39
+	maxDistance	400
+	volumeDb	0
+
+	sound/objects/pistons/spike_up_short
+	shakeData 0 jhhihhiihggghhhhihiklifeedccccbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound blast_shield
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	4
+
+	sound/ambience/convoy/various/blast_shield
+	shakeData 0 yzvzwrttkinpyxxvuvtqsqomljqfiiedaa
+}
+
+
+sound marine_hit_glass
+{
+	description	"Thump!!"
+
+	minDistance	393
+	maxDistance	787
+	volumeDb	0
+
+	sound/strogg/grunt/glass_hit1
+	shakeData 0 zzvzzxyvzyupheedccbbaaaaa
+	sound/strogg/grunt/glass_hit2
+	shakeData 1 zzyzyyxzyqqheedccbaaaa
+}
+
+
+sound buildingb_glasstap_3x
+{
+	description	"tapping glass 3x"
+
+	minDistance	196
+	maxDistance	708
+	volumeDb	1
+
+	sound/ambience/building_b/glass_tap2
+	shakeData 0 ymebbbbbykgdbaaqujhcbaaaaaa
+}
+
+
+sound buildingb_hover_stop
+{
+	description	"hover truck coming to a stop"
+
+	minDistance	1200
+	maxDistance	3000
+	volumeDb	4
+
+	sound/ambience/building_b/hover_stop
+	shakeData 0 aaabbcccddgighjlmnqsqvvrqqmqprvttwuursoqoonrsvrpmmmlllllnnnpommmlmlnstsmnqnpmptosxwvwvwtswwvxvrtprqtqsrvsuqqoomnonnonoqpmpnmmommonnnmmnomnmtvwvurqplmoutytqpssnqpqmonoqooplmlkmkjkmklmlkjikighfgghghefeggfihhfffeedeceddccdbccdcccccbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound distant_explosion_1
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+
+	sound/ambience/convoy/battlebackground/distant_explosion02
+	shakeData 0 alpsvvupxtoquuvyqussyxtqzwtyxywxwttxxuvytusuutxwxsyvvtotststquttvsolrrtpotrsopnknoojnknqqsstllnjmomphmiiilmkiliiihijjifkjfjihgfggghgifeffdgfffgdffeiifffgddeddcdedfddccbcbbbcbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+

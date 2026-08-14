@@ -1,0 +1,28 @@
+/***********************************************************************
+RUBBLE
+***********************************************************************/
+
+export storage_rubble
+{
+	options -prefix RUBBLE_ -align ALL	-sourcedir work/models/mapobjects/strogg/storage/animations	-destdir models/mapobjects/strogg/storage
+	mesh rubble_pieces_idle.ma		-dest storage_rubble  
+	anim rubble_pieces_idle.ma		-dest idle
+}
+entityDef env_storage_rubble
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted marine drop pod"
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_storage_rubble"
+	"anim"						"idle"
+}
+
+model model_storage_rubble
+{
+	mesh					models/mapobjects/strogg/storage/storage_rubble.md5mesh
+	anim idle				models/mapobjects/strogg/storage/idle.md5anim
+}

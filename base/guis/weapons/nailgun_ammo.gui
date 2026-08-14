@@ -1,0 +1,55 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	visible	1
+	
+	definevec4	"lightcolor"	0.91,0.67,0.12,.8*("gui::player_ammopct")+.2
+
+	onNamedEvent weapon_ready {
+	}
+
+	onNamedEvent weapon_noammo {
+		setlightcolor "ammo_red_empty::backcolor";
+		set "ammo_red::visible" "0" ;
+		set "ammo_red_empty::visible" "1" ;
+	}
+
+	onNamedEvent weapon_ammo {		
+		setlightcolor "desktop::lightcolor";
+		set "ammo_red::visible" "1" ;
+		set "ammo_red_empty::visible" "0" ;
+	}
+
+	windowDef ammo_red
+	{
+		rect	174,63,302,340
+		visible	1
+		backcolor	0.250,0.0941,0,1
+	}
+	
+	windowDef ammo_red_empty
+	{
+		rect	174,63,302,340
+		visible	1
+		backcolor	.9,.2,0,1*guitable_10_4[time*0.002]
+	}
+	
+	windowDef p_ammo
+	{
+		rect	174,63,302,340
+		visible	1
+		windowDef ammo
+		{
+			rect	0,340 * ( 1 - "gui::player_ammopct" ),302,340
+			visible	1
+			backcolor	0.91,0.67,0.12,.75
+		}
+	}
+	windowDef mask
+	{
+		rect	174,63,302,340
+		visible	1
+		background	"gfx/guis/weapons/nailgun/mask"
+		matcolor	0,0,0,1
+	}
+}

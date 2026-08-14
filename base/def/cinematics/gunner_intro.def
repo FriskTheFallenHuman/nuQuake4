@@ -1,0 +1,24 @@
+export cin_gunner_intro_cam
+{
+//	options -scale .3937 -nomesh -sourcedir work/models/cinematics/gunner_intro/animations -destdir models/cinematics/hangar1
+	options -scale .3937 -nomesh -sourcedir work/models/monsters/Gunner/Animations -destdir models/cinematics/hangar1	
+	
+	camera	gunner_intro_CAM5.ma			-dest cin_gunner_intro_cam
+}
+
+camera cin_gunner_intro_cam
+{
+	anim gunner_intro_cam					"models/cinematics/hangar1/cin_gunner_intro_cam.md5camera"
+}
+
+entityDef cin_gunner_intro_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_gunner_intro_cam"
+}

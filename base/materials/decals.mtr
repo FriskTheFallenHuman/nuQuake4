@@ -1,0 +1,2526 @@
+//----------------------------------
+//	SCORCH MARK1
+//----------------------------------
+
+textures/decals/scorch1
+{
+	qer_editorimage textures/decals/scorch1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/scorch1.tga
+	}
+}
+
+//----------------------------------
+//	MP ARROWS
+//----------------------------------
+
+textures/decals/_marine/mp_arrow
+{
+	qer_editorimage textures/decals/_marine/mp_arrow.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/mp_arrow.tga
+	}
+}
+
+textures/decals/_marine/mp_logo
+{
+	qer_editorimage textures/decals/_marine/mp_logo.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/mp_logo.tga
+	}
+}
+
+textures/decals/_marine/mp_flag
+{
+	qer_editorimage textures/decals/_marine/mp_flag.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/mp_flag.tga
+	}
+}
+
+textures/decals/_strogg/mp_arrow
+{
+	qer_editorimage textures/decals/_strogg/mp_arrow.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_strogg/mp_arrow.tga
+	}
+}
+
+textures/decals/_strogg/mp_logo
+{
+	qer_editorimage textures/decals/_strogg/mp_logo.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_strogg/mp_logo.tga
+	}
+}
+
+textures/decals/_strogg/mp_flag
+{
+	qer_editorimage textures/decals/_strogg/mp_flag.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_strogg/mp_flag.tga
+	}
+}
+
+
+
+textures/decals/mp_arrows
+{
+	qer_editorimage textures/decals/mp_arrows.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend add
+		map textures/decals/mp_arrows.tga
+	}
+}
+
+//----------------------------------
+//	STROGG DECALS
+//----------------------------------
+
+gfx/decals/strogg/medlabs
+{
+	qer_editorimage gfx/decals/strogg/medlabs.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	gfx/decals/strogg/medlabs.tga 	//for light decals
+}
+
+textures/decals/_strogg/scslogo
+{
+	qer_editorimage textures/decals/_strogg/scslogo.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_strogg/scslogo.tga
+	}
+}
+
+textures/decals/_strogg/military6
+{
+	qer_editorimage textures/decals/_strogg/military6.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_strogg/military6.tga
+	}
+}
+
+textures/decals/_strogg/misctext1
+{
+	qer_editorimage textures/decals/_strogg/misctext1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_strogg/misctext1.tga 	//for light decals
+}
+textures/decals/_strogg/misctext3
+{
+	qer_editorimage textures/decals/_strogg/misctext3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_strogg/misctext3.tga 	//for light decals
+}
+
+textures/decals/_strogg/misctext5
+{
+	qer_editorimage textures/decals/_strogg/misctext5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_strogg/misctext5.tga 	//for light decals
+}
+
+textures/decals/_strogg/misctext6
+{
+	qer_editorimage textures/decals/_strogg/misctext6.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_strogg/misctext6.tga 	//for light decals
+}
+
+textures/decals/_strogg/misctext7
+{
+	qer_editorimage textures/decals/_strogg/misctext7.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_strogg/misctext7.tga
+	}
+}
+
+//----------------------------------
+//	MARINE DECALS
+//----------------------------------
+
+textures/decals/_marine/liftup
+{
+	qer_editorimage textures/decals/_marine/liftup.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/liftup.tga
+	}
+}
+
+textures/decals/_marine/pulldown
+{
+	qer_editorimage textures/decals/_marine/pulldown.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/pulldown.tga
+	}
+}
+
+textures/decals/_marine/rotate
+{
+	qer_editorimage textures/decals/_marine/rotate.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/rotate.tga
+	}
+}
+
+textures/decals/_marine/numbers1.tga
+{
+	qer_editorimage textures/decals/_marine/numbers1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/numbers1.tga
+	}
+}
+
+textures/decals/_marine/numbers2.tga
+{
+	qer_editorimage textures/decals/_marine/numbers2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/numbers2.tga
+	}
+}
+
+textures/decals/_marine/numbers3.tga
+{
+	qer_editorimage textures/decals/_marine/numbers3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/numbers3.tga
+	}
+}
+
+textures/decals/_marine/numbers4.tga
+{
+	qer_editorimage textures/decals/_marine/numbers4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/numbers4.tga
+	}
+}
+
+
+textures/decals/_marine/cautiontag
+{
+	qer_editorimage textures/decals/_marine/cautiontag.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/cautiontag.tga
+	}
+}
+
+textures/decals/_marine/cautionarrow
+{
+	qer_editorimage textures/decals/_marine/cautionarrow.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/cautionarrow.tga
+	}
+}
+
+textures/decals/_marine/cautionstrip
+{
+	qer_editorimage textures/decals/_marine/cautionstrip.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/cautionstrip.tga
+	}
+}
+
+textures/decals/_marine/arrows2
+{
+	qer_editorimage textures/decals/_marine/arrows2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/arrows2.tga
+	}
+}
+
+textures/decals/_marine/step
+{
+	qer_editorimage textures/decals/_marine/step.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/step.tga
+	}
+}
+
+textures/decals/_marine/corner
+{
+	qer_editorimage textures/decals/_marine/corner.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend diffuseMap	
+		map textures/decals/_marine/corner.tga 	//for light decals
+		red .24
+		green .24
+		blue .24
+	}
+}
+
+textures/decals/_marine/arrows1
+{
+	qer_editorimage textures/decals/_marine/arrows1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend diffuseMap	
+		map textures/decals/_marine/arrows1.tga 	//for light decals
+		red .24
+		green .24
+		blue .24
+	}
+}
+
+textures/decals/_marine/line1
+{
+	qer_editorimage textures/decals/_marine/line1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend diffuseMap	
+		map textures/decals/_marine/line1.tga 	//for light decals
+		red .24
+		green .24
+		blue .24
+	}
+}
+
+textures/decals/_marine/line2
+{
+	qer_editorimage textures/decals/_marine/line2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend diffuseMap	
+		map textures/decals/_marine/line2.tga 	//for light decals
+		red .24
+		green .24
+		blue .24
+	}
+}
+
+textures/decals/_marine/arrow2
+{
+	qer_editorimage textures/decals/_marine/arrow2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend diffuseMap	
+		map textures/decals/_marine/arrow2.tga 	//for light decals
+		red .24
+		green .24
+		blue .24
+	}
+}
+
+textures/decals/_marine/alphabet_lighten
+{
+	qer_editorimage textures/decals/_marine/alphabet_ed.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map textures/decals/_marine/alphabet.tga
+		red .7
+		green .7
+		blue .7
+	}
+}
+
+textures/decals/_marine/alphabet_darken
+{
+	qer_editorimage textures/decals/_marine/alphabet_darken.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map textures/decals/_marine/alphabet.tga
+	}
+}
+
+textures/decals/_marine/arrow1
+{
+	qer_editorimage textures/decals/_marine/arrow1_ed.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_marine/arrow1.tga
+	}	
+}
+
+
+//	SIGNS
+
+textures/decals/_marine/sign_deck04_rt
+{
+	qer_editorimage textures/decals/_marine/sign_deck04_rt_ed.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_marine/sign_deck04_rt.tga 	//for light decals
+}
+
+textures/decals/_marine/sign_deck04_lf
+{
+	qer_editorimage textures/decals/_marine/sign_deck04_lf_ed.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_marine/sign_deck04_lf.tga 	//for light decals
+}
+
+textures/decals/_marine/misctext1
+{
+	qer_editorimage textures/decals/_marine/misctext1_ed.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_marine/misctext1.tga 	//for light decals
+}
+
+textures/decals/_marine/misctext2
+{
+	qer_editorimage textures/decals/_marine/misctext2_ed.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/decals/_marine/misctext2.tga 	//for light decals
+}
+
+
+
+//	OVERLAY DECALS
+
+textures/decals/_marine/fireextinguisher
+{
+	qer_editorimage textures/decals/_marine/fireextinguisher.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/fireextinguisher.tga
+	}
+}
+
+textures/decals/_marine/caution
+{
+	qer_editorimage textures/decals/_marine/caution.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution.tga
+	}
+}
+
+textures/decals/_marine/shutoff_valve
+{
+	qer_editorimage textures/decals/_marine/shutoff_valve.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/shutoff_valve.tga
+	}
+}
+
+textures/decals/_marine/biohazard
+{
+	qer_editorimage textures/decals/_marine/biohazard.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/biohazard.tga
+	}
+}
+
+textures/decals/_marine/medical
+{
+	qer_editorimage textures/decals/_marine/medical.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/medical.tga
+	}
+}
+
+textures/decals/_marine/firstaid
+{
+	qer_editorimage textures/decals/_marine/firstaid.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/firstaid.tga
+	}
+}
+
+textures/decals/_marine/airlock1
+{
+	qer_editorimage textures/decals/_marine/airlock1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/airlock1.tga
+	}
+}
+
+textures/decals/_marine/caution_voltage2
+{
+	qer_editorimage textures/decals/_marine/caution_voltage2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_voltage2.tga
+	}
+}
+
+textures/decals/_marine/caution_hazwaste
+{
+	qer_editorimage textures/decals/_marine/caution_hazwaste.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_hazwaste.tga
+	}
+}
+
+textures/decals/_marine/caution_munitions
+{
+	qer_editorimage textures/decals/_marine/caution_munitions.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_munitions.tga
+	}
+}
+
+textures/decals/_marine/caution_flammable2
+{
+	qer_editorimage textures/decals/_marine/caution_flammable2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_flammable2.tga
+	}
+}
+
+textures/decals/_marine/caution_flammable3
+{
+	qer_editorimage textures/decals/_marine/caution_flammable3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_flammable3.tga
+	}
+}
+
+textures/decals/_marine/caution_radioactive2
+{
+	qer_editorimage textures/decals/_marine/caution_radioactive2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_radioactive2.tga
+	}
+}
+textures/decals/_marine/restrictedarea
+{
+	qer_editorimage textures/decals/_marine/restrictedarea.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/restrictedarea.tga
+	}
+}
+
+textures/decals/_marine/caution_machinery
+{
+	qer_editorimage textures/decals/_marine/caution_machinery.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/caution_machinery.tga
+	}
+}
+
+textures/decals/_marine/logo_color128
+{
+	qer_editorimage textures/decals/_marine/logo_color128.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/logo_color128.tga
+	}
+}
+
+textures/decals/_marine/logo_color64
+{
+	qer_editorimage textures/decals/_marine/logo_color64.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/logo_color64.tga
+	}
+}
+
+textures/decals/_marine/unitlogo_color64
+{
+	qer_editorimage textures/decals/_marine/unitlogo_color64.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/_marine/unitlogo_color64.tga
+	}
+}
+
+//----------------------------------
+//	BULLET IMPACTS
+//----------------------------------
+
+textures/decals/wallbullets1
+{
+	qer_editorimage textures/decals/wallbullets1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/wallbullets1.tga
+	}	
+	
+	{
+		blend add
+		map textures/decals/wallbullets1_add.tga
+	}	
+}
+
+textures/decals/wallbullets2
+{
+	qer_editorimage textures/decals/wallbullets2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/wallbullets2.tga
+	}	
+	
+	{
+		blend add
+		map textures/decals/wallbullets2_add.tga
+	}	
+}
+
+textures/decals/wallbullets3
+{
+	qer_editorimage textures/decals/wallbullets3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/wallbullets3.tga
+	}	
+	
+	{
+		blend add
+		map textures/decals/wallbullets3_add.tga
+	}
+}
+
+textures/decals/wallbullets4
+{
+	qer_editorimage textures/decals/wallbullets4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/wallbullets4.tga
+	}	
+	
+	{
+		blend add
+		map textures/decals/wallbullets4_add.tga
+	}
+}
+
+//----------------------------------
+//	BLASTER MARKS
+//----------------------------------
+
+textures/decals/blasterscorch
+{
+	qer_editorimage textures/decals/blasterscorch.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+       	blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/blasterscorch.tga
+	}
+
+	{
+		blend add
+		map textures/decals/blasterscorch_embers.tga
+		rgb		guitable_10_5[ time * .4 + VertexRandomizer ]
+	}
+}
+
+textures/decals/blasterscorch_strip
+{
+	qer_editorimage textures/decals/blasterscorch_strip.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+       	blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/decals/blasterscorch_strip.tga
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/decals/blasterscorch_stripa)
+	
+	}
+
+	{
+		blend gl_dst_alpha, gl_one
+	    maskalpha
+		map textures/decals/blasterscorch_stripg.tga
+		//scale 2 * table4[ time * .7 ] , 1 * table4[ time * 1 ]
+		//scroll random[ time * .0001 ] , random[ time * .0002 ]
+		scroll time * .02, time * .01
+		//clamp
+	}
+
+
+	
+}
+
+//----------------------------------
+//	CRACKED GLASS
+//----------------------------------
+
+textures/decals/glasscrack1
+{
+	qer_editorimage gfx/effects/decals/glasscrack1_ed.tga
+	noShadows
+	noimpact
+	translucent
+	twoSided
+//	DECAL_MACRO
+	notfix //surf_no_t_fix
+	
+	
+	{
+       	blend	add
+		Map gfx/effects/decals/glasscrack1.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/decals/glasscrack2
+{
+	qer_editorimage gfx/effects/decals/glasscrack2_ed.tga
+	noShadows
+	noimpact
+	translucent
+	twoSided
+//	DECAL_MACRO
+	notfix //surf_no_t_fix
+	
+	{
+       	blend	add
+		Map gfx/effects/decals/glasscrack2.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/decals/glasscrack1_near
+{
+	qer_editorimage gfx/effects/decals/glasscrack1_ed.tga
+	sort nearest
+	noShadows
+	noimpact
+	translucent
+	twoSided
+//	DECAL_MACRO
+	notfix //surf_no_t_fix
+	
+	
+	{
+       	blend	add
+		Map gfx/effects/decals/glasscrack1.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/decals/glasscrack2_near
+{
+	qer_editorimage gfx/effects/decals/glasscrack2_ed.tga
+	noShadows
+	noimpact
+	translucent
+	twoSided
+//	DECAL_MACRO
+	notfix //surf_no_t_fix
+	sort nearest
+	
+	{
+
+       	blend	add
+		Map gfx/effects/decals/glasscrack2.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+
+//----------------------------------
+//	GRUNGE MAPS
+//----------------------------------
+
+textures/decals/_grungemaps/grunge2
+{
+	qer_editorimage textures/decals/_grungemaps/grunge2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_grungemaps/grunge2.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge3
+{
+	qer_editorimage textures/decals/_grungemaps/grunge3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_grungemaps/grunge3.tga
+	}
+}
+
+
+textures/decals/_grungemaps/grunge5
+{
+	qer_editorimage textures/decals/_grungemaps/grunge5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge5.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge6
+{
+	qer_editorimage textures/decals/_grungemaps/grunge6.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge6.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge7
+{
+	qer_editorimage textures/decals/_grungemaps/grunge7.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge7.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge8
+{
+	qer_editorimage textures/decals/_grungemaps/grunge8.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge8.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge9
+{
+	qer_editorimage textures/decals/_grungemaps/grunge9.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge9.tga
+	}
+}
+
+
+textures/decals/_grungemaps/grunge1
+{
+	qer_editorimage textures/decals/_grungemaps/grunge1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_grungemaps/grunge1.tga
+	}
+}
+
+
+textures/decals/_grungemaps/grunge10
+{
+	qer_editorimage textures/decals/_grungemaps/grunge10.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge10.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge11
+{
+	qer_editorimage textures/decals/_grungemaps/grunge11.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge11.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge12
+{
+	qer_editorimage textures/decals/_grungemaps/grunge12.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge12.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge13
+{
+	qer_editorimage textures/decals/_grungemaps/grunge13.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge13.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge14
+{
+	qer_editorimage textures/decals/_grungemaps/grunge14.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge14.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge17
+{
+	qer_editorimage textures/decals/_grungemaps/grunge17.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge17.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge18
+{
+	qer_editorimage textures/decals/_grungemaps/grunge18.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/grunge18.tga
+	}
+}
+
+textures/decals/_grungemaps/damage1
+{
+	qer_editorimage textures/decals/_grungemaps/damage1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/decals/_grungemaps/damage1.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge_stroyent1
+{
+	qer_editorimage textures/decals/_grungemaps/grunge_stroyent1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_grungemaps/grunge_stroyent1.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge_stroyent2
+{
+	qer_editorimage textures/decals/_grungemaps/grunge_stroyent2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_grungemaps/grunge_stroyent2.tga
+	}
+}
+
+textures/decals/_grungemaps/grunge_scratches1
+{
+	qer_editorimage textures/decals/_grungemaps/grunge_scratches1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/decals/_grungemaps/grunge_scratches1.tga
+	}
+}
+
+
+textures/decals/_grungemaps/stain01bwet
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	qer_editorimage	textures/decals/_grungemaps/stain01bwet.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/stain01bwet.tga
+	}	
+
+	{
+		blend specularMap
+		map	 textures/decals/_grungemaps/stain01b_s.tga
+	}
+}
+
+textures/decals/slime
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	qer_editorimage	textures/decals/slime.tga
+
+	{
+		blend GL_DST_COLOR,GL_SRC_COLOR
+		map textures/decals/slime.tga
+	}	
+
+	{
+		blend specularMap
+		map	 textures/decals/slime_s.tga
+	}
+}
+
+
+
+//----------------------------------
+//	ALPHABET DECALS
+//----------------------------------
+
+gfx/decals/strogg/alphabet1
+{
+	qer_editorimage gfx/decals/strogg/alphabet1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/alphabet1.tga
+		red .7
+		green .7
+		blue .7
+		alpha Parm3
+	}
+}
+
+gfx/decals/strogg/alphabet2
+{
+	qer_editorimage gfx/decals/strogg/alphabet2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/alphabet1.tga
+	}
+}
+
+gfx/decals/strogg/alphabet3
+{
+	qer_editorimage gfx/decals/strogg/alphabet3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/alphabet3.tga
+		red .7
+		green .7
+		blue .7
+		alpha Parm3
+	}
+}
+
+gfx/decals/strogg/alphabet4
+{
+	qer_editorimage gfx/decals/strogg/alphabet4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/alphabet3.tga
+	}
+}
+
+//----------------------------------
+//	LEVEL LABEL DECALS
+//----------------------------------
+
+gfx/decals/strogg/maps/dir_arrow
+{
+	qer_editorimage gfx/decals/strogg/maps/dir_arrow.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap	gfx/decals/strogg/maps/dir_arrow.tga 	//for light decals
+}
+
+gfx/decals/strogg/maps/stroy_prod
+{
+	qer_editorimage gfx/decals/strogg/maps/stroy_prod.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap	gfx/decals/strogg/maps/stroy_prod.tga 	//for light decals
+}
+
+gfx/decals/strogg/maps/dispersal_outside_sign
+{
+	qer_editorimage gfx/decals/strogg/maps/dispersal_outside_sign.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/maps/dispersal_outside_sign.tga
+		red 1
+		green 1
+		blue 1
+	}
+}
+
+//----------------------------------
+//	STROGG DECALS
+//----------------------------------
+
+gfx/decals/strogg/military_color
+{
+	qer_EditorImage gfx/decals/strogg/military_color.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map gfx/decals/strogg/military_color.tga
+	}
+}
+
+gfx/decals/strogg/military
+{
+	qer_editorimage gfx/decals/strogg/military1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/military.tga
+	}
+}
+
+gfx/decals/strogg/military1
+{
+	qer_editorimage gfx/decals/strogg/military.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/military.tga
+		red .4
+		green .4
+		blue .4
+	}
+}
+
+gfx/decals/strogg/military2
+{
+	qer_editorimage gfx/decals/strogg/military2b.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap   gfx/decals/strogg/military2.tga 	//for light decals
+	{
+       	blend	filter								//for dark decals
+		Map gfx/decals/strogg/military2b.tga
+	}
+}
+
+gfx/decals/strogg/military3
+{
+	qer_editorimage gfx/decals/strogg/military3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	filter								//for dark decals
+		Map gfx/decals/strogg/military3.tga
+	}
+}
+
+gfx/decals/strogg/military4
+{
+	qer_editorimage gfx/decals/strogg/military4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/military4.tga
+		red .4
+		green .4
+		blue .4
+	}
+}
+
+gfx/decals/strogg/military5
+{
+	qer_editorimage gfx/decals/strogg/military5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/military4.tga
+	}
+}
+
+gfx/decals/strogg/arrows1
+{
+	qer_editorimage gfx/decals/strogg/arrows1b.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap   gfx/decals/strogg/arrows1.tga 	//for light decals
+	{
+       	blend	filter								//for dark decals
+		Map gfx/decals/strogg/arrows1b.tga
+	}
+}
+
+gfx/decals/strogg/arrows2
+{
+	qer_editorimage gfx/decals/strogg/arrows2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	filter								//for dark decals
+		Map gfx/decals/strogg/arrows2.tga
+	}
+}
+
+gfx/decals/strogg/arrows3
+{
+	qer_editorimage gfx/decals/strogg/arrows3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/arrows3.tga
+		red .4
+		green .4
+		blue .4
+	}
+}
+
+gfx/decals/strogg/arrows4
+{
+	qer_editorimage gfx/decals/strogg/arrows4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/arrows3.tga
+	}
+}
+
+gfx/decals/strogg/arrows5
+{
+	qer_editorimage gfx/decals/strogg/arrows5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/arrows5.tga
+		red .4
+		green .4
+		blue .4
+	}
+}
+
+gfx/decals/strogg/arrows6
+{
+	qer_editorimage gfx/decals/strogg/arrows6.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/arrows5.tga
+	}
+}
+
+gfx/decals/strogg/corner1
+{
+	qer_editorimage gfx/decals/strogg/corner1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/corner1.tga
+		red .8
+		green .8
+		blue .8
+	}
+}
+
+gfx/decals/strogg/corner2
+{
+	qer_editorimage gfx/decals/strogg/corner2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/corner1.tga
+	}
+}
+
+gfx/decals/strogg/corner3
+{
+	qer_editorimage gfx/decals/strogg/corner3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/corner3.tga
+		red .6
+		green .6
+		blue .6
+	}
+}
+
+gfx/decals/strogg/corner4
+{
+	qer_editorimage gfx/decals/strogg/corner4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/corner3.tga
+	}
+}
+
+gfx/decals/strogg/line1
+{
+	qer_editorimage gfx/decals/strogg/line1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/line1.tga
+		red .5
+		green .5
+		blue .5
+	}
+}
+
+gfx/decals/strogg/line2
+{
+	qer_editorimage gfx/decals/strogg/line2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/line1.tga
+	}
+}
+
+gfx/decals/strogg/line3
+{
+	qer_editorimage gfx/decals/strogg/line3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/line3.tga
+		red .5
+		green .5
+		blue .5
+	}
+}
+
+gfx/decals/strogg/line4
+{
+	qer_editorimage gfx/decals/strogg/line4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/line3.tga
+	}
+}
+
+gfx/decals/strogg/conveyor1
+{
+	qer_editorimage gfx/decals/strogg/conveyor1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/conveyor1.tga
+		red .5
+		green .5
+		blue .5
+	}
+}
+
+gfx/decals/strogg/conveyor2
+{
+	qer_editorimage gfx/decals/strogg/conveyor2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/conveyor1.tga
+	}
+}
+
+gfx/decals/strogg/gear1
+{
+	qer_editorimage gfx/decals/strogg/gear1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/gear1.tga
+		red .4
+		green .4
+		blue .4
+	}
+}
+
+gfx/decals/strogg/gear2
+{
+	qer_editorimage gfx/decals/strogg/gear2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/gear1.tga
+	}
+}
+
+gfx/decals/strogg/conveyor_piece1
+{
+	qer_editorimage gfx/decals/strogg/conveyor_piece1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/conveyor_piece1.tga
+		red .7
+		green .7
+		blue .7
+	}
+}
+
+gfx/decals/strogg/conveyor_piece2
+{
+	qer_editorimage gfx/decals/strogg/conveyor_piece2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/conveyor_piece1.tga
+	}
+}
+
+
+gfx/decals/strogg/warningicon
+{
+	qer_editorimage gfx/decals/strogg/warningicon.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/warningicon.tga
+		red .7
+		green .7
+		blue .7
+	}
+}
+
+gfx/decals/strogg/warningicon2
+{
+	qer_editorimage gfx/decals/strogg/warningicon2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/warningicon.tga
+	}
+}
+
+gfx/decals/strogg/warningbars1
+{
+	qer_editorimage gfx/decals/strogg/warningbars1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap   gfx/decals/strogg/warningbars1.tga 	//for light decals
+}
+
+gfx/decals/strogg/warningbars2
+{
+	qer_editorimage gfx/decals/strogg/warningbars2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap   gfx/decals/strogg/warningbars2.tga 	//for light decals
+}
+
+gfx/decals/strogg/warningbars3
+{
+	qer_editorimage gfx/decals/strogg/warningbars3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap   gfx/decals/strogg/warningbars3.tga 	//for light decals
+}
+
+gfx/decals/strogg/hookbodies1
+{
+	qer_editorimage gfx/decals/strogg/hookbodies1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/hookbodies1.tga
+		red .4
+		green .4
+		blue .4
+	}
+	
+	{
+       	blend	filter								//for dark decals
+		Map gfx/decals/strogg/hookbodies2.tga
+	}
+}
+
+gfx/decals/strogg/hookbodies3
+{
+	qer_editorimage gfx/decals/strogg/hookbodies3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/hookbodies1.tga
+	}
+	
+		diffuseMap   gfx/decals/strogg/hookbodies4.tga 	//for light decals
+
+}
+
+gfx/decals/strogg/needles1
+{
+	qer_editorimage gfx/decals/strogg/needles1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/needles1.tga
+		red .5
+		green .5
+		blue .5
+	}
+}
+
+gfx/decals/strogg/needles2
+{
+	qer_editorimage gfx/decals/strogg/needles2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/needles1.tga
+	}
+}
+
+gfx/decals/strogg/stroyent_pump1
+{
+	qer_editorimage gfx/decals/strogg/stroyent_pump1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+		diffuseMap   gfx/decals/strogg/stroyent_pump1.tga 	//for light decals
+}
+
+gfx/decals/strogg/stroyent_pump2
+{
+	qer_editorimage gfx/decals/strogg/stroyent_pump2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/stroyent_pump1.tga
+	}
+}
+
+gfx/decals/strogg/arc1
+{
+	qer_editorimage gfx/decals/strogg/arc1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/arc1.tga
+		red .6
+		green .6
+		blue .6
+	}
+}
+
+gfx/decals/strogg/arc2
+{
+	qer_editorimage gfx/decals/strogg/arc2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/arc1.tga
+	}
+}
+
+gfx/decals/strogg/stroyent_intake1
+{
+	qer_editorimage gfx/decals/strogg/stroyent_intake1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend	diffuseMap								//for light decals
+		Map gfx/decals/strogg/stroyent_intake1.tga
+		red .6
+		green .6
+		blue .6
+	}
+}
+
+gfx/decals/strogg/stroyent_intake2
+{
+	qer_editorimage gfx/decals/strogg/stroyent_intake2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR		//inverted decal that darkens
+		Map gfx/decals/strogg/stroyent_intake1.tga
+	}
+}
+
+//----------------------------------
+
+/* Don't know what the following three textures are, commented out for now.
+
+textures/decals_Q4/2_general_dataprocessing
+{
+
+	qer_editorimage textures/decals_Q4/2_general_dataprocessing.tga
+	noShadows
+	twoSided
+	 nonsolid
+	 noimpact
+	translucent
+
+
+	{
+		vertexColor
+      	blend	diffuseMap  
+		map textures/decals_Q4/2_general_dataprocessing.tga
+	}
+
+
+ }
+
+textures/decals_Q4/2_general_networking
+{
+
+	qer_editorimage textures/decals_Q4/2_general_networking.tga
+	noShadows
+	twoSided
+	 nonsolid
+	 noimpact
+	translucent
+
+
+	{
+		vertexColor
+      	blend	diffuseMap  
+		map textures/decals_Q4/2_general_networking.tga
+	}
+
+
+ }
+
+textures/decals_Q4/2_general_storage
+{
+
+	qer_editorimage textures/decals_Q4/2_general_storage.tga
+	noShadows
+	twoSided
+	 nonsolid
+	 noimpact
+	translucent
+
+
+	{
+		vertexColor
+      	blend	diffuseMap  
+		map textures/decals_Q4/2_general_storage.tga
+	}
+
+
+ }
+*/
+
+textures/decals/bloodspray
+{
+	noshadows
+	translucent
+
+	qer_editorimage		gfx/effects/gore_spray/bloodspray.tga
+
+	{
+		blend  blend  
+		map    gfx/effects/gore_spray/bloodspray.tga
+		colored
+	}
+}
+
+textures/decals/BlobShadow
+{
+	noshadows
+	decalInfo	0.001
+	DECAL_MACRO	
+	
+	translucent
+	{
+		blend filter
+	//	blend gl_dst_color,gl_src_color
+		map    textures/decals/d2.tga
+		colored
+	}
+
+}
+textures/decals/toxinDamage
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    textures/decals/toxindamage.tga
+		colored
+	}
+}
+
+table tunnelVisionSolidAlpha { clamp { 1, 0 } }
+// when health is near 0, the density will be greater
+
+
+textures/decals/tunnel
+{
+	noshadows
+	translucent
+
+	qer_editorimage		textures/decals/tunnel.tga
+
+	{
+		alpha		tunnelVisionSolidAlpha[ parm3 ] - (time-parm0)*0.25
+	    blend		blend
+		centerscale	0.65+0.05*sinTable[time], 0.65+0.05*sinTable[time]
+		rotate time * -.01
+		map    textures/decals/tunnel.tga
+		clamp
+	}
+
+	{
+		alpha		tunnelVisionSolidAlpha[ parm3 ] - (time-parm0)*0.25
+	    blend		blend
+		centerscale	0.65+0.05*sinTable[time], 0.65+0.05*sinTable[time]
+		rotate time * .006
+		map    textures/decals/tunnel.tga
+		clamp
+	}
+
+}
+
+
+
+textures/decals/tunnelvision
+{
+	noshadows
+	translucent
+
+	qer_editorimage		textures/decals/tunnel.tga
+
+	{
+	    blend		blend
+		centerscale	0.65+0.05*sinTable[time], 0.65+0.05*sinTable[time]
+		rotate time * -.01
+		map    textures/decals/tunnel.tga
+		colored
+		clamp
+	}
+
+	{
+	    blend		blend
+		centerscale	0.65+0.05*sinTable[time], 0.65+0.05*sinTable[time]
+		rotate time * .006
+		map    textures/decals/tunnel.tga
+		colored
+		clamp
+	}
+
+}
+
+textures/decals/_grungemaps/scorch
+{
+	qer_editorimage textures/decals/_grungemaps/scorch.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_DST_COLOR, GL_SRC_COLOR								
+		Map textures/decals/_grungemaps/scorch.tga
+	}
+}
+
+//team decals for ctf/tdm----------------------------------------
+
+textures/decals/bloodspread2
+
+{
+	qer_editorimage textures/decals/bloodpool01_jim.tga
+
+	
+	{
+	blend	blend
+	map	textures/decals/bloodpool01_jim.tga
+	vertexColor
+	}
+}
+
+
+
+textures/decals/goospread2
+
+{
+	qer_editorimage textures/decals/goopool2_d.tga
+	translucent	
+//	DECAL_MACRO
+
+	{
+	blend	add
+	map	textures/decals/goopool2_d.tga
+	red		Parm0
+	green	Parm1
+	blue	Parm2
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/decals/bloodpool01_b.tga)
+	    clamp
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/hub1
+        texgen		reflect
+ 		clamp
+ //		vertexColor 
+ //		rgba inverse_linear_nc [time]
+ 		
+	}
+	
+}
+
+textures/decals/skid_tile
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	polygonOffset
+	qer_editorimage textures/decals/skid_tile.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/skid_tile.tga
+	}	
+}
+
+textures/decals/skid_begin
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	polygonOffset
+	qer_editorimage textures/decals/skid_tilecap2.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/skid_tilecap2.tga
+	}	
+}
+
+textures/decals/skid_end
+{
+//	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	polygonOffset
+	qer_editorimage textures/decals/skid_tilecap1.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/skid_tilecap1.tga
+	}	
+}
+
+
+textures/decals/_grungemaps/dust1_tile
+{
+	qer_editorimage textures/decals/_grungemaps/dust1_tile.tga
+	noShadows
+	noimpact
+ 	translucent
+ 	nonSolid
+ 	notfix //surf_no_t_fix
+	
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map textures/decals/_grungemaps/dust1_tile_inv.tga
+	}
+}
+
+textures/decals/_grungemaps/dust1_tile_poly_offset
+{
+	qer_editorimage textures/decals/_grungemaps/dust1_tile.tga
+	polygonOffset
+	noShadows
+	noimpact
+ 	translucent
+ 	nonSolid
+ 	notfix //surf_no_t_fix
+	
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map textures/decals/_grungemaps/dust1_tile_inv.tga
+	}
+}
+
+textures/decals/_grungemaps/dust1_end
+{
+	qer_editorimage textures/decals/_grungemaps/dust1_end.tga
+//	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	nonSolid
+ 	notfix //surf_no_t_fix
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR	
+		Map textures/decals/_grungemaps/dust1_end.tga
+	}
+}
+
+
+textures/decals/_grungemaps/dust1
+{
+	qer_editorimage textures/decals/_grungemaps/dust1.tga
+//	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	nonSolid
+ 	notfix //surf_no_t_fix
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR		
+		Map textures/decals/_grungemaps/dust1.tga
+	}
+	
+
+}
+
+textures/decals/painted_concrete
+{
+	qer_editorimage textures/decals/painted_concrete.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend		GL_DST_COLOR, GL_SRC_COLOR
+		map		textures/decals/painted_concrete.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/decals/painted_concrete_strip
+{
+	qer_editorimage textures/decals/painted_concrete.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{
+		blend		diffusemap
+		map		textures/decals/painted_concrete_strip.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+		alphatest	0.2
+	}
+	{
+		blend		specularmap
+		map		textures/decals/painted_concrete_s.tga
+		//alphatest	0.25
+	}
+	{
+		blend		bumpmap
+		map		heightmap(textures/decals/painted_concrete_s.tga, 2)
+		//alphatest	0.25
+	}
+}
+
+////supa secret easter egg logo thing
+
+textures/decals/military_logo
+{
+	qer_editorimage textures/decals/military_logo.tga
+	DECAL_MACRO
+	noShadows
+	twoSided
+	nonsolid
+	noimpact
+	translucent
+
+
+	{
+		colored
+      	blend	diffuseMap  
+		map textures/decals/military_logo.tga
+	}
+
+
+ }

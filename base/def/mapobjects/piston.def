@@ -1,0 +1,48 @@
+
+/***********************************************************************
+piston
+
+***********************************************************************/
+
+export piston
+{		
+	options -prefix pist_ -align ALL -keep steam
+		  
+	mesh	work/models/mapobjects/strogg/machines/piston/animation/piston_idle.ma	-dest models/mapobjects/strogg/machines/piston/mesh
+	anim	work/models/mapobjects/strogg/machines/piston/animation/piston_idle.ma	-dest models/mapobjects/strogg/machines/piston/idle
+}
+
+entityDef env_piston
+{
+	"model"							"model_env_piston"
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"animated_piston"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+	
+	"fx_piston_steam"				"effects/steam/piston_steam.fx"
+	
+	"combatModel"					"1"
+}
+
+model model_env_piston
+{						
+	mesh					models/mapobjects/strogg/machines/piston/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/machines/piston/idle.md5anim
+	{
+		frame	4							sound				ambient_pistons01
+		frame	1,19						sound				effects_steam_blast
+		frame	21							fx					fx_piston_steam			steam
+	}
+	
+
+}
+
+

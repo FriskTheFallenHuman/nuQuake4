@@ -1,0 +1,2880 @@
+gfx/guis/test/xload/qlogo_add
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/test/xload/qlogo_add.tga
+		colored
+	}
+}
+
+gfx/guis/test/xload/pulse
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/test/xload/pulse.tga
+		colored
+	}
+}
+
+gfx/guis/test/xload/gear1
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/test/xload/gear1.tga
+		colored
+		rotate time * -.04
+		clamp
+	}
+}
+
+gfx/guis/test/xload/gear2
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/test/xload/gear2.tga
+		colored
+		rotate -.1 * time
+		clamp
+	}
+}
+
+gfx/guis/test/xload/gear3
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/test/xload/gear3.tga
+		colored
+		rotate .1 * time
+		clamp
+	}
+}
+
+gfx/guis/test/xload/circle1
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/test/xload/circle1.tga
+		colored
+		rotate time * .06
+		clamp
+	}
+}
+
+textures/waste/fuzz_shield
+{
+	noSelfShadow
+	noShadows
+	twosided
+	materialType electronics
+		translucent
+
+	qer_EditorImage models/mapobjects/strogg/waste/fuzz_shield.tga
+	deform	turbulent	sintable .02 time*.01 .5
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		alpha			.4
+		
+		glslProgram		glsl/DisplacementCube.glsl
+		shaderParm		scrollX				time * 0.25
+		shaderParm		scrollY				time * .5
+		shaderParm		sizeX				3 
+		shaderParm		sizeY				3 
+		shaderParm		texCoordSize		.2
+		shaderTexture	DisplacementMap		gfx/effects/depth/noise2.tga
+		shaderTexture	Image				models/mapobjects/strogg/waste/fuzz_shield.tga
+		shaderParm		EyeVector			viewOrigin
+		shaderTexture	CubeImage			cubemap gfx/env/gen3
+	}
+
+////if no GLSL
+
+	{
+		if ( glslPrograms )== 0
+		blend blend
+		map models/mapobjects/strogg/waste/fuzz_shield.tga
+	}
+	{
+		if ( glslPrograms )== 0		
+		blend GL_ONE, gl_one
+       	cubeMap		gfx/env/recomp2
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+}
+
+//----------------------------------------------------------------------------------
+
+gfx/guis/mainmenu/e3_0_add
+{
+	noshadows
+	translucent
+	{
+		blend add
+		map gfx/guis/mainmenu/e3_0.tga
+		colored
+	}
+}
+
+//----------------------------------
+// terrain test
+//----------------------------------
+
+textures/test/rock/rock1
+{
+	qer_EditorImage		textures/test/rock/rockface02d_brown2_d.tga
+	materialType rock
+	bumpmap				textures/test/rock/sharprock1_local.tga 
+	diffusemap			textures/test/rock/rockface02d_brown2_d.tga
+}
+
+textures/test/rock/rock2
+{
+	qer_EditorImage		textures/test/rock/midrock2_d.tga
+	materialType rock
+	bumpmap				textures/test/rock/hellrock_local.tga
+	diffusemap			textures/test/rock/midrock2_d.tga
+}
+
+textures/test/rock/sand
+{
+	qer_EditorImage		textures/test/rock/sand_wave_lines02_d.tga
+	materialType rock
+	bumpmap				addnormals (textures/test/rock/sand_wave_lines02_local.tga, heightmap (textures/test/rock/skysand1_h.tga, 2) ) 
+	diffusemap			textures/test/rock/sand_wave_lines02_d.tga
+}
+
+//----------------------------------
+//  mp texture test
+//----------------------------------
+
+guide textures/test/med4_wall3 generic_shader("test/med4_wall3")
+guide textures/test/med2_wall1 generic_shader("test/med2_wall1")
+guide textures/test/med1_wall1d generic_shader("test/med1_wall1d")
+
+
+guide textures/test/mp_ceiling1 generic_full_noheight("test/mp_ceiling1")
+guide textures/test/mp_floor1 generic_full_noheight("test/mp_floor1")
+guide textures/test/mp_floor2 generic_full_noheight("test/mp_floor2")
+guide textures/test/mp_trim_h1 generic_full_noheight("test/mp_trim_h1")
+guide textures/test/mp_trim_h2 generic_full_noheight("test/mp_trim_h2")
+//guide textures/test/mp_trim_h3 generic_full_noheight("test/mp_trim_h3")
+
+textures/test/mp_trim_h3
+{
+	qer_editorimage textures/test/mp_trim_h3_d
+
+	bumpmap 	textures/test/mp_trim_h3_local
+	diffusemap	textures/test/mp_trim_h3_d
+	specularmap	textures/test/mp_trim_h3_s
+	
+	{
+		blend add
+		map textures/test/mp_trim_h3_g
+	}
+}
+
+guide textures/test/mp_trim_h4 generic_full_noheight("test/mp_trim_h4")
+guide textures/test/mp_trim_h5 generic_full_noheight("test/mp_trim_h5")
+//guide textures/test/mp_trim_v1 generic_full_noheight("test/mp_trim_v1")
+
+textures/test/mp_trim_v1
+{
+	qer_editorimage textures/test/mp_trim_v1_d
+
+	bumpmap 	textures/test/mp_trim_v1_local
+	diffusemap	textures/test/mp_trim_v1_d
+	specularmap	textures/test/mp_trim_v1_s
+	
+	{
+		blend add
+		map textures/test/mp_trim_v1_g
+	}
+}
+
+guide textures/test/mp_trim_v2 generic_full_noheight("test/mp_trim_v2")
+guide textures/test/mp_wall1 generic_full_noheight("test/mp_wall1")
+guide textures/test/mp_wall2 generic_full_noheight("test/mp_wall2")
+guide textures/test/mp_wall3 generic_full_noheight("test/mp_wall3")
+guide textures/test/mp_wall4 generic_full_noheight("test/mp_wall4")
+guide textures/test/mp_wall5 generic_full_noheight("test/mp_wall5")
+guide textures/test/mp_wall6 generic_full_noheight("test/mp_wall6")
+
+
+
+
+//----------------------------------
+//  map damage
+//----------------------------------
+
+models/mapobjects/test/damage1
+{
+	qer_editorimage models/mapobjects/test/damage1.tga
+	noSelfShadow
+	noShadows
+	noImpact
+	nonSolid
+
+renderBump -size 256 256 -mergehigh -aa 2 -trace .05 models/mapobjects/test/damage1_local.tga models/mapobjects/test/damage_high.lwo 
+
+	{
+		blend diffuseMap
+		map 		models/mapobjects/test/damage1.tga
+	}
+	{
+		blend specularMap		
+		map models/mapobjects/test/damage1_s.tga
+	}
+	{
+		blend bumpMap
+		map addnormals (models/mapobjects/test/damage1_local.tga, heightmap (models/mapobjects/test/damage1_h.tga, 4)) 
+	}
+}
+
+//----------------------------------
+//  lgun test
+//----------------------------------
+
+gfx/test/lgun
+{
+	qer_editorimage gfx/test/lgun.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/test/lgun.tga
+		vertexColor
+		scroll -5 * time, 0
+		scale	1,1
+	}
+	{
+		blend add
+		map gfx/test/lgun.tga
+		vertexColor
+		scroll -7.2 * time, 0
+		scale -1,1
+	}
+}
+
+//----------------------------------
+//  glasstest2
+//----------------------------------
+
+textures/test/bevglass01
+
+{
+    noselfShadow
+    noshadows	
+	twosided
+	translucent
+	//glass
+	               
+	{
+      	blend	filter
+		map	textures/test/bevglass01.tga
+	}
+		bumpMap		addnormals(textures/test/bevglass01_local.tga, heightmap(textures/test/bevglass01_h.tga, 2 ) )
+		specularMap		textures/test/bevglass01_s.tga
+			
+	//{
+	//	blend add
+	//	cubeMap		env/bland
+	//	texgen		reflect
+	//}
+}
+
+textures/test/mvglass2
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	qer_editorimage	textures/test/mvglass2.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass3_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0 //.55
+		green .75 * Parm1 //.65
+		blue  .75 * Parm2 //.65
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/test/mvglass3_f.tga
+		scale	 32 , 32
+	}
+}
+
+textures/test/mvglass2_dirt
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	qer_editorimage	textures/test/mvglass2_dirte.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass3_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.75
+		green Parm1 //.85
+		blue  Parm2 //.85
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/test/mvglass3_f.tga
+		scale	 32 , 32
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/test/mvglass2_dirt.tga
+	}
+}
+
+textures/test/mvglass4
+ {
+	translucent
+	twoSided
+	noshadows
+	//glass
+	
+	qer_editorimage textures/test/mvglass4
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass4.tga)
+	}
+/*
+	{
+	    blend GL_DST_ALPHA, gl_one 
+	    maskalpha
+		map textures/test/mvglass5.tga
+		red 1	
+		green 1
+		blue  1
+	}
+*/	
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.8	
+		green Parm1 //1
+		blue  Parm2 //1
+	}
+}
+
+textures/test/mvglass6
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass6
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass6.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.65
+		green Parm1 //.8
+		blue  Parm2 //.8
+	}
+}
+
+textures/test/mvglass7
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass7
+	
+		{
+      	blend	add
+		map	textures/test/mvglass7.tga
+		red Parm0 //.25
+		green Parm1 //.35
+		blue  Parm2 //.35
+	}
+		specularMap		textures/test/mvglass7_s.tga
+		bumpMap		textures/test/mvglass7_local.tga
+		
+	{
+	    blend GL_ONE, gl_one
+	    //maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0 //.35
+		green Parm1 //.4
+		blue  Parm2 //.4
+	}		
+		
+/*
+	{
+		blend	bumpmap
+		map		textures/test/mvglass7_local.tga
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass7.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.65
+		green Parm1 //.8
+		blue  Parm2 //.8
+	}
+*/	
+	
+}
+
+textures/test/mvglass7a
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass7a
+	{
+      	blend	add
+		map	textures/test/mvglass7a.tga
+		red Parm0 //.25
+		green Parm1 //.35
+		blue  Parm2 //.35
+	}
+		specularMap		textures/test/mvglass7_s.tga
+		bumpMap		textures/test/mvglass7_local.tga
+		
+	{
+	    blend GL_ONE, gl_one
+	    //maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0 //.35
+		green Parm1 //.4
+		blue  Parm2 //.4
+	}		
+		
+/*
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass7a.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.65
+		green Parm1 //.8
+		blue  Parm2 //.8
+	}
+*/	
+}
+
+textures/test/mvglass8
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass8
+	{
+      	blend	add
+		map	textures/test/mvglass8.tga
+		red Parm0 //.25
+		green Parm1 //.35
+		blue  Parm2 //.35
+	}
+		specularMap		textures/test/mvglass8_s.tga
+		bumpMap		textures/test/mvglass8_local.tga	
+
+	{
+	    blend GL_ONE, gl_one
+	    //maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0 //.35
+		green Parm1 //.4
+		blue  Parm2 //.4
+	}
+	
+/*	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass8.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.65
+		green Parm1 //.8
+		blue  Parm2 //.8
+	}
+*/	
+}
+
+textures/test/mvglass9
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass9
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass9.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0 //.65
+		green .75 * Parm1 //.8
+		blue  .75 * Parm2 //.8
+	}
+}
+
+textures/test/mvglass9_dirt
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass9_dirte
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass9.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red Parm0 //.8
+		green Parm1 //1
+		blue  Parm2 //1
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/test/mvglass9_dirt.tga
+	}
+}
+
+textures/test/mvglass10
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass10
+	
+	{
+      	blend	add
+		map	textures/test/mvglass10.tga
+		red Parm0 //.25
+		green Parm1 //.35
+		blue  Parm2 //.35
+	}
+//		bumpMap		textures/test/mvglass10_local.tga
+		bumpMap		addnormals(textures/test/mvglass10_local.tga, heightmap(textures/test/mvglass10_h.tga, 2 ) )
+		specularMap		textures/test/mvglass10_s.tga
+		
+	{
+	    blend GL_ONE, gl_one
+	    //maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0 //.35
+		green Parm1 //.4
+		blue  Parm2 //.4
+	}
+/*	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass10.tga)
+	}
+
+	{
+	    blend GL_ONE, gl_one
+	    //maskalpha
+       	map		textures/test/mvglass10.tga
+		red .65
+		green .8
+		blue  .8
+	}
+*/
+
+}
+
+textures/test/mvglass11
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/test/mvglass11
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass11.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0 //.65
+		green Parm1 //.8
+		blue  Parm2 //.8
+	}
+}
+
+textures/test/mvglass12
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	qer_EditorImage textures/test/mvglass12_e
+	{
+      	blend	add
+		map	textures/test/mvglass10.tga
+		red Parm0 
+		green Parm1 
+		blue  Parm2
+	}
+	{
+	    blend blend
+	   	map textures/test/mvglass12.tga
+	   	scale	 32 , 32
+	}
+	{
+		blend specularMap	
+		map	textures/test/mvglass12_s.tga
+		scale	 32 , 32
+	}
+
+}
+
+textures/test/mvglass13
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	qer_editorimage	textures/test/mvglass13_dirte.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/test/mvglass13_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/test/mvglass13_f.tga
+		scale	 32 , 32
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/test/mvglass2_dirt.tga
+	}
+}
+
+//----------------------------------
+//  teleport fx
+//----------------------------------
+
+//----------------------------------
+//  teleport on monsters
+//----------------------------------
+//-----------------------------
+// turret render test for Brian Raffel
+//-----------------------------
+
+models/monsters/turret/ground_turret_base
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderbump  -size 1024 1024 -aa 1 -MergeHigh -trace .07 -unweld models/monsters/turret/ground_turret_base_local.tga work/models/monsters/turret/ground_turret_base_high.lwo
+
+	bumpmap			models/monsters/turret/ground_turret_base_local.tga
+	diffusemap		models/monsters/turret/ground_turret_base_d.tga
+	specularmap		models/monsters/turret/ground_turret_base_s.tga
+
+}
+
+//----------------------------------
+//  view rocket test
+//----------------------------------
+
+models/weapons/rocketlauncher/view_r_test
+{
+	noselfShadow
+	unsmoothedTangents
+
+	renderbump  -size 1024 1024 -aa 2 -trace .08 -mergehigh models/weapons/rocketlauncher/rl_lo_local.tga work/models/weapons/strogg_rocket_launcher_new/rl_hi_09.lwo
+
+	diffusemap	models/weapons/rocketlauncher/rl_lo_d.tga
+ 	bumpmap		addnormals(models/weapons/rocketlauncher/rl_lo_local.tga, heightmap(models/weapons/rocketlauncher/rl_lo_h.tga, 4 ))
+    specularmap	models/weapons/rocketlauncher/rl_lo_s.tga
+}
+
+//----------------------------------
+// blood drip
+//----------------------------------
+
+gfx/effects/fluids_drips/blooddrip1
+{
+	DECAL_MACRO
+	{
+		blend blend //GL_DST_COLOR, GL_SRC_COLOR
+		map gfx/effects/fluids_drips/blooddrip1
+		vertexColor
+	}	
+}
+
+
+
+textures/test/msign1
+{
+	qer_editorimage textures/test/msign1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign1.tga 	//for light decals
+}
+
+textures/test/msign1a
+{
+	qer_editorimage textures/test/msign1a.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/test/msign1a.tga
+	}
+			diffuseMap	textures/test/msign1b.tga 	//for light decals
+}
+
+textures/test/msign2
+{
+	qer_editorimage textures/test/msign2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign2.tga 	//for light decals
+}
+
+textures/test/msign3
+{
+	qer_editorimage textures/test/msign3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign3.tga 	//for light decals
+}
+
+textures/test/msign4
+{
+	qer_editorimage textures/test/msign4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/test/msign4.tga
+	}
+		
+}
+
+textures/test/msign5
+{
+	qer_editorimage textures/test/msign5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign5.tga 	//for light decals
+}
+
+textures/test/msign6
+{
+	qer_editorimage textures/test/msign6.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign6.tga 	//for light decals
+}
+
+textures/test/msign7
+{
+	qer_editorimage textures/test/msign7.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign7.tga 	//for light decals
+}
+
+textures/test/msign8
+{
+	qer_editorimage textures/test/msign8.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign8.tga 	//for light decals
+}
+
+textures/test/msign9
+{
+	qer_editorimage textures/test/msign9.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/msign9.tga 	//for light decals
+}
+
+textures/test/m_alph
+{
+	qer_editorimage textures/test/m_alph.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+		diffuseMap	textures/test/m_alph.tga 	//for light decals
+}
+
+textures/test/msign10
+{
+	qer_editorimage textures/test/msign10.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/test/msign10.tga
+	}
+}
+
+//----------------------------------
+//  fx smoke colored test
+//----------------------------------
+
+
+gfx/test/coloredsmoke
+{
+	qer_editorimage	gfx/test/smoke.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/test/smoke.tga
+		vertexColor
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+	}	
+}
+
+//----------------------------------
+//  scorch test
+//----------------------------------
+
+gfx/test/scorchstrip
+{
+	qer_editorimage gfx/test/scorchstrip.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		map gfx/test/scorchstrip.tga
+	}	
+/*		
+	{
+		blend add
+		map gfx/test/scorchstrip_g.tga
+		colored
+	}
+*/	
+}
+
+
+gfx/test/scorch
+{
+	qer_editorimage gfx/test/scorch.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		map gfx/test/scorch.tga
+	}	
+		
+	{
+		blend add
+		map gfx/test/scorch_emb1.tga
+		colored
+		//rgb guitable_random3[time * 8]
+	}
+}
+
+gfx/test/debris
+{
+	qer_editorimage	gfx/test/debris.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/test/debris.tga
+		vertexColor
+	}	
+}
+
+
+//----------------------------------
+//  marine decal test
+//----------------------------------
+
+textures/test/mdecal1
+{
+	qer_editorimage	textures/test/mdecal1_d.tga
+	noShadows
+	{
+		blend diffuseMap
+		map textures/test/mdecal1_d.tga
+		alphaTest 0.5
+	}	
+
+	{
+		blend 	bumpMap
+		map		heightmap (textures/test/mdecal1_h, 2)
+	}
+		
+		specularMap		textures/test/mdecal1_s.tga
+
+}
+
+textures/test/mdecal2
+{
+	qer_editorimage	textures/test/mdecal2_d.tga
+	noShadows
+	{
+		blend diffuseMap
+		map textures/test/mdecal2_d.tga
+		alphaTest 0.5
+	}	
+
+	{
+		blend 	bumpMap
+		map		heightmap (textures/test/mdecal1_h, 2)
+	}
+		
+		specularMap		textures/test/mdecal1_s.tga
+
+}
+
+textures/test/mdecal3
+{
+	qer_editorimage	textures/test/mdecal3_d.tga
+	noShadows
+	{
+		blend diffuseMap
+		map textures/test/mdecal3_d.tga
+		alphaTest 0.5
+	}	
+
+	{
+		blend 	bumpMap
+		map		heightmap (textures/test/mdecal1_h, 2)
+	}
+		
+		specularMap		textures/test/mdecal1_s.tga
+
+}
+
+//----------------------------------
+//  glass test
+//----------------------------------
+
+textures/test/mvglass1
+{
+	qer_editorimage	textures/test/mvglass1.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	
+
+	{
+		blend blend
+		map textures/test/mvglass1.tga
+		colored
+	}	
+/*		
+	{
+		blend add
+		map textures/test/mvglass1_add.tga
+		colored
+	}	
+
+
+	{
+		blend specularMap
+		map textures/test/mvglass1_s.tga
+	}
+*/	
+	{
+		blend add
+		cubeMap		gfx/env/putra2
+		texgen		reflect
+	}	
+
+
+}
+
+//----------------------------------
+//  rocket chunk test
+//----------------------------------
+
+gfx/test/rocket_chunks
+{
+	qer_editorimage	gfx/test/rocket_chunks.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/test/rocket_chunks.tga
+		vertexColor
+	}	
+}
+
+//----------------------------------
+//  wall flag test
+//----------------------------------
+
+textures/guis/test/flagtest
+{
+	qer_editorimage	gfx/guis/test/flagtest.tga
+//	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map gfx/guis/test/flagtest.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (gfx/guis/test/flagtest_h.tga, 5)
+	}
+	
+	specularMap		gfx/guis/test/flagtest_s.tga
+}
+
+
+//----------------------------------
+//  effects test
+//----------------------------------
+
+textures/consoles/console3b_test
+{
+
+	qer_editorimage textures/consoles/console3b_d
+	materialType electronics
+	
+	bumpMap heightmap (textures/consoles/console3b_h.tga, 2)
+	diffuseMap		textures/consoles/console3b_d.tga
+	specularMap		textures/consoles/console3b_s.tga
+
+}
+
+textures/common_misc/concrete_09_test
+{
+
+	qer_editorimage textures/common_misc/concrete09_d
+	materialType concrete
+	
+	bumpMap heightmap (textures/common_misc/concrete09_h.tga, 2)
+	diffuseMap		textures/common_misc/concrete09_d.tga
+	specularMap		textures/common_misc/concrete09_s.tga
+
+}
+
+//----------------------------------
+//  effects test
+//----------------------------------
+
+
+
+gfx/effects/blaster_wall_mark2
+{
+	qer_editorimage gfx/effects/blaster_wall_mark2.tga
+	noshadows
+	DECAL_MACRO
+	{       
+      	blend		gl_zero, gl_one_minus_src_color
+		map			gfx/effects/decals/railgun_bullethole.tga
+		clamp			// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor		// oblique projections will be slightly faded down
+	}
+}
+
+
+//----------------------------------
+//  q4 sign test
+//----------------------------------
+
+gfx/guis/test/q4_signtest
+{
+	qer_editorimage	gfx/guis/test/sign_bg.tga
+	noshadows
+	translucent
+	{
+//		blend add
+		map gfx/guis/test/sign_bg.tga
+		red	guitable_random2  [ time * 1 ]
+		green	guitable_random2  [ time * 1 ]
+		blue	guitable_random2  [ time * 1 ]
+		alpha	parm3
+	}	
+//	{
+//		blend add
+//		map gfx/guis/test/scroll_mon_fx2.tga
+//		scroll time * 0.8 , time * 0
+//	}	
+	{
+		blend add
+		map gfx/guis/test/sign_fx.tga
+		scroll time * 0 , time * 1
+	}	
+
+}
+
+gfx/guis/test/id_test
+{
+	qer_editorimage	gfx/guis/test/scroll_mon_fx.tga
+	noshadows
+	translucent
+	{
+//		blend add
+		map gfx/guis/test/scroll_mon_fx.tga
+	}	
+	{
+		blend add
+		map gfx/guis/test/scroll_mon_fx2.tga
+		scroll time * 0.8 , time * 0
+	}	
+	{
+		blend add
+		map gfx/guis/test/scroll_mon_fx3.tga
+		scroll time * 1.6 , time * 0
+	}	
+
+}
+//----------------------------------
+
+
+guide textures/test/test1 generic_shader("test/test1")
+guide textures/test/test2 generic_shader("test/test2")
+guide textures/test/test2a generic_shader("test/test2a")
+guide textures/test/test2c generic_shader("test/test2c")
+guide textures/test/test2d generic_shader("test/test2d")
+guide textures/test/test2e generic_shader("test/test2e")
+guide textures/test/test2f generic_shader("test/test2f")
+guide textures/test/test2g generic_shader("test/test2g")
+guide textures/test/nm1 generic_shader("test/nm1")
+guide textures/test/nm2 generic_shader("test/nm2")
+guide textures/test/nm3 generic_shader("test/nm3")
+guide textures/test/nm4 generic_shader("test/nm4")
+guide textures/test/nm5 generic_shader("test/nm5")
+guide textures/test/nm6 generic_shader("test/nm6")
+guide textures/test/nichol generic_shader("test/nichol")
+
+/*
+fx/chunk
+{
+        noselfShadow
+		{
+			vertexColor
+		blend blend
+	        map	 models/fx/chunk_d.tga
+		}
+}
+*/
+
+textures/test/melt
+{
+
+	qer_editorimage textures/test/melt_d.tga
+
+	bumpmap addnormals	( textures/test/melt_local.tga, heightmap ( textures/test/melt_h.tga, 1 ) )
+	specularmap		textures/test/melt_s.tga       
+      	diffusemap 		textures/test/melt_d.tga
+	{
+		blend add
+		map textures/test/melt_g.tga
+		scroll time * .015 , time * 0
+	}
+}
+
+//temp id model------------------------------------------------------
+models/test/idtemp/bernie_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	bumpmap			models/test/idTemp/bernie_local.tga
+	diffusemap		models/test/idTemp/bernie_d.tga
+	specularmap		models/test/idTemp/bernie_s.tga
+
+}
+
+guide models/mapobjects/test/sphere refractiveGlass( "textures/base_wall/spacetile", "gfx/env/prisonglass", 1.4, 2.0 )
+
+models/characters/male_npc/marine/stump
+{
+	noselfShadow
+	forceOverlays
+
+	{
+		if ( parm6 == 1 ) 
+		blend		diffusemap	
+		map			models/test/doom3/stump.tga
+		alphaTest	0.5 + 0.5 * sintable [ time * .2  ]
+	}
+	{
+		if ( parm6 == 0 ) 
+		blend		diffusemap	
+		map			models/test/doom3/stump.tga
+		alphaTest	0
+	}
+ 				
+
+	{
+ 		  blend bumpmap
+          map  addnormals(models/test/doom3/stump_local.tga, heightmap(models/test/doom3/stump_h.tga, 5 ) )
+	}
+
+	specularmap	models/test/doom3/stump_s.tga
+}
+
+models/characters/male_npc/soldier/soldier
+{
+	noselfShadow
+	unsmoothedTangents
+
+	diffusemap	  models/test/doom3/soldier.tga
+
+	{
+		blend bumpmap
+		map  addnormals(models/test/doom3/soldier_local.tga, heightmap(models/test/doom3/soldier_h.tga, 5 ) )
+	}
+		
+	specularmap	models/test/doom3/soldier_s.tga
+}
+
+models/weapons/machinegun/w_machinegun
+{
+	noselfShadow
+
+	diffusemap	models/test/doom3/weapons/w_machinegun.tga
+	bumpmap		models/test/doom3/weapons/w_machinegun_local.tga
+			
+	specularmap	 models/test/doom3/weapons/w_machinegun_s.tga
+}
+
+models/weapons/machinegun/machinegun_mflash
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/machinegun/machinegun_mflash2
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/machinegun/machinegun_mflashb
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/machinegun/machinegun_mflash2b
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/pistol/w_pistol
+{
+	noselfShadow
+
+	diffusemap	models/test/doom3/weapons/w_pistol.tga
+	bumpmap		models/test/doom3/weapons/w_pistol_local.tga
+	specularmap	 models/test/doom3/weapons/w_pistol_s.tga
+}
+
+models/weapons/pistol/pistol_mflash
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/pistol/pistol_mflash2
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/shotgun/w_shotgun2
+{
+	noselfShadow
+
+	diffusemap	models/test/doom3/weapons/w_shotgun.tga
+	bumpmap   models/test/doom3/weapons/w_shotgun_local.tga
+	specularmap	 models/test/doom3/weapons/w_shotgun_s.tga
+}
+
+models/weapons/shotgun/shotgun_mflash
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/shotgun/shotgun_mflashb
+{
+	nonsolid
+	noshadows
+}
+
+
+models/weapons/shotgun/shotgun_mflash2
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/chaingun/chaingun_mflash
+{
+	nonsolid
+	noshadows
+}
+
+
+models/weapons/chaingun/chaingun_mflash2
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/chaingun/w_chaingun
+{
+	noselfShadow
+	unsmoothedTangents
+
+	diffusemap	 models/test/doom3/weapons/w_chaingun.tga
+	bumpmap      models/test/doom3/weapons/w_chaingun_local.tga
+	specularmap	 models/test/doom3/weapons/w_chaingun_s.tga
+}
+
+models/weapons/plasmagun/plasmagun
+{
+	unsmoothedTangents
+	noSelfShadow
+	noShadows
+
+	{
+		blend bumpmap
+		map  addnormals(models/test/doom3/weapons/plasmagun_local.tga, heightmap(models/test/doom3/weapons/plasmagun_h.tga, 5 ) )
+	}
+	
+	{
+		blend		diffusemap
+		map			models/test/doom3/weapons/plasmagun_d.tga
+		highquality
+		alphatest	.5
+	}
+	
+	specularmap	models/test/doom3/weapons/plasmagun_s.tga
+}
+
+models/weapons/plasmagun/plasmagun_mflash2
+{
+	nonsolid
+	noshadows
+}
+
+
+models/weapons/plasmagun/plasmagun_mflash
+{
+	nonsolid
+	noshadows
+}
+
+models/weapons/plasmagun/plasmagun_world
+{
+	{
+		blend		bumpmap		
+		map			models/test/doom3/weapons/plasmagun_world_local.tga
+	}
+	{
+		blend		diffusemap
+		map			models/test/doom3/weapons/plasmagun_world_d.tga
+		alphatest	.5
+	}
+	specularmap	models/test/doom3/weapons/plasmagun_world_s.tga
+}
+
+textures/test/func_beam
+{
+	{
+		blend		add		
+		map			textures/test/func_beam.tga
+
+	}
+}
+
+//-----------------------------
+// Wiggler Test models/misc/wiggler/wiggy_lo
+//-----------------------------
+models/test/shaun/wallmonitor
+{
+	noselfShadow
+//	unsmoothedTangents
+
+renderbump  -size 512 512 -aa 1  -colormap -MergeHigh models/test/shaun/wallmonitor_local.tga models/test/shaun/wallmonitorhi.lwo
+
+	diffusemap	models/test/shaun/wallmonitor_d.tga
+	bumpmap	 	models/test/shaun/wallmonitor_local.tga
+	specularmap	models/test/shaun/wallmonitor_s.tga
+
+	
+}
+
+
+//
+// LightA test
+//
+models/test/shaun/lighta
+{
+	noselfShadow
+//	unsmoothedTangents
+
+renderbump  -size 512 512 -aa 1  -colormap -MergeHigh models/test/shaun/lighta_local.tga models/test/shaun/lightahi.lwo
+
+	diffusemap	models/test/shaun/lighta_d.tga
+	bumpmap	 	models/test/shaun/lighta_local.tga
+	specularmap	models/test/shaun/lighta_s.tga
+	{
+		blend GL_ONE, GL_ONE
+		map models/test/shaun/lighta_g.tga
+	}
+
+	
+}
+
+//
+// LightB test
+//
+models/test/shaun/lightb
+{
+	noselfShadow
+//	unsmoothedTangents
+
+renderbump  -size 512 512 -aa 1  -colormap -MergeHigh models/test/shaun/lightb_local.tga models/test/shaun/lightbhi.lwo
+
+	diffusemap	models/test/shaun/lightb_d.tga
+	bumpmap	 	models/test/shaun/lightb_local.tga
+	specularmap	models/test/shaun/lightb_s.tga
+	{
+		blend GL_ONE, GL_ONE
+		map models/test/shaun/lightb_g.tga
+	}
+
+	
+}
+
+//
+// Dropship Test
+//
+models/test/shaun/dropship
+{
+	noselfShadow
+//	unsmoothedTangents
+
+renderbump  -size 1024 1024 -aa 0 -trace 1 -MergeHigh models/test/shaun/dropship_local.tga models/test/shaun/dropshiphi.lwo
+
+	diffusemap	models/test/shaun/dropship_d.tga
+	bumpmap	 	models/test/shaun/dropship_local.tga
+//	specularmap	models/test/shaun/dropship_s.tga
+	
+}
+
+guide textures\test\test01_nick generic_shader( "test\test01_nick" )
+guide textures\test\test01_jason generic_shader( "test\test01_jason" )
+guide textures\test\test01_joe generic_shader( "test\test01_joe" )
+guide textures\test\test01_les generic_shader( "test\test01_les" )
+guide textures\test\test01_steve generic_shader( "test\test01_steve" )
+guide textures\test\test02_jason generic_shader( "test\test02_jason" )
+guide textures\test\test02_joe generic_shader( "test\test02_joe" )
+guide textures\test\test02_nick generic_shader( "test\test02_nick" )
+guide textures\test\test02_les generic_shader( "test\test02_les" )
+guide textures\test\test02_steve generic_shader( "test\test02_steve" )
+guide textures\test\test03_jason generic_shader( "test\test03_jason" )
+guide textures\test\test03_nick generic_shader( "test\test03_nick" )
+guide textures\test\test04_jason generic_shader( "test\test04_jason" )
+guide textures\test\test04_nick generic_shader( "test\test04_nick" )
+guide textures\test\test05_jason generic_shader( "test\test05_jason" )
+guide textures\test\test05_nick generic_shader( "test\test05_nick" )
+guide textures\test\test03_joe generic_shader( "test\test03_joe" )
+guide textures\test\test04_joe generic_shader( "test\test04_joe" )
+guide textures\test\test05_joe generic_shader( "test\test05_joe" )
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//fading shader/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+models/monsters/test/fadeout
+{
+		noSelfShadow
+		noShadows	
+		unSmoothedTangents
+//		translucent
+		
+	{
+//		if (parm7 == 0)
+		blend 		bumpmap
+		map			addnormals (models/monsters/berserker/berserker_lp_local.tga, heightmap (models/monsters/berserker/berserker_lp_h.tga, 2) ) 
+//		rgb			0
+		alpha		(sintable [(time*.2)]+1)*0.5
+//		vertexColor
+	}
+	{
+//		if (parm7 == 0)
+		blend 		diffusemap
+		map			models/monsters/berserker/berserker_lp_d.tga.tga
+//		rgb			0
+		alpha 		(sinTable [(time*.2)]+1)*0.5
+		//alphaTest .5 + 0.5 * sintable [ time * .1  ]
+//		vertexColor	
+	}
+	{
+//		if (parm7 == 0)
+		blend		specularmap
+		map			models/monsters/berserker/berserker_lp_s.tga
+//		rgb			0
+		alpha 		(sinTable [(time*.2)]+1)*0.5
+//		vertexColor
+
+	}
+
+}
+
+
+//burn test
+
+models/monsters/test/burnout
+{
+    noselfshadow
+    unsmoothedtangents
+
+	diffusemap	models/monsters/berserker/berserker_lp_d.tga
+	bumpmap	addnormals ( models/monsters/berserker/berserker_lp_local.tga, heightmap ( models/monsters/berserker/berserker_lp_h.tga, 4 ))
+	specularmap	models/monsters/berserker/berserker_lp_s.tga
+
+
+
+	{											
+//		if	parm7								
+		blend	gl_zero, gl_one					
+		highQuality								
+		map gfx/effects/corpseBurnEffectberserk.tga	
+//		alphaTest 0.05 + 0.3 * time - Parm7	
+		alphaTest	(sinTable [(time*.2)]+1)*0.5
+
+	}
+
+						
+	{											
+//		if parm7								
+		privatePolygonOffset	-1				
+//   		blend add								
+		blend gl_one, gl_zero					
+		highQuality								
+		map gfx/effects/corpseBurnEffectberserk.tga
+//		alphaTest 0.3 * time - Parm7			
+		alphaTest	(sinTable [(time*.2)]+ .75)*0.5
+	}											
+	forceOverlays	
+/*	
+	{
+		vertexProgram	heatHaze.vfp
+		vertexParm		0		.03 *(time) , 0
+		vertexParm		1		.75
+		fragmentProgram	heatHaze.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		gfx/effects/depth/noise.tga
+	}
+*/								
+}
+
+///flare test for burnaway/////////////////////////////////////////////////
+
+textures/flares/berserkerflaretest
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noShadows
+	twoSided
+	translucent
+	nonsolid
+	deform	flare 		2 + 50 * (sinTable [(time*.2)]+ .9)
+	qer_EditorImage	textures/editor/qer_flare.tga
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+
+
+models/gibs/brain
+{
+	       
+		 
+		diffusemap		models/gibs/brain.tga
+		bumpmap			models/gibs/brain_local.tga
+		specularmap		models/gibs/brain_s.tga
+	
+				
+	
+//	inlineGuide corpseBurnEffect(gfx/effects/corpseBurnEffect)
+}
+
+models/mapobjects/fuel_barrel/exp_barrel2
+{
+	noshadows
+
+	{
+		map models/mapobjects/fuel_barrel/exp_barrel2
+	}
+
+//	inlineGuide corpseBurnEffect(gfx/effects/corpseBurnEffect)
+}
+
+models/mapobjects/fuel_barrel/exp_barrel2a
+{
+	noshadows
+
+	{
+		map models/mapobjects/fuel_barrel/exp_barrel2
+	}
+
+//	inlineGuide corpseBurnEffect(gfx/effects/corpseBurnEffect)
+}
+
+
+textures/test/grnx1_1
+
+{
+             noSelfShadow
+	
+        { 
+		blend		bumpmap
+		map		heightmap (textures/test/grnx1_1_h.tga, 2)
+	}
+
+	{
+		blend		diffusemap
+		map		textures/test/grnx1_1.tga
+	}
+
+	{
+		blend 		specularmap
+		map		textures/test/grnx1_1_s.tga
+	}
+}
+
+
+//FROM test/////////////
+
+
+// ============================================================================
+//			Test material file for the convoy stuff
+// ============================================================================
+
+textures/test/ForceField
+{
+	qer_editorimage textures/test/ForceFence_beams1.tga
+//	translucent
+	twoSided
+	noShadows
+	nonSolid
+	monsterClip
+	playerClip
+	
+	{	//Beam layer (single)
+		blend		add
+		map textures/test/ForceFence_beams1.tga
+		rgb			1 + (sintable[time * 2] * .25)
+	}
+
+	{	//Static layer
+		blend		add
+		map			textures/test/ForceFence_static2.tga
+		scale		6,2
+		red			.9 + (sintable[time * .2] * .2)
+		green		.2 + (sintable[time * .2] * .25)
+		blue		.2 + (sintable[time * .2] * .25)
+		translate	LaserFenceStatic[(time * 5) + 3], LaserFenceStatic[time * 2]
+	}
+
+	{	//Travelling pulse 1
+		if			(LaserFenceOn[time / 15] == 1)
+		blend		add
+		map			textures/test/ForceFence_pulse1.tga
+		translate	(time - .5),LaserFenceBarJump[time / 10]
+		rgb			1 + (sintable[time * 2] * .25)
+	}
+
+	{	//Travelling pulse 2
+		if			(LaserFenceOn[(time / 15)] != 1)
+		blend		add
+		map			textures/test/ForceFence_pulse1.tga
+		translate	((time - .5) * -1),LaserFenceBarJump[(time / 10) -.5 ]
+		rgb			1 + (sintable[(time * 2) + .5] * .25)
+	}
+
+	{	//Test fill
+		if			(0)
+		blend		add
+		map 		_white
+		red			.25 + (sintable[time * .2] * .1)
+		green		.05 + (sintable[time * .2] * .05)
+		blue		.05 + (sintable[time * .2] * .05)
+	}
+
+}
+
+
+//-------------------------------------------------------------------------------------
+textures/test/t1_floor1_a_glowy
+{
+	twosided
+	qer_editorimage textures/terminal/t1_floor1_ed.tga
+
+	{
+	maskColor
+	map			makealpha(textures/test/t1_floor1_alpha.tga)
+	}
+
+	{
+	maskAlpha
+	blend		bumpMap
+	map			addnormals(textures/terminal/t1_floor1_local.tga, heightmap (textures/terminal/t1_floor1_h.tga, 1))
+	}
+
+	{
+	maskAlpha
+	blend		specularMap
+	map			textures/terminal/t1_floor1_s.tga
+	}
+
+	{       
+	maskAlpha
+	blend gl_dst_alpha, gl_one
+//	blend		diffuseMap 
+	map		textures/terminal/t1_floor1_a.tga
+	//alphaTest .5
+	}
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/IAdiffuse
+{
+	twosided
+	qer_editorimage textures/terminal/t1_floor1_ed.tga
+
+	{
+	blend		diffuseMap
+	map			textures/test/t1_floor1a_a.tga
+	ignoreAlphaTest
+	}
+
+	{
+	blend		add
+	map			textures/test/t1_floor1_glowy.tga
+	alphaTest	.5
+	}
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/IAdiffusetranslucent
+{
+	twosided
+	qer_editorimage textures/terminal/t1_floor1_ed.tga
+	translucent
+
+	{
+	blend		diffuseMap
+	map			textures/test/t1_floor1a_a.tga
+	ignoreAlphaTest
+	}
+
+	{
+	blend		add
+	map			textures/test/t1_floor1_glowy.tga
+	alphaTest	.5
+	}
+}
+//-------------------------------------------------------------------------------------
+textures/test/IAFull
+{
+	twosided
+	qer_editorimage textures/terminal/t1_floor1_ed.tga
+//	translucent
+
+	{
+	blend		GL_ONE, GL_ZERO 
+	map			textures/test/t1_floor1a_a.tga
+	ignoreAlphaTest
+	}
+
+	{
+	blend		add
+	map			textures/test/t1_floor1_glowy.tga
+	alphaTest	.5
+	}
+}
+//-------------------------------------------------------------------------------------
+textures/test/IAFullTranslucent
+{
+	twosided
+	qer_editorimage textures/terminal/t1_floor1_ed.tga
+	translucent
+
+	{
+	blend		GL_ONE, GL_ZERO 
+	map			textures/test/t1_floor1a_a.tga
+	ignoreAlphaTest
+	}
+
+	{
+	blend		add
+	map			textures/test/t1_floor1_glowy.tga
+	alphaTest	.5
+	}
+}
+//-------------------------------------------------------------------------------------
+textures/test/Pipething
+{
+	qer_EditorImage textures/test/glowpipe_d.tga
+//	translucent
+//	twosided
+
+	{
+	blend		bumpMap
+	map			textures/test/EnergyPipe_local.tga
+	}
+
+	{
+	blend		diffuseMap
+	map			textures/test/glowpipe_d.tga
+	}
+
+	{
+	blend		GL_ZERO,GL_ONE
+	map			textures/test/Glowpipe_alpha2.tga
+	alphaTest	.5
+	}
+
+/*
+	{
+	blend		add
+	map			textures/test/glowpipe_flow.tga
+	rgb			.8 + (.2 * sintable[time * Parm4])
+	translate	0, -1 * (time)
+//	alphaTest	.5
+	}
+*/
+}
+
+//-------------------------------------------------------------------------------------
+textures/terminal/t_shaft1_super
+{
+	qer_EditorImage textures/terminal/t_shaft1_d.tga
+	noShadows
+
+	bumpMap			addnormals(textures/terminal/t_shaft1_local.tga, heightmap(textures/terminal/t_shaft1_h.tga,4))
+	specularMap		textures/terminal/t_shaft1_s.tga
+	diffuseMap		textures/terminal/t_shaft1_d.tga
+
+	{
+	blend			add
+	map				textures/terminal/t_shaft1_g.tga
+	rgb				.9 + (sintable[time])
+	}
+
+	{
+	blend			add
+	map				textures/test/t_shaft1_SuperGlow.tga
+	scale			.5,1
+	red				.3 + (LaserFenceBarJump[time / 10])
+	green			.3 + (LaserFenceBarJump[time / 5])
+	}
+
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/blank
+{
+	qer_EditorImage textures/test/glowpipe_d.tga
+	noShadows
+	noSelfShadow
+/*
+	{
+	maskColor
+	blend		GL_ZERO,GL_ZERO
+	map			_black
+	}
+*/
+
+	{
+	blend		GL_ONE,GL_ZERO
+	map			textures/test/glowpipe_flow.tga
+	rgb			.8 + (.2 * sintable[time * Parm4])
+	translate	0, time
+	}
+
+}
+
+
+
+//-------------------------------------------------------------------------------------
+textures/test/Metal_drip
+{
+	qer_EditorImage textures/test/metal_drip_d.tga
+	noShadows
+	noSelfShadow
+	twoSided
+
+	{
+	blend		bumpMap
+	map			heightmap (textures/test/metal_drip_h.tga, 8)
+	}
+
+	{
+	blend		specularMap
+	map			textures/test/metal_drip_d.tga
+	rgb			.1
+	}
+
+	{
+	blend		diffuseMap
+	map			textures/test/metal_drip_d.tga
+	alphaTest	.5
+	}
+
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/Metal_dripedge
+{
+	qer_EditorImage textures/test/metal_dripedge_d.tga
+	noShadows
+	noSelfShadow
+	twoSided
+
+	{
+	blend		bumpMap
+	map			heightmap (textures/test/metal_dripedge_d.tga, 8)
+	}
+
+	{
+	blend		specularMap
+	map			textures/test/metal_dripedge_d.tga
+	rgb			.1
+	}
+
+	{
+	blend		diffuseMap
+	map			textures/test/metal_dripedge_d.tga
+	alphaTest	.5
+	}
+
+	{			//flickering glowpass
+	blend		add
+	map			textures/test/metal_dripedge_g.tga
+	rgb			.8 + (.1 * (sintable[time]))
+	}
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/DisolvedConcrete
+{
+	qer_EditorImage textures/common_misc/concrete02_d.tga
+
+	{
+	blend		bumpMap
+	map			heightmap (textures/test/DisolvedCrete_h.tga, 128)
+//	map			heightmap (textures/common_misc/concrete02_h.tga, 10)
+	}
+
+	{
+	blend		specularMap
+	map			textures/test/DisolvedCrete_s.tga
+//	map			textures/common_misc/concrete02_s.tga
+	}
+
+	{
+	blend		diffuseMap
+	map			textures/common_misc/concrete02_d.tga
+	}
+
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/testacid
+{
+	qer_EditorImage _white
+
+	{
+	blend		add
+	map			_white
+	red			.2
+	green		.5
+	blue		.2
+	}
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/MetalFlow
+{
+	qer_EditorImage textures/common_misc/concrete02_d.tga
+
+	{
+	blend		bumpMap
+	map			heightmap (textures/test/MetalFlow_h.tga, 64)
+
+	}
+
+	{
+	blend		specularMap
+	map			textures/test/MetalFlow_h.tga
+	rgb			.2
+	}
+
+	{
+	blend		diffuseMap
+	map			textures/test/DisolvedCrete_h.tga
+	}
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/TramWater
+{	//test outdoor water texture
+	qer_editorimage textures/sewers/sw_water_01.tga
+//	surfaceparm	nonsolid
+//	surfaceparm trans
+	noshadows
+	noselfshadow
+
+	deform	expand	watermove[time / 10]
+
+	{
+	blend		blend
+	map			textures/sewers/sw_water_01.tga
+	translate	.2 * sintable[time / 40], .2 * sintable[time / 30]
+	alpha		.8
+//	rgb			.5
+	}
+
+}
+
+//-------------------------------------------------------------------------------------
+textures/test/TriggerMe
+{	//test outdoor water texture
+	qer_editorimage textures/sewers/sw_water_01.tga
+	nonSolid
+	noShadows
+	noselfshadow
+
+	{
+	if(Parm7 == 1)
+	blend		add
+	map			_white
+	blue		0
+	green		0
+	}
+
+	{
+	if(Parm7 == 0)
+	blend		add
+	map			_white
+	blue		0
+	red			0
+	}
+
+	{
+	blend		add
+	map			_white
+	rgb			.1
+	}
+
+}
+
+models/mapobjects/strogg/stroggos/stroggos
+{
+    noselfshadow
+    unsmoothedtangents
+
+{
+	blend diffuseMap	
+	map downsize( models/mapobjects/strogg/stroggos/stroggos_d.tga, 1 )
+	scroll time * .0015, 0
+}
+
+{
+	blend bumpmap	
+	map addnormals ( models/mapobjects/strogg/stroggos/stroggos_local.tga, heightmap ( models/mapobjects/strogg/stroggos/stroggos_h.tga, 8 ))
+	scroll time * .0015, 0
+}
+
+{	
+	blend 	specularmap	
+	map downsize( models/mapobjects/strogg/stroggos/stroggos_s.tga, 1 )
+	scroll time * .0015, 0
+}
+
+}
+
+models/mapobjects/strogg/stroggos/clouds
+{
+	qer_editorimage models/mapobjects/strogg/stroggos/clouds.tga
+//	DECAL_MACRO
+//	noimpact
+	translucent
+
+
+//	{	
+//		blend GL_DST_COLOR, GL_SRC_COLOR
+//		map models/mapobjects/strogg/stroggos/clouds.tga
+//	}
+/*
+	{	
+		maskcolor				
+	    map	makealpha(models/mapobjects/strogg/stroggos/clouds_mask.tga)
+	}
+*/		
+	{	
+//		maskAlpha
+		blend blend
+		map	downsize( models/mapobjects/strogg/stroggos/clouds.tga, 1 )
+//		alphatest .5
+		scroll time * -.00025 , 0
+
+
+	}
+	
+}
+
+textures/test/stars/stars_close
+{
+	qer_editorimage textures/test/stars/stars_close
+	noshadows
+	noselfshadow
+	twosided
+
+	{
+		blend add
+		map textures/test/stars/stars_close
+		
+	}
+}
+
+textures/test/stars/stars_close_opaque
+{
+	qer_editorimage textures/test/stars/stars_close
+	noshadows
+	noselfshadow
+	{
+		blend GL_ONE,GL_ZERO
+		map textures/test/stars/stars_close
+	}
+}
+textures/test/stars/stars_far
+{
+	qer_editorimage textures/test/stars/stars_far
+	noshadows
+	noselfshadow
+	twosided
+
+	{
+		blend add
+		map textures/test/stars/stars_far
+	}
+}
+
+textures/test/stars/stars_sparse
+{
+	qer_editorimage textures/test/stars/stars_sparse
+	noshadows
+	noselfshadow
+	twosided
+
+	{
+		blend add
+		map textures/test/stars/stars_sparse
+
+	}
+}
+
+textures/test/stars/stars_sparse2
+{
+	qer_editorimage textures/test/stars/stars_sparse2
+	noshadows
+	noselfshadow
+	twosided
+
+	{
+		blend add
+		map textures/test/stars/stars_sparse2
+		rgb random [time * .00425]
+	}
+}
+
+textures/test/fakeSky/gradient1
+{
+	qer_editorimage textures/test/fakeSky/gradient1
+	noshadows
+	noselfshadow
+	twosided
+	{
+		if (Parm6 > 0 )
+		blend blend
+		map textures/test/fakeSky/gradient1
+		alpha Parm6
+	}	
+}
+
+textures/test/fakeSky/solidTop
+{
+	qer_editorimage textures/test/fakeSky/solidTop
+	noshadows
+	noselfshadow
+	twosided
+	{
+		if (Parm6 > 0 )
+		blend blend
+		map textures/test/fakeSky/solidTop
+		alpha Parm6
+	}	
+}
+
+textures/test/fakeSky/fakeBuilding
+{
+	qer_editorimage textures/test/fakeSky/fakeBuilding
+	noshadows
+	noselfshadow
+	{
+		blend blend
+		map textures/test/fakeSky/fakeBuilding
+	}	
+}
+
+textures/test/fakeSky/solidBottom
+{
+	qer_editorimage textures/test/fakeSky/solidBottom
+	noshadows
+	noselfshadow
+	twosided
+	{
+		if (Parm6 > 0 )
+		blend blend
+		map textures/test/fakeSky/solidBottom
+		alpha Parm6
+	}	
+}
+
+gfx/test/planetAtmosphere
+{
+	qer_editorimage gfx/test/planetAtmosphere
+	noshadows
+	noselfshadow
+	twosided
+	{
+		blend add
+		vertexColor		
+		map gfx/test/planetAtmosphere
+	}	
+}
+
+gui/mpmenu/q4dm4 {
+	translucent {
+		videomap loop video/q4dm4.roq
+		linear
+	}
+}
+
+
+textures/test/t1_wall1_d2_clamp
+{
+	qer_editorimage textures/terminal/t1_wall1_d2.tga
+	
+	{
+		blend	bumpmap 
+		map addnormals	( textures/terminal/t1_wall1_local.tga, heightmap ( textures/terminal/t1_wall1_h.tga, 1 ) )
+		clamp
+	}
+	{
+		blend specularmap		
+		map textures/terminal/t1_wall1_s.tga       
+		clamp
+	}
+     
+     {
+     	blend 	diffusemap 		
+     	map textures/terminal/t1_wall1_d2.tga
+     	clamp
+    }
+}
+
+textures/test/t1_wall1_d2_zclamp
+{
+	qer_editorimage textures/terminal/t1_wall1_d2.tga
+	
+	{
+		blend	bumpmap 
+		map addnormals	( textures/terminal/t1_wall1_local.tga, heightmap ( textures/terminal/t1_wall1_h.tga, 1 ) )
+		zeroClamp
+	}
+	{
+		blend specularmap		
+		map textures/terminal/t1_wall1_s.tga       
+		zeroClamp
+	}
+     
+     {
+     	blend 	diffusemap 		
+     	map textures/terminal/t1_wall1_d2.tga
+     	zeroClamp
+    }
+}
+
+textures/test/t1_wall1_d2_azclamp
+{
+	qer_editorimage textures/terminal/t1_wall1_d2.tga
+	
+	{
+		blend	bumpmap 
+		map addnormals	( textures/terminal/t1_wall1_local.tga, heightmap ( textures/terminal/t1_wall1_h.tga, 1 ) )
+		alphaZeroClamp
+	}
+	{
+		blend specularmap		
+		map textures/terminal/t1_wall1_s.tga       
+		alphaZeroClamp
+	}
+     
+     {
+     	blend 	diffusemap 		
+     	map textures/terminal/t1_wall1_d2.tga
+     	alphaZeroClamp
+    }
+}
+
+models/test/ravencube
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencube_h.tga, 6))
+	diffusemap		models/test/ravencube_d.tga
+	specularmap		models/test/ravencube_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencube_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubeb
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubeb_h.tga, 6))
+	diffusemap		models/test/ravencubeb_d.tga
+	specularmap		models/test/ravencubeb_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubeB_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubec
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubec_h.tga, 6))
+	diffusemap		models/test/ravencubec_d.tga
+	specularmap		models/test/ravencubec_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubec_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubed
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubed_h.tga, 6))
+	diffusemap		models/test/ravencubed_d.tga
+	specularmap		models/test/ravencubed_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubed_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubee
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubee_h.tga, 6))
+	diffusemap		models/test/ravencubee_d.tga
+	specularmap		models/test/ravencubee_s.tga
+	
+//	{
+//	    blend GL_DST_ALPHA, gl_one
+//	    maskalpha
+//     	cubeMap		gfx/env/marhelmet
+//      texgen		reflect
+//		red   Parm0
+//		green Parm1
+//		blue  Parm2
+//	}
+
+}
+
+models/test/ravencubef
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubef_h.tga, 6))
+	diffusemap		models/test/ravencubef_d.tga
+	specularmap		models/test/ravencubef_s.tga
+	
+//	{
+//	    blend GL_DST_ALPHA, gl_one
+//	    maskalpha
+//     	cubeMap		gfx/env/marhelmet
+//      texgen		reflect
+//		red   Parm0
+//		green Parm1
+//		blue  Parm2
+//	}
+
+}
+
+models/test/ravencubeg
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubeg_h.tga, 6))
+	diffusemap		models/test/ravencubeg_d.tga
+	specularmap		models/test/ravencubeg_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubeg_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubeh
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubeh_h.tga, 6))
+	diffusemap		models/test/ravencubeh_d.tga
+	specularmap		models/test/ravencubeh_s.tga
+
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubeh_mask.tga)
+	}	
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubei
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubei_h.tga, 6))
+	diffusemap		models/test/ravencubei_d.tga
+	specularmap		models/test/ravencubei_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubei_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubej
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubej_h.tga, 6))
+	diffusemap		models/test/ravencubej_d.tga
+	specularmap		models/test/ravencubej_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubej_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+    	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+models/test/ravencubek
+{
+   	noselfShadow
+	unsmoothedTangents
+
+	
+	bumpmap		addnormals (models/test/ravencube_local.tga, heightmap (models/test/ravencubek_h.tga, 6))
+	diffusemap		models/test/ravencubek_d.tga
+	specularmap		models/test/ravencubek_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/test/ravencubek_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+     	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+	
+textures/flesh_boundingbox
+{
+	nonsolid
+	noshadows
+	materialType flesh
+}
+
+///////////////////////////////////////////////////////////////
+////////////////////portal sky model test//////////////////////
+///////////////////////////////////////////////////////////////
+
+models/test/skybox_01
+{
+	noselfShadow
+	
+
+//renderbump  -size 1024 512 -aa 1  -colormap -MergeHigh models/test/shaun/wallmonitor_local.tga models/test/shaun/wallmonitorhi.lwo
+
+	bumpmap		addnormals (models/test/skybox_01_local.tga, heightmap (models/test/skybox_01_h.tga, 6))
+	diffusemap		models/test/skybox_01_d.tga
+	specularmap		models/test/skybox_01_s.tga
+	
+	
+}

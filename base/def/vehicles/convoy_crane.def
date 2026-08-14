@@ -1,0 +1,107 @@
+//------------------------------------------------------------------------------
+// convoy_crane.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export convoy_base
+{		
+	options -scale .3937 -align ALL  -keep eye2 eye1
+	mesh	work/models/vehicles/convoy_crane/convoy_crane.ma	-dest models/vehicles/convoy_crane/mesh
+	anim	work/models/vehicles/convoy_crane/convoy_crane.ma	-dest models/vehicles/convoy_crane/idle
+
+}
+
+//------------------------------------------------------------------------------
+//								Model Defintion
+//------------------------------------------------------------------------------
+
+model model_vehicle_convoy_crane
+{
+	mesh							models/vehicles/convoy_crane/mesh.md5mesh
+	anim idle 						models/vehicles/convoy_crane/idle.md5anim
+	
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+entityDef vehicle_convoy_crane
+{
+	"model"						"model_vehicle_convoy_crane"
+	"spawnclass"					"rvVehicleSpline"
+	"mins"						"-16 -16 -8"
+	"maxs"						"16 16 0"
+
+	"anim"						"idle"
+	"health"					"-1"
+
+	"def_position_driver"				"vehicle_convoy_crane_driver"
+	
+	"editor_usage"					"Crane for convoy2 bridge puzzle (INVISIBLE BASE)"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 -8"
+	"editor_maxs"					"16 16 0"
+	
+	"accel_strafe"					"100"
+	"decel_strafe"					"200"
+	"accel"						"100"
+	"decel"						"200"
+	
+	"enter_script"					"map_convoy2b::craneStart"
+	"exit_script"					"map_convoy2b::craneEnd"
+}
+
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_convoy_crane_driver
+{
+	"def_part_yaw"					"vehicle_convoy_crane_yaw"
+	"def_part_pitch"				"vehicle_convoy_crane_pitch"
+	
+	"def_part_scriptcb"				"vehicle_convoy_crane_scriptcb"
+
+	"eyeJoint"						"eye1"
+	"depthHack"						"0"
+	
+	"angles_offset"					"0 90 0"
+}
+
+entityDef vehicle_convoy_crane_pitch
+{
+	"spawnclass"					"rvVehicleTurret"
+	"turnrate"						"1000"
+	"joint"							"eye2"
+	"pitch"							"1"
+	"yaw"							"0"
+	
+	"minpitch"					"-45"
+	"maxpitch"					"45"
+		
+}
+
+entityDef vehicle_convoy_crane_yaw
+{
+	"spawnclass"					"rvVehicleTurret"
+	"turnrate"						"1000"
+	"joint"							"eye1"
+	"pitch"							"0"
+	"yaw"							"1"
+	
+	"minyaw"					"-45"
+	"maxyaw"					"45"
+	
+}
+
+
+entityDef vehicle_convoy_crane_scriptcb
+{
+	"spawnclass"				"rvVehicleUserAnimated"
+	
+	"attack_script"				"map_convoy2b::magnetChange"
+	"forward_script"			"map_convoy2b::craneForward"
+	"back_script"				"map_convoy2b::craneBack"
+}

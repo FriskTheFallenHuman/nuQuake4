@@ -1,0 +1,113 @@
+materialType none
+{
+	description		"Akin to a void, no decals are left on this surface and no effects are spawned"
+	rgb				0,0,0
+}
+
+materialType solidmetal
+{
+	description		"Heavy duty metal - such as girders"
+	rgb				102,102,102
+}
+
+materialType flesh
+{
+	description		"Exposed skin"
+	rgb				204,102,102
+}
+
+materialType hollowmetal
+{
+	description		"Thin metal plate - such as air ducts or computer covering"
+	rgb				70,70,70
+}
+
+materialType dirt
+{
+	description		"Dirt"
+	rgb				140,100,60
+}
+
+materialType sand
+{
+	description		"Fine ground rock normally found in deserts"
+	rgb				255,255,160
+}
+
+materialType gravel
+{
+	description		"Loosely ground rough pebbles"
+	rgb				200,170,95
+}
+
+materialType glass
+{
+	description		"Translucent"
+	rgb				255,255,255
+}
+
+materialType concrete
+{
+	description		"Solid rock like material used in construction"
+	rgb				170,170,170
+}
+
+materialType water
+{
+	description		""
+	rgb				140,170,220
+}
+
+materialType gelatinousfluid
+{
+	description		""
+	rgb			120,40,140	
+}
+
+materialType oil
+{
+	description		""
+	rgb			240,30,40	
+}
+
+materialType bpglass
+{
+	description		"Bulletproof glass"
+	rgb				150,40,80
+}
+
+materialType rock
+{
+	description		"Naturally exposed rock"
+	rgb				90,70,64
+}
+
+materialType rubber
+{
+	description		""
+	rgb				40,40,40
+}
+
+materialType plastic
+{
+	description		""
+	rgb				130,200,120
+}
+
+materialType armor
+{
+	description		"kevlar"
+	rgb				100,90,170
+}
+
+materialType electronics
+{
+	description		""
+	rgb			250,170,90	
+}
+
+materialType monstermetal
+{
+	description		" Monster metal... metal for monsters... "
+	rgb			60,52,157	
+}

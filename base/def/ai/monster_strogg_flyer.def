@@ -1,0 +1,388 @@
+/*
+===============================================================================
+
+	Strogg Flyer
+
+===============================================================================
+*/
+
+export strogg_flyer
+{
+	options -prefix FLY_ -rotate -90 -scale .3937 -keep tail_thrusters -keep left_gun -keep right_gun -keep l_fx -keep r_fx
+	mesh	work/models/vehicles/strogg_flyer/animations/lift_off_a_work_refix.ma			-dest	models/vehicles/strogg_flyer/mesh.md5mesh
+	anim	work/models/vehicles/strogg_flyer/animations/lift_off_a_work_refix.ma			-dest models/vehicles/strogg_flyer/liftoff_a.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/idle_a.ma							-dest models/vehicles/strogg_flyer/idle_a.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/crash_a.ma							-dest models/vehicles/strogg_flyer/crash_a.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/crash_b.ma							-dest models/vehicles/strogg_flyer/crash_b.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/crash_c_work_refix.ma				-dest models/vehicles/strogg_flyer/crash_c.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/Air_defense_strafe_2.ma			-dest models/vehicles/strogg_flyer/Air_defense_strafe.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/med_labs_flyby.ma					-dest models/vehicles/strogg_flyer/med_labs_flyby.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/tram1_flyer_crash_1.ma				-dest models/vehicles/strogg_flyer/tram1_crash.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/Air_defense_strafe_3.ma			-dest models/vehicles/strogg_flyer/Air_defense_strafe2.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/Air_defense_strafe_4.ma			-dest models/vehicles/strogg_flyer/Air_defense_strafe3.md5anim
+	anim	work/models/vehicles/strogg_flyer/animations/Air_defense_strafe_5.ma			-dest models/vehicles/strogg_flyer/Air_defense_strafe4.md5anim
+	
+
+}
+
+export strogg_flyer
+{
+	options -prefix FLY_ -rotate -90 -scale .8 -keep tail_thrusters -keep left_gun -keep right_gun -keep l_fx -keep r_fx
+	mesh	work/models/vehicles/strogg_flyer/animations/lift_off_a_work_refix.ma			-dest models/monsters/strogg_flyer/mesh.md5mesh
+	anim	work/models/vehicles/strogg_flyer/animations/idle_a.ma							-dest models/monsters/strogg_flyer/idle_a.md5anim
+}
+
+//-----------------------------------------------------------------------------
+//
+//								ENVIRONMENTAL STUFF
+//
+//-----------------------------------------------------------------------------
+
+model model_env_strogg_flyer
+{
+	mesh												models/vehicles/strogg_flyer/mesh.md5mesh
+	
+	anim liftoff										models/vehicles/strogg_flyer/liftoff_a.md5anim
+	{
+		frame 1											sound_voice	snd_takeoff	
+	}
+	anim idle_a											models/vehicles/strogg_flyer/idle_a.md5anim
+	anim crash_a										models/vehicles/strogg_flyer/crash_a.md5anim
+	anim crash_b										models/vehicles/strogg_flyer/crash_b.md5anim
+	anim crash_c										models/vehicles/strogg_flyer/crash_c.md5anim
+	anim strafe_air_defense								models/vehicles/strogg_flyer/Air_defense_strafe.md5anim
+
+	anim tram1b_crash									models/vehicles/strogg_flyer/tram1_crash.md5anim
+	{
+		frame 24											trigger startGasLeak
+		frame 24											call	tramCar_Scripts::Remove
+	}
+	anim med_labs_flyby									models/vehicles/strogg_flyer/med_labs_flyby.md5anim
+	
+	anim ad_strafe										models/vehicles/strogg_flyer/Air_defense_strafe.md5anim
+	{
+		frame 320										call	map_airdefense::trenchFlyerInRange
+		frame 410										call	map_airdefense::trenchFlyerOutRange
+
+	}
+	
+	anim ad_strafe2											models/vehicles/strogg_flyer/Air_defense_strafe2.md5anim
+	{
+//		frame 320										call	map_airdefense::trenchFlyerInRange
+//		frame 410										call	map_airdefense::trenchFlyerOutRange
+
+	}
+	
+	anim ad_strafe3											models/vehicles/strogg_flyer/Air_defense_strafe3.md5anim
+	{
+		rate	0.6
+		frame 20,22,24,25,26,28,30,31,32,34,36					call  map_airdefense::trenchFlyerShoot
+	}
+	
+	anim ad_strafe4											models/vehicles/strogg_flyer/Air_defense_strafe4.md5anim
+	{
+		rate	0.8
+	}
+	
+
+}
+
+entityDef env_strogg_flyer
+{
+	"editor_color"										"1 .5 0"
+	"editor_mins"										"-32 -32 -120"
+	"editor_maxs"										"32 32 64"
+
+	"editor_usage"										"Pleva will not hurt you. It's ok."
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_env_strogg_flyer"
+	
+	"snd_takeoff"										"cine_dispersal_ship_takeoff"
+	
+	"sound_bone"										"tail_thrusters"
+
+	"fx_thrusters"										"effects/monsters/strogg_flyer/thruster.fx"
+
+
+} 
+  
+entityDef env_flyer_dispersal
+{
+	"inherit"											"env_strogg_flyer"
+	"start_anim"										"idle_a"
+	"anim"												"liftoff"
+}
+
+
+/*
+===============================================================================
+
+	Strogg Flyer Model
+
+===============================================================================
+*/
+
+model model_monster_strogg_flyer
+{
+	mesh												models/monsters/strogg_flyer/mesh.md5mesh	
+	anim idle											models/monsters/strogg_flyer/idle_a.md5anim
+//	anim ad_strafe									    models/vehicles/strogg_flyer/Air_defense_strafe.md5anim
+//	anim tram1b_crash									models/monsters/strogg_flyer/tram1_crash.md5anim 
+//	{
+//		frame 24											trigger startGasLeak
+//		frame 24											call	tramCar_Scripts::Remove
+//	}	
+}
+
+/*
+===============================================================================
+
+	Strogg Flyer Attacks
+
+===============================================================================
+*/
+
+entityDef damage_strogg_flyer_blaster
+{
+	"inherit"											"damage_bullet_base"
+	"damage"											"10"
+}
+
+entityDef projectile_strogg_flyer_blaster
+{
+	"inherit"											"projectile_blaster_base"
+	"velocity"											"2000 0 0"
+	"fx_impact"											"effects/monsters/strogg_flyer/blaster_collide.fx"
+	"fx_fly"											"effects/monsters/strogg_flyer/blaster_fly.fx"
+	"def_damage"											"damage_strogg_flyer_blaster"
+}
+
+entityDef damage_strogg_flyer_bomb
+{
+	"inherit"											"damage_monster_base"
+	"damage"											"30"
+}
+
+entityDef projectile_strogg_flyer_bomb
+{
+	"inherit"											"projectile_blaster_base"
+	"fuse"												"5"
+	"fx_fly"											"effects/monsters/strogg_flyer/bomb_fly.fx"
+	"fx_impact"											"effects/monsters/strogg_flyer/bomb_burst.fx"
+	"mins"												"-16 -16 -16"
+	"maxs"												"16 16 16"
+
+	"detonate_on_death"									"1"
+
+	"def_splash_damage"									"damage_strogg_flyer_bomb"
+
+	"speed"												"1"
+	"mass"												"4"
+	"gravity"											"1"
+}
+
+entityDef misc_strogg_flyer_light
+{
+	"inherit"											"light"
+	"noshadows"											"1"
+	"nospecular"										"0"
+	"nodiffuse"											"0"
+	"falloff"											"0"
+	"texture"											"lights/rav_squarebevel"
+	"_color"											"0.8 0.9 1"
+	"light_radius"										"800 800 800"
+}
+
+/*
+===============================================================================
+
+	Strogg Flyer Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_strogg_flyer
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterStroggFlyer"
+
+	// --------------------------------- Actions ------------------------------------
+	
+	"action_blasterAttack"					"1"
+	"action_blasterAttack_rate"				"4"
+	"action_blasterAttack_maxRange"			"3000"
+	"action_blasterAttack_minRange2d"		"700"
+	"action_blasterAttack_maxRange2d"		"1500"
+	"action_blasterAttack_noturn"			"0"
+	"action_blasterAttack_overrideLegs"		"0"
+
+	"action_bombAttack"						"1"
+	"action_bombAttack_rate"				"6"
+	"action_bombAttack_maxRange2d"			"1000"
+	"action_bombAttack_minRange2d"			"0"
+	"action_bombAttack_maxRange"			"2000"
+	"action_bombAttack_noturn"				"0"
+	"action_bombAttack_overrideLegs"		"0"
+
+	// --------------------------------- General ------------------------------------
+	"size"									"80 80 96"
+	"model"									"model_monster_strogg_flyer"
+	"mass"									"100000"
+	"use_aas"								"aas96"
+
+	"flying"								"1"
+
+	"joint_gun_right"						"right_gun"
+	"joint_gun_left"						"left_gun"
+	"joint_thruster"						"tail_thrusters"
+	
+	"blasterAttackDuration"					"2"
+	"blasterAttackRate"						".15"
+	"bombAttackDuration"					"2"
+	"bombAttackRate"						".3"
+
+	"remove_on_death"						"1"
+
+	// --------------------------------- Combat ----------------------------------
+
+	"health"								"500"				// hard to kill?  Not sure how high this should be
+	"damaged_threshold"						"200"
+	"flee_threshold"						"50"
+	"missile_suppress_range"				"3200"
+	"fov"									"60"				// so it can still see you straight down or up
+	"attack_cone"							"90"				// so that it can shoot in the opposite dir from where it is facing
+	"turn_rate"								"0"					// how fast it turns (degrees per second?)
+	"painThreshold"							"50"
+	"bleed"									"0"
+	"startdamaged"							"0"
+	"flee_not_die"							"0"
+	"reload_count"							"18"
+	"reload_delay"							"0.05"
+	"suppress_rate"							"0"
+	"attackRange"							"0 3000"
+
+	"def_attack_bomb"						"projectile_strogg_flyer_bomb"
+	"def_attack_blaster"					"projectile_strogg_flyer_blaster"
+
+	"attack_blaster_accuracy"				"1"
+
+	//added straight up attack for strafing anim
+	"def_attack_fromJoint"					"projectile_strogg_flyer_blaster"
+	"attack_fromJoint_lockToJoint"			"1"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_muzzleflash"						"effects/monsters/strogg_flyer/blaster_burst.fx"
+	"fx_exhaust"							"effects/monsters/strogg_flyer/smoke_trail2.fx"
+	"fx_exhaust_damaged"					"effects/monsters/strogg_flyer/smoke_trail_damaged.fx"
+	"fx_damaged"							"effects/monsters/strogg_flyer/smoke_ribbons.fx"
+	"fx_base_attack_flash"					"effects/monsters/turret/f_flash.fx"						// FX_REPLACE
+	"fx_damage_transition"					"effects/monsters/turret/d_death.fx"						// FX_REPLACE
+	"fx_bombflash"							""
+	
+	"fx_death"								"effects/monsters/strogg_flyer/explosion.fx"						// FX_REPLACE
+	
+
+
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_takeoff"							"strogg_flyer_takeoff"
+	"snd_flyloop"							"strogg_flyer_loop"
+	"snd_bombrun"							"strogg_flyer_bombrun"
+	"snd_bombwhistle"						"strogg_flyer_bomb_whistle"
+
+	// --------------------------------- Playbacks -------------------------------
+	"playcount_pain"						"4"
+	"playback_pain_1"						"playbacks/effects/painshake_1.playback"
+	"playback_pain_2"						"playbacks/effects/painshake_2.playback"
+	"playback_pain_3"						"playbacks/effects/painshake_3.playback"
+	"playback_pain_4"						"playbacks/effects/painshake_4.playback"
+	
+	"playback_flyer_high"					"playbacks/canyon_test_high.playback"
+	"playback_flyer_mid"					"playbacks/canyon_test_mid.playback"
+	"playback_flyer_low"					"playbacks/canyon_test_low.playback"
+
+	"playback_circle_1"						"playbacks/canyon_flyer_circle_1.playback"
+	"playback_circle_2"						"playbacks/canyon_flyer_circle_2.playback"
+
+	"playback_fighter_1"					"playbacks/canyon_test_fighter_1.playback"
+
+	"playback_old_convoy_1"					"playbacks/flyer/flyer_oldcanyon_arena_start.playback"
+	"playback_old_convoy_2"					"playbacks/flyer/flyer_oldcanyon_arena_1.playback"
+	"playback_old_convoy_3"					"playbacks/flyer/flyer_oldcanyon_arena_2.playback"
+	"playback_old_convoy_4"					"playbacks/flyer/flyer_oldcanyon_arena_3.playback"
+	
+	"playback_hangar1_flyer_1"				"playbacks/hangar1_flyer_1.playback"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"								"Strogg Flyer"
+	"dbText"								"Description Text of the Strogg Flyer"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+===============================================================================
+
+	Convoy1 Strogg Flyer
+
+===============================================================================
+*/
+
+export convoy1_strogg_flyer
+{
+	options -prefix FLY_ -rotate -90  -scale .3937 -keep tail_thrusters -keep left_gun -keep right_gun -keep l_fx -keep r_fx
+	mesh	work/models/vehicles/strogg_flyer/animations/convoy1_crash.ma					-dest	models/vehicles/strogg_flyer/convoy1_flyer_mesh.md5mesh
+	anim	work/models/vehicles/strogg_flyer/animations/convoy1_crash.ma					-dest 	models/vehicles/strogg_flyer/convoy1_crash.md5anim
+
+}
+
+
+//-----------------------------------------------------------------------------
+//
+//								ENVIRONMENTAL STUFF
+//
+//-----------------------------------------------------------------------------
+
+model model_env_convoy1_strogg_flyer
+{
+	mesh												models/vehicles/strogg_flyer/convoy1_flyer_mesh.md5mesh
+	
+	anim convoy1_crash										models/vehicles/strogg_flyer/convoy1_crash.md5anim
+	{
+		frame	1											sound_voice	convoy_flyer_crash
+		frame 49											fx	fx_burntrail	right_gun
+		frame 49											fx	fx_explosion	right_gun
+	}
+}
+
+entityDef env_convoy1_strogg_flyer
+{
+	"editor_color"										"1 .5 0"
+	"editor_mins"										"-32 -32 -120"
+	"editor_maxs"										"32 32 64"
+
+	"editor_usage"										"Flyer for use in Convoy1"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_env_convoy1_strogg_flyer"
+	
+	"snd_takeoff"										"cine_dispersal_ship_takeoff"
+
+	"fx_thrusters"										"effects/monsters/strogg_flyer/thruster.fx"
+	"fx_burntrail"										"effects/fire/spot_32_trail_roller.fx"
+	"fx_explosion"										"effects/explosions/surface/medium.fx"
+	"fx_impact"											"effects/explosions/surface/impact_flyer.fx"
+} 
+

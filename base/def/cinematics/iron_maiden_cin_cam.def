@@ -1,0 +1,29 @@
+export cin_camera_iron_maiden
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/iron_maiden_intro   -destdir models/cinematics/iron_maiden_cin
+	camera	level.ma		-dest iron_maiden_cin_camera
+}
+
+camera iron_maiden_cin_camera
+{
+	anim iron_maiden_cin_camera				"models/cinematics/iron_maiden_cin/iron_maiden_cin_camera.md5camera"
+	{
+		frame	220							call  map_storage2::kaneInvestigates
+		frame	520							call  map_storage2::kaneGetsUp
+		frame	613							call  map_storage2::cinematicDone
+	}
+}
+
+entityDef  cin_camera_iron_maiden
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"iron_maiden_cin_camera"
+}
+
+

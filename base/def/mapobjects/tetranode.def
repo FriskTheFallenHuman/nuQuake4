@@ -1,0 +1,32 @@
+/***********************************************************************
+TETRANODE
+***********************************************************************/
+
+export tetranode
+{
+	options -prefix TETRA_ -scale .3937 -align ALL
+
+	mesh	work/models/mapobjects/strogg/core/tetranode/Anims/default.ma				-dest models/mapobjects/strogg/stream_hub/tetranode
+	anim	work/models/mapobjects/strogg/core/tetranode/Anims/opening.ma				-range 1 2 -dest models/mapobjects/strogg/stream_hub/idle
+	anim	work/models/mapobjects/strogg/core/tetranode/Anims/opening.ma				-dest models/mapobjects/strogg/stream_hub/open
+}
+
+model model_env_tetranode
+{
+	mesh			"models/mapobjects/strogg/stream_hub/tetranode.md5mesh"
+	anim idle		"models/mapobjects/strogg/stream_hub/idle.md5anim"
+	anim open		"models/mapobjects/strogg/stream_hub/open.md5anim"
+	
+}
+
+entityDef env_tetranode
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_env_tetranode"
+	
+}

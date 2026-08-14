@@ -1,0 +1,22 @@
+export recomp_lt_tank_cam
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/recomp_lt_tank/animations -destdir models/cinematics/recomp
+	camera	recomp_camera.ma			-dest cin_recomp_cam
+}
+
+camera cin_recomp_cam
+{
+	anim recomp_cam					"models/cinematics/recomp/cin_recomp_cam.md5camera"
+}
+
+entityDef cin_recomp_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_recomp_cam"
+}

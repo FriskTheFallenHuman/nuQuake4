@@ -1,0 +1,45 @@
+/***********************************************************************************************************************
+Process3
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+entityDef char_marine_npc_sledge_process3
+{
+	"inherit"											"char_marine_hyperblaster"
+	"editor_menu"										"char_npc_process3"
+
+	//sledge should stick close by to you
+	"followRange"										"70 175"
+
+	//"Very good. Carry on."
+	"lipsync_vo_3_1_15_20_2"							"vo_3_1_15_20_2"
+
+	//"Ah, great! This door must be open"
+	"lipsync_vo_3_1_15_30_1"							"vo_3_1_15_30_1"
+
+	//"Strassa I have arrived at the teleporter."
+	"lipsync_vo_3_1_15_35_1"							"vo_3_1_15_35_1"
+
+}
+
+//door guard! So important!
+model	model_char_marine_unarmed_process3	
+{
+	inherit											model_char_marine
+
+	anim	working_wall_panel						models/characters/marine/working_wall_panel.md5anim
+
+}
+entityDef char_marine_npc_cobrasquad_door
+{
+	"inherit"											"char_marine_unarmed"
+
+	"model"												"model_char_marine_unarmed_process3"
+
+	"editor_menu"										"char_npc_process3"
+
+	//"Sir, I’m with Cobra Squad. That door is open and I’m working on this one."
+	"lipsync_vo_3_1_15_20_1"							"vo_3_1_15_20_1"
+
+}

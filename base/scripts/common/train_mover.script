@@ -1,0 +1,116 @@
+//----------------------------------------------------------
+//
+// train_mover.script
+//
+//----------------------------------------------------------
+
+namespace train_mover
+{
+
+void trainStop( entity controller )
+{
+	sys.println("train stop - DISABLED FOR NOW");
+	/*
+	sys.println("train stop");
+	sys.println( "controller name: " + controller.getName() );
+
+	//FIXME: once it stops, need to be able to resume *only* in the directions in which we should be allowed to go... ugh...
+	if ( controller )
+	{
+		string trainName = controller.getKey( "train" );
+		if ( trainName )
+		{
+            entity train = sys.getEntity( trainName );
+			if ( train )
+			{
+				train.stopMoving();
+			}
+		}
+	}
+	*/
+}
+
+void trainMoveDir( entity controller, string dirString )
+{
+	sys.println( "controller type: " + controller.getName() );
+
+	if ( controller )
+	{
+		string trainName = controller.getKey( "train" );
+		if ( trainName )
+		{
+            entity train = sys.getEntity( trainName );
+			if ( train )
+			{
+				string currentNodeName = train.getKey( "curNode" );
+				if ( !currentNodeName )
+				{
+					sys.println("train still moving, cannot interrupt");
+				}
+				else
+				{
+					entity currentNode = sys.getEntity( currentNodeName );
+					if ( !currentNode )
+					{
+						sys.println("train still moving, cannot interrupt");
+					}
+					else if ( dirString )
+					{
+						string nextNodeName = currentNode.getKey( dirString );
+						if ( nextNodeName )
+						{
+							entity nextNode = sys.getEntity( nextNodeName );
+							if ( nextNode )
+							{
+								sys.println("train move to " + nextNodeName );
+								train.setKey( "curNode", "" );
+								train.moveTo( nextNode );
+								sys.waitFor( train );
+								train.setKey( "curNode", nextNodeName );
+								sys.println("train move done" );
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+void trainForward( entity controller )
+{
+	sys.println("train move fwd");
+	trainMoveDir( controller, "target" );
+}
+
+void trainBackward( entity controller )
+{
+	sys.println("train move bwd");
+	trainMoveDir( controller, "target3" );
+}
+
+void trainRight( entity controller )
+{
+	sys.println("train move rgt");
+	trainMoveDir( controller, "target2" );
+}
+
+void trainLeft( entity controller )
+{
+	sys.println("train move lft");
+	trainMoveDir( controller, "target4" );
+}
+
+void trainUp( entity controller )
+{
+	sys.println("train move up");
+	trainMoveDir( controller, "target5" );
+}
+
+void trainDown( entity controller )
+{
+	sys.println("train move dwn");
+	trainMoveDir( controller, "target6" );
+}
+
+}

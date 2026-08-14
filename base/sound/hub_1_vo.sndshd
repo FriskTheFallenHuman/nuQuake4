@@ -1,0 +1,1155 @@
+
+
+sound vo_1_2_14_02_1
+{
+	description	"Exactly how far behind enemy lines are we?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_02_1
+}
+
+
+sound vo_1_2_14_02_2
+{
+	description	"Far enough that it doesn’t matter anymore."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_02_2
+}
+
+
+sound vo_1_2_14_02_3
+{
+	description	"What do you mean by that?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_02_3
+}
+
+
+sound vo_1_2_14_02_4
+{
+	description	"We’re completely on our own."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_02_4
+}
+
+
+sound vo_1_2_14_02_5
+{
+	description	"You mean it could take several minutes before we receive any back up?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_02_5
+}
+
+
+sound vo_1_2_14_02_6
+{
+	description	"No, I mean we aren’t receiving any back up at all. We’re cut off from the rest of the human forces."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_02_6
+}
+
+
+sound vo_1_2_14_04_1
+{
+	description	"I had no idea we would be so vulnerable. What if the Strogg should attack?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_04_1
+}
+
+
+sound vo_1_2_14_04_2
+{
+	description	"Don’t worry, Strauss. The Strogg wouldn’t kill you – they’d probably keep your brain alive in a jar so they could study it."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_04_2
+}
+
+
+sound vo_1_2_14_04_3
+{
+	description	"I fail to understand why anyone would consider you amusing."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_04_3
+}
+
+
+sound vo_1_2_14_10_1
+{
+	description	"All right, Marines. Listen up. The Strogg have taken out the other convoys, we're all that's left. This mission's too big for any screw-ups. No one take any chances, no one try to be the hero. Voss out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_14_10_1
+}
+
+
+sound vo_1_2_14_40_1
+{
+	description	"Why is it so cold down here, Strauss?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_40_1
+}
+
+
+sound vo_1_2_14_40_2
+{
+	description	"The frigid atmosphere is no doubt the result of the Strogg communications equipment requiring cryogenic technologies."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_40_2
+}
+
+
+sound vo_1_2_14_40_3
+{
+	description	"Kane, you’re assigned to Strauss. Voss out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_14_40_3
+}
+
+
+sound vo_1_2_14_40_4
+{
+	description	"Why does he assign me only one guard? Must I die to show Lt.Voss how important I am?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_40_4
+}
+
+
+sound vo_1_2_14_42_1
+{
+	description	"We're looking to get the EMP below the Teranode, the brains of this facility."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_42_1
+}
+
+
+sound vo_1_2_14_42_2
+{
+	description	"The Tetranode routes billions of Strogg communications signals every second from the Nexus. If that were destroyed it'd effectively shut down the Strogg for this area."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_42_2
+}
+
+
+sound vo_1_2_14_42_3
+{
+	description	"Once we get the Nexus down, our troops will have an easy time of it. The Strogg military will be completely disorganized."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_42_3
+}
+
+
+sound vo_1_2_14_44_2
+{
+	description	"Isn't there one spot, somewhere on Stroggos, where I'm not either freezing my ass off or drowning in my own sweat?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_44_2
+}
+
+
+sound vo_1_2_14_44_3
+{
+	description	"So who did you piss off that you always get stuck baby-sitting Strauss?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_44_3
+}
+
+
+sound vo_1_2_14_46_1
+{
+	description	"It pains me that we must destroy this Strogg facility. The knowledge we could have gained by studying it. I had recommended a squad of engineers be sent to investigate this building before the convoys arrived. But, of course, I was ignored. "
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_46_1
+}
+
+
+sound vo_1_2_14_46_2
+{
+	description	"I had recommended that I head up a party to investigate this building before the convoys arrived. But, of course, my request was ignored."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_46_2
+}
+
+
+sound vo_1_2_14_46_3
+{
+	description	"Admittedly an exploratoration of this facility would have kept the war going on for another day or two - but imagine how this technology would benefit mankind."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_46_3
+}
+
+
+sound vo_1_2_14_52_1
+{
+	description	"Listen up, Marines. We've almost reached our objective.  Now we just need to find the Tetranode and set off our EMP bomb. That will knock out the Strogg lines of communication and our troops will have an easy time of it. Let's find a way to open that hatch so we can move forward."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_52_1
+}
+
+sound vo_1_2_14_52_2
+{
+	description	"All clear."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_52_2
+}
+
+sound vo_1_2_14_52_3
+{
+	description	"Okay, men. Let’s move out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_52_3
+}
+
+sound vo_1_2_14_54_1
+{
+	description	"What the hell was that?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_54_1
+}
+
+sound vo_1_2_14_54_2
+{
+	description	"I don’t know – but leave it alone."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_54_2
+}
+
+sound vo_1_2_14_56_1
+{
+	description	"Ah, very good. This appears to be the control room."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_56_1
+}
+
+sound vo_1_2_14_60_1
+{
+	description	"There, I have unlocked the passage."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_1
+}
+
+
+sound vo_1_2_14_60_3
+{
+	description	"All right, convoy. Open the hatchways and advance."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_3
+}
+
+sound vo_1_2_14_60_4
+{
+	description	"Negative. Remain where you are."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_4
+}
+
+sound vo_1_2_14_60_5
+{
+	description	"I hope you have a real good reason for doin’ that, soldier."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_5
+}
+
+sound vo_1_2_14_60_6
+{
+	description	"I apologize but if they were to open the hatchway they would have been subjected to super cooled air. Their lungs would have frozen in a matter of seconds."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_6
+}
+
+sound vo_1_2_14_60_7
+{
+	description	"Okay . . . so what do we do?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_7
+}
+
+sound vo_1_2_14_60_8
+{
+	description	"I must find the temperature controls. From there, I should be able to make the atmosphere a little less hostile."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_8
+}
+
+sound vo_1_2_14_60_9
+{
+	description	"Sounds good. Kane, you’re with Strauss. Find those controls."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_9
+}
+
+sound vo_1_2_14_60_10
+{
+	description	"You assign me only one guard? Must I die to show you how valuable I am? Never mind. This way, Corporal Kane."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_60_10
+}
+
+sound vo_1_2_14_66_1
+{
+	description	"Corporal Kane! Do not let that thing near me!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_66_1
+}
+
+
+sound vo_1_2_14_68_1
+{
+	description	"Be extremely cautious, Corporal. We do not want to attract that Harvester’s attention."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_68_1
+}
+
+sound vo_1_2_14_70_1
+{
+	description	"Ah, yes. Precisely what I was looking for. Give me a moment."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_70_1
+}
+
+
+sound vo_1_2_14_70_2
+{
+	description	"Kane, you must protect me while I adjust the temperature!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_70_2
+}
+
+sound vo_1_2_14_72_1
+{
+	description	"Well done, Kane. I have almost finished my work here. Damn."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_72_1
+}
+
+sound vo_1_2_14_72_2
+{
+	description	"Lt. Voss, I must remain here and maintain the temperature controls or the area will return to its frigid state."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_72_2
+}
+
+sound vo_1_2_14_72_3
+{
+	description	"Okay. Stay there. Kane, get back here with us."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_14_72_3
+}
+
+sound vo_1_2_14_72_4
+{
+	description	"But I need protection, Lieutenant."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_14_72_4
+}
+
+sound vo_1_2_14_72_5
+{
+	description	"You’ll be fine, Strauss. Kane, get out here on the double. Voss, out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_14_72_5
+}
+
+sound vo_1_2_14_76_1
+{
+	description	"Double time it, Kane. I need you here to help clear the way for the convoy."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_14_76_1
+}
+
+
+sound vo_1_2_14_80_1
+{
+	description	"All right. Convoy, move forward. Kane, get Strauss to the controls for Door 2."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_14_80_1
+}
+
+
+sound vo_1_2_15_10_1
+{
+	description	"Lt. Voss, uh...what should we do?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_15_10_1
+}
+
+
+sound vo_1_2_15_10_2
+{
+	description	"Leave them alone, these repair bots are harmless."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_15_10_2
+}
+
+
+sound vo_1_2_15_10_3
+{
+	description	"Harmless, huh? Get ready, we got company!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_15_10_3
+}
+
+
+sound vo_1_2_15_20_1
+{
+	description	"Lieutenant, I can force this door open, but it will set off alarms."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_15_20_1
+}
+
+
+sound vo_1_2_15_20_2
+{
+	description	"Can you bypass security?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_15_20_2
+}
+
+
+sound vo_1_2_15_20_3
+{
+	description	"Ja, but I will need access to a wiring junction."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_15_20_3
+}
+
+
+sound vo_1_2_15_20_4
+{
+	description	"Kane, help Strauss locate a wiring junction. Voss, out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_15_20_4
+}
+
+
+sound vo_1_2_15_20_5
+{
+	description	"Yes, let us walk around. All by ourselves. I am certain the Strogg won't mind."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_15_20_5
+}
+
+
+sound vo_1_2_16_100_1
+{
+	description	"Kane, check that door. The shutoff to the forcefield might be in there."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_100_1
+}
+
+
+sound vo_1_2_16_100_2
+{
+	description	"I should come up and help him."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_100_2
+}
+
+
+sound vo_1_2_16_100_3
+{
+	description	"Negative, Strauss. Stay where you are."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_100_3
+}
+
+
+sound vo_1_2_16_100_4
+{
+	description	"Yes, sir."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_100_4
+}
+
+
+sound vo_1_2_16_10_1
+{
+	description	"Ja, this is what I need."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_10_1
+}
+
+
+sound vo_1_2_16_110_1
+{
+	description	"Corporal, check that tunnel. The shutoff to the forcefield might be in there."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_110_1
+}
+
+
+sound vo_1_2_16_120_1
+{
+	description	"Good job. The forcefield's down, Kane. Return to the squad immediately."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_120_1
+}
+
+
+sound vo_1_2_16_20_1
+{
+	description	"Mist! What was that?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_20_1
+}
+
+
+sound vo_1_2_16_30_1
+{
+	description	"That's it! I just need a few minutes."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_30_1
+}
+
+
+sound vo_1_2_16_40_1
+{
+	description	"I've located the security wiring to Door 2."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_40_1
+}
+
+
+sound vo_1_2_16_40_2
+{
+	description	"I've located the security wiring to Door 1."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_40_2
+}
+
+
+sound vo_1_2_16_40_3
+{
+	description	"Now, I merely switch Door 2 security to look at Door 1."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_40_3
+}
+
+
+sound vo_1_2_16_40_4
+{
+	description	"There, I'm done. Let's get back to the convoy."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_16_40_4
+}
+
+sound vo_1_2_16_60_1
+{
+	description	"All clear. Those repair bots must have warned the Strogg we were here. Kane, open the door 2. If there's anything on the other side, I want Strauss out of harm's way."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_60_1
+}
+
+sound vo_1_2_16_80_1
+{
+	description	"Let's move it out, convoy. Strauss, stay on this side of the door in case we run into trouble."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_16_80_1
+}
+
+
+sound vo_1_2_17_10_1
+{
+	description	"What the hell's goin' on here?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_17_10_1
+}
+
+
+sound vo_1_2_17_10_10
+{
+	description	"You're not gonna be able to. I'm sure security locked it."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_17_10_10
+}
+
+sound vo_1_2_17_10_12
+{
+	description	"SHUT THE HELL UP, STRAUSS! Half the squad is dead, So why don't you just be quiet while we pick up the pieces?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_17_10_12
+}
+
+
+sound vo_1_2_17_10_13
+{
+	description	"Yes, sir."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_17_10_13
+}
+
+
+sound vo_1_2_17_10_2
+{
+	description	"Wait. Listen."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_17_10_2
+}
+
+
+sound vo_1_2_17_10_3
+{
+	description	"Quick! Fire off the EMP!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_17_10_3
+}
+
+
+sound vo_1_2_17_10_4
+{
+	description	"Open fire!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_17_10_4
+}
+
+
+sound vo_1_2_17_10_5
+{
+	description	"Almost there..."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_17_10_5
+}
+
+
+sound vo_1_2_17_10_6
+{
+	description	"Marines! Open fire!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_17_10_6
+}
+
+
+sound vo_1_2_17_10_7
+{
+	description	"Lieutenant Voss, this is Strauss. What has happened?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_17_10_7
+}
+
+
+sound vo_1_2_17_10_8
+{
+	description	"The sons of bitches knew we were coming."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_17_10_8
+}
+
+sound vo_1_2_18_10_1
+{
+	description	"Damn it all. Bidwell was a good man... a good Marine."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_18_10_1
+}
+
+
+sound vo_1_2_18_10_2
+{
+	description	"Strauss, the EMP's destroyed but we still have to shutdown this facility. Any ideas?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_18_10_2
+}
+
+
+sound vo_1_2_18_10_3
+{
+	description	"Ja. But it means I have to go directly to the Tetranode."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_18_10_3
+}
+
+
+sound vo_1_2_18_10_4
+{
+	description	"All right. Kane's the only one who's uninjured, so he's going with you."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_18_10_4
+}
+
+
+sound vo_1_2_18_10_5
+{
+	description	"If my memory of the building schematics is correct, Kane must take a crawlway out. I will meet him at the other end."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/hub_1/1_2_18_10_5
+}
+
+
+sound vo_1_2_18_10_6
+{
+	description	"Sounds like a plan. Voss out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_18_10_6
+}
+
+
+sound vo_1_2_18_10_7
+{
+	description	"Kane, I don't need to tell you how important this is. Whatever the cost, you must destroy the Tetranode and bring down the Nexus."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/hub_1/1_2_18_10_7
+}
+

@@ -1,0 +1,173 @@
+/*
+===============================================================================
+
+	Base Actor Entity Definition
+
+===============================================================================
+*/
+
+entityDef actor_default
+{	
+	// ---------------------------- Editor Vars --------------------------------------
+	"editor_var script_init"				"Script executed immediately after an spawneding in."
+	"editor_var script_first_sight"			"Script executed the first time an enemy sees a target."
+	"editor_var script_sight"				"Script executed when a new target is sighted."
+	"editor_var script_pain"				"Script executed when pain is taken."
+	"editor_var script_damage"				"Script executed when any dmage is taken."
+	"editor_var script_death"				"Script executed on death."
+	"editor_var script_footstep"			"Script executed for each footstep generated."
+	"editor_var script_onclick"				"Script executed when clicked on by the player."
+
+	"editor_var forceWalk"					"Set to 1 to always use walk animations when moving (Default 0)"
+	"editor_var forceRun"					"Set to 1 to alwasy use run animations when moving (Default 0)"
+	"editor_var forceRush"					"Set to 1 to alwasy rush in to melee range with the current enemy (Default 0)"
+	"editor_var hideRange"					"Set min max range for distance to use when finding a place to hide from enemy (Default: 150 750)"
+	
+	"editor_var leader"						"Set to name of actor which should be this actors leader"
+	"editor_var follows"					"Set to 1 to enable following when talked to (will override the talks keyword)"
+
+	"editor_var talk_turn"					"Set to 1 to turn towards the talk target before talking"	
+	"editor_var	talks"						"Set to 1 to enable talking"
+	"editor_var lipsync_talk_primary"		"First lipsync to use when talked to"
+	"editor_var lipsync_talk_secondary"		"Second lipsync to use when talked to"
+	"editor_var lipsync_talk_loop<#>"		"Lipsync to repeat after primary and secondary have been played (the first loop cycle is lipsync_talk_loop1)"
+	"editor_var anim_talk"					"Animation to use when talking"
+	"editor_var anim_talk_primary"			"Animation to use when talking using primary lipsync"
+	"editor_var anim_talk_secondary"		"Animation to use when talking using secondary lipsync"
+	"editor_var anim_talk_loop<#>"			"Animation to use when talking using loop lipsync"
+	
+	"editor_var lipsync_follow"				"Lipsync to use when being asked to follow"
+	"editor_var lipsync_stopfollow"			"Lipsync to use when being asked to stop following"
+	"editor_var lipsync_busy"				"Lipsync to use when they are busy and cant talk"
+	"editor_var lipsync_rush"				"Lipsync to use when ai decides to rush their enemy"
+	"editor_var lipsync_cover"				"Lipsync to use when ai decides to take cover"
+	"editor_var lipsync_loud_to_leadcover"	"Lipsync to use when in combat and moving to cover location near leader"
+	"editor_var lipsync_loud_at_leadcover"	"Lipsync to use when in combat and reached cover location near leader"
+	"editor_var lipsync_to_leadcover"		"Lipsync to use when moving to cover location near leader"
+	"editor_var lipsync_at_leadcover"		"Lipsync to use when reached cover location near leader"
+	"editor_var lipsync_flank"				"Lipsync to use when flanking enemy"
+	"editor_var lipsync_moveup"				"Lipsync to use when advancing on enemy"
+	"editor_var lipsync_fallback"			"Lipsync to use when retreating"
+	"editor_var lipsync_checkfire"			"Lipsync to use when hit by a teammate's attack"
+	"editor_var lipsync_grenade"			"Lipsync to use when a grenade lands nearby"
+	"editor_var lipsync_throw_grenade"		"Lipsync to use when throwing a grenade"
+	"editor_var lipsync_sniper"				"Lipsync to use when being shot at by a sniper"
+	"editor_var lipsync_mandown"			"Lipsync to use when an ally dies nearby"
+	"editor_var lipsync_victory"			"Lipsync to use when an enemy has been killed"
+	"editor_var lipsync_watchit"			"Lipsync to use when an enemy is killed that was targetting a friendly"
+	"editor_var lipsync_supressed"			"Lipsync to use when an enemy is using supressing fire on us"
+	"editor_var lipsync_supressing"			"Lipsync to use when using supressing fire"
+	"editor_var lipsync_closeone"			"Lipsync to use when an enemy's attack just misses"
+	"editor_var lipsync_<shortname>_killed"	"Lipsync to use when and ally named <shortname> dies nearby"
+	"editor_var lipsync_thanks"				"Lipsync to use when saying thanks for the player killing an enemy taretting a buddy"
+	"editor_var lipsync_niceshot"			"Lipsync to use when congratulating the player for killing an enemy"
+	"editor_var lipsync_traitor"			"Lipsync to use when the player kills a teammate"
+	"editor_var lipsync_canihelpyou"		"Lipsync to use when the player stands in front of a friendly marine too long"
+	"editor_var Lipsync_enemy_back"			"lipsync to use when enemy spotted behind"
+	"editor_var lipsync_enemy_left"			"lipsync to use when enemy spotted to the left"
+	"editor_var lipsync_enemy_right"		"lipsync to use when enemy spotted to the right"
+	"editor_var lipsync_enemy_default"		"lipsync to use when enemy spotted (not a specific direction)"
+
+	"editor_var objectivetitle_failed"		"objective to fail when killed"
+	"editor_var objectivetext_failed"		"failed objective text to display when killed"
+	"editor_var objectivetitle_completed"	"objective to complete when killed"
+	"editor_var objectivetext_completed"	"completed objective text to display when killed"
+
+	"report_stats"							"1"
+	
+	// ---------------------------- General -----------------------------------------
+	"inherit"								"monster_default"
+
+	"spawnclass"							"idAI"
+	"size"									"32 32 72"
+	"bleed"									"1"
+	"use_aas"								"aas32"
+	"removeDelay"							"5"
+	"anim"									"idle"
+	"no_drops"								"0"
+	"focus_align_time"						"0"
+	"joint_leftEye"							"Lfteye_Focus"
+	"joint_rightEye"						"Rteye_Focus"
+	"joint_chestOffset"						"chest"
+	"kick_force"							"50"
+
+	"forceEnemy"							"1"
+
+	"fov"									"140"
+	"remove_on_death"						"0"
+	"melee_range"							"64"
+
+	"painThreshold"							"1"
+
+	"missile_visibility_joint"				""
+
+	"burnaway"								"4"
+	
+	"attackRange"							"0 1000"
+
+	// ---------------------------- Actions -----------------------------------------
+	
+	"attackSightDelay"						".75"
+	
+	"action_talk_noturn" "0"
+	
+	"actionTimer_rangedAttack_rate"			"2"				
+	"actionTimer_evade_rate"				"2"				
+	"actionTimer_pain_rate"					".5"
+
+	"action_jumpBack_maxRange"				"80"
+	"action_jumpBack_anim"					"jump_back"
+	
+	"action_meleeAttack_minRange"			"0"
+	"action_meleeAttack_maxRange"			"64"
+	"action_meleeAttack_anim"				"melee_attack"
+
+	"action_rangedAttack_minRange"			"63"
+	"action_rangedAttack_maxRange"			"-1"
+	"action_rangedAttack_anim"				"range_attack"
+	"action_rangedAttack_failRate"			".25"
+	
+	"action_leapAttack_rate"				"3"
+	"action_leapAttack_noPain"				"1"						// Dont allow pain animations during a leap attack
+	"action_leapAttack_noTurn"				"1"			
+	"action_leapAttack_anim"				"leap_attack"
+
+	"action_evadeLeft_anim"					"evade_left"
+	"action_evadeRight_anim"				"evade_right"
+	"action_leanLeftAttack_anim"			"lean_attack_left"
+	"action_leanRightAttack_anim"			"lean_attack_right"
+
+	"action_crouch_rate"					"0"
+	"action_crouch_minRange"				"0"
+	"action_crouch_maxRange"				"0"
+
+	// ---------------------------- Flying Vars ---------------------------------------
+	
+	"fly_offset"							"0"						// Prefered fly height relative to the player's view
+	"fly_speed"								"100"					// Max flying speed.
+	"fly_bob_strength"						"50"					// Fly bob strength (a scalar that the bobbing vector is multiplied by)
+	"fly_bob_vert"							"2"						// The frequency of the vertical bobbing (multiplied by time in the sin func)
+	"fly_bob_horz"							"2.7"					// The frequency of the horizontal bobbing (multiplied by time in the sin func)
+	"fly_seek_scale"						"4"						// Amount that the AI will try to get ahead of the predicted path of a foe.
+	"fly_roll_scale"						"35"					// Scalar applied to roll as the character speeds up.
+	"fly_roll_max"							"30"					// Maximum the roll will be affected.
+	"fly_pitch_scale"						"45"					// Scalar applied to pitch as the character speeds up.
+	"fly_pitch_max"							"15"					// Maximum the pitch will be affected.
+
+	// ---------------------------- FX --------------------------------------------
+	"fx_pain"								"effects/monsters/pain.fx"
+	"fx_pain10"								"effects/monsters/pain25.fx"
+	"fx_pain_hollowmetal"					"effects/monsters/pain_metal.fx"
+	"fx_pain10_hollowmetal"					"effects/monsters/pain25_metal.fx"
+
+	"mtr_wound"								"textures/decals/hurt02"
+	"mtr_splat"								"textures/decals/dsplat2"
+	"mtr_splat2"							"textures/decals/dsplat5"
+	"mtr_splat3"							"textures/decals/dsplat7"
+	"mtr_splat4"							"textures/decals/dsplat11"
+	
+	// ---------------------------- Sounds -------------------------------------------
+	"snd_burn"								"effects_burn_away"
+	"snd_bounce"							"generic_creature_fall_beefy"
+
+}

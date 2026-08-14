@@ -1,0 +1,35 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_BASICFOG
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+#
+# program.env[75]-program.env[78]	Model-view-projection transform
+# program.env[93]-program.env[94]	Texcoord0 texgen matrix
+# program.env[95]-program.env[96]	Texcoord1 texgen matrix
+# program.env[97]					Vertex color
+# 
+# output:
+# 
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], vertex.position;
+DP4 result.position.y, program.env[76], vertex.position;
+DP4 result.position.z, program.env[77], vertex.position;
+DP4 result.position.w, program.env[78], vertex.position;
+
+#
+# Texture coordinate generation in model space
+#
+DP4 result.texcoord[0].x, program.env[93], vertex.position;
+DP4 result.texcoord[0].y, program.env[94], vertex.position;
+DP4 result.texcoord[1].x, program.env[95], vertex.position;
+DP4 result.texcoord[1].y, program.env[96], vertex.position;
+
+MOV result.color, program.env[97];
+
+END

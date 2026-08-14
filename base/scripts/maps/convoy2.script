@@ -1,0 +1,1075 @@
+//------------------------------------------------------------------------------------
+// Convoy2.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_convoy_2	{
+
+//------------------------------------------------------------------------------------
+// Prototypes
+
+//------------------------------------------------------------------------------------
+// Globals
+
+float arenaKills = 0;
+float rollersStarted  = 0;
+
+//------------------------------------------------------------------------------------
+// Functions
+
+/*
+//-------------------------------------------------------------------------------------------
+// Scripts for floor doors
+//-------------------------------------------------------------------------------------------
+void floorDoorUp( entity door , entity arms , entity fixture , entity light , entity floorPiece , entity steam1 , entity steam2 )
+{
+	// change colors and bind entities
+
+	fixture.bind( door );
+	light.bind( door );
+	steam1.bind( door );
+	steam2.bind( door );
+
+	light.setColor( 1 , 0 , 0 );
+	fixture.setColor( 1 , 0 , 0 );
+	floorPiece.setColor( 1 , 0 , 0 );
+
+	sys.wait( 2 );
+
+
+
+	// movement
+
+	door.time( 2 );
+	door.accelTime( 0 );
+	door.decelTime( 0 );
+
+	arms.time( 2 );
+	arms.accelTime( 0.75 );
+	arms.decelTime( 0 );
+
+	light.show( );
+	sys.trigger( steam1 );
+	sys.trigger( steam2 );
+
+	door.rotateOnce( '-30 0 0' );
+	arms.rotateOnce( '60 0 0' );
+
+	sys.waitFor( door );
+
+	sys.trigger( steam1 );
+	sys.trigger( steam2 );
+
+	sys.wait( 2 );
+	// change colors
+
+	light.setColor( 1 , 1 , 1 );
+	fixture.setColor( 1 , 1 , 1 );
+	floorPiece.setColor( 1 , 1 , 1 );
+}
+
+void floorDoorDown( entity door , entity arms , entity fixture , entity light , entity floorPiece , entity steam1 , entity steam2 )
+{
+	// change colors and bind entities
+
+	fixture.bind( door );
+	light.bind( door );
+	steam1.bind( door );
+	steam2.bind( door );
+
+	light.setColor( 1 , 0 , 0 );
+	fixture.setColor( 1 , 0 , 0 );
+	floorPiece.setColor( 1 , 0 , 0 );
+
+	sys.wait( 2 );
+
+
+
+	// movement
+
+	door.time( 2 );
+	door.accelTime( 0 );
+	door.decelTime( 0 );
+
+	arms.time( 2 );
+	arms.accelTime( 0 );
+	arms.decelTime( 0.75 );
+
+	sys.trigger( steam1 );
+	sys.trigger( steam2 );
+
+	door.rotateOnce( '30 0 0' );
+	arms.rotateOnce( '-60 0 0' );
+
+	sys.waitFor( door );
+
+	sys.trigger( steam1 );
+	sys.trigger( steam2 );
+
+	sys.wait( 2 );
+
+
+
+	// change colors
+
+	light.hide( );
+
+	light.setColor( 1 , 1 , 1 );
+	fixture.setColor( 1 , 1 , 1 );
+	floorPiece.setColor( 1 , 1 , 1 );
+}
+
+
+void floorDoorToggle2( entity toggleTrigger , string doorName , string stateName )
+{
+	entity door;			// door
+	entity arms;			// rotating arm underneath door
+	entity fixture;			// spotlight fixture and flares
+	entity light;			// spotlight attached to door
+	entity floorPiece;		// floor piece in front of door
+	entity steam1;			// steam effect
+	entity steam2;			// steam effect
+	
+
+	door = sys.getEntity( ( "floorDoor" + doorName ) );
+	arms = sys.getEntity( ( "floorDoorArms" + doorName ) );
+	fixture = sys.getEntity( ( "floorDoorFixture" + doorName ) );
+	light = sys.getEntity( ( "floorDoorLight" + doorName ) );
+	floorPiece = sys.getEntity( ( "floorDoorFloor" + doorName ) );
+	steam1 = sys.getEntity( ( "floorDoorFxLeft" + doorName ) );
+	steam2 = sys.getEntity( ( "floorDoorFxRight" + doorName ) );
+
+	if ( toggleTrigger.getKey( stateName ) == "down" )
+	{
+		thread floorDoorUp( door , arms , fixture , light , floorPiece , steam1 , steam2 );
+		toggleTrigger.setKey( stateName , "up" );
+	}
+
+	else
+	{
+		thread floorDoorDown( door , arms , fixture , light , floorPiece , steam1 , steam2 );
+		toggleTrigger.setKey( stateName , "down" );
+	}
+}
+
+
+void floorDoorToggle( entity toggleTrigger )
+{
+	// Door A
+
+	if ( toggleTrigger.getKey( "doorA" ) != "0" )
+	{
+		thread floorDoorToggle2( toggleTrigger , toggleTrigger.getKey( "doorA" ) , "stateA" );
+	}
+
+	// Door B
+
+	if ( toggleTrigger.getKey( "doorB" ) != "0" )
+	{
+		thread floorDoorToggle2( toggleTrigger , toggleTrigger.getKey( "doorB" ) , "stateB" );
+	}
+
+	// Door C
+
+	if ( toggleTrigger.getKey( "doorC" ) != "0" )
+	{
+		thread floorDoorToggle2( toggleTrigger , toggleTrigger.getKey( "doorC" ) , "stateC" );
+	}
+
+	// Door D
+
+	if ( toggleTrigger.getKey( "doorD" ) != "0" )
+	{
+		thread floorDoorToggle2( toggleTrigger , toggleTrigger.getKey( "doorD" ) , "stateD" );
+	}
+}
+
+
+
+void floorDoorInit2( entity initTrigger , string doorName , string stateName )
+{
+	entity door;			// door
+	entity arms;			// rotating arm underneath door
+	entity fixture;			// spotlight fixture and flares
+	entity light;			// spotlight attached to door
+	entity floorPiece;		// floor piece in front of door
+	entity steam1;			// steam effect
+	entity steam2;			// steam effect
+
+	entity toggleTrigger; 		// trigger that is typically used for toggling door states
+
+	door = sys.getEntity( ( "floorDoor" + doorName ) );
+	arms = sys.getEntity( ( "floorDoorArms" + doorName ) );
+	fixture = sys.getEntity( ( "floorDoorFixture" + doorName ) );
+	light = sys.getEntity( ( "floorDoorLight" + doorName ) );
+	floorPiece = sys.getEntity( ( "floorDoorFloor" + doorName ) );
+	steam1 = sys.getEntity( ( "floorDoorFxLeft" + doorName ) );
+	steam2 = sys.getEntity( ( "floorDoorFxRight" + doorName ) );
+
+	toggleTrigger = sys.getEntity( ( "floorDoorTrigger_" + initTrigger.getKey( "triggerNumber" ) ) );
+
+	thread floorDoorUp( door , arms , fixture , light , floorPiece , steam1 , steam2 );
+
+	toggleTrigger.setKey( stateName , "up" );
+}
+
+
+void floorDoorInit( entity initTrigger )
+{
+	// Door A
+
+	if (	( initTrigger.getKey( "doorA" ) != "0" )	&&	( initTrigger.getKey( "doorsUp" ) == "AC" )	)
+	{
+		thread floorDoorInit2( initTrigger , initTrigger.getKey( "doorA" ) , "stateA" );
+	}
+
+	// Door B
+
+	if (	( initTrigger.getKey( "doorB" ) != "0" )	&&	( initTrigger.getKey( "doorsUp" ) == "BD" )	)
+	{
+		thread floorDoorInit2( initTrigger , initTrigger.getKey( "doorB" ) , "stateB" );
+	}
+
+	// Door C
+
+	if (	( initTrigger.getKey( "doorC" ) != "0" )	&&	( initTrigger.getKey( "doorsUp" ) == "AC" )	)
+	{
+		thread floorDoorInit2( initTrigger , initTrigger.getKey( "doorC" ) , "stateC" );
+	}
+
+	// Door D
+
+	if (	( initTrigger.getKey( "doorD" ) != "0" )	&&	( initTrigger.getKey( "doorsUp" ) == "BD" )	)
+	{
+		thread floorDoorInit2( initTrigger , initTrigger.getKey( "doorD" ) , "stateD" );
+	}
+}
+*/
+
+void hh1()
+{
+	sys.trigger($monster_big_hh_tank_5);
+
+	sys.trigger($hhGrowl_1);
+
+	sys.wait(.25);
+
+	setNewTimes( $hh_mover1 , 3 , 1 , 1 );
+	$hh_mover1.startSpline( $func_splinemover_7 );
+	sys.waitFor( $hh_mover1 );
+
+	sys.waitFrame();
+	$monster_big_hh_tank_5.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_tether_radius_5);
+}
+void hh2()
+{
+	sys.trigger($monster_big_hh_tank_4);
+
+	sys.wait(.25);
+
+	sys.trigger($hhGrowl_2);
+
+	setNewTimes( $hh_mover2 , 2.5 , 1 , 1 );
+	$hh_mover2.startSpline( $func_splinemover_6 );
+	sys.waitFor( $hh_mover2 );
+
+	sys.waitFrame();
+	$monster_big_hh_tank_4.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_tether_radius_6);
+}
+
+void fatTank()
+{
+	sys.trigger($monster_big_hh_tank_6);
+
+	sys.trigger($func_door_308);
+
+	setNewTimes( $hh_mover_1 , 2 , 0 , 1 );
+	$hh_mover_1.startSpline( $func_splinemover_9 );
+	sys.waitFor( $hh_mover_1 );
+
+	sys.waitFrame();
+	$monster_big_hh_tank_6.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_tether_radius_7);
+}
+
+
+void deadBug()
+{
+	sys.waitFrame();
+	sys.trigger($first3BugsCount);
+
+}
+void threeBugsDoor()
+{
+	sys.trigger($monster_strogg_hover_9);
+
+	sys.trigger($func_door_324);
+
+	setNewTimes( $hover_base_5 , 3 , 0 , 1 );
+	$hover_base_5.startSpline( $func_splinemover_8 );
+	sys.waitFor( $hover_base_5 );
+
+	sys.waitFrame();
+
+	$monster_strogg_hover_9.unbind();
+}
+
+//-------------------------------------------------------------------------------------------
+// Roller arena scripts
+//-------------------------------------------------------------------------------------------
+void rollers1Done( )
+{
+	// remove the clip brush that provides extra protection against a vehicle bug (that allows it to clip through doors)
+	//	....and open up the doors...
+	//	this EXTRA protection, doesn't work!	=mrenner
+	$roller_ball_arena_vehicle_clip_brush.remove();
+
+	sys.trigger( $func_door_366 );
+
+	thread hh1();
+	thread hh2();
+
+/*
+	sys.wait(2);
+
+	if ( rollersStarted == 0 )
+	{
+		rollersStarted = 1;
+
+		sys.trigger( $jumper_1 );
+		$jumper_1.setLinearVelocity( ' 0 -2200 10 ' );
+
+		sys.wait( 1.5 );
+
+		sys.trigger( $jumper_2 );
+		$jumper_2.setLinearVelocity( ' 0 -1600 10 ' );
+
+		sys.wait( 2.5 );
+
+		$jumper_1.becomeAggressive( );
+
+		sys.wait( 2.5 );
+
+		$jumper_2.becomeAggressive( );
+	}
+*/
+}
+
+void rollerArena( )
+{
+	arenaKills++;
+
+	if ( ( arenaKills + 1 ) >= ( $arenaSpawner.getFloatKey( "count" ) ) )
+	{
+		thread rollers1Done( );
+	}
+}
+
+void roller1East( entity roller )
+{
+	vector velo;
+	float distance = sys.randomInt( 800 );
+	distance += 1000;
+	velo_x = distance;
+	velo_z = ( distance / 10 );
+
+	roller.setLinearVelocity( velo );
+	sys.wait( 2 );
+	roller.becomeAggressive( );
+}
+
+void roller1West( entity roller )
+{
+	vector velo;
+	float distance = sys.randomInt( 800 );
+	distance += 1000;
+	velo_x = ( distance * -1 );
+	velo_z = ( distance / 10 );
+
+	roller.setLinearVelocity( velo );
+	sys.wait( 2 );
+	roller.becomeAggressive( );
+}
+
+//--
+// Strafing runs for third section	aweldon Mar 05
+//--
+
+void letLooseTheDogsOfWar( entity fighter , entity projectileOne , entity projectileTwo , float burst )	{
+
+	entity tempTarget = $null_entity;
+	
+	// Master function for firing volleys of missiles at the player.
+	
+	// Declare counter
+	float burstCount = 0;
+	
+	// Check counter against total volleys and valid entity status
+	while( burstCount < burst && isValidEntity( fighter ) )	{
+
+		vector guessLead = $player1.getLinearVelocity();
+		//guessLead_x = guessLead_x * 2;
+		//guessLead_y = guessLead_y * 2;
+		vector playerLeading = $player1.getWorldOrigin() + guessLead;
+		
+	
+		sys.setSpawnArg( "classname", "target_null" );
+		sys.setSpawnArg( "origin", playerLeading );
+		tempTarget = sys.spawn( "target_null" );
+	
+		projectileOne.appendTarget( tempTarget );
+		projectileTwo.appendTarget( tempTarget );
+	
+		// Fire away!
+		sys.trigger( projectileOne );
+		sys.wait( .1 );
+		sys.trigger( projectileTwo );
+		sys.wait( .3 );
+		
+		// Increment burst counter
+		burstCount++;
+		
+		tempTarget.remove();
+
+		projectileOne.removeTarget( tempTarget );
+		projectileTwo.removeTarget( tempTarget );
+	}
+	
+	if( !isValidEntity( fighter ) )	{
+		
+		// Quick check for correctly terminating the function
+		//sys.println( "Caught flyer death, ignoring weapons fire call" );
+		tempTarget.remove();
+	}
+}
+
+float lastFighterTookPath = 0;
+
+void strafingRun( entity flyer , float activePath )	{
+	
+	// Add functions for each flyer path here
+	if( activePath == 1 )	{
+	
+		// Banking and firing for path 1
+		sys.wait( 1.2 );
+		setNewTimes( flyer , 1.8 , .5 , .5 );
+		flyer.rotateOnce( '-30 0 0' );
+		sys.waitFor( flyer );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 2 );
+		setNewTimes( flyer , 1.2 , .5 , .5 );
+		flyer.rotateOnce( '45 0 0' );
+		sys.waitFor( flyer );
+		flyer.rotateOnce( '-15 0 0' );
+		sys.waitFor( flyer );
+	}	
+	
+	else if( activePath == 2 )	{
+	
+		// Banking and firing for path 2
+		sys.wait( .7 );
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '40 0 0' );
+		sys.waitFor( flyer );
+		flyer.rotateOnce( '-80 0 0' );
+		sys.waitFor( flyer );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 2 );
+		setNewTimes( flyer , 3 , .5 , .5 );
+		flyer.rotateOnce( '40 0 0' );
+		sys.waitFor( flyer );
+	}
+	else if( activePath == 3 )	{
+	
+		// Banking and firing for path 3
+		sys.wait( 2.0 );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 2 );
+		setNewTimes( flyer , 2 , .5 , .5 );
+		flyer.rotateOnce( '-25 0 0' );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 3 , .5 , .5 );
+		flyer.rotateOnce( '65 0 0' );
+		sys.waitFor( flyer );
+	}
+	else	{
+
+		// Banking and firing for path 4
+		sys.wait( 2.0 );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 2 );
+		setNewTimes( flyer , 4 , .5 , .5 );
+		flyer.rotateOnce( '15 0 0' );
+		sys.waitFor( flyer );
+	}
+
+}
+
+// Base function to run a strafing run on a random spline
+void startStrafingRun( string basePrefix, string flyPrefix , float numero , float numSplines , string splPrefix )	{
+	
+	// Takes in number of flyer to start on one of the selection of splines
+	
+	float randomPath;
+	entity flyer = sys.getEntity( flyPrefix + numero );
+	entity flyerBase = sys.getEntity( basePrefix + numero );
+	
+	// Grab a first attempt at a spline path
+	randomPath = sys.random( 1337 ) * 10000 % numSplines + 1;
+	//sys.println( "Will attempt to path down spline " + randomPath );
+	
+	while( randomPath == lastFighterTookPath )	{
+		
+		// Re-set random path selection
+		randomPath = sys.random( 1337 ) * 10000 % numSplines + 1;
+		//sys.println( "First attempt failed, will now attempt spline " + randomPath );
+		sys.waitFrame();
+	}
+	
+	// Mark this as the most recently used spline
+	lastFighterTookPath = randomPath;
+	
+	entity spline = ( sys.getEntity( splPrefix + randomPath ) );
+	flyerBase.startSpline( spline );
+	
+	// Start rotations and rocket volleys
+	thread strafingRun( flyer , randomPath );
+	
+	sys.waitFor( flyerBase );
+	
+	if( isValidEntity( flyer ) )	{
+		flyer.hide();
+	}
+}
+
+void stroggStrafingMayhem( )	{
+		
+	// Define the number of splines to use here:
+	float numSplines = 4;
+	
+	// Define all entity prefixes... prefixi... whatever.
+	string basePrefix = "strafeBase_";
+	string flyPrefix = "strafingFlyer_";
+	string splPrefix = "flyerStrafe_";
+	
+	// Start each strafing run, in this case with a slight random wait time added between each
+
+	// First group
+
+	thread startStrafingRun( basePrefix, flyPrefix , 1 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(2) );
+	thread startStrafingRun( basePrefix, flyPrefix , 2 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(1) );
+	thread startStrafingRun( basePrefix, flyPrefix , 3 , numSplines , splPrefix );
+
+	// Second group
+
+	sys.wait( 12 + sys.random(2) );
+	thread startStrafingRun( basePrefix, flyPrefix , 4 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(1) );
+	thread startStrafingRun( basePrefix, flyPrefix , 5 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(1) );
+	thread startStrafingRun( basePrefix, flyPrefix , 6 , numSplines , splPrefix );
+	
+}
+
+void stroggFlyerExplosion( entity flyer , entity explosion )	{
+
+	// Define variables for function
+	entity pilot;
+	vector old;
+	vector new;
+	vector flingPilot;
+	
+	// Calculate velocity vector
+	old = flyer.getWorldOrigin();
+	sys.waitFrame();
+	new = flyer.getWorldOrigin();
+
+	// Nuke flyer and trigger explosion
+	flyer.hide();
+	flingPilot = new - old;
+	sys.trigger( explosion );
+	sys.waitFrame();
+	
+	
+	// Spawn ragdoll pilot and remove flyer
+	sys.setSpawnArg( "classname", "monster_strogg_marine" );
+	sys.setSpawnArg( "origin", explosion.getWorldOrigin() + '0 0 64');
+	pilot = sys.spawn( "monster_strogg_marine" );
+	pilot.kill();
+	flyer.remove();
+	sys.waitFrame();
+
+	// Establish velocity for flinging pilot
+	flingPilot_x = 300*flingPilot_x;
+	flingPilot_y = 300*flingPilot_y;
+	flingPilot_z = 3000;
+	//sys.println( flingPilot );
+	
+	// Make that ragdoll fly!
+	pilot.setLinearVelocity( flingPilot );
+			
+}
+
+
+void stroggExplode_1()	{
+	
+	thread stroggFlyerExplosion( $strafingFlyer_1 , $flyerStrafeExplode_1 );
+	
+}
+
+void stroggExplode_2()	{
+	
+	thread stroggFlyerExplosion( $strafingFlyer_2 , $flyerStrafeExplode_2 );
+	
+}
+
+void stroggExplode_3()	{
+	
+	thread stroggFlyerExplosion( $strafingFlyer_3 , $flyerStrafeExplode_3 );
+	
+}
+
+void stroggExplode_4()	{
+	
+	thread stroggFlyerExplosion( $strafingFlyer_4 , $flyerStrafeExplode_4 );
+	
+}
+
+void stroggExplode_5()	{
+	
+	thread stroggFlyerExplosion( $strafingFlyer_5 , $flyerStrafeExplode_5 );
+	
+}
+
+void stroggExplode_6()	{
+	
+	thread stroggFlyerExplosion( $strafingFlyer_6 , $flyerStrafeExplode_6 );
+	
+}
+
+//--
+// End strafing runs
+//--
+
+
+//-------------------------------------------------------------------------------------------
+// drop ship
+//-------------------------------------------------------------------------------------------
+void buzzPlayer()	{
+
+	while( $daredevil_sound.distanceTo( $player1 ) > 2048 )	{
+		
+		//sys.println("Wait for it...");
+		sys.wait( .5 );
+		
+	}
+	
+	sys.trigger( $daredevil_sound );
+	//sys.println( "PLAYING!" );
+	
+}
+
+void dropOff()	{
+	
+	// was asked to make the dropoff happen faster...this will make it easier to adjust the whole sequence and keep
+	//	all of the times listed below correct
+	float rate = 0.6666;
+
+	setNewTimes( $daredevil_base , 15*rate , 0 , 6*rate );
+	$daredevil_base.startSpline( $daredevilSpline );
+	
+	thread buzzPlayer();
+		
+	setNewTimes( $daredevil_axis , 2*rate , 1*rate , 1*rate );
+	$daredevil_axis.rotateOnce( '0 0 25' );
+	sys.waitFor( $daredevil_axis );
+	sys.wait( 1 );
+	
+	setNewTimes( $daredevil_axis , 1.5*rate , .75*rate , .75*rate );
+	$daredevil_axis.rotateOnce( '0 0 -75' );
+	sys.waitFor( $daredevil_axis );
+	
+	setNewTimes( $daredevil_axis , 2.5*rate , 1*rate , 1*rate );
+	$daredevil_axis.rotateOnce( '0 0 120' );
+	sys.waitFor( $daredevil_axis );
+	
+	setNewTimes( $daredevil_axis , 2*rate , 1*rate , 1*rate );
+	$daredevil_axis.rotateOnce( '-15 0 -140' );
+	sys.waitFor( $daredevil_axis );
+	sys.wait( 2 );
+	
+	setNewTimes( $daredevil_axis , 3*rate , 1*rate , 1*rate );
+	$daredevil_axis.rotateOnce( '15 0 70' );
+	sys.waitFor( $daredevil_axis );
+	
+	sys.waitFor( $daredevil_base );
+	
+	strogg_dropship::carrierLand( $daredevilDropship );
+	
+	setNewTimes( $daredevil_base , 12 , 3 , 0 );
+	$daredevil_base.startSpline( $daredevilSpline_1 );
+	thread buzzPlayer();
+	
+	//ROTATIONS
+	
+	sys.waitFor( $daredevil_base );
+	$daredevil_base.remove();
+	
+}
+
+//-------------------------------------------------------------------------------------------
+// give marine nailgun and rate of fire mod at beginning of map
+//-------------------------------------------------------------------------------------------
+void giveWeap()
+{
+	$marine_cleaning_1.lookAt($null_entity);
+
+	aiScriptedAnimWait($marine_cleaning_1, "recomp_mod_hyper", 8, true);	
+//	aiScriptedAnimWait( $marine_cleaning_1, "player_gift_start", 4, 1 );
+
+	sys.trigger($target_give_1);
+	sys.trigger($speaker_22);
+
+//	aiScriptedAnimWait( $marine_cleaning_1, "player_gift_end", 4, 1 );
+	
+	$block4mod.remove();
+
+	aiSpeakWait( $marine_cleaning_1, "lipsync_2" );
+	$marine_cleaning_1.enableHeal();
+	$marine_cleaning_1.setTalkState(TALK_OK);	
+		
+	sys.wait(.5);
+	sys.trigger($ai_tether_radius_eganpatrol_3);
+}
+
+void newWeaponMod()
+{
+	$marine_cleaning_1.lookAt($player1);
+
+	// just wanted him to walk a bit faster...
+	$marine_cleaning_1.setAnimRate(1.3);
+	aiScriptedAnimWait( $marine_cleaning_1, "walk", 0, 0 );
+	aiScriptedAnimWait( $marine_cleaning_1, "walk", 0, 0 );
+
+	aiSpeak( $marine_cleaning_1, "lipsync_1" );
+
+	$marine_cleaning_1.lookAt($null_entity);
+	$player1.selectWeapon("weapon_nailgun");
+
+	$marine_cleaning_1.setAnimRate(1);
+	aiScriptedAnimWait($marine_cleaning_1, "player_gift_start", 8, true);	
+	aiScriptedAnimLoop($marine_cleaning_1, "player_gift_loop", 0);
+	
+	sys.trigger($giveWeaponTrig);
+}
+void rH1Death()
+{
+	$monster_convoy_ground_5.unbind();
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_1);
+
+	sys.trigger($monster_convoy_ground_5);
+}
+void rH1()
+{
+	$monster_strogg_hover_4.show();
+	$monster_convoy_ground_5.show();
+
+	setNewTimes( $hover_base , 4 , 0 , 1 );
+	$hover_base.startSpline( $func_splinemover_1 );
+	sys.waitFor( $hover_base );
+
+	sys.waitFrame();
+
+	$monster_convoy_ground_5.unbind();
+	$monster_strogg_hover_4.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_1);
+
+	sys.trigger($monster_convoy_ground_5);
+	sys.trigger($monster_strogg_hover_4);	
+}
+void rH2Death()
+{
+	$monster_convoy_ground_6.unbind();
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_2);
+
+	sys.trigger($monster_convoy_ground_6);
+}
+void rH2()
+{
+	$monster_strogg_hover_5.show();
+	$monster_convoy_ground_6.show();
+
+	setNewTimes( $hover_base_1 , 6 , 0 , 1 );
+	$hover_base_1.startSpline( $func_splinemover_2 );
+	sys.waitFor( $hover_base_1 );
+
+	sys.waitFrame();
+
+	$monster_convoy_ground_6.unbind();
+	$monster_strogg_hover_5.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_2);
+
+	sys.trigger($monster_convoy_ground_6);
+	sys.trigger($monster_strogg_hover_5);	
+}
+
+void hornet1()
+{
+	$monster_strogg_hover_6.show();
+
+	setNewTimes( $hover_base_2 , 6 , 0 , 1 );
+	$hover_base_2.startSpline( $func_splinemover_3 );
+	sys.waitFor( $hover_base_2 );
+
+	sys.waitFrame();
+
+	$monster_strogg_hover_6.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_3);
+	sys.trigger($monster_strogg_hover_6);
+}
+
+void hornet2()
+{
+	$monster_strogg_hover_7.show();
+
+	setNewTimes( $hover_base_3 , 7 , 2 , 1 );
+	$hover_base_3.startSpline( $func_splinemover_4 );
+	sys.waitFor( $hover_base_3 );
+
+	sys.waitFrame();
+
+	$monster_strogg_hover_7.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_4);
+	sys.trigger($monster_strogg_hover_7);
+}
+
+void hornet3()
+{
+	$monster_strogg_hover_8.show();
+
+	setNewTimes( $hover_base_4 , 6 , 0 , 1 );
+	$hover_base_4.startSpline( $func_splinemover_5 );
+	sys.waitFor( $hover_base_4 );
+
+	sys.waitFrame();
+
+	$monster_strogg_hover_8.unbind();
+
+	sys.waitFrame();
+	sys.trigger($ai_become_aggressive_5);
+	sys.trigger($monster_strogg_hover_8);
+}
+
+
+void threeHornets()
+{
+	thread hornet1();
+	sys.wait(.25);
+	thread hornet2();
+	sys.wait(.5);
+	thread hornet3();
+}
+
+void rollerHover()
+{
+	$rollerDomeClip.show();
+	
+	sys.trigger($ai_trigger_once_2);
+	
+	thread rH1();
+	sys.wait(.5);
+	thread rH2();
+}
+
+
+void flyby1()
+{
+	// was asked to make the dropoff happen faster...this will make it easier to adjust the whole sequence and keep
+	//	all of the times listed below correct
+	float rate = 0.6666;
+
+	$daredevilDropship_1.show();
+
+	setNewTimes( $daredevil_base_1 , 6 , 0 , 0 );
+	$daredevil_base_1.startSpline( $flybyFirst );
+
+	setNewTimes( $daredevil_axis_1 , .5*rate , 1*rate , 1*rate );
+	$daredevil_axis_1.rotateOnce( '0 0 64' );
+	sys.waitFor( $daredevil_axis_1 );
+
+	sys.trigger($flyBySnd);
+
+	setNewTimes( $daredevil_axis_1 , 2*rate , 1*rate , 1*rate );
+	$daredevil_axis_1.rotateOnce( '0 0 -112' );
+	sys.waitFor( $daredevil_axis_1 );
+	
+	sys.waitFor( $daredevil_base_1 );
+
+	$daredevilDropship_1.hide();
+}
+
+void enterTank()
+{
+	//sys.println("Lock Tank");
+
+	$func_door_297.lock(1);
+	
+	sys.sendNamedEvent( GUI_VEHICLEHUD, "showLockmessage" );
+	$vehicle_gev_6.lock(1);
+
+	$vehicle_gev_6.setHealth(500);
+	
+	sys.trigger($introGuys);
+
+}
+
+void fighter3Shooting()
+{
+	sys.wait(1);
+	sys.trigger($strogg_fighter_1_gun_5);
+	sys.trigger($strogg_fighter_1_gun_6);
+	sys.wait(2);
+	$strogg_fighter_1_gun_5.remove();
+	$strogg_fighter_1_gun_6.remove();
+	sys.trigger($strogg_fighter_speaker_10);
+} 
+
+void fighter4Shooting()
+{
+	sys.wait(1.25);
+	sys.trigger($strogg_fighter_1_gun_7);
+	sys.trigger($strogg_fighter_1_gun_8);
+	sys.wait(1.5);
+	$strogg_fighter_1_gun_7.remove();
+	$strogg_fighter_1_gun_8.remove();
+	sys.trigger($strogg_fighter_speaker_12);
+} 
+
+
+void fighter3fly()
+{
+	sys.trigger($strogg_fighter_setup_3);
+	thread fighter3Shooting();
+	$strogg_fighter_base_3.speed(3000);
+	$strogg_fighter_base_3.startSpline($func_splinemover_10);
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_3, 1, .25, .25);
+	$strogg_fighter_3.rotateOnce('30 0 0');
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_3, 2, .5, .5);
+	$strogg_fighter_3.rotateOnce('-40 0 0');
+
+	sys.wait(2);
+
+	setNewTimes($strogg_fighter_3, 1, .25, .25);
+	$strogg_fighter_3.rotateOnce('-30 0 0');
+
+	sys.waitFor($strogg_fighter_base_3);
+	$strogg_fighter_base_3.remove();
+}
+void fighter4fly()
+{
+	sys.trigger($strogg_fighter_setup_4);
+	thread fighter4Shooting();
+	$strogg_fighter_base_4.speed(3000);
+	$strogg_fighter_base_4.startSpline($func_splinemover_11);
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_4, 1, .25, .25);
+	$strogg_fighter_4.rotateOnce('30 0 0');
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_4, 2, .5, .5);
+	$strogg_fighter_4.rotateOnce('-40 0 0');
+
+	sys.wait(2);
+
+	setNewTimes($strogg_fighter_4, 1, .25, .25);
+	$strogg_fighter_4.rotateOnce('30 0 0');
+	
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_4, 2, .5, .5);
+	$strogg_fighter_4.rotateOnce('-40 0 0');
+
+	sys.waitFor($strogg_fighter_base_4);
+	$strogg_fighter_base_4.remove();
+}
+void endFlyers()
+{
+	thread fighter3fly();
+	thread fighter4fly();
+}
+
+void showTerrain()
+{
+	$building_b_mesh.show();
+}
+
+
+//-------------------------------------------------------------------------------------------
+// MAIN
+//-------------------------------------------------------------------------------------------
+
+void main()
+{
+	//strogg vs marine airpower go!
+	float t;
+	
+	//originally, there were six planes per side. Now we're using 2, and that might change too. But the
+	//+6 for the 3rd parameter is because originally the damaged versions of the sprites started at 7.
+	for (t = 1; t <= 2; t++)	
+	{
+		// NOTE: calling into AIRDEFENSE1 script code to prevent duplicated code.  TODO: probably should move that code to its own script file?
+		thread map_airdefense1::maintainStroggFlyerSprite( sys.getEntity("mvr_fx_strogg_flyer_" + t), sys.getEntity("fx_air_strogg_fighter_" + t), sys.getEntity("fx_air_strogg_fighter_" + (t + 6) ), $tgt_strogg_flyer_hangar, $tgr_strogg_flyer_end, '-1 0 .1' );
+		thread map_airdefense1::maintainStroggFlyerSprite( sys.getEntity("mvr_fx_marine_flyer_" + t), sys.getEntity("fx_air_marine_fighter_" + t), sys.getEntity("fx_air_marine_fighter_" + (t + 6) ), $tgt_marine_flyer_hangar, $tgr_marine_flyer_end, '1 0 .1' );
+	}
+
+	// Needed for each floor door in map to tell it which side should start raised
+//	sys.trigger( $floorDoorInit_10 );
+
+	thread strogg_dropship::bindMonsters( $daredevilDropship );
+	
+	$marine_cleaning_1.setTalkState(TALK_WAIT);		
+	
+	//sys.println("set health");
+	$vehicle_gev_6.setHealth(99999999999999999999999999999999999999);		// heh
+}
+
+// Called when the harvester dies.
+void HarvesterDeath( ) {
+	
+}
+
+}	//end namespace
+
+
+
+
+
+
+
+

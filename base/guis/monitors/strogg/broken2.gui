@@ -1,0 +1,157 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui, gui_parm_stroyent = 1 adds stroyent junk on the screen"
+	visible	1
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	windowDef static1
+	{
+		visible	1
+		rect	0,0,640,480
+		background	"gfx/guis/common/static1"
+		matcolor	1,1,1,.3
+	}
+	windowDef static2
+	{
+		visible	1
+		rect	0,0,640,480
+		background	"gfx/guis/common/static2"
+		matcolor	1,1,1,.3
+	}
+	windowDef flicker2
+	{
+		visible	1
+		rect	0,0,640,480
+		backcolor	0.701,0.788,0.815,0
+
+		onTime 0 {
+			set "backcolor" "0.701,0.788,0.815,.1" ;
+		}
+
+		onTime 50 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 800 {
+			set "backcolor" "0.701,0.788,0.815,.1" ;
+		}
+
+		onTime 850 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 1200 {
+			set "backcolor" "0.701,0.788,0.815,.2" ;
+		}
+
+		onTime 1250 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 2400 {
+			set "backcolor" "0.701,0.788,0.815,.1" ;
+		}
+
+		onTime 2450 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 2900 {
+			set "backcolor" "0.701,0.788,0.815,.3" ;
+		}
+
+		onTime 2950 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 4200 {
+			set "backcolor" "0.701,0.788,0.815,.1" ;
+		}
+
+		onTime 4250 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 820 {
+			set "backcolor" "0.701,0.788,0.815,.2" ;
+		}
+
+		onTime 8250 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 920 {
+			set "backcolor" "0.701,0.788,0.815,.1" ;
+		}
+
+		onTime 9250 {
+			set "backcolor" "0.701,0.788,0.815,0" ;
+		}
+
+		onTime 10000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-250,640,888
+			background	"gfx/guis/common/monitor_line3"
+			matcolor	0.752,0.850,0.913,0.08
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-16,-25,667,514
+			background	"gfx/guis/common/monitor_reflect"
+			matcolor	0.450,0.686,0.776,0.2
+		}
+		windowDef gradient
+		{
+			visible	1
+			rect	-121,-24,887,545
+			background	"gfx/guis/common/gradient"
+			matcolor	0.486,0.658,0.713,0.2
+		}
+		windowDef glass2
+		{
+			visible	1
+			rect	-3,3,640,480
+			background	"gfx/guis/common/broken_glass2"
+			matcolor	0,0,0,1
+		}
+		windowDef glass
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass2"
+			matcolor	0.749,0.827,0.835,1
+		}
+		windowDef addlines
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/add_lines1"
+			matcolor	0.286,0.403,0.486,1
+		}
+		windowDef dirt_stroyent
+		{
+			rect	0,-41,757,523
+			visible	"gui::gui_parm_stroyent"
+			background	"gfx/guis/common/screen_dirt5"
+			matcolor	0.313,0.356,0.149,1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

@@ -1,0 +1,488 @@
+
+
+sound failedtransfer_alert
+{
+	description	"I see you"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/alert1
+	shakeData 0 abegjjmllkmklnpqpqpsrquvvvpsssqppsstwqtttuvyuvxtrkicbiosrljjqwssrrrtrsrqrstrpononposxxvlgbacfggefgiheddeeffggfdededdcddcccccbbbaaaaaaaaaaaa
+	sound/strogg/failed_transfer/alert2
+	shakeData 1 abcdegginstnpkilkmjhcipqliilxxwvrqmlijmnrqnlmurspllknonqtvtqlgdbglitqqttutvvtrsxtvspproonpqoqmkmjihgfiifcaa
+	sound/strogg/failed_transfer/alert3
+	shakeData 2 abfoytrsstrrrrrpoqrtvxspqqpsjcisyxxwvxtqrqpsqopoqomnkjhihlijkkmkiiiklkjihhhffedccbbaaaaaa
+}
+
+
+sound failedtransfer_chatter
+{
+	description	"I see you"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-12
+
+	sound/strogg/failed_transfer/chatter1
+	shakeData 0 cdffgihhhkqstwwzssvrppomcewvvywvxzxlaagsppxpqvxxttifdqtrsvrmllgghijkkhlmmgilkmmjiggfcba
+	sound/strogg/failed_transfer/chatter2
+	shakeData 1 cdgffflnsqqrtqrrnpkljmjmtsusttupnpmmluqswtysuvvwvyunlplkonsonpmoqqwqnroostnrqmmnkjhhfmhjihkkjlkkihhgghgffgfhkjhcaaa
+	sound/strogg/failed_transfer/chatter3
+	shakeData 2 abgfddeeggmnnqopqrssssswpqqkklmjjjpklnsjlikjjtpvxpxvxwtwwrkktkliihjkkjfhffgedjjminolkijilllillmjhfdcccbbbaaaaaa
+	sound/strogg/failed_transfer/chatter4
+	shakeData 3 bfpsjiiiijfgijiljptrsrnigfhnsstsrtoqnpppiiiikkmnmmkjnnnprqxxytqlruoppwtovrlmfglmlkjgeeeeddccbaaaaa
+}
+
+
+sound failedtransfer_growl
+{
+	description	"I see you"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/growl1
+	shakeData 0 jtvwtkekvssnsspookrppsrunpsrsopnjeba
+	sound/strogg/failed_transfer/growl2
+	shakeData 1 dsxwponlonlpttxytquttrssrqtsqopponmmmjhgfeccbbbaaaaa
+	sound/strogg/failed_transfer/growl3
+	shakeData 2 ahjnsxrvxvyuyxrwwwvtspplmigffdcbbcecbbbbbbaaa
+}
+
+
+sound failedtransfer_sight
+{
+	description	"I see you"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/alert1
+	shakeData 0 abegjjmllkmklnpqpqpsrquvvvpsssqppsstwqtttuvyuvxtrkicbiosrljjqwssrrrtrsrqrstrpononposxxvlgbacfggefgiheddeeffggfdededdcddcccccbbbaaaaaaaaaaaa
+	sound/strogg/failed_transfer/alert2
+	shakeData 1 abcdegginstnpkilkmjhcipqliilxxwvrqmlijmnrqnlmurspllknonqtvtqlgdbglitqqttutvvtrsxtvspproonpqoqmkmjihgfiifcaa
+	sound/strogg/failed_transfer/alert3
+	shakeData 2 abfoytrsstrrrrrpoqrtvxspqqpsjcisyxxwvxtqrqpsqopoqomnkjhihlijkkmkiiiklkjihhhffedccbbaaaaaa
+}
+
+
+sound failedtransfer_rush
+{
+	description	"Comin' to getcha"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/alert1
+	shakeData 0 abegjjmllkmklnpqpqpsrquvvvpsssqppsstwqtttuvyuvxtrkicbiosrljjqwssrrrtrsrqrstrpononposxxvlgbacfggefgiheddeeffggfdededdcddcccccbbbaaaaaaaaaaaa
+	sound/strogg/failed_transfer/alert2
+	shakeData 1 abcdegginstnpkilkmjhcipqliilxxwvrqmlijmnrqnlmurspllknonqtvtqlgdbglitqqttutvvtrsxtvspproonpqoqmkmjihgfiifcaa
+	sound/strogg/failed_transfer/alert3
+	shakeData 2 abfoytrsstrrrrrpoqrtvxspqqpsjcisyxxwvxtqrqpsqopoqomnkjhihlijkkmkiiiklkjihhhffedccbbaaaaaa
+}
+
+
+sound failedtransfer_step
+{
+	description	"shambling along"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-9
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/squishy/default1
+	shakeData 0 jhbcbaaaaaa
+	sound/strogg/footsteps/squishy/default2
+	shakeData 1 jdbbbaaaaaaa
+	sound/strogg/footsteps/squishy/default3
+	shakeData 2 jdccaaaaaaaa
+	sound/strogg/footsteps/squishy/default4
+	shakeData 3 kdcdaaaaaaa
+}
+
+
+sound failedtransfer_step_flesh
+{
+	description	"shambling along"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-9
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/squishy/flesh1
+	shakeData 0 xegeedabbbabbaaaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/flesh2
+	shakeData 1 hfehbbbgcdgbaaaa
+	sound/strogg/footsteps/squishy/flesh3
+	shakeData 2 jlbbebbabdabaaaaaaaaa
+	sound/strogg/footsteps/squishy/flesh4
+	shakeData 3 pkhcaaaaaaaaaaaaa
+}
+
+
+sound failedtransfer_step_dirt
+{
+	description	"shambling along"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-6
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/squishy/dirt1
+	shakeData 0 kggibcbaaaaaaaaaa
+	sound/strogg/footsteps/squishy/dirt2
+	shakeData 1 libfdcbbaaaaaa
+	sound/strogg/footsteps/squishy/dirt3
+	shakeData 2 kedfcabaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/dirt4
+	shakeData 3 jfcebbacaaaaaaaaa
+}
+
+
+sound failedtransfer_step_hollow_metal
+{
+	description	"shambling along"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-6
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/squishy/h_metal1
+	shakeData 0 eijiffdcbbaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/h_metal2
+	shakeData 1 jjgeddbbcbbaaaaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/h_metal3
+	shakeData 2 ceghgeedcbbaaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/h_metal4
+	shakeData 3 ehhfedcbcbbbaaaaaaaaaaaaaaa
+}
+
+
+sound failedtransfer_step_water
+{
+	description	"shambling along"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-6
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/squishy/water1
+	shakeData 0 licdcbcbbcbaaaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/water2
+	shakeData 1 leicbafcaaacaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/water3
+	shakeData 2 lkcdfcaabcaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/squishy/water4
+	shakeData 3 jfcdbbbbbbaaaaaaaaaaaaaa
+}
+
+
+sound failedtransfer_flesh
+{
+	description	"flesh movement"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+	frequentlyUsed
+
+	sound/strogg/failed_transfer/flesh1
+	shakeData 0 aabcbbdbcbbbbecbaaaaaa
+	sound/strogg/failed_transfer/flesh2
+	shakeData 1 abdjhdjkfddgbbbaa
+	sound/strogg/failed_transfer/flesh3
+	shakeData 2 aaccbebdcdcgcdcbbbbbaaaa
+	sound/strogg/failed_transfer/flesh4
+	shakeData 3 aabccccfccbbdcaa
+}
+
+
+sound failedtransfer_flesh2
+{
+	description	"flesh movement"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-12
+	frequentlyUsed
+
+	sound/strogg/failed_transfer/flesh1
+	shakeData 0 aabcbbdbcbbbbecbaaaaaa
+	sound/strogg/failed_transfer/flesh2
+	shakeData 1 abdjhdjkfddgbbbaa
+	sound/strogg/failed_transfer/flesh3
+	shakeData 2 aaccbebdcdcgcdcbbbbbaaaa
+	sound/strogg/failed_transfer/flesh4
+	shakeData 3 aabccccfccbbdcaa
+}
+
+
+sound failedtransfer_pain
+{
+	description	"ow"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/pain1
+	shakeData 0 bejsstlkrrsrqpsvsqkgfmkliecbbbaaaa
+	sound/strogg/failed_transfer/pain2
+	shakeData 1 dqqoossyqqutnkillhlcccceedcaa
+	sound/strogg/failed_transfer/pain3
+	shakeData 2 dgjptxxwwxvsojighhcbaaaaaa
+}
+
+
+sound failedtransfer_death
+{
+	description	"erk"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/die1
+	shakeData 0 chovwuwtqtywurswxyuprkijmkilnjhjmqnrrtvpqrumihfggffedcccaaa
+	sound/strogg/failed_transfer/die2
+	shakeData 1 mwyvtsstqsqpnmkhkorqponnmmlkkkkjjihhhghhggfffedcccedfdeeddedbaaaaa
+	sound/strogg/failed_transfer/die3
+	shakeData 2 hvwxwwwumuvvvtttusutttttuuuuuttstrrsrrrrooomkhggggdcbbaa
+}
+
+
+sound failedtransfer_swing
+{
+	description	"throwing a punch"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+	frequentlyUsed
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+}
+
+
+sound failedtransfer_punch
+{
+	description	"SLAMMO!!"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+	frequentlyUsed
+
+	sound/weapons/impact/whooshes_melee/melee_hit1
+	shakeData 0 ahrzzzzzuxmhedcbbaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit2
+	shakeData 1 ewzzzzzpnjlhfedcaaaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit3
+	shakeData 2 zzzzzzxkfbaaaaaaa
+}
+
+
+sound failedtransfer_vomit
+{
+	description	"Puke!!"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/failed_transfer/vomit1
+	shakeData 0 aabbikinkotstolfrtxvpjefgfcbaaaa
+	sound/strogg/failed_transfer/vomit2
+	shakeData 1 addwvumolkcdkifebbcccglnkikcaaaaa
+	sound/strogg/failed_transfer/vomit3
+	shakeData 2 acdkmkrrkfddeuniedsuhhfedcbaa
+}
+
+
+sound failedtransfer_vomit_liquid
+{
+	description	"Puke!!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/failed_transfer/vomit_liquid1
+	shakeData 0 dhprknmyxpmhklnvljideqhdccccdecbbabaaaaaaaaa
+	sound/strogg/failed_transfer/vomit_liquid2
+	shakeData 1 jhzwxxswxjlohkgemdigyghfcabaaa
+}
+
+
+sound failedtransfer_vomit_plop
+{
+	description	"Puke!!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	-6
+	frequentlyUsed
+
+	sound/strogg/failed_transfer/plop1
+	shakeData 0 yvxvrqllolkmmklkiiihigfedccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/failed_transfer/plop2
+	shakeData 1 yzzvwwqsnjggogdececbbbdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound failedtransfer_body_slam
+{
+	description	"body being tossed by the gladiator"
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	-9
+
+	sound/strogg/failed_transfer/body_slam
+	shakeData 0 yyyyyxxxxvwnuqowldedbbacabaaaaa
+}
+
+
+sound failedtransfer_body_splat
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	6
+
+	sound/effects/generic/liquidplop1
+	shakeData 0 keecebbaaaaaaaa
+	sound/effects/generic/liquidplop2
+	shakeData 1 bgbbaaaaa
+}
+
+
+sound failedtransfer_water_trickle
+{
+	description	"water trickling off body"
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+
+	sound/strogg/failed_transfer/water_trickle1
+	shakeData 0 gnfffgihnfkfjxeelfjlffndpfefddpgdbbbifbbdbabbaaaaaaaaa
+	sound/strogg/failed_transfer/water_trickle2
+	shakeData 1 nnefednhfcbabhfbekjqjggkwlhfdjcbcbbaddbbaddaaabaaabafdaaaaaaaaaaaaa
+	sound/strogg/failed_transfer/water_trickle3
+	shakeData 2 efldjlffmdnfeefignkkggvcdehdchejcbabaaaa
+}
+
+
+sound slimytransfer_alert
+{
+	description	"I see you"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/s_alert1
+	shakeData 0 ksvrxuxyqyuspsvoryprosqnnmmtwomrnstquqropmmknlrmkjkkmkmmyfhsjihkphjgfhhgjgedcdcecdccabaaaaaa
+	sound/strogg/failed_transfer/s_alert2
+	shakeData 1 aacfoxwxwujnprnosuvumjoomotuzrpotqnnjkmmiffifghighihfdedecefeccbbbbbabaaaaaa
+	sound/strogg/failed_transfer/s_alert3
+	shakeData 2 aaabbbhdhdeehefffkhimkllmlommroowspnqooomnvopomlnllsnkkkhlhghfeeedddcccdcccbcbbbbbbbbaaaaa
+}
+
+
+sound slimytransfer_chatter
+{
+	description	"I see you"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-12
+
+	sound/strogg/failed_transfer/s_chatter1
+	shakeData 0 accdcoxxwjfgedaabbdcbkifkmssvwlmwstjjhdcdbbbbbbbaaaaaabfoupuxtxrsyxwywruqnppqurptmunjhdccdfddbcccddhdedefffbcbabaaaa
+	sound/strogg/failed_transfer/s_chatter2
+	shakeData 1 acmhefipqkyijtumljefcbddffhiejohlwzvqtwmjdqytuwyyuemokhhkkufghebbbbfbcbbaabaaaaa
+	sound/strogg/failed_transfer/s_chatter3
+	shakeData 2 abcdhotskmpvxogdedmlidjjxwupjjkqltxvyysyrrtoeyqkfjsolaprulktxxvrqpqwttpoikjhfddccbaaa
+	sound/strogg/failed_transfer/s_chatter4
+	shakeData 3 bcfklrpolxxrvrsxprrjjkjheegnnjmlnkdeaacyrnuohjggjkmihfkgihdccbbaaaaaaa
+}
+
+
+sound slimytransfer_pain
+{
+	description	"ouch"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/s_pain1
+	shakeData 0 bdffovywwnjwokedelfaaaaaa
+	sound/strogg/failed_transfer/s_pain2
+	shakeData 1 ccdeehnrwuyuslfcccbbbaaa
+	sound/strogg/failed_transfer/s_pain3
+	shakeData 2 bfkjijelxwugheccecehecbaafdbaa
+}
+
+
+sound slimytransfer_growl
+{
+	description	"grrr"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/s_growl1
+	shakeData 0 accfsxzzoipsqllhfdggcbbcaaaaaaaaaa
+	sound/strogg/failed_transfer/s_growl2
+	shakeData 1 afjwiwolqpqmjjfffedaabbaaaaaaa
+	sound/strogg/failed_transfer/s_growl3
+	shakeData 2 dlqrxxwplxurllhifffedcebbdbfaaaaaaa
+}
+
+
+sound slimytransfer_death
+{
+	description	"grrr"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-6
+
+	sound/strogg/failed_transfer/s_die1
+	shakeData 0 guyzpxztxqmponpkeegkienmkljhmpqhfeghdddeeccccbbbbbaaaaaaa
+	sound/strogg/failed_transfer/s_die2
+	shakeData 1 bqvwwvnwrlrgkxgefglihigeedeebcbaaa
+	sound/strogg/failed_transfer/s_die3
+	shakeData 2 cgmtvxwwjfbkmpmnfdhidcaehhmegmhbbccccabbaabbbaaaaa
+}
+
+
+
+

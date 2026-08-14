@@ -1,0 +1,240 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	backcolor	0.141,0.0784,0.0588,1
+	comment	"namedevent 'activate' triggers gui on "
+
+	onNamedEvent activate {
+		resettime "anim" "0" ;
+	}
+
+	windowDef decal
+	{
+		rect	206,-26,228,169
+		visible	1
+		background	"gfx/guis/common/strogg/decal"
+		matcolor	0.878,0.643,0.403,0.4
+	}
+	windowDef g_bg_circ1
+	{
+		rect	83,116,476,350
+		visible	1
+		background	"gfx/guis/common/strogg/circle4"
+		matcolor	0,0,0,1
+	}
+	windowDef g_bg_circ2
+	{
+		rect	119,142,401,297
+		visible	1
+		background	"gfx/guis/common/strogg/circle5"
+		matcolor	0,0,0,1
+	}
+	windowDef bg_circ1
+	{
+		rect	83,116,476,350
+		visible	1
+		background	"gfx/guis/common/strogg/circle4"
+		matcolor	1,0.721,0.466,0.156
+	}
+	windowDef l_bg
+	{
+		rect	0,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg"
+		matcolor	0.384,0.149,0.0509,1
+	}
+	windowDef r_bg
+	{
+		rect	320,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg"
+		matcolor	0.384,0.149,0.0509,1
+		matscalex	-1
+	}
+	windowDef l_edge
+	{
+		rect	0,11,80,256
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_edge"
+		matcolor	0.521,0.137,0.0705,1
+	}
+	windowDef r_edge
+	{
+		rect	560,11,80,256
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_edge"
+		matcolor	0.521,0.137,0.0705,1
+		matscalex	-1
+	}
+	windowDef l_bg2
+	{
+		rect	0,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg2"
+		matcolor	0.466,0.121,0.0588,1
+	}
+	windowDef r_bg2
+	{
+		rect	320,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg2"
+		matcolor	0.466,0.121,0.0588,1
+		matscalex	-1
+	}
+	windowDef inner
+	{
+		rect	135,152,371,278
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_inner"
+		matcolor	0.972,0.227,0.0470,1
+	}
+	windowDef outer2
+	{
+		rect	103,130,434,321
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_outer"
+		matcolor	0.584,0.196,0.0666,1
+
+		onTime 0 {
+			transition "rect" "$outer2::rect" "$d_outer::rect" "300" ;
+			transition "matcolor" "0.584,0.196,0.0666,1" "0,0,0,0" "500" ;
+		}
+
+		onTime 700 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef d_outer
+	{
+		rect	156,169,329,243
+		visible	0
+		background	"gfx/guis/common/strogg/doorgui_outer"
+		matcolor	0.874,0.294,0.101,1
+	}
+	windowDef outer
+	{
+		rect	136,153,368,276
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_outer"
+		matcolor	0.972,0.227,0.0470,1
+	}
+	windowDef x_top
+	{
+		rect	273,164,95,139
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_x"
+		matcolor	0.972,0.227,0.0470,1
+	}
+	windowDef x_btm
+	{
+		rect	273,278,94,139
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_x"
+		matcolor	0.972,0.227,0.0470,1
+		matscaley	-1
+	}
+	windowDef g_inner
+	{
+		rect	135,152,371,278
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_inner_r"
+		matcolor	0,0,0,1
+	}
+	windowDef g_outer
+	{
+		rect	135,153,371,275
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_outer_r"
+		matcolor	0,0,0,1
+	}
+	windowDef d_g_outer
+	{
+		rect	103,130,434,321
+		visible	0
+		background	"gfx/guis/common/strogg/doorgui_outer_r"
+		matcolor	0,0,0,1
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef static
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/img_static3"
+			matcolor	1,1,1,.08
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-86,640,568
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.854,0.470,0.239,1
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches4"
+			matcolor	0.8,0.839,0.654,0.5
+		}
+		windowDef dirt
+		{
+			rect	0,0,640,769
+			visible	0
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.290,0.215,0.168,1
+		}
+		windowDef blackedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef anim
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "bg_circ1::matcolor" "1,0.721,0.466,0.156" "0,0,0,1" "700" ;
+			transition "inner::matcolor" "0.972,0.227,0.0470,1" "0,0,0,1" "700" ;
+			transition "outer2::matcolor" "0.584,0.196,0.0666,1" "0,0,0,1" "700" ;
+			transition "outer::matcolor" "0.972,0.227,0.0470,1" "0,0,0,1" "700" ;
+			transition "x_top::matcolor" "0.972,0.227,0.0470,1" "0,0,0,1" "700" ;
+			transition "x_btm::matcolor" "0.972,0.227,0.0470,1" "0,0,0,1" "700" ;
+		}
+
+		onTime +500 {
+			set "outer2::visible" "0" ;
+		}
+
+		onTime +500 {
+			transition "desktop::backcolor" "0.141,0.0784,0.0588,1" "0.0823,0.133,0.101,1" "300" ;	
+			transition "scratches::matcolor" "0.8,0.839,0.654,0.5" "0.654,0.847,0.807,.5" "300" ;	
+			transition "topreflect::matcolor" "0.854,0.470,0.239,1" "0.423,0.584,0.415,1" "300" ;
+			transition "r_bg2::matcolor" "0.466,0.121,0.0588,1" "0.217,0.3,0.276,1" "300" ;
+			transition "l_bg2::matcolor" "0.466,0.121,0.0588,1" "0.217,0.3,0.276,1" "300" ;	
+			transition "r_edge::matcolor" "0.521,0.137,0.0705,1" "0.227,0.372,0.329,1" "300" ;	
+			transition "l_edge::matcolor" "0.521,0.137,0.0705,1" "0.227,0.372,0.329,1" "300" ;	
+			transition "r_bg::matcolor" "0.384,0.149,0.0509,1" "0.215,0.392,0.227,1" "300" ;
+			transition "l_bg::matcolor" "0.384,0.149,0.0509,1" "0.215,0.392,0.227,1" "300" ;
+			transition "decal::matcolor" "0.878,0.643,0.403,0.4" "0.815,0.909,0.882,0.4" "300" ;
+		}
+
+		onTime +200 {
+			transition "g_outer::rect" "$g_outer::rect" "$d_g_outer::rect" "300" ;
+			transition "g_bg_circ1::matcolor" "0,0,0,1" "0.611,0.854,0.709,.16" "500" ;
+			transition "g_bg_circ2::matcolor" "0,0,0,1" "0.611,0.854,0.709,.16" "500" ;
+			transition "g_inner::matcolor" "0,0,0,1" "0.611,0.854,0.709,.16" "500" ;
+			transition "g_outer::matcolor" "0,0,0,1" "0.611,0.854,0.709,.16" "500" ;
+		}
+
+	}
+}

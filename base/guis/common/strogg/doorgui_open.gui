@@ -1,0 +1,126 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	backcolor	0.0823,0.133,0.101,1
+	windowDef decal
+	{
+		rect	206,-26,228,169
+		visible	1
+		background	"gfx/guis/common/strogg/decal"
+		matcolor	0.815,0.909,0.882,0.4
+	}
+	windowDef bg_circ1
+	{
+		rect	83,116,476,350
+		visible	1
+		background	"gfx/guis/common/strogg/circle4"
+		matcolor	0.611,0.854,0.709,.16
+	}
+	windowDef bg_circ2
+	{
+		rect	119,142,401,297
+		visible	1
+		background	"gfx/guis/common/strogg/circle5"
+		matcolor	0.611,0.854,0.709,.16
+	}
+	windowDef l_bg
+	{
+		rect	0,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg"
+		matcolor	0.215,0.392,0.227,1
+	}
+	windowDef r_bg
+	{
+		rect	320,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg"
+		matcolor	0.215,0.392,0.227,1
+		matscalex	-1
+	}
+	windowDef l_edge
+	{
+		rect	0,11,80,256
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_edge"
+		matcolor	0.227,0.372,0.329,1
+	}
+	windowDef r_edge
+	{
+		rect	560,11,80,256
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_edge"
+		matcolor	0.227,0.372,0.329,1
+		matscalex	-1
+	}
+	windowDef l_bg2
+	{
+		rect	0,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg2"
+		matcolor	0.217,0.3,0.276,1
+	}
+	windowDef r_bg2
+	{
+		rect	320,0,320,480
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_bg2"
+		matcolor	0.217,0.3,0.276,1
+		matscalex	-1
+	}
+	windowDef inner
+	{
+		rect	135,152,371,278
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_inner_r"
+		matcolor	0.611,0.854,0.709,.16
+	}
+	windowDef outer
+	{
+		rect	103,130,434,321
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_outer_r"
+		matcolor	0.611,0.854,0.709,.16
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef static
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/img_static3"
+			matcolor	1,1,1,.08
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-86,640,568
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.423,0.584,0.415,1
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches4"
+			matcolor	0.654,0.847,0.807,.5
+		}
+		windowDef dirt
+		{
+			rect	0,0,640,769
+			visible	0
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.270,0.274,0.192,1
+		}
+		windowDef blackedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

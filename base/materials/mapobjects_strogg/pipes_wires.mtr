@@ -1,0 +1,108 @@
+models/mapobjects/strogg/pipes_wires/monitor_cables_1
+
+{
+      noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 1 models/mapobjects/strogg/pipes_and_wires/monitor_cables_1_local.tga  models/mapobjects/strogg/screens/cables_1_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/pipes_wires/monitor_cables_1_local.tga
+	diffusemap		models/mapobjects/strogg/pipes_wires/monitor_cables_1_d.tga  
+	specularmap		models/mapobjects/strogg/pipes_wires/monitor_cables_1_s.tga  
+}
+
+
+models/mapobjects/strogg/pipes_wires/monitor_cables_2
+
+{
+      noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 1 -trace .5 models/mapobjects/strogg/screens/cables_2_local.tga  models/mapobjects/strogg/screens/cables_2_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/pipes_wires/monitor_cables_2_local.tga
+	diffusemap		models/mapobjects/strogg/pipes_wires/monitor_cables_2_d.tga  
+	specularmap		models/mapobjects/strogg/pipes_wires/monitor_cables_2_s.tga  
+
+}
+
+// floor pipes ----------------------------------------------------
+
+models/mapobjects/strogg/pipes_wires/floor_pipes_01
+{
+      noselfShadow
+	unSmoothedTangents
+	
+	
+
+	renderbump  -size 512 1024 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/pipes/floor_pipes_01_local.tga work/models/mapobjects/strogg/pipes/floor_pipes_01_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/pipes_wires/floor_pipes_01_local.tga, heightmap (models/mapobjects/strogg/pipes_wires/floor_pipes_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/pipes_wires/floor_pipes_01_d.tga
+	specularmap		models/mapobjects/strogg/pipes_wires/floor_pipes_01_s.tga
+
+}
+
+
+//------------------------------------------------------------------------------------------------
+
+//          pipe_end piece for dispersal
+
+
+
+models/mapobjects/strogg/pipes_wires/pipe_end
+{
+      noselfShadow
+      unsmoothedtangents		
+
+	renderbump  -size 256 512 -MergeHigh -aa 2 models/mapobjects/strogg/pipes_wires/pipe_end_local.tga q:/art/work/models/mapobjects/strogg/pipes_wires/pipe_end_high.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/pipes_wires/pipe_end_local.tga, heightmap (models/mapobjects/strogg/pipes_wires/pipe_end_h.tga, 1) )
+	diffusemap 		models/mapobjects/strogg/pipes_wires/pipe_end_d.tga
+	specularmap		models/mapobjects/strogg/pipes_wires/pipe_end_s.tga
+}
+
+models/mapobjects/strogg/pipes_wires/pipe_end_dirty
+{
+      noselfShadow
+      unSmoothedTangents
+     		
+
+	bumpmap addnormals (models/mapobjects/strogg/pipes_wires/pipe_end_local.tga, heightmap (models/mapobjects/strogg/pipes_wires/pipe_end_dirty_h.tga, 1) )
+	diffusemap 		models/mapobjects/strogg/pipes_wires/pipe_end_dirty_d.tga
+	specularmap		models/mapobjects/strogg/pipes_wires/pipe_end_dirty_s.tga
+}
+
+models/mapobjects/strogg/pipes_wires/pipe_end_noshadows
+{
+	noShadows
+    noSelfShadow
+    unSmoothedTangents		
+
+	renderbump  -size 256 512 -MergeHigh -aa 2 models/mapobjects/strogg/pipes_wires/pipe_end_local.tga q:/art/work/models/mapobjects/strogg/pipes_wires/pipe_end_high.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/pipes_wires/pipe_end_local.tga, heightmap (models/mapobjects/strogg/pipes_wires/pipe_end_h.tga, 1) )
+	diffusemap 		models/mapobjects/strogg/pipes_wires/pipe_end_d.tga
+	specularmap		models/mapobjects/strogg/pipes_wires/pipe_end_s.tga
+}
+//----------------------------------------------------------------------------------------------------
+
+// tube_rim_1 ----------------------------------------------------
+
+models/mapobjects/strogg/pipes_wires/tube_rim_1
+{
+      noselfShadow
+	unSmoothedTangents
+	renderBump  -size 512 256 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/pipes_wires/tube_rim_1_local.tga work/models/mapobjects/strogg/pipes_wires/tube_rim/tube_rim_1_hi.lwo
+
+	bumpmap			models/mapobjects/strogg/pipes_wires/tube_rim_1_local.tga
+	diffusemap		models/mapobjects/strogg/pipes_wires/tube_rim_1_d.tga
+	specularmap		models/mapobjects/strogg/pipes_wires/tube_rim_1_s.tga
+
+}
+
+//------------------------------------------------------------------------------------------------
+
+

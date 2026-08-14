@@ -1,0 +1,85 @@
+object tramHub {
+// MEMBER FUNCS:
+	void		init();
+	
+	void		SetInitialState( float stateNum );
+	
+	void		ToggleRotation();
+	
+	boolean		CanGotoRotation1();
+	boolean		CanGotoRotation2();
+	
+	boolean		AtRotation1();
+	boolean		AtRotation2();
+	
+// STATE FUNCS:
+	void		GotoRotation1();
+	void		Rotation1();
+	
+	void		GotoRotation2();
+	void		Rotation2();
+	
+// MEMBER VARS:
+	string		state;
+};
+
+void tramHub::init() {
+	SetInitialState( getFloatKey("start_state") );
+}
+
+void tramHub::SetInitialState( float stateNum ) {
+	state = "Rotation" + stateNum;
+	if( state == "Rotation1" ) {
+		Rotation1();
+	} else if( state == "Rotation2" ) {
+		Rotation2();
+	}
+}
+
+void tramHub::ToggleRotation() {
+	waitUntil( animDone(ANIMCHANNEL_ALL, 0) );
+	
+	if( state == "Rotation1" ) {
+		GotoRotation2();
+	} else if( state == "Rotation2" ) {
+		GotoRotation1();
+	}
+}
+
+boolean tramHub::CanGotoRotation1() {
+	return state == "Rotation2";
+}
+
+boolean	tramHub::CanGotoRotation2() {
+	return state == "Rotation1";
+}
+
+boolean tramHub::AtRotation1() {
+	return state == "Rotation1";
+}
+
+boolean tramHub::AtRotation2() {
+	return state == "Rotation2";
+}
+
+void tramHub::GotoRotation1() {
+	playAnim( ANIMCHANNEL_ALL, "toWestEast" );
+	waitUntil( animDone(ANIMCHANNEL_ALL, 0) );
+	Rotation1();
+}
+
+void tramHub::Rotation1() {
+	state = "Rotation1";
+	playCycle( ANIMCHANNEL_ALL, "westEast" );
+}
+
+void tramHub::GotoRotation2() {
+	playAnim( ANIMCHANNEL_ALL, "toSouthNorth" );
+	waitUntil( animDone(ANIMCHANNEL_ALL, 0) );
+	Rotation2();
+}
+
+void tramHub::Rotation2() {
+	state = "Rotation2";
+	playCycle( ANIMCHANNEL_ALL, "southNorth" );
+}

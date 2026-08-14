@@ -1,0 +1,216 @@
+/***********************************************************************************************************************
+Network
+
+Unique entities created for the process level
+************************************************************************************************************************/
+/*
+===============================================================================
+
+	Marine Model Definition
+
+===============================================================================
+*/
+model network_model_char_marine
+{
+	inherit									model_char_marine
+
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	//{
+	//	rate 1.4
+	//}
+	anim 	idle_wrist_gui_loop						models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	//{
+	//	rate 1.4
+	//}
+	
+	anim weapon_check_1					models/characters/marine/weapon_check_1.md5anim
+	{
+
+		frame	37,53						sound	snd_gear
+	}
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_gear
+		frame	42						sound	snd_gun_ready 
+	}
+	anim weapon_check_3					models/characters/marine/weapon_check_3.md5anim
+	{
+		ai_no_look	
+		frame	14,78					sound	snd_gear
+	}
+	
+	anim idle_scan_2					models/characters/marine/idle_scan_2.md5anim
+	
+	anim weaponless_idle2_start			models/characters/marine/weaponless_idle2_start.md5anim
+	anim weaponless_idle2_loop			models/characters/marine/weaponless_idle2_loop.md5anim
+	anim weaponless_idle2				models/characters/marine/weaponless_idle2_loop.md5anim
+	anim weaponless_idle2_end			models/characters/marine/weaponless_idle2_end.md5anim
+
+	anim weaponless_idle3_start			models/characters/marine/weaponless_idle3_start.md5anim
+	anim weaponless_idle3_loop			models/characters/marine/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3				models/characters/marine/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3_end			models/characters/marine/weaponless_idle3_end.md5anim
+	
+	anim weaponless_idle4_start			models/characters/marine/weaponless_idle4_start.md5anim
+	anim weaponless_idle4_loop			models/characters/marine/weaponless_idle4_loop.md5anim	
+	anim weaponless_idle4				models/characters/marine/weaponless_idle4_loop.md5anim
+	anim weaponless_idle4_end			models/characters/marine/weaponless_idle4_end.md5anim
+	
+	anim	idle_weapon_1_start				models/characters/marine/idle_weapon_1_start.md5anim
+	anim	idle_weapon_1_loop				models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1					models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1_end				models/characters/marine/idle_weapon_1_end.md5anim
+	
+	anim	idle_weapon_2_start				models/characters/marine/idle_weapon_2_start.md5anim
+	anim	idle_weapon_2_loop				models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2					models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2_end				models/characters/marine/idle_weapon_2_end.md5anim
+	
+	anim	idle_weapon_3_start				models/characters/marine/idle_weapon_3_start.md5anim
+	anim	idle_weapon_3_loop				models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3					models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3_end				models/characters/marine/idle_weapon_3_end.md5anim
+	
+	anim	idle_weapon_4					models/characters/marine/idle_weapon_4.md5anim
+}
+
+entityDef network_char_marine
+{
+	"inherit"								"char_marine"
+	"model"									"network_model_char_marine"
+
+	"editor_menu"								"level"
+
+	// Radio VO for Network2
+	"snd_vo_3_1_0_50_1"								"vo_3_1_0_50_1"
+	"snd_vo_3_1_0_80_1"								"vo_3_1_0_80_1"
+	"snd_vo_2_2_4_150_2"								"vo_2_2_4_150_2"
+	"snd_vo_2_2_7_160_2"								"vo_2_2_7_160_2"
+	"snd_vo_3_1_1_30_1"								"vo_3_1_1_30_1"
+
+	"snd_vo_1_1_7_10_1"								"vo_1_1_7_10_1"
+	"snd_vo_1_2_10_45_3"								"vo_1_2_10_45_3"
+	
+	"snd_vo_1_2_8_20_2"								"vo_1_2_8_20_2"
+	
+	"snd_vo_1_1_11_340_2"								"vo_1_1_11_340_2"
+
+	"snd_vo_1_2_1_92_1"								"vo_1_2_1_92_1"
+	"snd_vo_1_2_0_65_1"								"vo_1_2_0_65_1"
+	"snd_vo_1_2_0_66_1"								"vo_1_2_0_66_1"
+	"snd_vo_3_1_2_35_1"								"vo_3_1_2_35_1"
+
+	"snd_vo_2_2_4_86_1"								"vo_2_2_4_86_1"
+
+	"snd_vo_2_2_4_158_1"								"vo_2_2_4_158_1"
+
+	"snd_vo_2_2_7_160_1"								"vo_2_2_7_160_1"
+
+	"snd_vo_2_2_10_261_1"								"vo_2_2_10_261_1"
+	"snd_vo_2_2_10_261_2"								"vo_2_2_10_261_2"
+
+}
+/*
+===============================================================================
+
+	Medic Model Definition
+
+===============================================================================
+*/
+model model_network_char_marine_medic
+{
+	inherit							network_model_char_marine
+	
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+}	
+entityDef network_char_marine_medic
+{
+	"inherit"								"char_marine_medic_armed"
+	"model"									"model_network_char_marine_medic"
+
+	"editor_menu"								"level"
+}
+
+model network_char_milage
+{
+	inherit						network_model_char_marine
+	// yoinked from hub teehee
+	anim	hub1_voss_mourn_start			models/characters/marine/hub1_voss_mourn_start.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_mourn_loop			models/characters/marine/hub1_voss_mourn_loop.md5anim
+	{
+		ai_no_look
+	}
+
+}
+
+entityDef network_char_marine_milage
+{
+	"inherit"								"network_char_marine"
+	"model"									"network_char_milage"
+
+	"editor_menu"								"level"
+}
+
+/*
+===============================================================================
+
+	Tech Model Definition
+
+===============================================================================
+*/
+model network_model_marine_tech
+{
+	inherit							network_model_char_marine
+	
+	mesh							models/characters/marine_tech/marine_tech.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}	
+entityDef network_char_marine_tech
+{
+	"inherit1"						"char_marine_tech_extras"
+	"inherit2"						"char_marine_hyperblaster"
+	"model"									"network_model_marine_tech"
+
+	"editor_menu"								"level"
+}

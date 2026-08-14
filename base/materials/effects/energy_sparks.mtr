@@ -1,0 +1,1083 @@
+gfx/effects/energy_sparks/energy3
+{
+	qer_editorimage gfx/effects/energy_sparks/energy3.tga
+	noShadows
+	twoSided
+	{
+		blend add
+		map gfx/effects/energy_sparks/energy3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/energy1_red
+{
+	qer_editorimage gfx/effects/energy_sparks/energy1_red.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/energy1_red.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/energy1_grey
+{
+	qer_editorimage gfx/effects/energy_sparks/energy1_grey.tga
+	noShadows
+	twoSided
+	{
+		blend add
+		map gfx/effects/energy_sparks/energy1_grey.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+gfx/effects/energy_sparks/energy1
+{
+	qer_editorimage gfx/effects/energy_sparks/energy1.tga
+	noShadows
+	twoSided
+	{
+		blend add
+		map gfx/effects/energy_sparks/energy1.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/energy2
+{
+	qer_editorimage gfx/effects/energy_sparks/energy2.tga
+	noShadows
+	twoSided
+	{
+		blend add
+		map gfx/effects/energy_sparks/energy2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/energy_mp
+{
+	qer_editorimage gfx/effects/energy_sparks/energy_grey.tga
+	noShadows
+	twoSided
+	{
+		blend add
+		map gfx/effects/energy_sparks/energy_grey.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+gfx/effects/energy_sparks/spark_line
+{
+	qer_editorimage gfx/effects/energy_sparks/spark_line.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/spark_line.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+gfx/effects/energy_sparks/spark_line2
+{
+	qer_editorimage gfx/effects/energy_sparks/spark_line2.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/spark_line2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/spark_line2_flipped
+{
+	qer_editorimage gfx/effects/energy_sparks/spark_line2.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/spark_line2.tga
+		vertexColor
+		scale -1,1
+	}
+}
+
+gfx/effects/energy_sparks/spark_line3
+{
+	qer_editorimage gfx/effects/energy_sparks/spark_line3.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/spark_line3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/spark_line3_alpha
+{
+	qer_editorimage gfx/effects/energy_sparks/spark_line3_alpha.tga
+	noShadows
+	{
+		blend blend
+		map gfx/effects/energy_sparks/spark_line3_alpha.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/spark
+{
+	qer_editorimage gfx/effects/energy_sparks/spark.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/spark.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/spark2
+{
+	qer_editorimage gfx/effects/energy_sparks/spark2.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/energy_sparks/spark2.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/energy_sparks/spark2_red
+{
+	qer_editorimage gfx/effects/energy_sparks/spark2_red.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/energy_sparks/spark2_red.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/energy_sparks/spark3
+{
+	qer_editorimage gfx/effects/energy_sparks/spark3.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/energy_sparks/spark3.tga
+		clamp
+		vertexColor 
+		red parm0
+		green parm1
+		blue parm2  
+        }
+}
+
+gfx/effects/energy_sparks/spark_blue
+{
+	qer_editorimage gfx/effects/energy_sparks/spark_blue.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/energy_sparks/spark_blue.tga
+		clamp
+		vertexColor   
+        }
+}
+
+
+gfx/effects/energy_sparks/spin_line1
+{
+	qer_editorimage gfx/effects/weapons/railgun_ring_end.tga
+	translucent
+	twoSided
+	noShadows
+
+	{
+		blend add
+		map gfx/effects/weapons/railgun_ring_end.tga
+		vertexColor
+		rotate 4 * time
+		clamp
+	}
+	
+}
+
+// was textures/effects/wounds/railgun
+gfx/effects/energy_sparks/railgun
+{
+	polygonoffset
+	noShadows
+
+	qer_editorimage gfx/effects/energy_sparks/launch_flash3.tga
+
+	{
+      	blend	add  
+		map		gfx/effects/energy_sparks/launch_flash3.tga
+		clamp
+	}
+}
+
+gfx/effects/energy_sparks/launch_flash
+{
+	qer_editorimage gfx/effects/energy_sparks/launch_flash.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/launch_flash.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/launch_flash_half
+{
+	qer_editorimage gfx/effects/energy_sparks/launch_flash_half.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/launch_flash_half.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/energy_sparks/launch_flash2
+{
+	qer_editorimage gfx/effects/energy_sparks/launch_flash2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/launch_flash2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/launch_flash3
+{
+	qer_editorimage gfx/effects/energy_sparks/launch_flash3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/launch_flash3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/launch_flash3_grey
+{
+	qer_editorimage gfx/effects/energy_sparks/launch_flash3_grey.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/launch_flash3_grey.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+// was gfx/effects/levels/convoy/bombard_focus
+gfx/effects/energy_sparks/bombard_focus
+{
+	qer_editorimage gfx/effects/energy_sparks/focus_beam.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/focus_beam.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/launch_flash4
+{
+	qer_editorimage gfx/effects/energy_sparks/launch_flash4.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/launch_flash4.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/teleport_base
+{
+	qer_editorimage gfx/effects/energy_sparks/teleport_base.tga
+//	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_base.tga
+//		rgb		gunnertable [time * .25]
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/teleport_base2
+{
+	qer_editorimage gfx/effects/energy_sparks/teleport_base2.tga
+//	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_base2.tga
+//		rgb		gunnertable [time * .5]
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/teleport_base4
+{
+	qer_editorimage gfx/effects/energy_sparks/teleport_base4.tga
+//	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_base4.tga
+//		rgb		gunnertable [time * .5]
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/teleport_base3
+{
+	qer_editorimage gfx/effects/energy_sparks/teleport_base3.tga
+//	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_base3.tga
+		rgb		gunnertable [time * .5]
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/teleport_warp
+{
+qer_EditorImage gfx/effects/depth/noise.tga
+translucent
+
+	{
+		vertexProgram	heatHaze.vfp
+		vertexParm		0		0 , 0
+		vertexParm		1		fadeouttable [time] 
+		fragmentProgram	heatHaze.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		gfx/effects/depth/noise.tga
+		vertexColor
+		
+	}
+}	
+
+gfx/effects/energy_sparks/teleportcolor
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleportcolor.tga
+		vertexColor
+	}
+}	
+
+gfx/effects/energy_sparks/teleport_light
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_light.tga
+		vertexColor
+		clamp
+	}
+}	
+
+gfx/effects/energy_sparks/teleport_orbit1
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_orbit1.tga
+		vertexColor
+		rotate	.1 * time
+		clamp
+	}
+}	
+
+
+
+gfx/effects/energy_sparks/teleport_orbit2
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_orbit2.tga
+		vertexColor
+		rotate	.05 * time
+		clamp
+	}
+}	
+
+
+gfx/effects/energy_sparks/teleport_orbit3
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/teleport_orbit3.tga
+		vertexColor
+		rotate	.3 * time
+		clamp
+	}
+}	
+
+
+gfx/effects/energy_sparks/red_beam
+{
+	translucent
+	twoSided
+	
+	{
+		blend add
+		map gfx/effects/energy_sparks/red_beam.tga
+		vertexColor
+		scroll time * 5, 0
+	}
+}
+
+
+gfx/effects/energy_sparks/red_beam_pulse
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/red_beam_pulse.tga
+		vertexColor
+	}
+}	
+
+gfx/effects/energy_sparks/blue_beam
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/blue_beam.tga
+		vertexColor
+//		scroll 5, 0
+	}
+}
+
+gfx/effects/energy_sparks/blue_beam_last
+{
+	translucent
+	sort far
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/blue_beam.tga
+		vertexColor
+
+//		scroll 5, 0
+	}
+}
+
+
+
+gfx/effects/energy_sparks/blue_beam2
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/blue_beam2.tga
+		vertexColor
+		scroll time * -5, 0
+	}
+}
+
+
+
+gfx/effects/energy_sparks/blue_beam_pulse
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/blue_beam_pulse.tga
+		vertexColor
+	}
+}	
+
+/////CTF_green///////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+gfx/effects/energy_sparks/ctf_green_light
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/ctf_green_light.tga
+		vertexColor
+		clamp
+	}
+}	
+
+
+gfx/effects/energy_sparks/ctf_green_ring
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/ctf_green_ring.tga
+		vertexColor
+	}
+}	
+
+
+gfx/effects/energy_sparks/ctf_orange_light
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/ctf_orange_light.tga
+		vertexColor
+		clamp
+	}
+}	
+
+gfx/effects/energy_sparks/ctf_orange_ring
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/ctf_orange_ring.tga
+		vertexColor
+	}
+}	
+
+gfx/effects/energy_sparks/ctf_grey_light
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/ctf_grey_light.tga
+		vertexColor
+		red 	Parm0
+		green 	Parm1
+		blue	Parm2
+		clamp
+	}
+}	
+
+gfx/effects/energy_sparks/ctf_grey_ring
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/ctf_grey_ring.tga
+		vertexColor
+		red 	Parm0
+		green 	Parm1
+		blue	Parm2
+	}
+}	
+
+
+gfx/effects/energy_sparks/explosion_deform
+
+{
+		qer_EditorImage 					gfx/test/vpring1.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1      3         // magnitude of the distortion
+                fragmentProgram			heatHazeWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/energy_sparks/vpring1.tga   // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring1_alpha.tga   // the distortion blend map
+        }
+
+
+}
+
+gfx/effects/energy_sparks/explosion_deform2
+
+{
+	
+		qer_EditorImage 					gfx/test/vppinch.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1      3         // magnitude of the distortion
+                fragmentProgram			heatHazeWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/energy_sparks/vppinch.tga   // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring1_alpha.tga   // the distortion blend map
+        }
+
+
+}
+
+gfx/effects/energy_sparks/explosion_deform3
+
+{
+	qer_EditorImage 					gfx/test/vpring2.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1       3           // magnitude of the distortion
+                fragmentProgram			heatHazeWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/energy_sparks/vpring2.tga   // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring2_alpha.tga   // the distortion blend map
+        }
+
+
+}
+
+gfx/effects/energy_sparks/explosion_deform_bolt
+
+{
+	qer_EditorImage 					gfx/test/vpring2.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1       30           // magnitude of the distortion
+                fragmentProgram			heatHazeWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/energy_sparks/vpring2.tga   // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring2_alpha.tga   // the distortion blend map
+        }
+
+
+}
+
+gfx/effects/energy_sparks/explosion_deform_grenade
+
+{
+	qer_EditorImage 					gfx/test/vpring2.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1       deformer [time]          // magnitude of the distortion
+                fragmentProgram			heatHazeWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/energy_sparks/vpring2.tga   // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring2_alpha.tga   // the distortion blend map
+        }
+
+
+}
+
+gfx/effects/energy_sparks/deform4
+{
+qer_EditorImage gfx/effects/depth/noise.tga
+//translucent
+
+	{
+		vertexProgram			heatHazeWithMask.vfp
+		vertexParm		0		time * .5 , time * .5
+//		vertexParm		1		fadeouttable [time] 
+		vertexParm		1		.75 * (random [time])
+		fragmentProgram			heatHazeWithMask.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		gfx/effects/depth/noise.tga
+        fragmentMap     2       gfx/effects/energy_sparks/ctf_mask_flag3.tga 
+		
+	}
+}	
+
+
+
+
+gfx/effects/energy_sparks/scan_light
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/scan_light.tga
+		vertexColor
+		clamp
+	}
+}	
+
+
+gfx/effects/energy_sparks/scan_light2
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/scan_light2.tga
+		vertexColor
+		clamp
+	}
+}	
+
+
+gfx/effects/energy_sparks/scan_light_grey
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/scan_light_grey.tga
+		vertexColor
+		clamp
+	}
+}	
+
+
+////IM_effects//////////////////////////////////////////
+
+
+gfx/effects/energy_sparks/IM_energy
+{
+	translucent
+
+	{
+		blend add
+		map gfx/effects/energy_sparks/IM_energy1.tga
+		vertexColor
+	}
+}	
+
+
+gfx/effects/energy_sparks/warp1
+{
+qer_EditorImage gfx/effects/depth/noise.tga
+translucent
+
+	{
+		vertexProgram			heatHazeWithMask.vfp
+		vertexParm		0		0 , 0
+		vertexParm		1		2
+		fragmentProgram			heatHazeWithMask.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		gfx/effects/depth/noise.tga
+		fragmentMap     2       gfx/effects/energy_sparks/ctf_mask_flag3.tga 
+		
+		vertexColor
+		
+		
+		
+	}
+}	
+
+gfx/effects/energy_sparks/warp_mask
+
+
+{
+	qer_EditorImage 					gfx/effects/depth/noise.tga.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+//              vertexParm              	1       random_heat [time * .0125]        // magnitude of the distortion
+                vertexParm              1		.8
+                
+                fragmentProgram			heatHazeWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/depth/noise.tga   // the normal map for distortion
+//              fragmentMap             1       gfx/effects/energy_sparks/vpring1.tga      // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring1_alpha.tga   // the distortion blend map
+                vertexColor
+        }
+}
+
+///from ID
+
+gfx/effects/energy_sparks/explosionstrip
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	nonsolid
+	noimpact
+
+	qer_editorimage gfx/effects/energy_sparks//flame.tga
+	{
+		if ( ( time * 13 ) % 13 == 0 )
+		blend blend
+		map		gfx/effects/energy_sparks/exp1.tga
+		vertexColor
+	}	
+	{
+		if ( ( time * 13 ) % 13 == 1 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp2.tga
+		vertexColor
+	}	
+	{
+		if ( ( time * 13 ) % 13 == 2 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp3.tga
+		vertexColor
+	}	
+	{
+		if ( ( time * 13 ) % 13 == 3 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp4.tga
+		vertexColor
+	}	
+	{
+		if ( ( time * 13 ) % 13 == 4 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp5.tga
+		vertexColor
+	}	
+	{
+		if ( ( time * 13 ) % 13 == 5 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp6.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 6 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp7.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 7 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp8.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 8 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp9.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 9 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp10.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 10 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp11.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 11 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp12.tga
+		vertexColor
+	}
+	{
+		if ( ( time * 13 ) % 13 == 12 )
+		blend	blend
+		map		gfx/effects/energy_sparks/exp13.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/energy_sparks/grey
+
+{
+	qer_EditorImage 					gfx/effects/depth/noise.tga.tga
+		//deform sprite
+        {
+                vertexProgram           heatHazeGrayWithMask.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+//              vertexParm              	1       random_heat [time * .0125]        // magnitude of the distortion
+                vertexParm              1		.8
+                
+                fragmentProgram			heatHazeGrayWithMask.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/effects/depth/noise.tga   // the normal map for distortion
+//              fragmentMap             1       gfx/effects/energy_sparks/vpring1.tga      // the normal map for distortion
+                fragmentMap             2       gfx/effects/energy_sparks/vpring1_alpha.tga   // the distortion blend map
+                vertexColor
+        }
+}
+
+
+// CTF global-toggled stuff -----------------------------
+
+// Marine stuff first -----------------------------------
+
+gfx/effects/energy_sparks/teleport_base3_marine
+{														
+	qer_editorimage gfx/effects/energy_sparks/teleport_base3.tga	
+//	translucent											
+	twoSided
+	noShadows
+	{
+		if (global1 == 0)
+		blend add
+		map gfx/effects/energy_sparks/teleport_base3.tga
+		rgb		gunnertable [time * .5]
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/spark3_marine
+{
+	qer_editorimage gfx/effects/energy_sparks/spark3.tga
+	noshadows
+	twosided
+        {
+        	if (global1 == 0)
+		blend	add
+		map gfx/effects/energy_sparks/spark3.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/energy_sparks/ctf_flag_ring_marine
+{
+	translucent
+
+	{
+		if (global1 == 0)
+		blend add
+		map gfx/effects/energy_sparks/ctf_green_ring.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/ctf_flag_light_marine
+{
+	translucent
+
+	{
+		if (global1 == 0)
+		blend add
+		map gfx/effects/energy_sparks/ctf_green_light.tga
+		vertexColor
+		clamp
+	}
+}
+
+// End marine stuff -------------------------------------
+
+// Now strogg stuff -------------------------------------
+
+gfx/effects/energy_sparks/teleport_base3_strogg
+{
+	qer_editorimage gfx/effects/energy_sparks/teleport_base3.tga
+//	translucent
+	twoSided
+	noShadows
+	{
+		if (global2 == 0)
+		blend add
+		map gfx/effects/energy_sparks/teleport_base3.tga
+		rgb		gunnertable [time * .5]
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/spark3_strogg
+{
+	qer_editorimage gfx/effects/energy_sparks/spark3.tga
+	noshadows
+	twosided
+        {
+        	if (global2 == 0)
+		blend	add
+		map gfx/effects/energy_sparks/spark3.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/energy_sparks/ctf_flag_ring_strogg
+{
+	translucent
+
+	{
+		if (global2 == 0)
+		blend add
+		map gfx/effects/energy_sparks/ctf_orange_ring.tga
+		vertexColor
+	}
+}
+
+gfx/effects/energy_sparks/ctf_flag_light_strogg
+{
+	translucent
+
+	{
+		if (global2 == 0)
+		blend add
+		map gfx/effects/energy_sparks/ctf_orange_light.tga
+		vertexColor
+		clamp
+	}
+}
+
+// End strogg stuff -------------------------------------
+
+
+gfx/effects/energy_sparks/teleport_core
+{
+	qer_editorimage gfx/effects/energy_sparks/tport_shot.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/energy_sparks/tport_shot.tga
+		clamp
+		vertexColor   
+        }
+}

@@ -1,0 +1,248 @@
+
+
+sound recomp_prison_open
+{
+	minDistance	78
+	maxDistance	984
+	volumeDb	2
+
+	sound/effects/generic/sparks_05
+	shakeData 0 cdeeffffhgghigghgggddcbjccccccccb
+	sound/effects/generic/sparks_01
+	shakeData 1 cbadcacabdadcdaabacbbaaaccababaabbacacbcbbabbabbbcbaaaaccbbbcbaabbbbaaaaaaaaaaabbaacabca
+	sound/effects/generic/sparks_02
+	shakeData 2 gdccbccbcbcccqdcbccdbddddcbbccccccbbca
+	sound/effects/generic/sparks_03
+	shakeData 3 djjmkmoifeedcccbcbfbbccbccbbcc
+	sound/effects/generic/sparks_04
+	shakeData 4 dhikjljhfdddcccccbbbccbca
+}
+
+
+sound recomp_general_alarm
+{
+	minDistance	78
+	maxDistance	984
+	volumeDb	1
+	looping
+
+	sound/ambience/alarms_buzzers/1shot_alarm02
+	shakeData 0 aceghimnotosrtuqttsupppnpnnlnlnoopmlnnporprsrqsuxuttuusqpqrqrqomljhhfedccbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_lights_on
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	4
+
+	sound/ambience/industrial/lights_on1
+	shakeData 0 qsyxytsuwrqtsnqnnklpnmjmnklijggghggfgeeeeedcddcccbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/lights_on2
+	shakeData 1 hwyvxtrsromoomlljlmikjijihihhhhfghhfhggdeddddcccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_activate_barrel
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+	looping
+
+	sound/ambience/industrial/machinery08
+	shakeData 0 kmmpmnlnplmknkjmkkikmliilljkklojkijijkkjjkjmmkhjhihlhimmknnrnmknklkjmljkjikjklllimmjkiiklinllknjjkijhhhgi
+}
+
+
+sound recomp_barrel_arm_rotate
+{
+	minDistance	314
+	maxDistance	984
+	volumeDb	-4
+
+	sound/ambience/recomp/barrel_arm/rotate1
+	shakeData 0 fddddefgjlmnljtqmpqruskoqsppmnlprmlrqrnrsqqoqompsmlnrnqnmwsmslqnrphmlohlnijhedcddbccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/rotate2
+	shakeData 1 fddeeedkkjkmkmplnvvyprptyvzrsqsutrwpswyuwttrpsqwoquxsxywvxxzypztnmkjljffgdecdccbbbbbaabaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/rotate3
+	shakeData 2 bfeefggimqoqmjlnnsqolypqsrrqplklouprorurpqlmjoiktpmnsjnnnqqtsltuuqrlnlqjjjhmjmjjhhedccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_barrel_arm_steam
+{
+	minDistance	39
+	maxDistance	984
+	volumeDb	-12
+
+	sound/effects/generic/steam_01
+	shakeData 0 ahkoommmnnnlmkjjhiggffeeedbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_02
+	shakeData 1 aaaflklllnllkjkkjhighghgfgffffeddddddcccbcbbbbbbbbbbbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_03
+	shakeData 2 hnlnonoonqqnrnonmmlhggfeegfffffhkiihhggffeddccbbbbaaaaaaaaaaaa
+	sound/effects/generic/steam_04
+	shakeData 3 fotvusrsstrtrsrrsqqqpppqroqprpooopnqopooqjgfddaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_05
+	shakeData 4 iillmlnlnllkljjkkijiiiiiiighgghfgffgffffgfefeeeeeefeeefeeddddeddecddccdcccccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_barrel_arm_extend
+{
+	minDistance	314
+	maxDistance	984
+	volumeDb	-6
+
+	sound/objects/mech_servo/motor1
+	shakeData 0 ytzzotttvvxtxwxzxxplhhkpihijeedddcdcbbbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor2
+	shakeData 1 ymzzloqtvvuusuuwwzzzzzywxlheccbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor3
+	shakeData 2 oyyzttruwtuxyvyxyysurzzkddccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor4
+	shakeData 3 xhxylllptorppqqttxyzzwuspjggeeeefddfddeeeedcbbbbbbababbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor5
+	shakeData 4 ewuyuwstvuvzxtxxzyqnitvdbbbbbabaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_barrel_arm_thump
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/industrial/deep_metal_thump01
+	shakeData 0 uyyxvwwvsrvqrqoomroqoqmlsjokmikpinkifhhgigefhhfigegggdgeegegdgeceefdecddeeddcccfdedccdededcccddccbbdccccbcccbcbbbbbbcaccbbbcbbbbbbbabbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/deep_metal_thump02
+	shakeData 1 wxwtuupsrsmkiigfgheefeddddccbbccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/deep_metal_thump03
+	shakeData 2 wxxyxvwvqrponllkjkjggefeeddccbcbbbbbabaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_barrel_arm_attach
+{
+	minDistance	196
+	maxDistance	984
+	volumeDb	0
+
+	sound/objects/mech_servo/lock1
+	shakeData 0 yvxytlpkmwwofdiliggedcaa
+}
+
+
+sound recomp_barrel_arm_detach
+{
+	minDistance	196
+	maxDistance	984
+	volumeDb	0
+
+	sound/objects/mech_servo/unlock1
+	shakeData 0 zyxvuyrujyrjjkfhggdddccbaaaaaaa
+}
+
+
+sound recomp_hooked
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/recomp/hooked
+	shakeData 0 kzzzzyywozsukjfdhedgjefihdfeiifjlddbacababbbbbaaaaaaaaaa
+}
+
+
+sound recomp_lights_powerup01
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/recomp/lt_pwr_up1
+	shakeData 0 aaaaccedfikjlomprqvsvuyuzrwwtzxuyytxywxyyyzzztzyyyzyyzyyyzyvzxzzwywwyxvyywf
+}
+
+
+sound recomp_lights_powerup02
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/recomp/lt_pwr_up2
+	shakeData 0 aabbceeefjhijifikiiimjpkoonljjlkjnmomlnplmqtpposqnmmjljliklomonlnnknprmotrquvvstwtoprmkjhgfeedccbaaaaaaaaaa
+}
+
+
+sound recomp_lights_flicker
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/recomp/lt_flicker
+	shakeData 0 udcjzwxzwvyyoeywzwzuvywxyxyyvvxuyvxtyyuzzupvyzzwwwpyorvhbcccekjgbbbaaaaaaa
+}
+
+
+sound recomp_barrel_track
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/recomp/barrel_track
+	shakeData 0 akyxwwwvrnonpmvxvxwvxpnpnovwtvwvuqmmnoowvtwurnponmmuuuwvwonoqooxvtuuupmprrovtuuuvumoqpmtxtvuuppooqpsvswuwvpqrqmqvqtuturstqqptsvvtpqpqooqvsqrvttqroqtstqsstupqrrsvrtvvrtssrutvtuusrqonqtqvttsutvsqrpptrrrxtrsrsqqrwsstrutpqptqxrrtvvtqtstsvwuuuqrqppprsuuswursppsntwwvruusrqpnsvtxuwwqnqoosxwuvuwrnplnoqqlotnnligghfffdeeeccbbbabaaaaaaaaaaaaa
+}
+
+
+sound recomp_barrel_track2
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/recomp/barrel_track2
+	shakeData 0 akyxwwwvrnonpmvxvxwvxpnpnovwtvwvuqmmnoowvtwurnponmmuuuwvwonoqooxvtuuupmprrovtuuuvumoqpmtxtvuuppooqpsvswuwvpqrqmqvqtutursuyyvwywvopmlnljgedcccbbaaaaa
+}
+
+
+sound recomp_pallet_move
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/recomp/pallet_move
+	shakeData 0 gimppppnokqpponolllmmllppjjfgkmgilnijlkilnmkiikjjikljjjjjhgghgikpnonmnlmmiijjkhijkmtqsooqnmmlkijlqmiihegffhfiieedcccbbbcbbaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_sasaki_death_strogg
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/amb_1_1_1_130
+	shakeData 0 acegptswpljkhhggjfhffedgfedgcdddfecccfhdggegefeddceeefeefhfjifgeecdccbbbbbdgfdcdcbiffhgfjkfdgihfcbbbglmgmpnokhokhnokoikfiigjllkoqlghpkmhhqmkjlhjgffkhfcccdbbbdccbbbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound recomp_sasaki_death_scream
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/recomp/amb_scream
+	shakeData 0 anorqqrrqhgghhhffgdecccccehjrqtrurtrrtrqoponknjiikllnwqworrtuprtqtlkigggfeddddddccccborsqllghhfefeeeedcccccbcbbabbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+

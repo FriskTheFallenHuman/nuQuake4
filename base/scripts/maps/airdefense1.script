@@ -1,0 +1,1914 @@
+//------------------------------------------------------------------------------------
+// AirDefense1.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_airdefense1	
+{
+//------------------------------------------------------------------------------------
+// Globals
+//------------------------------------------------------------------------------------
+
+//has morris met kane yet?
+float g_morrisMeetsKane = 0;
+float g_killMorrisThread = 0;
+
+//is the "need a medic" badger scene ready?
+float g_badgerSceneReady = 0;
+
+//reinforcements in the intro combat room (second pass)
+float g_combatReinforcements = 0;
+
+//------------------------------------------------------------------------------------
+// Prototypes
+//------------------------------------------------------------------------------------
+
+// drag the hapless marine away
+void dragMarine();
+
+// intro to jabroni, this is when he wrestles with the grunt
+void jabroniWrestle();
+
+//grunt takes a mean shotgun blast here
+void gruntBlasted();
+
+//pipes burst, grunt spews out, oh it's good times.
+void pipeBustin();
+
+//knocks the player back from the grunt's busting pipes
+void playerKnockback();
+
+//send the grunt running toward the pipes, but it's all hokum, we'll just teleport him to the
+//right spot when it's time to make him smash
+void gruntRunToPipes();
+
+//runs an injured marine through pain anims
+void injuredMarineLoop(entity marine, entity doctor);
+
+//handle the dead and skewered marine
+void skewerMarine();
+
+//open the doors for the skewering berserker
+void openSkewerDoors();
+
+//maintains the big gun
+void maintainBigGun();
+
+//determines which cool walker firing anim he'll use
+void walkerFireManager(entity entDriver);
+
+void kovitchIdle();
+void hillstromHelpsWoundMarine();
+
+//player picks up the medic
+void gotMedic();
+
+//morris' conversations at the introduction
+void morrisIntroTalkToPlayer();
+void morrisIntroLoop();
+void _morrisIntroLoop();
+
+//simple AI for the medic
+//void medicHealingCheck(entity entMedic);
+//void medicHealPlayer(entity entMedic);
+
+//harvester intro 
+void vistaHarvesterOne();
+void vistaHarvesterTwo();
+
+//this lets the walker fire from various joints, it's all a dirty terrible hack.
+void walkerFireFromJoint( float fJoint, entity entWeapon);
+
+//This is the core of the Condor Squad scene.
+void millerHelpsWoundedMarine();
+void doHeartbeatSound();
+//------------------------------------------------------------------------------------
+// Functions
+//------------------------------------------------------------------------------------
+void andersonDragsMedic()
+{
+	sys.trigger($marine_anderson_standin); //unhide
+	sys.trigger($char_marine_wounded_medic); //unhide
+	aiScriptedAnimLoop( $marine_anderson_standin, "kneel_loop_1b", 4);
+	aiScriptedAnimLoop( $char_marine_wounded_medic, "lay_loop_1a", 4);
+
+	sys.wait(1);
+
+	aiScriptedAnim( $marine_anderson_standin, "liftlegs_b", 4, 0);
+	aiScriptedAnimWait( $char_marine_wounded_medic, "liftlegs_a", 4, 0);
+
+	aiScriptedAnimLoop( $marine_anderson_standin, "drag_loop_b", 4);
+	aiScriptedAnimLoop( $char_marine_wounded_medic, "drag_loop_a", 4);
+
+	sys.wait(4.5);
+
+//	aiScriptedAnim( $marine_anderson_standin, "setdown_b", 4, 0);
+//	aiScriptedAnimWait( $char_marine_wounded_medic, "setdown_a", 4, 0);
+
+//	aiScriptedAnimLoop( $marine_anderson_standin, "kneel_loop_2b", 4);
+//	aiScriptedAnimLoop( $char_marine_wounded_medic, "lay_loop_2a", 4);
+
+	$marine_anderson_standin.remove();
+	$char_marine_wounded_medic.remove();
+}
+
+float firstHealTime = 0;
+
+//------------------------------------------------------------------------------------
+void meetAndersonIntro()
+{
+	$npc_anderson_outdoor.setTalkState( TALK_BUSY );
+	$npc_anderson_outdoor.disableHeal();
+	$npc_anderson_outdoor.disableMovement();
+	
+	// these lines really slow things up...so much so that I worry the player will truck by and miss the helpful point
+	//	about a medic doing healing...
+//	aiSpeakWait( $npc_anderson_outdoor, "lipsync_vo_1_1_1_21_1" ); // This is insane.
+//	sys.wait(1);
+//	aiSpeakWait( $npc_anderson_outdoor, "lipsync_vo_1_1_1_21_2" );
+//	sys.wait(1);
+
+	aiSpeak( $npc_anderson_outdoor, "lipsync_vo_1_1_1_20_1" ); // There he's stablilized for the moment
+	sys.wait(.2);
+	// treat to kneel talk
+	aiScriptedAnimWait( $npc_anderson_outdoor, "treat_talk", 8, 0 );
+	// kneeling talk loop
+	aiScriptedAnimLoop( $npc_anderson_outdoor, "treat_talk_loop", 8 );
+
+	aiSpeakDone( $npc_anderson_outdoor );
+	$npc_anderson_outdoor.lookAt( $player1 );
+	sys.wait(0.5);
+	aiSpeak( $npc_anderson_outdoor, "lipsync_vo_1_1_1_20_2" ); // you're kane right?  My name is anderson.  Here let me heal you.
+	sys.wait(3);
+	$npc_anderson_outdoor.lookAt( $null_entity );
+
+	// ugh, this is kind of ugly.  
+	// Should we stand up for a heal?
+	if ( $player1.distanceTo($npc_anderson_outdoor) < 200 )
+	{
+		aiSpeakDone( $npc_anderson_outdoor );
+		$npc_anderson_outdoor.lookAt( $null_entity );
+		aiScriptedStop( $npc_anderson_outdoor );
+		sys.waitFrame();
+		$npc_anderson_outdoor.enableHeal();
+		$npc_anderson_outdoor.takePatient( $player1 );
+		firstHealTime = 1;
+		return;
+	}
+
+	// not close enough so get him back to his idle state
+	aiScriptedAnim( $npc_anderson_outdoor, "medic_treating", 8, 1 );
+	sys.wait(1.5);
+
+	aiSpeakWait( $npc_anderson_outdoor, "lipsync_vo_1_1_1_20_3" );  // if you get hurt find a medic, they'll heal you up.
+	$npc_anderson_outdoor.lookAt( $null_entity );
+
+	$npc_anderson_outdoor.setTalkState( TALK_OK );
+	$npc_anderson_outdoor.enableHeal();
+}
+
+// Post heal script for anderson
+//------------------------------------------------------------------------------------
+void returnAndersonToWork()
+{
+	aiScriptedFaceWait( $npc_anderson_outdoor, $tgt_null_anderson_medic_pos_face, 1 );
+	// return to fiddling with Moooocalf.
+	aiScriptedAnim( $npc_anderson_outdoor, "stand_to_treat", 8, 1 );
+
+	if ( firstHealTime == 1 )
+	{
+		firstHealTime = 0;
+		// we're doing a first time heal, so do this extra stuff this time around
+		sys.wait(1);
+		aiSpeakWait( $npc_anderson_outdoor, "lipsync_vo_1_1_1_20_3" );  // if you get hurt find a medic, they'll heal you up.
+	}
+}
+
+//------------------------------------------------------------------------------------
+void webbSummonsPlayer()
+{
+	$npc_redshirt_1.lookAt( $player1 );
+	
+	// switch anim_idle...now use, anim_first_idle as our idle
+	$npc_redshirt_1.setPassivePrefix("action");
+	$npc_redshirt_1.setAnimRate(1.3);
+	aiScriptedAnim( $npc_redshirt_1, "ad_door_marine", 8, 1 );
+	sys.wait(3.5);
+	aiSpeak( $npc_redshirt_1, "lipsync_vo_1_1_1_43_1" );
+	//$npc_redshirt_1.lookAt( $player1 );
+		
+	while (! aiScriptedDone( $npc_redshirt_1 ))
+	{
+		sys.waitFrame();
+	}
+	$npc_redshirt_1.setAnimRate(1);
+}
+
+//------------------------------------------------------------------------------------
+void webbJoinsPlayer()
+{
+	$npc_redshirt_1.lookAt( $null_entity );
+	$npc_redshirt_1.setLeader( $player1 );
+	$npc_redshirt_1.becomeAggressive();
+	
+	//redshirts are occupied with combat
+	$npc_redshirt_1.setTalkState( TALK_BUSY );
+	$npc_redshirt_2.setTalkState( TALK_BUSY );
+}
+
+//------------------------------------------------------------------------------------
+void webbTakeCover()
+{
+	$npc_redshirt_1.setLeader( $null_entity );
+}
+
+//------------------------------------------------------------------------------------
+void webbPlaysItSafe()
+{
+	sys.wait(2);
+	
+	//enemies cleared, redshirts can talk
+	$npc_redshirt_1.setTalkState( TALK_OK );
+	$npc_redshirt_2.setTalkState( TALK_OK );
+
+	if ( $npc_redshirt_1.getHealth() > 0 )
+	{
+		aiSpeak( $npc_redshirt_1, "lipsync_vo_1_1_1_44_1" );
+	}
+	else if ( $npc_redshirt_2.getHealth() > 0 )
+	{
+		aiSpeak( $npc_redshirt_2, "lipsync_vo_1_1_1_45_1" );
+	}
+}
+
+//------------------------------------------------------------------------------------
+// drag the hapless marine away
+//------------------------------------------------------------------------------------
+void dragMarine()	
+{
+	sys.trigger( $spkr_grunt_drag_music);
+
+	// currently is 73 frames long
+	aiScriptedAnim( $marine_grunt_drag, "ad_marine_dragged", 4, 0);
+	aiScriptedAnim( $mon_grunt_drag, "ad_grunt_drags", 4, 0);
+
+	sys.wait( 2.88 ); // wait 68 frames,  then start the door closing
+
+	//...cause the door no likey to close when the grunt in da way.
+	$grunt_door_2.close();
+	
+	while ( $grunt_door_2.isOpen())
+	{
+		sys.waitFrame();
+	}
+
+	// remove them
+	$mon_grunt_drag.remove();
+	$marine_grunt_drag.remove();
+	
+	// disarm the marine
+//	sys.println( "Arm collapsed");
+//	$env_ragdoll_marine_fullgear_1.collapseJoints( "*r_elbo", "r_up_arm");
+//	$env_ragdoll_marine_fullgear_1.collapseJoints( "*r_up_arm", "r_clavicle");
+//	sys.waitFrame();
+//	sys.trigger( $env_ragdoll_marine_fullgear_1);
+//	sys.wait(2);	
+}
+
+// TODO:  previously called from closeDragDoor()
+// sys.wait(1);
+// thread playAmbientWithVO(5, 3);
+
+//------------------------------------------------------------------------------------
+// unlock the door just before the drag grunt
+//------------------------------------------------------------------------------------
+void unlockPreDragDoor()
+{
+	$preGruntDoor_1.lock(0);
+	$preGruntDoor_2.lock(0);
+}
+
+// intro to jabroni, this is when he wrestles with the grunt
+//------------------------------------------------------------------------------------
+void jabroniWrestle()	
+{
+	$grunt_door_1.lock(1); //lock door to prevent player from pulling kovitch back to the beginning
+	
+	//have jabroni play his two animations. I'm sure there are crazy frame commands enroute.
+	aiScriptedAnim( $mon_grunt_wrestle, "ad_jump", 1, 0);
+	aiScriptedAnimWait( $npc_kovitch, "ad_fights_grunt_1", 1, 0);
+	$npc_kovitch.setAnimRate(1.2); // get up faster
+	aiScriptedAnim( $npc_kovitch, "ad_fights_grunt_2", 1, 1);
+	$npc_kovitch.setAnimRate(1);
+
+	//talk to Kane
+//	aiSpeakWait( $npc_kovitch, "lipsync_vo_hello");
+	aiSpeak( $npc_kovitch, "lipsync_vo_hello");
+	
+	//jabroni now follows the player
+	//$npc_kovitch.setLeader( $player1); //set on the entity already
+	$npc_kovitch.setTalkState( TALK_OK ); // , "idle");
+	sys.wait(1);
+	sys.trigger($ai_tether_radius_kovitch_1);
+
+}
+
+//grunt takes a mean shotgun blast here
+//------------------------------------------------------------------------------------
+void gruntBlasted()		
+{
+	//blood splatter
+	$fx_death_gib.setWorldOrigin( $mon_grunt_wrestle.getJointPos( $mon_grunt_wrestle.getJointHandle( "chest")));
+	$fx_death_gib.setAngles( $mon_grunt_wrestle.getAngles());
+	sys.trigger( $fx_death_gib);
+
+	//let's see what we can do. We want him to topple ass-over-teakettle, y positive
+	$mon_grunt_wrestle.kill();
+	sys.waitFrame();
+	vector vHead = $mon_grunt_wrestle.getWorldOrigin();
+	vHead_z += 48;
+
+	$mon_grunt_wrestle.applyImpulse( $mon_grunt_wrestle, vHead, '0 20000 2000');	
+	$mon_grunt_wrestle.applyImpulse( $mon_grunt_wrestle, $mon_grunt_wrestle.getWorldOrigin(), '-1000 30000 2000');
+}
+
+//panel light sequence for climbing out of grunt pit
+//panelState 1 open, 0 closed.
+float panelState = 0;
+
+void openPanel()
+{
+	if (panelState == 0)
+	{
+		sys.trigger($target_entity_panelState_green);
+		sys.trigger($func_door_60);
+		sys.trigger($func_aas_obstacle_2);
+		
+		sys.waitFor($func_door_60);
+		panelState = 1;
+	}
+	
+	else
+	{
+		sys.trigger($target_entity_panelState_orange);
+		sys.trigger($func_door_60);
+		sys.trigger($func_aas_obstacle_2);
+		
+		sys.waitFor($func_door_60);
+		panelState = 0;
+	}	
+}
+
+//moves one flyer sprite across the sky over the trenches
+//------------------------------------------------------------------------------------
+void maintainStroggFlyerSprite(entity entMover, entity fxNormal, entity fxDamage, entity entHangar, entity entTgrEnd, vector vDirection)
+{	
+	sys.wait( sys.random(10) );
+	
+	//will the planes be swervey?
+	float fSwerve = 0;
+	float fWaitTime = 0;
+	float fAmplitude = 0;
+
+	while(1)	
+	{
+		//place the mover on the "hangar" line, equal in the X but displaced in the Y by +/- ___ units
+		// +/- Y displacement
+		float fDisplacementMax = 2000;
+		float fDelta = 0;
+
+		//start location for the flyer
+		vector vStart = entHangar.getWorldOrigin();
+		vector vSpeed = '0 0 0';
+		vector vAngs;
+
+		//flyer speed
+		float fSpeed = 900 + (sys.random(600));
+
+		fSwerve = sys.random(200) + 100;
+		fAmplitude = sys.random(90) + 30;
+
+		//stop the flyer-- move him into position after we figure out where he goes.
+		entMover.setLinearVelocity( '0 0 0');
+
+		//mathery mcmath
+		fDelta = (0 - fDisplacementMax + sys.random( fDisplacementMax * 2));
+		vStart_y += fDelta;
+
+		//move to position
+		entMover.setWorldOrigin( vStart );
+		sys.waitFrame();
+		
+		//set the direction as speed
+		vSpeed = vDirection * fSpeed;	
+		vSpeed_z = 0;
+
+		// set initial angle in case this is a non-swerving dude..
+		vAngs = sys.VecToAngles(vSpeed);
+		entMover.setAngles(vAngs);
+	
+		fWaitTime = sys.getTime() +  sys.random(2.5);
+	
+		//turn on the regular plane, turn off the alternate
+		fxNormal.start();
+		fxDamage.stop();	
+		
+		while( sys.getTime() < fWaitTime)	
+		{
+			//fly!
+			entMover.setLinearVelocity( vSpeed);
+
+			//swerve if need be
+			if( fSwerve != 0)	
+			{
+				vSpeed_y = sys.sin( sys.getTime() * fAmplitude ) *  fSwerve;
+
+				// update facing so effects can draw properly
+				vAngs = sys.VecToAngles(vSpeed);
+				entMover.setAngles(vAngs);
+			}
+
+			//if somehow the ship has escaped the skybox, break
+			if( entMover.touches( entTgrEnd))	
+			{
+				break;
+			}
+			//decend on the way out
+			sys.waitFrame();
+		}
+
+		//second loop, descend.
+		vSpeed_z = 0;
+
+		if(sys.random(20) < 2)
+		{
+			//sys.println("Damaged!");
+
+			//slow down and fly off course, descend faster
+			vSpeed_x *= 0.25;
+			if (vSpeed_y < 10 && vSpeed_y > -10)	
+			{
+				vSpeed_y += ( -800 + sys.random(1600));
+			} else	
+			{
+				vSpeed_y *= 4;
+			}
+			vSpeed_z *= 1.25;
+
+			//no more swerving
+			fSwerve = 0;
+
+			//switch to damaged effect, and explode
+			fxNormal.stop();
+			fxDamage.start();
+			$fx_flyer_damage.setWorldOrigin( entMover.getWorldOrigin() );
+			sys.trigger( $fx_flyer_damage);
+		}
+		
+		fWaitTime = sys.getTime() +  5;
+
+		//after the possible damage time, remove once the ship has left the skybox
+		while( (sys.getTime() < fWaitTime) && ( !entMover.touches( entTgrEnd))  )	
+		{
+			//fly!
+			entMover.setLinearVelocity( vSpeed);
+
+			//swerve if need be
+			if( fSwerve != 0)	
+			{
+				vSpeed_y = sys.sin( sys.getTime() * fAmplitude ) *  fSwerve;
+				// update facing so effects can draw properly
+				vAngs = sys.VecToAngles(vSpeed);
+				entMover.setAngles(vAngs);
+			}
+
+			//decend on the way out
+			sys.waitFrame();
+		}
+	}
+}
+
+//pipes burst, grunt spews out, oh it's good times.
+//------------------------------------------------------------------------------------
+void pipeBustin()	
+{
+	//bursty pipes!
+	$env_airdefense_pipes_1.show();
+	$func_static_temppipes.remove();
+	$env_airdefense_pipes_1.playAnim(ANIMCHANNEL_ALL, "bustin_open");
+
+	sys.trigger( $fx_pipebust_2);
+	sys.trigger( $fx_pipebust_3);
+	sys.trigger( $fx_pipebust_4);
+	sys.trigger( $spkr_grunt_pipes);
+
+	//aggro grunt!
+	aiScriptedAnimWait( $mon_grunt_pipes, "ad_bustin_pipes", 4, 1);
+	$mon_grunt_pipes.setEnemy( $player1);
+}
+
+//knocks the player back from the grunt's busting pipes
+//------------------------------------------------------------------------------------
+void playerKnockback()	
+{
+	// apply knockback in Y only.  Pushing in any other direction is extra unsafe and can cause
+	//	the player to get stuck in solid.  Yes, this is only a workaround...
+	vector vKnockback = '0 -25000 15000';
+
+	//$mvb_pipehit.remove();
+	$player1.applyImpulse( $player1, $player1.getWorldOrigin(), vKnockback);
+
+	// trigger double vision... with no hearing loss
+	$player1.damageEffect( "dmg_shellshock_nohl" , $mon_grunt_pipes );
+	$player1.startSound( "snd_pain_small", SND_CHANNEL_ANY, 0 );
+}
+
+//send the grunt running toward the pipes, but it's all hokum, we'll just teleport him to the
+//right spot when it's time to make him smash
+//------------------------------------------------------------------------------------
+void gruntRunToPipes()	
+{
+	//position
+	$mon_grunt_fake_pipes.setWorldOrigin( $tgt_grunt_pipes_start.getWorldOrigin() );
+
+	//run!
+	aiScriptedMoveWait( $mon_grunt_fake_pipes, $tgt_grunt_pipes_end, 1, 0);
+
+	//poof!
+	$mon_grunt_fake_pipes.remove();
+}
+
+//runs an injured marine through pain anims
+//------------------------------------------------------------------------------------
+void injuredMarineLoop(entity marine, entity doctor)	
+{
+	sys.wait(17);
+
+	//the medic speaks to his comm radio
+	sys.trigger( $spkr_anderson_1);
+
+	sys.wait(3.2);
+	aiSpeakWait( doctor, "lipsync_vo_1_1_1_15_2");
+
+	sys.trigger( $spkr_anderson_2);
+	sys.wait(1.6);
+
+	aiSpeakWait( doctor, "lipsync_vo_1_1_1_15_4");
+//	aiScriptedStop( doctor);	
+
+	//set the talk state for the medic, he won't do much except heal this guy
+	doctor.setTalkState( TALK_OK ); // , "medic_treating");
+}	
+
+//morris has a conversation with his radio over the introduction
+//------------------------------------------------------------------------------------
+void morrisIntroLoop()	
+{
+	$npc_morris_intro.hideSurface("models/weapons/mp_guns/w_mg_lo");
+	aiScriptedAnimLoop( $npc_morris_intro, "working_wall_panel_3", 0);
+	
+	sys.wait(12);
+	if( g_morrisMeetsKane == 0 )	
+	{
+		thread _morrisIntroLoop();
+	}
+}
+
+//------------------------------------------------------------------------------------
+void _morrisIntroLoop()	
+{
+	sys.wait(10);
+	//voss radios in
+	sys.trigger( $spkr_voss_intro_1);
+	sys.wait(3.5);
+
+	//morris replies
+	aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_28_1");
+	sys.wait(0.5);
+
+	//voss radios in again
+	sys.trigger( $spkr_voss_intro_2);
+	sys.wait(6);
+
+	while( isValidEntity($npc_morris_intro)) // while (1)
+	{
+		//now, Morris says these things in a loop until the player gets close enough to use him.
+		if ( g_killMorrisThread == 1)
+		{
+			return;
+		}
+		aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_30_1");
+		sys.wait(4);
+		if ( g_killMorrisThread == 1)
+		{
+			return;
+		}
+		aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_30_2");
+		sys.wait(4);
+		if ( g_killMorrisThread == 1)
+		{
+			return;
+		}
+		aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_30_3");
+		sys.wait(4);
+	}
+}
+
+//prevent morris' head anim from spinning his head around.  called in "morrisIntroTalkToPlayer"
+void morrisStopLooking()
+{
+	sys.wait(10.5);
+	$npc_morris_intro.lookAt( $null_entity );
+}
+
+//this is morris talking to the player
+//------------------------------------------------------------------------------------
+void morrisIntroTalkToPlayer()	
+{
+	//kill the intro loop thread...no worky if the namespace isn't present??
+//	sys.killthread( "map_airdefense1::_morrisIntroLoop");
+	g_killMorrisThread = 1;
+
+	// ensure that morris is done speaking before we start him looking at the player, otherwise
+	//	he can cut off his HQ, HQ, do you read?  lines..
+	while ( $npc_morris_intro.isSpeaking())
+	{
+		//sys.println( "morris waiting to speak" );
+		sys.wait(.1);
+	}
+
+	g_morrisMeetsKane = 1;
+
+	// morris talks to the player - let morris look at the player for a second before initiating the conversation
+	$npc_morris_intro.lookAt( $player1 );
+	thread morrisStopLooking(); //stop looking to prevent head clipping into shoulders
+	aiScriptedAnim( $npc_morris_intro, "ad_morris_intro", 12, 0);
+	playHeadAnim( $npc_morris_intro, "morris_ad_intro" );
+	sys.wait(1);
+/*
+	aiSpeak( $npc_morris_intro, "lipsync_vo_1_1_1_40_1");
+
+	while ( $npc_morris_intro.isSpeaking( ))
+	{
+		sys.waitFrame();
+	}
+*/
+	aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_40_1");
+	sys.wait(.6);
+
+
+	aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_40_2");
+//	aiScriptedAnim( $npc_morris_intro, "weaponless_point_left", 8,0);
+	sys.wait(.2);
+	$npc_morris_intro.lookAt( $null_entity );
+	aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_40_3");
+
+	sys.trigger( $objectiveIntro);
+	aiScriptedWait( $npc_morris_intro );
+//	sys.println( "playing blend anim." );
+	aiScriptedAnimWait( $npc_morris_intro, "working_wall_panel_3", 8,1);
+
+
+
+//	sys.wait(4);
+//	aiScriptedStop( $npc_morris_intro);
+
+	// now morris can be queried.
+//	aiScriptedAnimLoop( $npc_morris_intro, "working_wall_panel_3", 4);
+//	$npc_morris_intro.setTalkState( TALK_OK ); // , "working_wall_panel_3");
+	sys.wait(4);
+
+	while( isValidEntity($npc_morris_intro)) // while (1)
+	{
+		//now, Morris says these things in a loop until the player gets close enough to use him.
+		if( !$npc_morris_intro.isSpeaking() )
+			aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_30_1");
+		sys.wait(5);
+		
+		if( !$npc_morris_intro.isSpeaking() )
+			aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_30_2");
+		sys.wait(5);
+		
+		if( !$npc_morris_intro.isSpeaking() )
+			aiSpeakWait( $npc_morris_intro, "lipsync_vo_1_1_1_30_3");
+		sys.wait(5);
+	}
+}
+
+
+//handle the dead and skewered marine
+//------------------------------------------------------------------------------------
+void skewerMarine()	
+{
+	$marine_skewer.lookAt( $player1 );
+	aiSpeak( $npc_redshirt_1, "lipsync_vo_1_1_2_09_1_global" );
+
+	sys.trigger( $spkr_berserker_cue);
+	aiScriptedAnim( $mon_berserker_skewer, "ad_intro", 1, 1);
+	aiScriptedAnimWait( $marine_skewer, "ad_berserker_intro", 1, 0);
+
+	//anything else here?
+	$marine_skewer.kill();
+	sys.waitFrame();
+	$marine_skewer.stopThinking();
+	$marine_skewer.becomePassive(true);
+	$marine_skewer.disableTarget();
+	$marine_skewer.takeDamage(0);
+	$marine_skewer.disablePain();
+
+	$mon_berserker_skewer.setEnemy($player1);
+	sys.trigger( $fx_skewer_pool);
+	//kill the marine
+//	sys.wait(1);
+}
+
+// open the doors for the skewering berserker.  Called via framecommands from ad_berserker_intro
+//------------------------------------------------------------------------------------
+void openSkewerDoors()	
+{
+	$door_skewer_1.lock(0);
+	$door_skewer_2.lock(0);
+	//$door_postMedic_1.lock(0);
+	$frame_postMedic_1.setShaderParm(7,1);
+}
+
+//open doors and start sequence
+void openMedicDoors()
+{
+	$door_postMedic_1.lock(0);
+	$door_postMedic_1.open();
+	sys.trigger($trigger_relay_smdropdown);
+}
+
+//------------------------------------------------------------------------------------
+void walkerShoot( entity driver, entity vehicle )
+{
+	while ( isValidEntity(vehicle) && isValidEntity(driver) && vehicle.getHealth() > 0 )
+	{
+		driver.fireWeapon(0,.1);
+		sys.wait(sys.random(.3)+.1);
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+void introStrafeRunB()		
+{
+	$introFighterBase_2.startSpline( $introFighterSpline_2 );
+	sys.trigger( $fighterSpeaker_2 );
+	setNewTimes( $introFighter_2 , .5 , .25 , .25 );
+	$introFighter_2.rotateOnce( '-25 0 0' );
+	sys.waitFor( $introFighter_2 );
+	setNewTimes( $introFighter_2 , 1 , .25 , .25 );
+	$introFighter_2.rotateOnce( '65 0 0' );
+	sys.waitFor( $introFighter_2 );
+	setNewTimes( $introFighter_2 , 1.5 , .5 , 5 );
+	$introFighter_2.rotateOnce( '-75 0 0' );
+	sys.waitFor( $introFighter_2 );
+	sys.wait(1.2);
+	$introFighterBase_2.remove();
+}
+
+//----------------------------------------------------------------------------------------------------
+void introStrafeRunA()		
+{
+	$introFighterBase_1.startSpline( $introFighterSpline_1 );
+	sys.trigger( $fighterSpeaker_1 );
+	setNewTimes( $introFighter_1 , 1 , .5 , .5 );
+	$introFighter_1.rotateOnce( '-45 0 0' );
+	sys.wait( .25 );
+//	thread introStrafeRunB();
+	sys.waitFor( $introFighter_1 );
+	setNewTimes( $introFighter_1 , 1 , .5 , .5 );
+	$introFighter_1.rotateOnce( '65 0 0' );
+	sys.waitFor( $introFighter_1 );
+	setNewTimes( $introFighter_1 , 1 , .5 , 5 );
+	$introFighter_1.rotateOnce( '-75 0 0' );
+	sys.waitFor( $introFighter_1 );
+	sys.wait(1.2);
+	$introFighterBase_1.remove();
+}
+
+//----------------------------------------------------------------------------------------------------
+void startIntroStrafeRuns()
+{
+	sys.wait(12);
+	thread introStrafeRunA();
+	sys.wait(4.5);
+	thread introStrafeRunB();
+}
+
+//----------------------------------------------------------------------------------------------------
+//determines which cool walker firing anim he'll use
+//------------------------------------------------------------------------------------
+void walkerFireManager(entity entDriver)	
+{
+	entDriver.setKey("alive", "true");
+
+	//shoot like mad!
+	while(entDriver.getKey("alive") == "true")	
+	{
+		float fFire = sys.random(100);
+
+		if(fFire < 14)
+		{
+			$aiDriver_2.fireWeapon( 0, 0.1);
+		}
+		else if (fFire < 20)	
+		{
+			float fBurst = 0;
+			for( fBurst = 0; fBurst < 10; fBurst++)	
+			{
+				$aiDriver_2.fireWeapon( 1, 1);
+				sys.wait(0.05);
+			}
+		}
+		
+		sys.waitFrame();
+	}
+}
+
+//---------------------------------------------------------------------------------
+// void triggerBigGunDust()
+//
+// This function triggers entities func_fx_cannondust_1 -> func_fx_cannondust_53
+//---------------------------------------------------------------------------------
+void triggerBigGunDust()
+{
+	entity ent;
+	float fCt;
+
+	// currently there are 1-53 of these bad boys
+	for ( fCt=1; fCt<=53; fCt=fCt+1 )
+	{
+		ent = sys.getEntity( "func_fx_cannondust_" + fCt );
+		if ( ent == $null_entity )
+		{
+			break;
+		}
+		sys.trigger(ent);
+	}
+}
+
+//this should get the big gun to turn and fire
+//------------------------------------------------------------------------------------
+void maintainBigGun()	
+{
+	while(1)	
+	{
+		sys.wait(7 + sys.random(2));
+
+		// fire!  set global lighting change, create some dust...noize
+		sys.trigger( $spkr_big_gun_muffled );
+		sys.setShaderParm(1, sys.getTime());
+		triggerBigGunDust();
+
+		// revert global lighting..roger had this set up with a 4 second delay from triggering, so I'm keeping that aspect of it
+		sys.wait(4);
+		sys.setShaderParm(1, 0);
+	}
+}
+
+
+//fired when the player pics up the medic.
+//------------------------------------------------------------------------------------
+void gotMedic()	
+{
+	//doors will now lock behind anderson, anderson is triggered in prior to strogg dying. -corey
+	//sys.trigger( $npc_anderson );
+
+/*	sys.waitFrame();
+
+	// bind the gun into his hand;
+	float hnd = $npc_anderson.getJointHandle( "l_wrist" );
+	vector angs = $npc_anderson.getJointAngle( hnd );
+	$func_anderson_vaccinegun.setAngles( angs );
+
+	// ugh, hacking position
+	vector origin = $npc_anderson.getJointPos( hnd ) + (sys.angToRight(angs) * 6);
+	origin = origin + (sys.angToForward(angs) * 2);
+	origin = origin + (sys.angToUp(angs) * 2);
+
+	$func_anderson_vaccinegun.setOrigin( origin );
+	$func_anderson_vaccinegun.bindToJoint( $npc_anderson, "l_wrist", 1 );
+
+	sys.waitFrame();
+	// now hide it until he needs to use it.
+	$func_anderson_vaccinegun.hide();
+*/
+	//set this off
+	sys.trigger( $trigger_relay_returnwithmedic);
+
+	//assign the medic to the player
+	//$npc_anderson.setLeader( $player1); //clear tether, leader set on anderson now
+	
+	sys.wait(4);
+	//sys.println("clear tether");
+	sys.trigger($ai_tether_none_anderson);
+	$npc_anderson.lookAt( $player1 );
+
+	// get into range, then speak his vo
+	aiScriptedMoveWait( $npc_anderson, $player1, 200, 1);
+
+//	aiScriptedFaceWait( $npc_anderson, $player1, 1);
+	aiSpeak( $npc_anderson, "lipsync_vo_1_1_2_10_1"	);
+
+	//trigger the next medic trigger
+	sys.trigger( $tgr_bring_medic);
+	
+	//complete sgt miller's objective and give new objective
+	sys.trigger($completeObjectiveMedic);
+	sys.wait(5.5); //must wait 5 seconds otherwise "completed" gets stuck on screen
+	sys.trigger($objectiveReturnMedic);
+
+//	sys.wait(2.5);
+	//let's keep Anderson thinking:
+//	thread medicHealingCheck( $npc_anderson);
+	$npc_anderson.lookAt( $null_entity );
+	$npc_anderson.setTalkState( TALK_OK ); // , "idle");
+	$npc_anderson.enableHeal();
+}
+
+//---------------------------------------------------------------------------
+// 
+// Badger Squad scenarios
+//
+//---------------------------------------------------------------------------
+
+// A trio of badger squad are fighting off a strogg, just finishing them up when the player walks in.
+void marineBattleInBuilding()	
+{
+	sys.trigger( $mon_strogg_redshirt_1 );
+	sys.trigger( $npc_chase );
+	$npc_chase.hideSurface( "models/weapons/mp_guns/w_sg" );
+
+	// hillstrom gets ready to pound on some stogg butt
+	aiScriptedAnimLoop( $npc_hillstrom, "crouch_idle", 4 );
+	$npc_hillstrom.setEnemy( $mon_strogg_redshirt_1);
+
+	// This strogg ain't got a chance...
+	$mon_strogg_redshirt_1.setEnemy( $npc_hillstrom);
+	sys.wait(.65);
+
+	// hillstrom prepares to blow the strogg away
+	aiScriptedAnim( $npc_hillstrom, "crouch_range_attack", 4, 0);
+
+	// four frames... this is a hack but cool
+	sys.waitFrame();
+	sys.waitFrame();
+	sys.waitFrame();
+	sys.waitFrame();
+
+	// gibs -- doesn't really matter if the guy is dead or not at this point.
+	vector vGib = $mon_strogg_redshirt_1.getWorldOrigin();
+	vGib_z += 42;
+
+	// move the effect into place and set it off
+	$fx_death_gib.setWorldOrigin( vGib);
+	$fx_death_gib.setAngles( $mon_strogg_redshirt_1.getAngles());
+	sys.trigger( $fx_death_gib);
+	
+	// hillstromg kills the strogg
+	$npc_hillstrom.directDamage( $mon_strogg_redshirt_1, "damage_triggerhurt_5");
+	sys.waitFrame();	
+	$mon_strogg_redshirt_1.applyImpulse( $mon_strogg_redshirt_1, $mon_strogg_redshirt_1.getWorldOrigin(), '0 60000 10000');
+
+	aiScriptedMove( $npc_miller, $tgt_miller_here, 4, 1 );
+
+	// the rest of the badger scene can now progress (once the player gets close enough to trigger it)
+	g_badgerSceneReady = 1;
+}
+
+//------------------------------------------------------------------
+void startBadgerScene()	
+{
+	// this loops depends on the completion of func marineBattleInBuilding()
+	while( g_badgerSceneReady == 0)	
+	{
+		sys.wait(0.25);
+	}
+
+	// make miller, chase and hillstrom all non-combatants
+	$npc_miller.disableTarget();
+	$npc_hillstrom.disableTarget();
+	$npc_chase.disableTarget();
+	$npc_kovitch.disableTarget();
+	
+	thread millerHelpsWoundedMarine();
+	thread kovitchIdle();
+}	
+
+//------------------------------------------------------------------
+void kovitchIdle()	
+{
+	aiScriptedMoveWait( $npc_kovitch, $tgt_kovitch_here, 4, 0);
+	aiScriptedFaceWait( $npc_kovitch, $npc_chase, 0);
+	$npc_kovitch.setTalkState( TALK_OK ); // , "talk_idle");
+	$npc_kovitch.setLeader( $null_entity);
+}
+
+//------------------------------------------------------------------
+void ensureKovitchIsPlaced()
+{
+	while( $npc_kovitch.distanceTo($tgt_kovitch_here) > 64 ) {
+		aiScriptedMoveWait( $npc_kovitch, $tgt_kovitch_here, 4, 0);
+		sys.wait(1);
+	}
+	aiScriptedFaceWait( $npc_kovitch, $npc_miller, 0);
+}
+
+//------------------------------------------------------------------
+void hillstromHelpsWoundMarine()
+{
+	$npc_hillstrom.setOrigin( $tgt_hillstrom_start.getOrigin());
+	$npc_hillstrom.setAngles( $tgt_hillstrom_start.getAngles());
+
+	aiScriptedAnim( $npc_chase, "mhstrom_wounded_a", 4, 0 );
+	aiScriptedAnimWait( $npc_hillstrom, "mhstrom_wounded_b", 4, 0 );
+
+	aiScriptedAnimLoop( $npc_chase, "mhstrom_loop_a", 4 );
+	aiScriptedAnimLoop( $npc_hillstrom, "mhstrom_loop_b", 4 );
+
+	// hillstrom makes sure the area is secure, then checks out chase for a bit
+	sys.wait(14);
+
+	// ...then goes back to guard duty
+	$npc_hillstrom.setMoveSpeed( AIMOVESPEED_WALK );
+	aiScriptedMoveWait( $npc_hillstrom, $tgt_hillstrom_here, 4, 0);
+	aiScriptedAnimWait( $npc_hillstrom, "stand_to_crouch", 16, 0 ); // damn it popping, go away..
+
+	$npc_hillstrom.becomePassive(true);
+	aiScriptedAnimLoop( $npc_hillstrom, "crouch_idle", 16 );
+}
+
+//------------------------------------------------------------------
+// Miller checks out the wounded marine and calls out for help, but
+//	signal is jammed - damn squibs!  Only Kane can save us now..
+//------------------------------------------------------------------
+void millerHelpsWoundedMarine()	
+{
+	//return to get medic event.
+	sys.trigger( $trigger_relay_getmedic );
+	sys.trigger( $marine_skewer );
+
+	$npc_miller.becomePassive(true);
+	aiScriptedFaceWait( $npc_miller, $tgt_miller_facing, 0);
+	
+	aiScriptedAnim( $npc_miller, "ad_miller", 16, 0);
+
+	// the wounded marine speaks
+	sys.wait(4);
+	aiSpeakWait( $npc_chase, "lipsync_vo_wounded_1");
+
+	sys.wait(1.2);
+	
+	//miller calls for a medic
+	aiSpeakWait( $npc_miller, "lipsync_1_1_1_170_2");
+	sys.wait(1);
+
+	//and we're all jammed...reprimands kovitch
+	$npc_miller.lookAt( $npc_kovitch );
+	aiSpeakWait( $npc_miller, "lipsync_1_1_1_170_3");
+	sys.wait(0.2);
+	aiSpeakWait( $npc_miller, "lipsync_1_1_1_170_3_1");
+//	sys.wait(2.4);
+//	while ( $npc_miller.isSpeaking( )) 
+//	{
+//		sys.waitFrame();
+//	}
+	aiScriptedFace(	$npc_kovitch, $npc_miller, 0 );
+	$npc_kovitch.lookAt( $npc_miller );
+	sys.wait(0.5);
+	// Kovitch responds and then tells player to get the medic from the level start
+	aiSpeak( $npc_kovitch,  "lipsync_1_1_1_170_4");
+	sys.wait(2);
+	$npc_kovitch.lookAt( $player1 );
+	sys.wait(0.5);
+	$npc_miller.lookAt( $player1 );
+	while ( $npc_kovitch.isSpeaking( )) 
+	{
+		sys.waitFrame();
+	}
+
+	sys.wait(0.6);
+
+	//miller barks orders.
+	aiSpeakWait( $npc_miller, "lipsync_1_1_1_180_1");
+	aiScriptedAnim( $npc_miller, "relaxed_idle", 24, 1);
+	sys.trigger( $objectiveMedic);
+	
+	$npc_miller.setTalkState( TALK_OK );
+
+	//secretly, near the intro of the map, we move the medic indoors.
+	$npc_redshirt_1.setWorldOrigin( $tgt_redshirt_waiting_here.getWorldOrigin());
+
+	//set anderson up for battle. This might work.
+	$npc_anderson.setTalkState( TALK_OK );
+
+	// set up level progression items.
+//	sys.trigger( $trigger_relay_getmedic );
+//	sys.trigger( $marine_skewer );
+
+	// Like it says, make sure kovitch is out of the way
+	thread ensureKovitchIsPlaced();
+
+	// This guy is no longer needed..clean him out if hes isn't already.
+	sys.killthread("injuredMarineLoop");
+	$npc_anderson_outdoor.remove();
+}
+
+//------------------------------------------------------------------
+// When player gets close to Miller, Miller gives orders to go get
+//	the Anderson (the medic at the start of the map)
+//------------------------------------------------------------------
+void millerOrdersPlayerToGetMedic()	
+{
+	//miller gets up
+//	aiScriptedAnimWait( $npc_miller, "knee_to_idle", 1, 1);
+	aiScriptedFaceWait( $npc_miller, $player1, 1);
+
+	//miller barks orders.
+	aiSpeakWait( $npc_miller, "lipsync_1_1_1_180_1");
+	sys.trigger( $objectiveMedic);
+	
+	$npc_miller.setTalkState( TALK_OK );
+
+	//secretly, near the intro of the map, we move the medic indoors.
+	$npc_redshirt_1.setWorldOrigin( $tgt_redshirt_waiting_here.getWorldOrigin());
+
+	//set anderson up for battle. This might work.
+	$npc_anderson.setTalkState( TALK_OK );
+
+	sys.killthread("injuredMarineLoop");
+	$npc_anderson_outdoor.remove();
+}
+
+//------------------------------------------------------------------
+void hillstromUnlockDoor()
+{
+	sys.wait(2.4);
+
+	$npc_hillstrom.lookAt( $null_entity );
+	aiScriptedFaceWait( $npc_hillstrom, $tgt_hillstrom_unlock_look, 0 );
+	sys.wait(0.5);
+	aiScriptedAnim( $npc_hillstrom, "point_forward", 16, 0 );
+
+	sys.wait(1.6);
+
+	// unlock and open the doors here
+	sys.trigger( $discDoorTop_3 );	
+	sys.trigger( $speaker_core_heavy_unlock );
+	sys.trigger( $target_setshaderparm_8 );
+
+	sys.wait(.5);
+	sys.trigger( $discDoorTop_3 );
+//	$door_medicRoom_1.lock(0);
+//	$door_medicRoom_2.lock(0);
+	$cortez_door_locked.hide();		//gui locked
+	$cortez_door_unlocked.show();	//gui unlocked
+
+	sys.wait(1.8);
+
+	aiScriptedFace( $npc_hillstrom, $tgt_hillstrom_post_unlock_look, 0 );
+	$npc_hillstrom.lookAt( $player1 );
+}
+
+//------------------------------------------------------------------
+void moveHillstrom()
+{
+	$npc_hillstrom.setOrigin( $tgt_hillstrom_here_1.getWorldOrigin());
+}
+
+//------------------------------------------------------------------
+// fired when the medic is delivered to the injured marines in the level
+//------------------------------------------------------------------
+void medicDelivered()	
+{
+	$npc_miller.setTalkState( TALK_BUSY );
+	
+	// Prep Hillstrom to unlock the door
+//	aiScriptedMove( $npc_kovitch, $tgt_kovitch_here_1, 4, 0);
+	aiScriptedMove( $npc_miller, $tgt_miller_here_next, 4, 0 );
+
+	// turn off the medic's follow
+	$npc_anderson.setLeader( $null_entity );
+	$npc_anderson.setKey( "healer", "0");
+	$npc_anderson.disableHeal();
+
+	$npc_anderson.becomePassive( true );
+	
+	// face Hillstrom correctly and move the medic to his destination
+	$npc_anderson.setMoveSpeed( AIMOVESPEED_RUN );
+	aiScriptedMove( $npc_anderson, $tgt_medic_here, 2, 0);
+//	aiScriptedWait( $npc_kovitch );
+	aiScriptedFace( $npc_hillstrom, $tgt_hillstrom_post_unlock_look, 0 );
+	aiScriptedWait( $npc_anderson );
+
+	// change miller's talk info
+//	$npc_miller.setKey( "lipsync_talk_primary",	"vo_9_12_20_2");
+//	$npc_miller.setKey( "lipsync_talk_secondary", "vo_9_12_30_1");
+//	$npc_miller.setKey( "lipsync_talk_loop1",	"vo_9_12_30_3");
+
+	//Miller	2_50_1		  
+	aiSpeak( $npc_miller, "lipsync_1_1_2_50_1");
+	aiScriptedFace( $npc_miller, $npc_chase, 0 ); 
+	aiScriptedFace( $npc_hillstrom, $npc_anderson, 0);
+	aiScriptedMoveWait( $npc_anderson, $tgt_medic_heal, 2, 0);
+	$npc_anderson.setOrigin( $tgt_medic_heal.getOrigin());
+	$npc_anderson.setAngles( $tgt_medic_heal.getAngles());
+
+	// complete the objective
+	// sys.trigger( $completeObjectiveMedic);
+	sys.trigger($objectiveCompleteReturnMedic);
+
+	//Chase		20_50_2
+	aiSpeak( $npc_chase, "lipsync_vo_wounded_2");
+
+	aiScriptedAnim( $npc_anderson, "and_stimpack2a", 24, 0);
+	aiScriptedAnim( $npc_chase, "and_stimpack2b", 24, 0 );
+
+	sys.wait(2.75);
+
+	// Anderson	20_50_3 pulls out a syringe
+	aiSpeak( $npc_anderson, "lipsync_1_1_2_50_3");
+	$npc_miller.lookAt( $npc_chase);
+	aiScriptedFace( $npc_miller, $tgt_hillstrom_post_unlock_look, 0 );
+	
+	sys.wait(11);
+
+	// Anderson 20_50_4 puts syringe away
+	aiSpeakWait( $npc_anderson, "lipsync_1_1_2_50_4");
+	aiScriptedAnimLoop( $npc_anderson, "and_stimpack2a_loop", 4 );
+	aiScriptedAnimLoop( $npc_chase, "and_stimpack2b_loop", 4 );
+
+	// Miller 20_50_5 orders player away.
+	sys.wait(.8);
+	$npc_miller.lookAt( $player1 );
+	aiSpeak( $npc_miller, "lipsync_1_1_2_50_5");
+	sys.wait(1);
+	$npc_miller.lookAt( $npc_kovitch );
+	aiScriptedFace( $npc_miller, $discDoorTop_3, 0 );
+	sys.wait(1);
+	aiScriptedAnim( $npc_miller, "point_forward", 4, 0);
+	
+	sys.wait(.25);
+	$npc_miller.lookAt( $player1 );
+
+	thread hillstromUnlockDoor();
+
+	$npc_miller.becomePassive(true);
+	$npc_anderson.becomePassive(true);
+}
+
+//---------------------------------------------------------------------------
+// End of Badger / Medic Scenarios
+//---------------------------------------------------------------------------
+
+
+// this sets off the battle in the intro vista
+//------------------------------------------------------------------------------------
+void vistaHarvesterIntro()
+{
+//	sys.trigger( $vista_marine_1);
+//	sys.trigger( $vista_marine_2);
+	thread vistaHarvesterOne();
+//	thread vistaHarvesterTwo();
+}
+
+//------------------------------------------------------------------------------------
+void aiScriptedAnimRepeatWait( entity eEnt, string sAnim, float fBlend, float fEndIdle, float fReps )
+{
+	while ( fReps > 0 )
+	{
+		aiScriptedAnimWait( eEnt, sAnim, fBlend, fEndIdle );
+		fReps--;
+	}
+}
+
+
+//------------------------------------------------------------------------------------
+void vistaNukeHarvester()
+{
+	// try to get it to nail the dude around frame 190.
+	sys.wait(5);
+
+	//sys.println("shooting");
+	// attach the target onto the harvester
+	float fHnd = $monster_harvester_1.getJointHandle("rt_hopper");
+	$tgt_vista_nuke_harvester.setOrigin($monster_harvester_1.getJointPos(fHnd));
+	$tgt_vista_nuke_harvester.bindToJoint($monster_harvester_1,"rt_hopper",1);
+
+	sys.waitFrame();
+	// Now, nuke the mofo
+	sys.trigger( $vista_nuke_harvester );
+	sys.wait(1);
+	sys.trigger( $vista_nuke_harvester );
+	sys.wait(1.75);
+	sys.trigger( $vista_nuke_harvester );
+
+}
+
+//------------------------------------------------------------------------------------
+void vistaHarvesterOne()
+{
+	sys.wait(26);
+
+	//	$walker_vista_1.show();
+//	aiScriptedAnim( $walker_vista_1, "vista_overlook", 1, 1);
+
+	//attack the harvester
+	thread vistaNukeHarvester();
+	aiScriptedAnimWait( $monster_harvester_1, "airdefense", 0, 0 );
+	
+	$monster_harvester_1.remove();
+//	sys.wait(1);
+//	$death.directDamage( $walker_vista_1, "damage_gib");
+//	sys.wait(1);
+//	$monster_harvester_1.setAnimRate( 1.4 );
+//	aiScriptedAnimRepeatWait( $monster_harvester_1, "walk", 4, 0, 5 );
+	
+//	$monster_harvester_1.remove();
+}
+
+//------------------------------------------------------------------------------------
+void vistaHarvesterTwo()	
+{
+	//walk down the mountain
+//	aiScriptedAnimWait( $monster_harvester_2, "walk_mountain", 1, 0);
+//	$monster_harvester_2.remove();
+
+}
+
+//frame commands for the harvester attacking debris
+//------------------------------------------------------------------------------------
+void harvesterAttackDebris1()	
+{
+	float t;
+	for( t=4; t<=7; t++)	
+	{
+		entity ent = sys.getEntity("vista_debris_" + t);
+		ent.applyImpulse( ent, ent.getWorldOrigin(), '8500000 -5000000 40000000');
+	}
+	sys.wait(0.1);
+	sys.trigger( $fx_vista_debris_bustah );
+
+	$vista_marine_1.becomeRagdoll();
+	$vista_marine_2.becomeRagdoll();
+	sys.waitFrame();
+	$vista_marine_1.applyImpulse( $vista_marine_1, $vista_marine_1.getWorldOrigin(), '28000 9800 24000');
+	$vista_marine_2.applyImpulse( $vista_marine_2, $vista_marine_2.getWorldOrigin(), '24000 9800 27000');
+	sys.wait(4);
+	$vista_marine_1.kill();
+	$vista_marine_2.kill();
+}
+
+//------------------------------------------------------------------------------------
+void harvesterAttackDebris2()	
+{
+	float t;
+	for( t=1; t<=3; t++)	
+	{
+		entity ent = sys.getEntity("vista_debris_" + t);
+		ent.applyImpulse( ent, ent.getWorldOrigin(), '-8500000 -5000000 20000000');
+	}
+}
+
+//------------------------------------------------------------------------------------
+void harvesterAttackDebris3()	
+{
+	$moveable_vista_truck.applyImpulse( $moveable_vista_truck, $tgt_truck_harvester_impact.getWorldOrigin(), '10000000 -8000000000 2000000000');
+	aiScriptedMoveWait( $vista_vehicle_flatbed_1, $tgt_truck_dest, 4, 1);
+}
+
+// 43 - 123 - firing cannon (full auto or bursts - whatever looks good) at harvester - good accuracy, but the harvester barely feels it.
+//------------------------------------------------------------------------------------
+void vistaWalkerActions1()	
+{
+	float fFrame = 0;
+	float fCannon = 1;
+	string strJoint;
+	while(fFrame < 110)	
+	{
+		if( sys.random(100) < 10)
+		{
+			strJoint = "Cannon" + fCannon;
+			walkerFireFromJoint( $walker_vista_1.getJointHandle(strJoint), $vista_fire_cannon );
+			if( fCannon == 1)
+			{
+				fCannon = 2;
+			}
+			else
+			{
+				fCannon = 1;
+			}
+		}
+		sys.waitFrame();
+		fFrame++;
+	}
+}
+
+// 166 - 197 - fire rockets salvo at harvester - harvester goes on guard to protect itself
+//------------------------------------------------------------------------------------
+void vistaWalkerActions2()	
+{
+	//sys.println("Walker2 begin");
+	float fRocket = 1;
+	while(fRocket < 7)	
+	{
+		string strJoint = "Rocket" + fRocket;
+		walkerFireFromJoint( $walker_vista_1.getJointHandle(strJoint), $vista_fire_rocket );
+		sys.wait(0.25);
+		fRocket++;
+	}
+	//sys.println("Walker2 end");
+}
+
+//firing cannons and / or rockets
+//------------------------------------------------------------------------------------
+void vistaWalkerActions3()	
+{
+	//sys.println("Walker3 begin");
+
+	float fFrame = 0;
+	float fRocket = 1;
+	float fCannon = 1;
+	string strJoint;
+
+	while(fFrame < 77)	
+	{
+		if( sys.random(100) < 20)
+		{
+			strJoint = "Cannon" + fCannon;
+			walkerFireFromJoint( $walker_vista_1.getJointHandle(strJoint), $vista_fire_cannon );
+			if( fCannon == 1)
+				fCannon = 2;
+			else
+				fCannon = 1;
+		}
+		else if( sys.random(100) < 5)
+		{	
+			strJoint = "Rocket" + fRocket;
+			walkerFireFromJoint( $walker_vista_1.getJointHandle(strJoint), $vista_fire_rocket );
+			sys.wait(0.25);
+			fRocket++;
+			if( fRocket == 7)
+			{
+				fRocket = 1;
+			}
+			sys.waitFrame();
+		}
+		
+		fFrame++;
+	}
+
+	//sys.println("Walker3 end");
+}
+
+//------------------------------------------------------------------------------------
+void vistaWalkerActions4()	
+{
+	//boom!
+	//$death.directDamage( $walker_vista_1, "damage_gib");
+	//sys.println("not booming here");
+}
+
+//a marine gets stuck to the stabby arm of the harvester
+//------------------------------------------------------------------------------------
+void vistaGrabMarine()	
+{
+	$vista_marine_fling.show();
+//	sys.trigger( $vista_marine_fling);
+	//$vista_marine_fling.becomeRagdoll();
+	sys.waitFrame();
+
+	//$vista_marine_fling.setKey("bindConstraint neckcontrol", "fixed");
+	$vista_marine_fling.bind( $tgt_harvester_hoof);
+}
+
+//------------------------------------------------------------------------------------
+void vistaThrowMarine()	
+{
+	//fling the marine
+	$vista_marine_fling.unbind();
+	$vista_marine_fling.becomeRagdoll();
+	sys.waitFrame();
+	$vista_marine_fling.applyImpulse( $vista_marine_fling, $vista_marine_fling.getWorldOrigin(), '303880 70880 20000');
+
+	//fire at the harvesters
+	float t= 0;
+	for( t = 0; t< 5; t++)	
+	{
+		sys.trigger($vista_tracer_1);
+		sys.wait(0.25 + sys.random(1));
+		sys.trigger($vista_tracer_2);
+		sys.wait(0.25 + sys.random(1));
+	}
+
+	//kill off the marine
+	$vista_marine_fling.kill();
+	sys.wait(5);
+}
+
+//-------------------------------------------------------------
+void doCortezBerserker()
+{
+	aiScriptedMoveWait( $cortez_berserker, $tgt_cortez_berserker_dest, 4, 0);
+	aiScriptedAnim( $cortez_berserker, "leap_attack", 8, 1 );
+}
+
+//------------------------------------------------------------------------------------
+void cortezIntro()	
+{
+	// move all strogg towards cortez...use some anims to spice it all up, no blend anims!
+	// cortez gets fancy...
+	$npc_cortez.lookAt( $null_entity ); //look ahead while playing anim
+	$npc_cortez.setAngles( '0 0 0' ); // ensure facing
+	aiScriptedAnim( $npc_cortez, "ad_cortez_intro", 0, 1);
+	aiScriptedAnim( $strogg_cortez_1, "dive", 0, 1);
+	aiScriptedAnim( $strogg_cortez_2, "nav_leap", 0, 1);
+	thread doCortezBerserker();
+
+	// Eric doesn't want him speaking during the 3 shot whiz bang
+	sys.wait(3.5);
+	
+	$npc_cortez.lookAt( $player1 );
+	aiSpeakWait( $npc_cortez, "lipsync_1_1_2_55_1");
+	aiScriptedAnimLoop( $npc_anderson, "talk_idle", 24);
+
+	sys.wait(1);
+	//$npc_cortez.lookAt( $player1 );
+
+	aiSpeak( $npc_cortez, "lipsync_1_1_2_55_2");
+	sys.wait(6.5);
+	aiScriptedAnim( $npc_cortez, "point_right", 8, 1);
+	
+	$npc_cortez.setTalkState( TALK_OK ); // , "talk_idle");
+	$npc_cortez.lookAt( $null_entity );
+}
+
+//------------------------------------------------------------------------------------
+void _cortezVictim( entity victim, entity gibFx, vector impulse, string joint )
+{
+	vector vHead = victim.getJointPos( victim.getJointHandle( joint ));
+	gibFx.setWorldOrigin(vHead);
+	gibFx.setAngles( victim.getAngles() );
+	gibFx.start();	
+	victim.kill();
+	sys.waitFrame();
+	victim.applyImpulse( victim, vHead, impulse );
+}
+//------------------------------------------------------------------------------------
+void cortezVictim1()	
+{
+	_cortezVictim( $strogg_cortez_1, $fx_death_gib, '0 -10000 10000', "forhead" );
+}
+//------------------------------------------------------------------------------------
+void cortezVictim2()	
+{
+	_cortezVictim( $strogg_cortez_2, $fx_death_gib_1, '0 -10000 10000', "forhead" );
+}
+//------------------------------------------------------------------------------------
+void cortezVictim3()	
+{
+	_cortezVictim( $cortez_berserker, $fx_death_gib, '0 -40000 40000', "head" );
+}
+
+//used to make sure the player knows he got the machinegun even if he has autoswitch off
+void switchToMG()
+{
+	sys.wait(.25);
+	$player1.selectWeapon("weapon_machinegun");
+}
+
+// When the player returns to the combat room, he'll get some help.
+//------------------------------------------------------------------------------------
+void combatReinforcements()	
+{
+	if( g_combatReinforcements == 1)
+	{
+		return;
+	}
+
+	g_combatReinforcements = 1;
+
+	//lock the doors
+	$door_intro_combat_1.lock(1);
+
+	//wait a bit
+	sys.wait(2);
+
+	//sys.println("Backup is here!");
+
+	//send in anderson and the redshirt
+	$door_intro_combat_1.lock(0);
+	sys.waitFrame();
+
+	// NOTE:  is there a redshirt??
+//	aiScriptedTetherMove( $npc_redshirt_1, $tether_intro_reinforcement);
+
+//	aiScriptedMoveWait( $npc_anderson, $tether_intro_reinforcement, 72, 1);
+//	aiScriptedTetherMove( $npc_anderson, $tether_intro_reinforcement);
+//	$npc_anderson.setLeader( $npc_redshirt_1);
+	//sys.trigger( $tether_intro_reinforcement);
+}
+
+// Medic anderson laments the dead bodies of his comrade
+//------------------------------------------------------------------------------------
+void andersonSadness()	
+{
+	$npc_anderson.lookAt( $env_ragdoll_marine_fullgear_2 );
+	sys.wait(0.5);
+	$npc_anderson.disableHeal();
+	aiSpeak( $npc_anderson, "lipsync_vo_1_1_2_40_1");
+	sys.wait(2);
+	$npc_anderson.lookAt( $null_entity );
+	aiSpeakDone($npc_anderson);
+	$npc_anderson.enableHeal();
+}
+
+//walker_vista_1
+//------------------------------------------------------------------------------------
+void walkerFireFromJoint( float fJoint, entity entWeapon)	
+{
+	vector vWeaponPos = $walker_vista_1.getJointPos( fJoint);
+	vector vWeaponAng = sys.vecNormalize( sys.angToForward( $walker_vista_1.getJointAngle( fJoint)));
+	
+	entWeapon.setWorldOrigin( vWeaponPos);
+
+	// make the weapon fire along the bone line, so move it's target out along the vector.	
+	entity entTarget = entWeapon.getTarget(0);
+	entTarget.setWorldOrigin( entWeapon.getWorldOrigin() + (vWeaponAng * 128));
+
+	sys.trigger( entWeapon);
+
+	if( isValidEntity( entWeapon.getTarget(1)))
+	{
+		sys.trigger( entWeapon.getTarget(1));
+	}
+}
+
+//------------------------------------------------------------
+void doAmbientIntroWalker()
+{
+	sys.wait(1);
+	$vista_walkerdriver_1.enterVehicle( $vehicle_walker_1 );
+	sys.wait(1);
+	thread walkerShoot( $vista_walkerdriver_1, $vehicle_walker_1 );
+	sys.wait(1);
+
+	aiScriptedAnimWait( $vehicle_walker_1, "ad_intro_walker",0, 0 );
+	aiScriptedAnimWait( $vehicle_walker_1, "ad_intro_walker",12, 0 );
+	aiScriptedAnimWait( $vehicle_walker_1, "ad_intro_walker",12, 0 );
+	aiScriptedAnimWait( $vehicle_walker_1, "ad_intro_walker",12, 0 );
+	$vista_walkerdriver_1.exitVehicle(1);
+	sys.waitFrame();
+	$vehicle_walker_1.remove();
+}
+
+// Explosion that knocks the player out
+//------------------------------------------------------------
+void introThreeBang()
+{
+	sys.wait( 8 );
+	sys.trigger( $func_fx_introexplosion_2 );
+	sys.wait( .4 );
+	sys.trigger( $func_fx_introexplosion_1 );
+	sys.wait( .2 );
+	sys.trigger( $func_fx_introexplosion_3 );
+}
+
+//------------------------------------------------------------
+void levelStart()
+{
+	//strogg vs marine airpower go!
+	float t;
+	
+	//originally, there were six planes per side. Now we're using 2, and that might change too. But the
+	//+6 for the 3rd parameter is because originally the damaged versions of the sprites started at 7.
+	for (t = 1; t <= 2; t++)	
+	{
+		thread maintainStroggFlyerSprite( sys.getEntity("mvr_fx_strogg_flyer_" + t), sys.getEntity("fx_air_strogg_fighter_" + t), sys.getEntity("fx_air_strogg_fighter_" + (t + 6) ), $tgt_strogg_flyer_hangar, $tgr_strogg_flyer_end, '-1 0 .1' );
+		thread maintainStroggFlyerSprite( sys.getEntity("mvr_fx_marine_flyer_" + t), sys.getEntity("fx_air_marine_fighter_" + t), sys.getEntity("fx_air_marine_fighter_" + (t + 6) ), $tgt_marine_flyer_hangar, $tgr_marine_flyer_end, '1 0 .1' );
+	}
+
+	thread introThreeBang();
+
+	//set Morris up
+	thread morrisIntroLoop();
+
+	//wounded marines out front-- this will also be Anderson's speech.
+	thread injuredMarineLoop( $npc_metcalf, $npc_anderson_outdoor);
+	thread startIntroStrafeRuns();
+
+	// This manages the fake gun effects...dust...muffled sound...light dimming
+	thread maintainBigGun();
+	thread doAmbientIntroWalker();
+
+	if(sys.getcvar("si_entityFilter") == "skipall")
+	{
+		sys.fadeIn('0 0 0', 2 );
+		//sys.println("Skipping intro 2!");
+		$player1.enableObjectives();
+		return;
+	}
+
+	// mekberg: I moved these after the return. These were the events that spanned across cinematic to playable mode.
+	// Anderson disappears after the dragging, didn't want that to be in view.
+	// Harvester will kill me if I'm playing because of his shot. This shot normally doesn't hurt the player in cinematic mode.
+	thread andersonDragsMedic();
+	thread vistaHarvesterIntro();
+}
+
+// this exists solely to thread the levelStart function, because I was having problems calling level start directly
+//	via a frame command
+//------------------------------------------------------------
+void callLevelStart()
+{
+	thread levelStart();
+}
+
+//------------------------------------------------------------
+void checkStartCinematics()
+{
+	if(sys.getcvar("si_entityFilter") == "skip1" || sys.getcvar("si_entityFilter") == "skipall")
+	{
+		//sys.println( "Skipping intro 1!" );
+		// start up the level
+		levelStart();
+		return;
+	}
+	sys.trigger( $tgr_relay_start_intro );
+	playCameraWait( $cin_camera_intro_cin_1 );
+	playCameraWait( $cin_opening );
+	sys.wait(1);
+	sys.trigger($radio_battle_chatter_1);
+}
+
+//------------------------------------------------------------
+void _startRocketChase()
+{
+	// get rid of a whole lot of stuff
+	$func_fx_774.remove();
+//	sys.killthread( "map_airdefense_intro::surfaceExplode" );
+	$env_destroyer_1.remove();
+	$env_destroyer_doors_1.remove();
+	$env_destroyer_lod_1.remove();
+	$env_dropship_1.remove();
+	$env_dropship_mini_1.remove();
+	$env_fx_anim_1.remove();
+	$env_fx_anim_2.remove();
+	$env_fx_anim_3.remove();
+	$env_fx_anim_4.remove();
+
+	// call over into the intro script
+	map_airdefense_intro::dropshipMiniB();
+}
+
+//------------------------------------------------------------
+void startRocketChase()
+{
+	thread _startRocketChase();
+}
+
+//frame 82
+//------------------------------------------------------------
+void introCommand()
+{
+//	aiScriptedAnim(	$ad_intro_char_marine_7, "ad_intro_command", 0, 0 );
+	//sys.println( "no show" );
+}
+
+//frame 124						
+//------------------------------------------------------------
+void introRun1()
+{
+	aiScriptedAnim(	$ad_intro_char_marine_1, "ad_intro_run1", 0, 0 );
+}
+//frame 333
+//------------------------------------------------------------
+void introShooting()
+{
+	aiScriptedAnim(	$ad_intro_char_marine_6, "ad_intro_shooting", 0, 0 );
+}
+
+//frame 336						
+//------------------------------------------------------------
+void introRun2()
+{
+	aiScriptedAnim(	$ad_intro_char_marine_2, "ad_intro_run2", 0, 0 );
+}
+//frame 395						
+//------------------------------------------------------------
+void introRun4()
+{
+	aiScriptedAnim(	$ad_intro_char_marine_4, "ad_intro_run4", 0, 0 );
+}
+//frame 400						
+//------------------------------------------------------------
+void introRun3()
+{
+	aiScriptedAnim(	$ad_intro_char_marine_3, "ad_intro_run3", 0, 0 );
+}
+
+//frame 404						
+//------------------------------------------------------------
+void getUp()
+{
+	aiScriptedAnim(	$ad_intro_char_marine_5, "ad_intro_getup", 0, 0 );
+}
+//frame 445
+//------------------------------------------------------------
+void cinGetUpVO()
+{
+	aiSpeak( $ad_intro_char_marine_5, "lipsync_vo_1_1_0_01_22" );
+	$ad_intro_char_marine_1.remove();
+	$ad_intro_char_marine_2.remove();
+	$ad_intro_char_marine_3.remove();
+	$ad_intro_char_marine_4.remove();
+//	$ad_intro_char_marine_5.remove();	// nailed dude//
+	$ad_intro_char_marine_6.remove();
+	$ad_intro_char_marine_7.remove();
+}
+//frame 160
+//------------------------------------------------------------
+void cinNailed()
+{
+	sys.trigger( $speaker_nailed_1 );
+}
+
+//------------------------------------------------------------
+void waitForNailedAnim()
+{
+	aiScriptedWait( $ad_intro_char_marine_5 );
+	$ad_intro_char_marine_5.kill();
+}
+
+//------------------------------------------------------------
+void cinNailedFx()
+{
+	// old, shoot 'em in the face script
+//	entity head = $ad_intro_char_marine_5.getHead();
+//	vector vPos = head.getJointPos( head.getJointHandle( "ruplid" ));
+
+//	$tgt_face_shot_dest.setOrigin( vPos );
+//	$tgt_face_shot_dest.bindToJoint( head, "ruplid", true );
+
+	// replaced with chest shot since it's less violent
+	vector vPos = $ad_intro_char_marine_5.getJointPos( $ad_intro_char_marine_5.getJointHandle( "chest" ));
+
+	$tgt_face_shot_dest.setOrigin( vPos );
+	$tgt_face_shot_dest.bindToJoint( $ad_intro_char_marine_5, "chest", true );
+
+	// ...so, just shoot at something...
+	sys.waitFrame();
+	$ad_intro_char_marine_5.setHealth(0);
+	sys.trigger( $tgt_face_shot );
+	thread waitForNailedAnim();
+}
+
+//frame 190 & 490
+//------------------------------------------------------------
+void doHeartbeatSound()
+{
+	sys.trigger( $speaker_beating_heart );
+}
+
+//frame 237 & 534
+//------------------------------------------------------------
+void instantCinBlackout()
+{
+	sys.trigger( $target_fadeSound_blackout );  // fade sound classes 0 & 1
+	sys.trigger( $target_fadeSound_blackout_1 );
+	sys.fadeOut('0 0 0', .1 );
+}
+// frame 1, 294 & 595
+//------------------------------------------------------------
+void cinFadeBackIn()
+{
+	sys.trigger( $target_fadeSound_wakeup );
+	sys.trigger( $target_fadeSound_wakeup_1 );
+	sys.fadeIn('0 0 0', 2.3 );
+}
+
+//hides the gui until it's time to use it
+void enableLadderGui()
+{
+	$func_static_53002.setGuiParm("noninteractive", "0");
+}
+
+//------------------------------------------------------------------------------------
+void main()	
+{
+	// filters:
+	//	skip1		- skip the main intro but play the wake-up scene
+	//	skipall		- just skip it all.
+	thread checkStartCinematics();
+
+	// TEMP: FIXME: setting shader parms on cortez door
+	//$normalDoor_top_4.setShaderParm( 7 , 0 );
+	//$normalDoor_frame_4.setShaderParm( 7 , 0 );
+	
+	$player1.setHealth( 72 );
+}
+
+}	//end namespace : map_airdefense1

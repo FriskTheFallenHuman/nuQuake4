@@ -1,0 +1,791 @@
+namespace heartpump
+{
+
+float	armsAreMoving = 0;
+float	amShocking = 0;
+float	waitYourTurn = 0;
+float	gui_shock = 0;
+float	gui_count = 0;
+float	gui_archived = 0;
+float	gui_shock_count = 0;		// gui_shock proposed marriage to gui_count, gui_count accepted, this is the underscored offspring borne of their variable union
+float	gui_control = 0;
+float	gui_queue = 0;
+float	gui_queue_init = 0;
+float	beatsSinceLastDefib = 0;
+float	gui_busy = 0;
+float	shockersAreBusy = 0;
+entity	heartEntity;
+vector	ldfAngles;
+vector	ldbAngles;
+vector	rdfAngles;
+vector	rdbAngles;
+
+void DebugShockerAngles()
+{
+	ldfAngles = $hrt_leftDefibFront.getAngles();
+	ldbAngles = $hrt_leftDefibBack.getAngles();
+	rdfAngles = $hrt_rightDefibFront.getAngles();
+	rdbAngles = $hrt_rightDefibBack.getAngles();
+	// sys.println(ldfAngles);
+	// sys.println(ldbAngles);
+	// sys.println(rdfAngles);
+	// sys.println(rdbAngles);
+}
+
+void PowerUpShockers()
+{
+	$hrt_leftDefibFront.playEffect("fx_crawl", "joint2", true);
+	$hrt_leftDefibBack.playEffect("fx_crawl", "joint2", true);
+	$hrt_rightDefibFront.playEffect("fx_crawl", "joint2", true);
+	$hrt_rightDefibBack.playEffect("fx_crawl", "joint2", true);
+}
+
+void PowerDownShockers()
+{
+	$hrt_leftDefibFront.stopEffect("fx_crawl");
+	$hrt_leftDefibBack.stopEffect("fx_crawl");
+	$hrt_rightDefibFront.stopEffect("fx_crawl");
+	$hrt_rightDefibBack.stopEffect("fx_crawl");
+}
+
+void HeartDebug()
+{
+	// sys.print("^3shock^7: ");
+	// sys.print(gui_shock);
+	// sys.print(" ^3count^7: ");
+	// sys.print(gui_count);
+	// sys.print(" ^3archived^7: ");
+	// sys.print(gui_archived);
+	// sys.print(" ^3control^7: ");
+	// sys.print(gui_control);
+	// sys.print(" ^3queue^7: ");
+	// sys.print(gui_queue);
+	// sys.print(" ^3shock_count^7: ");
+	// sys.println(gui_shock_count);
+	sys.waitFrame();	
+}
+
+void InitHeartDefibs()
+{
+	$hrt_leftDefibFront.bind($hrt_leftDefibOriginFront);
+	$hrt_leftDefibBack.bind($hrt_leftDefibOriginBack);
+	
+	$hrt_rightDefibFront.bind($hrt_rightDefibOriginFront);
+	$hrt_rightDefibBack.bind($hrt_rightDefibOriginBack);
+	
+	$hrt_leftDefibOriginFront.time(0.4);
+	$hrt_leftDefibOriginBack.time(0.4);
+	$hrt_rightDefibOriginFront.time(0.4);
+	$hrt_rightDefibOriginBack.time(0.4);
+	$hrt_leftDefibOriginFront.rotateOnce('15 0 0');
+	$hrt_leftDefibOriginBack.rotateOnce('15 0 0');
+	$hrt_rightDefibOriginFront.rotateOnce('-15 0 0');
+	$hrt_rightDefibOriginBack.rotateOnce('-15 0 0');
+}
+
+void DefibLightEffect(entity thisDefib)
+{
+	sys.wait(1);
+	thisDefib.playEffect("fx_heartlight", "joint2", false);
+}
+
+void StartDefibGlow(entity thisDefib, float defibMoveTime)
+{
+	float i;
+	float alpha;
+	float glowTime;
+	float fadeOutTime;
+	
+	glowTime = 0.5 * defibMoveTime;
+	thread DefibLightEffect(thisDefib);
+	
+	for( i = 0; i < glowTime; i += 0.02 )
+	{
+		alpha = i/glowTime;
+		thisDefib.setShaderParm(6, alpha);
+		sys.wait( 0.02 );
+	}
+	thisDefib.setShaderParm(6, 1);
+	
+	// keep the full glow until the end of the defib movement
+	sys.wait( (defibMoveTime - glowTime) );
+	
+	// turn off the glow
+	fadeOutTime = 0.5;
+	for( i = 0; i < fadeOutTime; i += 0.02 )
+	{
+		alpha = 1 - i/fadeOutTime;
+		thisDefib.setShaderParm(6, alpha);
+		sys.wait( 0.02 );
+	}
+	thisDefib.setShaderParm(6, 0);
+}
+
+void DimTheRoomLights(float defibMoveTime)
+{
+	// about 2 seconds before the defibs connect with the heart, we want to rapidly dim the room lights
+	//sys.wait(.5);
+
+	string baseLightName;	
+	string lightName;
+	entity whichLight;
+	entity whichFlare;
+	baseLightName = "hrt_HeartRoomLight";
+	float i;
+	
+	for (i = 1; i <= 31; i++)
+	{
+		lightName = baseLightName + i;
+		whichLight = sys.getEntity(lightName);
+		whichLight.Off();
+	}
+	
+	string baseFlareName;	
+	string flareName;
+
+	// turn off flares because the dumb things refuse to fade out via parms. I'm strangling them in my mind.	
+	baseFlareName = "hrt_HeartRoomFlare";
+	for (i = 1; i <= 41; i++)
+	{
+		flareName = baseFlareName + i;
+		whichFlare = sys.getEntity(flareName);
+		whichFlare.hide();
+	}
+	
+	string basePanelName;
+	string panelName;
+	float j;
+	float newVal;
+	float panelFadeTime;
+	entity whichPanel;
+	
+	basePanelName = "hrt_HeartRoomLightPanel";
+	panelFadeTime = 1.5;
+	for (j = 0; j < panelFadeTime; j += 0.02)
+	{
+		newVal = 1 - (j/panelFadeTime);
+		for (i = 1; i <= 41; i++)
+		{
+			panelName = basePanelName + i;
+			whichPanel = sys.getEntity(panelName);
+			whichPanel.setShaderParms(newVal, newVal, newVal, 1);
+		}
+		sys.wait(0.02);
+	}
+}
+
+void RestoreRoomLights()
+{
+	// this is called right after we switch off the Giant White Light in the room, so wait a tiny bit before turning the lights on
+	sys.wait(0.5);
+	
+	string baseLightName;	
+	string lightName;
+	entity whichLight;
+	entity whichFlare;
+	baseLightName = "hrt_HeartRoomLight";
+	float i;
+	
+	for (i = 1; i <= 31; i++)
+	{
+		lightName = baseLightName + i;
+		whichLight = sys.getEntity(lightName);
+		whichLight.On();
+	}
+	
+	string baseFlareName;	
+	string flareName;
+	
+	baseFlareName = "hrt_HeartRoomFlare";
+	// turn on flares because the dumb things refuse to fade in via parms. Stinkin' flareses.
+	baseFlareName = "hrt_HeartRoomFlare";
+	for (i = 1; i <= 41; i++)
+	{
+		flareName = baseFlareName + i;
+		whichFlare = sys.getEntity(flareName);
+		whichFlare.show();
+	}
+
+	string basePanelName;
+	string panelName;
+	float j;
+	float newVal;
+	float panelFadeTime;
+	entity whichPanel;
+	
+	basePanelName = "hrt_HeartRoomLightPanel";
+	panelFadeTime = 1.5;
+	for (j = 0; j <= panelFadeTime; j += 0.02)
+	{
+		newVal = j/panelFadeTime;
+		for (i = 1; i <= 41; i++)
+		{
+			panelName = basePanelName + i;
+			whichPanel = sys.getEntity(panelName);
+			whichPanel.setShaderParms(newVal, newVal, newVal, 1);
+		}
+		sys.wait(0.02);
+	}
+}
+
+void MoveShockArmsDown(float defibMoveTime)
+{
+	armsAreMoving = 1;
+	$hrt_leftDefibOriginFront.time(defibMoveTime);
+	$hrt_leftDefibOriginBack.time(defibMoveTime);
+	$hrt_rightDefibOriginFront.time(defibMoveTime);
+	$hrt_rightDefibOriginBack.time(defibMoveTime);
+	$hrt_leftDefibOriginFront.rotateOnce('-30 0 0');
+	$hrt_leftDefibOriginBack.rotateOnce('-30 0 0');
+	$hrt_rightDefibOriginFront.rotateOnce('30 0 0');
+	$hrt_rightDefibOriginBack.rotateOnce('30 0 0');
+	sys.waitFor($hrt_leftDefibOriginFront);
+}
+
+void MoveShockArmsBack()
+{
+	$hrt_leftDefibOriginFront.time(0.1);
+	$hrt_leftDefibOriginBack.time(0.1);
+	$hrt_rightDefibOriginFront.time(0.1);
+	$hrt_rightDefibOriginBack.time(0.1);
+	$hrt_leftDefibOriginFront.decelTime(0.01);
+	$hrt_leftDefibOriginBack.decelTime(0.01);
+	$hrt_rightDefibOriginFront.decelTime(0.01);
+	$hrt_rightDefibOriginBack.decelTime(0.01);
+	
+	$hrt_leftDefibOriginFront.rotateOnce('60 0 0');
+	$hrt_leftDefibOriginBack.rotateOnce('60 0 0');
+	$hrt_rightDefibOriginFront.rotateOnce('-60 0 0');
+	$hrt_rightDefibOriginBack.rotateOnce('-60 0 0');
+
+	sys.waitFor($hrt_rightDefibOriginBack);
+
+	$hrt_leftDefibOriginFront.time(0.5);
+	$hrt_leftDefibOriginBack.time(0.5);
+	$hrt_rightDefibOriginFront.time(0.5);
+	$hrt_rightDefibOriginBack.time(0.5);
+	$hrt_leftDefibOriginFront.decelTime(1);
+	$hrt_leftDefibOriginBack.decelTime(1);
+	$hrt_rightDefibOriginFront.decelTime(1);
+	$hrt_rightDefibOriginBack.decelTime(1);
+
+	$hrt_leftDefibOriginFront.rotateOnce('-30 0 0');
+	$hrt_leftDefibOriginBack.rotateOnce('-30 0 0');
+	$hrt_rightDefibOriginFront.rotateOnce('30 0 0');
+	$hrt_rightDefibOriginBack.rotateOnce('30 0 0');
+	
+	sys.wait(1.5);
+	armsAreMoving = 0;
+}
+
+void PushStartGUIEvents()
+{
+	$hrt_HeartControlGUIMonitor1.guiEvent ( "start_heart_shock" );
+	$hrt_HeartControlGUIMonitor2.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_3156.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_3158.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53301.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53306.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53296.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53300.guiEvent ( "start_heart_shock" );
+}
+
+void PushEndGUIEvents()
+{
+	$hrt_HeartControlGUIMonitor1.guiEvent ( "end_heart_shock" );
+	$hrt_HeartControlGUIMonitor2.guiEvent ( "end_heart_shock" );
+	$hrt_func_static_3156.guiEvent ( "end_heart_shock" );
+	$hrt_func_static_3158.guiEvent ( "end_heart_shock" );
+	$hrt_func_static_53301.guiEvent ( "end_heart_shock" );
+	$hrt_func_static_53306.guiEvent ( "end_heart_shock" );
+	$hrt_func_static_53296.guiEvent ( "end_heart_shock" );
+	$hrt_func_static_53300.guiEvent ( "end_heart_shock" );
+}
+
+void PushDeathGUIEvents()
+{
+	$hrt_HeartControlGUIMonitor1.guiEvent ( "death" );
+	$hrt_HeartControlGUIMonitor2.guiEvent ( "death" );
+	$hrt_func_static_3156.guiEvent ( "death" );
+	$hrt_func_static_3158.guiEvent ( "death" );
+	$hrt_func_static_53301.guiEvent ( "death" );
+	$hrt_func_static_53306.guiEvent ( "death" );
+	$hrt_func_static_53296.guiEvent ( "death" );
+	$hrt_func_static_53300.guiEvent ( "death" );
+}
+
+void heart_deathy()
+{
+	RestoreRoomLights();	
+	sys.killthread("DefibThread");						// kill the defib thread, if it exists
+	sys.killthread("HeartLoopThread");					// kill the heart-control loop thread
+	$hrt_env_heartpump3.playAnim( ANIMCHANNEL_ALL, "spasm");		// kickstart the spasms
+	sys.trigger($speaker_164);						// trigger the VO line about "oh noes how do I killed heart"
+	sys.wait(0.5);								// dramatic pause
+	$hrt_env_heartpump_3.playAnim( ANIMCHANNEL_ALL, "death");		// heart dies
+	sys.wait(7);								// wait for heart death to finish
+	$hrt_env_heartpump_3.playAnim( ANIMCHANNEL_ALL, "idle_death");		// stay dead
+	
+	$hrt_heart_goo.time(4);							// it will take 4 seconds to drain the goo
+	$hrt_heart_goo.moveTo($hrt_heart_goo_point_1);				// drain the goo
+	
+	sys.trigger($warning_rotate);						//
+	$warning_light.show();							//
+	$warning_flash.show();							//
+	sys.trigger($hrt_alarm);						// turn on the warning lights and alarms
+	
+	sys.wait(1);								// dramatic pause
+	sys.trigger($speaker_163);						// more VO "sword of omens, give me repair bots beyond repair bots"
+	sys.trigger($relay_just_work);						// this trigger opens the hatch down below
+	sys.trigger($hrt_trigger_heart_bars);					// move the grate out of the way
+	sys.trigger($bot_spawner);						// spawn repair-bots
+}
+
+/*void GUIShock()
+{
+	waitYourTurn = 1;
+	while (waitYourTurn == 1)
+	{
+		if (armsAreMoving == 0)
+		{
+			waitYourTurn = 0;
+			gui_shock = 0;
+			beatsSinceLastDefib = 0;
+			
+			float	waitTime;
+			float	defibMoveTime;
+			float	shockTime;
+			string	shockEffect;
+			
+			defibMoveTime = 0.3;
+			
+			thread StartDefibGlow($hrt_leftDefibFront, defibMoveTime);
+			thread StartDefibGlow($hrt_leftDefibBack, defibMoveTime);
+			thread StartDefibGlow($hrt_rightDefibFront, defibMoveTime);
+			thread StartDefibGlow($hrt_rightDefibBack, defibMoveTime);
+			thread PushStartGUIEvents();
+			
+			MoveShockArmsDown(defibMoveTime);
+			sys.trigger($hrt_HeartShockLight_2);
+			
+			shockTime = 2;
+			shockEffect = "fx_shock2";
+			$hrt_leftDefibFront.playEffect(shockEffect, "joint2", true);
+			$hrt_leftDefibBack.playEffect(shockEffect, "joint2", true);
+			$hrt_rightDefibFront.playEffect(shockEffect, "joint2", true);
+			$hrt_rightDefibBack.playEffect(shockEffect, "joint2", true);
+			
+			heartEntity.playCycle( ANIMCHANNEL_ALL, "spasm");
+			sys.wait(shockTime);
+			
+			$hrt_leftDefibFront.stopEffect(shockEffect);
+			$hrt_leftDefibBack.stopEffect(shockEffect);
+			$hrt_rightDefibFront.stopEffect(shockEffect);
+			$hrt_rightDefibBack.stopEffect(shockEffect);
+			
+			sys.trigger($heart_roar2);
+			MoveShockArmsBack();
+			
+			sys.trigger($hrt_HeartShockLight_2);
+			RestoreRoomLights();
+			
+			thread PushEndGUIEvents();
+			
+			if (gui_count > 1)
+			{
+				sys.println("we would push the death gui events here if they existed");
+				thread heart_deathy();
+				//thread PushDeathGUIEvents;
+			}
+		}
+		sys.waitFrame();
+	}
+}*/
+
+void Defibrillate()
+{
+	
+//	HeartDebug();
+	
+	sys.threadname("DefibThread");
+	
+	float	waitTime;						// time to wait, if waiting for an animation is needed
+	float	defibMoveTime;						// how long it takes the shocker-arms to move
+	float	shockTime;						// how long the shock effect plays... 1 sec for normal, 2 sec for "bad"
+	string	shockEffect;						// which shock effect to play... "fx_shock" for normal, "fx_shock2" for "bad"
+	entity	lightToTrigger;						// which light to turn off
+
+	waitTime = 6;							// slowdown animation takes six seconds
+	sys.wait(waitTime);						// wait for slowdown animation to finish
+	defibMoveTime = 1.7;						// move the shocker-arms at a normal speed
+	
+//	HeartDebug();
+	
+	DimTheRoomLights(defibMoveTime);				// turn off the room lights
+	
+//	sys.println("^1Starting Glow^7");
+	
+	thread StartDefibGlow($hrt_leftDefibFront, defibMoveTime);	//
+	thread StartDefibGlow($hrt_leftDefibBack, defibMoveTime);	//
+	thread StartDefibGlow($hrt_rightDefibFront, defibMoveTime);	//
+	thread StartDefibGlow($hrt_rightDefibBack, defibMoveTime);	// turn on the glowy bits for the four shocker-arms
+	MoveShockArmsDown(defibMoveTime);				// move the shocker-arms, with the speed we set earlier
+	thread PushStartGUIEvents();					// let the GUIs know we are about to party
+	
+//	sys.println("^1About to trigger lights^7");
+	
+	sys.trigger($hrt_HeartShockLight_1);				// trigger the "normal" shock light
+	shockTime = 1;							// we're going to shock for one second
+	shockEffect = "fx_shock";					// we're going to use the normal shock effect
+	lightToTrigger = $hrt_HeartShockLight_1;			// save this name, homeboy
+	
+//	HeartDebug();
+		
+	$hrt_leftDefibFront.playEffect(shockEffect, "joint2", true);	//
+	$hrt_leftDefibBack.playEffect(shockEffect, "joint2", true);	//
+	$hrt_rightDefibFront.playEffect(shockEffect, "joint2", true);	//
+	$hrt_rightDefibBack.playEffect(shockEffect, "joint2", true);	// play whichever effect we chose on the four shocker-arms
+	
+	heartEntity.playCycle( ANIMCHANNEL_ALL, "spasm");		// heart spasms
+
+	sys.wait(shockTime);						// waiting game
+	
+	$hrt_leftDefibFront.stopEffect(shockEffect);			//
+	$hrt_leftDefibBack.stopEffect(shockEffect);			//
+	$hrt_rightDefibFront.stopEffect(shockEffect);			//
+	$hrt_rightDefibBack.stopEffect(shockEffect);			// stop playing the effect
+
+	sys.trigger($heart_roar);					// trigger the "normal" roar speaker
+
+//	HeartDebug();
+	
+	MoveShockArmsBack();						// move the shocker-arms back
+
+	sys.trigger(lightToTrigger);					// turn off the light
+	
+//	HeartDebug();
+	
+	RestoreRoomLights();						// turn the lights in the room back on
+	thread PushEndGUIEvents();					// give the GUIs the "we're done shocking" heads-up
+	
+//	HeartDebug();
+}
+
+void HeartLoop(entity theHeart)
+{
+	float	minBeatsBetweenDefibs = 5;								// we want there to be at least five beats between defibrillation events
+	
+	sys.threadname("HeartLoopThread");								// name this thread, so we can kill it later
+	heartEntity = theHeart;										// this is an artifact from old script that is still around
+	while (1)											// let's looping party
+	{	
+		if ((beatsSinceLastDefib > minBeatsBetweenDefibs) && (sys.random(100) > 30))		// if it has been more than five beats, and you roll better than a 30 on a d100
+		{
+			beatsSinceLastDefib = 0;							// reset the beat count
+			heartEntity.playAnim( ANIMCHANNEL_ALL, "slowdown");				// slow down the heart
+			$hrt_HeartControlGUIMonitor1.guiEvent ( "start_heart_slowdown" );		//
+			$hrt_HeartControlGUIMonitor2.guiEvent ( "start_heart_slowdown" );		// tell the GUIs we're slowing down
+			thread Defibrillate();									// defibrillate event
+			sys.wait(12.5);									// wait a second after the defib
+			heartEntity.playAnim( ANIMCHANNEL_ALL, "beat");					// get back to beating
+		}
+		else											// if we aren't doing a GUI-shock, or it hasn't been long enough, or it has been long enough but we failed the roll, or whatever else
+		{
+			beatsSinceLastDefib++;								// count another beat
+			heartEntity.playAnim( ANIMCHANNEL_ALL, "beat");					// heartbeat happens
+		}
+		sys.wait(1);										// wait a second for heartbeat
+	}	
+}
+
+void FirstShock()
+{
+	
+	thread PushStartGUIEvents();
+	shockersAreBusy = 1;
+	
+	sys.trigger($leftFrontTopSparkA);		//
+	sys.trigger($leftFrontTopSparkB);		// left sparks
+	sys.trigger($leftFrontTopLightning);		// left first tier lightning on
+	sys.trigger($rightFrontTopSparkA);		//
+	sys.trigger($rightFrontTopSparkB);		// right sparks 
+	sys.trigger($rightFrontTopLightning);		// right first tier lightning on
+	
+	sys.wait(0.05);
+	 
+	sys.trigger($leftFrontTopLightning);		// left first tier lightning off
+	sys.trigger($rightFrontTopLightning);		// right first tier lightning off
+	
+	sys.trigger($leftFrontMiddleSparkA);		//
+	sys.trigger($leftFrontMiddleSparkB);		// left sparks
+	sys.trigger($leftFrontMiddleLightning);		// left second tier lightning on
+	sys.trigger($rightFrontMiddleSparkA);		//
+	sys.trigger($rightFrontMiddleSparkB);		// right sparks
+	sys.trigger($rightFrontMiddleLightning);	// right second tier lightning on
+	
+	sys.wait(0.05);
+	
+	sys.trigger($leftFrontMiddleLightning);		// left second tier lightning off
+	sys.trigger($rightFrontMiddleLightning);	// right second tier lightning off
+	
+	sys.trigger($leftFrontBottomSparkA);		//
+	sys.trigger($leftFrontBottomSparkB);		// left sparks
+	sys.trigger($leftFrontBottomLightning);		// left third tier lightning on
+	sys.trigger($rightFrontBottomSparkA);		//
+	sys.trigger($rightFrontBottomSparkB);		// right sparks
+	sys.trigger($rightFrontBottomLightning);	// right third tier lightning on
+	
+	sys.wait(0.05);
+	
+	sys.trigger($leftFrontBottomLightning);		// left third tier lightning off
+	sys.trigger($rightFrontBottomLightning);	// right third tier lightning off
+	
+	sys.trigger($leftFrontArmSparkA);		//
+	sys.trigger($leftFrontArmSparkB);		// left sparks
+	sys.trigger($leftFrontArmLightning);		// left fourth tier lightning on
+	sys.trigger($rightFrontArmSparkA);		//
+	sys.trigger($rightFrontArmSparkB);		// right sparks
+	sys.trigger($rightFrontArmLightning);		// right fourth tier lightning on
+	
+	sys.wait(0.05);
+	
+	sys.trigger($leftFrontArmLightning);		// left fourth tier lightning off
+	sys.trigger($rightFrontArmLightning);		// right fourth tier lightning off
+	
+	shockersAreBusy = 0;
+	
+	sys.trigger($hrt_HeartShockLight_2);
+	
+	$hrt_leftDefibFront.playEffect("fx_shock2", "joint2", true);
+	$hrt_rightDefibFront.playEffect("fx_shock2", "joint2", true);
+	
+	heartEntity.playCycle( ANIMCHANNEL_ALL, "spasm");
+	
+	sys.wait(4);
+	
+	$hrt_leftDefibFront.stopEffect("fx_shock2");
+	$hrt_rightDefibFront.stopEffect("fx_shock2");
+	
+	sys.trigger($heart_roar2);
+	
+	sys.trigger($hrt_HeartShockLight_2);
+	thread PushEndGUIEvents();
+	
+}
+
+void SecondShock()
+{
+
+	thread PushStartGUIEvents();
+	shockersAreBusy = 1;
+	
+	sys.trigger($leftFrontTopSparkA);		//
+	sys.trigger($leftFrontTopSparkB);		// left sparks
+	sys.trigger($leftFrontTopLightning);		// left first tier lightning on
+	sys.trigger($rightFrontTopSparkA);		//
+	sys.trigger($rightFrontTopSparkB);		// right sparks 
+	sys.trigger($rightFrontTopLightning);		// right first tier lightning on
+	
+	sys.wait(0.05);
+	 
+	sys.trigger($leftFrontTopLightning);		// left first tier lightning off
+	sys.trigger($rightFrontTopLightning);		// right first tier lightning off
+	
+	sys.trigger($leftFrontMiddleSparkA);		//
+	sys.trigger($leftFrontMiddleSparkB);		// left sparks
+	sys.trigger($leftFrontMiddleLightning);		// left second tier lightning on
+	sys.trigger($rightFrontMiddleSparkA);		//
+	sys.trigger($rightFrontMiddleSparkB);		// right sparks
+	sys.trigger($rightFrontMiddleLightning);	// right second tier lightning on
+	
+	sys.wait(0.05);
+	
+	sys.trigger($leftFrontMiddleLightning);		// left second tier lightning off
+	sys.trigger($rightFrontMiddleLightning);	// right second tier lightning off
+	
+	sys.trigger($leftFrontBottomSparkA);		//
+	sys.trigger($leftFrontBottomSparkB);		// left sparks
+	sys.trigger($leftFrontBottomLightning);		// left third tier lightning on
+	sys.trigger($rightFrontBottomSparkA);		//
+	sys.trigger($rightFrontBottomSparkB);		// right sparks
+	sys.trigger($rightFrontBottomLightning);	// right third tier lightning on
+	
+	sys.wait(0.05);
+	
+	sys.trigger($leftFrontBottomLightning);		// left third tier lightning off
+	sys.trigger($rightFrontBottomLightning);	// right third tier lightning off
+	
+	sys.trigger($leftFrontArmSparkA);		//
+	sys.trigger($leftFrontArmSparkB);		// left sparks
+	sys.trigger($leftFrontArmLightning);		// left fourth tier lightning on
+	sys.trigger($rightFrontArmSparkA);		//
+	sys.trigger($rightFrontArmSparkB);		// right sparks
+	sys.trigger($rightFrontArmLightning);		// right fourth tier lightning on
+	
+	sys.wait(0.05);
+	
+	sys.trigger($leftFrontArmLightning);		// left fourth tier lightning off
+	sys.trigger($rightFrontArmLightning);		// right fourth tier lightning off
+	
+	shockersAreBusy = 0;
+	
+	sys.trigger($hrt_HeartShockLight_2);
+	
+	$hrt_leftDefibFront.playEffect("fx_shock2", "joint2", true);
+	$hrt_rightDefibFront.playEffect("fx_shock2", "joint2", true);
+	
+	heartEntity.playCycle( ANIMCHANNEL_ALL, "spasm");
+	
+	sys.wait(4);
+	
+	$hrt_leftDefibFront.stopEffect("fx_shock2");
+	$hrt_rightDefibFront.stopEffect("fx_shock2");
+	
+	sys.trigger($heart_roar2);
+	
+	sys.trigger($hrt_HeartShockLight_2);
+	
+	thread heart_deathy();
+	thread PushDeathGUIEvents();
+
+}
+	
+void EvaluateGUIShock()
+{
+	if (gui_count == 1)
+	{
+		thread FirstShock();
+	}
+	else if (gui_count == 2)
+	{
+		thread SecondShock();
+	}
+}
+
+void HitHeartGUI()
+{
+	gui_count++;		// count the number of GUIs we hit
+	gui_queue++;		// add a shock to the queue
+	EvaluateGUIShock();	// figure out what to do next
+}
+
+void StartHeart()
+{
+	thread HeartLoop($hrt_env_heartpump_3); 	// kickstart the heart control loop function
+	thread InitHeartDefibs();			// move the shocker-arms to the proper starting position
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////Additions by Chad for puzzle changes//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////JANE!  STOP THIS CRAZY THING!!///////
+/*void stop_the_damn_thing()
+{
+	//sys.println("do you hear me?");
+	bKeepBeating = bKeepBeating + 0;
+	sys.wait(5);
+	$hrt_leftDefibOriginFront.rotateOnce('30 0 0');
+	$hrt_leftDefibOriginBack.rotateOnce('30 0 0');
+	$hrt_rightDefibOriginFront.rotateOnce('-30 0 0');
+	$hrt_rightDefibOriginBack.rotateOnce('-30 0 0');
+	$hrt_leftDefibFront.stopEffect("fx_shock");
+	$hrt_leftDefibBack.stopEffect("fx_shock");
+	$hrt_rightDefibFront.stopEffect("fx_shock");
+	$hrt_rightDefibBack.stopEffect("fx_shock");
+	sys.trigger($hrt_smoke_1);
+	sys.trigger($hrt_smoke_2);
+}
+
+void left_danger_shock()
+{
+	//sys.println("left shock");
+	$hrt_HeartShockLight_1.On();
+	
+	$hrt_HeartControlGUIMonitor1.guiEvent ( "start_heart_shock" );
+	$hrt_HeartControlGUIMonitor2.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_3156.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_3158.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53301.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53306.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53296.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53300.guiEvent ( "start_heart_shock" );
+	
+	$hrt_leftDefibOriginFront.rotateOnce('-30 0 0');
+	$hrt_leftDefibOriginBack.rotateOnce('-30 0 0');
+	
+	$hrt_leftDefibFront.playEffect("fx_shock", "joint2", true);
+	$hrt_leftDefibBack.playEffect("fx_shock", "joint2", true);
+	
+	
+}
+
+void right_danger_shock()
+{
+	//sys.println("right shock");
+	$hrt_HeartShockLight_1.On();
+	
+	$hrt_HeartControlGUIMonitor1.guiEvent ( "start_heart_shock" );
+	$hrt_HeartControlGUIMonitor2.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_3156.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_3158.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53301.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53306.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53296.guiEvent ( "start_heart_shock" );
+	$hrt_func_static_53300.guiEvent ( "start_heart_shock" );
+	
+	$hrt_rightDefibOriginFront.rotateOnce('30 0 0');
+	$hrt_rightDefibOriginBack.rotateOnce('30 0 0');
+	
+	$hrt_rightDefibFront.playEffect("fx_shock", "joint2", true);
+	$hrt_rightDefibBack.playEffect("fx_shock", "joint2", true);
+}
+
+} // heartpump
+
+
+void HeartAnimDone()
+{
+
+
+	float	minBeatsBetweenDefibs;
+	
+	minBeatsBetweenDefibs = 5;
+	// which anim were we just performing?
+	if (heartAnim == 1)
+	{
+		// finished one cycle of the normal beating anim
+		if ((beatsSinceLastDefib > minBeatsBetweenDefibs) && (sys.random(100) > 30))
+		{
+			// start playing the slowdown anim
+			//heartAnim = 2;
+			beatsSinceLastDefib = 0;
+			heartEntity.playAnim( ANIMCHANNEL_ALL, "slowdown");
+			$hrt_HeartControlGUIMonitor1.guiEvent ( "start_heart_slowdown" );
+			$hrt_HeartControlGUIMonitor2.guiEvent ( "start_heart_slowdown" );
+			// start moving the arms in to defibrillate
+			Defibrillate();	
+			sys.wait(1);
+			heartEntity.playAnim( ANIMCHANNEL_ALL, "beat");
+		}
+		else
+		{
+			beatsSinceLastDefib++;
+			//sys.println("BEAT!");
+			heartEntity.playAnim( ANIMCHANNEL_ALL, "beat");
+		}
+	}
+	else if (heartAnim == 2)
+	{
+		// just slowed to a stop
+		heartAnim = 3;
+	}
+	else if (heartAnim == 3)
+	{
+		// finished spasm anim so return to normal beating
+		heartAnim = 1;
+		heartEntity.playAnim( ANIMCHANNEL_ALL, "beat");
+	}
+}*/
+
+}

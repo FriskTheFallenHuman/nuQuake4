@@ -1,0 +1,235 @@
+namespace tramCar_Scripts {
+
+// TODO: make a common script file for my generic stuff
+
+entity radioChatter = $null_entity;
+
+void InitRadioChatter() {
+	if( radioChatter == $null_entity ) {
+		radioChatter = sys.spawn( "func_radiochatter" );
+	}
+}
+
+void PlayRadioChatter( entity ent, string vo ) {
+	ASSERT( radioChatter != $null_entity );
+	
+	radioChatter.setKey( "snd_radiochatter", $world.getKey("snd_" + vo) );
+	radioChatter.activate( ent );
+}
+
+void PlayRadioChatterDelay( entity ent, string vo, float delay ) {
+	sys.wait( delay );
+	
+	PlayRadioChatter( ent, vo );
+}
+
+void PlayVOOnTargets( entity self, string vo ) {
+	entity target;
+	
+	ForEachTargetOf( self, target ) {
+		if( !target.isA("char_marine") ) {
+			continue;
+		}
+		
+		aiSpeakWait( target, vo );
+	}
+}
+
+void Remove( entity ent ) {
+	if( ent != $null_entity ) {
+		ent.remove();
+	}
+}
+
+void RemoveTargetsByKey( entity self, string key ) {
+	float	index;
+	entity	target;
+	
+	for( index = 0, target = self.getEntityKey(key); index < 64; index++ ) {
+		Remove( target );
+		target = self.getEntityKey( key + index );
+	}
+	
+	self.removeNullTargets();
+}
+
+#define ForEachActiveEntityOf( spawner, target )																	\
+	float index_##spawner;																							\																				\
+	spawner.removeNullActiveEntities();																				\				
+	for( index_##spawner = 0; $null_entity != (target = spawner.getActiveEntity(index_##spawner)); index_##spawner++ )
+
+void RemoveTargetSpawners( entity self ) {
+	entity spawner;
+	entity ai;
+	
+	ForEachTargetOf( self, spawner ) {
+		if( !spawner.isA("func_spawner") ) {
+			continue;
+		}
+			
+		ForEachActiveEntityOf( spawner, ai ) {
+			if( !ai.isA("func_mover_spline") ) {
+				continue;
+			}
+			
+			Remove( ai );
+		}
+		
+		Remove( spawner );
+	}
+}
+
+void ApplySpeedScale( entity tramCar, float scale ) {	
+	tramCar.applySpeedScale( scale );
+}
+
+void ApplySpeedScaleOn( entity self, entity tramCar, float scale ) {	
+	ApplySpeedScale( tramCar, scale );
+}
+
+void SetSplineOn( entity self, entity tramCar, entity spline ) {
+	tramCar.setSpline( spline );
+}
+
+entity DriverSpeak( entity tramCar, string voKey ) {
+	return tramCar.driverSpeak( voKey );
+}
+
+entity DriverSpeakExt( entity self, entity tramCar, string voKey ) {
+	return DriverSpeak( tramCar, voKey );
+}
+
+entity DriverSpeakDelay( entity tramCar, string voKey, float delay ) {
+	sys.wait( delay );
+	
+	return DriverSpeak( tramCar, voKey );
+}
+
+void DriverSpeakDelayExt( entity self, entity tramCar, string voKey, float delay ) {
+	DriverSpeakDelay( tramCar, voKey, delay );
+}
+
+void OpenTramDoors( entity tramCar ) {
+	tramCar.openDoors();
+}
+
+void CloseTramDoors( entity tramCar ) {
+	tramCar.closeDoors();
+}
+
+void OpenTramDoorsExt( entity self, entity tramCar ) {
+	OpenTramDoors( tramCar );
+}
+
+void CloseTramDoorsExt( entity self, entity tramCar ) {
+	CloseTramDoors( tramCar );
+}
+
+void SetIdealTrack( entity tramCar, string track ) {	
+	tramCar.setIdealTrack( track );
+}
+
+void ActorSpeak( entity self, entity actor, string voKey ) {
+	aiSpeak( actor, voKey );
+}
+
+void SetSplineOnTargets( entity self, string splineEntityName ) {
+	entity target;
+	entity splineEntity = sys.getEntity( splineEntityName );
+	
+	ForEachTargetOf( self, target ) {
+		target.setSpline( splineEntity );
+	}
+}
+
+void TriggerTargetsByType( entity self, string type ) {
+	entity target;
+	
+	ForEachTargetOf( self, target ) {
+		if( !target.isA(type) ) {
+			continue;
+		}
+		
+		sys.trigger( target );
+	}
+}
+
+void CreateEnteredTramTrigger( entity tramCar ) {
+	ASSERT( tramCar.isA("vehicle_tramCar_marine") );
+
+	sys.setSpawnArg( "mins", tramCar.getKey("triggerMins") );
+	sys.setSpawnArg( "maxs", tramCar.getKey("triggerMaxs") );
+	sys.setSpawnArg( "origin", tramCar.getWorldOrigin() );
+	sys.setSpawnArg( "target", tramCar.getName() );
+	sys.spawn( "trigger_once" );
+}
+
+void SpawnTramEnteredTrigger( entity tramCar, string track, float speedScale ) {
+	sys.setSpawnArg( "call", "tramCar_Scripts::SetSplineOn " + tramCar.getName() + " " + track );
+	sys.setSpawnArg( "call1", "tramCar_Scripts::ApplySpeedScaleOn " + tramCar.getName() + " " + speedScale );
+	sys.setSpawnArg( "call2", "tramCar_Scripts::CloseTramDoorsExt " + tramCar.getName() );
+						
+	tramCar_Scripts::CreateEnteredTramTrigger( tramCar );
+}
+
+void SpawnTramEnteredTriggerExt( entity self, entity tramCar, string track, float speedScale ) {
+	SpawnTramEnteredTrigger( tramCar, track, speedScale );
+}
+
+//--------------------------------------------------------------------------
+// void manageTramHealth()
+//
+// Makes the tram regenerate as if it had a shield
+//
+// Apr 2005 | gc
+//--------------------------------------------------------------------------
+void manageTramHealth()
+{
+	float maxHealth = $player_tram.getHealth();
+	float currentHealth = $player_tram.getHealth();
+	float regenRate = 50; // how many health units are recovered per second
+	float waitTime = 5; // how many seconds the tram must go without being damaged before it can regenerate
+	float timeWaited = 0; // how many seconds it has been since the tram last took damage
+	float timeStep = 0.1; // the number of seconds per loop--decrease this number for accuracy, increase for speed
+
+	while (1)
+	{
+		sys.wait(timeStep);
+		
+		if ($player_tram.getHealth() < maxHealth) // do nothing if the tram is at full hit points
+		{
+			if ($player_tram.getHealth() < currentHealth)
+			{
+				// the tram has taken damage, so reset the time counter
+				currentHealth = $player_tram.getHealth(); 
+				timeWaited = 0; // reset the counter
+			}
+			else if ($player_tram.getHealth() > currentHealth)
+			{
+				// the tram is in the process of healing, so continue the healing
+				currentHealth = $player_tram.getHealth();
+				currentHealth += regenRate * timeStep; // units/second * seconds = units to heal
+                $player_tram.setHealth(currentHealth);
+			}
+			else 
+			{
+				// the tram is damaged and waiting to regenerate
+				if (timeWaited < waitTime)
+				{
+					// keep track of the time that has passed without taking damage
+					timeWaited += timeStep;
+				}
+				else
+				{
+					// done waiting!
+					currentHealth = $player_tram.getHealth();
+					currentHealth += regenRate * timeStep; // units per second * seconds = units to heal
+					$player_tram.setHealth(currentHealth);
+				}
+			}
+		}
+	}
+}
+
+
+}

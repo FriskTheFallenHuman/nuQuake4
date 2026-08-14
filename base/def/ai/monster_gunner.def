@@ -1,0 +1,730 @@
+/*
+===============================================================================
+
+	Gunner
+
+===============================================================================
+*/
+
+export gunner
+{
+	options -prefix GUN_ -align ALL -scale .3937 -keep L_pole R_pole1 -parent Rteye_Focus head_1 -parent Lfteye_Focus head_1 -keep muzzle -parent waist hips
+	mesh	work/models/monsters/Gunner/Animations/walk_fire06.ma 			-dest models/monsters/gunner/gunner
+	anim	work/models/monsters/Gunner/Animations/walk_fire06.ma 			-dest models/monsters/gunner/walk
+	anim	work/models/monsters/Gunner/Animations/walk_slow.ma 			-dest models/monsters/gunner/walk_slow
+	anim	work/models/monsters/Gunner/Animations/idle.ma 				-dest models/monsters/gunner/idle
+	anim	work/models/monsters/Gunner/Animations/idle_alert.ma 			-dest models/monsters/gunner/idle_alert
+	anim	work/models/monsters/Gunner/Animations/range_attack.ma 			-range 30 37 -dest models/monsters/gunner/pre_attack01
+	anim	work/models/monsters/Gunner/Animations/range_attack.ma 			-range 38 41 -dest models/monsters/gunner/attack01_loop
+	anim	work/models/monsters/Gunner/Animations/range_attack.ma 			-range 42 50 -dest models/monsters/gunner/post_attack01
+	anim	work/models/monsters/Gunner/Animations/run16.ma 				-dest models/monsters/gunner/run
+	anim	work/models/monsters/Gunner/Animations/punch8.ma 				-dest models/monsters/gunner/punch
+	anim	work/models/monsters/Gunner/Animations/backhand.ma 				-dest models/monsters/gunner/backhand
+	anim	work/models/monsters/Gunner/Animations/backhand.ma 				-dest models/monsters/gunner/push
+	anim	work/models/monsters/Gunner/Animations/attack.ma 				-dest models/monsters/gunner/attack
+	anim	work/models/monsters/Gunner/Animations/nailgun_long.ma			-dest models/monsters/gunner/nailgun_long
+//	anim	work/models/monsters/Gunner/Animations/walk_fire06.ma			-dest models/monsters/gunner/walk_attack
+//	anim	work/models/monsters/Gunner/Animations/strafe.ma			-dest models/monsters/gunner/strafe
+	anim	work/models/monsters/Gunner/Animations/pain_head.ma 			-dest models/monsters/gunner/pain1
+//	anim	work/models/monsters/Gunner/Animations/walk_reverse8.ma 		-dest models/monsters/gunner/walk_reverse
+//	anim	work/models/monsters/Gunner/Animations/dodge_left7.ma 			-dest models/monsters/gunner/dodge_left
+	anim	work/models/monsters/Gunner/Animations/step_side_left.ma		-dest models/monsters/gunner/step_side_left
+	anim	work/models/monsters/Gunner/Animations/step_side_right.ma		-dest models/monsters/gunner/step_side_right
+	anim	work/models/monsters/Gunner/Animations/step_back_left.ma		-dest models/monsters/gunner/step_back_left
+	anim	work/models/monsters/Gunner/Animations/step_back_right.ma		-dest models/monsters/gunner/step_back_right
+	anim	work/models/monsters/Gunner/Animations/gunner_ragdoll.ma		-dest models/monsters/gunner/gunner_ragdoll
+	anim	work/models/monsters/Gunner/Animations/cover_fire.ma			-dest models/monsters/gunner/cover_fire
+	anim	work/models/monsters/Gunner/Animations/cover_fire_left.ma		-dest models/monsters/gunner/cover_fire_left
+	anim	work/models/monsters/Gunner/Animations/grenade_attack5.ma		-dest models/monsters/gunner/grenade_attack
+	anim	work/models/monsters/Gunner/Animations/nailgun_long_start.ma	-dest models/monsters/gunner/nailgun_long_start
+	anim	work/models/monsters/Gunner/Animations/nailgun_long_loop.ma		-dest models/monsters/gunner/nailgun_long_loop
+	anim	work/models/monsters/Gunner/Animations/nailgun_long_end.ma		-dest models/monsters/gunner/nailgun_long_end
+	anim	work/models/monsters/Gunner/Animations/nailgun_short_start.ma	-dest models/monsters/gunner/nailgun_short_start
+	anim	work/models/monsters/Gunner/Animations/nailgun_short_loop.ma	-dest models/monsters/gunner/nailgun_short_loop
+	anim	work/models/monsters/Gunner/Animations/nailgun_short_end.ma		-dest models/monsters/gunner/nailgun_short_end
+//	anim	work/models/monsters/Gunner/Animations/gunner_bridge_gui.ma		-dest models/monsters/gunner/gunner_bridge_gui
+	anim	work/models/monsters/Gunner/Animations/RECOMP_intro_gunner.ma	-dest models/monsters/gunner/recomp_intro_gunner
+	anim	work/models/monsters/Gunner/Animations/turn_left.ma				-dest models/monsters/gunner/turn_left
+//	anim	work/models/monsters/Gunner/Animations/pc_gamer_pose.ma			-dest models/monsters/gunner/gamer_pose
+	anim	work/models/monsters/Gunner/Animations/walk_left3.ma			-dest models/monsters/gunner/walk_left
+	anim	work/models/monsters/Gunner/Animations/walk_right3.ma			-dest models/monsters/gunner/walk_right
+	anim	work/models/monsters/Gunner/Animations/walk_back_loop.ma		-dest models/monsters/gunner/walk_backward
+	anim	work/models/monsters/Gunner/Animations/lean_evade_right_2.ma	-dest models/monsters/gunner/lean_evade_right
+	anim	work/models/monsters/Gunner/Animations/lean_evade_left_2.ma		-dest models/monsters/gunner/lean_evade_left
+	anim	work/models/monsters/Gunner/Animations/gunner_intro.ma			-dest models/monsters/gunner/gunner_intro
+	anim    work/models/monsters/Gunner/Animations/pain_con.ma				-dest models/monsters/gunner/pain_con
+	anim    work/models/monsters/Gunner/Animations/pain_std.ma				-dest models/monsters/gunner/pain_std
+	anim    work/models/monsters/Gunner/Animations/pain_std2.ma				-dest models/monsters/gunner/pain_std2
+	anim    work/models/monsters/Gunner/Animations/pain_strm.ma				-range 1 7 -dest models/monsters/gunner/pain_strm_start
+	anim    work/models/monsters/Gunner/Animations/pain_strm.ma				-range 7 14 -dest models/monsters/gunner/pain_strm_loop
+	anim    work/models/monsters/Gunner/Animations/pain_strm.ma				-range 14 19 -dest models/monsters/gunner/pain_strm_stop
+	anim    work/models/monsters/Gunner/Animations/pain_knock.ma			-dest models/monsters/gunner/pain_knock
+	anim    work/models/monsters/Gunner/Animations/combat_idle.ma			-range 80 120 -dest models/monsters/gunner/combat_idle
+
+	anim	work/models/monsters/Gunner/Animations/walk_left_attack_upper.ma	-dest models/monsters/gunner/walk_left_attack_upper
+	anim	work/models/monsters/Gunner/Animations/walk_right_attack_upper.ma	-dest models/monsters/gunner/walk_right_attack_upper
+	
+	anim	work/models/monsters/Gunner/Animations/walk_forward_attack_upper.ma	-dest models/monsters/gunner/walk_forward_attack_upper
+	anim	work/models/monsters/Gunner/Animations/walk_back_attack_upper.ma	-dest models/monsters/gunner/walk_back_attack_upper
+
+
+
+}
+
+/*
+===============================================================================
+
+	Gunner Model
+
+===============================================================================
+*/
+
+model model_monster_gunner
+{
+	mesh												models/monsters/gunner/gunner.md5mesh
+	
+	channel torso										( *waist )
+	channel legs										( *hips origin -*waist)
+	
+	anim af_pose										models/monsters/gunner/gunner_ragdoll.md5anim
+	anim ik_pose										models/monsters/gunner/gunner_ragdoll.md5anim
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Idle animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim idle											models/monsters/gunner/idle.md5anim
+	{
+		frame 1,60										sound		snd_breathe	
+	}
+	anim idle_alert										models/monsters/gunner/idle_alert.md5anim
+	{
+		frame 1											sound		snd_breathe	
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Movement Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+
+	anim walk											models/monsters/gunner/walk.md5anim
+	{									
+		sync_cycle			
+		frame 2,13										footstep
+		frame 5,17										sound				snd_servo
+	}
+	anim walk_left										models/monsters/gunner/walk_left.md5anim
+	{									
+		sync_cycle			
+		frame 8,22										footstep
+		frame 11,23 										sound				snd_servo
+	}
+	anim walk_right										models/monsters/gunner/walk_right.md5anim
+	{									
+		sync_cycle			
+		frame 8,22										footstep
+		frame 11,23 										sound				snd_servo
+	}
+	anim walk_backwards									models/monsters/gunner/walk_backward.md5anim
+	{									
+		sync_cycle			
+		frame 7,20 										footstep
+		frame 10,23										sound				snd_servo
+	}
+
+	anim evade_right							models/monsters/gunner/lean_evade_right.md5anim
+	{
+		frame 5,22								footstep
+		frame 1,16								sound				snd_servo
+	}
+	
+	anim evade_left								models/monsters/gunner/lean_evade_left.md5anim		
+	{
+		frame 4,24								footstep
+		frame 1,15								sound				snd_servo
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Attack Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim melee_attack1							models/monsters/gunner/punch.md5anim
+	{
+		frame 7									sound					snd_growl
+		frame 7									fx					fx_swipe						wrist
+		frame 8									ai_attack_melee		melee
+	}		
+	anim melee_attack2							models/monsters/gunner/backhand.md5anim
+	{
+		frame 7									sound					snd_growl
+		frame 7									fx					fx_swipe						muzzle
+		frame 8									ai_attack_melee		melee
+	}			
+	anim range_attack1							models/monsters/gunner/attack.md5anim
+	{
+		frame 1									sound				snd_ready_weapon
+		frame 11, 13, 16, 19, 22, 25, 28, 31	ai_attack			nail					muzzle
+		frame 11, 13, 16, 19, 22, 25, 28, 31	fx					fx_nail_flash			muzzle
+		frame 11, 13, 16, 19, 22, 25, 28, 31	sound_weapon		snd_nailgun_fire
+	}
+	anim range_attack2							models/monsters/gunner/nailgun_long.md5anim
+	{
+		frame 1									sound				snd_ready_weapon				
+		frame 11, 14, 17, 20, 23, 26			ai_attack			nail					muzzle
+		frame 11, 14, 17, 20, 23, 26			fx					fx_nail_flash			muzzle
+		frame 11, 14, 17, 20, 23, 26			sound_weapon		snd_nailgun_fire
+	}
+	anim grenade_attack							models/monsters/gunner/grenade_attack.md5anim			
+	{
+		frame 13								sound		snd_grenade_prepare	
+		frame 18								sound			snd_grenade_yell
+		frame 40								ai_attack			grenade					muzzle
+		frame 40								fx					fx_grenade_flash		muzzle
+		frame 40								sound_weapon		snd_grenade_launch
+	}
+	anim nailgun_long_start						models/monsters/gunner/nailgun_long_start.md5anim
+	{
+		frame 1									sound				snd_ready_weapon
+	}
+	anim nailgun_long_loop						models/monsters/gunner/nailgun_long_loop.md5anim
+	{
+		frame 1									ai_attack			nail			muzzle
+		frame 1									fx					fx_nail_flash	muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+		rate 0.75
+	}
+	anim nailgun_long_end						models/monsters/gunner/nailgun_long_end.md5anim
+	anim nailgun_short_start					models/monsters/gunner/nailgun_short_start.md5anim
+	{
+		frame 1									sound				snd_ready_weapon
+	}
+	anim nailgun_short_loop						models/monsters/gunner/nailgun_short_loop.md5anim
+	{
+		frame 1									ai_attack			nail					muzzle
+		frame 1									fx					fx_nail_flash			muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+		rate 0.75
+	}
+	anim nailgun_short_end						models/monsters/gunner/nailgun_short_end.md5anim
+
+	/*
+	anim range_attack_torso_left				models/monsters/gunner/walk_left_attack_upper.md5anim
+	{
+		frame 1									ai_attack			nail					muzzle
+		frame 1									fx					fx_nail_flash			muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+	}
+	anim range_attack_torso_right				models/monsters/gunner/walk_right_attack_upper.md5anim
+	{
+		frame 1									ai_attack			nail					muzzle
+		frame 1									fx					fx_nail_flash			muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+	}
+
+	anim range_attack_torso						models/monsters/gunner/walk.md5anim
+	{
+		frame 1									ai_attack			nail					muzzle
+		frame 1									fx					fx_nail_flash			muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+	}
+
+	anim range_attack_torso_back				models/monsters/gunner/walk_back_attack_upper.md5anim
+	{
+		frame 1									ai_attack			nail					muzzle
+		frame 1									fx					fx_nail_flash			muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+	}
+	*/
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Evade Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim pain1									models/monsters/gunner/pain_std.md5anim			
+	{
+		frame 1									sound_voice				snd_pain
+	}
+	anim pain2									models/monsters/gunner/pain_std2.md5anim			
+	{
+		frame 1									sound_voice					snd_pain
+	}
+	anim pain_concussive						models/monsters/gunner/pain_con.md5anim
+	{
+		frame 1									sound_voice					snd_pain
+	}
+	anim pain_concussive2						models/monsters/gunner/pain_knock.md5anim
+	{
+		frame 1									sound_voice					snd_pain
+	}
+	anim pain_concussive3						models/monsters/gunner/pain_knock.md5anim
+	{
+		frame 1									sound_voice					snd_pain
+	}
+	anim pain_concussive4						models/monsters/gunner/pain_knock.md5anim
+	{
+		frame 1									sound_voice					snd_pain
+	}
+	anim pain_stream_start						models/monsters/gunner/pain_strm_start.md5anim
+	{
+		frame 1									sound_voice					snd_pain
+	}
+	anim pain_stream							models/monsters/gunner/pain_strm_loop.md5anim
+	anim pain_stream_end						models/monsters/gunner/pain_strm_stop.md5anim
+
+	anim strafe_left						models/monsters/gunner/step_side_left.md5anim
+	{
+		frame 1									sound					snd_growl
+		frame 7, 16, 24, 34						footstep
+		frame 30, 32, 35, 37					ai_attack			nail					muzzle
+		frame 30, 32, 35, 37					fx					fx_nail_flash			muzzle
+		frame 30, 32, 35, 37					sound_weapon		snd_nailgun_fire
+	}
+	anim strafe_right					models/monsters/gunner/step_side_right.md5anim		
+	{
+		frame 1									sound				snd_growl
+		frame 7, 16, 24, 34						footstep
+		frame 21, 23, 25, 27, 30				ai_attack			nail					muzzle
+		frame 21, 23, 25, 27, 30				fx					fx_nail_flash			muzzle
+		frame 21, 23, 25, 27, 30				sound_weapon		snd_nailgun_fire
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Unused animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+/*
+	anim unused_strafe_left2					models/monsters/gunner/cover_fire_left.md5anim
+	{
+		frame 8, 12, 35							sound 				snd_walk
+		frame 16, 18, 20						ai_attack			nail					muzzle
+		frame 16, 18, 20						fx					fx_nail_flash			muzzle
+		frame 16, 18, 20						sound_weapon		snd_nailgun_fire
+	}
+	anim unused_strafe_right2					models/monsters/gunner/cover_fire.md5anim
+	{
+		frame 8, 12, 34							sound 				snd_walk
+		frame 18, 20, 23						ai_attack			nail					muzzle
+		frame 18, 20, 23						fx					fx_nail_flash			muzzle
+		frame 18, 20, 23						sound_weapon		snd_nailgun_fire
+	}
+	anim unused_pre_attack01					models/monsters/gunner/pre_attack01.md5anim
+	{
+		frame 1									sound				snd_ready_weapon
+		rate 0.8
+	}
+	anim unused_attack01_loop					models/monsters/gunner/attack01_loop.md5anim
+	{
+		frame 1									ai_attack			nail					muzzle
+		frame 1									fx					fx_nail_flash			muzzle
+		frame 1									sound_weapon		snd_nailgun_fire
+		rate 0.8
+	}
+	anim unused_post_attack01					models/monsters/gunner/post_attack01.md5anim
+	{
+		rate 0.8
+	}
+
+	anim unused_back_step1						models/monsters/gunner/step_back_right.md5anim
+	{
+		frame 10, 17, 24, 34					sound				snd_walk
+	}
+	anim unused_back_step2						models/monsters/gunner/step_back_left.md5anim	
+	{
+		frame 10, 17, 24, 34					sound				snd_walk
+	}
+
+	anim unused_turn_left						models/monsters/gunner/turn_left.md5anim
+	{
+		rate	4
+	}
+	anim unused_turn_right						models/monsters/gunner/turn_left.md5anim
+	{
+		rate	4
+	}
+*/
+	// ************************************************************************
+	// ******
+	// ******
+	// ******
+	// ******
+	// ****** THE FOLLOWING ANIMATIONS DO NOT BELONG IN THE BASE GUNNER *******
+	// ******
+	// ******
+	// ******
+	// ******
+	// ************************************************************************
+
+	anim recomp_gunner_intro					models/monsters/gunner/recomp_intro_gunner.md5anim
+	{
+		frame	1,10,47,59,86					sound	snd_servo_intro
+		frame	9								sound		snd_grenade_yell
+		frame	15								sound_weapon	snd_punch
+	}
+	anim gunner_intro							models/monsters/gunner/gunner_intro.md5anim
+	{
+		ai_no_look
+		frame	2,12,19,28,44,46,57,71			sound	guisound_beep2
+		frame	109								sound		snd_grenade_yell
+		frame	86,115							sound	snd_servo_intro
+		frame 	130								ai_attack			grenade		muzzle
+		frame	110								sound		snd_intro_yell
+		frame	124								sound_weapon	snd_grenade_prepare
+	}
+	
+	
+	// hangar1 intro properly nuked
+}
+
+/*
+===============================================================================
+
+	Gunner Attacks
+
+===============================================================================
+*/
+
+entityDef damage_gunner_nail
+{
+	"inherit"					"damage_nailDirect"
+	"push"						"20"
+	"knockback"					"10"
+//	"damage"					"10"
+//	"damage"					"20"
+//	"damage"					"10"
+	"damage"					"5"
+}
+
+/*
+entityDef damage_gunner_nailSplash 
+{
+	"inherit"					"damage_nailSplash"
+	"damage"					"10"
+}
+*/
+
+entityDef projectile_gunner_nail
+{
+	"inherit"					"projectile_nail"
+	"mass"						"200"
+	"def_damage"				"damage_gunner_nail"
+//	"def_splash_damage"			"damage_gunner_nailSplash"
+//	"speed"						"700"
+//	"speed"						"950"
+	"speed"						"825"
+
+	"def_splash_damage"			""
+}
+
+entityDef damage_gunner_grenade
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"60"
+	"push"						"10000"
+	
+	"tv_scale"					"0.7"
+	"tv_time"					"4200"
+
+	// Hearing Loss
+	"hl_volumeDB"				"-25"
+	"hl_fadeOutTime"			".5"
+	"hl_time"					"3.5"
+	"hl_fadeInTime"				"1"
+	"snd_hl"					"player_sounds_ringing2"
+}
+
+entityDef damage_gunner_grenade_splash
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"80"
+	"radius"					"200"
+	"push"						"10000"
+
+	"tv_scale"					"0.7"
+	"tv_time"					"4200"
+
+	// Hearing Loss
+	"hl_volumeDB"				"-25"
+	"hl_fadeOutTime"			".5"
+	"hl_time"					"2.5"
+	"hl_fadeInTime"				"1"
+	"snd_hl"					"player_sounds_ringing"
+}
+
+entityDef projectile_gunner_grenade
+{
+	"inherit"					"projectile_grenade_base"
+
+	"mins"						"-4 -4 -4"
+	"maxs"						"4 4 4"
+	"cone"						""
+	"noshadows"					"1"
+	"clipmask_largeshot"		"1"
+	
+	"fuse"						"8"
+	"fuse_atrest"				".4"
+	
+	"model"						"models/weapons/grenadelauncher/w_grenade.lwo"	
+	"fx_fly"					"effects/monsters/gunner/grenade_fly.fx"
+	"fx_detonate"				"effects/monsters/gunner/grenade_burst.fx"
+	"fx_impact"					"effects/monsters/gunner/grenade_burst.fx"
+	
+	"flyEffectAttenuateSpeed"		"200"
+
+	"def_splash_damage"			"damage_gunner_grenade_splash"
+	"def_damage"				"damage_gunner_grenade"
+
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"
+
+	"bounce_count"				"-1"
+
+	"gravity"					"1"
+	"bounce"					".3"
+
+	"health"					"10"
+	"solid"						"1"
+
+	"delay_splash"				".2"
+
+	"snd_ricochet"				"grenade_bounce"		
+}
+
+entityDef melee_gunner_right
+{
+	"inherit"					"melee_gunner"
+	"kickDir"					"0 1 0"
+	"snd_miss"					"gunner_swing"
+}
+
+entityDef melee_gunner_left
+{
+	"inherit"					"melee_gunner_right"
+	"kickDir"					"0 -1 0"
+}
+
+entityDef melee_gunner
+{
+	"inherit"					"melee_monster_base"
+	"damage"					"20"
+	"knockback"					"30"
+	"snd_hit"					"gunner_punch"
+
+	"kickDir"						"0 0 -1"
+	"kick_time"						"200"
+	"kick_amplitude"				"1"
+	
+	"blob_time"						"500"
+	"mtr_blob"						"textures/decals/genericdamage"
+	"blob_x"						"0"
+	"blob_y"						"-125"
+	"blob_width"					"400"
+	"blob_height"					"400"
+	
+	"dv_time"						"350"
+	"dv_scale"						".1"
+	
+	"tv_time"						"300"
+	
+	"fx_wound"						""
+	"snd_flesh"						"bullet_impact_flesh"	
+
+	"deathPush"					"100"
+	"deathPushMin"				"3000 350"
+	"deathPushMax"				"5000 500"	
+}
+
+/*
+===============================================================================
+
+	Gunner Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_gunner
+{
+	"inherit"								"actor_default"
+	"spawnClass"							"rvMonsterGunner"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_rate"				"0.1"
+	"action_meleeAttack_maxRange"			"100"
+	"action_rangedAttack"					"0"
+	"action_evadeRight"						"1"
+	"action_evadeLeft"						"1"
+
+	"action_sideStepLeft"					"1"
+	"action_sideStepLeft_rate"				"5"
+	"action_sideStepLeft_anim"				"strafe_left"
+	"action_sideStepRight"					"1"
+	"action_sideStepRight_rate"				"5"
+	"action_sideStepRight_anim"				"strafe_right"
+	"actionTimer_sideStep"					"5"				
+
+	"action_grenadeAttack"					"1"	
+	"action_grenadeAttack_minRange"			"300"
+	"action_grenadeAttack_maxRange"			"900"
+	"action_grenadeAttack_rate"				"3"
+	"action_grenadeAttack_anim"				"grenade_attack"
+	
+	"action_nailgunAttack"					"1"
+	"action_nailgunAttack_minRange"			"64"
+	"action_nailgunAttack_maxRange"			"1000"
+	"action_nailgunAttack_rate"				"1"
+	"action_nailgunAttack_diversity"		"1"
+	"action_nailgunAttack_failrate"			"0.5"
+	"action_nailgunAttack_anim"				"nailgun_long_loop"	
+	"action_nailgunAttack_anim2"			"nailgun_short_loop"	
+	"action_nailgunAttack_minShots"			"5"	
+	"action_nailgunAttack_maxShots"			"20"
+	"action_nailgunAttack_overrideLegs"		"0"
+	"actionTimer_rangedAttack_rate"			"1"				
+	"actionTimer_rangedAttack_diversity"	"1"				
+		
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_gunner"
+	"ragdoll"								"gunner"
+	"size"									"48 48 88"
+	"use_aas"								"aas48"
+	
+	"joint_chestOffset"						"chest"
+	"joint_eyeOffset"						"mid_forhead"
+	
+	"directionalMovement"					"1"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"300"
+	"melee_range"							"100"
+	"painThreshold"							"1"
+	"aggressiveRange"						"512"
+
+	"tactical_ranged"						"1"
+	"tactical_rush"							"0"
+	"tactical_cover"						"0"
+	"tactical_hide"							"1"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck"
+	"damage_zone legs"						"*hips origin -*waist"
+	"damage_scale head"						"2"	
+	"damage_scale legs"						".75"	
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_nail"						"projectile_gunner_nail"
+	"attack_nail_accuracy"					"1"
+	"attack_nail_spread"					"1"
+
+	"def_attack_grenade"					"projectile_gunner_grenade"
+	"attack_grenade_accuracy"				"3"
+
+	"def_attack_melee"						"melee_gunner_left"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"						"0.1 0.2 0"
+	  "look_joint chest"					"0.1 0.2 0"
+	    "look_joint shoulders"				"0.2 0.2 0"
+		  "look_joint gunFore"				"0.4 0.4 0"
+	      "look_joint neck"					"0.2 0.2 0"
+	        "look_joint head_1"				"0.2 0.2 0"
+
+	// --------------------------------- IK --------------------------------------
+/*	
+	"ik_numLegs"							"2"
+	"ik_footSize"							"4"
+	"ik_waist"								"hips"
+	"ik_hip1"								"L_femur"
+	"ik_hip2"								"R_Femur"
+	"ik_knee1"								"L_shin"
+	"ik_knee2"								"R_Shin"
+	"ik_ankle1"								"L_ankle"
+	"ik_ankle2"								"R_ankle"
+	"ik_foot1"								"joint1"
+	"ik_foot2"								"joint3"
+*/
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"							"gunner_alert"
+	"lipsync_rush"							"gunner_rush"
+	"lipsync_checkfire"						"gunner_checkfire"
+	"lipsync_mandown"						"gunner_mandown"
+	"lipsync_moveup"						"gunner_moveup"
+
+	"snd_punch"								"gunner_punch"
+	"snd_gun"								"gunner_gun"
+	
+	"snd_nailgun_fire"						"gunner_nailgun_fire"
+	"snd_machinegun_fire"					"gunner_machinegun_fire"
+	"snd_grenade_launch"					"gunner_grenade_launch"
+	
+	"snd_bounce"							"generic_creature_fall_metal"
+	
+	"snd_footstep"							"gunner_steps"
+	
+	"snd_intro_yell"						"gunner_intro_yell"
+	"snd_alert"								"gunner_alert"
+	"snd_melee"								"gunner_punch"
+	"snd_swing"								"gunner_swing"
+	"snd_death"								"gunner_die"
+	"snd_pain"								"gunner_pain"
+	"snd_breathe"							"gunner_breathe"
+	"snd_growl"								"gunner_growl"
+	"snd_grenade_yell"						"gunner_grenade_yell"
+	"snd_grenade_prepare"					"gunner_grenade_prepare"
+	"snd_smash"								"generic_barrel_impact"
+	"snd_servo"								"gunner_servo"
+	"snd_servo_intro"						"gunner_servo_intro"
+	"snd_flesh"								"bullet_impact_flesh"
+	"snd_ready_weapon"						"gunner_ready_weapon"
+	
+	"sound_bone"							"waist"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_nail_flash"							"effects/monsters/gunner/nail_mflash.fx"
+	"fx_grenade_flash"						"effects/monsters/gunner/grenade_mflash.fx"
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+}
+
+entityDef monster_gunner_grenade_only
+{
+	
+	"inherit"					"monster_gunner"
+	
+	// Action customization
+	"action_grenadeAttack_rate"				"2"
+	
+	"action_nailgunAttack"					"0"
+	
+}
+
+entityDef monster_gunner_long_distance
+{
+	
+	"inherit"					"monster_gunner"
+	"attackRange"				"0 2000"
+	
+	"action_grenadeAttack_maxRange"			"1200"
+	"action_nailgunAttack_maxRange"			"2400"
+
+}

@@ -1,0 +1,81 @@
+//------------------------------------------------------------------------------
+// tube.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+export vehicle_tube
+{
+	options  -prefix TUBE_ -align ALL -scale .3937 -keep eye
+
+	mesh 	work/models/mapobjects/strogg/misc_equipment/tube/tube.ma				-dest models/vehicles/tube/tube.md5mesh
+	anim 	work/models/mapobjects/strogg/misc_equipment/tube/tube.ma				-dest models/vehicles/tube/idle.md5mesh
+	
+}
+
+model vehicle_tube
+{
+	mesh  									models/vehicles/tube/tube.md5mesh
+
+	channel legs				( *origin )
+
+	anim idle								models/vehicles/tube/idle.md5anim
+		
+}
+
+
+entityDef vehicle_tube
+{
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-32 -32 0"
+	"editor_maxs"				"32 32 108"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Vehicle tube for attaching player to track."
+
+	"spawnclass"				"rvVehicleRigid"
+
+	"model"						"vehicle_tube"
+	"mins"						"-32 -32 0"
+	"maxs"						"32 32 108"
+
+	"def_position_driver"		"vehicle_tube_driver"
+	
+	"health"					"1000"
+	
+	"mass"						"10"
+	"size"						"64 64 108"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_tube_driver
+{
+	"eyeJoint"					"eye"
+	"eyeoffset"					"0 0 0"
+	"def_part_turn"				"vehicle_tube_turn"
+}
+
+entityDef vehicle_tube_turn
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"eye"
+	
+	"yaw"						"1"
+	"pitch"						"0"
+
+	"minyaw"					"-50"
+	"maxyaw"					"50"
+
+	"minpitch"					"-30"
+	"maxpitch"					"30"
+
+	
+	"turnrate"					"1000"
+}

@@ -1,0 +1,814 @@
+/*
+table sosTable { snap { 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0 } }
+
+
+table fadeTable { 0, 1 }
+
+table oneThirdTable { 0, 1, 0 }
+
+// sinTable and cosTable must be defined for the rotate function to work
+table sinTable {
+0.000000, 0.024541, 0.049068, 0.073565, 0.098017, 0.122411, 0.146730, 0.170962, 
+0.195090, 0.219101, 0.242980, 0.266713, 0.290285, 0.313682, 0.336890, 0.359895, 
+0.382683, 0.405241, 0.427555, 0.449611, 0.471397, 0.492898, 0.514103, 0.534998, 
+0.555570, 0.575808, 0.595699, 0.615232, 0.634393, 0.653173, 0.671559, 0.689541, 
+0.707107, 0.724247, 0.740951, 0.757209, 0.773010, 0.788346, 0.803208, 0.817585, 
+0.831470, 0.844854, 0.857729, 0.870087, 0.881921, 0.893224, 0.903989, 0.914210, 
+0.923880, 0.932993, 0.941544, 0.949528, 0.956940, 0.963776, 0.970031, 0.975702, 
+0.980785, 0.985278, 0.989177, 0.992480, 0.995185, 0.997290, 0.998795, 0.999699, 
+1.000000, 0.999699, 0.998795, 0.997290, 0.995185, 0.992480, 0.989177, 0.985278, 
+0.980785, 0.975702, 0.970031, 0.963776, 0.956940, 0.949528, 0.941544, 0.932993, 
+0.923880, 0.914210, 0.903989, 0.893224, 0.881921, 0.870087, 0.857729, 0.844854, 
+0.831470, 0.817585, 0.803208, 0.788346, 0.773010, 0.757209, 0.740951, 0.724247, 
+0.707107, 0.689541, 0.671559, 0.653173, 0.634393, 0.615232, 0.595699, 0.575808, 
+0.555570, 0.534998, 0.514103, 0.492898, 0.471397, 0.449611, 0.427555, 0.405241, 
+0.382683, 0.359895, 0.336890, 0.313682, 0.290285, 0.266713, 0.242980, 0.219101, 
+0.195090, 0.170962, 0.146730, 0.122411, 0.098017, 0.073565, 0.049068, 0.024541, 
+0.000000, -0.024541, -0.049068, -0.073565, -0.098017, -0.122411, -0.146730, -0.170962, 
+-0.195090, -0.219101, -0.242980, -0.266713, -0.290285, -0.313682, -0.336890, -0.359895, 
+-0.382683, -0.405241, -0.427555, -0.449611, -0.471397, -0.492898, -0.514103, -0.534998, 
+-0.555570, -0.575808, -0.595699, -0.615232, -0.634393, -0.653173, -0.671559, -0.689541, 
+-0.707107, -0.724247, -0.740951, -0.757209, -0.773010, -0.788346, -0.803208, -0.817585, 
+-0.831470, -0.844854, -0.857729, -0.870087, -0.881921, -0.893224, -0.903989, -0.914210, 
+-0.923880, -0.932993, -0.941544, -0.949528, -0.956940, -0.963776, -0.970031, -0.975702, 
+-0.980785, -0.985278, -0.989177, -0.992480, -0.995185, -0.997290, -0.998795, -0.999699, 
+-1.000000, -0.999699, -0.998795, -0.997290, -0.995185, -0.992480, -0.989177, -0.985278, 
+-0.980785, -0.975702, -0.970031, -0.963776, -0.956940, -0.949528, -0.941544, -0.932993, 
+-0.923880, -0.914210, -0.903989, -0.893224, -0.881921, -0.870087, -0.857729, -0.844854, 
+-0.831470, -0.817585, -0.803208, -0.788346, -0.773010, -0.757209, -0.740951, -0.724247, 
+-0.707107, -0.689541, -0.671559, -0.653173, -0.634393, -0.615232, -0.595699, -0.575808, 
+-0.555570, -0.534998, -0.514103, -0.492898, -0.471397, -0.449611, -0.427555, -0.405241, 
+-0.382683, -0.359895, -0.336890, -0.313682, -0.290285, -0.266713, -0.242980, -0.219101, 
+-0.195090, -0.170962, -0.146730, -0.122411, -0.098017, -0.073565, -0.049068, -0.024541 }
+
+table cosTable {
+1.000000, 0.999699, 0.998795, 0.997290, 0.995185, 0.992480, 0.989177, 0.985278, 
+0.980785, 0.975702, 0.970031, 0.963776, 0.956940, 0.949528, 0.941544, 0.932993, 
+0.923880, 0.914210, 0.903989, 0.893224, 0.881921, 0.870087, 0.857729, 0.844854, 
+0.831470, 0.817585, 0.803208, 0.788346, 0.773010, 0.757209, 0.740951, 0.724247, 
+0.707107, 0.689541, 0.671559, 0.653173, 0.634393, 0.615232, 0.595699, 0.575808, 
+0.555570, 0.534998, 0.514103, 0.492898, 0.471397, 0.449611, 0.427555, 0.405241, 
+0.382683, 0.359895, 0.336890, 0.313682, 0.290285, 0.266713, 0.242980, 0.219101, 
+0.195090, 0.170962, 0.146730, 0.122411, 0.098017, 0.073565, 0.049068, 0.024541, 
+0.000000, -0.024541, -0.049068, -0.073565, -0.098017, -0.122411, -0.146730, -0.170962, 
+-0.195090, -0.219101, -0.242980, -0.266713, -0.290285, -0.313682, -0.336890, -0.359895, 
+-0.382683, -0.405241, -0.427555, -0.449611, -0.471397, -0.492898, -0.514103, -0.534998, 
+-0.555570, -0.575808, -0.595699, -0.615232, -0.634393, -0.653173, -0.671559, -0.689541, 
+-0.707107, -0.724247, -0.740951, -0.757209, -0.773010, -0.788346, -0.803208, -0.817585, 
+-0.831470, -0.844854, -0.857729, -0.870087, -0.881921, -0.893224, -0.903989, -0.914210, 
+-0.923880, -0.932993, -0.941544, -0.949528, -0.956940, -0.963776, -0.970031, -0.975702, 
+-0.980785, -0.985278, -0.989177, -0.992480, -0.995185, -0.997290, -0.998795, -0.999699, 
+-1.000000, -0.999699, -0.998795, -0.997290, -0.995185, -0.992480, -0.989177, -0.985278, 
+-0.980785, -0.975702, -0.970031, -0.963776, -0.956940, -0.949528, -0.941544, -0.932993, 
+-0.923880, -0.914210, -0.903989, -0.893224, -0.881921, -0.870087, -0.857729, -0.844854, 
+-0.831470, -0.817585, -0.803208, -0.788346, -0.773010, -0.757209, -0.740951, -0.724247, 
+-0.707107, -0.689541, -0.671559, -0.653173, -0.634393, -0.615232, -0.595699, -0.575808, 
+-0.555570, -0.534998, -0.514103, -0.492898, -0.471397, -0.449611, -0.427555, -0.405241, 
+-0.382683, -0.359895, -0.336890, -0.313682, -0.290285, -0.266713, -0.242980, -0.219101, 
+-0.195090, -0.170962, -0.146730, -0.122411, -0.098017, -0.073565, -0.049068, -0.024541,
+0.000000, 0.024541, 0.049068, 0.073565, 0.098017, 0.122411, 0.146730, 0.170962, 
+0.195090, 0.219101, 0.242980, 0.266713, 0.290285, 0.313682, 0.336890, 0.359895, 
+0.382683, 0.405241, 0.427555, 0.449611, 0.471397, 0.492898, 0.514103, 0.534998, 
+0.555570, 0.575808, 0.595699, 0.615232, 0.634393, 0.653173, 0.671559, 0.689541, 
+0.707107, 0.724247, 0.740951, 0.757209, 0.773010, 0.788346, 0.803208, 0.817585, 
+0.831470, 0.844854, 0.857729, 0.870087, 0.881921, 0.893224, 0.903989, 0.914210, 
+0.923880, 0.932993, 0.941544, 0.949528, 0.956940, 0.963776, 0.970031, 0.975702, 
+0.980785, 0.985278, 0.989177, 0.992480, 0.995185, 0.997290, 0.998795, 0.999699 }
+
+table convexFade {
+0.0000000, 0.0249307, 0.0498458, 0.0747300, 0.0995678, 0.1243436, 0.1490421, 0.1736480, 
+0.1981460, 0.2225208, 0.2467572, 0.2708403, 0.2947549, 0.3184864, 0.3420199, 0.3653407, 
+0.3884345, 0.4112868, 0.4338834, 0.4562103, 0.4782536, 0.4999996, 0.5214348, 0.5425459, 
+0.5633196, 0.5837433, 0.6038040, 0.6234894, 0.6427872, 0.6616854, 0.6801723, 0.6982363, 
+0.7158664, 0.7330514, 0.7497807, 0.7660440, 0.7818310, 0.7971320, 0.8119375, 0.8262383, 
+0.8400255, 0.8532904, 0.8660250, 0.8782212, 0.8898714, 0.9009684, 0.9115055, 0.9214758, 
+0.9308734, 0.9396923, 0.9479270, 0.9555725, 0.9626240, 0.9690770, 0.9749277, 0.9801723, 
+0.9848076, 0.9888306, 0.9922391, 0.9950306, 0.9972037, 0.9987569, 0.9996892, 1.0000000
+}
+
+table concaveFade {
+0.0000000, 0.0003108, 0.0012431, 0.0027962, 0.0049692, 0.0077608, 0.0111692, 0.0151922, 
+0.0198275, 0.0250720, 0.0309227, 0.0373757, 0.0444271, 0.0520726, 0.0603073, 0.0691261, 
+0.0785237, 0.0884940, 0.0990310, 0.1101280, 0.1217782, 0.1339744, 0.1467089, 0.1599738, 
+0.1737609, 0.1880617, 0.2028672, 0.2181682, 0.2339552, 0.2502184, 0.2669477, 0.2841327, 
+0.3017627, 0.3198268, 0.3383136, 0.3572118, 0.3765096, 0.3961950, 0.4162557, 0.4366793, 
+0.4574530, 0.4785641, 0.4999992, 0.5217452, 0.5437885, 0.5661154, 0.5887120, 0.6115643, 
+0.6346580, 0.6579789, 0.6815124, 0.7052438, 0.7291585, 0.7532415, 0.7774780, 0.8018527, 
+0.8263507, 0.8509566, 0.8756551, 0.9004309, 0.9252687, 0.9501528, 0.9750680, 1.0000000 }
+
+*/
+
+shaderdemos/testRotate {
+	{
+//		map		gfx/misc/console01.tga
+		map		_default
+		rotate	time * -0.1
+	}
+}
+
+shaderdemos/testScale {
+	{
+		map		gfx/misc/console01.tga
+		scale	scaleTable[time * 0.1] , scaleTable[time * 0.1]
+	}
+}
+
+shaderdemos/testShear {
+	{
+		map		gfx/misc/console01.tga
+		shear	scaleTable[time * 0.1] , 0
+	}
+}
+
+shaderdemos/testTranslate {
+	{
+		map		gfx/misc/console01.tga
+		translate	time * 0.1 , time * 0.2
+	}
+}
+
+shaderdemos/testSos {
+	{
+		map		gfx/misc/console01.tga
+		rgb		sosTable[ time * 0.25 ]
+	}
+}
+
+//shaderdemos/testNearest moved to art/cleanup
+
+shaderdemos/testLinear {
+	{
+		map		models/characters/marine/body_d.tga
+		linear
+		scale	4 , 4
+	}
+}
+
+shaderdemos/testClamp {
+	{
+		map		textures/base_wall/steel.tga
+		clamp
+	}
+}
+
+shaderdemos/testZeroClamp {
+	{
+		map		textures/base_wall/steel.tga
+		zeroclamp
+	}
+}
+
+
+shaderdemos/testBlendOverLight {
+	bumpmap	addnormals( textures/base_wall/panel01_local.tga  , heightmap( textures/base_wall/panel01_add.tga, 6 ) )
+	diffusemap	textures/base_wall/panel01_d.tga
+	specularmap textures/base_wall/panel01_s.tga
+	{
+		blend	add
+		color	0.25 * scaleTable[ time ] , 0.2, 0.2, 1
+		map		gfx/lights/window.tga
+	}
+}
+
+
+//shaderdemos/tableTest {moved to art/cleanup
+
+shaderdemos/groundMove {
+	{
+		blend	add	
+		map		textures/rock/skysand1.tga
+		blend	bumpmap
+		map		heightmap (textures/rock/skysand1_bmp.tga, 4)
+		blend diffusemap
+		map		textures/rock/skysand1_d.tga
+		blend specularmap
+		map		textures/rock/skysand1_s.tga
+		translate	0 , time * 10
+	}
+
+}
+
+//shaderdemos/testFadedAnim moved to art/cleanup
+
+//shaderdemos/testBlend moved to art/cleanup
+
+//shaderdemos/testAlphaTest moved to art/cleanup
+
+shaderdemos/testScrollingBump {
+	{
+		blend	bumpmap
+		map		addnormals( textures/base_wall/panel01_local.tga  , heightmap( textures/base_wall/panel01_add.tga, 6 ) )
+		translate	time * 0.1 , time * 0.2
+	}
+	{
+		blend	diffusemap
+		map		textures/base_wall/panel01_d.tga
+	}
+	{
+		blend	specularmap
+		map		textures/base_wall/panel01_s.tga
+	}
+}
+
+shaderdemos/testScrollingColor {
+	{
+		blend	bumpmap
+		map		addnormals( textures/base_wall/panel01_local.tga  , heightmap( textures/base_wall/panel01_add.tga, 6 ) )
+	}
+	{
+		blend	diffusemap
+		map		textures/base_wall/panel01_d.tga
+		translate	time * 0.1 , time * 0.2
+	}
+	{
+		blend	specularmap
+		map		textures/base_wall/panel01_s.tga
+		translate	time * 0.1 , time * 0.2
+	}
+}
+
+
+shaderdemos/testBlendingColor {
+	{
+		blend	bumpmap
+		map		addnormals( textures/base_wall/panel01_local.tga  , heightmap( textures/base_wall/panel01_add.tga, 6 ) )
+	}
+	{
+		blend	diffusemap
+		rgb		fadeTable[ time ]
+		map		textures/base_wall/panel01_d.tga
+	}
+	{
+		blend	diffusemap
+		rgb		1.0 - fadeTable[ time ]
+		map		gfx/lights/window.tga
+	}
+	{
+		blend	specularmap
+		map		textures/base_wall/panel01_s.tga
+	}
+}
+
+
+shaderdemos/testOrderOfOperations {
+	{
+		map		gfx/lights/window.tga
+		rgb		fadeTable[time] + 0.1 * 0.01
+	}
+}
+
+//shaderdemos/guiSurf moved to art/cleanup
+
+shaderdemos/entityGui {
+	qer_editorimage	textures/common/entityGui.tga
+	guiSurf	entity
+}
+
+shaderdemos/entityGui2 {
+	qer_editorimage	textures/common/entityGui.tga
+	guiSurf	entity2
+}
+
+shaderdemos/entityGui3 {
+	qer_editorimage	textures/common/entityGui.tga
+	guiSurf	entity3
+}
+
+shaderdemos/sargeNoSelfShadow
+{
+	noSelfShadow
+    bumpmap		addnormals( models/characters/marine/body_local.tga, heightmap( models/characters/marine/body_h.tga, 3 ) )
+    diffusemap	models/characters/marine/body_d.tga
+    specularmap	models/characters/marine/body_s.tga
+}
+
+shaderdemos/sargeNoShadow
+{
+	noShadows
+    bumpmap		addnormals( models/characters/marine/body_local.tga, heightmap( models/characters/marine/body_h.tga, 3 ) )
+    diffusemap	models/characters/marine/body_d.tga
+    specularmap	models/characters/marine/body_s.tga
+}
+
+shaderdemos/sargeHighQuality
+{
+	noShadows
+	{
+		blend bumpmap
+		map			addnormals( models/characters/marine/body_local.tga, heightmap( models/characters/marine/body_h.tga, 3 ) )
+	}
+	{
+		blend diffusemap
+	    map			models/characters/marine/body_d.tga
+		highQuality
+	}
+	{
+		blend specularmap
+		map			models/characters/marine/body_s.tga
+	}
+}
+
+
+shaderDemos/cubeMap
+{
+	{
+		cubeMap		gfx/env/artest
+
+//		texgen		normal
+		texgen		reflect
+	}
+}
+
+shaderDemos/skybox
+{
+	{
+		cameraCubeMap	gfx/env/Canyon
+		texgen			skybox
+	}
+}
+
+shaderDemos/diffuseCubeMap
+{
+	{
+		blend		diffusemap
+		cubeMap		gfx/env/medic
+		texgen		reflect
+	}
+	{
+		blend		bumpmap
+		map			_flat
+	}
+}
+
+
+//=========================================================
+// alpha test demos
+//=========================================================
+
+
+shaderDemos/alphaTestBasic
+{
+	qer_editorimage	textures/decals/ember2.tga
+	noshadows
+
+	// this stage serves as both the diffusemap and the alphatest map
+	{
+		blend	diffusemap
+		map textures/decals/ember2_dif.tga
+		alphaTest 0.55
+	}
+	bumpmap		heightmap (textures/decals/ember2_bmp.tga, 4)
+	specularmap		textures/decals/ember2_dif.tga
+}
+
+
+shaderDemos/alphaTestWithAdditive
+{
+	qer_editorimage	textures/decals/ember2.tga
+	noshadows
+
+	// this stage serves as both the diffusemap and the alphatest map
+	{
+		blend	diffusemap
+		map textures/decals/ember2_dif.tga
+		alphaTest 0.55
+	}
+	bumpmap		heightmap (textures/decals/ember2_bmp.tga, 4)
+	specularmap		textures/decals/ember2_dif.tga
+
+	// the additive pass will only draw on the pixels passed by the alphatest map
+	{
+		blend gl_one, gl_one
+		map textures/decals/ember2_add.tga
+		rgb ember1 [ time * .25 ]
+	}	
+}
+
+shaderDemos/alphaTestWithAdditiveIgnore
+{
+	qer_editorimage	textures/decals/ember2.tga
+	noshadows
+
+	// this stage serves as both the diffusemap and the alphatest map
+	{
+		blend	diffusemap
+		map textures/decals/ember2_dif.tga
+		alphaTest 0.55
+	}
+	bumpmap		heightmap (textures/decals/ember2_bmp.tga, 4)
+	specularmap		textures/decals/ember2_dif.tga
+
+	// the additive pass will draw over the entire polygon, not just inside the alpha test
+	{
+		ignoreAlphaTest
+		blend gl_one, gl_one
+		map textures/decals/ember2_add.tga
+		rgb ember1 [ time * .25 ]
+	}	
+}
+
+shaderDemos/alphaTestAsMask
+{
+	qer_editorimage	textures/decals/ember2.tga
+	noshadows
+
+	// this stage will define the alphatest map, but not draw anything
+	{
+		blend	gl_zero, gl_one		// doesn't draw at all
+		scale	0.25, 0.25				// much larger than the diffusemap
+		map textures/decals/ember2_dif.tga
+		alphaTest 0.55
+	}
+
+	diffusemap	textures/decals/ember2_dif.tga
+	bumpmap		heightmap (textures/decals/ember2_bmp.tga, 4)
+	specularmap		textures/decals/ember2_dif.tga
+}
+
+shaderDemos/alphaTestMultiple
+{
+	qer_editorimage	textures/decals/ember2.tga
+	noshadows
+
+	// this stage will define the alphatest map, but not draw anything
+	{
+		blend	gl_zero, gl_one		// doesn't draw at all
+		rotate	0.1 * time
+		map textures/decals/ember2_dif.tga
+		alphaTest 0.55
+	}
+	// this stage will define another alphatest map, but not draw anything
+	{
+		blend	gl_zero, gl_one		// doesn't draw at all
+		rotate	-0.1 * time
+		scale	1.2, 1.2
+		map textures/decals/ember2_dif.tga
+		alphaTest 0.55
+	}
+
+	diffusemap	textures/decals/ember2_dif.tga
+	bumpmap		heightmap (textures/decals/ember2_bmp.tga, 4)
+	specularmap		textures/decals/ember2_dif.tga
+}
+
+
+
+
+//=========================================================
+// auto sprite test demos
+//=========================================================
+
+//shaderDemos/autoSpriteFlat moved to art/cleanup
+
+shaderDemos/autoSpriteTube
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	tube
+	{
+		blend	add
+		map		_spotlight
+		colored
+	}
+}
+
+
+shaderDemos/deformFlare
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 16
+	qer_editorimage	textures/common/flare.tga
+
+	{
+		blend	add
+		map		_quadratic
+		colored				// take color from light entity
+		vertexcolor			// fade as the surface goes oblique
+	}
+}
+
+shaderDemos/deformFlareDimmed
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 16
+	qer_editorimage	textures/common/flare.tga
+
+	{
+		blend	add
+		map		_quadratic
+		red parm0 * 0.5
+		green parm1 * 0.5
+		blue parm2 * 0.5
+		vertexcolor
+	}
+}
+
+shaderDemos/videoMap
+{
+	qer_editorimage	textures/editor/video.tga
+	{
+		videoMap	video/mpintro.roq
+	}
+}
+
+shaderDemos/diffuseVideoMap
+{
+	qer_editorimage	textures/editor/video.tga
+	bumpmap _flat
+	{
+		blend	diffusemap
+		videoMap	video/mpintro.roq
+	}
+}
+
+
+shaderDemos/videoMap2
+{
+	qer_editorimage	textures/editor/video.tga
+	{
+		videoMap	video/moon.roq
+	}
+}
+
+shaderDemos/vertexBlend
+{
+	{
+		blend bumpmap
+		map		addnormals( textures/base_wall/bluetex3e_local.tga, heightmap( textures/base_wall/bluetex3ebmp.tga, 6 ) )
+	}
+	{
+		blend diffusemap
+		map		textures/base_wall/dlongwall_d.tga
+		vertexColor
+	}
+	{
+		blend diffusemap
+		map		textures/base_wall/redtex1dif.tga
+		inverseVertexColor
+	}
+}
+
+shaderDemos/ambientVertexBlend
+{
+	{
+		map		textures/base_wall/dlongwall_d.tga
+		vertexColor
+	}
+	{
+		blend add
+		map		textures/base_wall/redtex1dif.tga
+		inverseVertexColor
+	}
+}
+
+shaderDemos/blendBumpMap
+{
+	// blended part
+
+	{
+		blend bumpmap
+		map		heightmap (textures/rock/skysand1_bmp.tga, 4)
+		// note that you do NOT put vertexColor on the bumpmap
+	}
+	{
+		blend diffusemap
+		map		textures/rock/skysand1_d.tga
+		vertexColor
+	}
+	{
+		blend specularmap
+		map		textures/rock/skysand1_s.tga
+		vertexColor
+	}
+
+	// inverse blended part
+
+	{
+		blend	bumpmap
+		map		textures/test/factoutwall1_local.tga
+	}
+	{
+		blend	diffusemap
+		map		textures/test/factoutwall1_d.tga
+		inverseVertexColor
+	}
+}
+
+
+shaderDemos/lightSoundShader
+{	
+	{
+		map		gfx/lights/squarelight1.tga
+		red 		sound * Parm0
+		green 		sound * Parm1
+		blue 		sound * Parm2
+		zeroclamp
+	}
+}
+
+
+shaderDemos/expand
+{	
+//	deform	expand	4*sintable[time*0.5]
+	deform	turbulent	sintable .05 time*.2 1
+	
+	noshadows
+	{
+	map		models/monsters/berserker/berserker_lp_d.tga
+		
+	}
+}
+
+shaderDemos/move
+{	
+	deform	move	10*sintable[time*0.5] // *sound
+	noshadows
+	{
+		map		models/monsters/berserker/berserker_lp_d.tga
+	}
+}
+
+shaderDemos/scratchMaterial
+{	
+	noshadows
+	{
+		blend	blend
+		map		_scratch
+	}
+}
+
+shaderDemos/opaqueScratchMaterial
+{	
+	noshadows
+	{
+		blend	gl_one, gl_zero
+		map		_scratch
+	}
+}
+
+shaderDemos/invertedScratchMaterial
+{	
+	noshadows
+	{
+		map		_scratch
+		scale	1, -1
+	}
+}
+
+
+//shaderDemos/remoteCamera moved to art/cleanup/sdemos
+
+
+
+shaderdemos/shadowDrawLight {
+	// this would default the same if not specified
+	lightFalloffImage	makeIntensity( gfx/lights/squarelight1a.tga )
+
+	{
+	// this stage will be drawn normally
+		map gfx/lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+
+	{
+	// this stage will be drawn on the shadows, still modulated by the lightFalloffImage
+	//	shadowDraw
+		map		gfx/lights/squarelight1.tga
+		rgb		0.2
+		blend	GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+//		blend	add
+		zeroClamp
+	}
+}
+
+shaderDemos/transparentMirror {
+	discrete			// each surface needs to make a separate mirror view
+	qer_editorimage textures/common/qer_mirror.tga
+	translucent
+	noshadows
+	{
+		mirrorRenderMap		512	256		// size of the texture to draw the mirror view in
+		blend	blend
+
+		// give it a greenish tint
+		red		0.6
+		green	1
+		blue	0.6
+
+		// opacity
+		alpha	0.7
+
+		// fix up the projection
+		translate	0.5 , 0.5
+		scale	0.5 , 0.5
+	}
+}
+
+//==============================================
+
+
+shaderDemos/heatHaze
+{
+	translucent		// don't write during the fill depth buffer phase
+	{
+		vertexProgram	heatHaze.vfp
+		vertexParm		0		0 , time * 0.05	// texture scrolling
+		vertexParm		1		1				// magnitude of the distortion
+		fragmentProgram	heatHaze.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		models/monsters/berserker/berserker_lp_local.tga	// the normal map for distortion
+	}
+}
+
+skin heatHaze {
+	*	shaderDemos/heatHaze
+}
+
+shaderDemos/heatHazeWithMaskAndVertex
+{
+	translucent
+	{
+		program		heatHazeWithMaskAndVertex.vfp
+		vertexParm		0		0				// texture scrolling
+		vertexParm		1		4				// magnitude of the distortion
+		fragmentMap		0		_currentRender
+		fragmentMap     1       textures/sfx/vpsphere   // the normal map for distortion
+		fragmentMap		2       textures/particles/vpring1_alpha.tga   // the distortion blend map
+	}				
+}
+/*
+particle heatHazeWithMaskAndVertex {
+	depthHack	100
+	{
+		count				12
+		material			shaderDemos/heatHazeWithMaskAndVertex
+		time				2
+		cycles				0.000
+		bunching			1.000
+		distribution		rect 3.000 3.000 3.000 
+		direction			cone 1.000 
+		orientation			view 
+		speed				 "39.000"  to "47.000"
+		size				 "5.000"  to "15.000"
+		aspect				 "1.000" 
+		rotation				 "100.000" 
+		fadeIn				0.500
+		fadeOut				0.500
+		fadeIndex				0.000
+		color 				1.000 1.000 1.000 1.000
+		fadeColor 			0.000 0.000 0.000 0.000
+		offset 				0.000 0.000 -10.000
+		gravity 			world -13.000
+	}
+	
+}
+*/
+//==============================================
+
+shaderDemos/bumpyReflect
+{
+	{
+		vertexProgram	bumpyEnvironment.vfp
+		vertexParm		0		1	// color modulation
+		fragmentProgram	bumpyEnvironment.vfp
+		fragmentMap		0		cubeMap gfx/env/artest
+		fragmentMap		1		models/monsters/berserker/berserker_lp_local.tga
+	}
+}
+
+skin bumpyReflect {
+//	models/monsters/pinky/pinky_metal	shaderDemos/bumpyReflect
+	* shaderDemos/bumpyReflect
+}
+
+//==============================================
+
+gfx/effects/testwater
+{
+	deform	turbulent	sintable .05 time*.2 1
+	
+	/*
+	{
+			vertexProgram	heatHaze.vfp
+		vertexParm		0		0 , 0
+		vertexParm		1		3
+		fragmentProgram	heatHaze.vfp
+		fragmentMap		0		_currentRender
+		fragmentMap		1		textures/hell/lava1_local.tga
+	}
+	*/
+	{
+		vertexProgram	bumpyEnvironment.vfp
+		vertexParm		0		1
+		fragmentProgram	bumpyEnvironment.vfp
+		fragmentMap		0		cubeMap gfx/env/artest
+		fragmentMap		1		textures/canyon/can_rockwall_01_local
+	}
+
+}

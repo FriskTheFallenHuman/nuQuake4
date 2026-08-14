@@ -1,0 +1,25 @@
+export cin_bb_cam 
+{
+	options -scale .3937 -nomesh -sourcedir work/models/monsters/buddy_boss/animation -destdir models/cinematics/waste
+	
+	camera	work/models/monsters/bossbuddy/animation/latest_cinematic_intro_redo.ma		-dest cin_waste_bb_cam
+}	
+
+camera waste_bb_camera
+{
+	anim waste_bb_cam				"models/cinematics/waste/cin_waste_bb_cam.md5camera"
+	{
+		frame 3					trigger arenaScannerExit	
+	}
+}
+
+entityDef cin_waste_bb_cam
+{
+	"editor_color"					"1 0 .5"
+	"editor_mins"					"-16 -16 -16"
+	"editor_maxs"					"16 16 16"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"					"1"
+	"camera"					"waste_bb_camera"
+}

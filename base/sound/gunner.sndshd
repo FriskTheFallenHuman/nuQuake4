@@ -1,0 +1,464 @@
+
+
+sound gunner_alert
+{
+	description	"Gunner sees you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight1
+	shakeData 0 kyyxyvtyzzzyzjaavzzzzzyzzzszzzzzwtsjcddcbdefgigiiilxvzzzyzyodccbaaaa
+	sound/strogg/gunner/sight2
+	shakeData 1 hzzzzzzzzzzzwbtzxzzzzzzzzuzzzzzxxoeabbcccdccgkmsuzyzuzzzodaaaaa
+	sound/strogg/gunner/sight3
+	shakeData 2 abdfsvzzzzzzzyyumefnzzzzzzzzzzzzypshfdaaaaa
+	sound/strogg/gunner/sight4
+	shakeData 3 abdggjnuxxvyusomigiwyzzzzzzzzzyzgcaaaa
+	sound/strogg/gunner/sight5
+	shakeData 4 jzzzzzzzzzrcaexuszxzzzzwsoqqicciulenplihhjhdbbbaaaaa
+	sound/strogg/gunner/sight6
+	shakeData 5 hzzzzzzzzcavzzzzzzzzpcfzzzzzzzzzzzzzzzzwukgdbaaaa
+	sound/strogg/gunner/sight7
+	shakeData 6 mxzzzzzzzfmdcvzzzzzzzzzyzzzzzzzzzzzyzzzuvhgcaaaa
+	sound/strogg/gunner/sight8
+	shakeData 7 ozyzzzrdahyzzzzttzzzzzzzzpdaaa
+	sound/strogg/gunner/sight9
+	shakeData 8 dxzzzzyphyzzzztxzzzzzzzzzzzzzzzzzzzzzzzxca
+	sound/strogg/gunner/sight10
+	shakeData 9 hxzzzyldbjzzzmbfzzszzzzzzzzygzzzzzzzzzyhbaa
+	sound/strogg/gunner/sight13
+	shakeData 10 afttuxzzzzzzyzzzzxkyzzyzzzyyyxnjhceqwzxxxzvlqstwyzwyzywvwjbaaaaa
+	sound/strogg/gunner/sight14
+	shakeData 11 dwzzyxzzyzzzzzzuuufozzzzzzzywypqabszzzyyzyusoljgggkjjlkkikjecbbcbbbbbbbaaaa
+}
+
+
+sound gunner_rush
+{
+	description	"Gunner rushes you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight1
+	shakeData 0 kyyxyvtyzzzyzjaavzzzzzyzzzszzzzzwtsjcddcbdefgigiiilxvzzzyzyodccbaaaa
+	sound/strogg/gunner/sight2
+	shakeData 1 hzzzzzzzzzzzwbtzxzzzzzzzzuzzzzzxxoeabbcccdccgkmsuzyzuzzzodaaaaa
+	sound/strogg/gunner/sight3
+	shakeData 2 abdfsvzzzzzzzyyumefnzzzzzzzzzzzzypshfdaaaaa
+	sound/strogg/gunner/sight4
+	shakeData 3 abdggjnuxxvyusomigiwyzzzzzzzzzyzgcaaaa
+	sound/strogg/gunner/sight5
+	shakeData 4 jzzzzzzzzzrcaexuszxzzzzwsoqqicciulenplihhjhdbbbaaaaa
+	sound/strogg/gunner/sight6
+	shakeData 5 hzzzzzzzzcavzzzzzzzzpcfzzzzzzzzzzzzzzzzwukgdbaaaa
+	sound/strogg/gunner/sight7
+	shakeData 6 mxzzzzzzzfmdcvzzzzzzzzzyzzzzzzzzzzzyzzzuvhgcaaaa
+	sound/strogg/gunner/sight8
+	shakeData 7 ozyzzzrdahyzzzzttzzzzzzzzpdaaa
+	sound/strogg/gunner/sight9
+	shakeData 8 dxzzzzyphyzzzztxzzzzzzzzzzzzzzzzzzzzzzzxca
+	sound/strogg/gunner/sight10
+	shakeData 9 hxzzzyldbjzzzmbfzzszzzzzzzzygzzzzzzzzzyhbaa
+	sound/strogg/gunner/sight13
+	shakeData 10 afttuxzzzzzzyzzzzxkyzzyzzzyyyxnjhceqwzxxxzvlqstwyzwyzywvwjbaaaaa
+	sound/strogg/gunner/sight14
+	shakeData 11 dwzzyxzzyzzzzzzuuufozzzzzzzywypqabszzzyyzyusoljgggkjjlkkikjecbbcbbbbbbbaaaa
+}
+
+
+sound gunner_checkfire
+{
+	description	"Gunner rushes you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight9
+	shakeData 0 dxzzzzyphyzzzztxzzzzzzzzzzzzzzzzzzzzzzzxca
+}
+
+
+sound gunner_intro_yell
+{
+	description	"Gunner rushes you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight7
+	shakeData 0 mxzzzzzzzfmdcvzzzzzzzzzyzzzzzzzzzzzyzzzuvhgcaaaa
+	sound/strogg/gunner/sight8
+	shakeData 1 ozyzzzrdahyzzzzttzzzzzzzzpdaaa
+}
+
+
+sound gunner_grenade_yell
+{
+	description	"Gunner rushes you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight11
+	shakeData 0 adkvzzzswwsiebbaaaagzyhzzzzzzzzzzwlgecaaa
+	sound/strogg/gunner/sight12
+	shakeData 1 abfhomhhjkjebabrznzzyzyzzzzzzzzyzzzzzzsbaa
+}
+
+
+sound gunner_mandown
+{
+	description	"Gunner rushes you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight6
+	shakeData 0 hzzzzzzzzcavzzzzzzzzpcfzzzzzzzzzzzzzzzzwukgdbaaaa
+}
+
+
+sound gunner_moveup
+{
+	description	"Gunner rushes you"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/gunner/sight3
+	shakeData 0 abdfsvzzzzzzzyyumefnzzzzzzzzzzzzypshfdaaaaa
+	sound/strogg/gunner/sight4
+	shakeData 1 abdggjnuxxvyusomigiwyzzzzzzzzzyzgcaaaa
+}
+
+
+sound gunner_nailgun_fire
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/gunner/nailgun1
+	shakeData 0 zwywvsmkkefeccbbbbbaaaaaaaaaaaaa
+	sound/strogg/gunner/nailgun2
+	shakeData 1 zzyzrqsmpieddcbbbaaaaaaaaaaaa
+	sound/strogg/gunner/nailgun3
+	shakeData 2 zyzzrrplolffccbabbbaaaaaaaaaaaaaaaa
+}
+
+
+sound gunner_machinegun_fire
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/gunner/m_gun1
+	shakeData 0 zzzwvtpmnihedcbbbbbbbbbaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/gunner/m_gun2
+	shakeData 1 zzzzxvlmpohfdcbbccbbbbbaaaaaaaaaaaaaaaaaaa
+	sound/strogg/gunner/m_gun3
+	shakeData 2 zzyztsvprgddddbbbbbbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound gunner_breathe
+{
+	description	"the gunner has asthma"
+
+	minDistance	393
+	maxDistance	787
+	volumeDb	-9
+	no_dups
+
+	sound/strogg/gunner/breath01
+	shakeData 0 aaacdhjmjknnokkmjpovvvheedlnhhjlkpmopmqnonnmrnplllhggihggfgccaaaaaa
+	sound/strogg/gunner/breath02
+	shakeData 1 acgkqstnimjhkspoouoporomnrtrqnnlpxrnkgjjiilknmomokjhmghgffeeecbaaaaaa
+	sound/strogg/gunner/breath03
+	shakeData 2 abcdfkhklnkjimmhnjjkinpollmrmsqqvidedenhlijotmnlormkklmmlgggeddedbbaaaa
+	sound/strogg/gunner/breath04
+	shakeData 3 bfkklkmrouphkiglrsqnvrpopmonqtprroopvqmmffeddfhhijemedehedfcbcbaaa
+	sound/null
+	shakeData 4 aaaaaaaaaaaa
+}
+
+
+sound gunner_ready_weapon
+{
+	description	"preparing gun"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gunner/ready_weapon
+	shakeData 0 oilbfimemnofdcbbaaaaaaaaaaaaaa
+}
+
+
+sound gunner_servo
+{
+	description	"the squeaky gunner gets the...ahh nevermind."
+
+	minDistance	39
+	maxDistance	590
+	volumeDb	-15
+	frequentlyUsed
+
+	sound/strogg/gunner/servo_01
+	shakeData 0 kkkiihdba
+	sound/strogg/gunner/servo_02
+	shakeData 1 jhgfnrcaa
+	sound/strogg/gunner/servo_03
+	shakeData 2 iigfgfhhhhkfba
+	sound/strogg/gunner/servo_04
+	shakeData 3 higgfgggoeaa
+}
+
+
+sound gunner_servo_intro
+{
+	description	"the squeaky gunner gets the...ahh nevermind."
+
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+
+	sound/strogg/gunner/servo_01
+	shakeData 0 kkkiihdba
+	sound/strogg/gunner/servo_02
+	shakeData 1 jhgfnrcaa
+	sound/strogg/gunner/servo_03
+	shakeData 2 iigfgfhhhhkfba
+	sound/strogg/gunner/servo_04
+	shakeData 3 higgfgggoeaa
+}
+
+
+sound gunner_steps
+{
+	description	"various footsteps for gunner walking.  These used to be painfully dreadful."
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-9
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/gunner/run_01
+	shakeData 0 zzsxyvrrqkfdbaaa
+	sound/strogg/gunner/run_02
+	shakeData 1 yzxxtttngcaaa
+	sound/strogg/gunner/run_03
+	shakeData 2 zvystsjieaaa
+	sound/strogg/gunner/run_04
+	shakeData 3 yzyyyxtnkgbaaa
+}
+
+
+sound gunner_die
+{
+	description	"death to the gunner"
+
+	minDistance	393
+	maxDistance	1377
+	volumeDb	0
+
+	sound/strogg/gunner/die1
+	shakeData 0 uxyzzwwzzzyzzzzzzyyzzxzzyzvwwrqkjopnjlmlpklulmpmpmuojkkljhffddccccbbbbbbbbbbbabbaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/gunner/die2
+	shakeData 1 bbdgkrwzzzzzyzzzzzyxopjjhjiihiggffffgfdccddefgggfegfdddccbbbbccccccccccbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/gunner/die3
+	shakeData 2 lsyyzyrtvtrighiklgmkiqrkuttvnpqokmnlhhfeeefeecedddcddbcbbbabbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/gunner/die4
+	shakeData 3 hpwzzzzzzzyyzzzzzzxuuunmkllkjllnjlkkhhjijhfifeeddddcccdccedddccccccbbbbbbbbbaaaaaaaaaaaaaa
+	sound/strogg/gunner/die5
+	shakeData 4 hkvzzzzzyzzzyvvvyuzzxzzzyxzzzzzzyzuvxrwopliigggdgfdcccbbbbabaaabaaaaaaaaaaaaaa
+}
+
+
+sound gunner_grenade_prepare
+{
+	description	"preparing the grenade launcher"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+	no_occlusion
+
+	sound/strogg/gunner/gren_prepare
+	shakeData 0 cbckvxzzicaaaqzwgcaaaaaa
+}
+
+
+sound gunner_swing
+{
+	description	"whiff"
+
+	minDistance	39
+	maxDistance	866
+	volumeDb	-4
+	frequentlyUsed
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+	sound/strogg/gunner/growl1
+	shakeData 4 bckoszzzzzzzzzxzzzyvxzkaaa
+	sound/strogg/gunner/growl2
+	shakeData 5 dgluxyyzzzzyzzzzzzxyvjhifggffhhnklnfb
+	sound/strogg/gunner/growl4
+	shakeData 6 adfimsyzzzzyzyzzzxwmlgcaaaaa
+	sound/strogg/gunner/growl3
+	shakeData 7 aabdimxzzzzzzzzzzzxsqjjca
+	sound/strogg/gunner/growl5
+	shakeData 8 adkxzzzzzzzzyxzzxxvsxwqslfdbaaa
+}
+
+
+sound gunner_growl
+{
+	description	"grrrrr"
+
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+	no_dups
+
+	sound/strogg/gunner/growl1
+	shakeData 0 bckoszzzzzzzzzxzzzyvxzkaaa
+	sound/strogg/gunner/growl2
+	shakeData 1 dgluxyyzzzzyzzzzzzxyvjhifggffhhnklnfb
+	sound/strogg/gunner/growl3
+	shakeData 2 aabdimxzzzzzzzzzzzxsqjjca
+	sound/strogg/gunner/growl4
+	shakeData 3 adfimsyzzzzyzyzzzxwmlgcaaaaa
+	sound/strogg/gunner/growl5
+	shakeData 4 adkxzzzzzzzzyxzzxxvsxwqslfdbaaa
+}
+
+
+sound gunner_punch
+{
+	description	"pow"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/weapons/impact/whooshes_melee/melee_hit1
+	shakeData 0 ahrzzzzzuxmhedcbbaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit2
+	shakeData 1 ewzzzzzpnjlhfedcaaaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit3
+	shakeData 2 zzzzzzxkfbaaaaaaa
+}
+
+
+sound gunner_gun
+{
+	description	"voip"
+
+	minDistance	196
+	maxDistance	1181
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/gunner/fire01
+	shakeData 0 yvtrkljhefedcbbbbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/gunner/fire02
+	shakeData 1 zwwqlnmigfffecccbababaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound gunner_grenade_launch
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/gunner/grenadelaunch
+	shakeData 0 zzyztmqrmmhhgfedcccbbbaaaaaaaaaaaaa
+}
+
+
+sound gunner_machinegun
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/gunner/machinegun_01
+	shakeData 0 zzzywljhhggefcbbaaaaaaaaaaaaaa
+	sound/strogg/gunner/machinegun_02
+	shakeData 1 zzzwukhgieedcbabaaaaaaaaaaa
+}
+
+
+sound gunner_nailgun
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/weapons/nailgun/fire_01
+	shakeData 0 zzzzzyyxoliihfeccbcbbbccbbbbaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/nailgun/fire_02
+	shakeData 1 zzzzzzznloigjfeccbcbbbccbbbbaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/nailgun/fire_03
+	shakeData 2 zzzzzzzynjfggeeccbcbbbccbbbbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound gunner_pain
+{
+	minDistance	393
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/gunner/pain1
+	shakeData 0 ozzzzzzzrlfdcbaaaaaaa
+	sound/strogg/gunner/pain2
+	shakeData 1 eyzzzzzzzzzzwnjkfcbaaa
+	sound/strogg/gunner/pain3
+	shakeData 2 dyzyzwyzxsrkdbcccccbbaaaaaaa
+	sound/strogg/gunner/pain4
+	shakeData 3 cqzzyxyyzzzzzyzztnlhedcbcbbbaaaaa
+	sound/strogg/gunner/pain5
+	shakeData 4 kyzzzyvqmhgccbbcbbabaaaaaaa
+	sound/strogg/gunner/pain6
+	shakeData 5 aiwzzzzzzzzzzzzzqfaaa
+}
+
+
+
+
+

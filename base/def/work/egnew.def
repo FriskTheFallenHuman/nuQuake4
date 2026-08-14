@@ -1,0 +1,55 @@
+//******************************	TESTING		*************************************//
+//  + set r_fullscreen 1  //
+
+
+
+
+//******************************	testing		*************************************//
+/*
+export test_officer
+{
+	options  -sourcedir work/models/characters/Officer/referenced -destdir models/test/egnewtest
+	mesh	officer_32_newMesh.ma						-dest mesh
+	anim	officer_32_newMesh.ma						-dest idle	
+}
+model model_test_officer
+{
+	mesh				models/test/egnewtest/mesh.md5mesh	
+	anim idle			models/test/egnewtest/idle.md5anim
+}
+entityDef	test_officer
+{
+	"inherit"						"actor_default"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"don't use"
+	"model"							"model_test_officer"
+	"anim"							"idle"
+}
+*/
+
+
+//******************************	comparing gen_asian2 heads		*************************************//
+
+export test_head
+{
+	options -sourcedir work/models/lipsync/referenced -destdir models/test/egnewtest
+	mesh	gen_asian2_TEST.ma			-dest test_mesh
+	anim	gen_asian2_TEST.ma			-dest test_idle
+}
+model model_test_head
+{
+	mesh				models/test/egnewtest/test_mesh.md5mesh	
+	anim idle			models/test/egnewtest/test_idle.md5anim
+}
+entityDef	test_head
+{
+	"inherit"						"actor_default"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"don't use"
+	"model"							"model_test_head"
+	"anim"							"idle"
+}

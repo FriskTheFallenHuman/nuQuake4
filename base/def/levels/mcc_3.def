@@ -1,0 +1,2032 @@
+/***********************************************************************************************************************
+MCC_3
+
+Unique entities created for the MCC level
+************************************************************************************************************************/
+
+/*
+===============================================================================
+
+	Doctor Model Definition
+
+===============================================================================
+*/
+
+/*
+model mcc_model_char_doctor
+{
+	inherit							model_char_doctor
+	
+	anim thinking									models/characters/doctor/thinking.md5anim					
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim deepthought_bentover_1						models/characters/doctor/deepthought_bentover_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim deepthought_bentover_1_slow					models/characters/doctor/deepthought_bentover_1.md5anim
+	{
+		rate	.5
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+
+	anim operating_loopable_1						models/characters/doctor/operating_loopable_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim operating_loopable_2						models/characters/doctor/operating_loopable_2.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim operating_loopable_3						models/characters/doctor/operating_loopable_3.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim walking_tablegui_1							models/characters/doctor/walking_tablegui_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+
+	anim	sitting_working_consoles_1				models/characters/marine/sitting_working_consoles_1.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	8,9,10,11,13,17,18,20,21,23,25,31,32,34,35,39,41	sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_2				models/characters/marine/sitting_working_consoles_2.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	19										sound	snd_gear
+	}
+	anim	sitting_working_consoles_3				models/characters/marine/sitting_working_consoles_3.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1,3,9,16,17,18,19,21,29,31,32,34,35,36,42,43,44		sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_4				models/characters/marine/sitting_working_consoles_4.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	13,124									sound	mcc_chair_movement
+	}
+	anim	sitting_working_consoles_5				models/characters/marine/sitting_working_consoles_5.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1										sound	npc_gui_button
+		frame	17,55									sound	mcc_chair_movement
+	}
+	anim	looking_down_gui_1						models/characters/marine/looking_down_gui_1.md5anim
+	{
+		frame	1,10,18,29,37							sound	npc_gui_button
+	}
+	anim	looking_down_gui_2						models/characters/marine/looking_down_gui_2.md5anim
+	{
+	}
+	anim	looking_down_gui_3						models/characters/marine/looking_down_gui_3.md5anim
+	{
+		frame	88,110,117							sound	npc_gui_button
+	}
+	anim	idle_against_wall						models/characters/marine/idle_against_wall.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	working_on_knee							models/characters/marine/working_on_knee.md5anim		                                                           
+	{
+		ai_look_head_only
+	}
+	anim	working_wall_panel						models/characters/marine/working_wall_panel.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	mcc1_up_from_chair						models/characters/marine/mcc1_up_from_chair.md5anim
+	{
+			frame	34					sound			mcc_chair_movement
+	}
+	anim	mcc1_d_chamber_loop						models/characters/marine/mcc1_d_chamber_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	mcc1_d_chamber_action					models/characters/marine/mcc1_d_chamber_action.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	weaponless_walk_fast				models/characters/marine/weaponless_walk_fast.md5anim
+	anim	weaponless_walk_slow				models/characters/marine/weaponless_walk_slow.md5anim
+	anim	weaponless_run						models/characters/marine/weaponless_run.md5anim	
+	anim 	weaponless_idle_1					models/characters/marine/weaponless_idle_1.md5anim	
+	
+	anim weaponless_idle6				models/characters/marine/weaponless_idle6_loop.md5anim
+
+}
+
+entityDef mcc_char_doctor
+{
+	"inherit"									"char_doctor"
+	"model"										"mcc_model_char_doctor"
+
+	"editor_menu"								"level"
+}
+*/
+
+/*
+===============================================================================
+
+	Marine Fatigues (char_marine_fatigues)
+
+===============================================================================
+*/
+
+/*
+model mcc_char_marine_fatigues_unarmed
+{
+	inherit							model_char_marine_fatigues
+
+	anim thinking									models/characters/marine_fatigues_mocap/thinking.md5anim					
+	anim	sitting_working_consoles_1				models/characters/marine_fatigues_mocap/sitting_working_consoles_1.md5anim
+	{
+		ai_no_look
+
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	8,9,10,11,13,17,18,20,21,23,25,31,32,34,35,39,41	sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_2				models/characters/marine_fatigues_mocap/sitting_working_consoles_2.md5anim
+	{
+		ai_no_look
+
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	19										sound	snd_gear
+	}	
+	anim	sitting_working_consoles_3				models/characters/marine_fatigues_mocap/sitting_working_consoles_3.md5anim
+	{
+		ai_no_look
+
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1,3,9,16,17,18,19,21,29,31,32,34,35,36,42,43,44		sound	npc_gui_button
+	}	
+	anim	sitting_working_consoles_4				models/characters/marine_fatigues_mocap/sitting_working_consoles_4.md5anim
+	{
+		ai_no_look
+
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	13,124									sound	mcc_chair_movement
+	}	
+	anim	sitting_working_consoles_5				models/characters/marine_fatigues_mocap/sitting_working_consoles_5.md5anim
+	{
+		ai_no_look
+
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1										sound	npc_gui_button
+		frame	17,55									sound	mcc_chair_movement
+	}	
+	anim	looking_down_gui_1						models/characters/marine_fatigues_mocap/looking_down_gui_1.md5anim
+	{
+		frame	1,10,18,29,37							sound	npc_gui_button
+	}
+	anim	looking_down_gui_2						models/characters/marine_fatigues_mocap/looking_down_gui_2.md5anim
+	anim	looking_down_gui_3						models/characters/marine_fatigues_mocap/looking_down_gui_3.md5anim
+	{
+		frame	88,110,117							sound	npc_gui_button
+	}
+	anim	idle_against_wall						models/characters/marine_fatigues_mocap/idel_against_wall_arms_back.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	working_on_knee							models/characters/marine_fatigues_mocap/working_on_knee.md5anim		                                                           
+	{
+		ai_look_head_only
+	}
+	anim	working_wall_panel						models/characters/marine_fatigues_mocap/working_wall_panel.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	working_wall_panel_2					models/characters/marine_fatigues_mocap/working_wall_panel_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	working_wall_panel_3					models/characters/marine_fatigues_mocap/working_wall_panel_3.md5anim
+	{
+		ai_look_head_only
+	}
+
+	anim	mcc1_up_from_chair						models/characters/marine_fatigues_mocap/mcc1_up_from_chair.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	34					sound			mcc_chair_movement
+	}
+	anim	mcc1_d_chamber_loop						models/characters/marine_fatigues_mocap/mcc1_d_chamber_loop.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim	mcc1_d_chamber_action					models/characters/marine_fatigues_mocap/mcc1_d_chamber_action.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim	mcc1_reaction_seated_1					models/characters/marine_fatigues_mocap/mcc1_reaction_seated_1.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+	}
+	anim	mcc1_reaction_seated_2					models/characters/marine_fatigues_mocap/mcc1_reaction_seated_2.md5anim
+	{
+		ai_look_head_only
+		frame	1						event			disableClip
+	}
+	
+	anim	kane_reaction1						models/characters/marine_fatigues_mocap/kane_reaction_1.md5anim
+	anim	kane_reaction2					models/characters/marine_fatigues_mocap/kane_reaction_2.md5anim
+	anim 	weaponless_walk_fast					models/characters/marine_fatigues_mocap/weaponless_walk_fast.md5anim
+	anim 	weaponless_walk_slow					models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim 	walk									models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim 	weaponless_run						models/characters/marine_fatigues_mocap/weaponless_run.md5anim	
+	anim 	run									models/characters/marine_fatigues_mocap/weaponless_run.md5anim	
+	anim 	weaponless_idle_1					models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim	
+//	anim	weaponless_idle_2					models/characters/marine_fatigues_mocap/weaponless_idle_2.md5anim
+	
+	anim	onbackworking_Nick_work					models/characters/marine_fatigues_mocap/onbackworking_Nick.md5anim
+	{
+		ai_no_look
+		frame	1						event			disableClip
+	}
+	anim	onbackworking_Nick_spark				models/characters/marine_fatigues_mocap/onbackworking_Nick_spark.md5anim
+	{
+		ai_no_look
+		frame	1						event			disableClip
+		frame 	1						fx			fx_spark		l_wrist
+	}
+	anim	onbackworking_Zack_work					models/characters/marine_fatigues_mocap/onbackworking_Zack.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	onbackworking_Zack_spark				models/characters/marine_fatigues_mocap/onbackworking_Zack_spark.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	onbackworking_Zack_work_idle			models/characters/marine_fatigues_mocap/onbackworking_Zack_work_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	anim 	weld_loop								models/characters/marine_fatigues_mocap/weld_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim 	weld_loop_short_talk					models/characters/marine_fatigues_mocap/weld_loop.md5anim	//double check this one
+	{
+		ai_no_look
+		rate .05
+	}
+	anim	sit_sleeping						models/characters/marine_fatigues_mocap/sit_sleeping.md5anim
+	{
+		ai_no_look
+		frame	1						event			disableClip
+	}
+	anim sarge_briefing_1								models/characters/marine_fatigues_mocap/sarge_briefing_1.md5anim
+	{
+		ai_look_head_only
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+	anim sarge_briefing_2								models/characters/marine_fatigues_mocap/sarge_briefing_2.md5anim
+	{
+		ai_look_head_only
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+	anim sarge_briefing_3								models/characters/marine_fatigues_mocap/sarge_briefing_3.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sarge_briefing_4								models/characters/marine_fatigues_mocap/sarge_briefing_4.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+	anim sarge_briefing_5								models/characters/marine_fatigues_mocap/sarge_briefing_5.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sarge_briefing_6								models/characters/marine_fatigues_mocap/sarge_briefing_6.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+	anim sarge_briefing_7								models/characters/marine_fatigues_mocap/sarge_briefing_7.md5anim
+	{
+		ai_look_head_only
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+	
+	anim weaponless_point_up				models/characters/marine_fatigues_mocap/weaponless_point_up.md5anim
+	anim weaponless_point_down				models/characters/marine_fatigues_mocap/weaponless_point_down.md5anim
+	anim weaponless_point_left				models/characters/marine_fatigues_mocap/weaponless_point_left.md5anim
+	anim weaponless_point_right				models/characters/marine_fatigues_mocap/weaponless_point_right.md5anim
+	anim weaponless_point_back				models/characters/marine_fatigues_mocap/weaponless_point_back.md5anim
+	
+	anim weaponless_point_front_fast			models/characters/marine_fatigues_mocap/weaponless_point_front.md5anim
+	{
+		rate 2.5
+	}
+	
+	anim idle_sitting_1					models/characters/marine_fatigues_mocap/idle_sitting_1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+	anim idle_sitting_2					models/characters/marine_fatigues_mocap/idle_sitting_2.md5anim
+	{
+		ai_look_head_only
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+	}
+
+
+//		Mcc1 Briefing Cinematic Animations
+
+	anim mcc1_cin_player_enters							models/characters/marine_fatigues_mocap/mcc1_cin_player_enters.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_salute1					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	13										sound mcc_chair_movement
+		frame 	163										sound mcc_chair_movement
+	}
+	anim mcc1_cin_salute2					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute2.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	21										sound mcc_chair_movement
+		frame 	140										sound mcc_chair_movement
+	}
+	anim mcc1_cin_salute3					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute3.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	16									sound mcc_chair_movement
+		frame 	161									sound mcc_chair_movement
+	}
+	anim mcc1_cin_salute4					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute4.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	6										sound mcc_chair_movement
+		frame 	152										sound mcc_chair_movement
+	}
+	anim mcc1_cin_salute5					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute5.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	20										sound mcc_chair_movement
+		frame 	150										sound mcc_chair_movement
+	}
+	anim mcc1_cin_salute6					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute6.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	40										sound mcc_chair_movement
+		frame 	168										sound mcc_chair_movement
+		
+	}
+	anim mcc1_cin_salute7					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute7.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	8										sound mcc_chair_movement
+		frame 	155										sound mcc_chair_movement
+	}
+	anim mcc1_cin_salute8					 			models/characters/marine_fatigues_mocap/mcc1_cin_marine_salute8.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	10										sound mcc_chair_movement
+		frame 	142										sound mcc_chair_movement
+	}
+	anim mcc1_Morris_intro					 			models/characters/marine_fatigues_mocap/mcc1_cin_morris_intro.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_rhodes_replies					 		models/characters/marine_fatigues_mocap/mcc1_cin_rhodes_replies.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_Harper_enters1					 		models/characters/marine_fatigues_mocap/mcc1_cin_Harper_enters1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	15,28,42,56,72,86,100					footstep
+	}
+	anim mcc1_voss_enters1					 			models/characters/marine_fatigues_mocap/mcc1_cin_Voss_enters1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	9,23,38,51,67,79,95						footstep
+	}
+	anim mcc1_kane_sits					 				models/characters/marine_fatigues_mocap/mcc1_cin_Kane_sits.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	7,20										footstep
+		frame 	57										sound mcc_chair_movement
+	}
+	anim mcc1_Harper_talks						 		models/characters/marine_fatigues_mocap/mcc1_cin_Harper_starts_talking.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	9,27,42,60,75,105						footstep
+		frame 	549										sound mcc_chair_movement
+	}
+	anim mcc1_cin_Voss_sits					 			models/characters/marine_fatigues_mocap/mcc1_cin_Voss_sits.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	2,18,32,47,66,81,98,109					footstep
+		frame 	130										sound mcc_chair_movement
+	}
+	
+	anim mcc1_cin_voss_talks1				 			models/characters/marine_fatigues_mocap/mcc1_cin_voss_talks1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+
+	anim mcc1_cin_strassa_talks				 			models/characters/marine_fatigues_mocap/mcc1_cin_strassa_talks.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+
+	anim mcc1_cin_Player_reacts							models/characters/marine_fatigues_mocap/mcc1_cin_Player_reacts.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_morris_reacts							models/characters/marine_fatigues_mocap/mcc1_cin_morris_reacts.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_idle1								models/characters/marine_fatigues_mocap/mcc1_cin_idle1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle2								models/characters/marine_fatigues_mocap/mcc1_cin_idle2.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle3								models/characters/marine_fatigues_mocap/mcc1_cin_idle3.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle4								models/characters/marine_fatigues_mocap/mcc1_cin_idle4.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle5								models/characters/marine_fatigues_mocap/mcc1_cin_idle5.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle6								models/characters/marine_fatigues_mocap/mcc1_cin_idle6.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle7								models/characters/marine_fatigues_mocap/mcc1_cin_idle7.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+ 	anim mcc1_cin_idle8								models/characters/marine_fatigues_mocap/mcc1_cin_idle8.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_idle9								models/characters/marine_fatigues_mocap/mcc1_cin_idle9.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_idle_rhodes						models/characters/marine_fatigues_mocap/mcc1_cin_idle_rhodes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_anderson_shot1					models/characters/marine_fatigues_mocap/mcc1_cin_anderson_shot1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_sledge_shot1						models/characters/marine_fatigues_mocap/mcc1_cin_sledge_shot1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_cortez_shot1						models/characters/marine_fatigues_mocap/mcc1_cin_cortez_shot1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_strassa_shot1						models/characters/marine_fatigues_mocap/mcc1_cin_strassa_shot1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_rhodes_shot1						models/characters/marine_fatigues_mocap/mcc1_cin_rhodes_shot1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_bidwell_shot1						models/characters/marine_fatigues_mocap/mcc1_cin_bidwell_shot1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_harper_shot14						models/characters/marine_fatigues_mocap/mcc1_cin_harper_shot14.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_cortez_shot14						models/characters/marine_fatigues_mocap/mcc1_cin_cortez_shot14.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	
+
+	anim mcc1_cin_harper_leaves							models/characters/marine_fatigues_mocap/mcc1_cin_harper_leaves.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_voss_leaves							models/characters/marine_fatigues_mocap/mcc1_cin_voss_leaves.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim mcc1_cin_rhodes_looks				 			models/characters/marine_fatigues_mocap/mcc1_cin_cortez_looks.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+
+	anim mcc1_cin_camera_guy							models/characters/marine_fatigues_mocap/mcc1_cin_camera_guy.md5anim
+	{
+		frame	48			call map_mcc_1::briefingPlayer
+		frame	180			call map_mcc_1::briefingThreeAnim
+		frame	189			call map_mcc_1::briefingAndersonAnim
+		frame	200			call map_mcc_1::briefingMorrisAnim
+		frame	215			call map_mcc_1::briefingSledgeCortezAnim
+		frame	320			call map_mcc_1::briefingAllIdle
+		frame	320			call map_mcc_1::briefingKaneSits			// new
+		frame	345			call map_mcc_1::briefingMorris1			// new frame change
+ 		frame	383			call map_mcc_1::briefingRhodes1
+		frame	430			call map_mcc_1::briefingVossHarperDoor
+		frame 	442			call map_mcc_1::briefingCortez1			// new
+		frame	451			call map_mcc_1::briefingVossHarperEnter
+		frame	452			call map_mcc_1::briefingAllSalute
+		frame	556			call map_mcc_1::briefingVossHarperAnims
+		frame	557			call map_mcc_1::briefingHarper1			// new frame change (1 frame earlier)
+		frame	620			call map_mcc_1::briefingHarper2			// new frame change (1 frame earlier)
+		frame	645			call map_mcc_1::briefingVossSitsChair
+		frame	755			call map_mcc_1::idleRhodes
+		frame	757			call map_mcc_1::showMakron		
+		frame	798			call map_mcc_1::briefingHarper3			// new frame change (5 frames later)
+		frame	962			call map_mcc_1::hideMakron		
+		frame	950			call map_mcc_1::briefingVossAnim		
+		frame	950			call map_mcc_1::briefingVossTalksChair
+		frame	1088			call map_mcc_1::briefingHarperSitsChair
+		
+		frame	1153			call map_mcc_1::harperIdle
+
+		frame	1156			call map_mcc_1::briefingVoss1			// new frame change (3 frames later)
+
+		frame	1454			call map_mcc_1::harperCortezReact
+		frame	1464			call map_mcc_1::briefingTableOpen			// new frame change
+		frame	1511			call map_mcc_1::briefingStartGui			// new frame change
+		frame	1498			call map_mcc_1::briefingVoss2			// new frame change 
+		frame	1561			call map_mcc_1::hideBriefingGuis			// new frame change
+		frame	1624			call map_mcc_1::briefingVoss3			// new frame change
+		frame	1795			call map_mcc_1::briefingVoss4			// new frame change
+		frame	1940			call map_mcc_1::showBriefingGuis			// new frame change
+		frame	1940			call map_mcc_1::briefingTableClose		// new frame change
+
+		frame	1962			call map_mcc_1::briefingVoss5			// new frame change
+		//	frame	2303			call map_mcc_1::briefingKaneReaction		
+		frame	2362			call map_mcc_1::briefingStrassa1			// new frame change
+		frame	2359			call map_mcc_1::briefingStrassa2			// new frame change
+		frame	2406			call map_mcc_1::briefingVossLeaves		// new frame change
+		frame	2408			call map_mcc_1::briefingVoss6			// new frame change
+		frame	2485			call map_mcc_1::briefingHarperLeaves		// new frame change
+		frame	2520			call map_mcc_1::briefingVoss7			// new frame change
+//		frame	2526			call map_mcc_1::briefingHarperLeavesChair	// new 134 frames later
+		frame	2485			call map_mcc_1::briefingHarperLeavesChair	// new 134 frames later
+		//	frame	2584			call map_mcc_1::briefingMorrisReacts		// new 134 frames later
+		frame	2662			call map_mcc_1::mcc2FadeOut			// new 2 seconds before the last frame
+	}
+
+//		Mcc2 Briefing Cinematic Animations
+
+	anim	mcc2_cin_strauss_talks2						models/characters/marine_fatigues_mocap/mcc2_cin_strauss_talks2.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_strauss_talks1						models/characters/marine_fatigues_mocap/mcc2_cin_strauss_talks1.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_idle_strauss						models/characters/marine_fatigues_mocap/mcc2_cin_idle_strauss.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_idle_sledge						models/characters/marine_fatigues_mocap/mcc2_cin_idle_sledge.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_idle_rhodes						models/characters/marine_fatigues_mocap/mcc2_cin_idle_rhodes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_idle_cortez						models/characters/marine_fatigues_mocap/mcc2_cin_idle_cortez.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_idle_morris						models/characters/marine_fatigues_mocap/mcc2_cin_idle_morris.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_morris_sits						models/characters/marine_fatigues_mocap/mcc2_cin_morris_sits.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_morris_salutes						models/characters/marine_fatigues_mocap/mcc2_cin_morris_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	1										sound mcc_chair_movement
+	}	
+	anim	mcc2_cin_sledge_salutes						models/characters/marine_fatigues_mocap/mcc2_cin_sledge_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	1										sound mcc_chair_movement
+	}	
+
+	anim	mcc2_cin_cortez_salutes						models/characters/marine_fatigues_mocap/mcc2_cin_cortez_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	2										sound mcc_chair_movement
+	}
+	anim	mcc2_cin_strauss_salutes					models/characters/marine_fatigues_mocap/mcc2_cin_strauss_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	7										sound mcc_chair_movement
+	}	
+	anim	mcc2_cin_rhodes_salutes						models/characters/marine_fatigues_mocap/mcc2_cin_rhodes_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	12										sound mcc_chair_movement
+	}	
+	anim	mcc2_cin_morris_talks						models/characters/marine_fatigues_mocap/mcc2_cin_morris_talks.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_sledge_responds					models/characters/marine_fatigues_mocap/mcc2_cin_sledge_responds.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_harper_talks						models/characters/marine_fatigues_mocap/mcc2_cin_harper_talks.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	16,37,55,74								footstep
+	}	
+	anim	mcc2_cin_harper_enters						models/characters/marine_fatigues_mocap/mcc2_cin_harper_enters.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	10,25,40,54								footstep
+	}	
+	anim	mcc2_cin_sledge_escorts						models/characters/marine_fatigues_mocap/mcc2_cin_sledge_escorts.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	32,48,65,82,101,132,314					footstep
+	}	
+	anim	mcc2_cin_cortez_stands						models/characters/marine_fatigues_mocap/mcc2_cin_cortez_stands.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_morris_scolds						models/characters/marine_fatigues_mocap/mcc2_cin_morris_scolds.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_rhodes_leans						models/characters/marine_fatigues_mocap/mcc2_cin_rhodes_leans.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	49										sound mcc_chair_movement
+	}	
+	anim	mcc2_cin_sledge_sits						models/characters/marine_fatigues_mocap/mcc2_cin_sledge_sits.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_sledge_shot15						models/characters/marine_fatigues_mocap/mcc2_cin_sledge_shot15.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_cortez_shot12						models/characters/marine_fatigues_mocap/mcc2_cin_cortez_shot12.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_sledge_shot22						models/characters/marine_fatigues_mocap/mcc2_cin_sledge_shot22.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_rhodes_shot15						models/characters/marine_fatigues_mocap/mcc2_cin_rhodes_shot15.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_morris_idle_shot11					models/characters/marine_fatigues_mocap/mcc2_cin_morris_idle_shot11.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	
+	
+	
+	anim	mcc2_cin_camera_guy						models/characters/marine_fatigues_mocap/mcc2_cin_camera_guy.md5anim
+	{
+ 		frame	1				call map_mcc_2::sledgeEscorts
+ 		frame	30				call map_mcc_2::openKane2Door
+		frame	318				call map_mcc_2::rhodesLeans
+ 		frame	321				call map_mcc_2::rhodesFace
+		frame	321				call map_mcc_2::sledge2sits
+		frame	468				call map_mcc_2::morris2Scolds
+		frame	504				call map_mcc_2::openHarper2Door
+		frame	519				call map_mcc_2::harper2Enters
+		frame	520				call map_mcc_2::cortez2Stands
+		frame	534				call map_mcc_2::marines2Salute
+		frame	538				call map_mcc_2::morrisSalute
+		frame	576				call map_mcc_2::harper2Talks
+		frame	775				call map_mcc_2::sledge2Responds
+		frame 	802				call map_mcc_2::kane2Standing
+		frame	915				call map_mcc_2::marines2Idle		
+		frame	915				call map_mcc_2::morrisIdle		// play with frames
+
+		frame	943				call map_mcc_2::morrisShot11
+
+		frame	1149				call map_mcc_2::cortezShot12
+
+		frame	1206				call map_mcc_2::openTact2
+		frame	1118				call map_mcc_2::straussIdle
+		frame	1254				call map_mcc_2::tact2StartGui
+		frame	1274				call map_mcc_2::hideBriefingGuis
+		frame	1376				call map_mcc_2::showBriefingGuis
+		frame	1500				call map_mcc_2::hideBriefingGuis
+		frame	1738				call map_mcc_2::showBriefingGuis
+		frame	1752				call map_mcc_2::closeTact2
+		frame	1737				call map_mcc_2::strauss2Talks1
+		
+		frame	1801				call map_mcc_2::rhodesShot15
+		
+		frame	1803				call map_mcc_2::sledgeShot15
+		
+		frame	1972				call map_mcc_2::rhodesIdle
+		
+		frame	2188				call map_mcc_2::strauss2Talks2
+		frame	2440				call map_mcc_2::morris2Talks
+		frame	2445				call map_mcc_2::straussIdle
+		frame	2564				call map_mcc_2::harper2Chair
+		
+		frame	2720				call map_mcc_2::sledgeShot22
+		
+		frame	2992				call map_mcc_2::mcc2FadeOut
+
+	// audio
+		frame	396				call map_mcc_2::rhodes2Talk1
+		frame	472				call map_mcc_2::morris2Talk1
+		frame	506				call map_mcc_2::cortez2Talk1
+		frame	680				call map_mcc_2::harper2Talk1
+		frame	818				call map_mcc_2::sledge2Talk1
+		frame	887				call map_mcc_2::harper2Talk2
+		frame	930				call map_mcc_2::harper2Talk3
+		frame	1203				call map_mcc_2::harper2Talk4
+		frame	1327				call map_mcc_2::harper2Talk5
+		frame	1608				call map_mcc_2::harper2Talk6
+		frame	1646				call map_mcc_2::harper2Talk7
+		frame	1680				call map_mcc_2::harper2Talk8
+		frame	1735				call map_mcc_2::strauss2Talk1
+		frame	1805				call map_mcc_2::harper2Talk9
+		frame	2186				call map_mcc_2::harper2Talk10
+		frame	2284				call map_mcc_2::strauss2Talk2
+		frame	2445				call map_mcc_2::harper2Talk11
+		frame	2564				call map_mcc_2::morris2Talk2
+//		frame	2654				call map_mcc_2::morris2Talk3
+		frame	2671				call map_mcc_2::morris2Talk3
+		frame	2810				call map_mcc_2::pa2Talk1
+		frame	2938				call map_mcc_2::morris2Talk4
+	}
+	
+}
+
+entityDef mcc_char_marine_fatigues_unarmed
+{
+	"inherit"										"char_marine_fatigues"
+	"model"											"mcc_char_marine_fatigues_unarmed"
+
+	"editor_ignore"								"0"
+	"editor_menu"								"level"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_spark"										"effects/levels/convoy/weld_sparks.fx"
+
+	// ----------------------------------- MCC2 CIN VO ------------------------------------
+	"lipsync_vo_2_2_10_210_1"						"vo_2_2_10_210_1"
+	"lipsync_vo_2_2_10_210_2"						"vo_2_2_10_210_2"
+	"lipsync_vo_2_2_10_210_3"						"vo_2_2_10_210_3"
+
+	"lipsync_vo_2_2_10_210_6"						"vo_2_2_10_210_6"
+	"lipsync_vo_2_2_10_210_7"						"vo_2_2_10_210_7"
+
+	"lipsync_vo_2_2_10_210_10"						"vo_2_2_10_210_10"
+	"lipsync_vo_2_2_10_210_11"						"vo_2_2_10_210_11"
+	"lipsync_vo_2_2_10_210_12"						"vo_2_2_10_210_12"
+	"lipsync_vo_2_2_10_210_12_1"						"vo_2_2_10_210_12_1"
+
+	"lipsync_vo_2_2_10_210_13"						"vo_2_2_10_210_13"
+	"lipsync_vo_2_2_10_210_14"						"vo_2_2_10_210_14"
+	"lipsync_vo_2_2_10_210_15"						"vo_2_2_10_210_15"
+
+	"lipsync_vo_2_2_10_210_17"						"vo_2_2_10_210_17"
+	"lipsync_vo_2_2_10_210_18"						"vo_2_2_10_210_18"
+	"lipsync_vo_2_2_10_210_19"						"vo_2_2_10_210_19"
+
+	"lipsync_vo_2_2_10_210_20"						"vo_2_2_10_210_20"
+	"lipsync_vo_2_2_10_210_21"						"vo_2_2_10_210_21"
+	"lipsync_vo_2_2_10_210_22"						"vo_2_2_10_210_22"
+	"lipsync_vo_2_2_10_210_23"						"vo_2_2_10_210_23"
+	"lipsync_vo_2_2_10_210_25"						"vo_2_2_10_210_25"
+
+	// ----------------------------------- MCC2 CIN VO ------------------------------------
+
+	// ----------------------------------- MCC2 SLEDGE VO ------------------------------------
+	// ----------------------------------- Before the briefing ------------------------------------
+	"lipsync_talk_primary_vo_2_2_10_40_1"					"vo_2_2_10_40_1"
+	"lipsync_talk_secondary_vo_2_2_10_40_2"					"vo_2_2_10_40_2"
+	"lipsync_talk_loop1_vo_2_2_10_40_3"					"vo_2_2_10_40_3"
+
+	"lipsync_canihelpyou1_vo_2_2_10_190_1"					"vo_2_2_10_190_1"
+	"lipsync_canihelpyou2_vo_2_2_10_190_2"					"vo_2_2_10_190_2"
+	"lipsync_canihelpyou3_vo_2_2_10_190_3"					"vo_2_2_10_190_3"
+	// ----------------------------------- Before the briefing ------------------------------------
+	// ----------------------------------- After the briefing ------------------------------------
+	"lipsync_talk_primary_vo_2_2_10_250_1"					"vo_2_2_10_250_1"
+	"lipsync_talk_secondary_vo_2_2_10_250_2"				"vo_2_2_10_250_2"
+
+	"lipsync_canihelpyou1_vo_2_2_10_330_1"					"vo_2_2_10_330_1"
+	"lipsync_canihelpyou2_vo_2_2_10_330_2"					"vo_2_2_10_330_2"
+	"lipsync_canihelpyou3_vo_2_2_10_330_3"					"vo_2_2_10_330_3"
+	// ----------------------------------- After the briefing ------------------------------------
+	// ----------------------------------- MCC2 SLEDGE VO ------------------------------------
+
+}
+
+*/
+
+/*
+===============================================================================
+
+	Kane Strogg Model Definition
+
+===============================================================================
+*/
+
+/*
+model model_mcc_char_kane_strogg
+{
+	inherit							model_char_kane_strogg
+	
+	mesh							models/characters/marine_kanestrogg/ks_npc.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	anim	mcc2_cin_kane_idle_standing					models/characters/marine_fatigues/mcc2_cin_kane_idle_standing.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_idle_kane						models/characters/marine_fatigues/mcc2_cin_idle_kane.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_kane_salutes						models/characters/marine_fatigues/mcc2_cin_kane_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_kane_enters						models/characters/marine_fatigues/mcc2_cin_kane_enters.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame	1						event			disableGravity
+		frame 	46,64,85,308							footstep
+	}	
+	anim	mcc2_cin_kane_sits						models/characters/marine_fatigues/mcc2_cin_kane_sits.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+		frame 	14,31,48,65,81,97,111					footstep
+		frame 	134										sound mcc_chair_movement
+
+	
+	}	
+	
+}	
+*/
+
+/*
+entityDef mcc_char_kane_strogg
+{
+	"inherit"						"char_kane_strogg_unarmed"
+	"model"							"model_mcc_char_kane_strogg"
+
+	"editor_menu"						"level"
+
+	"hidesurface1"						"models/weapons/mp_guns/w_sg"
+	"hidesurface2"						"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"						"models/weapons/mp_guns/w_hb"
+	"hidesurface4"						"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"						"models/weapons/mp_guns/w_mg_lo"
+}
+*/
+
+/*
+===============================================================================
+
+	Officer Model Definition
+
+===============================================================================
+*/
+
+/*
+model mcc_char_marine_officer_unarmed
+{
+	inherit							mcc_char_marine_fatigues_unarmed
+	
+	mesh							models/characters/marine_fatigues_mocap/officer_mesh.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+}	
+entityDef mcc_char_officer_unarmed
+{
+	"inherit"								"mcc_char_marine_fatigues_unarmed"
+	"model"									"mcc_char_marine_officer_unarmed"
+
+	"editor_menu"								"level"
+}
+*/
+
+
+/*
+===============================================================================
+
+	Marine (char_marine)
+
+===============================================================================
+*/
+
+/*
+model mcc_char_marine
+{
+	inherit								model_char_marine
+
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+
+	anim roadblock_01						models/characters/marine/roadblock_01.md5anim
+	anim roadblock_02						models/characters/marine/roadblock_02.md5anim
+
+	anim thinking							models/characters/doctor/thinking.md5anim					
+
+	anim	looking_down_gui_1					models/characters/marine/looking_down_gui_1.md5anim
+	{
+		frame	1,10,18,29,37							sound	npc_gui_button
+	}
+	anim	looking_down_gui_2					models/characters/marine/looking_down_gui_2.md5anim
+	anim	looking_down_gui_3					models/characters/marine/looking_down_gui_3.md5anim
+	{
+		frame	88,110,117							sound	npc_gui_button
+	}
+
+	anim	working_on_knee						models/characters/marine/working_on_knee.md5anim		                                                           
+	anim	working_wall_panel					models/characters/marine/working_wall_panel.md5anim
+	{
+		ai_no_look
+	}
+	anim	working_wall_panel_2					models/characters/marine/working_wall_panel_2.md5anim
+	{
+		ai_no_look
+	}
+	anim	working_wall_panel_3					models/characters/marine/working_wall_panel_3.md5anim
+	{
+		ai_no_look
+	}
+	anim	onbackworking_Nick_work					models/characters/marine/onbackworking_Nick_work.md5anim
+	{
+		frame	1						event			disableClip
+	}
+	anim	onbackworking_Nick_spark				models/characters/marine/onbackworking_Nick_spark.md5anim
+	{
+		frame	1						event			disableClip
+		frame 	1						fx				fx_spark		l_wrist
+	}
+	anim	onbackworking_Zack_work					models/characters/marine/onbackworking_Zack_work.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	onbackworking_Zack_spark				models/characters/marine/onbackworking_Zack_spark.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	onbackworking_Zack_work_idle				models/characters/marine/onbackworking_Zack_work_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	anim 	weld_loop						models/characters/marine/weld_loop.md5anim
+
+	anim 	lugging_crate_front					models/characters/marine/lugging_crate_front.md5anim
+	anim 	lugging_crate_rear					models/characters/marine/lugging_crate_rear.md5anim
+
+	anim 	idle_wrist_gui_start					models/characters/marine/idle_wrist_gui_start.md5anim
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end					models/characters/marine/idle_wrist_gui_end.md5anim
+
+	anim	sitting_working_consoles_1				models/characters/marine/sitting_working_consoles_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	8,9,10,11,13,17,18,20,21,23,25,31,32,34,35,39,41	sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_2				models/characters/marine/sitting_working_consoles_2.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	19										sound	snd_gear
+	}	
+	anim	sitting_working_consoles_3				models/characters/marine/sitting_working_consoles_3.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1,3,9,16,17,18,19,21,29,31,32,34,35,36,42,43,44		sound	npc_gui_button
+	}	
+	anim	sitting_working_consoles_4				models/characters/marine/sitting_working_consoles_4.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	13,124									sound	mcc_chair_movement
+	}	
+	anim	sitting_working_consoles_5				models/characters/marine/sitting_working_consoles_5.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1										sound	npc_gui_button
+		frame	17,55									sound	mcc_chair_movement
+	}	
+
+	anim 	drop_pod_inview				models/characters/marine/drop_pod_inview.md5anim
+	{
+		frame 	1										event disableClip
+	}
+	anim 	aim_snappy_1_fast					models/characters/marine/m_stand_aim_snappy_1.md5anim
+	{
+		rate 1.5
+	}
+	anim 	ad_sgt_holding_wounded					models/characters/marine/ad_sgt_holding_wounded.md5anim
+	{
+		ai_look_head_only
+	}
+
+}
+
+entityDef mcc_char_marine
+{
+	"inherit"									"char_marine"
+	"model"										"mcc_char_marine"
+
+	"editor_menu"								"level"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_spark"								"effects/levels/convoy/weld_sparks.fx"
+}
+*/
+
+/*
+===============================================================================
+
+	Marine (char_marine_tech)
+
+===============================================================================
+*/
+
+/*
+model mcc_char_marine_tech
+{
+	inherit								model_char_marine_tech
+
+	anim thinking							models/characters/doctor/thinking.md5anim					
+
+	anim	looking_down_gui_1					models/characters/marine/looking_down_gui_1.md5anim
+	{
+		frame	1,10,18,29,37							sound	npc_gui_button
+	}
+	anim	looking_down_gui_2					models/characters/marine/looking_down_gui_2.md5anim
+	anim	looking_down_gui_3					models/characters/marine/looking_down_gui_3.md5anim
+	{
+		frame	88,110,117							sound	npc_gui_button
+	}
+
+	anim	working_on_knee						models/characters/marine/working_on_knee.md5anim		                                                           
+	anim	working_wall_panel					models/characters/marine/working_wall_panel.md5anim
+	{
+		ai_no_look
+	}
+	anim	working_wall_panel_2					models/characters/marine/working_wall_panel_2.md5anim
+	{
+		ai_no_look
+	}
+	anim	working_wall_panel_3					models/characters/marine/working_wall_panel_3.md5anim
+	{
+		ai_no_look
+	}
+
+	anim	onbackworking_Nick_work					models/characters/marine/onbackworking_Nick_work.md5anim
+	{
+		frame	1						event			disableClip
+	}
+	anim	onbackworking_Nick_spark				models/characters/marine/onbackworking_Nick_spark.md5anim
+	{
+		frame	1						event			disableClip
+		frame 	1						fx				fx_spark		l_wrist
+	}
+	anim	onbackworking_Zack_work					models/characters/marine/onbackworking_Zack_work.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	onbackworking_Zack_spark				models/characters/marine/onbackworking_Zack_spark.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	onbackworking_Zack_work_idle				models/characters/marine/onbackworking_Zack_work_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	anim 	weld_loop						models/characters/marine/weld_loop.md5anim
+	anim 	weld_loop_short_talk					models/characters/marine/weld_loop_short.md5anim
+	{
+		rate .05
+	}
+
+	anim 	idle_wrist_gui_start					models/characters/marine/idle_wrist_gui_start.md5anim
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end					models/characters/marine/idle_wrist_gui_end.md5anim
+
+	anim	sitting_working_consoles_1				models/characters/marine/sitting_working_consoles_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	8,9,10,11,13,17,18,20,21,23,25,31,32,34,35,39,41	sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_2				models/characters/marine/sitting_working_consoles_2.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	19										sound	snd_gear
+	}	
+	anim	sitting_working_consoles_3				models/characters/marine/sitting_working_consoles_3.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1,3,9,16,17,18,19,21,29,31,32,34,35,36,42,43,44		sound	npc_gui_button
+	}	
+	anim	sitting_working_consoles_4				models/characters/marine/sitting_working_consoles_4.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	13,124									sound	mcc_chair_movement
+	}	
+	anim	sitting_working_consoles_5				models/characters/marine/sitting_working_consoles_5.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1										sound	npc_gui_button
+		frame	17,55									sound	mcc_chair_movement
+	}
+	
+	anim 	cover_right_range_attack_fake				models/characters/marine/lean_right_up_gun.md5anim
+	
+}
+
+entityDef mcc_char_marine_tech
+{
+	"inherit"									"char_marine_tech"
+	"model"										"mcc_char_marine_tech"
+
+	"editor_menu"								"level"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_spark"								"effects/levels/convoy/weld_sparks.fx"
+}
+entityDef mcc_char_marine_tech_armed
+{
+	"inherit"									"char_marine_tech_armed"
+	"model"										"mcc_char_marine_tech"
+
+	"editor_menu"								"level"
+	
+	"def_head"						"char_marinehead_helmet_tech"
+
+}
+*/
+
+/*
+===============================================================================
+
+	Marine (char_marine_medic)
+
+===============================================================================
+*/
+
+/*
+model mcc_char_marine_medic
+{
+	inherit								model_char_marine_medic
+
+	anim    heal_other					models/characters/marine/medic_treating_player.md5anim
+	anim    heal_other_start			models/characters/marine/medic_treating_player_start.md5anim
+
+	anim thinking									models/characters/doctor/thinking.md5anim					
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim deepthought_bentover_1						models/characters/doctor/deepthought_bentover_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim operating_loopable_1						models/characters/doctor/operating_loopable_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim operating_loopable_2						models/characters/doctor/operating_loopable_2.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim operating_loopable_3						models/characters/doctor/operating_loopable_3.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim walking_tablegui_1							models/characters/doctor/walking_tablegui_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+
+	anim	sitting_working_consoles_1				models/characters/marine/sitting_working_consoles_1.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	8,9,10,11,13,17,18,20,21,23,25,31,32,34,35,39,41	sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_2				models/characters/marine/sitting_working_consoles_2.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	19										sound	snd_gear
+	}
+	anim	sitting_working_consoles_3				models/characters/marine/sitting_working_consoles_3.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1,3,9,16,17,18,19,21,29,31,32,34,35,36,42,43,44		sound	npc_gui_button
+	}
+	anim	sitting_working_consoles_4				models/characters/marine/sitting_working_consoles_4.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	13,124									sound	mcc_chair_movement
+	}
+	anim	sitting_working_consoles_5				models/characters/marine/sitting_working_consoles_5.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1										sound	npc_gui_button
+		frame	17,55									sound	mcc_chair_movement
+	}
+	anim	looking_down_gui_1						models/characters/marine/looking_down_gui_1.md5anim
+	{
+		frame	1,10,18,29,37							sound	npc_gui_button
+	}
+	anim	looking_down_gui_2						models/characters/marine/looking_down_gui_2.md5anim
+	anim	looking_down_gui_3						models/characters/marine/looking_down_gui_3.md5anim
+	{
+		frame	88,110,117							sound	npc_gui_button
+	}
+	anim	idle_against_wall						models/characters/marine/idle_against_wall.md5anim
+	anim	working_on_knee							models/characters/marine/working_on_knee.md5anim		                                                           
+	anim	working_wall_panel						models/characters/marine/working_wall_panel.md5anim
+	
+	anim	mcc1_up_from_chair						models/characters/marine/mcc1_up_from_chair.md5anim
+	{
+		frame	34					sound			mcc_chair_movement
+	}
+	anim	mcc1_d_chamber_loop						models/characters/marine/mcc1_d_chamber_loop.md5anim
+	anim	mcc1_d_chamber_action					models/characters/marine/mcc1_d_chamber_action.md5anim
+	anim	mcc1_reaction_seated_1					models/characters/marine/mcc1_reaction_seated_1.md5anim
+	anim	mcc1_reaction_seated_2					models/characters/marine/mcc1_reaction_seated_2.md5anim
+
+	anim	weaponless_walk_fast				models/characters/marine/weaponless_walk_fast.md5anim
+	anim	weaponless_walk_slow				models/characters/marine/weaponless_walk_slow.md5anim
+	anim	weaponless_run						models/characters/marine/weaponless_run.md5anim	
+	anim 	weaponless_idle_1					models/characters/marine/weaponless_idle_1.md5anim	
+
+}
+
+entityDef mcc_char_marine_medic
+{
+	"inherit"									"char_marine"
+	"model"										"mcc_char_marine_medic"
+
+	"editor_menu"								"level"
+	
+	"hidesurface"							"models/weapons/mp_guns/w_mg_lo"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_spark"								"effects/levels/convoy/weld_sparks.fx"
+}
+entityDef mcc_char_marine_medic_armed
+{
+	"inherit"									"char_marine_medic_armed"
+	"model"										"mcc_char_marine_medic"
+
+	"editor_menu"								"level"
+	"def_head"						"char_marinehead_helmet_medic"
+
+}
+
+
+model mcc_char_marine_shotgun
+{
+	inherit							model_char_marine
+}
+
+entityDef mcc_char_marine_shotgun
+{
+	"inherit"									"char_marine"
+	"model"										"mcc_char_marine_shotgun"
+
+	"editor_menu"								"level"
+
+
+	// --------------------------------- General ----------------------------------
+	"hidesurface1"								"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface2"								"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"								"models/weapons/mp_guns/w_hb"
+
+	"joint_flashlight"							"SG_muzzle_flash"
+
+	// --------------------------------- Actions ----------------------------------
+	"action_rangedAttack_maxRange"				"350"
+	"action_rangedAttack_anim"					"shotgun_fire"
+	"action_leanLeftAttack_maxRange"			"350"
+	"action_leanRightAttack_maxRange"			"350"
+
+	// --------------------------------- Combat ----------------------------------
+	"ammo"										"8"
+	"weaponPrefix"								"shotgun"
+	"minShots"									"1"	
+	"maxShots"									"2"
+	"holdRange"									"200 300"	
+	"attackRange"								"0 300"
+
+	"def_attack_base"							"hitscan_marine_shotgun_bullet"
+	"attack_base_hitscan"						"1"
+	"attack_base_accuracy"						"1"
+	
+	// --------------------------------- Effects ---------------------------------
+	"fx_base_flash"								"effects/weapons/shotgun/muzzleflash_world.fx"
+	"snd_gun"									"weapon_shotgun_fire"
+}
+*/
+
+/*
+===============================================================================
+
+	Grunt Model Definition
+
+===============================================================================
+*/
+
+/*entityDef mcc_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"editor_menu"										"level"
+	"model"												"model_mcc_monster_grunt"	
+}
+
+model model_mcc_monster_grunt
+{
+	inherit												model_monster_grunt
+
+	anim	exam_table								models/monsters/Grunt/exam_table.md5anim
+	{
+		frame	1						event			disableClip
+	}
+
+}
+*/
+
+/*
+===============================================================================
+
+	Strogg Marine Model Definition
+
+===============================================================================
+*/
+
+/*
+entityDef mcc_monster_strogg_marine
+{
+	"inherit"											"monster_strogg_marine"
+	"editor_menu"										"level"
+	"model"												"model_mcc_monster_strogg_marine"	
+}
+model model_mcc_monster_strogg_marine
+{
+	inherit												model_monster_strogg_marine
+	
+	anim exam_table									models/monsters/strogg_marine/exam_table.md5anim
+	{
+		frame	1						event			disableClip
+	}
+}
+*/
+
+/*
+===============================================================================
+
+	Func_Door_Mcc Definition
+
+===============================================================================
+*/
+
+/*
+entityDef func_door_mcc
+{
+	"inherit"					"func_door"
+
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"?"
+	"editor_maxs"				"?"
+	"editor_mover"				"1"
+
+	"editor_usage"				"Door."
+	"editor_bool start_open"	"the door moves to its destination when spawned, and operate in reverse.  It is used to temporarily or permanently close off an area when triggered (not useful for touch or takedamage doors)."
+								
+ 	"editor_bool no_touch"		"the door should not be triggered by the player touching it, only by another trigger. in multiplayer, this door can't be shot to open."
+	"editor_bool locked"		"used in conjunction with no_touch,the door must be triggered by a trigger, after which it works normally.  if locked = 1 then the door opens when unlocked, if locked = 2 then the door just becomes unlocked."
+	"editor_var buddy"			"will toggle shaderparm 7 of the entity given as a buddy, this allows shaders to be remapped for lock status etc."
+	"editor_bool crusher"		"the door does not reverse when blocked."
+	"editor_var angle"			"determines the opening direction."
+	"editor_var movedir"		"determines the opening direction.  if set, 'angle' determines orientation."
+	"editor_var speed"			"movement speed."
+	"editor_var time"			"movement time in seconds.  overrides speed.  used for doors that move different distances, but still need to be synced."
+	"editor_bool wait"			"wait before returning (-1 = never return)."
+	"editor_bool toggle"		"wait at each position until triggered again."
+	"editor_var lip"			"lip remaining at end of move."
+	"editor_var dmg"			"damage to inflict when blocked."
+	"editor_var health"			"if set, the door must be shot open."
+	"editor_var triggersize"	"sets the amount the trigger extends from the door."
+	"editor_bool gui_noninteractive" "any gui attached will not be interactive"
+	"editor_snd snd_locked"		"sound to play if door is locked and player approaches."
+	"editor_snd snd_open"		"sound to play when opening."
+	"editor_snd snd_close"		"sound to play when closing."
+	"editor_snd snd_opened"		"looping sound for it's opened state."
+	"editor_var triggerClosed"	"name of entity to trigger when door closes, can be iterated with triggerClosed2, 3 etc."
+	"editor_var triggerOpened"	"name of entity to trigger when door opens, can be iterated with triggerOpened2, 3 etc."
+	"editor_var triggerBlocked"	"name of entity to trigger when door is blocked, can be iterated with triggerBlocked2, 3 etc."
+
+	"spawnclass"				"idDoor"
+
+	"start_open"				"0"
+	"no_touch"					"0"
+	"crusher"					"0"
+	"angle"						"0"
+	"speed"						"100"
+	"wait"						"3"
+	"lip"						"8"
+	"dmg"						"2"
+	"health"					"0"
+	"triggersize"				"60"
+
+//  	"snd_closed"				"mcc_door_closed"
+  	"snd_close"					"mcc_door_close"
+  	"snd_open"					"mcc_door_open"
+   	"snd_opened"				"mcc_door_opened"
+  	"snd_locked"				"mcc_door_locked"
+
+}
+*/
+
+/***********************************************************************
+MCC_chair
+***********************************************************************/
+
+/*
+export mcc_chair
+{		
+	options -scale .3937 -prefix CHAIR_ -align ALL 
+         
+	mesh	work/models/mapobjects/marine/equipment/chairs/idle.ma	  						-dest models/mapobjects/marine/equipment/chair/mesh
+	anim	work/models/mapobjects/marine/equipment/chairs/harper_leaves_chair.ma	  		-dest models/mapobjects/marine/equipment/chair/harper_leaves_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/harper_sits_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/harper_sits_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_1_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_1_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_2_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_2_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_3_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_3_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_4_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_4_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_5_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_5_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_6_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_6_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_7_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_7_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/salute_8_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/salute_8_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/morris_intro_chair.ma	  		-dest models/mapobjects/marine/equipment/chair/morris_intro_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/kane_sits_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/kane_sits_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/voss_talks_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/voss_talks_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/kane_idle_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/kane_idle_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/voss_idle_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/voss_idle_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/voss_idle_starter_chair.ma	  	-dest models/mapobjects/marine/equipment/chair/voss_idle_starter_chair
+	anim	work/models/mapobjects/marine/equipment/chairs/voss_sits_chair.ma	  			-dest models/mapobjects/marine/equipment/chair/voss_sits_chair
+	
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_idle1.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_idle1
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_idle2.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_idle2
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_idle3.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_idle3
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_idle4.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_idle4
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_idle5.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_idle5
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_idle6.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_idle6
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_kane_sits.ma	  			-dest models/mapobjects/marine/equipment/chair/mcc2_kane_sits
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_rhodes_leans.ma	  			-dest models/mapobjects/marine/equipment/chair/mcc2_rhodes_leans
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_morris_responds_chair.ma	-dest models/mapobjects/marine/equipment/chair/mcc2_morris_responds
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_morris_sits.ma				-dest models/mapobjects/marine/equipment/chair/mcc2_morris_sits
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_cortez_stands.ma	  		-dest models/mapobjects/marine/equipment/chair/mcc2_cortez_stands
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_salute1.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_salute1
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_salute2.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_salute2
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_salute3.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_salute3
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_salute4.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_salute4
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_salute5.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_salute5
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_salute6.ma	  				-dest models/mapobjects/marine/equipment/chair/mcc2_salute6
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_strauss_talks1.ma	  		-dest models/mapobjects/marine/equipment/chair/mcc2_strauss_talks1
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_strauss_talks2.ma	  		-dest models/mapobjects/marine/equipment/chair/mcc2_strauss_talks2
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_morris_talks.ma	  			-dest models/mapobjects/marine/equipment/chair/mcc2_morris_talks
+	anim	work/models/mapobjects/marine/equipment/chairs/mcc2_harper_sits.ma	  			-dest models/mapobjects/marine/equipment/chair/mcc2_harper_sits				
+
+}
+
+entityDef mcc_chair
+{
+	"model"							"model_mcc_chair"
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-8 -8 0"
+	"editor_maxs"					"8 8 16"
+	"editor_usage"					"Animated chair for MCC"
+	"editor_menu"					"level"
+
+	//"animate_z"						"1"
+	//"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+}
+
+model model_mcc_chair
+{
+	mesh											models/mapobjects/marine/equipment/chair/mesh.md5mesh
+	anim idle										models/mapobjects/marine/equipment/chair/idle.md5anim
+	
+	anim harper_leaves_chair						models/mapobjects/marine/equipment/chair/harper_leaves_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim harper_sits_chair							models/mapobjects/marine/equipment/chair/harper_sits_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_1_chair								models/mapobjects/marine/equipment/chair/salute_1_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_2_chair								models/mapobjects/marine/equipment/chair/salute_2_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_3_chair								models/mapobjects/marine/equipment/chair/salute_3_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_4_chair								models/mapobjects/marine/equipment/chair/salute_4_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_5_chair								models/mapobjects/marine/equipment/chair/salute_5_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_6_chair								models/mapobjects/marine/equipment/chair/salute_6_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_7_chair								models/mapobjects/marine/equipment/chair/salute_7_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim salute_8_chair								models/mapobjects/marine/equipment/chair/salute_8_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim morris_intro_chair							models/mapobjects/marine/equipment/chair/morris_intro_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim kane_sits_chair							models/mapobjects/marine/equipment/chair/kane_sits_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+
+	anim voss_talks_chair							models/mapobjects/marine/equipment/chair/voss_talks_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim kane_idle_chair							models/mapobjects/marine/equipment/chair/kane_idle_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim voss_idle_starter_chair						models/mapobjects/marine/equipment/chair/voss_idle_starter_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim voss_idle_chair							models/mapobjects/marine/equipment/chair/voss_idle_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim voss_sits_chair							models/mapobjects/marine/equipment/chair/voss_sits_chair.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_morris_sits							models/mapobjects/marine/equipment/chair/mcc2_morris_sits.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	
+
+//MCC2 CHAIRS
+	anim mcc2_idle1									models/mapobjects/marine/equipment/chair/mcc2_idle1.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_idle2									models/mapobjects/marine/equipment/chair/mcc2_idle2.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_idle3									models/mapobjects/marine/equipment/chair/mcc2_idle3.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_idle4									models/mapobjects/marine/equipment/chair/mcc2_idle4.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_idle5									models/mapobjects/marine/equipment/chair/mcc2_idle5.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_idle6									models/mapobjects/marine/equipment/chair/mcc2_idle6.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_kane_sits								models/mapobjects/marine/equipment/chair/mcc2_kane_sits.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_rhodes_leans							models/mapobjects/marine/equipment/chair/mcc2_rhodes_leans.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_morris_responds						models/mapobjects/marine/equipment/chair/mcc2_morris_responds.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_cortez_stands							models/mapobjects/marine/equipment/chair/mcc2_cortez_stands.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_salute1								models/mapobjects/marine/equipment/chair/mcc2_salute1.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_salute2								models/mapobjects/marine/equipment/chair/mcc2_salute2.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_salute3								models/mapobjects/marine/equipment/chair/mcc2_salute3.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_salute4								models/mapobjects/marine/equipment/chair/mcc2_salute4.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_salute5								models/mapobjects/marine/equipment/chair/mcc2_salute5.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_salute6								models/mapobjects/marine/equipment/chair/mcc2_salute6.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_strauss_talks1						models/mapobjects/marine/equipment/chair/mcc2_strauss_talks1.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_strauss_talks2						models/mapobjects/marine/equipment/chair/mcc2_strauss_talks2.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_morris_talks							models/mapobjects/marine/equipment/chair/mcc2_morris_talks.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	anim mcc2_harper_sits								models/mapobjects/marine/equipment/chair/mcc2_harper_sits.md5anim
+	{
+		frame	1									event	disableClip
+	}
+	
+}
+
+
+entityDef mcc_tactical_station_mcc2
+{
+	"inherit"					"env_tactical_station"
+	"editor_menu"					"level"
+	"gui"						"guis/maps/mcc/briefing2.gui"
+}
+
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+entityDef mcc_vehicle_bodytable
+{
+//	"inherit"					"func_mover_spline"
+	"spawnclass"				"rvVehicleRigid"
+	"editor_menu"					"level"
+	"editor_usage"				""
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-40 -8 0"
+	"editor_maxs"				"40 8 36"
+	"editor_rotatable"			"1"
+	"model"						"model_bodytable_wide"
+	"mins"						"-40 -8 0"
+	"maxs"						"40 8 36"
+	"anim"						"idle"
+	"def_position_driver"		"mcc_vehicle_medbed_patient"
+	"health"					"1000"
+	"mass"						"10"
+	"size"						"80 16 36"
+	"gui_hud"					"guis/vehicles/strogg_noise.gui"	
+	"hidesurface1"				"models/mapobjects/strogg/medlabs/bodytable/b_table"	
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef mcc_vehicle_medbed_patient
+{
+	"eyeJoint"					"head"
+	"eyeoffset"					"-10 0 -12"
+	"depthHack"					"1"
+	"def_part_turn"				"mcc_vehicle_medbed_turn"
+	"angles_offset"				"0 -90 0"
+}
+
+entityDef mcc_vehicle_medbed_turn
+{
+	"spawnclass"				"rvVehicleTurret"
+	"joint"						"head"	
+	"yaw"						"0"
+	"pitch"						"1"
+	"minyaw"					"-25"
+	"maxyaw"					"25"
+	"minpitch"					"60"
+	"maxpitch"					"75"	
+	"pitchinvert"				"1"
+	"turnrate"					"10"
+}
+*/
+	
+
+
+/***********************************************************************
+temp body for the strogg version of the player
+***********************************************************************/
+
+/*
+model model_mcc_player_strogg
+{
+	inherit							model_char_marine
+
+	mesh							models/monsters/tactical/tactical_transfer.md5mesh
+	
+	anim	mcc2_cin_kane_idle_standing					models/characters/marine_fatigues/mcc2_cin_kane_idle_standing.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+	anim	mcc2_cin_idle_kane						models/characters/marine_fatigues/mcc2_cin_idle_kane.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_kane_salutes						models/characters/marine_fatigues/mcc2_cin_kane_salutes.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_kane_enters						models/characters/marine_fatigues/mcc2_cin_kane_enters.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}	
+	anim	mcc2_cin_kane_sits						models/characters/marine_fatigues/mcc2_cin_kane_sits.md5anim
+	{
+		ai_no_look
+		frame 	1										event disableClip
+	}
+
+}
+
+entityDef mcc_player_strogg
+{
+	"inherit"									"char_marine"
+	"model"							"model_mcc_player_strogg"
+	"editor_ignore"						"0"
+	
+	"editor_menu"					"level"
+	
+	"hidesurface1"						"models/weapons/mp_guns/w_sg"
+	"hidesurface2"						"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"						"models/weapons/mp_guns/w_hb"
+	"hidesurface4"						"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"						"models/weapons/mp_guns/w_mg_lo"
+}
+*/
+
+/*
+//------------------------------------------------------------------------------
+//		Vehicle Defintion for the gun controls in mcc_landing
+//------------------------------------------------------------------------------
+entityDef mcc_vehicle_gun_chair
+{
+	"inherit"					"func_mover_spline"
+	"spawnclass"				"rvVehicleRigid"
+	"editor_menu"				"level"
+
+	"editor_usage"				""
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-40 -8 0"
+	"editor_maxs"				"40 8 36"
+	"editor_rotatable"			"1"
+	"model"						"model_bodytable"
+	"clipmodel"					"models/mapobjects/strogg/mcc_landing/veh_chair_collision.lwo"
+	"mins"						"-40 -8 0"
+	"maxs"						"40 8 36"
+	"anim"						"idle"
+	"def_position_driver"		"mcc_vehicle_gun_driver"
+	"gui_hud"					"guis/vehicles/blank.gui"
+	"health"					"1000"
+	"mass"						"1800"
+	"size"						"80 16 36"
+}
+
+//------------------------------------------------------------------------------
+//		Positions
+//------------------------------------------------------------------------------
+
+entityDef mcc_vehicle_gun_driver
+{
+	"eyeJoint"					"head"
+	"eyeoffset"					"-8 0 0"
+	
+//	"depthHack"					"0"
+	"def_part_turn"					"mcc_vehicle_gun_turn"
+}
+
+entityDef mcc_vehicle_gun_turn
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"head"
+	
+	"yaw"						"1"
+	"pitch"						"0"
+
+	"minyaw"					"0"
+	"maxyaw"					"0"
+
+	"minpitch"					"-29"
+	"maxpitch"					"-28"
+	
+	"turnrate"					"1"
+}
+*/

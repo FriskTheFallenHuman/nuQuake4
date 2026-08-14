@@ -1,0 +1,320 @@
+
+
+sound makron_door_open
+{
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/makron/door_open
+	shakeData 0 ettxzprlgkggglinuuuvpnjhhjfgeedeccbccfmzzzzzzzzzzzzzzzzzzxyyvyzxrzzzyzzzzzwuyxxstryzxvvtmkmjvtqommkjjihhfhkkjomihffeeffeeeeedccbbbbaaaacbbaaaaaaaaaa
+}
+
+
+sound makron_door_close
+{
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/makron/door_close
+	shakeData 0 wyzzzzzzzzzzzzzzzzzxxttwqklkjggfeeddccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound makron_dmg_fire
+{
+	description	"Firing the DMG"
+
+	minDistance	900
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/makron/bfg_fire
+	shakeData 0 yvzzzwwtsqomknmojgfededdddceebcc
+}
+
+
+sound makron_dmg_hum
+{
+	description	"Firing the DMG"
+
+	minDistance	393
+	maxDistance	2000
+	volumeDb	0
+	looping
+
+	sound/strogg/makron/bfg_hum
+	shakeData 0 orpyxrrrrrpoorppsprpqopqqsrlb
+}
+
+
+sound makron_dmg_hit
+{
+	description	"Firing the DMG"
+
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/makron/bfg_hit
+	shakeData 0 kxxzzyzxyxxuvvwrtmnomlrmjgcfecbbaa
+}
+
+
+
+
+
+sound makron_pain
+{
+	description	"Pain"
+
+	minDistance	1000
+	maxDistance	3500
+	volumeDb	0
+
+	sound/vo/core/3_2_9_30_50
+	sound/vo/core/3_2_9_30_51
+	sound/vo/core/3_2_9_30_52
+}
+
+
+sound makron_death
+{
+	description	"death"
+
+	minDistance	100
+	maxDistance	3500
+	volumeDb	0
+
+	sound/vo/core/3_2_9_30_60
+}
+
+sound makron_blaster
+{
+	description	"blaster"
+
+	minDistance	393
+	maxDistance	1500
+	volumeDb	0
+
+	sound/strogg/makron/blaster
+	shakeData 0 xxxyyyvxtqha
+}
+
+
+sound makron_blade_arm
+{
+	description	"spinning blade opening"
+
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/makron/blade_arm
+	shakeData 0 qkkqrtttnnijkpkiihedbbaa
+}
+
+
+sound makron_blade_swing
+{
+	description	"spinning blade swing"
+
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/makron/blade_swing1
+	shakeData 0 dnltzzzzzzrieccbaaaaa
+	sound/strogg/makron/blade_swing2
+	shakeData 1 jmkpzzzzvwwjgdbbaaaa
+	sound/strogg/makron/blade_swing3
+	shakeData 2 egjswzzznnlhcbbaaaa
+}
+
+
+sound makron_lightning1
+{
+	description	"lightning"
+
+	minDistance	393
+	maxDistance	1500
+	volumeDb	-9
+	frequentlyUsed
+	looping
+
+	sound/strogg/makron/lightning1
+	shakeData 0 uvvxvwwywzvuwwttuwsuxvuuttuvwuwvwtturtvtuuuusuuxuwuxvvxo
+}
+
+
+sound makron_grenade_fly
+{
+	description	"grenade fly"
+
+	minDistance	393
+	maxDistance	1500
+	volumeDb	0
+	frequentlyUsed
+	looping
+
+	sound/strogg/makron/grenade_fly
+	shakeData 0 acbbccccccbbcddddbcccbcdqccbcbbccccddggdcdbccbcbccnpdbbcccbdddccbccccbccbbca
+}
+
+
+sound makron_steps
+{
+	description	"steps"
+
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/makron/step1
+	shakeData 0 ikmmmmmkmllmklhfgdcdbbaaaaaaaaaa
+	sound/strogg/makron/step2
+	shakeData 1 kmmlklkkmhjiheddcbbbaaaaaaaaa
+	sound/strogg/makron/step3
+	shakeData 2 ilmmmmmlmlmmllmhgggdfdccbaaaaaaaaaaaaa
+	sound/strogg/makron/step4
+	shakeData 3 nnlmmlklmmjihifeccdcbbbaaaaaaaaa
+}
+
+
+sound makron_rear_up
+{
+	description	"grenade fly"
+
+	minDistance	1000
+	maxDistance	3500
+	volumeDb	0
+
+	sound/strogg/makron/rear_up
+	shakeData 0 zyzxyxxxxxyyyyvxwwxvuuwtvvtxuwuutqstrqnomijjlkhiggfedcbaa
+}
+
+
+sound makron_hover
+{
+	description	"makron cruising around"
+
+	minDistance	500
+	maxDistance	3000
+	volumeDb	0
+	frequentlyUsed
+	looping
+
+	sound/strogg/hovertank/hover_loop
+	shakeData 0 slkkpsrqmmtrvrqtlnkmpmnppplmppqpomnrqrrmooslrolkmknmssssmmosqmlnpmlllrsrmolupsrqprtputsnmmlklknrojnluurnrqsqooutopnpmmrpnmjmnqmqvsspptrsqqpmnk
+}
+
+
+sound makron_separation
+{
+	description	"makron separating"
+
+	minDistance	1000
+	maxDistance	3500
+	volumeDb	0
+
+	sound/strogg/makron/separation
+	shakeData 0 zzzxzwzxuusurstrrrnqtsqoutppnmllikihfgffddcbbaaaaaaaa
+}
+
+
+sound makron_clasp
+{
+	description	"makron separating"
+
+	minDistance	1000
+	maxDistance	3500
+	volumeDb	0
+
+	sound/strogg/makron/clasp
+	shakeData 0 zzzzzusromihfddbbbaaaaaaaa
+}
+
+
+sound makron_stomp
+{
+	minDistance	400
+	maxDistance	3000
+	volumeDb	0
+	shakes		0.2
+
+	sound/effects/explosions/metal01
+	shakeData 0 szzzszyzyxzysuuvruqrqtpuqooqtpmqpolqlmlijllklhhjggfeeeddcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/metal02
+	shakeData 1 qzzzyzszzyutrxwyxvsvssstutuwwvtutssqussttusrsstprpqppppprppnoppoonoolnmnnmnmmoknmnnmkmmnnmnmklnojnkkikiifhighffeefdddddcdccccccbcccbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound brain_scream
+{
+	minDistance	1000
+	maxDistance	3500
+	volumeDb	6
+	shakes		0.1
+	global
+
+	sound/ambience/dispersal/heart/scream
+	shakeData 0 acchhlmkijolomgkoonqommnnmsqrqtvuttololpmpprsrpqqsrokkkpoklljkpmmmjnnhglmijikmjjmiijhgejgegeddddddccccbbbbcbbbbbababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound brain_bellow
+{
+	minDistance	1000
+	maxDistance	3500
+	volumeDb	4
+	global
+
+	sound/ambience/core/brain_bellow
+	shakeData 0 lkrwpzwxxwwyyyvyxzxyuvuvuwrvyvsttuwtuwuwyvsrtvsvuvuxtrsssxyzszrvwtzytwtvvxttvxwyyrwzwvtvyqruywyxpyvtzvzxyspntmnopmnrnqowonrsnsqssnsnqmihlqlnoihmrnpkijkffjmjjhkghoklkhieffgjkjjhefmmliihfjhilgfghefmljiffcedekggffcdedddcbbbbcbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound brain_scream2
+{
+	description	"test sound for gladiator alert voice"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	4
+	global
+
+	sound/strogg/gladiator/alert
+	shakeData 0 yzzzzzzzyzzyzzzzzzzzzzzzzzxzzzzzzzzzzzzzzzzzzzzzzyyxxyuzyxsqlljfedbbaa
+}
+
+
+sound brain_explode_big
+{
+	minDistance	900
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/putra/fatguy/explode
+	shakeData 0 fszwwtwrtotmqlomrpornkhfilgdikehlmegihhdedieddebebbbcabdabdbaccbbaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound brain_explode_chunks
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	0
+
+	sound/effects/waste/chunks1
+	shakeData 0 bcdccddedcldjeeleiggdjhfgjjjkefhqjfggfffhreeiehedfcbbaaaaaa
+	sound/effects/waste/chunks2
+	shakeData 1 bomohicclidffdldjedlccfgmdcddthddeccbbbaaaaa
+	sound/effects/waste/chunks3
+	shakeData 2 daablcbbbaaaaabbcedcbbaaabbbbngnhifbkjeefeeldidilccfmfccciteddedbbabaaaa
+}
+
+
+

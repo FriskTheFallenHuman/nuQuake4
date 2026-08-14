@@ -1,0 +1,371 @@
+
+
+sound generic_battle_klaxon
+{
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+	global
+
+	sound/ambience/alarms_buzzers/battle_klaxon
+	shakeData 0 acjnsxvtqxuyvvxrsovqnnlieeegfefflvsuvqttwvussrstumqlmjighfhfdcekruuxtssutxxvvsommmlgeeddcbbbeikqvurtonrqttsurnljifdddccbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_glass_tap
+{
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+
+	sound/ambience/building_b/glass_tap
+	shakeData 0 zgbaa
+}
+
+
+sound generic_glass_tap_deeper
+{
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+
+	sound/ambience/building_b/glass_tap3
+	shakeData 0 yldbaaaa
+}
+
+
+sound generic_comm_link
+{
+	minDistance	40
+	maxDistance	800
+	volumeDb	-6
+
+	sound/marine/player/comm
+	shakeData 0 jkjkajkjkaa
+}
+
+
+sound generic_small_metal_break
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-12
+	frequentlyUsed
+	no_dups
+
+	sound/impact/small_metal/break1
+	shakeData 0 zzzxqoqhjkgfeeeddcccbbbaaaaaaaaaaaaaa
+	sound/impact/small_metal/break2
+	shakeData 1 zzztqonqmlkhgplfeddcccbcbbbbaaaabbaaaaaaaaaaaaa
+	sound/impact/small_metal/break3
+	shakeData 2 zyrpozvphedbbbeccbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/small_metal/break4
+	shakeData 3 zzxxtqrmlligxhggffheddddcccbbbaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_large_metal_break
+{
+	minDistance	400
+	maxDistance	1000
+	volumeDb	-12
+	frequentlyUsed
+	no_dups
+
+	sound/impact/large_metal/break1
+	shakeData 0 zzzzzzzzzyzzzzxzumljkigggfeffdddcccccbcbbbbbbaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/large_metal/break2
+	shakeData 1 zzzzzzzzzxyurqupnxqwwspmjhgfefeeddiilihjieddihhffdcbbbabccdbbaaaaaaaaaaaaaaaaaa
+	sound/impact/large_metal/break3
+	shakeData 2 zzzzzzzxuywyqlmkkjihghigddccbbbbbaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_convoy_crate
+{
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/impact/convoy_crate/crate1
+	shakeData 0 zzzzzzzzzzzzxzvtrzswtrnmmhhkffedddcccbbbbabaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/convoy_crate/crate2
+	shakeData 1 zzzzzzzzzzyxuqtrqrmjjjhgoffgpedcbccbcbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/convoy_crate/crate3
+	shakeData 2 zzzzzzzzzzxvrttvutklijihpffhtfdccddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_barrel_impact
+{
+	minDistance	80
+	maxDistance	1200
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/impact/barrel/impact1
+	shakeData 0 zywyvqnrqkhhhhgfddccccbaaaaaaaaaa
+	sound/impact/barrel/impact2
+	shakeData 1 zzxzuspuxuqqpmnjhghfhddccbbbbbbbaaaaaa
+	sound/impact/barrel/impact3
+	shakeData 2 zzzywxvxurtqpihggqmonpoinheccbaaaaaaaaaaaaa
+}
+
+
+sound generic_box_fall
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-28
+	frequentlyUsed
+	no_dups
+
+	sound/impact/box/fall1
+	shakeData 0 mxzzyvxqnhikkiggecbbaaaaabaaaaaaaaaaa
+	sound/null
+	shakeData 1 aaaaaaaaaaaa
+	sound/impact/box/fall2
+	shakeData 2 vxzzsnlfcopdbbaaaaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+	sound/impact/box/fall3
+	shakeData 4 zzzxvvtjqpqqmhfenhjkdbaaaaaaaa
+	sound/null
+	shakeData 5 aaaaaaaaaaaa
+	sound/impact/box/fall4
+	shakeData 6 cwvvsxyuuqiecbdcaaaaaaaaaaaaaa
+}
+
+
+sound generic_helmet_fall
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-3
+	no_dups
+
+	sound/impact/misc/helmet1
+	shakeData 0 ohngcbaaaaaaaaa
+	sound/impact/misc/helmet2
+	shakeData 1 hecggiecbaaaa
+	sound/impact/misc/helmet3
+	shakeData 2 vkcbaaaaa
+	sound/impact/misc/helmet4
+	shakeData 3 fgdccaaaa
+}
+
+
+sound generic_binder_fall
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-3
+	no_dups
+
+	sound/impact/misc/binder1
+	shakeData 0 hhbaaa
+	sound/impact/misc/binder2
+	shakeData 1 jdcbaa
+	sound/impact/misc/binder3
+	shakeData 2 mbdjaa
+	sound/impact/misc/binder4
+	shakeData 3 leccaaaaa
+	sound/impact/misc/binder5
+	shakeData 4 lkbaaaaaaaaaa
+}
+
+
+sound generic_metal_panel_fall
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-18
+	frequentlyUsed
+	no_dups
+
+	sound/impact/small_metal/break1
+	shakeData 0 zzzxqoqhjkgfeeeddcccbbbaaaaaaaaaaaaaa
+	sound/impact/small_metal/break2
+	shakeData 1 zzztqonqmlkhgplfeddcccbcbbbbaaaabbaaaaaaaaaaaaa
+	sound/impact/small_metal/break3
+	shakeData 2 zyrpozvphedbbbeccbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/small_metal/break4
+	shakeData 3 zzxxtqrmlligxhggffheddddcccbbbaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_barrel_impact_small
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-2
+	frequentlyUsed
+	no_dups
+
+	sound/impact/barrel/impact_small1
+	shakeData 0 befegfedccbcbbccbaaaaaaaaaaaaaaa
+	sound/impact/barrel/impact_small2
+	shakeData 1 gigfdccbccbbbgfgffhhieddcbbbbbaaaaaaaaaaaaaa
+	sound/impact/barrel/impact_small3
+	shakeData 2 jjeededccbbbaaaaaaababaaaaaa
+	sound/impact/barrel/impact_small4
+	shakeData 3 hjggffedcccdcbbbbbbbbbaaaaaaaa
+	sound/impact/barrel/impact_small5
+	shakeData 4 egghhebabbbaaaaaaaaaa
+	sound/impact/barrel/impact_small6
+	shakeData 5 aangghggwmgfeedcccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/barrel/impact_small7
+	shakeData 6 qvtkjijcccbbbbbaaaaaaaaaaaaaaa
+}
+
+
+sound generic_barrel_impact_quiet
+{
+	minDistance	80
+	maxDistance	600
+	volumeDb	-9
+	frequentlyUsed
+	no_dups
+
+	sound/impact/barrel/brl_impact1
+	shakeData 0 xyzzvwruzypolklhheeeeccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/barrel/brl_impact2
+	shakeData 1 rvryzysrnngffedddcbbbbaaaaaaaaaaa
+	sound/impact/barrel/brl_impact3
+	shakeData 2 rxuytjgfdcbbaaaaaaaaa
+	sound/impact/barrel/brl_impact4
+	shakeData 3 zzzzxutuvsoqmloihgiffedccbbbbbbaaaaaaa
+	sound/impact/barrel/brl_impact5
+	shakeData 4 zzuuoomqmmnjhfdcccbdcdcbbaaaaa
+	sound/impact/barrel/brl_impact6
+	shakeData 5 zzzzytoihgeedqmpomtrukjigddcdcbbbaaaaaaaaaaa
+	sound/impact/barrel/brl_impact7
+	shakeData 6 vwzvzywyrqronimkiokllnmglgecbbaaaaaaaaaaaaa
+	sound/impact/barrel/brl_impact8
+	shakeData 7 zzyyxxxzvuuyxukjkoflosplhggiiedeccccbbbbbaaaaaaa
+}
+
+
+sound generic_barrel_roll
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-4
+	no_dups
+
+	sound/impact/barrel/roll1
+	shakeData 0 abcfkjhqnjkovlknkmkuosnnmjnjnsutjhjhhiheeedccccccbcbbbabaaaaaaaaaa
+	sound/impact/barrel/roll2
+	shakeData 1 bcfgihijjhmnsnjolllolnplouqonnllmkikonmkjihmiiifigdeeeeddecdccdccbbbbccbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/barrel/roll3
+	shakeData 2 bccfhhipmjhjjihjjqrmppiooliihmjlnkjhhgiihggfijhddefdeghfedccddbbbbbbaaaaaaaaaaaaa
+}
+
+
+sound generic_barrelpart_impact
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	-12
+
+	sound/impact/small_metal/break1
+	shakeData 0 zzzxqoqhjkgfeeeddcccbbbaaaaaaaaaaaaaa
+	sound/impact/small_metal/break2
+	shakeData 1 zzztqonqmlkhgplfeddcccbcbbbbaaaabbaaaaaaaaaaaaa
+	sound/impact/small_metal/break3
+	shakeData 2 zyrpozvphedbbbeccbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/small_metal/break4
+	shakeData 3 zzxxtqrmlligxhggffheddddcccbbbaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_rock_impact_small
+{
+	minDistance	40
+	maxDistance	393
+	volumeDb	-4
+	no_dups
+
+	sound/impact/rock/s_rock1
+	shakeData 0 lcbaobdbcaaaaacbabbaaaaaadbaaaaaaacaaaaababaaaaabaaa
+	sound/impact/rock/s_rock2
+	shakeData 1 pecbiicabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/rock/s_rock3
+	shakeData 2 lhdcbaabaaabaaacaaaabaaaabaaaaaaaaaaaaaaaaaa
+	sound/impact/rock/s_rock4
+	shakeData 3 lcibaagbccacaaaaaaaaaaaaaaaaaa
+	sound/impact/rock/s_rock5
+	shakeData 4 necbbaaddbbbjcaaaaacdbbabaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_rock_impact_large
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-12
+	no_dups
+
+	sound/impact/rock/l_rock1
+	shakeData 0 zzzzyzzzzyvtuurpnwnjjighhfhlfeecddcccbbbbabaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/rock/l_rock2
+	shakeData 1 qqzzzzzzzzutltssrtjlijjhqffhufdccddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound generic_creature_fall_small
+{
+	minDistance	40
+	maxDistance	1800
+	volumeDb	-9
+	frequentlyUsed
+
+	sound/strogg/bodyfalls/small1
+	shakeData 0 ozzzzyopjhijrcaaa
+	sound/strogg/bodyfalls/small2
+	shakeData 1 hzvzzpymigikhenjcbaaa
+	sound/strogg/bodyfalls/small3
+	shakeData 2 ozzzzxqpihhirfaa
+}
+
+
+sound generic_creature_fall_beefy
+{
+	minDistance	40
+	maxDistance	1800
+	volumeDb	-9
+	frequentlyUsed
+
+	sound/strogg/bodyfalls/beefy1
+	shakeData 0 hjyxmtupjgeddgheccbbbaaaaaaaaaaaaa
+	sound/strogg/bodyfalls/beefy2
+	shakeData 1 cnmvxniihffedbbbbaaaaaaaaaaaa
+	sound/strogg/bodyfalls/beefy3
+	shakeData 2 jjzzznsknijinlgddcbbaaaaaaaaaaaaaa
+}
+
+
+sound generic_creature_fall_metal
+{
+	minDistance	40
+	maxDistance	1800
+	volumeDb	-2
+	frequentlyUsed
+
+	sound/strogg/bodyfalls/metal1
+	shakeData 0 uwxyzzzzyyyzzxzyvywrppoihfrnkfiecddccdifeddggfbbbaaaaaaaaaaaa
+	sound/strogg/bodyfalls/metal2
+	shakeData 1 uxxzzzzzzxuvwtwxrptonkhedcbaaaa
+	sound/strogg/bodyfalls/metal3
+	shakeData 2 sqvzytzvvvxwuxusnsonmdbbaaaa
+	sound/strogg/bodyfalls/metal4
+	shakeData 3 uxwzzzzxzyuzzyxxsxtpmiomfjebaa
+}
+
+
+
+
+

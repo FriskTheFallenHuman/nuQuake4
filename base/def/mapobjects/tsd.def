@@ -1,0 +1,64 @@
+
+/***********************************************************************
+TSD
+
+***********************************************************************/
+
+//export tsd
+
+export battery
+
+{		
+	options -prefix tsd_ -align ALL 
+		  
+	mesh	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_storage_smashed.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/mesh
+	anim	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_idle.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/idle
+	anim	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_shockstart.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/shockstart		
+	anim	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_shockloop.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/shockloop
+	anim	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_shockstop.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/shockstop
+	
+	anim	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_storage_scream.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/storage
+	anim	work/models/mapobjects/strogg/terminal/tsd_battery/animation/tsd_storage_smashed.ma	-dest models/mapobjects/strogg/terminal/tsd_battery/roller
+
+
+}
+
+entityDef env_battery
+{
+	"model"							"model_env_battery"
+	"spawnclass"					"idAnimated"
+	
+	"combatModel"					"1"
+
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-32 -32 0"
+	"editor_maxs"				"32 32 16"
+
+	"editor_usage"				"animations for the tsd batter"
+
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"
+	"bone_focus"					"eye_target"
+	
+	"snd_breathe"					"ambient_tsd_breathe"
+}
+
+model model_env_battery
+{
+	mesh					models/mapobjects/strogg/terminal/tsd_battery/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/terminal/tsd_battery/idle.md5anim
+	{
+			frame	1,125				sound	snd_breathe
+	}
+	anim shockstart 			models/mapobjects/strogg/terminal/tsd_battery/shockstart.md5anim
+	anim shockloop				models/mapobjects/strogg/terminal/tsd_battery/shockloop.md5anim
+	anim shockstop 				models/mapobjects/strogg/terminal/tsd_battery/shockstop.md5anim
+	anim storage				models/mapobjects/strogg/terminal/tsd_battery/storage.md5anim
+	anim roller				models/mapobjects/strogg/terminal/tsd_battery/roller.md5anim
+	{
+	frame	1				sound	storage_TSD_Scream1
+	}
+}

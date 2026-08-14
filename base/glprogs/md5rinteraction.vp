@@ -1,0 +1,110 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_INTERACTION
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+# attrib[1]		(unused)
+# attrib[2]		normal
+# attrib[3]		vertex.color (diffuse)
+# attrib[6]		tangent
+# attrib[7]		binormal
+# attrib[8]		2D texture coordinate
+#
+# program.env[75]-program.env[78]	model-view-projection transform
+# program.env[79]					localLightOrigin (local to the model)
+# program.env[80]					localViewOrigin (local to the model)
+# program.env[81]					lightProjection S
+# program.env[82]					lightProjection T
+# program.env[83]					lightProjection Q
+# program.env[84]					lightFalloff S
+# program.env[85]					bumpMatrix S
+# program.env[86]					bumpMatrix T
+# program.env[87]					diffuseMatrix S
+# program.env[88]					diffuseMatrix T
+# program.env[89]					specularMatrix S
+# program.env[90]					specularMatrix T
+# program.env[91]					vertex color modulate x, add y
+# 
+# output:
+# 
+# texture 0 is the cube map
+# texture 1 is the per-surface bump map
+# texture 2 is the light falloff texture
+# texture 3 is the light projection texture
+# texture 4 is the per-surface diffuse map
+# texture 5 is the per-surface specular map
+# texture 6 is the specular lookup table
+
+TEMP	R7, R8, R9, R11;
+
+PARAM	defaultTexCoord = { 0, 0.5, 0, 1 };
+
+#
+# Calculate the vector from the model vertex position to the light (in model space),
+# transform that light vector into tangent space
+#
+SUB R7, program.env[79], vertex.position;
+DP3 result.texcoord[0].x, vertex.attrib[6], R7;
+DP3 result.texcoord[0].y, vertex.attrib[7], R7;
+DP3 result.texcoord[0].z, vertex.normal, R7;
+
+# texture 1 takes the base coordinates by the texture matrix
+DP4	result.texcoord[1].x, vertex.attrib[8], program.env[85];
+DP4	result.texcoord[1].y, vertex.attrib[8], program.env[86];
+
+# texture 2 has one texgen
+MOV	result.texcoord[2], defaultTexCoord;
+DP4	result.texcoord[2].x, vertex.position, program.env[84];
+
+# texture 3 has three texgens
+DP4	result.texcoord[3].x, vertex.position, program.env[81];
+DP4	result.texcoord[3].y, vertex.position, program.env[82];
+DP4	result.texcoord[3].w, vertex.position, program.env[83];
+
+# texture 4 takes the base coordinates by the texture matrix
+DP4	result.texcoord[4].x, vertex.attrib[8], program.env[87];
+DP4	result.texcoord[4].y, vertex.attrib[8], program.env[88];
+
+# textures 5 takes the base coordinates by the texture matrix
+DP4	result.texcoord[5].x, vertex.attrib[8], program.env[89];
+DP4	result.texcoord[5].y, vertex.attrib[8], program.env[90];
+
+# texture 6's texcoords will be the halfangle in texture space
+
+# calculate normalized vector to light in R7
+DP3	R8, R7, R7;
+RSQ	R8, R8.x;
+MUL	R7, R7, R8.x;
+
+# calculate normalized vector to viewer in R9
+SUB	R9, program.env[80], vertex.position;
+DP3	R8, R9, R9;
+RSQ	R8, R8.x;
+MUL	R9, R9, R8.x;
+
+# add together to become the half angle vector in object space (non-normalized)
+ADD	R7, R7, R9;
+
+# transform half vector into tangent space 
+DP3	result.texcoord[6].x, vertex.attrib[6], R7;
+DP3	result.texcoord[6].y, vertex.attrib[7], R7;
+DP3	result.texcoord[6].z, vertex.normal, R7;
+
+# generate the vertex color, which can be 1.0, color, or 1.0 - color
+# for 1.0 : env[16] = 0, env[17] = 1
+# for color : env[16] = 1, env[17] = 0
+# for 1.0-color : env[16] = -1, env[17] = 1
+MAD	result.color, vertex.color, program.env[91].x, program.env[91].y;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], vertex.position;
+DP4 result.position.y, program.env[76], vertex.position;
+DP4 result.position.z, program.env[77], vertex.position;
+DP4 result.position.w, program.env[78], vertex.position;
+
+END
+

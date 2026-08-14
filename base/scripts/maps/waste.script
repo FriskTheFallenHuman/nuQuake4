@@ -1,0 +1,1589 @@
+//-------------------------------------------------------------------------------
+// namespace map_waste
+//
+// Namespace containing functions and globals for the Waste Reservoir map.
+//
+// jdischler | Jan, Feb 2005
+//-------------------------------------------------------------------------------
+
+
+// Custom events that only need to be available for the boss buddy
+// amount of shielding to add this frame, something typically greater than 1.  Returns 1 if still charging, zero when charge is done
+scriptEvent float	rechargeShields( float amount ); 
+
+namespace map_waste
+{
+
+// globals
+float gScannerTerminated = 0;
+float gScannerTerminationCount = 0;
+float gMarineBuddyInPosition = 0;
+float gSpawningChumps = 0;
+float gStopMainScrapers = 0;
+float gChargeInProgress = 0;
+float gZoneTethered = 0;
+float gDestroyedCurrentStation = 0;
+
+float gTetherArea = 1; // zones in the boss arena are 1-4
+
+//this is a function solely to test an anim and lighting
+void testBoss()
+{
+	aiScriptedAnim( $monster_bossbuddy_3, "intro", 0, 1 );
+	sys.wait(4.5);
+	//frame 96				trigger bossspot
+	//sys.trigger($bossspot);
+	sys.wait(7.7);
+	//frame 292				trigger bosslight1
+	//frame 292				trigger bosslight2
+	//sys.trigger($bosslight1);
+	//sys.trigger($bosslight2);
+}
+
+
+//-------------------------------------------------------------------------------
+// Makes the requested sprayer nozzle entity move back and forth between pos1 and pos2
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void DoAcidSprayer( entity nozzle, entity pos1, entity pos2 )
+{
+	// do forever and a day
+	while(1)
+	{
+		nozzle.moveTo(pos1);
+		
+		// wait for completion, then an additional slight wait before changing directions.
+		sys.waitFor(nozzle);
+		sys.wait(1);
+		
+		nozzle.moveTo(pos2);
+		
+		// wait for completion, then an additional slight wait before changing directions.
+		sys.waitFor(nozzle);
+		sys.wait(1);
+	}
+}
+
+// Nozzle pauzzle snozzle mbreit
+void nozzle1Pause()
+{
+	sys.trigger($spkr_nozzle1_off);
+	sys.wait(0.1);
+	sys.trigger($trigger_hurt_nozzle);
+	sys.trigger($func_fx_nozzle);
+	sys.wait(2.5);
+	sys.trigger($spkr_nozzle1_on);
+	sys.wait(0.25);
+	sys.trigger($trigger_hurt_nozzle);
+	sys.trigger($func_fx_nozzle);
+}
+
+void nozzle2Pause()
+{
+	sys.trigger($spkr_nozzle2_off);
+	sys.wait(0.1);
+	sys.trigger($trigger_hurt_nozzle2);
+	sys.trigger($func_fx_nozzle2);
+	sys.wait(2.5);
+	sys.trigger($spkr_nozzle2_on);
+	sys.wait(0.25);
+	sys.trigger($trigger_hurt_nozzle2);
+	sys.trigger($func_fx_nozzle2);
+}
+
+//-------------------------------------------------------------------------------
+// Meet up with Lanier at the start of the level.  Warns about acid sprayers
+//	which conveniently start up.  He makes a break for it..
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void meetLanier()
+{
+	// move dude up to position
+	$marineLanier.lookAt($player1);
+	aiScriptedMoveWait( $marineLanier, $target_intro_guy, 10, true );
+	aiScriptedFace( $marineLanier, $player1, true );
+
+	sys.wait(0.2);
+
+	aiSpeak($marineLanier, "lipsync_vo_2_2_7_10_1" );
+	aiScriptedAnimLoop( $marineLanier, "waste_talking", 15 );
+
+	sys.wait(3);
+
+	thread  DoAcidSprayer( $nozzleMover, $target_null_nozzle_1, $target_null_nozzle_2 );
+
+	while( $marineLanier.isSpeaking()) 
+	{
+		sys.waitFrame();
+	}
+
+	sys.wait(.2);
+
+	//pa announcement "Warning: Decomposition solution activated"
+	sys.trigger($speaker_149);
+
+	$marineLanier.lookAt($null_entity);
+	aiScriptedMove( $marineLanier, $target_lanier_removal_pos, 30, true );
+
+	sys.wait(.5);
+
+//	sys.trigger($levelObjective);
+
+	aiScriptedWait( $marineLanier );
+	$marineLanier.remove();
+}
+
+//-------------------------------------------------------------------------------
+// Strogg marines that pop out of hatches placed in the ground
+//
+// jdischler | jan 2005
+//-------------------------------------------------------------------------------
+void stroggLeftSurprise()
+{
+	sys.trigger( $stroggMarineLeft );
+	$stroggHatchLeft.playAnim( ANIMCHANNEL_ALL, "open_below" );
+	sys.trigger( $stroggHatchLeftClip );
+}
+void stroggRightSurprise()
+{
+   	sys.trigger( $stroggMarineRight );
+   	$stroggHatchRight.playAnim( ANIMCHANNEL_ALL, "open_below" );
+	sys.trigger( $stroggHatchRightClip );
+}
+
+//-------------------------------------------------------------------------------
+// Low level function that allows the scraper pieces, both large and small, to
+//	move.
+//-------------------------------------------------------------------------------
+void GoScraper( entity scraper, entity endPos, float moveTime )
+{
+	scraper.decelTime( 0.2 );
+	scraper.accelTime( 1 );	
+	scraper.time(moveTime);
+
+	scraper.moveTo( endPos );
+	sys.waitFor( scraper );
+}
+
+//-------------------------------------------------------------------------------
+// one back and forth motion of the scrapers on the floor - jersey
+//-------------------------------------------------------------------------------
+void smallScraperLoop()
+{
+	// moving forward
+	thread GoScraper( $small_scraper_left_1, $small_scraper_left_target_2, 2.5);
+	thread GoScraper( $small_scraper_left_2, $small_scraper_left_target_4, 2.5);
+	thread GoScraper( $small_scraper_right_1, $small_scraper_right_target_2, 2.5);
+	GoScraper( $small_scraper_right_2, $small_scraper_right_target_4, 2.5);
+
+	sys.wait( 0.1 );
+
+	// moving backwards
+	thread GoScraper( $small_scraper_left_1, $small_scraper_left_target_1, 5);
+	thread GoScraper( $small_scraper_left_2, $small_scraper_left_target_3, 5);
+	thread GoScraper( $small_scraper_right_1, $small_scraper_right_target_1, 5);
+	GoScraper( $small_scraper_right_2, $small_scraper_right_target_3, 5);
+
+	sys.wait( 0.9 );
+}
+
+//-------------------------------------------------------------------------------
+// loop that gets everything in sync, 
+//-------------------------------------------------------------------------------
+void controlLoop()
+{
+	// do forever
+	while( gStopMainScrapers == 0 ) // FIXME: temp!
+	{
+		smallScraperLoop();
+		thread smallScraperLoop();
+
+		sys.wait(4.5);
+
+		if ( gStopMainScrapers == 1 )
+		{
+			return;
+		}
+
+		// move large scrapers backwards
+		sys.trigger($fx_grinder_right); // fx turns off
+		sys.trigger($fx_grinder_left); // fx turns off
+		thread	GoScraper($grinder_right, $grinder_right_target_2, 8);
+		GoScraper($grinder_left, $grinder_left_target_2, 8);
+
+		sys.wait(1.0);
+
+		thread smallScraperLoop();
+
+		if ( gStopMainScrapers == 1 )
+		{
+			return;
+		}
+
+		// move large scrapers forwards
+		sys.trigger($fx_grinder_right); // fx turns on
+		sys.trigger($fx_grinder_left); // fx turns on
+		thread	GoScraper($grinder_right, $grinder_right_target_1, 11);
+		GoScraper($grinder_left, $grinder_left_target_1, 11);
+	}
+}
+
+//-------------------------------------------------------------------------------
+// void entityColorChange()
+//
+// Changes the color of an entity list.
+//
+// mekberg | Nov 2004	grabbed from network2.script (mbreit)
+//-------------------------------------------------------------------------------
+void entityColorChange(entity e, vector v)
+{
+	float i;
+
+	// Go through all targets.
+	for(i = 0; i < e.numTargets(); i++)
+	{
+		e.getTarget(i).setColor(v_x, v_y, v_z);
+	}
+
+}
+
+//-------------------------------------------------------------------------------
+// called from a trigger in the map
+//-------------------------------------------------------------------------------
+void startGrinderRoom()
+{
+	thread controlLoop();
+}
+
+//-------------------------------------------------------------------------------
+// Stop the main scrapers
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void stopGrinders()
+{
+	gStopMainScrapers = 1;
+}
+
+
+
+//-------------------------------------------------------------------------------
+// Switch lower and upper level scraper room lights in sequence
+// The player will think it's for atmosphere, but you and I will know it's
+//    because this room runs really slow otherwise
+// mbreit | sep 2005
+//-------------------------------------------------------------------------------
+void scraperRoomLightsOut()
+{
+	sys.trigger( $scraperLightSnd_1 );
+	entityColorChange( $scraperLightBatch_1, '0 0 0' );
+	sys.wait(0.4);
+	
+	sys.trigger( $scraperLightSnd_1 );
+	entityColorChange( $scraperLightBatch_2, '0 0 0' );
+	sys.wait(0.6);
+	
+	sys.trigger( $scraperLightSnd_1 );
+	entityColorChange( $scraperLightBatch_3, '0 0 0' );
+	sys.wait(0.7);
+	
+	sys.trigger( $scraperLightSnd_1 );
+	entityColorChange( $scraperLightBatch_4, '0 0 0' );
+	sys.wait(0.75);
+	
+	sys.trigger( $scraperLightSnd_1 );
+	entityColorChange( $scraperLightBatch_5, '0 0 0' );
+	$scraperEvileAmb.fadeInLight(4);
+	sys.wait(1);
+	
+	sys.trigger($scraperRoomAttack);
+}
+
+void scraperSequence()
+{
+	thread scraperRoomLightsOut();
+	thread stopGrinders();
+}
+
+//-------------------------------------------------------------------------------
+// Break the grate in half and drop player through it
+//
+// mbreit | aug 2005
+//-------------------------------------------------------------------------------
+void ohGrate() {
+	sys.trigger($speaker_floor);
+	sys.wait(0.5);
+	$grate_break_1.rotateUpTo(2, 90);
+	$grate_break_2.rotateDownTo(2, -90);
+	sys.trigger($speaker_floor_2);
+}
+
+//-------------------------------------------------------------------------------
+// Radio Chatter: Guy freaking out saying that there are zombies down here...
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void startMusic()
+{
+	// the relay delays the start of the music till just after the zombies clip starts
+	sys.wait(1.0);
+	sys.trigger($level_music);
+}
+
+void RadioChatter_Zombies()
+{
+//	thread startMusic(); // threaded so I can adjust the timing of the music start
+	radioChatterPlayWait( $RC_theyre_zombies, "" );
+	sys.wait(1.4);
+	radioChatterPlayWait( $RC_no_theyre_not, "");
+}
+
+
+//-------------------------------------------------------------------------------
+// Radio Chatter: Guy freaking out with jammed gun...
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void RadioChatter_GunJammed()
+{
+	radioChatterPlayWait( $RC_gun_jammed, "" );
+	sys.wait(.8);
+	radioChatterPlayWait( $RC_help_me, "" );
+}
+
+//-------------------------------------------------------------------------------
+// KickBarrel_low
+//
+// Low level helper for pushing barrels into the pit.  entNum is used to create
+//	string names for the entities involved in the push sequence.  The pusher
+//	should typically be some variant of a tactical transfer since he has the req.
+//	shove anim.
+// PusherNum and barrelGroupNum are seperate so a single guy could be called upon
+//	to push in more than one barrel
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void kickBarrel_low( float pusherNum, float barrelGroupNum )
+{
+	entity pusher;		// thing doing the pushing
+	entity pushTarget;	// target position to get to when starting the kick.  Also carries push direction
+	entity barrel;		// the thing getting pushed
+	
+	// collect the entites we'll act upon
+	pusher = sys.getEntity("tacticalBarrelPusher" + pusherNum);
+	pushTarget = sys.getEntity("barrelTarget" + barrelGroupNum);
+	barrel = sys.getEntity("kickableBarrel" + barrelGroupNum);
+
+	if ( barrel == $null_entity || pusher == $null_entity || pusher.getHealth() <= 0)
+	{
+		// if nothing to work with, don't bother
+		return;
+	}
+	
+	//	run up to the barrel and face it...
+	aiScriptedMoveWait( pusher, pushTarget, 2, false);
+	aiScriptedFaceWait( pusher, pushTarget, true );
+
+	if ( barrel == $null_entity || pusher == $null_entity || pusher.getHealth() <= 0)
+	{
+		// if nothing to work with, don't bother
+		return;
+	}
+	aiScriptedAnim( pusher, "shove_barrel", 0, true );
+	sys.wait(.2);
+	
+	if ( pusher == $null_entity || pusher.getHealth() <= 0)
+	{
+		// if nothing to work with, don't bother
+		return;
+	}
+	
+	aiSpeak( pusher, "lipsync_rush" ); // just play a vocalization cause it sounded cool
+	
+	// note: is this safe?  Basically I wanted to keep him from colliding with the barrel since that mucks up the push
+	pusher.disableClip();   
+	sys.wait(.15);
+	
+	if ( barrel == $null_entity || pusher == $null_entity || pusher.getHealth() <= 0)
+	{
+		return;
+	}
+	
+	// actually give the barrel a push.  
+	vector vForce = sys.angToForward(pushTarget.getAngles());
+	vForce_x *= 250;
+	vForce_y *= 250;
+	vForce_z *= 250;
+	
+	// Tried using applyImpulse or some such thing, only it didn't seem to work??
+	barrel.setLinearVelocity(vForce);
+	pusher.enableClip();	
+	
+	sys.wait(1);
+	pusher.directDamage( barrel, "damage_bullet");
+}
+//-------------------------------------------------------------------------------
+// fakeKickBarrel_low
+// just push a stupid barrel and then make it blow up
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void fakeKickBarrel_low( float pusherNum, float barrelGroupNum )
+{
+	entity pusher;		// thing doing the pushing
+	entity pushTarget;	// target position to get to when starting the kick.  Also carries push direction
+	entity barrel;		// the thing getting pushed
+	
+	// collect the entites we'll act upon
+	pusher = sys.getEntity("tacticalBarrelPusher" + pusherNum);
+	pushTarget = sys.getEntity("barrelTarget" + barrelGroupNum);
+	barrel = sys.getEntity("kickableBarrel" + barrelGroupNum);
+
+	if ( barrel == $null_entity || pusher == $null_entity || pusher.getHealth() <= 0)
+	{
+		// if nothing to work with, don't bother
+		return;
+	}
+	
+	// actually give the barrel a push.  
+	vector vForce = sys.angToForward(pushTarget.getAngles());
+	vForce_x *= -250;
+	vForce_y *= -250;
+	vForce_z *= -250;
+	
+	// Tried using applyImpulse or some such thing, only it didn't seem to work??
+	barrel.setLinearVelocity(vForce);
+	sys.wait(.5);
+	pusher.directDamage( barrel, "damage_bullet");
+}
+
+//-------------------------------------------------------------------------------
+// Call the helper to set up the actual action for this group..
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void kickBarrel1()
+{
+	sys.wait(1);
+	kickBarrel_low(1,1); // guy 1 pushes barrel 1
+}
+void kickBarrel2()		//--------------------------------------
+{
+	sys.wait(2);
+	kickBarrel_low(2,2); // guy 2 pushes barrel 2
+}
+void kickBarrel3()		//--------------------------------------
+{
+	fakeKickBarrel_low(3,3); // guy 3 pushes barrel 3
+}
+void kickBarrel4()		//--------------------------------------
+{
+	fakeKickBarrel_low(4,4); // guy 4 pushes barrel 4
+}
+void kickBarrel5()		//--------------------------------------
+{
+	kickBarrel_low(5,5); // guy 5 pushes barrel 5
+}
+
+//-------------------------------------------------------------------------------
+// Meet up with the buddy marine...
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void meetBuddyMarine()
+{
+	aiScriptedAnimLoop( $marine_buddy, "crouch_idle", 0 );
+	$marine_buddy.setTalkState( TALK_WAIT );
+
+	// TODO: ensure better timing, probably move the trigger closer?
+	sys.wait(.2);
+	$marine_buddy.lookAt($player1);
+	sys.wait(1.5);
+
+	aiScriptedAnim( $marine_buddy, "idle", 10, true );
+
+	//	"Hey, so you’re still alive. Good. Let’s go hook up with my squad at the entrance."
+	aiSpeakWait($marine_buddy, "lipsync_vo_2_2_7_75_1");
+	aiScriptedStop($marine_buddy);
+	sys.wait(.5);
+
+	$marine_buddy.setLeader($player1);
+//	sys.trigger($ai_tether_buddymarine_1);
+	$marine_buddy.lookAt($null_entity);
+}
+
+//-------------------------------------------------------------------------
+// The marine buddy isn't relevant to the meetScannerMarines func
+// so remove him as a dependency in the calling func.
+//-------------------------------------------------------------------------
+void marineBuddyThread()
+{
+	$marine_buddy.setLeader($null_entity);
+	sys.trigger($buddy_tether_none);
+
+	//detach this guy and have him go some place sensible...
+	// 'cause following the player through the scanner is dangerous to humans
+	aiScriptedMoveWait( $marine_buddy, $target_scannerPos1, 10, true );
+	aiScriptedFace( $marine_buddy, $marineRuck, true );
+
+	$marine_buddy.becomePassive(true);
+
+	gMarineBuddyInPosition = 1;
+}
+
+// I'd put this on a trigger_relay but the activator has to be player1, and the door
+// that fires this won't guarantee that
+void showBridgeGuys()
+{
+	sys.trigger($ai_tether_radius_35);
+	sys.trigger($ai_tether_radius_36);
+	sys.trigger($ai_tether_buddymarine_5);
+	sys.wait(1);
+	sys.trigger($ai_tether_radius_34);
+}
+
+// for tracking whether to give the mod to the player or not....
+//-------------------------------------------------------------------------------
+float gGaveRocketMod = 0;
+float gStartedBossCinematic = 0;
+//-------------------------------------------------------------------------------
+// Ruck gives player rocket mod
+void GiveRocketMod()
+{
+	aiScriptedFaceWait($marineRuck, $player1, true);
+	aiSpeak($marineRuck, "lipsync_vo_2_2_7_171_1");
+	sys.wait(1);
+	$player1.selectWeapon("weapon_rocketlauncher");
+	aiScriptedAnimWait($marineRuck, "recomp_mod_hyper", 10, true);
+
+	// give kane the mod and let him go
+	sys.trigger($target_give_rocket_mod);
+	sys.wait(0.5);
+	aiSpeakDone($marineRuck);
+	gGaveRocketMod = 1;
+}
+
+void scannerMarinesHeal()
+{
+	$marineWong.enableHeal();
+	$marineRuck.enableHeal();
+}
+
+void scannerMarinesNoHeal()
+{
+	$marineWong.disableHeal();
+	$marineRuck.disableHeal();
+}
+
+
+//-------------------------------------------------------------------------------
+// Meet up with the buddy marines just before the scanner...Baleman got fried
+//	by the machine!
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void ruckAside() {
+	aiScriptedMoveWait( $marineRuck, $ai_tether_scannerPos1, 4, true );
+	$marineRuck.disableMovement();
+	sys.trigger($ai_tether_scannerPos1);
+	aiScriptedFace( $marineRuck, $marineWong, true );
+	$marineRuck.lookAt($player1);
+	$marineRuck.enableHeal();	// sit still!
+}
+
+void wongAside() {
+	aiScriptedMoveWait( $marineWong, $ai_tether_scannerPos2, 4, true );
+	$marineWong.disableMovement();
+	sys.trigger($ai_tether_scannerPos2);
+	aiScriptedFace( $marineWong, $marineRuck, true );
+	$marineWong.lookAt($player1);
+	$marineWong.enableHeal();	// I said sit still!
+}
+
+void meetScannerMarines()
+{
+	//detach this guy and have him go some place sensible...
+	//	thread him because he isn't relevant to the proper execution of this segment
+	thread  marineBuddyThread();
+
+	// set on the marine ents?
+	$marineWong.becomePassive(true);
+	$marineRuck.becomePassive(true);
+
+	// no healing during in-game cinematic
+	$marineWong.disableHeal();
+	$marineRuck.disableHeal();
+
+	sys.wait(0.6);
+	$marineRuck.lookAt($player1);
+
+	// "Hey, it’s that Kane guy."
+	aiScriptedFace($marineRuck, $player1, true );
+	aiSpeak ($marineRuck, "lipsync_vo_2_2_7_170_1" );
+	sys.wait(0.5);	// turn and look after hay
+	$marineWong.lookAt($player1);
+	aiSpeakDone( $marineRuck );
+
+//	aiSpeakWait($marineRuck, "lipsync_vo_2_2_7_170_1");
+
+	aiScriptedFace($marineWong, $player1, true );
+//	sys.wait(.4);
+
+	// "Damn are we lucky to see you. We’re the last of Cobra squad. That door’s the exit out but we can’t get through the security scanner."
+	$marine_buddy.lookAt($marineWong);
+	aiSpeak($marineWong, "lipsync_vo_2_2_7_170_2");
+	sys.wait(3);
+	aiScriptedAnim($marineWong, "point_back", 8, 1);
+	aiSpeakDone($marineWong);
+	sys.wait(.2);
+
+	// "Yeah, it fried Pvt. Baleman when he tried to go through."
+	if (gMarineBuddyInPosition==1)
+	{
+		$marine_buddy.lookAt($marineRuck);
+	}
+	aiSpeakWait($marineRuck, "lipsync_vo_2_2_7_170_3");
+
+	// "I analyzed the scanning circuits – all they’re looking for is proper Strogg ID codes."
+	$marineWong.lookAt($player1);
+	sys.wait(.2);
+	if (gMarineBuddyInPosition==1)
+	{
+		$marine_buddy.lookAt($marineWong);
+	}
+	aiSpeakWait($marineWong, "lipsync_vo_2_2_7_170_4");
+	sys.wait(.2);
+
+	// "Wouldn’t Kane here be set to transmit those codes?"
+	$marineRuck.lookAt($marineWong);
+	if (gMarineBuddyInPosition==1)
+	{
+		$marine_buddy.lookAt($marineRuck);
+	}
+	aiSpeakWait($marineRuck, "lipsync_vo_2_2_7_170_5");
+	sys.wait(.2);
+
+	// "Yeah . . . yeah, I bet he is."
+	$marineWong.lookAt($marineRuck);
+	aiSpeakWait($marineWong, "lipsync_vo_2_2_7_170_6");
+	sys.wait(.5);
+
+	// "How about it, Kane? You wanna trying walking through? It should read you as Strogg."
+	// All eyes on kane!
+	$marineRuck.lookAt($player1);
+	aiSpeakWait($marineRuck, "lipsync_vo_2_2_7_170_7");
+	$marineWong.lookAt($player1);
+	sys.wait(.2);
+
+	GiveRocketMod();
+
+	if (gMarineBuddyInPosition==1)
+	{
+		$marine_buddy.lookAt($player1);
+	}
+
+	$rocketmod_blocker.remove();
+	sys.waitFrame();
+	thread ruckAside();
+	thread wongAside();
+
+	sys.trigger($objective_lasers);
+}
+
+
+void scannerTouch()
+{
+//	scannerMarinesNoHeal();
+	sys.trigger($speaker_17);
+	sys.trigger($scanner_alarm_light_1);
+	sys.trigger($scanner_alarm_light_2);
+	aiScriptedFace($marineWong, $player1, true );
+	aiScriptedFace($marineRuck, $player1, true );
+}
+
+
+//-------------------------------------------------------------------------------
+// Low level thread to manage a single scanner element
+//
+// special note, requires $target_null_scanner_min and $target_null_scanner_max
+//	entities which define the bounding volume that all of the scanner elements 
+//	can move in.  Since each element only moves along a single axis, we can
+//	easily derive the desired destination position for each mover from these bounds.
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void doScannerLow(entity mover, float axis)
+{
+	vector targetPos, finalPos;
+
+	// set a decel now, but accel will be set after the first move has completed
+	//	just makes timing a bit easier for the odd guy that starts very close to
+	//	his destination point (only happens when the scanner starts)
+	mover.decelTime(1);
+
+	if (axis == X_AXIS)
+	{
+		mover.speed(130);	
+	}
+	else if (axis == Y_AXIS)
+	{
+		mover.speed(130);	
+	}
+	else // assume we're z_axis
+	{
+		mover.speed(130);	
+	}
+
+	// do forever
+	while(1)
+	{
+		// move towards the min
+		finalPos = mover.getOrigin();
+		targetPos = $target_null_scanner_min.getOrigin();
+
+		// not the most straightforward way to do it, but we grab the desired
+		//	min/max component based on the axis the object is moving in, then
+		//	then append that onto the correct axis of the mover, so we end
+		//	up with a new finalPos that we move towards
+		if (axis == X_AXIS)
+		{
+			finalPos_x = targetPos_x;	
+		}
+		else if (axis == Y_AXIS)
+		{
+			finalPos_y = targetPos_y;	
+		}
+		else // assume we're z_axis
+		{
+			finalPos_z = targetPos_z;	
+		}
+
+		// actually do the move
+		mover.moveToPos(finalPos);
+		sys.waitFor(mover);
+
+		// any subsequent moves will have accel and decel
+		mover.accelTime(1);
+
+		// now move towards the max
+		targetPos = $target_null_scanner_max.getOrigin();
+		if (axis == X_AXIS)
+		{
+			finalPos_x = targetPos_x;	
+		}
+		else if (axis == Y_AXIS)
+		{
+			finalPos_y = targetPos_y;	
+		}
+		else // assume we're z_axis
+		{
+			finalPos_z = targetPos_z;	
+		}
+
+		// actually do the move
+		mover.moveToPos(finalPos);
+		sys.waitFor(mover);
+
+		if ( gScannerTerminated == 1 )
+		{
+			gScannerTerminationCount = gScannerTerminationCount + 1;
+			return;
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------
+// Set up the scanner situation...
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void doScanner()
+{
+	// Scanner x Axis movers
+	thread  doScannerLow( $func_mover_x_1, X_AXIS );
+	thread  doScannerLow( $func_mover_x_2, X_AXIS );
+
+	// Scanner Y Axis movers
+	thread  doScannerLow( $func_mover_y_1, Y_AXIS );
+	thread  doScannerLow( $func_mover_y_2, Y_AXIS );
+	thread  doScannerLow( $func_mover_y_3, Y_AXIS );
+
+	// Scanner Z Axis movers
+	thread  doScannerLow( $func_mover_z_1, Z_AXIS );
+	thread  doScannerLow( $func_mover_z_2, Z_AXIS );
+	thread  doScannerLow( $func_mover_z_3, Z_AXIS );
+
+	// They don't need to look so up-tight, maybe?
+	aiScriptedAnimLoop( $marineRuck, "relax_idle", 10 );
+	aiScriptedAnimLoop( $marineWong, "relax_idle", 10 );
+}
+
+//-------------------------------------------------------------------------------
+// fadeOutScannerAlarmLights
+//
+// Lights will start flashing once kane enters scanner...after he leaves the scanner
+//	fade the lights out...
+//-------------------------------------------------------------------------------
+void fadeOutScannerAlarmLights()
+{
+	$scanner_alarm_light_1.fadeOutLight( 2 );
+	$scanner_alarm_light_2.fadeOutLight( 2 );
+//trigger the objective to shut down the lasers
+}
+
+//-------------------------------------------------------------------------------------------------
+// Boss battle section
+//-------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------
+// setBossRoomLightParm
+//
+// Master is a target_null targeted at a list of lights to take on the specified properties
+//	the script iterates through each of the targets and sets up the desired properties
+//
+// On init, set time to 0 (zero), to change the lights onJackIn, pass in sys.getTime()
+//
+// rcordes, jdischler | feb 2005
+//-------------------------------------------------------------------------------
+void setBossRoomLightParm( entity master, float fTime ) 
+{
+	float fTargetCount = master.numTargets();
+	float t;
+	entity entThing;
+	
+	for ( t=0; t < fTargetCount; t++ ) 
+	{
+		entThing = master.getTarget(t);
+		entThing.setShaderParm(4, fTime);
+		entThing.setLightParm(4, fTime);
+	}
+}
+/*
+//-------------------------------------------------------------------------------
+void tetherToPlayer()
+{
+	while(1)
+	{
+		sys.wait(1);
+		if ( !gChargeInProgress && !gZoneTethered )
+		{
+			sys.trigger( $tether_to_player );
+		}
+	}
+}
+*/
+
+//-------------------------------------------------------------------------------
+void SetBossHealth()	
+{
+	float scale = 1;
+
+	string gSkill = sys.getcvar("g_skill");
+
+	if( gSkill == "0" )	{
+		scale =  0.9;
+	}
+	else if( gSkill == "2" ) {
+		scale = 0.8;
+	}
+	else if( gSkill == "3" ) {
+		scale = 0.7;
+	}	
+
+	$monster_bossbuddy_1.setHealth( $monster_bossbuddy_1.getHealth() * scale );
+}
+
+//-------------------------------------------------------------------------------
+// meetBoss
+//
+// Change the music and start the intro cinematic
+//-------------------------------------------------------------------------------
+void meetBoss()
+{
+	//turn on the goo
+//	thread activateBossRoomSpew();
+
+	// set this variable so I can know whether to attempt to give the rocket mod or not
+	gStartedBossCinematic = 1;
+
+	$light_boss_1.Off();
+
+	// fade camera in
+	sys.fadeOut('0 0 0', 0.25);
+
+	// Um, cross fade...
+//	$level_music.fadeSound( SND_CHANNEL_ANY, -90, 2 );
+//	sys.trigger( $boss_music );
+//	$boss_music.fadeSound( SND_CHANNEL_ANY, 0, 2 );
+
+	entity head = $monster_bossbuddy_1.getHead();
+	$monster_bossbuddy_1.disableBlinking();
+	// start the cinematic
+	aiScriptedAnim( $monster_bossbuddy_1, "intro", 0, 1 );
+	if ( isValidEntity( head ))
+	{
+		head.playAnim( ANIMCHANNEL_ALL, "intro" );
+	}
+
+	sys.trigger ( $cin_waste_bb_cam_1 );
+	sys.wait(0.3);
+	sys.trigger($voss_music);
+
+	// bring the player inside the door and lock the door while the cinematic is running!
+	$player1.setWorldOrigin( $tgt_playerBossArenaStart.getWorldOrigin());
+//	$tether_to_player.bind( $player1 );
+
+	sys.fadeIn('0 0 0', 3);
+	//do cinematic lighting crap
+	$light_boss_1.fadeInLight(15);
+
+//	sys.wait(4.5);
+	//frame 96	trigger bossspot
+//	sys.trigger($boss_light_fadein_2);
+//	sys.wait(7.7);
+	//frame 292	trigger bosslight1 and bosslight2 and bosslight3 and kill spot
+//	sys.trigger($boss_light_fadein_1);
+//	sys.trigger($boss_light_fadeout_1);
+
+	//let cinematic finish
+	sys.wait(11);
+	
+	scannerMarinesNoHeal();	// make sure we didn't skip it
+	
+	$voss_cin_fill_1.fadeOutLight(3);
+	aiScriptedWait( $monster_bossbuddy_1 );
+
+	// bolt on the spawner so it's ready to go
+	$tgt_voss_projectile_spawner.bindToJoint( $monster_bossbuddy_1, "chest", 1 );
+	sys.trigger( $tgr_timer_bossbuddy ); // start the spawner timer
+
+	SetBossHealth();
+
+	aiScriptedAnim( $monster_bossbuddy_1, "forward_end", 8, 1 );
+
+	$arenaScannerExit.lock(2);
+	$arenaScannerExit.close();
+
+	sys.trigger($func_savegame_1);
+	sys.wait(1);
+	sys.trigger( $target_bossbattle_bar );
+}
+
+// doesn't end with AI...must meet minimumDistance, or...if maxTime is reached
+//	This is kind of a fail safe thing because the berserkers don't always get to their points.
+//-------------------------------------------------------------------------------
+void aiScriptedMoveWaitFailSafe( entity eEnt, entity eTgt, float minDist, float maxTime )
+{
+	float fStartTime = sys.getTime();
+
+	eEnt.scriptedMove( eTgt, minDist, false );
+
+	while ( isValidEntity( eEnt ))
+	{
+		if( eEnt.scriptedDone() || (sys.getTime() - fStartTime) > maxTime )
+		{
+			return;
+		}
+		sys.waitFrame ( );
+	}
+}
+
+// The boss room has four zones right now...pass in the zone index, 1-4, to shut
+//	down the lights for that area.
+//-------------------------------------------------------------------------------
+void ManageBossRechargeLights( float zone )
+{
+	sys.wait(1);
+
+	entity ent = sys.getEntity( "light_station_" + zone );
+	if ( ent != $null_entity )
+	{
+		ent.fadeOutLight( 5 );
+	}
+
+	sys.wait(2);
+	ent = sys.getEntity( "q" + zone + "_master" );
+	if ( ent != $null_entity )
+	{
+		setBossRoomLightParm( ent, sys.getTime());
+	}
+
+	// play an area shutdown noise
+	sys.trigger( $speaker_shutdown_area );
+}
+
+//-------------------------------------------------------------------------------
+void onBossRequestZoneMove()
+{
+	// Tethers messed up or something??
+	if ( gTetherArea <= 4 )//&& !gChargeInProgress && !gZoneTethered )
+	{
+		// Checking for tether
+		entity ent = sys.getEntity( "tether_" + gTetherArea );
+		if ( ent != $null_entity )
+		{
+			// Yeah, so tether him in so he can be close to the next recharge station
+			sys.trigger( ent );
+//			gZoneTethered = 1;
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------
+// damageCurrentStation
+//
+// This is actually a broken notification for the thing.  When it happens
+//
+//-------------------------------------------------------------------------------
+void damageCurrentStation()
+{
+	float tetherArea = gTetherArea; // we want to operate on this station if another thread happens to advance the gTetherArea var..
+
+	$monster_bossbuddy_1.jointCrawlEffect( "fx_shieldcrawl", 6 );
+	gDestroyedCurrentStation = 1;
+
+	//  play initial explosion
+	entity ent = sys.getEntity( "func_fx_station_splode_" + tetherArea );
+	if ( ent != $null_entity )
+	{
+		sys.trigger( ent );
+	}
+
+	aiSpeak( $monster_bossbuddy_1, "lipsync_vo_2_2_7_174_5" );
+
+	// The machine is in overload mode...fill those shields up fast!
+	while (	$monster_bossbuddy_1.rechargeShields(50))
+	{
+		sys.waitFrame();
+	}
+
+	// Now blast the BB
+	$monster_bossbuddy_1.directDamage( $monster_bossbuddy_1, "damage_bb_electrocute" );
+	sys.waitFrame();
+
+	// play electrical explosion
+	ent = sys.getEntity( "func_fx_station_explode_" + tetherArea );
+	if ( ent != $null_entity )
+	{
+		sys.trigger( ent );
+	}
+
+	// show the broken thing
+	ent = sys.getEntity( "func_static_charge_" + tetherArea );
+	if ( ent != $null_entity )
+	{
+		ent.setGuiFloat( "gui_parm_broken", 1 );
+	}
+}
+
+void spawnChumps()
+{
+	gSpawningChumps = 1;
+	while (gSpawningChumps == 1) {
+		sys.wait(1 + sys.random(1));
+		sys.trigger( $tgt_voss_projectile_spawner );
+	//	sys.wait(1 + sys.random(1));
+	}
+/*	if ( gTetherArea > 1 )
+	{
+		sys.wait(1.5 + sys.random(1));
+		sys.trigger( $tgt_voss_projectile_spawner );
+	}*/
+}
+
+//-------------------------------------------------------------------------------
+//	void onBossRequestCharge()
+//
+// func hooked into AI, when boss buddy shields get low enough, he'll call this
+//	to ask for a recharge.  The script can then manage the request or not...
+//	The primary logic for this is.. 
+//		are there any free chargers left in the level?
+//		is the boss already charging?
+//-------------------------------------------------------------------------------
+void onBossRequestCharge()
+{
+	// are there any areas left to go to?  Is there already a charge in progress?
+	if ( gTetherArea <= 4 ) //&& !gChargeInProgress)
+	{
+		// ..move on to the current recharge point
+		entity  ent = sys.getEntity( "target_recharge_" + gTetherArea );
+		if ( ent != $null_entity )
+		{
+			thread spawnChumps();
+			aiScriptedMoveWait( $monster_bossbuddy_1, ent, 8, 0 );
+
+			// FIXME: can't always nav to the required point??  Teleport him just in case
+//			$monster_bossbuddy_1.setOrigin( ent.getOrigin() );
+			ent = sys.getEntity( "target_recharge_face_" + gTetherArea );
+			if ( ent != $null_entity )
+			{
+				aiScriptedFaceWait( $monster_bossbuddy_1, ent, 0 );
+			}
+			aiScriptedAnim( $monster_bossbuddy_1, "plugin", 20, false);
+
+			// open up the bubble dome
+/*			entity shieldEnt = sys.getEntity( "func_recharge_shield_" + gTetherArea );
+
+			// figure out where to move this dude to
+			vector pos = shieldEnt.getWorldOrigin();
+			vector tmp = $tgt_shield_position.getWorldOrigin();
+			pos_z = tmp_z;
+
+			shieldEnt.time(0.5);
+			shieldEnt.accelTime(.2);
+			shieldEnt.decelTime(.2);
+			shieldEnt.moveToPos(pos);
+
+			sys.trigger($speaker_open_shield_door);
+*/
+			// let him finish the anim from above
+			aiScriptedWait( $monster_bossbuddy_1);
+			// ...we are where we need to be, so plug in...
+			aiScriptedAnimLoop( $monster_bossbuddy_1, "plugidle", 4 );
+			sys.trigger(sys.getEntity( "voss_chargehurt_" + gTetherArea ));	// hurt the player if he's in the way
+
+			// Fade out the zone lights
+//			entity influenceLight = sys.getEntity( "target_setinfluence_" + gTetherArea );
+//			if ( influenceLight != $null_entity )
+//			{
+//				sys.trigger( influenceLight );
+//			}
+
+			// ...trigger fading zone lights...
+//			thread ManageBossRechargeLights( gTetherArea );
+
+			// activate the electricity sensitive damage brush in front of the station..and reset the friedFlag
+//			entity dmgStationEnt = sys.getEntity( "func_dmg_station_" + gTetherArea );
+//			if ( dmgStationEnt != $null_entity )
+//			{
+//				//sys.println( "Showing damage station!" );
+//				dmgStationEnt.show();
+//			}
+
+			gDestroyedCurrentStation = 0;
+
+			// fade out the electricity effect
+			entity pipes = sys.getEntity( "target_entity_fadeout_" + gTetherArea );
+			if ( isValidEntity( pipes ))
+			{
+				sys.trigger(pipes);
+			}
+
+			// ..get some more shields until the AI has signaled that we are full...
+			while (	$monster_bossbuddy_1.rechargeShields(80))
+			{
+				// TODO: add small health recharge here?....if the station gets fried, a different section of this script will quickly add to the shields..
+				sys.waitFrame();
+			}
+
+			// this station will no longer hurt the player
+			entity tgr_hurt = sys.getEntity( "tgr_hurt_pipes_" + gTetherArea );
+			if ( isValidEntity( tgr_hurt ))
+			{
+				tgr_hurt.remove();
+			}
+			
+			// play electrical asplosion
+			ent = sys.getEntity( "func_fx_station_explode_" + gTetherArea );
+			if ( ent != $null_entity )
+			{
+				sys.trigger( ent );
+			}
+			(sys.getEntity( "voss_electroglow_" + gTetherArea )).remove();
+			(sys.getEntity( "voss_chargehurt_" + gTetherArea )).remove();
+			// stop the chump spawning loop
+			gSpawningChumps = 0;
+						
+			// charge is done, so remove the temp damage brush if it was destroyed and bring the lights back up
+/*			if ( gDestroyedCurrentStation == 1)
+			{
+				dmgStationEnt.remove();
+			}
+			else
+			{
+				// not destroyed, so hide the brush for the next round
+				dmgStationEnt.hide();
+
+				// close the shields
+				pos = shieldEnt.getWorldOrigin();
+				tmp = $tgt_shield_position_base.getWorldOrigin();
+				pos_z = tmp_z;
+
+				shieldEnt.time(0.5);
+				shieldEnt.accelTime(.2);
+				shieldEnt.decelTime(.2);
+				shieldEnt.moveToPos(pos);
+
+				sys.trigger($speaker_open_shield_door);
+			}
+*/
+//			if ( influenceLight != $null_entity )
+//			{
+//				sys.trigger( influenceLight );
+//			}
+
+//			if ( gDestroyedCurrentStation == 1 )
+//			{
+//				ent = sys.getEntity( "func_recharge_gui_" + gTetherArea );
+//				ent.setGuiFloat("gui_parm_broken", 1 );
+				// ...get the next tether area for when it's needed
+				gTetherArea = gTetherArea + 1;
+//			}
+
+
+			aiScriptedAnimWait( $monster_bossbuddy_1, "plugout", 4, true);
+		}
+			
+		// stupid ugly hack thing
+		if ( gTetherArea == 2 )
+		{
+			$func_door_boss_2.open();  // open first door
+		}
+		else if ( gTetherArea == 3 )
+		{
+			$func_door_boss_1.open();  // open the other two doors.
+			$func_door_boss_3.open(); 
+		}
+
+		// take damage again and move to next tether area
+		$monster_bossbuddy_1.becomeAggressive();
+		$monster_bossbuddy_1.setEnemy( $player1 );
+	}
+}
+
+//-------------------------------------------------------------------------------
+// Beat boss
+//-------------------------------------------------------------------------------
+void unlockArena()
+{
+	// player can now leave!
+	// ensure all of the doors are open.
+//	if ( !$func_door_boss_1.isOpen())
+//	{
+		$func_door_boss_1.open();
+//	}
+	// ensure all of the doors are open.
+//	if ( !$func_door_boss_2.isOpen())
+//	{
+		$func_door_boss_2.open();
+//	}
+	// ensure all of the doors are open.
+//	if ( !$func_door_boss_3.isOpen())
+//	{
+		$func_door_boss_3.open();
+//	}
+
+	$arenaScannerExit.lock(0);
+	sys.trigger($speakerScannerExit);
+	sys.wait(2);
+	$arenaConsoleScannerExit.lock(0);
+	sys.trigger($speakerConsoleScannerExit);
+	$voss_music.fadeSound(SND_CHANNEL_ANY, -80, 4);
+
+	// set up the hint trigger in case the player isn't sure what to do...
+	//	the trigger will be removed via map ents if the player does required task first
+	sys.trigger($triggerScannerHint);
+	
+	sys.wait(5);
+	$voss_music.remove();
+	sys.trigger($func_savegame_1);
+	
+}
+
+//-------------------------------------------------------------------------------------------------
+// End of boss battle section
+//-------------------------------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------------
+// if the player beats the boss and comes back into the scanner room first, the
+//	guys present will drop a hint
+//-------------------------------------------------------------------------------
+void giveScannerHint()
+{
+	aiSpeak( $marineRuck, "lipsync_vo_2_2_7_180_1" );
+}
+
+//-------------------------------------------------------------------------------
+// Low level beam shutdown, flicker them on/off to make it look cooler or something.
+//	Axis will be something like "_x_"  "_y_"  "_z_"
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void shutdownScannerLow(string axis,float numInGroup)
+{
+	entity work;
+	float i, t;
+
+	// the outer loop should be executed an ODD number of times so the objects 
+	//	will be in an off state at the end of this function
+	for ( t = 0; t < 3; t++ )
+	{
+		// adjust each object in the group
+		for ( i = 1; i <= numInGroup; i++ )
+		{
+			work = sys.getEntity("func_fx" + axis + i);
+			sys.trigger(work);
+
+			work = sys.getEntity("light" + axis + i);
+
+			// toggle the light
+			if ( work.isOn())
+			{
+				work.Off();
+			}
+			else
+			{
+				work.On();
+			}
+		}
+
+		sys.wait(sys.random(0.08)+0.01);
+	}
+}
+
+//-------------------------------------------------------------------------------
+// Player shuts down the scanner so the other marines can pass through
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void shutdownScanner()
+{
+	// "notify" the scanner threads that we are requesting termination...
+	gScannerTerminated = 1;
+
+	// wait until all threads are done
+	while ( gScannerTerminationCount < 8 )
+	{
+		sys.wait(.5);
+	}
+
+	// Yeah, the corpse no longers smokes
+	$fx_scorched_dude_smoke.remove();
+
+	// The beams are not moving at this time, so turn them off in sequence
+	$speaker_x_1.remove();
+	$speaker_x_2.remove();
+	sys.trigger( $speakerShutOffLaser_1 );
+	thread  shutdownScannerLow("_x_",2);
+	sys.wait(0.6);
+
+	$speaker_y_1.remove();
+	$speaker_y_2.remove();
+	$speaker_y_3.remove();
+	sys.trigger( $speakerShutOffLaser_2 );
+	thread  shutdownScannerLow("_y_",3);
+	sys.wait(0.6);
+
+	$speaker_z_1.remove();
+	$speaker_z_2.remove();
+	$speaker_z_3.remove();
+	sys.trigger( $speakerShutOffLaser_3 );
+	// NOTE: *NOT* threaded so execution halts until the shutdown process is complete...
+	shutdownScannerLow("_z_",3);
+
+	// TODO: add VO line?  Hey, he shut the scanner down!?
+	sys.wait(1);
+
+	// let the guys follow the player
+	sys.trigger( $func_aas_obstacle_block_scanner );
+	$marineRuck.enableMovement();
+	$marineWong.enableMovement();
+
+	// Ready to kick some butt
+	$marine_buddy.becomeAggressive();
+	$marineWong.becomeAggressive();
+	$marineRuck.becomeAggressive();
+
+	// ...and we need to wait so the AI won't attempt to walk through a still active scanner
+	$marineRuck.setLeader($player1);
+	$marineRuck.lookAt($null_entity);
+
+	$marineWong.setLeader($player1);
+	$marineWong.lookAt($null_entity);
+
+	$marine_buddy.setLeader($player1);
+	$marine_buddy.lookAt($null_entity);
+	
+	sys.trigger($ai_tether_radius_gatherthetroops_1);
+	sys.trigger($ai_trigger_once_gatherthetroops_1); //check for inside tether then call ruckFollowMe and unlock door
+}
+
+void ruckFollowMe()
+{
+	// "it's you and me corporal"
+	aiSpeakWait($marineWong, "lipsync_vo_9_14_10_2");
+
+	// if we didn't give it in the scanner room, give it to him now.
+	// if ( !gGaveRocketMod )
+	// {
+	// 	GiveRocketMod();
+	// }
+
+	// get a move on...
+	// sys.trigger( $ai_trigger_once_gatherthetroops_2 );
+	// sys.trigger( $ai_trigger_once_gatherthetroops_3 );
+
+	// unlock arena, lead player out.
+	$arenaLevelExit.lock(0);
+	// sys.trigger($ai_tether_radius_gatherthetroops_2);
+}
+
+//-------------------------------------------------------------------------------
+// Final sequence - dude at pickup point periodically waves to the player
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void signalToMarines()
+{
+	// don't play follow the leader anymore, just make a break for the end..
+	$marineWong.setLeader( $null_entity );
+	$marineRuck.setLeader( $null_entity );
+	$marine_buddy.setLeader( $null_entity );
+	
+	// do until level end
+	while( 1 )
+	{
+		aiScriptedAnimWait( $planeMarine, "waste_over_here", 10, true);
+		sys.wait(3 + sys.random(3));
+	}
+}
+
+//-------------------------------------------------------------------------------
+// Final sequence - Come out in to the open air and dead for the ship!
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void levelEnd()
+{
+
+	// load 'em up
+	// sys.trigger( $ai_trigger_once_gatherthetroops_10 );
+	// sys.trigger( $ai_trigger_once_gatherthetroops_11 );
+
+	// "Look! It’s Matthew Kane! He’s alive! Come on. Get onboard. We’ll have you back at the Churchill in no time."
+	aiSpeak( $planeMarine, "lipsync_vo_2_2_7_220_1" );
+	sys.wait(2);
+
+	sys.trigger($objectiveComplete);
+	sys.awardAchievement("completedAct2");
+	//sys.wait(5);
+	
+	sys.fadeOut('0 0 0', 3.5);
+/*
+	aiScriptedAnimWait( $planeMarine, "com_link_start", 16, 0);
+	aiScriptedAnimLoop( $planeMarine, "com_link_loop", 4 );
+	aiSpeakWait( $planeMarine, "lipsync_vo_2_2_7_230_1"); 
+	aiScriptedAnimWait( $planeMarine, "com_link_end", 8, 1); 
+*/	
+	//sys.trigger($func_radiochatter_dustoff);
+
+	// "Come on! Get onboard! Move it! Move it!"
+	// NOTE: a bad visme in the phoneme/lipsync file?
+//	aiSpeak( $planeMarine, "lipsync_vo_2_2_7_220_2" );
+
+	aiSpeakDone( $planeMarine );
+	sys.wait(1);
+	sys.trigger($endLevel);
+}
+
+//turns outdoor lights on/off. lights outdoors are rather big and causing issues indoors -corey
+float lightsAreOn = 0;
+
+void outdoorLightsOn()
+{
+	if (lightsAreOn == 0)
+	{
+		sys.trigger($end_light_1);
+		sys.trigger($end_light_2);
+		lightsAreOn = 1;
+	}
+}
+
+void outdoorLightsOff()
+{
+	if (lightsAreOn == 1)
+	{
+		sys.trigger($end_light_1);
+		sys.trigger($end_light_2);
+		lightsAreOn = 0;
+	}
+}
+
+//temp for opening boss buddy doors for testing. manual call from console only.
+
+void openBossBuddyDoors()
+{
+	sys.trigger($func_door_boss_1);
+	sys.trigger($func_door_boss_2);	
+	sys.trigger($func_door_boss_3);
+}
+
+//ladders!
+void laddersRoom1()
+{
+	//move ladder architecture down
+	$func_mover_ladderBase_1.move(-2, 96);
+	//move ladder brush.  cannot hide content flag brushes so this one starts higher and meets at the end of the move.
+	$func_mover_ladder_1.move(-2, 192);
+	
+	sys.wait(.5);
+	$func_mover_ladderBase_2.move(-2, 96);
+	$func_mover_ladder_2.move(-2, 192);
+	
+	sys.wait(.5);
+	$func_mover_ladderBase_3.move(-2, 96);
+	$func_mover_ladder_3.move(-2, 192);
+}
+
+void laddersRoom2()
+{
+	//move ladder architecture down
+	$func_mover_ladderBase_4.move(-2, 96);
+	//move ladder brush.  cannot hide content flag brushes so this one starts higher and meets at the end of the move.
+	$func_mover_ladder_4.move(-2, 192);
+}
+
+void laddersRoom3()
+{
+	//move ladder architecture down
+	$func_mover_ladderBase_5.move(-2, 96);
+	//move ladder brush.  cannot hide content flag brushes so this one starts higher and meets at the end of the move.
+	$func_mover_ladder_5.move(-2, 192);
+	
+	$func_mover_ladderBase_6.move(-2, 96);
+	$func_mover_ladder_6.move(-2, 192);
+}
+
+
+
+//-------------------------------------------------------------------------------
+// Prep any level related things
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void main()
+{
+	// Initialize first acid sprayers..let them run independent of each other in
+	//	case the track lengths and/or movement speeds are different.
+	thread  DoAcidSprayer( $nozzleMover2, $target_null_nozzle2_2, $target_null_nozzle2_1 );
+	
+//	thread  introTactical();
+
+	// Set each section to normal lighting
+	// NOTE: this doesn't even really have to be done at the start of the level, it could be called
+	//	just prior to entering the boss arena.  
+//	setBossRoomLightParm( $q1_master, 0 );
+//	setBossRoomLightParm( $q2_master, 0 );
+//	setBossRoomLightParm( $q3_master, 0 );
+//	setBossRoomLightParm( $q4_master, 0 );
+
+	//get dropship set up correctly at level end
+	$env_dropship_1.playAnim ( ANIMCHANNEL_ALL, "intro_idle" );
+}
+
+
+
+} // end namespace map_waste

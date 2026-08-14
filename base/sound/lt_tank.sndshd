@@ -1,0 +1,310 @@
+
+
+sound lt_tank_alert
+{
+	description	"GAH!"
+
+	minDistance	80
+	maxDistance	1968
+	volumeDb	4
+	shakes		0.2
+
+	sound/strogg/lt_tank/sight1
+	shakeData 0 yzzuozzxvxuzzyzqxwrkmkkfeccba
+	sound/strogg/lt_tank/sight2
+	shakeData 1 gzzxwhzyyzzzxzuytrpgca
+	sound/strogg/lt_tank/rush1
+	shakeData 2 zzzzyhmxyyzzzwvtspkkhfddbbbaaaaaaa
+	sound/strogg/lt_tank/rush2
+	shakeData 3 zyzzyzzzwthwzzzzxyxtwlolgfdccbbbaa
+	sound/strogg/lt_tank/victory1
+	shakeData 4 dmtyzzyzzzyzzyzzzwvvuyyqmjihlqjccdgehcbbccddbacbaaaaaaaaaaaaa
+	sound/strogg/lt_tank/victory2
+	shakeData 5 xzzzzzzzzyyxzzzzzzzzyywzxqhgffnlnokjgifgdeccbcbbaaaaaaaa
+}
+
+
+sound lt_tank_rush
+{
+	description	"GAH!"
+
+	minDistance	80
+	maxDistance	1968
+	volumeDb	4
+
+	sound/strogg/lt_tank/rush1
+	shakeData 0 zzzzyhmxyyzzzwvtspkkhfddbbbaaaaaaa
+	sound/strogg/lt_tank/rush2
+	shakeData 1 zyzzyzzzwthwzzzzxyxtwlolgfdccbbbaa
+}
+
+
+sound lt_tank_victory
+{
+	description	"GAH!"
+
+	minDistance	80
+	maxDistance	1968
+	volumeDb	4
+
+	sound/strogg/lt_tank/victory1
+	shakeData 0 dmtyzzyzzzyzzyzzzwvvuyyqmjihlqjccdgehcbbccddbacbaaaaaaaaaaaaa
+	sound/strogg/lt_tank/victory2
+	shakeData 1 xzzzzzzzzyyxzzzzzzzzyywzxqhgffnlnokjgifgdeccbcbbaaaaaaaa
+}
+
+
+sound lt_tank_breath
+{
+	description	"Huff Puff"
+
+	minDistance	393
+	maxDistance	708
+	volumeDb	-4
+
+	sound/strogg/lt_tank/breath1
+	shakeData 0 abdfgjijjjkklklkkklkhkkjjigkiihfffedcccbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/lt_tank/breath2
+	shakeData 1 acfjmopnlkjgikhjgggiihggfhgghhhifdgfddddccccbbaaaaaaaaaaaabdcbcbbccbbbbbaabaaaaaaaaaa
+	sound/strogg/lt_tank/breath3
+	shakeData 2 aaabbceefgggffijjklkkjjghiiighhihigggghhhihhgffeddcccbbaabbbbbcedcbbcbbbbbabbaaaaaaaaaaa
+}
+
+
+sound lt_tank_growl
+{
+	description	"grrr"
+
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+	no_dups
+
+	sound/strogg/lt_tank/growl1
+	shakeData 0 hzzzzyzzzzzzzzxzyzwypyvtrpvypllijkihefdddddcccbbbbaaaaaa
+	sound/strogg/lt_tank/growl2
+	shakeData 1 elzzzyyyzzzxzzzzzsyuotolkgiededcdbbbaaaaaaaa
+}
+
+
+sound lt_tank_pain
+{
+	description	"ow, quit it."
+
+	minDistance	393
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/lt_tank/pain1
+	shakeData 0 cszzyyzzzzzzzzzzyzzvyzywyuuxwrllmifhfeccbbbbaa
+	sound/strogg/lt_tank/pain2
+	shakeData 1 qypyzyzyzyzzyzwzzzyzzzzyyyyzzyzyrzzxowvhghfda
+}
+
+
+sound lt_tank_die
+{
+	description	"I see a light!"
+
+	minDistance	393
+	maxDistance	1377
+	volumeDb	0
+
+	sound/strogg/lt_tank/die1
+	shakeData 0 dfpptmjmsqvsmumqswzysxxyyxpzwrzzysnzrppoqqpkmkimlnkgihfdefedeeeccddcbbbbcbabaaaaaaaaaaa
+	sound/strogg/lt_tank/die2
+	shakeData 1 ehyyyzyywuzxzxsxvzsuwxwqwpuvursrxsrustpvrlokmligfggfeeddcccbbbaaaa
+}
+
+
+sound lt_tank_mace_swing
+{
+	description	"whiff!"
+
+	minDistance	39
+	maxDistance	708
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/lt_tank/mace_swing1
+	shakeData 0 ackswxoklfbaa
+	sound/strogg/lt_tank/mace_swing2
+	shakeData 1 aaecksyykjffcaaa
+}
+
+
+sound lt_tank_mace_impact
+{
+	description	"whiff!"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+	frequentlyUsed
+
+	sound/weapons/impact/whooshes_melee/mace_impact1
+	shakeData 0 hzzzzzxyrqnljebaaaaa
+	sound/weapons/impact/whooshes_melee/mace_impact2
+	shakeData 1 gzwzzzznmjdcbbaaaaaaaa
+}
+
+
+sound lt_tank_stomp
+{
+	description	"clud!"
+
+	minDistance	196
+	maxDistance	787
+	volumeDb	0
+	shakes		0.1
+	frequentlyUsed
+
+	sound/strogg/lt_tank/run1
+	shakeData 0 xyyyswsvrvtqujihifeccbaaaaaaa
+	sound/strogg/lt_tank/run2
+	shakeData 1 czzzzyyxzytunokjkggdcccbaaaaaa
+	sound/strogg/lt_tank/run3
+	shakeData 2 vyzzzyyywzvromhgheddbbbaaaaa
+	sound/strogg/lt_tank/run4
+	shakeData 3 szzzzyzyzsqrtnjhghedcbbaaaaaa
+}
+
+
+sound lt_tank_gear
+{
+	description	"swish!"
+
+	minDistance	39
+	maxDistance	708
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/lt_tank/gear1
+	shakeData 0 eddcdccccccccddddddddedcddebaaa
+	sound/strogg/lt_tank/gear2
+	shakeData 1 dcccccccccccccccccccdccccccccdecaaaa
+	sound/strogg/lt_tank/gear3
+	shakeData 2 edddddddddddddddbaaaaaa
+	sound/strogg/lt_tank/gear4
+	shakeData 3 feeedddeeddddeedededeeddddcaaa
+}
+
+
+sound lt_tank_flame_start
+{
+	description	"flamethrower ignite."
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/lt_tank/flame_start
+	shakeData 0 vztxjififhggghgffgefggffefegdeffeeededdcddccccccfcbcbbbbbaaaaaaaaa
+}
+
+
+sound lt_tank_flame_whoosh
+{
+	minDistance	40
+	maxDistance	800
+	volumeDb	-9
+	frequentlyUsed
+
+	sound/effects/fire/whoosh1
+	shakeData 0 abcddfhilpwuuyyuxwyxzyzvwuwwsonpoijifgedecbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/fire/whoosh2
+	shakeData 1 aaabbbbdegfghkijmnnqpwuxrvvrmjkiieffeeedccbbbccbabbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/fire/whoosh3
+	shakeData 2 aaabccdfhhjlpuuuwzxzyzzzzzzzxuonsljlikjfdcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound lt_tank_flame_loop
+{
+	description	"flamethrower looping"
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	-9
+	frequentlyUsed
+	looping
+
+	sound/strogg/lt_tank/flame_loop
+	shakeData 0 ggfeeeeggfddehgeifeeeffdejeecgfffegdfedededgfeefefe
+}
+
+
+sound lt_tank_beeps
+{
+	description	"small beeps before each footstep"
+
+	minDistance	40
+	maxDistance	400
+	volumeDb	-9
+
+	sound/strogg/lt_tank/beep
+	shakeData 0 deddeghdccbaaa
+}
+
+
+sound lt_tank_fireball_burst
+{
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+	frequentlyUsed
+
+	sound/weapons/grenade/explode1
+	shakeData 0 zzzsxvyroolknmmtjkhgolihlliromokjjjkjhjhjigffedddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode2
+	shakeData 1 zznotvvtrrnmpmomhimhkhgifgiplkmliikigijghggffeecdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode3
+	shakeData 2 zzywwzxxxtvupnmhfhhhjggfefglihigfefdddddccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode4
+	shakeData 3 zzswpwxxuysppjjjkhlkikhjlmpmjkkmkjkiihhgffhfgedecccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound lt_tank_powerup_start
+{
+	description	"powerup start"
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+
+	sound/strogg/lt_tank/powerup_start
+	shakeData 0 mnjrmlliiiljg
+}
+
+
+sound lt_tank_powerup_loop
+{
+	description	"powerup loop"
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+	looping
+
+	sound/strogg/lt_tank/powerup_loop
+	shakeData 0 klnokljiiijjkjjjjjikkjhjijiijhh
+}
+
+
+sound lt_tank_powerup_end
+{
+	description	"powerup stop"
+
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+
+	sound/strogg/lt_tank/powerup_end
+	shakeData 0 dgggggdaaafgggggbaaaaaaaaaaaaaaaa
+}
+
+
+
+

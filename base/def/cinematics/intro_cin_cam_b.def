@@ -1,0 +1,25 @@
+export cin_camera_intro_cin_B
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/game_intro/   -destdir models/cinematics/intro
+	camera	intro_dropship_blowup3.ma		-dest intro_cin_camera_B
+}
+
+camera intro_cin_camera_B
+{
+	anim intro_cin_camera_B				"models/cinematics/intro/intro_cin_camera_B.md5camera"
+
+}
+
+entityDef  cin_camera_intro_cin_B
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"intro_cin_camera_B"
+}
+
+

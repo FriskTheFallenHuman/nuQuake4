@@ -1,0 +1,62 @@
+export cin_putra_cam 
+{
+	options -nomesh -sourcedir work/models/monsters/fatty/animation -destdir models/cinematics/putra
+	camera	work/models/monsters/fatty/animation/door_cinematic.ma		-dest cin_putra_doorsmash_cam
+	camera	work/models/monsters/fatty/animation/cinematic_death.ma		-dest cin_putra_explode_cam	
+	
+}
+
+camera putra_doorsmash_cam
+{
+	anim putra_doorsmash_cam		"models/cinematics/putra/cin_putra_doorsmash_cam.md5camera"
+}
+
+entityDef cin_putra_doorsmash_cam
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+	
+	"camera"						"putra_doorsmash_cam"
+}	
+
+camera putra_explode_cam
+{
+	anim putra_explode_cam			"models/cinematics/putra/cin_putra_explode_cam.md5camera"
+}
+
+entityDef cin_putra_explode_cam
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+	
+	"camera"						"putra_explode_cam"
+}
+
+/*   temp stuff in case ranges are needed...
+
+camera	work/models/monsters/fatty/animation/cinematic_death.ma		-range 1 47    -dest models/cinematics/creature/cindeath_cam1
+	camera	work/models/monsters/fatty/animation/cinematic_death.ma		-range 48 167  -dest models/cinematics/creature/cindeath_cam2
+	camera	work/models/monsters/fatty/animation/cinematic_death.ma		-range 168 207 -dest models/cinematics/creature/cindeath_cam3
+	camera	work/models/monsters/fatty/animation/cinematic_death.ma		-range 208 275 -dest models/cinematics/creature/cindeath_cam4
+	
+	options -prefix fty_ -align ALL 
+	mesh	work/models/monsters/fatty/animation/fty_idle.ma			-dest models/monsters/fatty/mesh
+	anim	work/models/monsters/fatty/animation/cinematic_death.ma		-range 1 47	-dest models/monsters/fatty/cindeath1
+	anim	work/models/monsters/fatty/animation/cinematic_death.ma		-range 48 167	-dest models/monsters/fatty/cindeath2
+	anim	work/models/monsters/fatty/animation/cinematic_death.ma		-range 168 207	-dest models/monsters/fatty/cindeath3
+	anim	work/models/monsters/fatty/animation/cinematic_death.ma		-range 208 275	-dest models/monsters/fatty/cindeath4
+	anim	work/models/monsters/fatty/animation/door_cinematic.ma				-dest models/monsters/fatty/cindoor
+	
+	"anim cindeath3"				"models/cinematics/putra/cindeath_cam3"
+	"anim cindeath3"				"models/cinematics/putra/cindeath_cam4"
+}
+	
+*/

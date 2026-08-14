@@ -1,0 +1,745 @@
+/*
+===============================================================================
+
+	Tactical Transfer
+
+===============================================================================
+*/
+
+export tactical
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -keep l_elbo_tweak r_elbo_tweak body shoulders neckcontrol legs_channel head_channel SG_muzzle_flash MG_muzzle_flash HB_muzzle_flash -parent SG_stock r_wrist -parent MG_stock_joint r_wrist -parent HB_base r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/monsters/Tactical_transfer/nick_animations/ -destdir models/monsters/tactical
+
+	addoptions -skipmesh dummyEyeL
+	addoptions -skipmesh dummyEyeR
+	addoptions -skipmesh dummyHair1
+	addoptions -skipmesh dummyHair2
+	addoptions -skipmesh dummyHair3
+	addoptions -skipmesh dummy_head
+
+	addoptions -skipmesh PST_pistol_mesh
+ 	addoptions -skipmesh NG_stock_mesh 
+ 	addoptions -skipmesh NG_handle_mesh 
+ 	addoptions -skipmesh NG_handlebase_mesh 
+ 	addoptions -skipmesh NG_drum_mesh 
+ 	addoptions -skipmesh NG_clip_mesh 
+ 	addoptions -skipmesh NG_clip_left_mesh 
+ 	addoptions -skipmesh NG_clip_right_mesh 
+ 	addoptions -skipmesh NG_scope_mesh 
+ 	addoptions -skipmesh NG_a1_mesh 
+ 	addoptions -skipmesh NG_a2_mesh 
+ 	addoptions -skipmesh NG_b1_mesh 
+ 	addoptions -skipmesh NG_b2_mesh 
+ 	addoptions -skipmesh NG_c1_mesh 
+ 	addoptions -skipmesh NG_c2_mesh 
+ 	addoptions -skipmesh NG_d1_mesh 
+ 	addoptions -skipmesh NG_d2_mesh 
+ 	addoptions -skipmesh NG_e1_mesh 
+ 	addoptions -skipmesh NG_e2_mesh 
+ 	addoptions -skipmesh NG_f1_mesh 
+ 	addoptions -skipmesh NG_f2_mesh 
+ 	addoptions -skipmesh RKT_stock_mesh 
+ 	addoptions -skipmesh RKT_trigger_lft_mesh 
+ 	addoptions -skipmesh RKT_trigger_rt_mesh 
+ 	addoptions -skipmesh RKT_laser_sight_front_mesh 
+ 	addoptions -skipmesh RKT_laser_sight_back_mesh 
+ 	addoptions -skipmesh RKT_rack_mesh 
+ 	addoptions -skipmesh RKT_clasp_front_lft_mesh 
+ 	addoptions -skipmesh RKT_clasp_back_lft_mesh 
+ 	addoptions -skipmesh RKT_clasp_front_rt_mesh 
+ 	addoptions -skipmesh RKT_clasp_back_rt_mesh 
+ 	addoptions -skipmesh RKT_rocket_mesh 
+ 	addoptions -skipmesh RKT_fin_top_mesh 
+ 	addoptions -skipmesh RKT_fin_left_mesh 
+ 	addoptions -skipmesh RKT_fin_right_mesh 
+ 	addoptions -skipmesh GN_stock_mesh 
+ 	addoptions -skipmesh GN_ammo_mesh 
+ 	addoptions -skipmesh LG_stock_mesh 
+ 	addoptions -skipmesh LG_center_rod_mesh 
+ 	addoptions -skipmesh LG_spire_1_mesh 
+ 	addoptions -skipmesh LG_spire_2_mesh 
+ 	addoptions -skipmesh LG_spire_3_mesh 
+ 	addoptions -skipmesh LG_spire_4_mesh 
+ 	addoptions -skipmesh LG_flap_top_1 
+ 	addoptions -skipmesh LG_flap_top_2 
+ 	addoptions -skipmesh LG_flap_left_1 
+ 	addoptions -skipmesh LG_flap_left_2 
+ 	addoptions -skipmesh LG_flap_right_1 
+ 	addoptions -skipmesh LG_flap_right_2
+// TODO: We need the railgun mesh but we would need to export everything, so wait until next time we do this
+// 	addoptions -skipmesh RG_stock_mesh
+ 	addoptions -skipmesh DMG_body_mesh
+ 	addoptions -skipmesh DMG_l_magnet_mesh
+ 	addoptions -skipmesh DMG_r_magnet_mesh
+ 	addoptions -skipmesh DMG_outer_ring_mesh
+ 	addoptions -skipmesh DMG_middle_ring_mesh
+ 	addoptions -skipmesh DMG_inner_ring_mesh 	
+ 	
+ 	
+
+	mesh	tac_transfer_mesh.ma		-dest tactical_transfer
+	anim  	neck_snap.ma				-dest neck_snap
+	anim	shove_barrel_1_2.ma			-dest shove_barrel
+	anim	floating_tube.ma			-dest floating_tube
+	anim	pounding_tube.ma			-dest pounding_tube
+	anim	scan.ma						-dest scan
+	anim	teleport.ma					-dest teleport
+	anim	RECOMP_rapelling_NEW_RIG_01.ma		-dest recomp_rapel_01
+//	anim	patient.ma				-dest table_idle
+	anim	medlabs_ride_after_armor.ma		-range 1 125 -dest look_at_hands
+	anim	medlabs_ride_after_armor.ma		-range 125 225 -dest table_idle
+	anim	medlabs_implant_neurocyte.ma		-dest med_neuro_implant
+//	anim	knockdwn_a.ma				-dest knockdown1
+	anim	pain4.ma					-dest pain4
+}
+
+
+/*
+===============================================================================
+
+	Model Definition
+
+===============================================================================
+*/
+
+
+model model_monster_tactical
+{
+	inherit							model_char_marine
+
+	mesh							models/monsters/tactical/tactical_transfer.md5mesh
+	anim shove_barrel				models/monsters/tactical/shove_barrel.md5anim
+	anim floating_tube				models/monsters/tactical/floating_tube.md5anim
+	anim pounding_tube				models/monsters/tactical/pounding_tube.md5anim
+	anim scan						models/monsters/tactical/scan.md5anim
+	anim teleport					models/monsters/tactical/teleport.md5anim
+	
+	anim crouch_cover_reload					models/characters/marine/crouch_cover_reload.md5anim
+	{
+		frame	13								sound_weapon	snd_clipout_shotgun
+		frame	42								sound_item	snd_clipin_shotgun
+		frame 20								ai_disablePain
+	}
+	
+	anim cover_right_reload						models/characters/marine/crouch_cover_reload.md5anim
+	{
+		frame	13								sound_weapon	snd_clipout_shotgun
+		frame	42								sound_item	snd_clipin_shotgun
+		frame 	20								ai_disablePain
+	}
+	
+	anim cover_left_reload						models/characters/marine/crouch_left_reload.md5anim
+	{
+		frame	13								sound_weapon	snd_clipout_shotgun
+		frame	42								sound_item	snd_clipin_shotgun
+		frame 20								ai_disablePain
+	}
+	
+	anim crouch_reload							models/characters/marine/reload_at_knee.md5anim
+	{
+		frame	5								sound_weapon	snd_clipout_shotgun
+		frame	40								sound_item	snd_clipin_shotgun
+		frame 20								ai_disablePain
+	}
+	
+	anim crouch_cover_right_reload				models/characters/marine/crouch_cover_reload.md5anim
+	{
+		frame	13								sound_weapon	snd_clipout_shotgun
+		frame	42								sound_item	snd_clipin_shotgun
+		frame 20								ai_disablePain
+	}
+	
+	anim crouch_cover_left_reload				models/characters/marine/crouch_left_reload.md5anim
+	{
+		frame	13								sound_weapon	snd_clipout_shotgun
+		frame	42								sound_item	snd_clipin_shotgun
+		frame 20								ai_disablePain
+	}
+	
+	anim reload									models/characters/marine/machinegun_reload.md5anim
+	{
+		frame	20								sound_weapon	snd_clipout_mgun
+		frame	39								sound_item	snd_clipin_mgun
+		frame	52								sound	snd_machinegun_ready
+		frame 20								ai_disablePain
+	}
+	
+	anim melee_attack							models/characters/marine/rifle_butt.md5anim
+	{
+		rate 2
+		frame	21								sound_voice	snd_growl
+		frame 32								ai_attack_melee		meleeRiflebutt			
+	}	
+	anim melee_elbow							models/characters/marine/elbo_step.md5anim
+	{
+		rate 1.5
+		frame	9								sound_voice	snd_growl
+		frame 32								ai_attack_melee		meleeRifleButt			
+	}
+	
+	anim crouch_pain							models/characters/marine/knee_pain.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+ 	anim crouch_pain_concussive						models/characters/marine/knee_pain.md5anim
+ 	{
+		frame	1								sound_voice	snd_pain
+	}
+	
+	anim crouch_cover_pain						models/characters/marine/crouch_pain01.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim crouch_cover_pain_concussive					models/characters/marine/crouch_pain01.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim crouch_cover_right_pain				models/characters/marine/crouch_pain01.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim crouch_cover_right_pain_concussive			models/characters/marine/crouch_pain01.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim crouch_cover_left_pain					models/characters/marine/crouch_pain_left.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim crouch_cover_left_pain_concussive				models/characters/marine/crouch_pain_left.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim cover_right_pain						models/characters/marine/cover_right_pain.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim cover_right_pain_concussive					models/characters/marine/cover_right_pain.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim cover_left_pain						models/characters/marine/cover_left_pain.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim cover_left_pain_concussive					models/characters/marine/cover_left_pain.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+//	anim pain_std								models/characters/marine/pain_std.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim pain_std2								models/characters/marine/pain_std2.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim pain_std3								models/characters/marine/pain_std3.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim pain_con								models/characters/marine/pain_con.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim pain_con2								models/characters/marine/pain_con2.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+	anim pain1							models/characters/marine/pain01_long.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	anim pain2							models/characters/marine/pain02_med.md5anim
+	{
+		rate 1.5
+		frame	1								sound_voice	snd_pain
+	}
+	anim pain3							models/characters/marine/pain_concussive5.md5anim
+	{
+		rate 1.5
+		frame	1								sound_voice	snd_pain
+	}
+	
+	anim pain4							models/monsters/tactical/pain4.md5anim
+	{
+		frame	1								sound_voice	snd_pain
+	}
+	
+//	anim pain01_med						models/characters/marine/pain01_med.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim pain02_med						models/characters/marine/pain02_med.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim pain03_med						models/characters/marine/pain03_med.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+//	anim painbehind01_med				models/characters/marine/painbehind01_med.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+
+	anim recomp_rapel_a				models/monsters/tactical/recomp_rapel_01.md5anim
+	{
+		frame	1								sound_voice	tacticaltransfer_sight
+		frame	42								sound_weapon	snd_rappel
+		frame	78								sound_item	snd_bounce
+	}
+	anim table_idle					models/monsters/tactical/table_idle.md5anim
+	anim look_at_hands				models/monsters/tactical/look_at_hands.md5anim
+	anim med_neuro_implant				models/monsters/tactical/med_neuro_implant.md5anim
+//	anim knockdown1					models/monsters/tactical/knockdown1.md5anim
+//	{
+//		frame	1								sound_voice	snd_pain
+//	}
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+}
+
+/*
+===============================================================================
+
+	Base Attacks
+
+===============================================================================
+*/
+
+entityDef melee_tactical
+{
+	"inherit"								"damage_monster_base"
+	"damage"								"15"
+}
+
+/*
+===============================================================================
+
+	Base Tactical Transfer Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_tactical_base
+{
+	"inherit1"								"ai_tactical"
+	"inherit2"								"actor_default"
+	
+	"editor_ignore"							"1"
+	"spawnclass"							"rvAITactical"
+	
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_tactical"
+	"size"									"32 32 72"
+	"use_aas"								"aas32"
+	"articulatedFigure"						"marine3"
+	"ragdoll"								"marine3"
+	"talks"									"0"
+	"health"								"125"
+	"walkRange"								"64"
+	"fov"									"110"
+
+	"joint_eyeOffset"						"head_channel"
+	"joint_chestOffset"						"chest"
+
+	"deathhidesurface1"						"models/weapons/mp_guns/w_sg"
+	"deathhidesurface2"						"models/weapons/mp_guns/w_sg_mod_ammo"
+	"deathhidesurface3"						"models/weapons/mp_guns/w_hb"
+	"deathhidesurface4"						"models/weapons/mp_guns/w_hb_battery"
+	"deathhidesurface5"						"models/weapons/mp_guns/w_mg_lo"
+	"deathhidesurface6"						"models/weapons/railgun/world/w_rg"
+
+	"dropDeathItem1Joint"					"r_wrist"
+
+	// --------------------------------- Combat ----------------------------------
+	"painThreshold"							"1"
+//	"painThresholdBig"						"30"
+
+	"tactical_cover"						"1"
+	"tactical_hide"							"1"
+	"tactical_rush"							"0"
+	"tactical_ranged"						"1"
+
+	"def_attack_melee"						"melee_tactical"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*legs_channel"
+	"damage_scale head"						"2"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"							"0.1 0.3 0"
+	  "look_joint chest"						"0.2 0.2 0"
+	    "look_joint shoulders"					"0.2 0.2 0"
+	      "look_joint legs_channel"				"0.3 0.3 0"
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"							"tacticaltransfer_sight"
+	"lipsync_rush"							"tacticaltransfer_rush"
+	"lipsync_cover"							"tacticaltransfer_cover"
+	"lipsync_flank"							"tacticaltransfer_flank"
+	"lipsync_moveup"						"tacticaltransfer_moveup"
+	"lipsync_checkfire"						"tacticaltransfer_checkfire"
+	"lipsync_mandown"						"tacticaltransfer_mandown"
+	"lipsync_victory"						"tacticaltransfer_victory"
+	"lipsync_watchit"						"tacticaltransfer_watchit"
+	
+	"lipsync_chatter_idle"					"tacticaltransfer_chatter"
+	"lipsync_chatter_combat"				"tacticaltransfer_chatter"
+	"chatter_rate_idle"						"6,15"
+	"chatter_rate_combat"					"4,9"
+	
+	"snd_footstep"							"tacticaltransfer_steps"
+	"snd_footstep_sand"						"tacticaltransfer_steps_dirt"
+	"snd_footstep_dirt"						"tacticaltransfer_steps_dirt"
+	"snd_footstep_hollowmetal"				"tacticaltransfer_steps_hollow_metal"
+	"snd_footstep_rock"						"tacticaltransfer_steps_water"
+	"snd_footstep_flesh"					"tacticaltransfer_steps_flesh"
+	
+	"snd_rappel"							"tacticaltransfer_rappel"
+	
+	"snd_bounce"							"generic_creature_fall_small"
+	
+	"snd_ready_shotgun"						"tacticaltransfer_shotgun_pump"
+	"snd_clipin_shotgun"					"tacticaltransfer_shotgun_clipin"
+	"snd_clipout_shotgun"					"tacticaltransfer_shotgun_clipout"
+	
+	"snd_pain"								"tacticaltransfer_pain"
+	"snd_death"								"tacticaltransfer_death"
+	"snd_swing"								"tacticaltransfer_swing"
+	"snd_growl"								"tacticaltransfer_growl"
+	
+	"snd_machinegun_ready"					"tacticaltransfer_machinegun_ready"
+	"snd_clipin_mgun"						"tacticaltransfer_machinegun_clipin"
+	"snd_clipout_mgun"						"tacticaltransfer_machinegun_clipout"
+	
+	"sound_bone"							"body"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"								"Tactical Transfer"
+	"dbText"								"Description Text of the Tactical Transfer"
+	"sg_name"								"Tactical Transfer (Shotgun)"
+
+	// ---------------------------------- Gibs -----------------------------------
+	"gib"									"1"
+	"fx_gib"								"effects/monsters/gib.fx"
+
+	"def_dropGibItem1"						"moveable_gib_head_pork"
+	"dropGibItem1Joint"						"neckcontrol"
+
+	"def_dropGibItem2"						"moveable_gib_torso_pork"
+	"dropGibItem2Joint"						"chest"
+
+	"def_dropGibItem3"						"moveable_gib_rup_arm_pork"
+	"dropGibItem3Joint"						"r_up_arm"
+
+	"def_dropGibItem4"						"moveable_gib_left_waist_pork"
+	"dropGibItem4Joint"						"waist"
+
+	"def_dropGibItem5"						"moveable_gib_lup_leg_pork"
+	"dropGibItem5Joint"						"l_upleg"
+
+	"def_dropGibItem6"						"moveable_gib_rup_leg_pork"
+	"dropGibItem6Joint"						"r_upleg"
+
+	"def_dropGibItem7"						"moveable_gib_rup2_leg_pork"
+	"dropGibItem7Joint"						"r_loleg"
+
+	"def_dropGibItem8"						"moveable_gib_pelvis_pork"
+	"dropGibItem8Joint"						"hips"
+	
+//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+}	
+
+/*
+===============================================================================
+
+	Shotgun Tactical Transfer
+
+===============================================================================
+*/
+
+entityDef damage_tactical_shotgun
+{
+	"inherit"								"damage_bullet_base"
+	"damage"								"4"
+}
+
+entityDef hitscan_tactical_shotgun
+{
+	"inherit"								"hitscan_shotgun_base"
+	"def_damage"							"damage_tactical_shotgun"
+}
+
+entityDef monster_tactical
+{
+	"inherit"								"monster_tactical_base"
+	"editor_ignore"							"0"
+
+	// ------------------------------- Actions ------------------------------------
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"350"
+	"action_leanLeftAttack_maxRange"		"350"
+	"action_leanRightAttack_maxRange"		"350"
+
+	"def_dropDeathItem1"					"moveable_item_shotgun"
+
+	"attackRange"							"100 300"
+	"weaponPrefix"							"shotgun"
+	"minShots"								"1"
+	"maxShots"								"3"
+	"fireRate"								".5"
+	"ammo"									"8"
+
+	"def_attack_base"						"hitscan_tactical_shotgun"
+	"attack_base_hitscan"					"1"
+	"attack_base_accuracy"					"0"
+	"attack_base_spread"					"10"
+	"attack_base_count"						"10"
+
+	"action_killswitchAttack"				"0"
+	
+	"def_attack_killswitch"					"hitscan_tactical_shotgun"
+	"attack_killswitch_hitscan"				"1"
+	"attack_killswitch_accuracy"			"0"
+	"attack_killswitch_spread"				"10"
+	"attack_killswitch_count"				"10"
+	"attack_killswitch_locktojoint"			"1"
+
+	"hidesurface1"							"models/weapons/mp_guns/w_hb"
+	"hidesurface2"							"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface3"							"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface4"							"models/weapons/railgun/world/w_rg"
+
+	"fx_base_flash"							"effects/weapons/shotgun/muzzleflash_world.fx"
+	
+	"snd_s_pump"							"tacticaltransfer_shotgun_pump"
+	"snd_base_flash"						"tacticaltransfer_sbotgun_fire"
+}
+
+/*
+===============================================================================
+
+	Machinegun Tactical Transfer
+
+===============================================================================
+*/
+
+entityDef damage_tactical_machinegun
+{
+	"inherit"								"damage_bullet_base"
+	"damage"								"8"
+}
+
+entityDef hitscan_tactical_machinegun
+{
+	"inherit"								"hitscan_bullet_base"
+	"def_damage"							"damage_tactical_machinegun"
+
+	"attack_spread_horizontal"				"3"
+	"attack_spread_vertical"				"3"
+}
+
+entityDef monster_tactical_mgun
+{
+	"inherit"								"monster_tactical_base"
+	"editor_ignore"							"0"
+
+	// ------------------------------- Actions ------------------------------------
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"-1"
+
+	"def_dropDeathItem1"					"moveable_item_machinegun"
+
+	"attackRange"							"300 1000"
+	"weaponPrefix"							"machinegun"
+	"minShots"								"3"
+	"maxShots"								"7"
+	"fireRate"								".1"
+	"ammo"									"40"
+
+	"def_attack_base"						"hitscan_tactical_machinegun"
+	"attack_base_hitscan"					"1"
+	"attack_base_accuracy"					"1"
+	"attack_base_spread"					".25"
+
+	"def_attack_killswitch"					"hitscan_tactical_machinegun"
+	"attack_killswitch_hitscan"				"1"
+	"attack_killswitch_accuracy"			"1"
+	"attack_killswitch_spread"				".25"
+	"attack_killswitch_locktojoint"			"1"
+
+	"hidesurface1"							"models/weapons/mp_guns/w_sg"
+	"hidesurface2"							"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"							"models/weapons/mp_guns/w_hb"
+	"hidesurface4"							"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"							"models/weapons/railgun/world/w_rg"
+
+
+	// --------------------------------- Sounds ---------------------------------
+	"snd_base_flash"						"tacticaltransfer_machinegun"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_base_flash"							"effects/weapons/machinegun/muzzleflash_world.fx"
+}
+
+/*
+===============================================================================
+
+	Hyperblaster Tactical Transfer
+
+===============================================================================
+*/
+
+entityDef damage_tactical_blaster
+{
+	"inherit"								"damage_monster_base"
+	"damage"								"10"
+}
+
+entityDef projectile_tactical_blaster 
+{
+	"inherit"								"projectile_blaster_base"
+	"velocity"								"1500 0 0"
+	"def_damage"							"damage_tactical_blaster"
+	"fx_impact"								"effects/monsters/strogg_marine/blaster_burst.fx"
+	"fx_fly"								"effects/monsters/strogg_marine/blaster_fly.fx"
+}
+
+entityDef monster_tactical_blaster
+{
+	"inherit"								"monster_tactical_base"
+	"editor_ignore"							"0"
+
+	// ------------------------------- Actions ------------------------------------
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"-1"
+
+	"def_dropDeathItem1"					"moveable_item_hyperblaster"
+
+	"attackRange"							"300 1000"
+	"weaponPrefix"							"hyperblaster"
+	"minShots"								"5"
+	"maxShots"								"10"
+	"fireRate"								".08"
+	"ammo"									"60"
+
+	"def_attack_base"						"projectile_tactical_blaster"
+	"attack_base_accuracy"					"1"
+	"attack_base_spread"					".25"
+
+	"def_attack_killswitch"					"projectile_tactical_blaster"
+	"attack_killswitch_accuracy"			"1"
+	"attack_killswitch_spread"				".25"
+	"attack_killswitch_locktojoint"			"1"
+
+	"hidesurface1"							"models/weapons/mp_guns/w_sg"
+	"hidesurface2"							"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"							"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface4"							"models/weapons/railgun/world/w_rg"
+
+	// --------------------------------- Sounds ---------------------------------
+	"snd_base_flash"							"npc_hyperblaster_fire"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_base_flash"							"effects/monsters/strogg_marine/blaster_mflash.fx"
+}
+
+
+/*
+===============================================================================
+
+	Railgun Tactical Transfer
+
+===============================================================================
+*/
+
+entityDef damage_tactical_railgun
+{
+	"inherit"							"damage_railgun_base"
+	"damage"							"50"
+	"kickdir"							"1 0 0"
+}
+
+entityDef hitscan_tactical_railgun
+{
+	"inherit"							"hitscan_base"
+	"push"								"40000"
+//	"def_damage"						"damage_gladiator_railgun"
+	"def_damage"						"damage_tactical_railgun"
+	
+	"fx_impact"							"effects/monsters/gladiator/railgun_burst.fx"
+	"fx_path"							"effects/monsters/gladiator/railgun_trail.fx"
+}
+
+entityDef monster_tactical_railgun
+{
+	"inherit"								"monster_tactical_base"
+	"editor_ignore"							"0"
+
+	// ------------------------------- Actions ------------------------------------
+	"actionTimer_rangedAttack_rate"			"4"
+
+	"action_killswitchAttack"				"0"
+
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"-1"
+
+	"attackRange"							"0 2000"
+	"minShots"								"1"
+	"maxShots"								"1"
+	"fireRate"								"1"
+	"ammo"									"1"
+
+	"def_drops"								"moveable_item_railgun"
+
+	"def_attack_base"						"hitscan_tactical_railgun"
+	"attack_base_hitscan"					"1"
+	"attack_base_accuracy"					"2"
+	"attack_base_spread"					"0"
+	"attack_base_predict"					".75"
+
+	"hidesurface1"							"models/weapons/mp_guns/w_sg"
+	"hidesurface2"							"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"							"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface4"							"models/weapons/mp_guns/w_hb"
+	"hidesurface5"							"models/weapons/mp_guns/w_hb_battery"
+
+	// --------------------------------- Sounds ---------------------------------
+//	"snd_base_flash"						"weapon_hyperblaster_fire"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_base_flash"							"effects/monsters/gladiator/railgun_mflash.fx"
+	
+
+}
+
+/*
+===============================================================================
+
+	Unarmed Tactical Transfer
+
+===============================================================================
+*/
+entityDef monster_tactical_unarmed
+{
+	"inherit"							"monster_tactical_base"
+	"editor_ignore"						"0"
+	
+	"action_rangedAttack"				"0"
+	"action_leanLeftAttack"				"0"
+	"action_leanRightAttack"			"0"
+	
+	"hidesurface1"						"models/weapons/mp_guns/w_sg"
+	"hidesurface2"						"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"						"models/weapons/mp_guns/w_hb"
+	"hidesurface4"						"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"						"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface6"							"models/weapons/railgun/world/w_rg"
+}

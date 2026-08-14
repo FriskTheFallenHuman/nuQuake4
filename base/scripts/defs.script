@@ -1,0 +1,113 @@
+/**********************************************************************
+
+defs.script
+
+This defines some variables needed by the game script.
+
+***********************************************************************/
+
+#ifndef __QUAKE_DEFS__
+#define __QUAKE_DEFS__
+
+#define CW										-1
+#define	CCW										-2
+
+#define SIG_REACHED								10	// object reached its rotation/motion destination
+
+#define BUTTON_ZOOM								4
+#define BUTTON_SCORES							8
+#define BUTTON_6								32
+#define BUTTON_7								64
+
+// WARNING: These must stay mirrored in both defs.script and AI.h
+#define AIPLAYBACK_MOVEMENT						1
+#define AIPLAYBACK_AIMJOINTS					2
+
+// Playback Flags
+// WARNING: These must stay mirrored in both defs.script and AI.h
+#define PBFL_GET_POSITION						1
+#define PBFL_GET_ANGLES							2
+#define PBFL_GET_BUTTONS						4
+#define PBFL_GET_IMPULSE						8
+
+#define PBFL_GET_VELOCITY						16
+#define PBFL_GET_ACCELERATION					32
+#define PBFL_GET_ANGLES_FROM_VEL				64
+
+#define PBFL_AT_DEST							128
+#define PBFL_RELATIVE_POSITION					256
+
+#define		PLAYBACKFL_MOVE_RELATIVE			2
+#define		PLAYBACKFL_ANG_RELATIVE				8
+#define		PLAYBACKFL_AT_DEST					16
+
+
+//
+// move types
+//
+#define MOVETYPE_DEAD					0				// no enemy tracking or steering.  just runs physics and script.
+#define MOVETYPE_ANIM					1				// movement based on animation deltas
+#define MOVETYPE_SLIDE					2				// movement based on velocity.  set speed using setFlySpeed.
+#define MOVETYPE_FLY					3				// flying monsters.
+#define MOVETYPE_STATIC					4				// no movement or gravity.
+// RAVEN BEGIN
+// nmckenzie:
+#define MOVETYPE_PLAYBACK				5
+// RAVEN END
+
+//
+// move results
+//
+#define MOVE_STATUS_DONE				0				// move succeeded, or not moving
+#define MOVE_STATUS_MOVING				1				// move in progress
+#define MOVE_STATUS_WAITING				2				// 
+#define MOVE_STATUS_DEST_NOT_FOUND		3				// destination doesn't exist
+#define MOVE_STATUS_DEST_UNREACHABLE	4				// 
+#define MOVE_STATUS_BLOCKED_BY_WALL		5
+#define MOVE_STATUS_BLOCKED_BY_OBJECT	6
+#define MOVE_STATUS_BLOCKED_BY_ENEMY	7
+#define MOVE_STATUS_BLOCKED_BY_MONSTER	8
+#define MOVE_STATUS_BLOCKED_BY_PLAYER	9				
+
+//
+// talk states
+//
+#define TALK_NEVER						0				// Never talk to the player
+#define TALK_DEAD						1				// Cant talk due to being dead
+#define TALK_OK							2				// Can talk
+#define TALK_FOLLOW						3				// Talking will cause them to follow (or stop following)
+#define TALK_BUSY						4				// Cant talk right now, is busy
+#define TALK_WAIT						5				// Wait a bit - he's probably in the middle of a conversation (this is so you can still see their names but they won't talk to you when clicked on)
+
+// AI move speeds
+#define AIMOVESPEED_DEFAULT				0				// Choose run/walk depending on situation
+#define AIMOVESPEED_RUN					1				// Always run
+#define AIMOVESPEED_WALK				2				// alwasy walk
+
+// Special Effect Types
+#define SPECIAL_EFFECT_BLUR				1				// full screen blur
+
+// AI Tactical Postures
+#define AIPOSTURE_DEFAULT				-1				// Default posture (ai will decide which posture to use)
+#define AIPOSTURE_STAND					0				// Standing posture (also the default posture)
+#define AIPOSTURE_CROUCH				1				// Crouching with no cover
+#define AIPOSTURE_STAND_COVER_LEFT		2				// Standing behind cover to the left
+#define AIPOSTURE_STAND_COVER_RIGHT		3				// Standing behind cover to the right
+#define AIPOSTURE_CROUCH_COVER			4				// Crouching behind cover with no lean direction
+#define AIPOSTURE_CROUCH_COVER_LEFT		5				// Crouching behind cover to the left
+#define AIPOSTURE_CROUCH_COVER_RIGHT	6				// Crouching behind cover to the right 
+#define AIPOSTURE_RELAXED				7				// Relaxed
+#define AIPOSTURE_UNARMED				8				// Unarmed
+#define AIPOSTURE_AT_ATTENTION			9				// At Attention
+
+// RAVEN BEGIN
+// jdischler: used with sys.sendNamedEvent.  These values must be synchonised with
+//		the enums defined in Event_SendNamedEvent (Script_Thread.cpp)
+#define	GUI_PLAYERHUD					0				// Player hud		
+#define	GUI_CINEMATICHUD				1				// cinematic hud
+// twhitaker: vehicle hud usage
+#define	GUI_VEHICLEHUD					2				// Vehicle hud
+#define GUI_CURSOR						3				// cursor gui
+// RAVEN END
+
+#endif

@@ -1,0 +1,678 @@
+namespace map_tram1b {
+
+void ForcePlayerToUseMountedGun() 
+{
+	$player1.enterVehicle($vehicle_tram_reargun_1);
+	$vehicle_tram_reargun_1.lock(1);
+	$player_tram.setPlayerDamageEnt( 1);
+}
+
+void EvaluateDebugFilters( string filter ) {
+	sys.wait( 2.0 );
+	
+	if( filter == "debugGasLeak" ) 
+	{
+		sys.trigger( $BtoExitB_2 );// Activate
+		$player_tram.setIdealTrack( "ExitB" );
+		
+		tramCar_Scripts::RemoveTargetSpawners( $info_player_start_1 );
+	} else if( filter == "debugTrackSwitching" ) 
+	{
+		tramCar_Scripts::RemoveTargetSpawners( $info_player_start_1 );
+	}
+}
+
+
+void removeFlyerBits(string flyerNumber)
+{
+	entity flyerBit = $nullEntity; 
+	
+	flyerBit = sys.getEntity("strafingFlyer_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("strafeBase_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("flyerStrafeExplode_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("strafeRocketA_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("strafeRocketB_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("flyerStrafeBoom_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("flyerDamage_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+	flyerBit = sys.getEntity("strafeLeader_" + flyerNumber);
+	if (flyerBit != $nullEntity)
+		flyerBit.remove();
+} 
+
+void debugFlyerAngleWatcher(entity flyer)
+{
+	// Outputs the angle of something that is following a spline
+
+	while (flyer != $null_entity)
+	{
+//		sys.println("angle: " + flyer.getAngles());
+		sys.wait(1);
+	}
+}
+
+//--------------------------------------------------------------------------
+// void manageBankingAngles
+//
+// This function handles everything involved in making the flyer bank along
+// its flight path.  To use it, start by creating an invisible mover in the
+// map.  Call it strafeLeader_x where "x" is the number of the flyer.  Then
+// start it on the spline with the same movement values as the flyer itself.
+// After a short wait (less than 1 second) start the flyer down the same 
+// spline.  
+//
+// This function uses the leader mover to determine which direction the
+// craft is turning.  It takes the leader's orientation and compares it to
+// the orientation of the flyer.  The difference (theta) is the direction 
+// that the flyer is going to move in the next short time increment.  Since 
+// an aircraft banks more when it turns sharply, theta is directly 
+// proportional to the desired banking angle.  
+//
+// gcarlson | May 2005
+//--------------------------------------------------------------------------
+
+void manageBankingAngles(string flyerNumber)
+{
+	sys.waitFrame(); // make sure the flyer is on the path before calculating anything
+
+	float timestep = .1; // number of seconds between adjusting the bank angle	
+
+	entity base = sys.getEntity("strafeBase_" + flyerNumber); // this part follows the spline
+	entity leader = sys.getEntity("strafeLeader_" + flyerNumber); // this part keeps track of where the base will soon be
+	entity flyer = sys.getEntity("strafingFlyer_" + flyerNumber); // this part does the banking
+
+	setNewTimes(flyer, timestep, 0, 0);
+
+	float bankAngle = 0; // how much the craft should be banked at any given time
+	float oldBankAngle = 0; // how much the craft was banked on the last loop
+	float ratio = 4; // ratio between theta and bankAngle
+	vector bankVector = '0 0 0'; // for the rotation that does the actual banking
+
+	while (isValidEntity(flyer))
+	{
+		vector theta = base.getAngles() - leader.getAngles();
+
+		// The larger theta is, the more sharply the craft is turning.
+		// So for a higher theta, the craft should bank more.
+
+		bankAngle = theta_x * ratio;
+		bankVector_x = bankAngle - oldBankAngle;
+/*
+		if (flyerNumber == "4" || flyerNumber == "1")
+		{
+			sys.println("bank angle " + bankAngle + " - oldBankAngle " + oldBankAngle + " = bank vector " + bankVector);
+		}
+*/
+		//flyer.rotateOnce(bankVector);		
+
+		oldBankAngle = bankAngle; // reset for next loop
+		sys.wait(timestep);
+	}
+
+}
+
+void beginFlyerFight_1()
+{
+//	sys.println("void beginFlyerFight_1");
+
+	setNewTimes($strafeLeader_1, 12, 0, 0);
+	$strafeLeader_1.startSpline($spline_flyer_1);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_1, 12, 0, 0);
+   	$strafeBase_1.startSpline($spline_flyer_1);
+
+	thread manageBankingAngles("1");
+	
+	sys.wait(2);
+
+	if (!isValidEntity($strafingFlyer_1)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_1, $strafingFlyer_1.getTarget(0), $strafingFlyer_1.getTarget(1), 3 );
+
+	sys.wait(1);
+
+	if (!isValidEntity($strafingFlyer_1)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_1, $strafingFlyer_1.getTarget(0), $strafingFlyer_1.getTarget(1), 1 );
+	
+	sys.wait(1);
+
+	if (!isValidEntity($strafingFlyer_1)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_1, $strafingFlyer_1.getTarget(0), $strafingFlyer_1.getTarget(1), 1 );
+
+	sys.wait(1.75);
+
+	if (!isValidEntity($strafingFlyer_1)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd_1);
+
+	sys.waitFor( $strafeBase_1 );
+	removeFlyerBits("1");	
+}
+
+void beginFlyerFight_2()
+{
+//	sys.println("void beginFlyerFight_2");
+
+	setNewTimes($strafeLeader_2, 16, 0, 0);
+	$strafeLeader_2.startSpline($spline_flyer_2);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_2, 16, 0, 0); 
+	$strafeBase_2.startSpline($spline_flyer_2);
+
+	thread manageBankingAngles("2");
+
+	sys.wait(6);
+	if (!isValidEntity($strafingFlyer_2)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_2, $strafingFlyer_2.getTarget(0), $strafingFlyer_2.getTarget(1), 3 );
+
+	sys.wait(2);
+	
+	if (!isValidEntity($strafingFlyer_2)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd);
+
+	sys.waitFor( $strafeBase_2 );
+	removeFlyerBits("2");
+}
+
+void beginFlyerFight_3()
+{
+//	sys.println("void beginFlyerFight_3");
+
+	setNewTimes($strafeLeader_3, 10, 0, 0);
+	$strafeLeader_3.startSpline($spline_flyer_3);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_3, 10, 0, 0); 
+	$strafeBase_3.startSpline($spline_flyer_3);
+
+	thread manageBankingAngles("3");
+	
+	sys.wait(4);
+	if (!isValidEntity($strafingFlyer_3)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd);
+	
+	sys.waitFor( $strafeBase_3 );
+	removeFlyerBits("3");
+}
+
+void beginFlyerFight_4()
+{
+//	sys.println("void beginFlyerFight_4");
+
+	setNewTimes($strafeLeader_4, 10, 0, 0);
+	$strafeLeader_4.startSpline($spline_flyer_4);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_4, 10, 0, 0); 
+	$strafeBase_4.startSpline($spline_flyer_4);
+
+	thread manageBankingAngles("4");
+
+	sys.wait(.5);
+	if (!isValidEntity($strafingFlyer_4)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_4, $strafingFlyer_4.getTarget(0), $strafingFlyer_4.getTarget(0), 1 );
+	
+	sys.wait(2.25);
+	if (!isValidEntity($strafingFlyer_4)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_4, $strafingFlyer_4.getTarget(0), $strafingFlyer_4.getTarget(1), 3 );
+
+	sys.wait(1);
+	if (!isValidEntity($strafingFlyer_4)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_4, $strafingFlyer_4.getTarget(0), $strafingFlyer_4.getTarget(0), 1 );
+
+	sys.wait(1.25);
+	if (!isValidEntity($strafingFlyer_4)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd_1);
+
+	sys.waitFor( $strafeBase_4 );
+	removeFlyerBits("4");
+}
+
+void beginFlyerFight_5()
+{
+//	sys.println("void beginFlyerFight_5");
+
+	setNewTimes($strafeLeader_5, 6, 0, 0);
+	$strafeLeader_5.startSpline($spline_flyer_5);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_5, 6, 0, 0); 
+	$strafeBase_5.startSpline($spline_flyer_5);
+
+	thread manageBankingAngles("5");
+
+	sys.wait(2.5);
+	if (!isValidEntity($strafingFlyer_5)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_5, $strafingFlyer_5.getTarget(0), $strafingFlyer_5.getTarget(1), 1 );
+
+	sys.wait(.25);
+	if (!isValidEntity($strafingFlyer_5)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd);
+	
+	sys.waitFor( $strafeBase_5 );
+	removeFlyerBits("5");
+}
+
+void beginFlyerFight_6()
+{
+//	sys.println("void beginFlyerFight_6");
+
+	setNewTimes($strafeLeader_6, 8, 0, 0);
+	$strafeLeader_6.startSpline($spline_flyer_6);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_6, 8, 0, 0); 
+	$strafeBase_6.startSpline($spline_flyer_6);
+
+	thread manageBankingAngles("6");
+
+	sys.wait(2.5);
+	if (!isValidEntity($strafingFlyer_6)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_6, $strafingFlyer_6.getTarget(0), $strafingFlyer_6.getTarget(1), 3 );
+
+	if (!isValidEntity($strafingFlyer_6)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd_1);
+
+	sys.waitFor( $strafeBase_6 );
+	removeFlyerBits("6");
+}
+
+void beginFlyerFight_7()
+{
+//	sys.println("void beginFlyerFight_7");
+
+	setNewTimes($strafeLeader_7, 5, 0, 0);
+	$strafeLeader_7.startSpline($spline_flyer_7);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_7, 5, 0, 0); 
+	$strafeBase_7.startSpline($spline_flyer_7);
+
+	thread manageBankingAngles("7");
+	
+	if (!isValidEntity($strafingFlyer_7)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	sys.wait(2);
+	if (!isValidEntity($strafingFlyer_7)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd);
+
+	sys.waitFor( $strafeBase_7 );
+	removeFlyerBits("7");
+}
+
+void beginFlyerFight_8()
+{
+//	sys.println("void beginFlyerFight_8");
+
+	setNewTimes($strafeLeader_8, 10, 0, 0);
+	$strafeLeader_8.startSpline($spline_flyer_8);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_8, 10, 0, 0); 
+	$strafeBase_8.startSpline($spline_flyer_8);
+
+	thread manageBankingAngles("8");
+
+	sys.wait(1);
+	if (!isValidEntity($strafingFlyer_8)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_8, $strafingFlyer_8.getTarget(0), $strafingFlyer_8.getTarget(1), 2 );
+
+	sys.waitFor( $strafeBase_8 );
+	removeFlyerBits("8");
+}
+
+void beginFlyerFight_9()
+{
+//	sys.println("void beginFlyerFight_9");
+
+	setNewTimes($strafeLeader_9, 8, 0, 0);
+	$strafeLeader_9.startSpline($spline_flyer_9);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_9, 8, 0, 0); 
+	$strafeBase_9.startSpline($spline_flyer_9);
+
+	thread manageBankingAngles("9");
+
+	sys.wait(6.5);
+	if (!isValidEntity($strafingFlyer_9)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd);
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_9, $strafingFlyer_9.getTarget(0), $strafingFlyer_9.getTarget(1), 1 );
+
+	sys.waitFor( $strafeBase_9 );
+	removeFlyerBits("9");
+}
+
+void beginFlyerFight_10()
+{
+//	sys.println("void beginFlyerFight_10");
+
+	setNewTimes($strafeLeader_10, 9, 0, 0);
+	$strafeLeader_10.startSpline($spline_flyer_10);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_10, 9, 0, 0); 
+	$strafeBase_10.startSpline($spline_flyer_10);
+
+	thread manageBankingAngles("10");
+
+	sys.wait(2);
+	if (!isValidEntity($strafingFlyer_10)) // make sure it hasn't been destroyed before manipulating it
+		return;
+
+	map_walker::letLooseTheDogsOfWar( $strafingFlyer_10, $strafingFlyer_10.getTarget(0), $strafingFlyer_10.getTarget(1), 3 );
+
+	sys.wait(2);
+	if (!isValidEntity($strafingFlyer_10)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd_1);
+	
+	sys.waitFor( $strafeBase_10 );
+	removeFlyerBits("10");
+}
+
+void beginFlyerFight_11()
+{
+//	sys.println("void beginFlyerFight_11");
+
+	setNewTimes($strafeLeader_11, 5, 0, 0);
+	$strafeLeader_11.startSpline($spline_flyer_11);
+	sys.wait(.3);
+
+	setNewTimes($strafeBase_11, 5, 0, 0); 
+	$strafeBase_11.startSpline($spline_flyer_11);
+
+	thread manageBankingAngles("11");
+	
+	if (!isValidEntity($strafingFlyer_11)) // make sure it hasn't been destroyed before manipulating it
+		return;
+		
+	sys.wait(2);
+	if (!isValidEntity($strafingFlyer_11)) // make sure it hasn't been destroyed before manipulating it
+		return;
+	sys.trigger($strafeSnd_1);
+
+	sys.waitFor( $strafeBase_11 );
+	removeFlyerBits("11");
+}
+
+
+void stroggExplode_1()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_1 , $flyerStrafeExplode_1 );
+}
+
+void stroggExplode_2()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_2 , $flyerStrafeExplode_2 );
+}
+
+void stroggExplode_3()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_3 , $flyerStrafeExplode_3 );
+}
+
+void stroggExplode_4()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_4 , $flyerStrafeExplode_4 );
+}
+
+void stroggExplode_5()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_5 , $flyerStrafeExplode_5 );
+}
+
+void stroggExplode_6()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_6 , $flyerStrafeExplode_6 );
+}
+
+void stroggExplode_7()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_7 , $flyerStrafeExplode_7 );
+}
+
+void stroggExplode_8()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_8 , $flyerStrafeExplode_8 );
+}
+
+void stroggExplode_9()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_9 , $flyerStrafeExplode_9 );
+}
+
+void stroggExplode_10()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_10 , $flyerStrafeExplode_10 );
+}
+
+void stroggExplode_11()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_11 , $flyerStrafeExplode_11 );
+} 
+
+void stroggExplode_12()
+{
+	map_walker::stroggFlyerExplosion( $strafingFlyer_12 , $flyerStrafeExplode_12 );
+} 
+
+
+//---------------------------------------------------------------------------------------
+// void destroyTram()
+//
+// Sometimes enemy trams will get stuck at the end of the rails.  Destroy them instead of
+// allowing them to pile on top of each other.
+//
+// April 2005 | gc
+//---------------------------------------------------------------------------------------
+
+void destroyTram(entity tram)
+{
+	if (tram.isA("vehicle_tramCar_strogg"))
+		tram.remove();
+}
+
+
+void fighter1bShooting()
+{
+	sys.wait(1);
+	sys.trigger($strogg_fighter_1_gun_7);
+	sys.trigger($strogg_fighter_1_gun_8);
+	sys.wait(2);
+	$strogg_fighter_1_gun_7.remove();
+	$strogg_fighter_1_gun_8.remove();
+	sys.trigger($strogg_fighter_speaker_12);
+} 
+void fighter1bfly()
+{
+	sys.trigger($strogg_fighter_setup_4);
+	thread fighter1bShooting();
+	$strogg_fighter_base_4.speed(3000);
+	$strogg_fighter_base_4.startSpline($spline_flyer_15);
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_4, .5, .25, .25);
+	$strogg_fighter_4.rotateOnce('-45 0 0');
+
+	sys.wait(1.75);
+
+	setNewTimes($strogg_fighter_4, .5, .5, .5);
+	$strogg_fighter_4.rotateOnce('40 0 0');
+
+	sys.waitFor($strogg_fighter_base_4);
+	$strogg_fighter_base_4.remove();
+}	
+
+void fighter1Shooting()
+{
+	sys.wait(1);
+	sys.trigger($strogg_fighter_1_gun_1);
+	sys.trigger($strogg_fighter_1_gun_2);
+	sys.wait(2);
+	$strogg_fighter_1_gun_1.remove();
+	$strogg_fighter_1_gun_2.remove();
+	sys.trigger($strogg_fighter_speaker_1);
+} 
+void fighter1fly()
+{
+	sys.trigger($strogg_fighter_setup_1);
+	thread fighter1Shooting();
+	$strogg_fighter_base_1.speed(3000);
+	$strogg_fighter_base_1.startSpline($spline_flyer_12);
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_1, .5, .25, .25);
+	$strogg_fighter_1.rotateOnce('45 0 0');
+
+	sys.wait(2);
+
+	setNewTimes($strogg_fighter_1, .5, .5, .5);
+	$strogg_fighter_1.rotateOnce('-40 0 0');
+
+	sys.waitFor($strogg_fighter_base_1);
+	$strogg_fighter_base_1.remove();
+	
+	sys.wait(5);	
+	thread fighter1bfly();
+}
+void fighter1()
+{
+	thread fighter1fly();
+}
+
+void fighter2Shooting()
+{
+	sys.wait(.5);
+	sys.trigger($strogg_fighter_1_gun_3);
+	sys.trigger($strogg_fighter_1_gun_4);
+	sys.wait(1.5);
+	$strogg_fighter_1_gun_3.remove();
+	$strogg_fighter_1_gun_4.remove();
+	sys.trigger($strogg_fighter_speaker_8);
+} 
+void fighter2fly()
+{
+	sys.trigger($strogg_fighter_setup_2);
+	thread fighter2Shooting();
+	$strogg_fighter_base_2.speed(3000);
+	$strogg_fighter_base_2.startSpline($spline_flyer_13);
+
+	sys.wait(1);
+
+	setNewTimes($strogg_fighter_2, .5, .25, .25);
+	$strogg_fighter_2.rotateOnce('-45 0 0');
+
+	sys.wait(2);
+
+	setNewTimes($strogg_fighter_2, .5, .5, .5);
+	$strogg_fighter_2.rotateOnce('40 0 0');
+
+	sys.waitFor($strogg_fighter_base_2);
+	$strogg_fighter_base_2.remove();
+}
+
+void fighter3Shooting()
+{
+	sys.wait(1);
+	sys.trigger($strogg_fighter_1_gun_5);
+	sys.trigger($strogg_fighter_1_gun_6);
+	sys.wait(2);
+	$strogg_fighter_1_gun_5.remove();
+	$strogg_fighter_1_gun_6.remove();
+	sys.trigger($strogg_fighter_speaker_10);
+} 
+void fighter3fly()
+{
+	sys.trigger($strogg_fighter_setup_3);
+	thread fighter3Shooting();
+	$strogg_fighter_base_3.speed(3000);
+	$strogg_fighter_base_3.startSpline($spline_flyer_14);
+
+	sys.wait(.5);
+
+	setNewTimes($strogg_fighter_3, .5, .25, .25);
+	$strogg_fighter_3.rotateOnce('45 0 0');
+
+	sys.wait(2.5);
+
+	setNewTimes($strogg_fighter_3, 1, .5, .5);
+	$strogg_fighter_3.rotateOnce('-40 0 0');
+
+	sys.waitFor($strogg_fighter_base_3);
+	$strogg_fighter_base_3.remove();
+}
+
+
+void fighter2n3()
+{
+	thread fighter2fly();
+	sys.wait(.25);
+	thread fighter3fly();
+	
+}
+
+//---------------------------------------------------------------------------------------
+// void main()
+//---------------------------------------------------------------------------------------
+void main() 
+{
+//	tramCar_Scripts::InitRadioChatter();
+
+	thread EvaluateDebugFilters( sys.getcvar("si_entityFilter") );
+	
+	thread ForcePlayerToUseMountedGun();
+
+	thread tramCar_Scripts::manageTramHealth();
+
+	sys.trigger($player_tram.getDriver());	
+	
+	sys.fadeIn( '0 0 0', 2.0 );
+
+	sys.wait(10);
+	thread fighter1fly();
+
+}
+
+}

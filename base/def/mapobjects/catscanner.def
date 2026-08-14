@@ -1,0 +1,24 @@
+
+export env_catscanner
+{
+	options -scale .3937 -prefix CATSCAN_ -sourcedir work/models/mapobjects/strogg/machines/cat_scanner/animation -destdir models/mapobjects/strogg/machines/cat_scanner
+	mesh	idle.ma			-dest mesh
+	anim	idle.ma			-dest idle
+
+}
+model model_env_catscanner
+{
+	mesh				models/mapobjects/strogg/machines/cat_scanner/mesh.md5mesh	
+	anim idle			models/mapobjects/strogg/machines/cat_scanner/idle.md5anim
+}
+entityDef	env_catscanner
+{
+	"inherit"			"actor_default"
+	"editor_color"			"1 .5 0"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 64"
+	"editor_usage"			"don't use"
+	"model"				"model_env_catscanner"
+	"anim"				"idle"
+}
+

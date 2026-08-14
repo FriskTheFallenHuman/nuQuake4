@@ -1,0 +1,432 @@
+
+
+sound mover_hangar_platform_move
+{
+	minDistance	800
+	maxDistance	3000
+	volumeDb	-9
+
+	sound/ambience/hangar/platform_move
+	shakeData 0 hjlmhkkjkijmkkmkjjkmlmmlklklikjjiiijhjkjikmllkmnklkjljkljkkmnlnmkllkhjmkllkklkkklmnmlllknomoomnmpnmmnmoqonpmonlmlnnmnokmkllmmkmnmlpomonnonnmlmmnpnoonppprqorqnopoomponopppoprpnortssrsrwrssprpqppmmmooqnppqpptpoppnnnpsossstqrsrrrspqqsrqqustsqrqsrrquwuuutsrvttrtqsroppppnosooqoooqqonpoqqpspqrrssrqsrrtvwuuzttsuwuvutzywuqtpnnmmmkjiihhihgfffffggfiefgjmkhfdddccccbcbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_machine_whoosh
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+
+	sound/ambience/hangar/whoosh1
+	shakeData 0 elwnneba
+	sound/ambience/hangar/whoosh2
+	shakeData 1 begwnldbaa
+	sound/ambience/hangar/whoosh3
+	shakeData 2 bfhouredbaa
+}
+
+
+sound hangar_bomb_plant
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/hangar/bomb_plant
+	shakeData 0 cfwppfggfbahbaaaaaaaahbaaafhaaaghaaaaaa
+}
+
+
+sound hangar_engine_seq_clamp
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/clamp
+	shakeData 0 aaiknklkjiijhhiiighjhgijhgggnmjihgegfdeedcccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_seq_magnet
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/magnet
+	shakeData 0 feffhhjlpmnklmmkjlkiiikihkjjjhhhjjkihhjljiiihgghhjihhhgfgfffghfigeffgfgfgefegffeeeddcddghigkhkihffggdfffghhedddccccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_seq_magnet_6sec
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/magnet_6sec
+	shakeData 0 fdeefdffehhhijlkoljllljkklnkjlkjjijliiihhgkihkhhhhkhhjhkigfghhghgijhijhhghhgiikgijiigjiggggffgfgghgjhghghgfhgfeffhefefeffggfefhgfgeefeefdffeheegegeeeedeegefefeddeceddddcccccdhhigkgjihffggefgghhhfdddccbcbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_seq_full_piece_2sec
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/full_piece_2sec
+	shakeData 0 ffnjopppmollprnonolkmjlmklmmpnjjgggllgijnkijlkgjlnmkjfjkjjiikljjjjkjhfhghmrotsmonrlmikjihkqnmhihefgeeifeihdeddcccbbbbcbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_seq_full_piece_3sec
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/full_piece_3sec
+	shakeData 0 ffnjopppmollprnonolkmjlmklmmpnjjgggllgijnkijlkgjlnmkjfjkjjiikljjjjkjhfhhghikpnolomnklmljijjkiiijjkqtltrolrlkmikiiikqllhihdgffghdfigeecdccbbbbbcbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_seq_full_piece_8sec
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/full_piece_8sec
+	shakeData 0 ffnjopqpmollqrnonolkmjlmklmmpnjjgggllgijnkijlkgjlnmkjfjkjjiikljjjjkjhfhhghikpnolomniheimpopnmjigjpnqpomkkknpqqqojkmmorsqolkkmqtturrnikmmpstvrooollkmmqswvvqqqpnomiihhhikkjkkmnpqqpljnonmnopmlnqllklmjklmkijlkjighijkhijjlmsrsrnqmqlmijkiiklqmkjqigijlifhfehfgglfifdhgfdfgiiecfeeefeifefhdedcdbbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_door_open
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/doors/hangar_bay/open
+	shakeData 0 kmywyzzzzxyzyzwzxuvustmnoljhhgfeedccbbbbbaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_door_close
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/doors/hangar_bay/stop
+	shakeData 0 hsrsvtruwtqpqrornmjinjiighggeeeefdeddbcccdbbbbbbbababaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_lower_flyer
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/lower_flyer
+	shakeData 0 aacqzzvwxwyxxwwqkonloprmlryxvwwxyvwxrqproplomplvzxstxxxxwusrnnknokqlmuyxuvuvxuvrpnnqopnnmmkxxsuwysvwyrlmokoqpomnwzvuuvuwtvsppopmrppsnrtvrrwwvuuwutmlomnsqmooyxwsvvwvvuoopponnrqpsqvzsrxuuvvvvqsrstrnonpwusptvwtuwrqrqqtrprorqsurvvswstrtloqnoqrokhpurkqmmllhhhggghfefffdeeedeedccbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_lift_raise
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/lift_raise
+	shakeData 0 afmminvosropkmnmnmmmljlllnmmnrnojmpkmnoonooonlqolnomklppnqpomllmpooopllllmlomnlllmlnljjjmllnomllkklkmmlnlmmmmnokljjlkjjklmnyuompmntpjlefgihfhfihhfhfccbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_arms_fan_out
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/arms_fan_out
+	shakeData 0 aadenpswsponnnklnmkjnlinokmlljmnlkjjlmlilmpvttqrsoqsrssmopmnolmijmihkjggfgffgimklrmopsqoqookpqtuwvtppttwuqwsqppnnsntqptnploniihigeedddddddcbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_corkscrew
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/corkscrew
+	shakeData 0 auvwvvrovyuyzxwvuvxwzywxvrqpnmijjiihigiijhiggegfgefgfghhghtxrrnpkjihghfhffddfgdfecddccbbbccbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_alcove_cover
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/alcove_cover
+	shakeData 0 gmqvqwxxvttptwsuutrrpqpstmstwunnjikmqknmqsnkqoloqtuupppqoopsyvwyrvrsnsmnlmknursrjjghkhhmjfnkfhgfdedbcccdbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_engine_platform
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/engine_platform1
+	shakeData 0 erwyuojlonoptpnomnlonlrmsqnllnlpmpnnpmrnooqmmrnsnppmpprpsnsonlopsppnmnqqsoopnupsqqopqsqrprqoqrputqsqrttprrqrpupppprrrtqqrrqrrrqqppnppsoqponqqromopmrnnrxtyvxrhifgeededdccdccccbccccbbbbbbabbbbaaabaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_engine_platform_extender
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/engine_extender1
+	shakeData 0 abclkmrvsxuususuuurqtvuuuututuusrsrpostvrssuqpstomrrqoptsponopsrronlqtsuqnpprrstqkknrrrrnnponmlommmlllmpollonmqpstpnnmolnonoommmqpoqqpnqppsqrqrqtysmkvwkkomnrqnlfgiihghfighfheccbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_engine_lowers
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/engine_lowers
+	shakeData 0 cdjmnrlsxuqnwwsmpnmnlolnnnolmvrowqrxmkkicbbaa
+}
+
+
+sound hangar_flyer_room_platform_testzone
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/engine_platform2
+	shakeData 0 erwyuojlonoptpnomnlonlrmsqnllnlpmpnnpmrnooqmmrnsnppmpprpsnsonlopsppnmnqqsoopnupsqqopqsqrrsuxtwshhhgeeeddddcdccdccccbcbbbbbbabbbbbaaabaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_extender_testzone
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/engine_extender2
+	shakeData 0 abclkmrvsxuususuuurqtvuuuututuusrsrpostvrssuqpstomrrqoptsponopsrronlqtsuqnpprrstqkknrrrsrrqqzwrklxnkoonosnlifhgiehhhihhhgdcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_flyer_raise
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/flyer_raise
+	shakeData 0 aacqzzvwxwyxxwwqkonloprmlryxvnhrurlpknkkhhghgghgefefdefedeedccbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_flyer_room_engine_misfire
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/ambience/hangar/flyer_room/engine_misfire
+	shakeData 0 msvzxtwyywwussqomlnjjiifikootpmqmpkolhidfeefffdglkgegeigiijiijffdgleecbbabaaabbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_crane_1_crane
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	0
+
+	sound/ambience/hangar/crane/1_crane
+	shakeData 0 aiqnpikikmkkilijljljmllkijjlmkiikkmmkkikhmljihkjlmkjjijkklhikjnlkijjlmnjikikjljkmhmkjjkjjiklkkljkqsnnlhhhmknjliklhkijhjlhkhlkkjjmimllikkkoklkklllimimkkkiklmklkijlplkhijjmnljkjjjmjhjnnmjjiijlijklkisqnhwutlvysmhjgiggkfeddddddcccdcbcbbbbbbbbabbabbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_crane_2_rail_out
+{
+	minDistance	400
+	maxDistance	2000
+	volumeDb	0
+
+	sound/ambience/hangar/crane/2_rail_out
+	shakeData 0 afmminvosropkmnmnmmmljlllnmmnrnojmpkmnoonooonlqolnomklppnqpomllmpooopllllmlomnlllmlnljjjmllnomllkklkmmlnlmmmmnokljjlkjijjkkllkljlkmmlonkjlijhiiijjiihijlllmkjkikokolkkikjjkkklllkkmlklkjlmllolkkkllnwxqmqmnotlkffhiheheifhehfdcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_crane_3_ship_out
+{
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/hangar/crane/3_ship_out
+	shakeData 0 erwyuojlonoptpnomnlonlrmsqnllnlpmpnnpmrnooqmmrnsnppmpprpsnsonlopsppnmnqqsoopnupsqqopqsqrprqoqrputqsqrttprrqrpupppprrrtqqrrqrrrqqppnppsoqponqqromopmrmmpooqpppomoqqpsonnopnqolonqmrqnppqpupoplopmppnqnooormmonlqprnropmprpqnrutyuxpgifgeeddddccccdccbccccbbbbbbabbbbaaabbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_crane_4_rail_in
+{
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/hangar/crane/4_rail_in
+	shakeData 0 abclkmrvsxuususuuurqtvuuuututuusrsrpostvrssuqpstomrrqoptsponopsrronlqtsuqnpprrstqkknrrrrnnponmlommmlllmpollonmqpstpnnmolnonoommmqpoqqpnqppsqrqrqtyslmnpsjkjljjhgihhjkllnmnnmlkkjkjnmmkkjjiiijlmjihhhkvykkomnpsmlfghhighehfhfhfccbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_crane_5_ship_up
+{
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/hangar/crane/5_ship_up
+	shakeData 0 aacqzzvwxwyxxwwqkonloprmlryxvwwxyvwxrqproplomplvzxstxxxxwusrnnknokqlmuyxuvuvxuvrpnnqopnnmmkxxsuwysvwyrlmokoqpomnwzvuuvuwtvsppopmrppsnrtvrrwwvuuwutmlomnsqmooyxwsvvwvvuoopponnrqpsqvzsrxuuvvvvqsrstrnonpwusptvwtuwrqrqqtrprorqsurvvswstrsloqsnqqnqoputopsrutuuurqrrqorossvvttrrttsuqrqnsqrrrqsrusvtvvvtsrtsuttsrqtsvwuuuvvtsprqropmsrttqrrxrsurttvsuxvtnrqsppmrussqsswwpsqstqosppsprpswvrtsrtprsoroprspsupsxyrpstuuwxvursstsvuruvvvwvsvswqqroqoqqsmrpnttuswtuyvvrrsoqsmqqomtvwxyrvtsuvtsnqpqloonnrxtuvxxuuwwoqqoqqnqorowyzxuxwvvyrpsnnpnmloqlorppkhqtslqknljhhggghgfefefedeeeeedcbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_crane_6_claw
+{
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/hangar/crane/6_claw
+	shakeData 0 isqnhwutlvysmhjgiggkfeddddddcccdcbcbbbbbbbbabbabbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_bay_door_opened_special
+{
+	minDistance	600
+	maxDistance	3000
+	volumeDb	0
+	no_occlusion
+
+	sound/doors/hangar_bay/stop
+	shakeData 0 hsrsvtruwtqpqrornmjinjiighggeeeefdeddbcccdbbbbbbbababaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_bridge_klaxon
+{
+	minDistance	600
+	maxDistance	2000
+	volumeDb	0
+	no_occlusion
+
+	sound/ambience/alarms_buzzers/hangar1_klaxon
+	shakeData 0 jtyxwwvuuxuvxwvutsrtuqrrqssussqvvvwxusuxytvuuvusrstrqrpsttrtpvwxxvwwxvutturvusqtsqpoqqqstmllifeecccdbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_klaxon
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/ambience/core/klaxon
+	shakeData 0 pwutvutustsrstppnqqpqnuuxwwwwwsxrvrrspoonqrqnjhgedccccbbbbaaaaaaaaaaaaaaaa
+}
+
+
+sound hangar_engine_accel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/engine_accel
+	shakeData 0 hxyuuwwrnnnpmtxuvvvuoonmnsv
+}
+
+
+sound hangar_engine_move
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/ambience/hangar/engine_seq/engine_move
+	shakeData 0 tvvvspmmmolvstustnnpnlmuuuvvunnoqonwutuvsoooqqpttuuswtlnoqmtwtuutnoopqpd
+}
+
+
+sound hangar_engine_decel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/engine_decel
+	shakeData 0 yzzzzwsvnmnmommovvtstruopnnnllommlqsqttprumoonmorvvtstrtupmmnnlhgba
+}
+
+
+sound hangar_engine_stopped
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/hangar/engine_seq/engine_stopped
+	shakeData 0 yyywzywrplllmlgfdccccbaaaaaa
+}
+
+
+sound hangar_engine_unlatch
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	-6
+
+	sound/ambience/hangar/engine_seq/unlatch
+	shakeData 0 mwzyzyyrmlkhfdcba
+}
+
+
+sound hangar_light_power_down
+{
+	minDistance	200
+	maxDistance	1400
+	volumeDb	0
+	global
+
+	sound/ambience/hangar/lt_pwr_dwn
+	shakeData 0 eilnooouoqpqvootlooqppquvtwvvutqquunmppoknpomkmokikihfjiiijkkjlnokmmponjinlkjklkkiihijgjikmklfmhkghghihfehhhdgeddcdcbbbaaa
+}
+
+
+
+
+

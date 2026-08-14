@@ -1,0 +1,1717 @@
+//Common misc shaders
+
+
+textures/common_misc/prisonpipecapt_alpha
+
+{
+	qer_editorimage textures/common_misc/prisonpipecapt_d.tga
+	noShadows
+	materialImage textures/common_misc/prisonpipecapt_hit	
+
+	bumpMap addnormals ( textures/common_misc/prisonpipecapt_local.tga, heightmap ( textures/common_misc/prisonpipecapt_h.tga, 1 ) )
+	specularmap	textures/common_misc/prisonpipecapt_s.tga
+
+	{       
+     blend	diffusemap 
+	 map	textures/common_misc/prisonpipecapt_d.tga
+	 alphaTest .5
+	}
+}
+
+textures/common_misc/conmetal
+{
+	qer_editorimage textures/common_misc/conmetal_d.tga
+
+	bumpmap addnormals ( textures/common_misc/conmetal_local.tga, heightmap ( textures/common_misc/conmetal_h.tga, 1) )
+	diffusemap	textures/common_misc/conmetal_d.tga
+	specularmap	textures/common_misc/conmetal_s.tga
+
+}
+
+//same as tram but no glow for replacing a temp texture in waste/putra
+textures/common_misc/tr_door_floor_piece1
+{
+ 	noShadows
+	qer_editorimage 	textures/common_misc/door_floor_piece1_d.tga
+	nonsolid
+	bumpMap addnormals ( textures/common_misc/door_floor_piece1_local.tga, heightmap ( textures/common_misc/door_floor_piece1_h.tga, 1 ) )
+	{       
+		blend			diffusemap
+		map				textures/common_misc/door_floor_piece1_d.tga
+		alphaTest 		0.5
+	}
+	specularmap			textures/common_misc/door_floor_piece1_s.tga
+}
+
+guide textures/common_misc/pipe1_thread generic_shader("common_misc/pipe1_thread")
+
+
+/// used in game from other directories
+
+guide textures/common_misc/floor_piece_1 generic_shader("common_misc/floor_piece_1")
+guide textures/common_misc/warningstrip32t generic_shader("common_misc/warningstrip32t")
+guide textures/common_misc/greyswatch64t generic_shader("common_misc/greyswatch64t")
+guide textures/common_misc/p4_beam_5 generic_shader("common_misc/p4_beam_5")
+guide textures/common_misc/cap_lg generic_alpha("common_misc/cap_lg")
+guide textures/common_misc/p1_walltrim2 generic_shader("common_misc/p1_walltrim2")
+guide textures/common_misc/p4_beam_3 generic_shader("common_misc/p4_beam_3")
+guide textures/common_misc/sw_wall_22a generic_shader("common_misc/sw_wall_22a")
+guide textures/common_misc/prison_4floor_2 generic_shader("common_misc/prison_4floor_2")
+guide textures/common_misc/prison_4floor_1 generic_shader("prison/prison_4floor_1")
+
+textures/common_misc/p4_beam_3_ut
+{
+	unSmoothedTangents
+
+	qer_editorimage textures/common_misc/p4_beam_3_local.tga
+	bumpMap addnormals ( textures/common_misc/p4_beam_3_local.tga, heightmap ( textures/common_misc/p4_beam_3_h.tga, 1 ) )
+	diffusemap	textures/common_misc/p4_beam_3_d.tga
+	specularmap	textures/common_misc/p4_beam_3_s.tga
+}
+
+
+
+guide textures/common_misc/prison_beamside generic_shader_mi("common_misc/prison_beamside")
+
+textures/common_misc/p4_beam
+{
+	qer_editorimage textures/common_misc/p4_beam_local.tga
+	bumpMap addnormals ( textures/common_misc/p4_beam_local.tga, heightmap ( textures/common_misc/p4_beam_h.tga, 1 ) )
+	diffusemap	textures/common_misc/p4_beam_d.tga
+	specularmap	textures/common_misc/p4_beam_s.tga
+}
+
+textures/common_misc/str_wall2
+{
+	qer_editorimage textures/common_misc/str_wall2_d.tga
+	bumpMap heightmap ( textures/common_misc/str_wall2_h.tga, 1 )
+	diffusemap	textures/common_misc/str_wall2_d.tga
+	specularmap	textures/common_misc/str_wall2_s.tga
+}
+
+
+textures/common_misc/concrete09b
+{
+	qer_EditorImage		textures/common_misc/concrete09b_d.tga
+	bumpMap heightmap	(textures/common_misc/concrete09_h.tga, 10)
+	diffuseMap			textures/common_misc/concrete09b_d.tga
+	specularMap			textures/common_misc/concrete09a_s.tga
+}
+
+
+
+guide textures/common_misc/concrete09a generic_nonormal_height_type ("common_misc/concrete09a","10", "concrete")
+
+
+//--------------------------------------------------------------------
+textures/common_misc/c_mesh_1
+{
+	qer_editorimage textures/common_misc/c_mesh_1_qer.tga
+	noshadows
+	twosided
+
+	{
+	blend		bumpmap
+	map			textures/common_misc/c_mesh_1_local.tga
+	scale		10,10
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/c_mesh_1_d.tga
+	scale		10,10
+	alphatest	.5
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/c_mesh_1_s.tga
+	scale		10,10
+	}
+}
+
+textures/common_misc/fanblade
+{
+	qer_editorimage textures/common_misc/fanblade_ed.tga
+
+	noshadows
+
+	{       
+	 if ( parm6 == 0 )
+ 
+     blend	diffuseMap 
+	 map	textures/common_misc/fanblade_d.tga
+	 alphaTest .5
+	}
+//	bumpmap addnormals	( textures/common_misc/fanblade_local.tga, heightmap ( textures/common_misc/fanblade_h.tga, 1 ) )
+//	specularmap		textures/common_misc/fanblade_s.tga       
+	{       
+	 if ( parm6 == 0 )
+     blend bumpmap	
+	 map	addnormals	( textures/common_misc/fanblade_local.tga, heightmap ( textures/common_misc/fanblade_h.tga, 1 ) )
+	 clamp	
+	}
+	{       
+	 if ( parm6 == 0 )
+     blend specularmap
+	 map	textures/common_misc/fanblade_s.tga
+	 clamp	
+	}
+// rotating stage with parm 
+
+	{       
+	 if ( parm6 != 0)
+	 blend	diffuseMap 
+	 map	textures/common_misc/fanblade_d.tga
+	 rotate parm6 * time
+	 alphaTest .5
+	 clamp	
+	}
+
+	{       
+	 if ( parm6 != 0 )
+     blend bumpmap	
+	 map	textures/common_misc/fanblade_local.tga
+	 rotate parm6 * time
+	 clamp	
+	}
+
+	{       
+
+	 if ( parm6 != 0 )
+     blend specularmap
+	 map	textures/common_misc/fanblade_s.tga
+	 rotate parm6 * time
+	 clamp	
+	}
+}
+
+//----------------------------------------------------------------------------------
+
+//Concrete Textures
+
+//Concrete Roadway for Rollerball Arena----------------------------------------------------------------------------------
+textures/common_misc/concrete_roadway
+{	
+
+	qer_editorimage	textures/common_misc/concrete_roadway_d.tga
+	materialType	concrete
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/concrete_roadway_h.tga, 7)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/concrete_roadway_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/concrete_roadway_s.tga
+	}
+}
+
+//----------------------------------------------------------------------------------
+textures/common_misc/concrete01
+{	
+
+	qer_editorimage	textures/common_misc/concrete01_d.tga
+	materialType	concrete
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/concrete01_h.tga, 10)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/concrete01_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/concrete01_s.tga
+	}
+}
+
+//Ford's Convoy Retainer Blend---------------------------------------------------------------------------------
+textures/common_misc/concrete02_to_impact_middle
+
+{
+        //noselfshadow
+	materialType rock       
+	qer_editorimage textures/common_misc/smolder_d.tga
+
+	{ 
+		blend		bumpmap
+		map	        textures/common_misc/concrete02_h.tga
+	}
+
+	{
+		blend		diffusemap
+		map		textures/common_misc/concrete02_d.tga
+		vertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/common_misc/concrete02_s.tga
+		vertexColor
+	}
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	0.6*ember1[time * 0.057]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+//----------------------------------------------------------------------------------
+textures/common_misc/concrete04
+{	
+
+	qer_editorimage	textures/common_misc/concrete04_d.tga
+	materialType	concrete
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/concrete04_h.tga, 10)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/concrete04_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/concrete04_s.tga
+	}
+}
+//----------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+textures/common_misc/concrete04_slime
+{	
+
+	qer_editorimage	textures/common_misc/concrete04_slime_d.tga
+	materialType	concrete
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/concrete04_slime_h.tga, 10)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/concrete04_slime_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/concrete04_slime_s.tga
+	}
+}
+//-----------------------------------
+//----------------------------------------------------------------------------------
+textures/common_misc/concrete05
+{	
+
+	qer_editorimage	textures/common_misc/concrete05_d.tga
+	materialType	concrete
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/concrete05_h.tga, 10)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/concrete05_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/concrete05_s.tga
+	}
+}
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+textures/common_misc/concrete06
+{	
+
+	qer_editorimage	textures/common_misc/concrete06_d.tga
+	materialType	concrete
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/concrete06_h.tga, 10)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/concrete06_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/concrete06_s.tga
+	}
+}
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+
+guide textures/common_misc/concrete02 generic_nonormal_height_type ("common_misc/concrete02","10", "concrete")
+guide textures/common_misc/concrete07 generic_nonormal_height_type ("common_misc/concrete07","10", "concrete")
+guide textures/common_misc/concrete07_slime generic_nonormal_height_type ("common_misc/concrete07_slime","10", "concrete")
+guide textures/common_misc/concrete08 generic_nonormal_height_type ("common_misc/concrete08","10", "concrete")
+guide textures/common_misc/concrete08_slime generic_nonormal_height_type ("common_misc/concrete08_slime","10", "concrete")
+
+textures/common_misc/concrete09
+{
+	qer_EditorImage		textures/common_misc/concrete09_d.tga
+	bumpMap heightmap	(textures/common_misc/concrete09_h.tga, 10)
+	diffuseMap			textures/common_misc/concrete09_d.tga
+	specularMap			textures/common_misc/concrete09_s.tga
+}
+
+
+textures/common_misc/concrete09_smolder
+
+{
+        noselfshadow
+	materialType concrete       
+	qer_editorimage textures/common_misc/concrete09_d.tga
+
+	{ 
+		blend	bumpmap
+		map	heightmap ( textures/common_misc/concrete09_h.tga, 1 )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_misc/concrete09_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_misc/concrete09_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+
+//fences - strogg ------------------------------------------------------------------
+
+// guide textures/common_misc/fence01 generic_shader2sidedalpha ("common_misc/fence01")
+// guide textures/common_misc/fence02 generic_shader2sidedalpha ("common_misc/fence02")
+// guide textures/common_misc/fence03 generic_shader2sidedalpha ("common_misc/fence03")
+
+//----------------------------------------------------------------------------------
+
+
+textures/common_misc/fence01
+
+{
+	qer_editorimage textures/common_misc/fence01_d.tga
+	
+	noshadows
+	twosided
+	
+
+
+	{       
+	noPicMip
+     	 blend 		bumpmap
+	 map	textures/common_misc/fence01_local.tga
+	 scale 6, 6 
+	}
+
+	{       
+     	noPicMip
+     	 blend 		specularmap
+	 map	textures/common_misc/fence01_s.tga
+	 scale 6, 6 
+	}
+
+	{       
+	noPicMip
+     	 blend		diffusemap 
+	 map	textures/common_misc/fence01_d.tga
+	 alphaTest .5
+	 scale 6, 6 
+	}
+}
+textures/common_misc/fence02
+
+{
+	qer_editorimage textures/common_misc/fence02_d.tga
+	
+	noshadows
+	twosided
+	
+
+
+	{       
+	noPicMip
+     	 blend 		bumpmap
+	 map	textures/common_misc/fence02_local.tga
+	 scale 6, 6 
+	}
+
+	{       
+     	 noPicMip
+     	 blend 		specularmap
+	 map	textures/common_misc/fence02_s.tga
+	 scale 6, 6 
+	}
+
+	{       
+	noPicMip
+     	 blend		diffusemap 
+	 map	textures/common_misc/fence02_d.tga
+	 alphaTest .5
+	 scale 6, 6 
+	}
+}
+
+textures/common_misc/fence02_noscale
+
+{
+	qer_editorimage textures/common_misc/fence02_d.tga
+	
+	noshadows
+	twosided
+	
+
+
+	{       
+	noPicMip
+     	 blend 		bumpmap
+	 map	textures/common_misc/fence02_local.tga
+
+	}
+
+	{       
+     	 noPicMip
+     	 blend 		specularmap
+	 map	textures/common_misc/fence02_s.tga
+
+	}
+
+	{       
+	noPicMip
+     	 blend		diffusemap 
+	 map	textures/common_misc/fence02_d.tga
+	 alphaTest .5
+
+	}
+}
+
+
+
+
+
+textures/common_misc/fence03
+
+{
+	qer_editorimage textures/common_misc/fence03_d.tga
+	
+	noshadows
+	twosided
+	
+
+
+	{       
+
+     	noPicMip
+     	 blend 		bumpmap
+	 map	textures/common_misc/fence03_local.tga
+	 scale 6, 6 
+	}
+
+	{       
+     	noPicMip
+     	 blend 		specularmap
+	 map	textures/common_misc/fence03_s.tga
+	 scale 6, 6 
+	}
+
+	{       
+	noPicMip
+     	 blend		diffusemap 
+	 map	textures/common_misc/fence03_d.tga
+	 alphaTest .5
+	 scale 6, 6 
+	}
+}
+
+//railings
+
+guide textures/common_misc/c_railing01 generic_nonormal_height ("common_misc/c_railing01","2")
+
+textures/common_misc/c_railing01_nonsolid 	// nonsolid orange railing
+{
+	qer_EditorImage	textures/common_misc/c_railing01_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01_d.tga
+	specularMap		textures/common_misc/c_railing01_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	moveableClip
+}
+
+textures/common_misc/c_railing01a //red version uses same height as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01a_d.tga
+	diffuseMap		textures/common_misc/c_railing01a_d.tga
+	specularMap		textures/common_misc/c_railing01a_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+}
+
+
+textures/common_misc/c_railing01a_ut //red version uses same height as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01a_d.tga
+	unSmoothedTangents
+	
+	diffuseMap		textures/common_misc/c_railing01a_d.tga
+	specularMap		textures/common_misc/c_railing01a_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+}
+
+
+textures/common_misc/c_railing01a_nonsolid //red version uses same height as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01a_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01a_d.tga
+	specularMap		textures/common_misc/c_railing01a_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	
+	moveableClip
+}
+
+textures/common_misc/c_railing01b //red version uses same height/specular as railing01a
+{
+	qer_EditorImage	textures/common_misc/c_railing01b_d.tga
+	diffuseMap		textures/common_misc/c_railing01b_d.tga
+	specularMap		textures/common_misc/c_railing01a_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+}
+
+textures/common_misc/c_railing01b_nonsolid //red version uses same height/specular as railing01a
+{
+	qer_EditorImage	textures/common_misc/c_railing01b_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01b_d.tga
+	specularMap		textures/common_misc/c_railing01a_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	
+	moveableClip
+}
+
+textures/common_misc/c_railing01c_nonsolid //yellow version uses same height/specular as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01c_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01c_d.tga
+	specularMap		textures/common_misc/c_railing01_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	
+	moveableClip
+}
+
+textures/common_misc/c_railing01e_nonsolid //blue version uses same height/specular as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01e_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01e_d.tga
+	specularMap		textures/common_misc/c_railing01_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	
+	moveableClip
+}
+
+textures/common_misc/c_railing01f //black version uses same height/specular as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01f_d.tga
+	diffuseMap		textures/common_misc/c_railing01f_d.tga
+	specularMap		textures/common_misc/c_railing01_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+}
+
+textures/common_misc/c_railing01f_nonsolid //black version uses same height/specular as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01f_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01f_d.tga
+	specularMap		textures/common_misc/c_railing01_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	
+	moveableClip
+}
+
+textures/common_misc/c_railing01g_nonsolid //white version uses same height/specular as railing01
+{
+	qer_EditorImage	textures/common_misc/c_railing01g_d.tga
+	nonSolid
+	diffuseMap		textures/common_misc/c_railing01g_d.tga
+	specularMap		textures/common_misc/c_railing01_s.tga
+	{
+	blend			bumpmap
+	map				heightMap (textures/common_misc/c_railing01_h.tga, 2)
+	}
+	
+	moveableClip
+}
+
+
+//----NoShadow NonSolid
+
+textures/common_misc/c_railing02_noshadows_nonsolid
+{
+		qer_EditorImage textures/common_misc/c_railing02_d.tga
+		noShadows
+		nonSolid
+		diffuseMap	textures/common_misc/c_railing03_d.tga
+		specularMap	textures/common_misc/c_railing02_s.tga
+		{
+		blend		bumpMap
+		map			heightmap	(textures/common_misc/c_railing02_h.tga, 3)
+		}
+		
+		moveableClip
+}
+
+guide textures/common_misc/c_railing02 generic_nonormal_height ("common_misc/c_railing02","3")
+guide textures/common_misc/c_railing03 generic_nonormal_height ("common_misc/c_railing03","4")
+guide textures/common_misc/c_wirecap01 generic_alpha_mi ("common_misc/c_wirecap01")
+guide textures/common_misc/c_pipe02 generic_materialimageshader ("common_misc/c_pipe02")
+guide textures/common_misc/c_pipe_outside_05 generic_materialimageshader ("common_misc/c_pipe_outside_05")
+guide textures/common_misc/c_pipe_outside_01 generic_materialimageshader ("common_misc/c_pipe_outside_01")
+guide textures/common_misc/crate1_side generic_typeshader("common_misc/crate1_side","hollowmetal")
+guide textures/common_misc/crate1_top generic_typeshader("common_misc/crate1_top","hollowmetal")
+
+//new airdefense alpha girders
+guide textures/common_misc/support1_1 generic_shader2sidedalpha("common_misc/support1_1")
+guide textures/common_misc/support1_2 generic_shader2sidedalpha("common_misc/support1_2")
+
+//pipes
+
+guide textures/common_misc/pipe1_1_black_clean generic_Localvariant ("common_misc/pipe1_1", "common_misc/pipe1_1_black_clean")
+guide textures/common_misc/pipe1_1_blue_clean generic_Localvariant ("common_misc/pipe1_1", "common_misc/pipe1_1_blue_clean")
+guide textures/common_misc/pipe1_1a_blue_clean generic_Localvariant ("common_misc/pipe1_1", "common_misc/pipe1_1a_blue_clean")
+guide textures/common_misc/pipe1_2_blue_clean generic_Localvariant ("common_misc/pipe1_2", "common_misc/pipe1_2_blue_clean")
+guide textures/common_misc/pipe1_2_black_clean generic_Localvariant ("common_misc/pipe1_2", "common_misc/pipe1_2_black_clean")
+guide textures/common_misc/pipe1_2a_black_clean generic_Localvariant ("common_misc/pipe1_2", "common_misc/pipe1_2a_black_clean")
+
+guide textures/common_misc/pipecap1_1 generic_alpha_noshadows("common_misc/pipecap1_1")
+
+textures/common_misc/pipe1_1
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_d.tga
+	bumpMap 			textures/common_misc/pipe1_1_local.tga
+	diffuseMap			textures/common_misc/pipe1_1_d.tga
+	specularMap			textures/common_misc/pipe1_1_s.tga
+}
+
+textures/common_misc/pipe1_1_black
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_black_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_black_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1_black_d.tga
+	specularMap			textures/common_misc/pipe1_1_black_s.tga
+}
+
+textures/common_misc/pipe1_1_black_to_smolder
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_black_d.tga
+	
+	{
+		blend		bumpmap
+		map		addnormals ( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_black_h.tga, 2 ) )
+	}
+	
+	{
+		blend		diffusemap
+		map		textures/common_misc/pipe1_1_black_d.tga
+		vertexColor
+	}
+	
+	{ 
+		blend		specularMap
+		map		textures/common_misc/pipe1_1_black_s.tga
+		vertexColor
+	}
+	
+	{
+		blend 		bumpmap
+		map		addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+	}
+	
+	{
+		blend 		diffusemap
+		map		textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend		specularmap
+		map		textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map		 makealpha ( textures/common_misc/smolder_g_alpha.tga )
+		inverseVertexColor
+	}
+	
+	{
+		blend		GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map		textures/common_misc/smolder_g.tga
+		rotate		sintable[time * 0.0007]
+		rgb		ember1[time * 0.077]
+		scale		0.1, 0.1
+		scroll		sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+}
+
+textures/common_misc/pipe1_1_red_to_smolder
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_red_d.tga
+	
+	{
+		blend		bumpmap
+		map		addnormals ( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_red_h.tga, 2 ) )
+	}
+	
+	{
+		blend		diffusemap
+		map		textures/common_misc/pipe1_1_red_d.tga
+		vertexColor
+	}
+	
+	{ 
+		blend		specularMap
+		map		textures/common_misc/pipe1_1_red_s.tga
+		vertexColor
+	}
+	
+	{
+		blend 		bumpmap
+		map		addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+	}
+	
+	{
+		blend 		diffusemap
+		map		textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend		specularmap
+		map		textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map		 makealpha ( textures/common_misc/smolder_g_alpha.tga )
+		inverseVertexColor
+	}
+	
+	{
+		blend		GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map		textures/common_misc/smolder_g.tga
+		rotate		sintable[time * 0.0007]
+		rgb		ember1[time * 0.077]
+		scale		0.1, 0.1
+		scroll		sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+}
+
+textures/common_misc/pipe1_1_orange_to_smolder
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_black_d.tga
+	
+	{
+		blend		bumpmap
+		map		addnormals ( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_orange_h.tga, 2 ) )
+	}
+	
+	{
+		blend		diffusemap
+		map		textures/common_misc/pipe1_1_orange_d.tga
+		vertexColor
+	}
+	
+	{ 
+		blend		specularMap
+		map		textures/common_misc/pipe1_1_orange_s.tga
+		vertexColor
+	}
+	
+	{
+		blend 		bumpmap
+		map		addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+	}
+	
+	{
+		blend 		diffusemap
+		map		textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend		specularmap
+		map		textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map		 makealpha ( textures/common_misc/smolder_g_alpha.tga )
+		inverseVertexColor
+	}
+	
+	{
+		blend		GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map		textures/common_misc/smolder_g.tga
+		rotate		sintable[time * 0.0007]
+		rgb		ember1[time * 0.077]
+		scale		0.1, 0.1
+		scroll		sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+}
+
+textures/common_misc/pipe1_1_orange
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_orange_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_orange_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1_orange_d.tga
+	specularMap			textures/common_misc/pipe1_1_orange_s.tga
+}
+
+textures/common_misc/pipe1_1_orange_burn
+{
+	noShadows
+	
+	qer_EditorImage		textures/common_misc/pipe1_1_orange_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_orange_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1_orange_d.tga
+	specularMap			textures/common_misc/pipe1_1_orange_s.tga
+
+inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+
+}
+
+
+textures/common_misc/pipe1_1b_orange
+{
+	qer_EditorImage		textures/common_misc/pipe1_1b_orange_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1b_orange_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1b_orange_d.tga
+	specularMap			textures/common_misc/pipe1_1b_orange_s.tga
+}
+
+textures/common_misc/pipe1_1c_orange
+{
+	qer_EditorImage		textures/common_misc/pipe1_1c_orange_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1c_orange_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1c_orange_d.tga
+	specularMap			textures/common_misc/pipe1_1c_orange_s.tga
+}
+
+textures/common_misc/pipe1_1c_orange_burn
+{
+	noShadows
+	qer_EditorImage		textures/common_misc/pipe1_1c_orange_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1c_orange_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1c_orange_d.tga
+	specularMap			textures/common_misc/pipe1_1c_orange_s.tga
+	
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+textures/common_misc/pipe1_1_red
+{
+	qer_EditorImage		textures/common_misc/pipe1_1_red_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_1_local.tga, heightmap ( textures/common_misc/pipe1_1_red_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_1_red_d.tga
+	specularMap			textures/common_misc/pipe1_1_red_s.tga
+}
+
+
+//pipe1_2
+
+textures/common_misc/pipe1_2_black
+{
+	qer_EditorImage		textures/common_misc/pipe1_2_black_d.tga
+	bumpMap	addnormals	( textures/common_misc/pipe1_2_local.tga, heightmap ( textures/common_misc/pipe1_2_black_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_2_black_d.tga
+	specularMap			textures/common_misc/pipe1_2_s.tga
+}
+
+textures/common_misc/pipe1_2_orange
+{
+	qer_EditorImage		textures/common_misc/pipe1_2_orange_d.tga
+	bumpMap	addnormals	( textures/common_misc/pipe1_2_local.tga, heightmap ( textures/common_misc/pipe1_2_orange_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_2_orange_d.tga
+	specularMap			textures/common_misc/pipe1_2_orange_s.tga
+}
+
+textures/common_misc/pipe1_2_red
+{
+	qer_EditorImage		textures/common_misc/pipe1_2_red_d.tga
+	bumpMap addnormals 	( textures/common_misc/pipe1_2_local.tga, heightmap ( textures/common_misc/pipe1_2_red_h.tga, 2 ) )
+	diffuseMap			textures/common_misc/pipe1_2_red_d.tga
+	specularMap			textures/common_misc/pipe1_2_red_s.tga
+}
+
+textures/common_misc/wire1_1_black
+{
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_black.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_black.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+textures/common_misc/wire1_1_black_nonsolid
+{
+	nonSolid
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_black.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_black.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+textures/common_misc/wire1_1_orange
+{
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_orange.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_orange.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+textures/common_misc/wire1_1_red
+{
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_red.tga.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_red.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+textures/common_misc/wire1_1_red_nonsolid	
+{
+	nonSolid
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_red.tga.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_red.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+textures/common_misc/wire1_1_yellow
+{
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_yellow.tga.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_yellow.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+textures/common_misc/wire1_1_yellow_nonsolid
+{
+	nonSolid
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_yellow.tga.tga
+	bumpMap 			textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_yellow.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+textures/common_misc/wire1_1_blue_nonsolid
+{
+	nonSolid
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wire1_1_blue.tga
+	bumpMap				textures/common_misc/wire1_1_local.tga
+	diffuseMap			textures/common_misc/wire1_1_blue.tga
+	specularMap			textures/common_misc/wire1_1_s.tga
+}
+
+//wire1_2
+
+textures/common_misc/wiretile_a
+{
+	materialType	electronics
+	qer_EditorImage		textures/common_misc/wiretile_a_d.tga
+	bumpMap				textures/common_misc/wiretile_a_local.tga
+	diffuseMap			textures/common_misc/wiretile_a_d.tga
+	specularMap			textures/common_misc/wiretile_a_s.tga
+}
+
+//roger's smoldering metal---------------------------------------------------------------------------------
+
+//roger's acid melty for putra------------------------------------------------------------------------
+
+textures/common_misc/acid_dripedge_blend
+{
+
+	noSelfShadow
+	noshadows
+	nonsolid
+	//polygonOffset
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/common_misc/acid_dripedge_h.tga, 5)
+	scale		1, -1
+	}
+	{
+	blend		diffusemap
+	map		textures/common_misc/acid_dripedge_underprep_d.tga
+	maskalpha
+	alphatest	0.4
+	scale		1, -1
+	}
+	{
+	blend		specularmap
+	map		textures/common_misc/acid_dripedge_h.tga
+	rgb		0.25
+	scale		1, -1
+	}
+
+}
+
+textures/common_misc/acid_drip
+{
+	qer_EditorImage textures/common_misc/acid_drip_d.tga
+	noShadows
+	noSelfShadow
+	twoSided
+
+	{
+	blend		bumpMap
+	map		heightmap (textures/common_misc/acid_drip_h.tga, 5)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/acid_drip_d.tga
+	maskalpha
+	alphatest	0.4
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/acid_drip_h.tga
+	rgb		0.25
+	}
+
+}
+
+textures/common_misc/acid_dripedge
+{
+	qer_EditorImage textures/common_misc/acid_dripedge_d.tga
+	noShadows
+	noSelfShadow
+	twoSided
+
+	{
+	blend		bumpMap
+	map		heightmap (textures/common_misc/acid_dripedge_h.tga, 5)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/acid_dripedge_d.tga
+	maskalpha
+	alphatest	0.4
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/acid_dripedge_h.tga
+	rgb		0.25
+	}
+
+}
+
+textures/common_misc/acid_flow
+{
+	qer_EditorImage textures/common_misc/acid_dripedge_d.tga
+	noShadows
+	noSelfShadow
+	twoSided
+
+	{
+	blend		bumpMap
+	map		heightmap (textures/common_misc/acid_dripedge_h.tga, 5)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/common_misc/acid_dripedge_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/common_misc/acid_dripedge_h.tga
+	rgb		0.25
+	}
+
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+textures/common_misc/concrete08_chipped
+{
+	materialType	concrete
+	qer_EditorImage		textures/common_misc/concrete08_d.tga
+	bumpMap addnormals	( textures/common_misc/crete1_local.tga, heightmap ( textures/common_misc/concrete08_h.tga,5 ) )
+	diffuseMap			textures/common_misc/concrete08_d.tga
+	specularMap			textures/common_misc/concrete08_s.tga
+}
+
+
+textures/common_misc/concrete06_chipped
+{
+	materialType	concrete
+	qer_EditorImage		textures/common_misc/concrete06_qer.tga
+	bumpMap addnormals	( textures/common_misc/concrete_06_local.tga, heightmap ( textures/common_misc/concrete06_h.tga,5 ) )
+	diffuseMap			textures/common_misc/concrete06_d.tga
+	specularMap			textures/common_misc/concrete06_s.tga
+}
+
+
+
+textures/common_misc/concrete07_chipped
+{
+	materialType	concrete
+	qer_EditorImage		textures/common_misc/concrete07_qer.tga
+	bumpMap addnormals	( textures/common_misc/concrete_07_local.tga, heightmap ( textures/common_misc/concrete07_h.tga,5 ) )
+	diffuseMap			textures/common_misc/concrete07_d.tga
+	specularMap			textures/common_misc/concrete07_s.tga
+}
+
+textures/common_misc/concrete07_chipped_slime
+{
+	materialType	concrete
+	qer_EditorImage		textures/common_misc/concrete07_slime_qer.tga
+	bumpMap addnormals	( textures/common_misc/concrete_07_local.tga, heightmap ( textures/common_misc/concrete07_h.tga,5 ) )
+	diffuseMap			textures/common_misc/concrete07_slime_d.tga
+	specularMap			textures/common_misc/concrete07_s.tga
+}
+
+
+//adding medlabs elevator as per jersey's request - AW
+
+guide textures/common_misc/elevator_floor generic_shader("medlabs/elevator_floor")
+
+textures/common_misc/elevator_trim1
+{
+	qer_editorimage textures/medlabs/elevator_trim1_d.tga
+
+	bumpmap addnormals	( textures/medlabs/elevator_trim1_local.tga, heightmap ( textures/medlabs/elevator_trim1_h.tga, 3 ) )
+	specularmap			textures/medlabs/elevator_trim1_s.tga       
+      	diffusemap 		textures/medlabs/elevator_trim1_d.tga
+		
+	{
+		blend add
+		map 	textures/medlabs/elevator_trim1_add.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+//		vertexColor
+	}
+
+}
+
+textures/common_misc/elevator_wall
+{
+	qer_editorimage textures/medlabs/elevator_wall_d.tga
+
+		bumpmap addnormals	( textures/medlabs/elevator_wall_local.tga, heightmap ( textures/medlabs/elevator_wall_h.tga, 3 ) )
+		specularmap			textures/medlabs/elevator_wall_s.tga       
+      	diffusemap 		textures/medlabs/elevator_wall_d.tga
+		
+	{
+		blend add
+		map textures/medlabs/elevator_wall_add.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+//		vertexColor		
+	}
+
+}
+
+textures/common_misc/fluid_surge
+
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+	
+//commented out until we can apply RGB modulation to GLSL stages	
+	/*{
+		if ( glslPrograms )== 1
+		blend add
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * 1.5
+		shaderParm		sizeX				sintable[time * .0005]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_orange_bubble5.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	
+	{ 
+		if ( glslPrograms )== 1
+		blend add
+		map textures/medlabs/fluid_orange_bubble2.tga
+		scroll	0, time * .5
+//		translate 0, time + bubbletable[time]
+	}
+	
+	{
+		if ( glslPrograms )== 1
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .3
+//		translate 0, time + bubbletable[time * .3]
+	}*/
+	
+///noglsl-------------------------------------------------------	
+
+
+	{
+		//if ( glslPrograms )== 0
+		blend add	
+		map textures/medlabs/fluid_blue_bubble1.tga
+		rgba fluid_inverse_surge[time*0.05]
+		scroll 0, time * .1
+	}
+
+	{ 
+		//if ( glslPrograms )== 0
+		blend add
+		map textures/medlabs/fluid_blue_bubble2.tga
+		rgba fluid_inverse_surge[time*0.05]
+		scroll	0, time * .5
+	}
+	
+	{
+		//if ( glslPrograms )== 0
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		rgba fluid_inverse_surge[time*0.05]
+		scroll 0, time * .3
+	}
+	
+	{
+		//if ( glslPrograms )== 0
+		blend add	
+		map textures/medlabs/fluid_orange_bubble1.tga
+		rgb fluid_surge[time*0.05]
+		scroll 0, time * .7
+	}
+
+	{ 
+		//if ( glslPrograms )== 0
+		blend GL_DST_COLOR, GL_ONE
+		map textures/medlabs/fluid_orange_bubble2.tga
+		rgb fluid_surge[time*0.05]
+		scroll	0, time * 1.3
+	}
+	
+	{
+		//if ( glslPrograms )== 0
+		blend GL_DST_COLOR, GL_ONE
+		map textures/medlabs/fluid_green_bubble3.tga
+		rgb fluid_surge[time*0.05]
+		scroll 0, time * 1.6
+	}
+
+
+
+
+}
+
+textures/common_misc/clouds_scroll
+
+{
+
+	qer_editorimage gfx/lights/clouds_1.tga
+	
+	{
+	
+		blend		add
+		map		gfx/lights/clouds_1.tga
+		translate	time * 0.002, time * -0.0025
+		red		0.1
+		green		0.15
+		blue		0.175
+	
+	}
+	
+	{
+	
+		blend		add
+		map		gfx/lights/clouds_1.tga
+		translate	(time * 0.5 * parm5), (time * -1 * parm5)
+		rgb		0.0625
+	
+	}
+	
+}
+
+
+textures/common_misc/clouds_scroll_multiply
+
+{
+
+	qer_editorimage gfx/lights/clouds_1.tga
+	
+	{
+	
+		blend	GL_DST_COLOR, GL_SRC_COLOR
+		map		gfx/lights/clouds_1.tga
+		translate	time * 0.002, time * -0.0025
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+	
+	}
+	
+	{
+	
+		blend	GL_DST_COLOR, GL_SRC_COLOR
+		map		gfx/lights/clouds_1.tga
+		translate	(time * 0.5 * parm5), (time * -1 * parm5)
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+	
+	}
+	
+}
+
+
+textures/common_misc/gate_door_red
+{
+	qer_EditorImage		textures/common_misc/gate_door_red_local.tga
+	bumpMap addnormals	( textures/common_misc/gate_door_red_local.tga, heightmap ( textures/common_misc/gate_door_red_h.tga, 1 ) )
+	diffuseMap			textures/common_misc/gate_door_red_d.tga
+	specularMap			textures/common_misc/gate_door_red_s.tga
+}
+
+//--------------------------------------------------------------------------------------
+
+//////////////////////////////////////////
+// Billboard buildings for portal skies //
+//////////////////////////////////////////
+
+textures/common_misc/skybox_billboard_01
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_01
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_01
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_02
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_02
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_02
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_03
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_03
+
+	{	
+		clamp
+		blend	diffuseMap
+		map		textures/common_misc/skybox_billboard_03
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_04
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_04
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_04
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_05
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_05
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_05
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_06
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_06
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_06
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_07
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_07
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_07
+		alphatest	0.5
+	}
+}
+
+textures/common_misc/skybox_billboard_08
+{
+	noSelfShadow
+	noshadows
+	forceOpaque
+	twosided
+
+	qer_editorimage textures/common_misc/skybox_billboard_08
+
+	{	
+		clamp
+		blend	diffusemap
+		map		textures/common_misc/skybox_billboard_08
+		alphatest	0.5
+	}
+}
+
+
+textures/common_misc/c_railing02_nonsolid
+{
+		qer_EditorImage textures/common_misc/c_railing02_d.tga
+		nonSolid
+		diffuseMap	textures/common_misc/c_railing03_d.tga
+		specularMap	textures/common_misc/c_railing02_s.tga
+		{
+		blend		bumpMap
+		map			heightmap	(textures/common_misc/c_railing02_h.tga, 3)
+		}
+		
+		moveableClip
+}
+
+textures/common_misc/heartpump_fluid
+{
+	qer_editorimage		textures/medlabs/fluid_green_cap.tga
+	nonsolid
+	{
+		blend		specularmap
+		map		textures/medlabs/fluid_green_bubble7.tga
+		rgb		0.125
+		scroll		0.0, global4
+	}
+	{
+		blend		diffusemap
+		map		textures/medlabs/fluid_green_cap.tga
+		rgb		0.125
+		scroll		0.0, global4
+	}
+	{
+		blend		specularmap
+		map		textures/medlabs/fluid_green_cap.tga
+		rgb		0.125
+		scroll		0.0, time*0.17
+	}
+	/*{
+		blend		specularmap
+		map		textures/medlabs/fluid_green_bubble7.tga
+		rgb		(0.125*cosine[(time*0.25)+0.5])
+		scroll		0.0, time*0.5
+	}
+	{
+		blend		diffusemap
+		map		textures/medlabs/fluid_green_cap.tga
+		rgb		(0.125*cosine[(time*0.25)+0.5])
+		scroll		0.0, time*0.34
+	}
+	{
+		blend		specularmap
+		map		textures/medlabs/fluid_green_cap.tga
+		rgb		(0.125*cosine[(time*0.25)+0.5])
+		scroll		0.0, time*0.22
+	}*/
+}

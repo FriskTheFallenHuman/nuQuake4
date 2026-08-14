@@ -1,0 +1,47 @@
+/***********************************************************************
+DROPSHIP INTERIOR
+***********************************************************************/
+
+export dropship_interior
+{
+	options -scale .3937 -prefix DropShipINT_ -keep fx1 fx2 fx3 fx4 fx5 fx6 fx7 fx8 -align ALL -sourcedir work/models/vehicles/dropship_interior/   -destdir models/vehicles/dropship_interior
+	
+	mesh idle.ma									-dest dropship_interior 
+	anim idle.ma									-dest idle
+	anim intro_dropship_int_idle.ma					-dest intro_dropship_int_idle
+	anim intro_dropship_int_bidwellSits.ma			-dest intro_dropship_int_bidwell_sits
+	anim intro_dropship_int_voss_enters.ma				-dest intro_dropship_voss_enters
+	
+}
+
+entityDef env_dropship_interior
+{
+	"editor_usage"					"animated_dropship_interior"
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_dropship_interior"
+	"anim"						"idle"
+	
+	"sound_bone"				"door"
+	
+
+	
+	
+}
+
+model model_dropship_interior
+{
+	mesh										models/vehicles/dropship_interior/dropship_interior.md5mesh
+	anim idle									models/vehicles/dropship_interior/idle.md5anim
+	anim intro_dropship_int_idle				models/vehicles/dropship_interior/intro_dropship_int_idle.md5anim
+	anim intro_dropship_int_bidwell_sits		models/vehicles/dropship_interior/intro_dropship_int_bidwell_sits.md5anim
+	anim intro_dropship_voss_enters				models/vehicles/dropship_interior/intro_dropship_voss_enters.md5anim
+	{
+		frame	27,56							sound		mcc_door_open
+		frame	36,66							sound		mcc_door_close
+	}
+	

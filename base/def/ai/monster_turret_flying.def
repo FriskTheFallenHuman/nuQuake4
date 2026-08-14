@@ -1,0 +1,169 @@
+/*
+===============================================================================
+
+	Flying Turret
+
+===============================================================================
+*/
+
+export turret
+{
+	options -prefix TURRET_FLY_ -parent body_bone base_bone -keep barrel_lft_2 barrel_lft_3 barrel_rt_2 barrel_rt_3
+	mesh	work/models/monsters/Turret_flying/animations/turret_flying_idleOpen.ma		-dest models/monsters/Turret_Flying/turret_flying
+	anim	work/models/monsters/Turret_flying/animations/turret_flying_idleOpen.ma		-dest models/monsters/Turret_Flying/turret_flying_idleOpen
+	anim	work/models/monsters/Turret_flying/animations/turret_flying_fire.ma			-dest models/monsters/Turret_Flying/turret_flying_fire
+	anim	work/models/monsters/Turret_flying/animations/turret_flying_open.ma			-dest models/monsters/Turret_Flying/turret_flying_open
+	anim	work/models/monsters/Turret_flying/animations/turret_flying_idleClosed.ma	-dest models/monsters/Turret_Flying/turret_flying_idleClose
+	anim	work/models/monsters/Turret_flying/animations/turret_flying_opening.ma		-dest models/monsters/Turret_Flying/turret_flying_opening
+}
+
+/*
+===============================================================================
+
+	Flying Turret Model
+
+===============================================================================
+*/
+
+model model_monster_turret_flying
+{
+	offset (0 0 -200)
+
+	mesh									models/monsters/Turret_Flying/turret_flying.md5mesh
+	channel legs							( origin )
+	channel torso							( *origin -origin )
+
+	anim idle								models/monsters/Turret_Flying/turret_flying_idleOpen.md5anim
+	{
+		frame 1								ai_disablePain
+	}
+	anim idle_attack						models/monsters/Turret_Flying/turret_flying_idleOpen.md5anim
+	{
+		frame 1								ai_disablePain
+	}
+	anim idle_open							models/monsters/Turret_Flying/turret_flying_idleOpen.md5anim
+	{
+		frame 1								ai_disablePain
+	}
+	anim idle_closed						models/monsters/Turret_Flying/turret_flying_idleClose.md5anim
+	{
+		frame 1								ai_disablePain
+	}
+	anim open								models/monsters/Turret_Flying/turret_flying_opening.md5anim
+	{	
+		frame 1								ai_disablePain
+	}
+ 	anim walk								models/monsters/Turret_Flying/turret_flying_idleOpen.md5anim
+	{
+		frame 1								ai_disablePain
+	}
+	anim range_attack_top					models/monsters/Turret_Flying/turret_flying_fire.md5anim
+	{
+		rate 1.25
+		frame 1								ai_disablePain
+		frame 1								ai_attack			blaster				barrel_lft_2
+		frame 1								fx					fx_blaster_flash	barrel_lft_2
+		frame 6								ai_attack			blaster				barrel_rt_2
+		frame 6								fx					fx_blaster_flash	barrel_rt_2
+	}
+	anim range_attack_bottom				models/monsters/Turret_Flying/turret_flying_fire.md5anim
+	{
+		rate 1.25
+		frame 1								ai_disablePain
+		frame 1								ai_attack			blaster				barrel_lft_3
+		frame 1								fx					fx_blaster_flash	barrel_lft_3
+		frame 6								ai_attack			blaster				barrel_rt_3
+		frame 6								fx					fx_blaster_flash	barrel_rt_3
+	}
+	anim land								models/monsters/Turret_Flying/turret_flying_open.md5anim
+	{
+		frame 1								ai_disablePain
+		frame 1								sound				snd_unfold
+	}
+}
+
+/*
+===============================================================================
+
+	Flying Turret Attacks
+
+===============================================================================
+*/
+
+entityDef damage_turret_flying_blaster
+{
+	"inherit"								"damage_bullet_base"
+	"damage"								"10"
+}
+
+entityDef projectile_turret_flying_blaster
+{
+	"inherit"								"projectile_blaster_base"
+	"velocity"								"900 0 0"
+	"fx_fly"								"effects/monsters/turret/d_projectile.fx"
+	"fx_impact"								"effects/monsters/turret/d_impact.fx"
+	"snd_fly"								"weapon_energy_projectile_loop"
+	
+	"def_damage"							"damage_turret_flying_blaster"
+}
+
+/*
+===============================================================================
+
+	Flying turret entity definition
+
+===============================================================================
+*/
+
+entityDef monster_turret_flying
+{
+	"inherit"								"monster_turret"
+	"spawnclass"							"rvMonsterTurretFlying"
+	
+	// --------------------------------- Actions ------------------------------------
+	"action_blasterAttack"					"1"
+	"action_blasterAttack_Rate"				"1"
+	"action_blasterAttack_Diversity"		".75"
+	"action_blasterAttack_minRange"			"0"
+	"action_blasterAttack_maxRange"			"3000"
+	"action_blasterAttack_blendFrames"		"0"
+	
+	"mins"									"-24 -24 0"
+	"maxs"									"24 24 96"
+	"use_aas"								""
+	
+	"model"									"model_monster_turret_flying"
+	"mass"									"10000"
+	
+	// --------------------------------- Combat ----------------------------------
+	"fov"									"359"				// must be full all the way around when you have the above bone
+	"health"								"200"
+	"shieldHealth"							"250"
+	"start_anim"							"idle_closed"
+  	"static"								"0"
+
+	"joint_eyeOffset"						"body_bone"
+	
+	"remove_on_death"						"1"
+		
+	"def_attack_blaster"					"projectile_turret_bunker_blaster" // "projectile_turret_flying_blaster"
+	"attack_blaster_cone"					"0"
+	"attack_blaster_accuracy"				"0"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint mount_bone"					"0 1 0"
+	"look_joint body_bone"					"1 1 0"
+	
+	// --------------------------------- Effects ---------------------------------
+	"fx_blaster_flash"						"effects/monsters/turret/d_flash.fx"
+	"fx_death"								"effects/monsters/turret/dropturret_death.fx"
+	"fx_landing"							"effects/monsters/turret/d_impact_drop.fx"
+	"fx_droptrail"							"effects/monsters/turret/droptrails01.fx"
+	"fx_shieldOpen"							"effects/monsters/turret/d_shieldopen.fx"
+	"fx_shieldHit"							"effects/monsters/turret/d_shieldhit.fx"
+	"fx_shieldBreak"						"effects/monsters/turret/d_shieldbreak.fx"
+	
+	// --------------------------------- Sounds ----------------------------------
+	"snd_unfold"							"turret_convoy_unfold"
+	"snd_falling"							"turret_convoy_fall"
+}

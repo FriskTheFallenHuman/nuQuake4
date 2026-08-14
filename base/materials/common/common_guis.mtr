@@ -1,0 +1,1107 @@
+//----------------------------------
+//	MAIN MENU
+//----------------------------------
+
+gfx/guis/mainmenu/raven_1
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/raven_1.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/id_1
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/id_1.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/atvi_1
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/atvi_1.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/miles_1
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/miles_1.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/q4logo
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend GL_ZERO, gl_one_minus_src_color
+		map gfx/guis/mainmenu/q4logo.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/q4logo_alpha
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend blend
+		map gfx/guis/mainmenu/q4logo_alpha.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/q4text
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/q4text.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/screen
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/screen.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/screen2
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/screen2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/mainmenu/load_click
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/load_click.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/load_text
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/load_text.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/load_text2
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/load_text2.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/load_corner
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/load_corner.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/popup_bg
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/popup_bg.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/load_top_edgeadd
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/load_top_edgeadd.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/load_btm_edgeadd
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/load_btm_edgeadd.tga
+		colored
+	}
+}
+
+gfx/guis/mainmenu/creditsbar
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/mainmenu/creditsbar.tga
+		colored
+	}
+}
+
+//----------------------------------
+//	MP ICONS
+//----------------------------------
+
+gfx/guis/hud/icons/item_guard
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_guard.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_scout
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_scout.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_doubler
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_doubler.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_ammoregen
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_ammoregen.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_invis
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_invis.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_quaddamage
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_quaddamage.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_haste
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_haste.tga
+		colored
+	}
+}
+
+gfx/guis/hud/icons/item_regen
+{
+	noshadows
+	translucent
+	{
+		nopicmip
+		blend add
+		map gfx/guis/hud/icons/item_regen.tga
+		colored
+	}
+}
+
+//----------------------------------
+//	SCREEN STATIC
+//----------------------------------
+
+gfx/guis/common/img_static1
+{
+
+	{
+		blend add
+		map gfx/guis/common/img_static1.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * 2
+		colored
+	}
+	{
+		blend blend
+		map gfx/guis/common/img_static1.tga
+		scale	1, 2
+		scroll 0, time * -.8
+		colored
+	}
+}
+
+gfx/guis/common/img_static2
+{
+
+	{
+		blend add
+		map gfx/guis/common/img_static2.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -.4
+		colored
+	}
+	{
+		blend blend
+		map gfx/guis/common/img_static2.tga
+		scale	-1, 2.5
+		scroll 0, time * 1.1
+		colored
+	}
+}
+
+gfx/guis/common/img_static3
+{
+
+	{
+		blend blend
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		colored
+	}
+}
+
+gfx/guis/common/img_static4
+{
+
+	{
+		blend blend
+		map gfx/guis/common/img_static4.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		colored
+	}
+}
+
+gfx/guis/common/colorstatic
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/colorstatic.tga
+		scroll -1.5 * time, -3.5 * time
+		scale .75, .75
+		colored
+	}
+}
+
+gfx/guis/common/static4
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/static4.tga
+		scroll -1.4 * time, -4.2 * time
+		colored
+	}
+}
+
+gfx/guis/common/static3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/static3.tga
+		scroll -1.5 * time, -5.5 * time
+		scale .65, .65
+		colored
+	}
+}
+
+gfx/guis/common/static2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/static2.tga
+		scroll 1 * time, -3.5 * time
+		scale .75, .75
+		colored
+	}
+}
+
+gfx/guis/common/static1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/static1.tga
+		scroll -1 * time, -5 * time
+		colored
+	}
+}
+
+
+//----------------------------------
+//	GEAR1
+//----------------------------------
+
+gfx/guis/common/gear1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/gear1.tga
+		rotate time * -.1
+		clamp
+	}
+}
+
+gfx/guis/common/gear1_still
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/gear1.tga
+		clamp
+	}
+}
+
+//----------------------------------
+//	FLOWING CELLS
+//----------------------------------
+
+gfx/guis/common/cellscroll1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/cellscroll1.tga
+		scroll -.974 * time, 0
+		centerScale 1,guitable_8_10 [ time * .5 ]
+	}
+	
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/cellscroll1.tga
+		scroll -2.23 * time, 0
+		centerScale 1,guitable_8_10 [ time * 2.5 ]
+	}
+}
+
+//----------------------------------
+//	CONVEYOR
+//----------------------------------
+
+gfx/guis/common/conveyor1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/conveyor1.tga
+		scroll .264 * time, 0
+	}
+}
+
+gfx/guis/common/conveyor1_still
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/conveyor1.tga
+	}
+	
+}
+
+//----------------------------------
+//	SLOW BUBBLES
+//----------------------------------
+
+gfx/guis/common/bubbles
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/bubbles.tga
+		scroll 0, .074 * time
+		centerScale guitable_8_10 [ time * .2 ],guitable_8_10 [ time * .2 ]
+	}
+	
+}
+
+gfx/guis/test/glowfx
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		if (parm7 == 0)	
+		blend add
+		scroll -10 * time, 0
+		map gfx/guis/test/glowfx.tga
+	}	
+
+	{
+		if (parm7 != 0)	
+		blend add
+		scroll -10 * time, 0
+		map gfx/guis/test/glowfx.tga
+		red Parm7
+		green Parm7
+		blue Parm7
+	}	
+
+
+}
+
+//----------------------------------
+
+gfx/guis/common/add_ghostring
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/common/add_ghostring.tga
+	}
+}
+
+gfx/guis/common/bluradd
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/common/bluradd.tga
+	}
+}
+
+gfx/guis/common/blurboxadd
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/common/blurboxadd.tga
+	}
+}
+
+gfx/guis/common/add_box1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/add_box1.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/add_box2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/add_box2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/add_lines1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/add_lines1.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/grad_add
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/grad_add.tga
+		colored
+		clamp
+	}
+}
+
+
+gfx/guis/common/waveform1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveform1.tga
+		scroll -.06 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/waveform1fast
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveform1.tga
+		scroll -.52 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/waveform2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveform2.tga
+		scroll -.45 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/waveform2b
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveform2a.tga
+		scroll -.73 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/waveform3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveform3.tga
+		scroll -.33 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/waveform3b
+{	
+	noShadows
+	translucent
+
+	{
+		blend blend
+		Map gfx/guis/common/waveform3a.tga
+		scroll -.67 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/ekg1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/ekg1.tga
+		scroll -.2 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/ekg_flatline
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/ekg_flatline.tga
+		scroll -.24 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/ekg2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/ekg2.tga
+		scroll -.16 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/ekg3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/ekg2.tga
+		scroll -.08 * time, 0
+		translate .5, 0
+		colored
+	}
+}
+
+gfx/guis/common/ekg4
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/ekg2.tga
+		scroll -.12 * time, 0
+		translate .5, 0
+		colored
+	}
+}
+
+
+gfx/guis/common/scroll_img1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/scroll_img1.tga
+		scroll -1.46 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/scroll_img2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/scroll_img2.tga
+		scroll -3.62 * time, 0
+		colored
+	}
+}
+
+
+gfx/guis/common/scroll_img3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/scroll_img2.tga
+		scroll -.84 * time, 0
+		colored
+	}
+}
+
+gfx/guis/common/scroll_img4
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/scroll_img4.tga
+		scroll -.5 * time, 0
+		scale 1, guitable_10_5[ time * .6 ]
+		colored
+
+	}
+}
+
+gfx/guis/common/waveline1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveline1.tga
+		scroll 0, -.6 * time
+		colored
+	}
+}
+
+gfx/guis/common/waveline1b
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveline1.tga
+		scroll 0, -1.2 * time
+		colored
+	}
+}
+
+
+gfx/guis/common/waveline2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveline2.tga
+		scroll -.6 * time, 0 
+		colored
+	}
+}
+
+gfx/guis/common/waveline2b
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/waveline2.tga
+		scroll -1.2 * time, 0 
+		colored
+	}
+}
+
+gfx/guis/common/strogg/network_armbridge_pulse
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		blend add
+		map gfx/guis/common/strogg/network_armbridge_pulse.tga
+		red	guitable_8_10[ time * .4 ]
+		green	guitable_8_10[ time * .4 ]
+		blue	guitable_8_10[ time * .4 ]
+		alpha	parm3
+	}	
+
+}
+
+gfx/guis/common/monitor_glow1
+{
+	noshadows
+	translucent
+	{
+		blend add
+		map gfx/guis/common/monitor_glow1.tga
+		colored
+	}	
+}
+
+gfx/guis/common/monitor_line8
+{
+	noshadows
+	translucent
+	{
+		blend add
+		map gfx/guis/common/monitor_line8.tga
+		scroll 0 , time * -.28
+		colored
+	}	
+
+}
+
+gfx/guis/common/monitor_line7
+{
+	noshadows
+	translucent
+	{
+		blend blend
+		map gfx/guis/common/monitor_line7.tga
+		scroll 0 , time * .25
+		colored
+	}
+
+	{
+		blend blend
+		map gfx/guis/common/monitor_line7.tga
+		scroll 0 , time * -.15
+		colored
+	}		
+
+}
+
+gfx/guis/common/monitor_line6
+{
+	noshadows
+	translucent
+	{
+		blend blend
+		map gfx/guis/common/monitor_line6bg.tga
+		scroll 0 , time * -.1
+		colored
+	}
+
+	{
+		blend blend
+		map gfx/guis/common/monitor_line6.tga
+		scroll 0 , time * -.3
+		colored
+	}	
+	
+	{
+		blend blend
+		map gfx/guis/common/monitor_line6.tga
+		scroll 0 , time * -.5
+		red parm0
+		green parm1
+		blue parm2
+		alpha (parm3 * .4)
+	}			
+
+}
+
+gfx/guis/common/monitor_line5
+{
+	noshadows
+	translucent
+	{
+		blend add
+		map gfx/guis/common/monitor_line5.tga
+		scroll 0 , time * 1
+		colored
+	}	
+
+}
+
+gfx/guis/common/monitor_line4
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/monitor_line4.tga
+		scroll 0, -.3 * time
+		colored
+	}
+
+
+	{
+		blend blend
+		Map gfx/guis/common/monitor_line4.tga
+		scroll 0, -.7 * time
+		red parm0
+		green parm1
+		blue parm2
+		alpha (parm3 * .2)
+	}
+}
+
+gfx/guis/common/monitor_line1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/monitor_line1.tga
+		scroll 0, -.2 * time
+		colored
+	}
+
+
+	{
+		blend blend
+		Map gfx/guis/common/monitor_line1.tga
+		scroll 0, -.6 * time
+		red parm0
+		green parm1
+		blue parm2
+		alpha (parm3 * .2)
+	}
+}
+
+gfx/guis/common/monitor_line3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/monitor_line3.tga
+		scroll 0, -.2 * time
+		colored
+	}
+}
+
+
+gfx/guis/common/monitor_reflect
+{
+
+	{
+		blend	blend
+		map	gfx/guis/common/monitor_reflect.tga
+		red	Parm0 * (guitable_1_92 [ time * 3 ])
+		green	Parm1 * (guitable_1_92 [ time * 3 ])
+		blue	Parm2 * (guitable_1_92 [ time * 3 ])
+		alpha	parm3
+	}
+}
+
+gfx/guis/common/monitor_reflect2
+{
+
+	{
+		blend	add
+		map	gfx/guis/common/monitor_reflect2.tga
+		red	Parm0 * (guitable_random1 [ time * .3 ])
+		green	Parm1 * (guitable_random1 [ time * .3 ])
+		blue	Parm2 * (guitable_random1 [ time * .3 ])
+		alpha	parm3
+	}
+}
+
+gfx/guis/vehicles/veh_elecwarn
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/vehicles/veh_elecwarn.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/blur_circle2_add
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/blur_circle2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/blur_circle2
+{
+	{
+		blend blend
+		map makeAlpha(gfx/guis/common/blur_circle2)
+		colored
+		clamp
+	}
+}

@@ -1,0 +1,196 @@
+
+
+sound scientist_hover
+{
+	description	"scientist flying around, being groovy"
+
+	minDistance	40
+	maxDistance	780
+	volumeDb	-4
+	frequentlyUsed
+	looping
+
+	sound/strogg/scientist/hover_loop
+	shakeData 0 wwvtkllnmywuysmmokpvuzxtlonkswywunklmmi
+}
+
+
+sound scientist_breathe
+{
+	description	"scientist sustaining life"
+
+	minDistance	40
+	maxDistance	780
+	volumeDb	0
+	no_dups
+
+	sound/strogg/scientist/voice_2a
+	shakeData 0 abfgmmplonplfagnsnkptvkccaaagilpppgchhdsxpnqtpsillsqflifba
+	sound/strogg/scientist/voice_3a
+	shakeData 1 abehigkihnjmfimmijgjstqdeddaalrwqppnfagqvtpfebakoorvrlkkjjhieffigedaaa
+	sound/strogg/scientist/voice_9a
+	shakeData 2 aceffiioqpnpommkimkiojlkkihghgogferuumbcdmokmmmkedbaa
+	sound/strogg/scientist/voice_4a
+	shakeData 3 accddqsuqnmnkeabiihssfjjfca
+}
+
+
+sound scientist_alert
+{
+	description	"scientist sees you"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+
+	sound/strogg/scientist/voice_1a
+	shakeData 0 aefrpqrlmlmtultlstmkjihhebaaaaa
+	sound/strogg/scientist/voice_5a
+	shakeData 1 bggiefnjdaaekojeookihihfeekklkjngdbbbaaa
+	sound/strogg/scientist/voice_6a
+	shakeData 2 ceiihhppkebagnsnhbtyqkdovuidagjkkooicaa
+}
+
+
+sound scientist_growl
+{
+	description	"scientist grrr"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+
+	sound/strogg/scientist/attack
+	shakeData 0 zzzzzzzzzzzzzxzztqjhggfgfdccbacbaaaaaa
+	sound/strogg/scientist/attack2
+	shakeData 1 zzzzzzzzzzzzzzzzyyurrustphecccbbaaaaa
+}
+
+
+sound scientist_swing
+{
+	description	"scientist swing"
+
+	minDistance	40
+	maxDistance	787
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/scientist/swing1
+	shakeData 0 cehyzxplfdaaaaaaa
+	sound/strogg/scientist/swing2
+	shakeData 1 acijsyxpmjedcbaaaaaa
+	sound/strogg/scientist/swing3
+	shakeData 2 aceitzyrmigdcaaaaaaa
+	sound/strogg/scientist/attack
+	shakeData 3 zzzzzzzzzzzzzxzztqjhggfgfdccbacbaaaaaa
+	sound/strogg/scientist/attack2
+	shakeData 4 zzzzzzzzzzzzzzzzyyurrustphecccbbaaaaa
+}
+
+
+sound scientist_saw
+{
+	description	"scientist swing"
+
+	minDistance	40
+	maxDistance	787
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/scientist/saw1
+	shakeData 0 itzzwtqnoorrrtrpqrrutuwurrsiiggfeddccbbbaaaa
+	sound/strogg/scientist/saw2
+	shakeData 1 juyyvsqnnnmnmwnqqnmqsuqropnffdddcccbaa
+}
+
+
+sound scientist_weapon_move
+{
+	description	"scientist's weapons moving around"
+
+	minDistance	40
+	maxDistance	480
+	volumeDb	-4
+	frequentlyUsed
+
+	sound/strogg/scientist/weapon_movement01
+	shakeData 0 pgfgghg
+	sound/strogg/scientist/weapon_movement02
+	shakeData 1 jggfig
+	sound/strogg/scientist/weapon_movement03
+	shakeData 2 stppzha
+}
+
+
+sound scientist_servo
+{
+	description	"servos!"
+
+	minDistance	40
+	maxDistance	480
+	volumeDb	-24
+	frequentlyUsed
+
+	sound/strogg/scientist/servo1
+	shakeData 0 fcdcdeddddca
+	sound/strogg/scientist/servo2
+	shakeData 1 ccccccccccceca
+	sound/strogg/scientist/servo3
+	shakeData 2 dcccddbaa
+	sound/strogg/scientist/servo4
+	shakeData 3 eccccdddddea
+}
+
+
+sound scientist_squish
+{
+	description	"the scientist makes icky noises."
+
+	minDistance	40
+	maxDistance	480
+	volumeDb	-6
+	no_dups
+
+	sound/strogg/scientist/squish1
+	shakeData 0 abddcecedfcqendbccbbbbba
+	sound/strogg/scientist/squish2
+	shakeData 1 bbfnjelmjfihbccaa
+	sound/strogg/scientist/squish3
+	shakeData 2 aabccfffcccbbfdecbabaa
+}
+
+
+sound scientist_chemical_grenade
+{
+	description	"the chemical grenade explosion"
+
+	minDistance	78
+	maxDistance	590
+	volumeDb	0
+
+	sound/strogg/scientist/chemical_burst1
+	shakeData 0 zrfyyvtxrtpqmjihhfffeededdddddcccdcccccbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/scientist/chemical_burst2
+	shakeData 1 zqzyzwtvsplkkkjhggffeeeeedddddddcdcccccbbbbcbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound scientist_needle_stick
+{
+	description	"needle sticking into victim"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	-6
+
+	sound/weapons/impact/whooshes_melee/blade_slice1
+	shakeData 0 fjzzzsurqwkkcbaaabbabaa
+	sound/weapons/impact/whooshes_melee/blade_slice2
+	shakeData 1 gjyzzuqpkxpmeeeabaaaaaaaaaaaa
+}
+
+
+
+

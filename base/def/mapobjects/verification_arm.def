@@ -1,0 +1,78 @@
+/***********************************************************************
+VERIFICATION ARM
+***********************************************************************/
+
+export verification_arm
+{
+	options -prefix VA_ -align ALL -keep steam_emitter1 steam_emitter2 root r_arm L_mid_emit Lpinky_emit Lindex_emit r_low_index_emit r_low_mid_emit r_low_pinky_emit -sourcedir work/models/mapobjects/strogg/core/verification_arm   -destdir models/mapobjects/strogg/core/verification_arm
+
+	mesh idle.ma			-dest verification_arm  
+	anim idle.ma			-dest idle
+	anim probe.ma			-range 1 65 -dest probe_start
+	anim probe.ma			-range 66 67 -dest probe_loop
+	anim probe.ma			-range 170 269 -dest probe_end
+}
+
+entityDef env_verification_arm
+{
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-32 -32 0"
+	"editor_maxs"				"32 32 16"
+
+	"editor_usage"				"scripted ceiling panel for core"
+
+	"spawnclass"				"idAnimated"
+
+	"model"						"model_verification_arm"
+	"anim"						"probe"	
+	
+	"snd_probe"					"core_verification_arm_probe"
+	"snd_servo"					"core_verification_arm_servo"
+	"snd_pop_down"				"core_verification_arm_pop_down"
+	"snd_stop"					"core_verification_arm_stop"
+	"snd_alarm"					"core_klaxon"
+	
+	"fx_ver_arm_steam"			"effects/levels/core/ver_arm_steam.fx"
+	"fx_ver_arm_charge"			"effects/levels/core/ver_arm_charge.fx"
+	"fx_ver_arm_charge_sm"		"effects/levels/core/ver_arm_charge_sm.fx"
+	"fx_ver_arm_scan"			"effects/levels/core/ver_arm_scan.fx"
+	
+}
+
+model model_verification_arm
+{
+	mesh						models/mapobjects/strogg/core/verification_arm/verification_arm.md5mesh
+	
+	anim idle					models/mapobjects/strogg/core/verification_arm/idle.md5anim
+	anim probe_start			models/mapobjects/strogg/core/verification_arm/probe_start.md5anim
+	{
+		frame	1						sound	snd_pop_down
+		frame	45,63					sound	snd_stop
+		frame	53						sound	snd_servo
+	}
+	anim probe_loop				models/mapobjects/strogg/core/verification_arm/probe_loop.md5anim
+	anim probe_end				models/mapobjects/strogg/core/verification_arm/probe_end.md5anim
+	{
+		frame	1						sound	snd_alarm
+		frame	16,46					sound	snd_pop_down
+		frame	45						sound	snd_servo
+		frame	72,93					sound	snd_stop
+	
+	/* arms have been removed
+	frame 	1,185					fx		fx_ver_arm_steam		steam_emitter1
+	frame 	1,185					fx		fx_ver_arm_steam		steam_emitter2
+	frame 	30						fx		fx_ver_arm_charge		lpinky_emit
+	frame 	1						fx		fx_ver_arm_charge		lindex_emit
+	frame 	15						fx		fx_ver_arm_charge		l_mid_emit
+	frame 	10						fx		fx_ver_arm_charge_sm	r_low_pinky_emit
+	frame 	20						fx		fx_ver_arm_charge_sm	r_low_index_emit
+	frame 	1						fx		fx_ver_arm_charge_sm	r_low_mid_emit
+	frame 	90						fx		fx_ver_arm_scan			l_mid_emit
+	frame 	86						fx		fx_ver_arm_scan			lpinky_emit
+	frame 	95						fx		fx_ver_arm_scan			lindex_emit
+	frame 	90						fx		fx_ver_arm_scan			r_low_pinky_emit
+	frame 	86						fx		fx_ver_arm_scan			r_low_index_emit
+	frame 	95						fx		fx_ver_arm_scan			r_low_mid_emit
+	*/
+	}
+}

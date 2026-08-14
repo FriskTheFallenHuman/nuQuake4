@@ -1,0 +1,90 @@
+
+/**********************************************************************
+BIG GUN CHAIR
+
+***********************************************************************/
+
+export vehicle_new_gun_chair
+{		
+	options -scale .3937 -prefix BIG_GUN_CHAIR_ -align ALL -keep view_parent -parent player_view view_parent -parent view_parent still -keep player_view -parent slider rotate_top -parent ramp rotate_top -parent rotate_top socket -parent socket lever -parent lever still -sourcedir work/models/mapobjects/strogg/machines/biggun_chair/big_gun_chair/animation -destdir models/mapobjects/strogg/machines/big_gun_chair
+//-parent player_view rotate_top	
+		  
+	mesh	big_gun_chair_idle.ma	-range 1 3		-dest mesh
+	anim	big_gun_chair_idle.ma	-range 1 3		-dest idle
+	anim	big_gun_chair_idle.ma	-range 10 99	-dest online 
+	anim	big_gun_chair_idle.ma	-range 102 104	-dest offline
+	anim	big_gun_chair_idle.ma	-range 109 210	-dest offline_idle
+}
+
+entityDef vehicle_new_gun_chair
+{
+	"spawnclass"					"rvVehicleStatic"
+		
+	"editor_usage"					"Animated gun chair"
+	"editor_rotatable"				"1"
+	"model"						"model_vehicle_new_gun_chair"
+	
+	"combatModel"					"1"
+	
+	"clipmodel"					"models/mapobjects/strogg/mcc_landing/new_chair_collision.lwo"
+	
+	"mins"						"-40 -40 0"
+	"maxs"						"40 40 64"
+	
+	"anim"						"idle"
+	"def_position_driver"				"vehicle_gun_chair_driver"
+	"gui_hud"					"guis/vehicles/blank.gui"
+	"health"					"-1"
+	"mass"						"1800"
+	"size"						"80 80 64"	
+
+	"editor_color"						"0 .5 .25"
+	"editor_mins"						"-32 -32 0"
+	"editor_maxs"						"32 32 16"
+	
+	"focusLength_enter"				"96"
+	
+	"gui"						"guis/maps/airdefense/gun_monitor.gui"
+}
+
+model model_vehicle_new_gun_chair
+{
+	mesh						models/mapobjects/strogg/machines/big_gun_chair/mesh.md5mesh
+	
+	channel torso					( *origin )
+	
+	anim idle 					models/mapobjects/strogg/machines/big_gun_chair/idle.md5anim
+	anim online 					models/mapobjects/strogg/machines/big_gun_chair/online.md5anim
+	anim offline					models/mapobjects/strogg/machines/big_gun_chair/offline.md5anim
+	anim offline_idle				models/mapobjects/strogg/machines/big_gun_chair/offline_idle.md5anim
+}
+
+entityDef vehicle_gun_chair_driver
+{
+	"eyeJoint"					"player_view"
+	"eyeoffset"					"-3 0 0"
+//	"def_part_turn"				"vehicle_gun_chair_turn"
+
+	// look up at an angle since we don't have legs showing	
+	"angles_offset"				"0 0 0"
+	
+	"depthHack"					"0"
+}
+
+entityDef vehicle_gun_chair_turn
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"player_view"
+	
+	"yaw"						"1"
+	"pitch"						"1"
+
+	"minyaw"					"-10"
+	"maxyaw"					"10"
+
+	"minpitch"					"-10"
+	"maxpitch"					"10"
+	
+	"turnrate"					"10"
+}

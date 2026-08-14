@@ -1,0 +1,200 @@
+
+models/mapobjects/debris/brass_4s
+{
+	noSelfShadow
+	noShadows
+	unSmoothedTangents
+	nonSolid
+	noImpact
+	
+
+	renderbump -size 128 128 -aa 2 -mergehigh -trace .1 models/mapobjects/debris/brass_4s_local.tga work/models/weapons/brass_hi.lwo
+
+	diffusemap	models/mapobjects/debris/brass_4s_d.tga
+	bumpmap		models/mapobjects/debris/brass_4s_local.tga
+	specularmap	models/mapobjects/debris/brass_4s_s.tga
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////Begin Space Debris/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+models/mapobjects/debris/sd_03
+{
+	unSmoothedTangents
+	materialType solidmetal
+	noSelfShadow
+	twosided            
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2  models/mapobjects/debris/sd_03_local.tga work/models/mapobjects/debris/sd_03_hi.lwo
+
+//		diffusemap	models/mapobjects/debris/sd_02_d.tga
+		bumpmap	addnormals ( models/mapobjects/debris/sd_02_local.tga, heightmap ( models/mapobjects/debris/sd_02_h.tga, 2 ))
+		specularmap	models/mapobjects/debris/sd_02_s.tga
+
+	{
+		blend diffuseMap
+		map models/mapobjects/debris/sd_02_d.tga
+	alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/mapobjects/debris/sd_02_g.tga
+		rgb subtlerandomflick [time * .125]
+	}
+
+	
+}
+
+models/mapobjects/debris/sd_04
+{
+	unSmoothedTangents
+	materialType solidmetal
+	noSelfShadow
+	twosided            
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2  models/mapobjects/debris/sd_03_local.tga work/models/mapobjects/debris/sd_03_hi.lwo
+
+//		diffusemap	models/mapobjects/debris/sd_02_d.tga
+		bumpmap	addnormals ( models/mapobjects/debris/sd_02_local.tga, heightmap ( models/mapobjects/debris/sd_02_h.tga, 2 ))
+		specularmap	models/mapobjects/debris/sd_02_s.tga
+
+	{
+		blend diffuseMap
+		map models/mapobjects/debris/sd_02_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/mapobjects/debris/sd_02_g.tga
+		rgb subtlerandomflick [time * .3]
+	}
+
+	
+}
+
+models/mapobjects/debris/sd_08
+{
+	unSmoothedTangents
+	materialType solidmetal
+	noSelfShadow
+	twosided            
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2  models/mapobjects/debris/sd_03_local.tga work/models/mapobjects/debris/sd_03_hi.lwo
+
+//		diffusemap	models/mapobjects/debris/sd_02_d.tga
+		bumpmap	addnormals ( models/mapobjects/debris/sd_02_local.tga, heightmap ( models/mapobjects/debris/sd_02_h.tga, 2 ))
+		specularmap	models/mapobjects/debris/sd_02_s.tga
+
+	{
+		blend diffuseMap
+		map models/mapobjects/debris/sd_02_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/mapobjects/debris/sd_02_g.tga
+		rgb subtlerandomflick [time * .25]
+	}
+
+
+	
+}
+
+models/mapobjects/debris/sd_09
+{
+	unSmoothedTangents
+	materialType solidmetal
+	noSelfShadow
+	twosided            
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2  models/mapobjects/debris/sd_03_local.tga work/models/mapobjects/debris/sd_03_hi.lwo
+
+//		diffusemap	models/mapobjects/debris/sd_02_d.tga
+		bumpmap	addnormals ( models/mapobjects/debris/sd_02_local.tga, heightmap ( models/mapobjects/debris/sd_02_h.tga, 2 ))
+		specularmap	models/mapobjects/debris/sd_02_s.tga
+
+	{
+		blend diffuseMap
+		map models/mapobjects/debris/sd_02_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/mapobjects/debris/sd_02_g.tga
+		rgb subtlerandomflick [time * .75]
+//		rgba .5
+	}
+
+	
+}
+
+models/mapobjects/debris/sd_10
+{
+	unSmoothedTangents
+	materialType solidmetal
+	noSelfShadow
+	twosided            
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2  models/mapobjects/debris/sd_03_local.tga work/models/mapobjects/debris/sd_03_hi.lwo
+
+//		diffusemap	models/mapobjects/debris/sd_02_d.tga
+		bumpmap	addnormals ( models/mapobjects/debris/sd_02_local.tga, heightmap ( models/mapobjects/debris/sd_02_h.tga, 2 ))
+		specularmap	models/mapobjects/debris/sd_02_s.tga
+
+	{
+		blend diffuseMap
+		map models/mapobjects/debris/sd_02_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/mapobjects/debris/sd_02_g.tga
+		rgb subtlerandomflick [time]
+//		rgba .6
+	}
+	
+}
+
+models/mapobjects/debris/sd_11
+{
+	unSmoothedTangents
+	materialType solidmetal
+	noSelfShadow
+	twosided            
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2  models/mapobjects/debris/sd_03_local.tga work/models/mapobjects/debris/sd_03_hi.lwo
+
+//		diffusemap	models/mapobjects/debris/sd_02_d.tga
+		bumpmap	addnormals ( models/mapobjects/debris/sd_02_local.tga, heightmap ( models/mapobjects/debris/sd_02_h.tga, 2 ))
+		specularmap	models/mapobjects/debris/sd_02_s.tga
+
+	{
+		blend diffuseMap
+		map models/mapobjects/debris/sd_02_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/mapobjects/debris/sd_02_g.tga
+		rgb subtlerandomflick [time * .25]
+	}
+	
+}
+
+
+models/gibs/skull
+{
+	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+         
+
+	renderbump  -size 256 256 -trace 0.1 -aa 2  models/gibs/skull_local.tga work/models/gibs/skull_hi.lwo
+
+		diffusemap	models/gibs/skull_d.tga
+		bumpmap	addnormals ( models/gibs/skull_local.tga, heightmap ( models/gibs/skull_h.tga, 2 ))
+		specularmap	models/gibs/skull_s.tga
+	
+}

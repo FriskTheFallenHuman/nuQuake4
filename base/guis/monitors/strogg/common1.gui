@@ -1,0 +1,245 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui, gui_parm_stroyent = 1 adds stroyent junk on the screen"
+	visible	1
+	rect	0,0,640,480
+	backcolor	0.0823,0.113,0.117,1
+	windowDef data
+	{
+		rect	26,0,566,480
+		visible	1
+		background	"gfx/guis/common/strogg/data"
+		matcolor	1,1,1,0.137
+		shear	0, -.30
+	}
+	windowDef scrolltext
+	{
+		rect	78,0,469,480
+		visible	1
+		background	"gfx/guis/common/strogg/scrolltext2"
+		matcolor	1,1,1,.8
+		shear	0, -.30
+	}
+	windowDef topright_grad
+	{
+		rect	112,4,580,95
+		visible	1
+		background	"gfx/guis/common/gradient2"
+		matcolor	0,0,0,1
+	}
+	windowDef bg_l
+	{
+		rect	0,0,156,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/common1_bg"
+		matcolor	0.956,0.490,0.0235,1*guitable_8_10[time*0.0005]
+	}
+	windowDef bg_r
+	{
+		rect	484,0,156,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/common1_bg"
+		matcolor	0.956,0.490,0.0235,1*guitable_8_10[time*0.0005]
+		rotate	180
+	}
+	windowDef t_topright
+	{
+		rect	420,23,196,64
+		visible	1
+		forecolor	0.890,0.545,0.0235,1
+		text	"834.07"
+		textscale	1.5
+		font	"fonts/strogg"
+	}
+	windowDef btmleft_grad
+	{
+		rect	-40,313,610,177
+		visible	1
+		background	"gfx/guis/common/gradient"
+		matcolor	0,0,0,1
+		matscaley	-1
+	}
+	windowDef t_btmleft
+	{
+		rect	23,423,263,41
+		visible	1
+		forecolor	0.890,0.545,0.0235,1
+		text	"system info"
+		textscale	1
+		font	"fonts/strogg"
+	}
+	windowDef decal
+	{
+		rect	563,403,50,50
+		visible	1
+		background	"gfx/guis/common/strogg/decal1"
+		matcolor	0,0,0,.4
+	}
+	windowDef d_btmright1c
+	{
+		rect	295,425,1,13
+		visible	0
+	}
+	windowDef d_btmright1
+	{
+		rect	295,425,216,13
+		visible	0
+	}
+	windowDef d_btmright1b
+	{
+		rect	295,446,216,13
+		visible	0
+	}
+	windowDef d_btmright2
+	{
+		rect	295,446,196,13
+		visible	0
+	}
+	windowDef p_btmright1
+	{
+		rect	295,446,1,13
+		visible	1
+		windowDef t_btmright1
+		{
+			rect	0,0,216,13
+			visible	1
+			forecolor	0.701,0.941,0.992,1
+			text	"sector 17 archive subsystem"
+			textscale	0.3
+			font	"fonts/strogg"
+		}
+	}
+	windowDef p_btmright2
+	{
+		rect	295,446,1,13
+		visible	1
+		windowDef t_btmright2
+		{
+			rect	0,0,196,13
+			visible	1
+			forecolor	0.701,0.941,0.992,1
+			text	"analysis of current data"
+			textscale	.3
+			font	"fonts/strogg"
+		}
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	0,-45,640,584
+			background	"gfx/guis/common/monitor_line4"
+			matcolor	0.890,0.929,0.847,0.141
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-12,-23,667,514
+			background	"gfx/guis/common/monitor_reflect"
+			matcolor	1,1,1,0.149
+		}
+		windowDef dirt_stroyent
+		{
+			visible	"gui::gui_parm_stroyent"
+			rect	0,0,640,480
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.411,0.447,0.164,1
+			matscalex	-1
+		}
+		windowDef broken_glass_b
+		{
+			visible	"gui::gui_parm_broken"
+			rect	-2,3,640,480
+			background	"gfx/guis/common/broken_glass5"
+			matcolor	0,0,0,1
+			matscalex	-1
+		}
+		windowDef broken_glass
+		{
+			visible	"gui::gui_parm_broken"
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass5"
+			matcolor	0.823,0.909,0.925,1
+			matscalex	-1
+		}
+		windowDef monitor_darkedge
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef anim_numbers
+	{
+		rect	0,0,1,1
+		visible	1
+
+		onTime 0 {
+			set "t_topright::text" "834.07" ;
+		}
+
+		onTime 500 {
+			set "t_topright::text" "737.53" ;
+		}
+
+		onTime 1000 {
+			set "t_topright::text" "639.82" ;
+		}
+
+		onTime 1500 {
+			set "t_topright::text" "543.71" ;
+		}
+
+		onTime 2000 {
+			set "t_topright::text" "356.29" ;
+		}
+
+		onTime 2500 {
+			set "t_topright::text" "278.46" ;
+		}
+
+		onTime 3000 {
+			set "t_topright::text" "903.34" ;
+		}
+
+		onTime 3500 {
+			set "t_topright::text" "115.65" ;
+		}
+
+		onTime 4000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef anim_text
+	{
+		rect	0,0,1,1
+		visible	1
+
+		onTime 0 {
+			transition "p_btmright1::rect" "$p_btmright1::rect" "$d_btmright1b::rect" "300" ;
+		}
+
+		onTime 300 {
+			transition "p_btmright1::rect" "$d_btmright1b::rect" "$d_btmright1::rect" "300" ;
+		}
+
+		onTime 600 {
+			transition "p_btmright2::rect" "$p_btmright2::rect" "$d_btmright2::rect" "300" ;
+		}
+
+		onTime 3000 {
+			transition "p_btmright1::rect" "$d_btmright1::rect" "$d_btmright1c::rect" "300" ;
+			transition "p_btmright2::rect" "$d_btmright2::rect" "$p_btmright2::rect" "300" ;
+		}
+
+		onTime 5000 {
+			resettime "0" ;
+		}
+
+	}
+}

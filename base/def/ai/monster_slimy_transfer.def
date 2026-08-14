@@ -1,0 +1,306 @@
+/*
+===============================================================================
+
+	Slimy Transfer
+
+===============================================================================
+*/
+
+export slimy_transfer 
+{
+	options -prefix PLAYER_  -scale .3937 -align ALL  -keep l_elbo_tweak r_elbo_tweak puke_bone -sourcedir work/models/monsters/Slimy_Transfer/animations -destdir models/monsters/slimy_transfer
+
+	mesh	SlimyTransfer_DefaultPose_2.ma	.ma 		-dest mesh
+	anim	SlimyTransfer_DefaultPose_2.ma	.ma 		-dest idle
+	anim	SlimyTransfer_UpWalkFaster02_4.ma 			-dest walk
+	anim	run.ma 										-dest run
+	anim	SlimyTransfer_Attack_Melee_1.ma		 		-dest attack01
+	anim	SlimyTransfer_Attack_Melee_2.ma		 		-dest attack02
+	anim	barrel_crawl.ma 							-dest barrel_crawl
+	anim	SlimyTransfer_Range_Attack01_1.ma			-dest puke_1
+	anim	SlimyTransfer_Range_Attack02_2.ma			-dest puke_2
+	anim	SlimyTransfer_Pain_Big_2.ma					-dest pain_big
+	anim	pain01.ma									-dest pain01
+	anim	pain02.ma									-dest pain02
+	anim	SlimyTransfer_WakeUp_2.ma					-dest wakeup
+	anim	slimytransport_getupcrawl_2.ma				-dest crawl_to_idle
+	anim	Slimy_Transfer_eating_2.ma					-dest eating
+	anim	Slimy_Transfer_puddle_2.ma					-dest in_puddle
+	anim	Slimy_Ragdoll.ma 							-dest af_pose
+	anim	Slimy_Transfer_pain_std.ma				-dest pain_std
+	anim	Slimy_Transfer_pain_std2.ma				-dest pain_std2
+	anim	Slimy_Transfer_pain_strm.ma				-range 1 4 -dest pain_std_start
+	anim	Slimy_Transfer_pain_strm.ma				-range 4 12 -dest pain_strm_loop
+	anim	Slimy_Transfer_pain_strm.ma				-range 12 15 -dest pain_strm_end
+}
+
+/*
+===============================================================================
+
+	Slimy Model
+
+===============================================================================
+*/
+
+model model_monster_slimy_transfer
+{
+	mesh												models/monsters/slimy_transfer/mesh.md5mesh
+
+	channel	torso										( *waist )
+	channel	legs										( *origin -*waist )
+
+	anim af_pose										models/monsters/slimy_transfer/af_pose.md5anim
+	anim ik_pose										models/monsters/slimy_transfer/af_pose.md5anim
+
+	anim idle											models/monsters/slimy_transfer/idle.md5anim
+	anim pain01											models/monsters/slimy_transfer/pain01.md5anim
+	anim pain02											models/monsters/slimy_transfer/pain02.md5anim
+	anim pain_std											models/monsters/slimy_transfer/pain_std.md5anim
+	anim pain_std2											models/monsters/slimy_transfer/pain_std2.md5anim
+	anim pain_strm_start										models/monsters/slimy_transfer/pain_strm_start.md5anim
+	anim pain_strm_loop										models/monsters/slimy_transfer/pain_strm_loop.md5anim
+	anim pain_strm_end										models/monsters/slimy_transfer/pain_strm_end.md5anim
+	anim crawl_to_idle										models/monsters/slimy_transfer/crawl_to_idle.md5anim
+	{
+		frame	1										sound_voice				snd_moan
+		frame	5,11,17,21,28,37,42,55					sound				snd_flesh
+		frame	40,49,59								footstep
+	}
+	anim run											models/monsters/slimy_transfer/run.md5anim
+	{
+		sync_cycle
+		frame	1,11,18,29								sound				snd_flesh
+		frame	6,16,25,36								footstep
+	}	
+	anim walk											models/monsters/slimy_transfer/walk.md5anim
+	{
+		sync_cycle
+		frame	1,11,23,32,43,56						sound				snd_flesh
+		frame	7,19,28,41,51,63						footstep
+	}	
+	anim melee_attack									models/monsters/slimy_transfer/attack01.md5anim	
+	{
+		frame	1,13,27,36,57							sound				snd_flesh
+		frame	18										fx					fx_swipe			r_wrist
+		frame	20										ai_attack_melee		melee
+	}
+	anim vomit_attack									models/monsters/slimy_transfer/puke_1.md5anim		
+	{
+		frame	2,57									sound				snd_flesh
+		frame	8										sound_weapon				snd_vomit
+		frame	13										sound_voice				snd_vomit2
+		frame   13										object_call			Frame_StartVomit
+		frame   40										object_call			Frame_StopVomit
+	}
+	anim vomit_attack2									models/monsters/slimy_transfer/puke_2.md5anim		
+	{
+		frame	14										sound_weapon				snd_vomit
+		frame	19										sound_voice				snd_vomit2
+		frame   19										object_call			Frame_StartVomit
+		frame   40										object_call			Frame_StopVomit
+		frame	47										sound				snd_flesh
+	}
+	anim barrel_crawl									models/monsters/slimy_transfer/barrel_crawl.md5anim
+	{
+		frame	42										sound_voice				snd_moan
+		frame	46,60,70,85,96,110,122					sound				snd_flesh
+		frame	83,105									footstep	
+	}
+	anim eating											models/monsters/slimy_transfer/eating.md5anim
+	{
+		frame	9,35,68,92								sound_weapon				snd_feed
+		frame	122										sound_voice				snd_moan
+	}
+	anim in_puddle										models/monsters/slimy_transfer/in_puddle.md5anim
+	{
+		frame	8,27,56,65,76							sound				snd_flesh
+		frame	5										sound				snd_water_trickle	
+		frame	29										sound_voice				snd_moan
+		frame	52,63,71,83								footstep
+	}
+	anim pain_big										models/monsters/slimy_transfer/pain_big.md5anim
+}
+
+
+/*
+===============================================================================
+
+	Slimy Transfer Attacks
+
+===============================================================================
+*/
+
+entityDef melee_slimyTransfer
+{
+	"inherit"											"melee_monster_base"
+	"damage"											"20"
+	"snd_miss"											"failedtransfer_swing"
+	"snd_hit"											"failedtransfer_punch"
+}
+
+entityDef damage_slimyTransfer_vomit
+{
+	"inherit"					"damage_bullet_base"
+	"damage"					"1"
+	"dot_duration"				"2"
+	"dot_interval"				"0.2"
+}
+
+entityDef damage_slimyTransfer_vomit_residual
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"5"
+}	
+
+entityDef damage_slimyTransfer_vomit_splash
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"1"
+	"radius"					"64"
+
+	"dot_duration"				"1"
+	"dot_interval"				"0.2"
+}	
+
+entityDef projectile_slimyTransfer_vomit
+{
+	"inherit"											"projectile_blaster_base"
+	"mins"												"-8 -8 -8"
+	"maxs"												"8 8 8"
+	"def_damage"										"damage_slimyTransfer_vomit"
+	"def_splash_damage"									"damage_slimyTransfer_vomit_splash"
+	"speed"												"200"
+	"gravity"											".2"
+//	"fx_fly"											"effects/monsters/slimy_transfer/vomit_fly.fx"
+	"fx_impact"											"effects/monsters/slimy_transfer/vomit_burst.fx"
+	"fx_impact_actor"									"effects/monsters/slimy_transfer/vomit_burst_actor.fx"
+
+	"delay_residual"									"1"
+	"residual_time"										"6"
+	"def_residual_damage"								"damage_slimyTransfer_vomit_residual"
+}
+
+/*
+===============================================================================
+
+	Slimy Transfer Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_slimy_transfer
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterSlimyTransfer"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_meleeAttack"					"1"
+	"action_vomitAttack"					"1"
+//	"action_vomitAttack_maxrange"			"175"
+	"action_vomitAttack_maxrange"			"250"
+	"action_vomitAttack_rate"				"1.5"
+	"action_vomitAttack_blendFrames"		"4"
+	"action_vomitAttack_anim"				""
+	"action_vomitAttack_failrate"			"0"
+		
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_slimy_transfer"
+	"ragdoll"								"monster_slimy_transfer"
+	"size"									"32 32 72"
+	"use_aas"								"aas32"
+	
+	"joint_vomitMuzzle"						"puke_bone"
+	"joint_eyeOffset"						"puke_bone"
+	"joint_chestOffset"						"chest"
+
+	"chatter_idle_rate"						"8"
+	"chatter_combat_rate"					"8"	
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"49"
+	"painThreshold"							"1"
+
+	"def_attack_vomit"						"projectile_slimyTransfer_vomit"
+	"attack_vomit_accuracy"					"5"
+	"attack_vomit_lockToJoint"				"1"
+	"attack_vomit_rate"						".1"
+
+	"def_attack_melee"						"melee_slimyTransfer"
+
+	"tactical_ranged"						"0"
+	"tactical_rush"							"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"1"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*legs_channel"
+	"damage_zone legs"						"*origin -*waist"
+	"damage_scale head"						"2"	
+	"damage_scale legs"						".75"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"						".2 .2 0"
+	  "look_joint chest"					".2 .2 0"
+	    "look_joint shoulders"				".2 .2 0"
+	      "look_joint neckcontrol"			".2 .2 0"
+	        "look_joint legs_channel"		".2 .2 0"
+
+	// --------------------------------- IK --------------------------------------
+/*	
+	"ik_numLegs"							"2"
+	"ik_footSize"							"4"
+	"ik_waist"								"Body"
+	"ik_hip1"								"r_thigh"
+	"ik_hip2"								"l_thigh"
+	"ik_knee1"								"r_knee"
+	"ik_knee2"								"l_knee"
+	"ik_ankle1"								"r_ankle"
+	"ik_ankle2"								"l_ankle"
+	"ik_foot1"								"r_ball"
+	"ik_foot2"								"l_ball"
+*/
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"							"slimytransfer_alert"
+	"lipsync_rush"							"slimytransfer_alert"
+	"lipsync_chatter_idle"					"slimytransfer_chatter"
+	"lipsync_chatter_combat"				"slimytransfer_chatter"
+	"snd_alert"								"slimytransfer_alert"
+	"snd_moan"								"slimytransfer_chatter"
+	"snd_growl"								"slimytransfer_growl"
+	
+	"snd_footstep"							"failedtransfer_step"
+	"snd_footstep_sand"						"failedtransfer_step_dirt"
+	"snd_footstep_dirt"						"failedtransfer_step_dirt"
+	"snd_footstep_hollowmetal"				"failedtransfer_step_hollow_metal"
+	"snd_footstep_rock"						"failedtransfer_step"
+	"snd_footstep_flesh"					"failedtransfer_step_flesh"
+
+	"snd_pain"								"slimytransfer_pain"
+	"snd_death"								"slimytransfer_death"
+	"snd_swing"								"failedtransfer_swing"
+	"snd_vomit"								"failedtransfer_vomit"
+	"snd_vomit2"							"failedtransfer_vomit_liquid"
+	"snd_feed"								"ambient_feed"
+	"snd_flesh"								"failedtransfer_flesh"
+	"snd_water_trickle"						"failedtransfer_water_trickle"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"
+	"fx_vomit_muzzle"						"effects/monsters/slimy_transfer/vomit_flash.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+	
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"								"Slimy Transfer"
+	"dbText"								"Description Text of the Slimy Transfer"
+	"sg_name"								"Slimey Transfer"
+}

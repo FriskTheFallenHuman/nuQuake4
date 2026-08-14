@@ -1,0 +1,38 @@
+/***********************************************************************
+AirDefense Pipes
+***********************************************************************/
+
+export ad_pipes
+{
+	options -prefix PIPES_ -scale .3937
+	mesh	work/models/misc/ad_pipes/animation/mesh.ma						-dest models/mapobjects/strogg/airdefense/pipes/pipes
+	anim	work/models/misc/ad_pipes/animation/idle.ma						-dest models/mapobjects/strogg/airdefense/pipes/idle
+	anim	work/models/monsters/grunt/animations/gnt_bustin_pipes.ma		-dest models/mapobjects/strogg/airdefense/pipes/bustin_open
+	
+}
+
+model model_env_airdefense_pipes
+{
+	mesh					"models/mapobjects/strogg/airdefense/pipes/pipes.md5mesh"
+	anim idle				"models/mapobjects/strogg/airdefense/pipes/idle.md5anim"
+	anim bustin_open		"models/mapobjects/strogg/airdefense/pipes/bustin_open.md5anim"
+	
+}
+
+entityDef env_airdefense_pipes
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	"editor_usage"			"scripted pipes for airdefense"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_airdefense_pipes"
+	"anim"					"idle"
+	"start_anim"			"idle"
+	
+	"combatModel"			"1"
+}
+

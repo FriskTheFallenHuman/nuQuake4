@@ -1,0 +1,370 @@
+/*
+===============================================================================
+
+	Iron Maiden
+
+===============================================================================
+*/
+
+export iron_maiden
+{		
+	options -prefix IRON_ -align ALL -scale .3937 -keep r_wrist waist mouth_effect muzzle_flash fx4 -parent waist cog_bone -parent upperBack lowerBack -parent lowerBack waist -parent rear01	cog_bone -parent right01 rear01 -parent left01	rear01 -parent rear02 rear01 -parent left02 rear02 -parent right02 rear02 -parent rear03 rear02 -parent left03 rear03 -parent right03 rear03 -parent rear04 rear03 -parent left04 rear04 -parent right04 rear04 -parent rear05 rear04 -parent left05 rear05	-parent right05 rear05
+		
+	mesh	work/models/monsters/iron_maiden/nick/iron_maiden_default.ma							-dest models/monsters/iron_maiden/iron_maiden
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_idle.ma								-dest models/monsters/iron_maiden/idle
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_idle.ma								-dest models/monsters/iron_maiden/melee_attack
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_afPose.ma								-dest models/monsters/iron_maiden/ragdoll
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_backward_left.ma				-dest models/monsters/iron_maiden/back_left
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_backward_right.ma				-dest models/monsters/iron_maiden/back_right
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_backward.ma						-dest models/monsters/iron_maiden/backward
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_forward.ma						-dest models/monsters/iron_maiden/forward
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_forward_start.ma				-dest models/monsters/iron_maiden/forward_start
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_forward_to_idle.ma				-dest models/monsters/iron_maiden/forward_stop
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_melee01.ma							-dest models/monsters/iron_maiden/melee_attack
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_melee02.ma							-dest models/monsters/iron_maiden/melee_attack02
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_right.ma						-dest models/monsters/iron_maiden/right
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_left.ma							-dest models/monsters/iron_maiden/left
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain01.ma								-dest models/monsters/iron_maiden/pain01
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain02.ma								-dest models/monsters/iron_maiden/pain02
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_teleport.ma							-dest models/monsters/iron_maiden/teleport
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_teleport_in.ma						-dest models/monsters/iron_maiden/teleport_in
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_evade_right.ma						-dest models/monsters/iron_maiden/evade_right
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_evade_left.ma							-dest models/monsters/iron_maiden/evade_left
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_shooting01.ma							-dest models/monsters/iron_maiden/range_attack
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_shooting02.ma							-dest models/monsters/iron_maiden/range_attack02
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_backward_to_forward.ma			-dest models/monsters/iron_maiden/backward_to_forward	
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_skirt_forward_to_backwards.ma			-dest models/monsters/iron_maiden/forward_to_backward
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_big_pain02.ma							-dest models/monsters/iron_maiden/big_pain01
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_big_pain02.ma							-dest models/monsters/iron_maiden/big_pain02
+	anim	work/models/mapobjects/strogg/casket/animation/open_anim.ma								-range 1 88 -dest models/monsters/iron_maiden/casket_open
+	anim	work/models/mapobjects/strogg/casket/animation/intro_open.ma							-dest models/monsters/iron_maiden/intro_open
+	anim	work/models/mapobjects/strogg/casket/animation/idle.ma								-dest models/monsters/iron_maiden/casket_idle
+	anim	work/models/monsters/iron_maiden/nick/banshee.ma								-dest models/monsters/iron_maiden/banshee
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_std.ma							-dest models/monsters/iron_maiden/pain_std
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_std3.ma							-dest models/monsters/iron_maiden/pain_std2
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_con.ma							-dest models/monsters/iron_maiden/pain_con
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_con2.ma							-dest models/monsters/iron_maiden/pain_con2
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_strm.ma							-range 1 4 -dest models/monsters/iron_maiden/pain_strm_start
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_strm.ma							-range 4 12 -dest models/monsters/iron_maiden/pain_strm_loop
+	anim	work/models/monsters/iron_maiden/nick/iron_maiden_pain_strm.ma							-range 12 15 -dest models/monsters/iron_maiden/pain_strm_end
+	anim	work/models/mapobjects/strogg/casket/animation/storage_intro_idle.ma					-dest models/monsters/iron_maiden/storage_intro
+}
+
+/*
+===============================================================================
+
+	Iron Maiden Model
+
+===============================================================================
+*/
+
+model model_monster_iron_maiden
+{
+	mesh								models/monsters/iron_maiden/iron_maiden.md5mesh
+
+	channel	torso						( *waist )
+	channel	legs						( *cog_bone origin -*waist )
+
+	anim af_pose						models/monsters/iron_maiden/ragdoll.md5anim
+	anim idle							models/monsters/iron_maiden/idle.md5anim
+	{
+		frame	1						sound	snd_breath
+	}
+	
+	anim run							models/monsters/iron_maiden/forward.md5anim
+	anim run_backwards					models/monsters/iron_maiden/backward.md5anim
+	anim run_right						models/monsters/iron_maiden/right.md5anim
+	anim run_left						models/monsters/iron_maiden/left.md5anim
+	
+	anim banshee						models/monsters/iron_maiden/banshee.md5anim
+	{
+		frame	16						ai_disablePain
+		frame	17						sound_voice	snd_alert
+		frame	17						fx			fx_banshee	mouth_effect
+		frame	22,27,32,37,42,47,52	object_call	Frame_BansheeAttack
+		frame	53						object_call Frame_EndBansheeAttack
+	}
+	
+	anim phase_out						models/monsters/iron_maiden/teleport.md5anim
+	{
+		frame	14						sound	snd_button
+		frame	14						object_call Frame_PhaseOut
+	}
+	
+	anim phase_in						models/monsters/iron_maiden/teleport_in.md5anim
+	{
+		frame	7						sound	snd_button
+		frame	3						object_call Frame_PhaseIn
+	}
+	anim evade_right					models/monsters/iron_maiden/evade_right.md5anim
+	{
+		frame	25						sound	snd_button
+		frame	25						object_call Frame_PhaseOut
+	}	
+	anim evade_left						models/monsters/iron_maiden/evade_left.md5anim
+	{
+		frame	25						sound	snd_button
+		frame	25						object_call Frame_PhaseOut
+	}	
+
+	anim pain1							models/monsters/iron_maiden/pain_std.md5anim
+	anim pain2							models/monsters/iron_maiden/pain_std2.md5anim
+	anim pain_concussive1				models/monsters/iron_maiden/pain_con.md5anim
+	anim pain_concussive2				models/monsters/iron_maiden/pain_con2.md5anim
+	anim pain_stream_start				models/monsters/iron_maiden/pain_strm_start.md5anim
+	anim pain_stream					models/monsters/iron_maiden/pain_strm_loop.md5anim
+	anim pain_stream_end				models/monsters/iron_maiden/pain_strm_end.md5anim
+
+	anim melee_attack1					models/monsters/iron_maiden/melee_attack.md5anim
+	{
+		frame 8							fx					fx_swipe		r_wristReal
+		frame 11						ai_attack_melee		melee
+	}
+	anim melee_attack2					models/monsters/iron_maiden/melee_attack02.md5anim
+	{
+		frame 8							fx					fx_swipe		r_wristReal
+		frame 10						ai_attack_melee		melee
+	}
+	anim range_attack1					models/monsters/iron_maiden/range_attack.md5anim
+	{
+		frame 12						ai_attack			rocket						gunBarrelReal
+		frame 12						fx					fx_rocket_flash				gunBarrelReal
+		frame 12						sound_weapon		player_rocketlauncher_fire
+	}
+	anim range_attack2					models/monsters/iron_maiden/range_attack02.md5anim
+	{
+		frame 10,19,29					ai_attack			rocket						gunBarrelReal
+		frame 10,19,29					fx					fx_rocket_flash				gunBarrelReal
+		frame 10,19,29					sound_weapon		player_rocketlauncher_fire
+	}
+
+	anim casket_open					models/monsters/iron_maiden/casket_open.md5anim
+	{
+		ai_no_look
+
+		rate 1.5
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 1							ai_disablePain
+		frame 1							ai_disableDamage
+		
+		frame 80						enableClip
+		frame 80						enableGravity		
+		frame 80						ai_enableDamage
+		frame 80						ai_enablePain
+	}
+	anim intro_open					models/monsters/iron_maiden/intro_open.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 170						enableClip
+		frame 170						enableGravity		
+	}
+	anim storage_intro					models/monsters/iron_maiden/storage_intro.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+
+//	out because of a bug.  The maidens screams, but when the cinematic ends the player isn't hurt by the scream. 	-mrenner
+//		frame 560						sound_item	snd_alert
+//		frame 560, 584						fx	fx_banshee		mouth_effect
+		
+	}
+
+
+	// --------- ANIMS THAT AREN'T CURREENCED GO BELOW HERE --------------
+	// (NOTE: MAKE THESE WORK)
+
+	anim forward_start					models/monsters/iron_maiden/forward_start.md5anim
+	anim forward_stop					models/monsters/iron_maiden/forward_stop.md5anim
+	anim forward_to_backward			models/monsters/iron_maiden/forward_to_backward.md5anim
+	anim backward_to_forward			models/monsters/iron_maiden/backward_to_forward.md5anim
+	anim run_back_left					models/monsters/iron_maiden/back_left.md5anim
+	anim run_back_right					models/monsters/iron_maiden/back_right.md5anim
+	anim run_forward_left				models/monsters/iron_maiden/forward.md5anim
+	anim run_forward_right				models/monsters/iron_maiden/forward.md5anim
+}
+
+/*
+===============================================================================
+
+	Iron Maiden Attacks
+
+===============================================================================
+*/
+
+entityDef damage_iron_maiden_rocket_direct
+{
+	"damage"							"30"
+	"push"								"100"
+	"mtr_splat"							""
+	"gib"								"0"
+}
+
+entityDef damage_iron_maiden_rocket_splash
+{
+	"damage"							"30"
+	"radius"							"100"
+	"knockback"							"20"
+	"push"								"0"
+	"gib"								"0"
+}
+
+entityDef damage_ironMaiden_banshee
+{
+	"damage"							"5"
+	"knockback"							"2"
+	"gib"								"0"
+	
+	// Double Vision
+	"dv_time"							"4000"
+	"dv_scale"							".05"
+	
+	// Hearing Loss
+	"hl_volumeDB"						"-25"
+	"hl_fadeOutTime"					".5"
+	"hl_time"							"2.5"
+	"hl_fadeInTime"						"1"
+	"snd_hl"							"player_sounds_ringing"
+}
+
+entityDef projectile_iron_maiden_rocket
+{
+	"inherit"							"projectile_rocket"
+	"spawnclass"						"rvDriftingProjectile"
+
+	"driftOffset"						"15"
+	"driftSpeed"						"100"
+	"driftTime"							".35"
+	"speed"								"350"
+
+	"def_damage"						"damage_iron_maiden_rocket_direct"
+	"def_splash_damage"					"damage_iron_maiden_rocket_splash"
+
+//	"fx_fly"							"effects/monsters/light_tank/fly.fx"
+//	"fx_impact"							"effects/monsters/light_tank/impact.fx"
+}
+
+entityDef melee_iron_maiden
+{
+	"inherit"							"melee_monster_base"
+	"damage"							"30"
+	"knockback"							"30"
+	"snd_miss"							"iron_maiden_swing"
+}
+
+/*
+===============================================================================
+
+	Iron Maiden Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_iron_maiden
+{
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterIronMaiden"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_rangedAttack"				"1"
+	"action_rangedAttack_overrideLegs"	"1"			// Keep moving while attacking
+	
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_overrideLegs"	"0"			// Keep moving while attacking
+	
+	"action_bansheeAttack"				"1"
+	"action_bansheeAttack_minRange"		"0"
+	"action_bansheeAttack_maxRange"		"180"
+	"action_bansheeAttack_rate"			"5"
+	"action_bansheeAttack_noturn"		"0"
+	
+	"action_evadeLeft"					"1"
+	"action_evadeLeft_failRate"			".25"
+	"action_evadeLeft_chance"			"1"
+	"action_evadeRight"					"1"
+	"action_evadeRight_failRate"		".25"
+	"action_evadeRight_chance"			"1"
+
+	// --------------------------------- General ------------------------------------
+	"model"								"model_monster_iron_maiden"
+	"size"								"32 32 80"
+	"use_aas"							"aas32"
+//	"health"							"250"
+	"health"							"400"
+	"ragdoll"							"monster_iron_maiden"
+	"joint_bansheeAttack"				"mouth_effect"
+	"joint_chestOffset"					"upperBack"
+	"joint_eyeOffset"					"eyebrow"
+
+	// --------------------------------- Movement --------------------------------
+	"flying"							"1"
+	"fly_speed"							"180"
+	"fly_roll_max"						"3"
+	"fly_pitch_max"						"2"
+	"fly_bob_strength"					"25"
+	"fly_offset"						"0"
+	"forceRun"							"1"
+	"walkRange"							"32"
+	"directionalMovement"				"1"
+	
+	// --------------------------------- Combat -----------------------------
+	"melee_range"						"64"
+
+	"tactical_ranged"					"0"
+	"tactical_rush"						"1"
+	"tactical_cover"					"0"
+	"tactical_hide"						"1"
+
+	"def_attack_rocket"					"projectile_iron_maiden_rocket"
+//	"def_attack_rocket"					"projectile_turret_bunker_blaster"
+	"attack_rocket_accuracy"			".5"
+
+	"def_attack_melee"					"melee_iron_maiden"
+	"def_banshee_damage"				"damage_ironMaiden_banshee"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"					"*head"
+	"damage_scale head"					"2"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"					"0.0 0.2 0"
+	  "look_joint lowerBack"			"0.0 0.2 0"
+	    "look_joint upperBack"			"0.0 0.2 0"
+		  "look_joint leftLower_real"	"0.0 0.2 0"
+	      "look_joint neck"				"0.2 0.2 0"
+	        "look_joint head"			"0.2 0.2 0"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_rocket_flash"					"effects/monsters/iron_maiden/muzzleflash.fx"
+	"fx_swipe"							"effects/monsters/grunt/swipe_attack.fx"
+	"fx_banshee"						"effects/monsters/iron_maiden/banshee.fx"
+	"fx_phase"							"effects/monsters/teleport2_air.fx"
+	"fx_dress"							"effects/monsters/iron_maiden/dress.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+
+	// --------------------------------- Sounds  ----------------------------------
+	"snd_alert"							"iron_maiden_alert"
+	"snd_breath"						"iron_maiden_breath"
+	"snd_attack"						"iron_maiden_attack"
+	"snd_death"							"iron_maiden_death"
+	"snd_button"						"iron_maiden_button"
+	"snd_fly"							"iron_maiden_hover"
+	
+	"sound_bone"						"neck"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"							"Iron Maiden"
+	"dbText"							"Description Text of the Iron Maiden"
+	"sg_name"							"Iron Maiden"
+	"sg_category"						"Flying"
+}

@@ -1,0 +1,432 @@
+/*
+===============================================================================
+
+	Teleport Dropper
+
+===============================================================================
+*/
+
+export teleport_Dropper {
+	options -prefix TDROP_ -scale .3937 -align ALL -keep muzzle_flash vent_L vent_R LF_canon LR_canon RF_canon RR_canon
+	mesh	work/models/monsters/teleport_dropper/animations/run.ma					-dest models/monsters/teleport_dropper/teleport_dropper
+	anim	work/models/monsters/teleport_dropper/animations/run_fast.ma			-dest models/monsters/teleport_dropper/run
+	anim	work/models/monsters/teleport_dropper/animations/walk.ma				-dest models/monsters/teleport_dropper/walk
+	anim	work/models/monsters/teleport_dropper/animations/idle.ma				-dest models/monsters/teleport_dropper/idle
+	anim	work/models/monsters/teleport_dropper/animations/idle_still.ma			-dest models/monsters/teleport_dropper/idle_still
+	anim	work/models/monsters/teleport_dropper/animations/range_attack.ma		-dest models/monsters/teleport_dropper/range_attack
+	anim	work/models/monsters/teleport_dropper/animations/launch_teleports02.ma	-dest models/monsters/teleport_dropper/launch_teleports
+	anim	work/models/monsters/teleport_dropper/animations/evade_right.ma			-dest models/monsters/teleport_dropper/evade_right
+	anim	work/models/monsters/teleport_dropper/animations/evade_left.ma			-dest models/monsters/teleport_dropper/evade_left
+	anim	work/models/monsters/teleport_dropper/animations/pain_big.ma			-dest models/monsters/teleport_dropper/pain_big
+	anim	work/models/monsters/teleport_dropper/animations/hide.ma				-range 1 63 -dest models/monsters/teleport_dropper/hide_start
+	anim	work/models/monsters/teleport_dropper/animations/idle_hide.ma			-dest models/monsters/teleport_dropper/idle_hide
+	anim	work/models/monsters/teleport_dropper/animations/hide.ma				-range 136 170 -dest models/monsters/teleport_dropper/hide_end
+	anim	work/models/monsters/teleport_dropper/animations/bite_from_hide.ma		-range 130 170 -dest models/monsters/teleport_dropper/hide_bite
+	anim	work/models/monsters/teleport_dropper/animations/af_pose.ma				-dest models/monsters/teleport_dropper/af_pose
+	anim	work/models/monsters/teleport_dropper/animations/medlabs_intro.ma		-dest models/monsters/teleport_dropper/medlabs_intro
+	anim	work/models/monsters/teleport_dropper/animations/intro09.ma				-dest models/monsters/teleport_dropper/crates_intro
+	anim	work/models/monsters/teleport_dropper/animations/melee03.ma				-dest models/monsters/teleport_dropper/melee
+
+	anim	work/models/monsters/teleport_dropper/animations/pain_std.ma				-dest models/monsters/teleport_dropper/pain_std
+	anim	work/models/monsters/teleport_dropper/animations/pain_std2.ma				-dest models/monsters/teleport_dropper/pain_std2
+	anim	work/models/monsters/teleport_dropper/animations/pain_strm.ma				-range 1 6 -dest models/monsters/teleport_dropper/pain_strm_start
+	anim	work/models/monsters/teleport_dropper/animations/pain_strm.ma				-range 6 14 -dest models/monsters/teleport_dropper/pain_strm_loop
+	anim	work/models/monsters/teleport_dropper/animations/pain_strm.ma				-range 14 20 -dest models/monsters/teleport_dropper/pain_strm_stop
+	anim	work/models/monsters/teleport_dropper/animations/pain_con.ma				-dest models/monsters/teleport_dropper/pain_con
+}
+
+/*
+===============================================================================
+
+	Teleport Dropper Model
+
+===============================================================================
+*/
+
+model model_monster_teleport_dropper
+{
+	mesh												models/monsters/teleport_dropper/teleport_dropper.md5mesh
+
+	channel	torso										( *neck)
+	channel	legs										( *hips *shoulders *root *origin -*neck)
+
+	anim af_pose										models/monsters/teleport_dropper/af_pose.md5anim
+
+	anim idle_move										models/monsters/teleport_dropper/idle.md5anim
+	{
+		frame	4,8,11,55,56,70,79,102					sound			snd_servo
+		frame	12,56,58,72,80,103						footstep
+		frame	23,43,74,99,118							sound_voice		snd_sniff
+	}
+	anim idle_hide_start								models/monsters/teleport_dropper/hide_start.md5anim
+	{
+		frame	6,9,40,53								sound			snd_servo
+		frame	11										sound_voice			snd_alert
+	}
+	anim idle_hide										models/monsters/teleport_dropper/idle_hide.md5anim
+	{
+		frame	1										sound			snd_breathe
+	}
+	anim idle_hide_end									models/monsters/teleport_dropper/hide_end.md5anim
+	{
+		frame	1										sound			snd_alert
+	}
+	anim leap_attack									models/monsters/teleport_dropper/melee.md5anim
+	{
+		ai_no_look
+		frame	18,19,33								footstep
+		frame	12										sound_voice			snd_growl
+		//frame	12										ai_attack_melee		leap
+	}
+	anim idle											models/monsters/teleport_dropper/idle_still.md5anim
+	{
+		frame	11,55,57,71,79,102	sound			snd_servo
+		frame	23,43,74,99,118		sound_voice		snd_sniff
+	}
+	anim walk											models/monsters/teleport_dropper/walk.md5anim
+	{
+		frame	1					sound		snd_breathe
+		frame	4,8,14,20			sound			snd_servo
+		frame	6,17				footstep
+	}
+	anim run						models/monsters/teleport_dropper/run.md5anim
+	{		
+		frame	1					sound		snd_breathe
+		frame	1,6,8,11,14			sound			snd_servo
+		frame	7,11				footstep
+		frame 	7					fx				fx_runsmoke		F_Rball
+		frame	9					fx				fx_runsmoke		F_Lball
+		rate 1.2
+	}
+	anim range_attack				models/monsters/teleport_dropper/range_attack.md5anim
+	{
+		frame	5,17,21,33,47,53	sound				snd_servo
+		frame	6,18,22,34,48,54	footstep
+		frame	13					sound_voice			snd_growl
+	}
+	anim drop_spawners				models/monsters/teleport_dropper/launch_teleports.md5anim
+	{
+		frame	7					footstep
+		frame	1					sound_voice			snd_growl
+
+		frame 	12					fx					fx_muzzleflash	LF_canon
+		frame 	12					ai_attack			dropSpawner		LF_canon
+
+		frame 	16					fx					fx_muzzleflash	RF_canon
+		frame 	16					ai_attack			dropSpawner		RF_canon
+
+		frame 	21					fx					fx_muzzleflash	LR_canon
+		frame 	21					ai_attack			dropSpawner		LR_canon
+
+		frame 	25					fx					fx_muzzleflash	RR_canon
+		frame 	25					ai_attack			dropSpawner		RR_canon
+//		rate 2
+	}	
+		
+	anim evade_left					models/monsters/teleport_dropper/evade_left.md5anim
+	{
+		frame	1					sound		snd_growl
+		frame	8,10,12,13			sound			snd_servo
+		frame	9,11,13,14			footstep	
+		rate 1.5
+	}
+	anim evade_right				models/monsters/teleport_dropper/evade_right.md5anim
+	{
+		frame	1					sound			snd_growl
+		frame	8,10,12,13			sound			snd_servo
+		frame	9,11,13,14			footstep
+		rate 1.5
+	}
+	
+
+
+	anim pain1						models/monsters/teleport_dropper/pain_std.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain2						models/monsters/teleport_dropper/pain_std2.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain_concussive			models/monsters/teleport_dropper/pain_con.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain_stream_start			models/monsters/teleport_dropper/pain_strm_start.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain_stream				models/monsters/teleport_dropper/pain_strm_loop.md5anim
+	anim pain_stream_end			models/monsters/teleport_dropper/pain_strm_stop.md5anim
+
+	anim medlabs_intro				models/monsters/teleport_dropper/medlabs_intro.md5anim
+	{
+		frame	1					disableGravity
+		//frame	1					disableClip
+		//frame	72					enableClip
+		frame	72					enableGravity
+		frame 	47					fx				fx_runsmoke		F_Rball
+		frame	46					fx				fx_runsmoke		F_Lball
+		frame	27					sound_voice			snd_alert
+		frame	45					sound_item			generic_creature_fall_beefy
+		frame	57,61				footstep
+		frame	62					sound_weapon			snd_growl
+		
+	}
+	anim crates_intro				models/monsters/teleport_dropper/crates_intro.md5anim
+	{
+		frame	1,9,17,20,22		sound			snd_sniff
+		frame	34					sound_voice		snd_alert
+		frame	57,59				footstep
+	}	
+}
+
+model model_monster_teleport_dropper_2_spawners
+{
+	inherit							model_monster_teleport_dropper
+	anim drop_spawners				models/monsters/teleport_dropper/launch_teleports.md5anim
+	{
+		frame	7					footstep
+		frame	1					sound_voice			snd_growl
+
+		frame 	12					fx					fx_muzzleflash	LF_canon
+		frame 	12					ai_attack			dropSpawner		LF_canon
+
+		frame 	16					fx					fx_muzzleflash	RR_canon
+		frame 	16					ai_attack			dropSpawner		RR_canon
+//		rate 2
+	}	
+}
+
+/*
+===============================================================================
+
+	Teleport Dropper Attacks
+
+===============================================================================
+*/
+
+entityDef projectile_teleportDropper_spawner
+{
+	"spawnclass"				"rvSpawnerProjectile"
+	"mins"						"-24 -24 -6"
+	"maxs"						"24 24 32"
+	"cone"						""
+	"noshadows"					"1"
+	"clipmask_largeshot"		"1"
+	"clipmask_moveable"			"1"
+	"clipmask_monsterclip"		"1"
+	"no_contents"				"0"
+
+//	"model"						"models/monsters/teleport_dropper/teldrop_grenade.lwo"
+	"model"						"models/monsters/teleport_dropper/td_pod.lwo"
+
+	
+//	"fuse"						"10"
+	"fuse"						"2.5"
+	"fuse_random"				"2"
+	"remove_time"				"7"
+	"fx_fly"					"effects/monsters/gunner/grenade_fly.fx"
+	"fx_detonate"				"effects/monsters/teleport_dropper/telpod_explode.fx"
+	"fx_impact"					"effects/monsters/teleport_dropper/telpod_explode.fx"
+
+	"flyEffectAttenuateSpeed"	"200"
+
+	"detonate_on_death"			"1"
+
+	"bounce_count"				"-1"
+
+	"gravity"					"1"
+	"bounce"					".3"
+	"speed"						"300"
+	"angular_velocity"			"-10 5 1"
+	"settle_duration"			"0.08"
+
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"
+
+	"health"					"10"
+	"solid"						"1"
+	
+	"remove"					"1"	
+}
+
+/*
+===============================================================================
+
+	Teleport Dropper Model Entity Definition
+
+===============================================================================
+*/
+
+entityDef spawner_teleport_dropper
+{
+	"spawnclass"							"rvSpawner"
+	"count"									"-1"
+	"remove"								"0"
+	"delay"									"0"
+	"auto_target"							"1"
+	"faceEnemy"								"1"
+	"max_active"							"4"
+	"skipvisible"							"0"
+	
+	"fx_spawning"							"effects/monsters/teleport2.fx"
+	
+	"def_spawn_1"							"monster_strogg_marine"
+	"def_spawn_2"							"monster_strogg_marine"
+	"def_spawn_3"							"monster_strogg_marine"
+	"def_spawn_4"							"monster_strogg_marine"
+	"def_spawn_5"							"monster_grunt"
+	
+	"spawn_trigger_anim"					"teleport"
+}
+
+/*
+===============================================================================
+
+	Teleport Dropper Model Entity Definition that spawns grunts more than marines - jersey
+
+===============================================================================
+*/
+
+entityDef spawner_teleport_dropper_grunt
+{
+	"spawnclass"							"rvSpawner"
+	"count"									"-1"
+	"remove"								"0"
+	"delay"									"0"
+	"auto_target"							"1"
+	"faceEnemy"								"1"
+	"max_active"							"4"
+	"skipvisible"							"0"
+	
+	"fx_spawning"							"effects/monsters/teleport2.fx"
+	
+	"def_spawn_1"							"monster_grunt"
+	"def_spawn_2"							"monster_grunt"
+	"def_spawn_3"							"monster_grunt"
+	"def_spawn_4"							"monster_grunt"
+	"def_spawn_5"							"monster_strogg_marine"
+	
+	"spawn_trigger_anim"					"teleport"
+}
+
+entityDef melee_td_leap
+{
+	"inherit"						"melee_grunt_base"
+	"damage"						"20"
+	"knockback"						"100"
+}
+
+entityDef monster_teleport_dropper
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterTeleportDropper"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_evadeLeft"						"1"
+	"action_evadeLeft_rate"					"0"
+	"action_evadeLeft_failrate"				"0"
+	"action_evadeRight"						"1"	
+	"action_evadeRight_rate"				"0"
+	"action_evadeRight_failrate"			"0"
+
+//	"action_rangedAttack"					"1"
+//	"action_rangedAttack_rate"				"10"
+
+	"action_dropSpawners"					"1"
+	"action_dropSpawners_rate"				"1"
+	"action_dropSpawners_nopain"			"1"
+	"action_dropSpawners_minRange"			"0"
+	"action_dropSpawners_maxRange"			"300"
+	
+	"action_leapAttack"						"1"
+	"action_leapAttack_rate"				"1"
+	"action_leapAttack_minRange"			"0"
+	"action_leapAttack_maxRange"			"256"
+	
+
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_teleport_dropper"
+	"ragdoll"								"monster_teleport_dropper"
+	"size"									"48 48 48"
+	"use_aas"								"aas48"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint neck"						".5 .5 0"
+	  "look_joint head"						".5 .5 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"500"
+
+	"walkRange"								"48"
+	
+	"attackRange"							"0 256"
+	"maxLostVisTime"						"4"
+	"projectile_spread"						"5"
+
+	"tactical_ranged"						"0"
+	"tactical_rush"							"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"1"
+	
+	"tetheredHideUseCover"					"1"
+	
+	"def_spawner"							"spawner_teleport_dropper"
+
+	"def_attack_dropSpawner"				"projectile_teleportDropper_spawner"
+	"attack_dropSpawner_lockToJoint"		"1"
+	"attack_dropSpawner_spread"				"45"
+	"attack_dropSpawner_cone"				"0"
+	
+	"def_attack_leap"						"melee_td_leap"
+
+	"joint_left_front_cannon"				"LF_canon"
+	"joint_left_rear_cannon"				"LR_canon"
+	"joint_right_front_cannon"				"RF_canon"
+	"joint_right_rear_cannon"				"RR_canon"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck2"
+//	"damage_scale head"						"2"	
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_breathe"							"teleportdropper_breath"
+	"lipsync_sight"							"teleportdropper_alert"
+	"snd_alert"								"teleportdropper_alert"
+	"snd_growl"								"teleportdropper_growl"
+	"snd_sniff"								"teleportdropper_sniff"
+	"snd_pain"								"teleportdropper_pain"
+	"snd_death"								"teleportdropper_death"
+	"snd_servo"								"teleportdropper_servo"
+	
+	"snd_footstep"							"teleportdropper_steps"
+	"snd_footstep_sand"						"teleportdropper_steps_dirt"
+	"snd_footstep_dirt"						"teleportdropper_steps_dirt"
+	"snd_footstep_hollowmetal"				"teleportdropper_steps_hollow_metal"
+	"snd_footstep_rock"						"teleportdropper_steps"
+	
+	"snd_leap_hit"							"teleportdropper_bite"
+	
+	"sound_bone"							"jaw"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"								"Teleport Dropper"
+	"dbText"								"Description Text of the Teleport Dropper"
+	"sg_name"								"Teleport Dropper"
+	
+	// --------------------------------- effects   -------------------------------
+	"fx_runsmoke"							"effects/monsters/teleport_dropper/runsmoke.fx"
+	"fx_vent_td"							"effects/monsters/teleport_dropper/ambient_steam.fx"
+	"fx_muzzleflash"						"effects/monsters/teleport_dropper/muzzleflash.fx"
+	"fx_blast_exhaust"						"effects/monsters/teleport_dropper/blast_exhaust.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+}

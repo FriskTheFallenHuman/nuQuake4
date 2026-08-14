@@ -1,0 +1,518 @@
+
+//  smaller lights
+
+
+textures/common_lights/small_light7_noshadows
+{
+	noShadows
+	
+	qer_EditorImage	textures/common_lights/small_light7_d.tga
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	{
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+ 
+guide textures/common_lights/small_light2 generic_glow_mi ("common_lights/small_light2", "common_lights/small_light2_g"  )
+guide textures/common_lights/small_light3 generic_glow_mi ("common_lights/small_light3", "common_lights/small_light3_g"  )
+guide textures/common_lights/small_light4 generic_glow_mi ("common_lights/small_light4", "common_lights/small_light4_g"  )
+guide textures/common_lights/small_light5 generic_glow_mi ("common_lights/small_light5", "common_lights/small_light5_g"  )
+guide textures/common_lights/small_light6 generic_glow_mi ("common_lights/small_light6", "common_lights/small_light6_g"  )
+
+textures/common_lights/small_light2_global_starton
+{
+	qer_editorimage textures/common_lights/small_light2_globalon.tga
+
+	bumpmap addnormals ( textures/common_lights/small_light2_local.tga, heightmap ( textures/common_lights/small_light2_h.tga, 1 ) )
+	diffusemap	textures/common_lights/small_light2_d.tga
+	specularmap	textures/common_lights/small_light2_s.tga
+	{
+		if (global1==0)
+		blend		add
+		map		textures/common_lights/small_light2_g.tga
+
+		red		Parm0  
+		green		Parm1  
+		blue		Parm2  
+	}
+
+}
+
+textures/common_lights/strip_light2_global_startoff
+{
+	qer_editorimage textures/common_lights/strip_light2_global.tga
+
+	bumpmap addnormals ( textures/common_lights/strip_light2_local.tga, heightmap ( textures/common_lights/strip_light2_h.tga, 1 ) )
+	diffusemap	textures/common_lights/strip_light2_d.tga
+	specularmap	textures/common_lights/strip_light2_s.tga
+	{
+		if (global1>0)
+		blend		add
+		map		textures/common_lights/strip_light2_g.tga
+
+		red		Parm0  
+		green		Parm1  
+		blue		Parm2  
+	}
+
+}
+
+//	smaller light for MCC
+
+guide textures/common_lights/small_light6_mcc generic_glow_mi ("common_lights/small_light6", "common_lights/small_light6_mcc_g"  )
+
+
+textures/common_lights/small_light7
+{
+	qer_EditorImage	textures/common_lights/small_light7_d.tga
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	{
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+
+textures/common_lights/small_light7_noshadows_global_startoff
+{
+	noShadows
+	
+	qer_EditorImage	textures/common_lights/small_light7_global.tga
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	{
+		if (global1>0)
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/common_lights/small_light7_noshadows_global_starton
+{
+	noShadows
+	
+	qer_EditorImage	textures/common_lights/small_light7_globalon.tga
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	{
+		if (global1==0)
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/common_lights/small_light7_noshadows_global
+{
+	noShadows
+	
+	qer_EditorImage	textures/common_lights/small_light7_xfade.tga
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	
+	{
+		if		(global1 == 0)							// modulated orange
+		blend		add
+		map		textures/common_lights/small_light7_add.tga
+		red 		1.00 * storage_pulse[time*0.5]
+		green 		0.71 * storage_pulse[time*0.5]
+		blue 		0.00 * storage_pulse[time*0.5]
+	}
+	
+	{
+		if		(global1 && time - global1 < .25)				// ramp to known orange
+		blend		add
+		map		textures/common_lights/small_light7_add.tga
+		red		(1.00 * storage_pulse[global1*0.5]) + ((1.00 - storage_pulse[global1*0.5]) * storage_fadein[(time-global1)*4])
+		green		(0.71 * storage_pulse[global1*0.5]) + ((0.71 - (0.71 * storage_pulse[global1*0.5])) * storage_fadein[(time-global1)*4])
+		blue		0
+	}
+	
+	{
+		if		(global1 && time - global1 >= 0.25 && time - global1 < 2.25 )	// fade to blue
+		blend		add
+		map		textures/common_lights/small_light7_add.tga
+		red		storage_light_r[(time-global1-.25)*0.5]
+		green		storage_light_g[(time-global1-.25)*0.5]
+		blue		storage_light_b[(time-global1-.25)*0.5]
+	}
+	
+	{
+		if		(global1 && time - global1 >= 2.25)				// be blue
+		blend		add
+		map		textures/common_lights/small_light7_add.tga
+		red		0.58
+		green		0.82
+		blue		1.00
+	}
+
+}
+
+
+// strip lights
+
+guide textures/common_lights/strip_light1 generic_glow_mi ("common_lights/strip_light1", "common_lights/strip_light1_g"  )
+guide textures/common_lights/strip_light2 generic_glow_mi ("common_lights/strip_light2", "common_lights/strip_light2_g"  )
+
+
+// rectangular lights
+
+guide textures/common_lights/rect_light1 generic_glow_mi ("common_lights/rect_light1", "common_lights/rect_light1_g"  )
+guide textures/common_lights/rect_light2 generic_glow_mi ("common_lights/rect_light2", "common_lights/rect_light2_g"  )
+guide textures/common_lights/rect_light3 generic_glow_mi ("common_lights/rect_light3", "common_lights/rect_light3_g"  )
+guide textures/common_lights/rect_light5 generic_glow_mi ("common_lights/rect_light5", "common_lights/rect_light5_g"  )
+guide textures/common_lights/rect_light6 generic_glow_mi ("common_lights/rect_light6", "common_lights/rect_light6_g"  )
+guide textures/common_lights/rect_light7 generic_glow_mi ("common_lights/rect_light7", "common_lights/rect_light7_g"  )
+guide textures/common_lights/rect_light8 generic_glow_mi ("common_lights/rect_light8", "common_lights/rect_light8_g"  )
+guide textures/common_lights/rect_light10 generic_glow_mi ("common_lights/rect_light10", "common_lights/rect_light10_g"  )
+
+// rectangular lights for MCC
+
+guide textures/common_lights/rect_light5_mcc 		generic_glow_mi ("common_lights/rect_light5", "common_lights/rect_light5_mcc_g"  )
+guide textures/common_lights/rect_light5_mcc_med	generic_glow_mi ("common_lights/rect_light5", "common_lights/rect_light5_mccmed_g"  )
+
+// misc lights
+
+guide textures/common_lights/ceil_light1 generic_glow_mi ("common_lights/ceil_light1", "common_lights/ceil_light1_g"  )
+guide textures/common_lights/ceil_light1_core generic_glow_mi ("common_lights/ceil_light1", "common_lights/ceil_light1_core_g"  )
+
+
+
+guide textures/common_lights/dlight_round generic_glow_mi ("common_lights/dlight_round", "common_lights/dlight_round_g"  )
+
+
+textures/common_lights/small_light7_ns_redpulse
+{
+	qer_EditorImage		textures/common_lights/small_light7.tga
+	nonSolid
+	noShadows
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	{
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red		1.000000 * blinktable[time * 2]  
+		green		0.266667 * blinktable[time * 2]  
+		blue		0.000000 * blinktable[time * 2] 
+	}
+}
+
+//lights
+textures/common_lights/light1_1
+{
+	qer_EditorImage	textures/common_lights/light1_1_d.tga
+	bumpMap			textures/common_lights/light1_1_local.tga
+	diffuseMap		textures/common_lights/light1_1_d.tga
+	specularMap		textures/common_lights/light1_1_s.tga
+	{
+		blend		add
+		map			textures/common_lights/light1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/common_lights/light1_1_global_startoff
+{
+	qer_EditorImage	textures/common_lights/light1_1_global.tga
+	bumpMap			textures/common_lights/light1_1_local.tga
+	diffuseMap		textures/common_lights/light1_1_d.tga
+	specularMap		textures/common_lights/light1_1_s.tga
+	{
+		if (global1>0)
+		blend		add
+		map			textures/common_lights/light1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+// this light when the terminal is idle.
+textures/common_lights/light1_1_storage
+{
+	qer_EditorImage	textures/common_lights/light1_1_d.tga
+	nonSolid
+	noShadows
+
+	{
+		blend bumpMap	
+		map addnormals ( textures/common_lights/light1_1_local.tga, heightmap ( textures/common_lights/light1_1_h.tga, 2 ) )
+		scroll 0, time * .25
+	}
+	
+	{
+		blend diffuseMap
+		map	textures/common_lights/light1_1_d.tga
+		scroll 0, time * .25
+	}
+	
+	{
+		blend specularMap
+		map	textures/common_lights/light1_1_s.tga
+		scroll 0, time * .25
+	}
+	{
+		blend		add
+		map			textures/common_lights/light1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+		scroll 0, time * .25
+	}
+}
+// switch to this light when the terminal is powered up.
+
+//------------------------------------------------------------------
+//--CTF lights begin--------------------------------------
+//------------------------------------------------------------------
+
+textures/common_lights/ctf_light_1_marine
+{
+	qer_EditorImage		textures/common_lights/light1_1_d.tga
+	bumpMap			textures/common_lights/light1_1_local.tga
+	diffuseMap		textures/common_lights/light1_1_d.tga
+	specularMap		textures/common_lights/light1_1_s.tga
+	{
+		if (global1 == 0)
+		blend		add
+		map		textures/common_lights/light1_1_add.tga
+		red		0.6235
+		green		0.8588
+		blue		0.3137
+	}
+	{
+		if (global1 == 1)
+		blend		add
+		map		textures/common_lights/light1_1_add.tga
+		red		( 0.6235 * flag_gone_pulse[time * 0.25] )
+		green		( 0.8588 * flag_gone_pulse[time * 0.25] )
+		blue		( 0.3137 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+textures/common_lights/ctf_ceil_light_1_marine
+{
+	qer_EditorImage 	textures/common_lights/ceil_light1_d.tga
+	bumpMap			textures/common_lights/ceil_light1_local.tga
+	diffuseMap		textures/common_lights/ceil_light1_d.tga
+	specularMap		textures/common_lights/ceil_light1_s.tga
+	{
+		if (global1 == 0)
+		blend		add
+		map		textures/common_lights/ceil_light1_g.tga
+		red		0.6235
+		green		0.8588
+		blue		0.3137
+	}
+	{
+		if (global1 == 1)
+		blend		add
+		map		textures/common_lights/ceil_light1_g.tga
+		red		( 0.6235 * flag_gone_pulse[time * 0.25] )
+		green		( 0.8588 * flag_gone_pulse[time * 0.25] )
+		blue		( 0.3137 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+textures/common_lights/ctf_strip_light_1_marine
+{
+	qer_EditorImage 	textures/common_lights/strip_light1_d.tga
+	bumpMap			textures/common_lights/strip_light1_local.tga
+	diffuseMap		textures/common_lights/strip_light1_d.tga
+	specularMap		textures/common_lights/strip_light1_s.tga
+	{
+		if (global1 == 0)
+		blend		add
+		map		textures/common_lights/strip_light1_g.tga
+		red		0.6235
+		green		0.8588
+		blue		0.3137
+	}
+	{
+		if (global1 == 1)
+		blend		add
+		map		textures/common_lights/strip_light1_g.tga
+		red		( 0.6235 * flag_gone_pulse[time * 0.25] )
+		green		( 0.8588 * flag_gone_pulse[time * 0.25] )
+		blue		( 0.3137 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+textures/common_lights/ctf_light_1_strogg
+{
+	qer_EditorImage		textures/common_lights/light1_1_d.tga
+	bumpMap			textures/common_lights/light1_1_local.tga
+	diffuseMap		textures/common_lights/light1_1_d.tga
+	specularMap		textures/common_lights/light1_1_s.tga
+	{
+		if (global2 == 0)
+		blend		add
+		map		textures/common_lights/light1_1_add.tga
+		red		1
+		green		0.5137
+		blue		0
+	}
+	{
+		if (global2 == 1)
+		blend		add
+		map		textures/common_lights/light1_1_add.tga
+		red		( 1 * flag_gone_pulse[time * 0.25] )
+		green		( 0.5137 * flag_gone_pulse[time * 0.25] )
+		blue		( 0 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+textures/common_lights/ctf_ceil_light_1_strogg
+{
+	qer_EditorImage 	textures/common_lights/ceil_light1_d.tga
+	bumpMap			textures/common_lights/ceil_light1_local.tga
+	diffuseMap		textures/common_lights/ceil_light1_d.tga
+	specularMap		textures/common_lights/ceil_light1_s.tga
+	{
+		if (global2 == 0)
+		blend		add
+		map		textures/common_lights/ceil_light1_g.tga
+		red		1
+		green		0.5137
+		blue		0
+	}
+	{
+		if (global2 == 1)
+		blend		add
+		map		textures/common_lights/ceil_light1_g.tga
+		red		( 1 * flag_gone_pulse[time * 0.25] )
+		green		( 0.5137 * flag_gone_pulse[time * 0.25] )
+		blue		( 0 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+textures/common_lights/ctf_strip_light_1_strogg
+{
+	qer_EditorImage 	textures/common_lights/strip_light1_d.tga
+	bumpMap			textures/common_lights/strip_light1_local.tga
+	diffuseMap		textures/common_lights/strip_light1_d.tga
+	specularMap		textures/common_lights/strip_light1_s.tga
+	{
+		if (global2 == 0)
+		blend		add
+		map		textures/common_lights/strip_light1_g.tga
+		red		1
+		green		0.5137
+		blue		0
+	}
+	{
+		if (global2 == 1)
+		blend		add
+		map		textures/common_lights/strip_light1_g.tga
+		red		( 1 * flag_gone_pulse[time * 0.25] )
+		green		( 0.5137 * flag_gone_pulse[time * 0.25] )
+		blue		( 0 * flag_gone_pulse[time * 0.25] )
+	}
+}
+
+//------------------------------------------------------------------
+//--CTF  lights end----------------------------------------
+//------------------------------------------------------------------
+
+textures/common_lights/mcc_light3_engine
+{	
+	qer_EditorImage	textures/core/sc_light3_d.tga
+	
+	noshadows
+	nonsolid
+
+	{
+		blend bumpMap	
+		map addnormals ( textures/core/sc_light3_local.tga, heightmap ( textures/core/sc_light3_h.tga, 2 ) )
+		scroll 0, time * 3
+	}
+	
+	{
+		blend diffuseMap
+		map	textures/core/sc_light3_d.tga
+		scroll 0, time * 3
+	}
+	
+	{
+		blend specularMap
+		map	textures/core/sc_light3_s.tga
+		scroll 0, time * 3
+	}
+	
+	{
+		blend		add
+		map			textures/core/sc_light3_g
+		red 		parm0
+		green 		parm1
+		blue 		parm2
+		scroll 0, time * 3
+	}
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+//////////      BEYOND HERE THERE BE DRAGONS      //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+
+textures/common_lights/rect_light8_waste_orange_to_red
+{
+	qer_editorimage textures/common_lights/rect_light8_d.tga
+
+	bumpmap addnormals ( textures/common_lights/rect_light8_local.tga, heightmap ( textures/common_lights/rect_light8_h.tga, 1 ) )
+	diffusemap	textures/common_lights/rect_light8_d.tga
+	specularmap	textures/common_lights/rect_light8_s.tga
+	{
+		if (parm4 == 0)
+		blend		add
+		map		textures/common_lights/rect_light8_g.tga
+		red		0.89  
+		green		0.40  
+		blue		0.00
+	}
+	
+	{	if		(parm4 && time - parm4 < 2.5 )
+		blend		add
+		map		textures/common_lights/rect_light8_g.tga
+		red		waste_lighttex_rect8_orange_to_red_r[(time-parm4)*2]
+		green		waste_lighttex_rect8_orange_to_red_r[(time-parm4)*2]
+		blue		waste_lighttex_rect8_orange_to_red_r[(time-parm4)*2]
+	}
+	
+	{
+		if		(parm4 && time - parm4 >= 0.5)
+		map		textures/common_lights/rect_light8_g.tga
+		red		0.52*waste_bb_pulse[(time-parm4-0.5)*0.5]
+		green		0
+		blue		0
+		zeroClamp
+	}
+
+}

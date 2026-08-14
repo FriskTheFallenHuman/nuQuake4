@@ -1,0 +1,91 @@
+
+/***********************************************************************
+(Stomach Pump 1)
+***********************************************************************/
+
+export  stomachpumps
+{
+	options -prefix SP1_ -align ALL 
+	mesh	work/models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump01/Animation/SP1_wiggle1.ma		-dest models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump01/mesh
+	        
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump01/Animation/SP1_wiggle1.ma		-dest models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump01/idle
+	
+
+}
+
+entityDef env_stomachpump01
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Stomach Pillar"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_biomachines_stomachpump1"
+	"anim"						"idle"
+	"start_anim"					"idle"
+	
+	"snd_pump"					"ambient_stomach_pump"
+	
+	
+}
+
+model model_biomachines_stomachpump1
+{
+	mesh					models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump01/mesh.md5mesh
+	
+	anim idle				models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump01/idle.md5anim
+	{
+			frame	1			sound	snd_pump
+	}
+	
+}
+
+
+/***********************************************************************
+(Stomach Pump 2)
+***********************************************************************/
+
+export  stomachpumps
+{
+	options -prefix SP2_ -align ALL 
+	mesh	work/models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump02/Animation/SP2_wiggle.ma		-dest models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump02/mesh
+	
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump02/Animation/SP2_wiggle.ma		-dest models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump02/idle
+		
+
+}
+
+entityDef env_stomachpump02
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Stomach Pump"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_biomachines_stomachpump2"
+	"anim"						"idle"
+	"start_anim"					"idle"
+	
+	"snd_pump"					"ambient_stomach_pump2"
+	
+	
+}
+
+model model_biomachines_stomachpump2
+{
+	mesh					models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump02/mesh.md5mesh
+	
+	anim idle				models/mapobjects/strogg/stroyent/dispersal/bio_machines/stomach_pillar/stomach_pump02/idle.md5anim
+	{
+			frame	1			sound	snd_pump
+	}
+
+	
+}
+

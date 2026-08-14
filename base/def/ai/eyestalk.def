@@ -1,0 +1,54 @@
+/***********************************************************************
+
+monster_eyestalk
+
+***********************************************************************/
+
+export eyestalk {
+	options -prefix EYE_ -align ALL -scale 1
+	mesh	work/models/mapobjects/strogg/core/eyestalk/anims/default.ma			-dest models/monsters/eyestalk/eyestalk
+	anim	work/models/mapobjects/strogg/core/eyestalk/anims/idle2.ma				-dest models/monsters/eyestalk/idle
+	anim	work/models/mapobjects/strogg/core/eyestalk/anims/idle1.ma				-dest models/monsters/eyestalk/wake1
+	anim	work/models/mapobjects/strogg/core/eyestalk/anims/idle1_lower.ma		-dest models/monsters/eyestalk/idle_lower
+
+}
+
+//-----------------------------------------------------------------------------
+//
+//								Model definitions
+//
+//-----------------------------------------------------------------------------
+
+model monster_eyestalk
+{	// MONSTER_MODEL
+	mesh												models/monsters/eyestalk/eyestalk.md5mesh
+	
+	offset												( 0 0 -32 )
+	
+	anim idle											models/monsters/eyestalk/idle.md5anim
+	{
+	}
+	anim wake1											models/monsters/eyestalk/wake1.md5anim
+	{
+	}
+	anim idle_lower											models/monsters/eyestalk/idle_lower.md5anim
+	{
+	}
+}
+
+//-----------------------------------------------------------------------------
+//
+//								Eyestalk
+//
+//-----------------------------------------------------------------------------
+
+entityDef monster_eyestalk
+{	// MONSTER_DEF
+	"inherit"											"actor_default"
+
+//	--------------------------------- Body ------------------------------------
+	"model"												"monster_eyestalk"
+//	"def_dropsItem1"									"ammo_shotgun"
+	"size"												"48 48 96"
+	"use_aas"											"aas96"
+}

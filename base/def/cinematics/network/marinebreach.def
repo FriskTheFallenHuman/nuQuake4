@@ -1,0 +1,82 @@
+/***********************************************************************
+
+misc_holeplate
+
+***********************************************************************/
+
+
+export  marine {
+	options  -prefix hp_ -scale .3937 -align ALL
+	mesh	final/models/cinematics/network/marine_room_seps/holeplate_10.ma	-dest models/cinematics/network/marinebreach/cin_holeplate
+	anim	final/models/cinematics/network/marine_room_seps/holeplate_10.ma	-dest models/cinematics/network/marinebreach/holeplate
+}
+
+entityDef env_marinebreach_holeplate
+{
+	"inherit"					"func_animate"								
+
+	"model"					"models/cinematics/network/marinebreach/cin_holeplate.md5mesh"
+	"anim"				      "models/cinematics/network/marinebreach/holeplate.md5anim"
+	"pose"				      "models/cinematics/network/marinebreach/holeplate.md5anim"	
+}
+
+
+/***********************************************************************
+
+misc_torchflare
+
+***********************************************************************/
+
+
+export  marine {
+	options  -prefix fx_ -scale .3937 -align ALL
+	mesh	final/models/cinematics/network/marine_room_seps/torch_flare_00.ma	-dest models/cinematics/network/marinebreach/cin_torchflare
+	anim	final/models/cinematics/network/marine_room_seps/torch_flare_00.ma	-dest models/cinematics/network/marinebreach/cin_torchflare
+}
+
+entityDef env_marinebreach_torchflare
+{
+	"inherit"					"func_animate"								
+
+	"model"					"models/cinematics/network/marinebreach/cin_torchflare.md5mesh"
+	"anim"				      "models/cinematics/network/marinebreach/cin_torchflare.md5anim"
+	"pose"				      "models/cinematics/network/marinebreach/cin_torchflare.md5anim"	
+}
+
+
+/***********************************************************************
+
+misc_breach_camera
+
+***********************************************************************/
+
+
+export  marine {
+	options -prefix cam_ -scale .3937 -align ALL -keep camera
+	mesh	final/models/cinematics/network/marine_room_seps/cam_01.ma -dest models/misc/cameras/cin_breach_camera
+	anim	final/models/cinematics/network/marine_room_seps/cam_01.ma -dest models/misc/cameras/cin_breach_camera
+}
+
+entityDef cin_marine_breach_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"			"idCameraAnim"
+
+	"model"				"models/misc/cameras/cin_breach_camera.md5mesh"
+	"anim path"				"models/misc/cameras/cin_breach_camera.md5anim"
+	
+}
+
+
+entityDef env_marinebreach_camera
+{
+	"inherit"					"func_animate"								
+
+	"model"					"models/misc/cameras/cin_breach_camera.md5mesh"
+	"anim"				      "models/misc/cameras/cin_breach_camera.md5anim"
+	"pose"				      "models/misc/cameras/cin_breach_camera.md5anim"	
+}
+

@@ -1,0 +1,24 @@
+export cin_camera_tactical_intro
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/dispersal_tact_INTRO/   -destdir models/cinematics/tactical_intro
+	camera	level.ma		-dest tactical_intro_cam
+}
+
+camera tactical_intro
+{
+	anim tactical_intro_cam				"models/cinematics/tactical_intro/tactical_intro_cam.md5camera"
+}
+
+entityDef  cin_camera_tactical_intro
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"tactical_intro"
+}
+
+

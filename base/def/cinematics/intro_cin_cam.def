@@ -1,0 +1,25 @@
+export cin_camera_intro_cin
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/game_intro/   -destdir models/cinematics/intro
+	camera	intro_level.ma		-dest intro_cin_camera
+}
+
+camera intro_cin_camera
+{
+	anim intro_cin_camera				"models/cinematics/intro/intro_cin_camera.md5camera"
+
+}
+
+entityDef  cin_camera_intro_cin
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"intro_cin_camera"
+}
+
+

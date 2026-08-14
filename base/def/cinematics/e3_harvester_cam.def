@@ -1,0 +1,24 @@
+export cin_E3_harvester_cam 
+{
+	options -scale .3937 -nomesh 
+	
+	camera	work/models/monsters/harvester/animations/E3_harvester_e3mech.ma	-dest models/cinematics/E3_harvester/cin_E3_harvester_cam
+}	
+
+camera E3_harvester_camera
+{
+	anim E3_harvester_cam				"models/cinematics/E3_harvester/cin_E3_harvester_cam.md5camera"
+
+
+}
+
+entityDef cin_E3_harvester_cam
+{
+	"editor_color"					"1 0 .5"
+	"editor_mins"					"-16 -16 -16"
+	"editor_maxs"					"16 16 16"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+	"camera"						"E3_harvester_camera"
+}

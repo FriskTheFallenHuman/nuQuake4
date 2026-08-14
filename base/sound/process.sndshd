@@ -1,0 +1,680 @@
+
+
+sound process_fog_machine
+{
+	minDistance	78
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/industrial/machinery05
+	shakeData 0 fhjifghhlhfiigghhhfdgfghigihgijijhfikiinlimljlkkkljikkhikjkhgifilfhhfeffghgeecdccddddddeceddeecfcddfffefeffefededffeeeeeeeeeddfeeeeefdeffffeefdfgeegfeggeegfgefjhhfigkkjilijnhjljkkmkjiiiliigmkhkkhkmhihjh
+}
+
+
+sound process_energy_core
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	-9
+	looping
+
+	sound/ambience/process/energy_core_loop
+	shakeData 0 trrtrqxuuuwsvuvuvswxtqxvwrwuvvwwvwvvttuvrtsrxswvvuvvtvqvpusvqrrovttuuuvxssvvvvqyuvtqonvvwwvtsqnnnnmmnmlnlkptstsqqqstutvupvqqrvsvuwuuvpnqsquoqstnqqqnssturqnruvrqssrqolmolnltqrqpoqqqsonmoljknnmmnpnopprts
+}
+
+
+sound process_core_power_up
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/process/core_power_up
+	shakeData 0 aaaabbbcdbddcdedeffgdefefhggheiiejgjljijlkifhlklhgjojlhhjijnhiijmnkilhmilhkjikfhfghifhghihhlilihjllijkmomiilomlinmomnlonppkljmkkhgggfeeecddccbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_machinery_rotate
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-6
+	looping
+
+	sound/ambience/process/machinery_rotate_loop
+	shakeData 0 dhprwyzyxxxwwwuvvwtqsrnklfeehhhkkloqqvquxxxtuwuwvssrptrroqsmnstywyxyuwqvxwvnrmpuonqpllpstsvrsutxwwuutqwuwvtpoh
+}
+
+
+sound process_machinery_spindown
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-6
+
+	sound/ambience/process/machinery_spindown
+	shakeData 0 bbcdgruyyvvwzyyyywxuvprmpkjmjijjkojptyxxyvvxspvrnpnonnonnlikllnloqrnruytqtxxuvvuournjmfhdfddcbbbbaaaaaaa
+}
+
+
+sound process_node
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-9
+	looping
+
+	sound/ambience/process/node_loop
+	shakeData 0 hhdfhgdghedhfcghddhgdd
+}
+
+
+sound process_node_large
+{
+	minDistance	78
+	maxDistance	1500
+	volumeDb	-2
+	looping
+
+	sound/ambience/process/node_loop
+	shakeData 0 hhdfhgdghedhfcghddhgdd
+}
+
+
+sound process_node_movement
+{
+	minDistance	40
+	maxDistance	800
+	volumeDb	0
+
+	sound/ambience/process/node_move1
+	shakeData 0 daddeghiikllmnpmlnnnmqprnkgdbaaaaaaaa
+	sound/ambience/process/node_move2
+	shakeData 1 faccdeefghghhijikkjjjkfebbbaaaaaaa
+	sound/ambience/process/node_move3
+	shakeData 2 aaabbbccddeeeffffggfgfhfhhffbaaaaa
+}
+
+
+sound process_node_shutdown
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-9
+
+	sound/ambience/process/node_shutdown
+	shakeData 0 xwzzxyzuxxzyuvrmhmlkefffbbdcbaa
+}
+
+
+sound process_eggshell_open
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/eggshell_open
+	shakeData 0 tzzyzyzyvywwvxwqrrmnjhiifeeddcccccbbbbbbbbbbaaaaaaaaaaaaaaa
+}
+
+
+sound process_bridge_start
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/bridge_start
+	shakeData 0 zzwvutvvxuuvrrsmjgedccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_bridge_loop
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+	looping
+
+	sound/ambience/process/bridge_loop
+	shakeData 0 kkkljikkjkijiiiiihijjkjjijiigghhgfggfggffghhgghhghghghhjkihhkhiijilkjhijkjihjjki
+}
+
+
+sound process_bridge_stop
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/bridge_stop
+	shakeData 0 quwuvtpqsoomliihfhgfceeccccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_assembly_bridge_movement
+{
+	minDistance	200
+	maxDistance	800
+	volumeDb	0
+	looping
+
+	sound/ambience/network/bridge/bridge_loop
+	shakeData 0 fededeffe
+}
+
+
+sound process_assembly_bridge_connect
+{
+	minDistance	200
+	maxDistance	800
+	volumeDb	0
+
+	sound/ambience/network/bridge/bridge_connect
+	shakeData 0 zzzwyyuotoplefdebaaaaa
+}
+
+
+sound process_assembly_bridge_disconnect
+{
+	minDistance	200
+	maxDistance	800
+	volumeDb	0
+
+	sound/ambience/network/bridge/bridge_disconnect
+	shakeData 0 yxuspmojksqkfccbaaa
+}
+
+
+sound process_large_elevator_move
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	-6
+	looping
+
+	sound/ambience/process/lrg_elev_move
+	shakeData 0 mprqmopopppoolponpqlnooqlnpnnpqnplrptqqrpmnpnnllllmlkjkmknnlolljjjkkmkhjlinkkmklkkjkkljjkkmmmlmmlomollnnoqkkmommomqpoqsnqmsoqrnompplostsqqpqqpqqqqmnokopppmnon
+}
+
+
+sound process_large_elevator_accel
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	-6
+
+	sound/ambience/process/lrg_elev_accel
+	shakeData 0 abcccdfhhjiljlnmooqpmnnmnppqmopn
+}
+
+
+sound process_large_elevator_decel
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	-6
+
+	sound/ambience/process/lrg_elev_decel
+	shakeData 0 mprqmoonqoqopmmnpnqplooopjjigedba
+}
+
+
+sound process_heavy_machinery
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/heavy_machinery
+	shakeData 0 jnrouvuswwvwvwuvwuvtwuwuvwwvuuxuuwtutwssqooqnnpqmlkknilkkjiijgggfghfhegffgffeedddeeddddcdccccccccbcbbbbbbbabaabaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_console_raise
+{
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/console_raise
+	shakeData 0 bfjklnnmlkkiijkjkkjkjlomkjkhhkiihfddccgkkjjhhggbbbbrpnnmrlmkljjihgfdcbabaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_laser_loop
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	-11
+	looping
+
+	sound/ambience/process/laser_loop
+	shakeData 0 gfededeggfeeefghihgeeefeeddefgeeegeeefddbeddeeecdefdegfeefgggggeffghgeeeeeddedcdedceedddffgdeddddee
+}
+
+
+sound process_laser_connect
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-9
+
+	sound/ambience/process/laser_connect1
+	shakeData 0 zzzzzzzwzzyzyyroimljeedbbaaaaa
+	sound/ambience/process/laser_connect2
+	shakeData 1 xzzxzzzzzzxyzpolgihdbbbaaaaaa
+}
+
+
+sound process_laser_success_beep
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/process/success_beep
+	shakeData 0 acdgiiihiijlmklqsqrrssmkghedefgfgfgedddcccddddedcbcbbbcccccbbbaabbabaaaaaaaaaaaaaa
+}
+
+
+sound process_laser_disconnect
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-9
+
+	sound/ambience/process/laser_disconnect1
+	shakeData 0 yzzzzzzxvzvwsxxqtqommuvqmpnoolgjfggeddedddcbbbaaaaaaaaaaa
+	sound/ambience/process/laser_disconnect2
+	shakeData 1 qwxzzzzzzzzxxvyxyxxzvrsomnljhglnnljijjjhefdeccccccbbbaaaaaaaaaaaaaaaa
+}
+
+
+sound process_pulse
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-4
+	looping
+
+	sound/ambience/process/pulse_loop1
+	shakeData 0 klkjklkmihinllljlkkkkkjkkljjilkljlkjkljikkkmikjjlokmkjknmnljjkmjljjjnkmikkklljkijkljiiilkmkkllmnlkkollke
+}
+
+
+sound process_pulse_deep
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-4
+	looping
+
+	sound/ambience/process/pulse_loop2
+	shakeData 0 lpoqvooontvsklsrsonmnmkotoumlkmoprlsppppolqlkoqpmosqwqupmnunonqnoxsmolloqoolknttsnsnunmrqlppowsooqmrlimqpnquqvpmlnqlpllnssrqoklpsomnpvovuprpnnnmmnnmtqjnqqrskmqpnsxqltqnrnjmqkvnonqqlloqopnprpnpqoqojlnpnoqvuorm
+}
+
+
+sound process_pulse_connect
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-4
+
+	sound/ambience/process/pulse_connect
+	shakeData 0 xzzzzyxztsspnlnnmlouxuqsqpuuxtxysqonorspvqrtkmmlhifejkceddbcccbbbbabbaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_iron_maiden_casket_drop
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/process/bridge_stop
+	shakeData 0 quwuvtpqsoomliihfhgfceeccccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_giant_piston_up
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/piston_up
+	shakeData 0 ghmprstywqrmyqpjnpnklkjlinwuvtmllrsqojmmjnmkjknmhjkjkknijjjfmplihqnillokgjhmjkojjmiiikjjmnqollonnqmpnnlrppqrornlopopqppsstsrsttumlommmljkpppmlmnlqmolnpqpqqpppnonknkmrpliiknqomqtwstxsvqpnnmlommknnljigjhihgefeededdccdcbbcbaaaaaa
+}
+
+
+sound process_giant_piston_down
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/piston_down
+	shakeData 0 afimttnstxvxqrpnpmkrwttpqvormlpmlhimomklsqjijkpnsiihpkjklljimljkmlhnonmkmmljmjlkjklkjklmkjlmnmpooopqmljlmjjnooouututttsrnonqqnoqonoomomqrrpnnmnjkjnpmlkpppmmjnnmrpnkqtnoqqmilpooilnwxwssqqoqlnmhklhhiheifgdedeccdddcbccbbbaaaaa
+}
+
+
+sound process_giant_piston_up_1sec
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/piston_up_1sec
+	shakeData 0 mowxywxyystoytslpspmommnlryxxvnmptrptwxuwyvvrrppnnqppnqqnljimjlkiggggefeeddedbcdcaaaaaa
+}
+
+
+sound process_lift_accel
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/lift_accel
+	shakeData 0 efjllmjmlprpsnsotlmqoumooloomlklkjiiijjkmkkjijihigmkinmklmjjljlkkjlnknkllnknmqnklknnnpmnqpd
+}
+
+
+sound process_lift_move
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	looping
+
+	sound/ambience/process/lift_move
+	shakeData 0 pltqroonqmmrqqoqqqqqqqoppnpqqnopqpplornpnquprsqnnpnlkmnlkklkklkokkjiimijlminimjlmjlkkllkllmmnklmojnlqnkllolnpmnsr
+}
+
+
+sound process_lift_decel
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/lift_decel
+	shakeData 0 qpuyrutvxstxqurusuorrsosvpquwuupopqmpsoomoptoomkklkjghhigfggffffgeecddeccccdcccbcbbbbaaaaaa
+}
+
+
+sound process_elevator_sequence
+{
+	minDistance	1200
+	maxDistance	1200
+	volumeDb	-12
+
+	sound/ambience/process/elevator_sequence
+	shakeData 0 aaaaabcccceedddfdfgfdflegghggkhgikkhkhihknjhmljilogjjmkglgjheihhihjihglmjjotojjmmjtqkwqvvwvmqprssxtlxkpnnlmmjlpnnonojknjkgmjktyyyvzzzzxzquvpuyztwwwzzwrxvxwyzyxvxvuusuwyssuunpmmlpmmlnkmmilihiikgihihjfihjghiijiihkjghhkhgiimhikilkkhjjijmlhjkkgnnmikjkhkiinlimkjhijkkfjjffihjfjijljlhjlkhkljkgmgikihikhhfjhgfggegggfggfgfggihgggfffffefffeeeeeefeefeefeeedeeeeedeeeededdeeeeeeedddededddddcddcddcccddeccccdecdddddedefeffeffefeeegefffffffeffffffggfggghgggghghggghhijjjjnollnpqsrspqpnuqqqnppnolmmklllljijiijjijjjiiikijkjkiijkkkjkkljjkkikjkijkkjkikkkjklkkkkkkjijjiiiiiikjiiikjkhiijhiihhhhgghgfghjiijhjjjjnkjlhijjjklknnmnljjkijijihhhlplljhmnlolmrqqsrpomsqunnnopmqqrnnqplmlppnnspoqmkkkkjkjjkjkjpkkiiglnrlvzyxzzzzzyzzzzzzzzzzzzzzzzzzxxvtyxwtpnoljkjijjihlpjjiggkijeeedfggfdffhkkijfgjjlliijhhhgiighjjiigfeeeddddddddfdddbcdccbbbbbbbbabbbccbbbbbbbcbbbbbbabbaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process_elevator_crash
+{
+	minDistance	1200
+	maxDistance	1200
+	volumeDb	0
+	shakes		0.3
+	global
+
+	sound/ambience/process/elevator_crash
+	shakeData 0 abccbdghfeeeefeeddddccccdcdefiozzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzxssxroprppnnjkljkihnrlighkkhmmnhhfhjhjhgggejknjggeeghhfeedeedccbbbbbaaaaaaaaaaa
+}
+
+
+sound guardian_door_break
+{
+	minDistance	800
+	maxDistance	2500
+	volumeDb	0
+	no_dups
+
+	sound/impact/large_metal/break1
+	shakeData 0 zzzzzzzzzyzzzzxzumljkigggfeffdddcccccbcbbbbbbaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/impact/large_metal/break2
+	shakeData 1 zzzzzzzzzxyurqupnxqwwspmjhgfefeeddiilihjieddihhffdcbbbabccdbbaaaaaaaaaaaaaaaaaa
+	sound/impact/large_metal/break3
+	shakeData 2 zzzzzzzxuywyqlmkkjihghigddccbbbbbaaaaaaaaaaaaaaaaa
+}
+
+
+sound guardian_door_pound
+{
+	minDistance	800
+	maxDistance	2500
+	volumeDb	4
+	shakes		0.5
+	no_dups
+
+	sound/ambience/industrial/metal_pound1
+	shakeData 0 yxxuvtutonsjonogktrrquomjlunqpmnprrvpsplouopurtstpnnljiljihgffeefdddcdcbbbaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_pound2
+	shakeData 1 tzuzsprqusnsonrnqrtkqrnkqijihkogjqmjlimmiqkhnjojjgmpnfgeeeknigifefgggefeccbabaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_pound3
+	shakeData 2 eyyptsqttusntspjnmmimkpjhonkgkhggihmlhmmlnikokikhghefefeddcccccbbbbbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_pound4
+	shakeData 3 wsmolwxsovoppotjjmjkrkiiihffghidggcdddcccbbaaa
+}
+
+
+sound guardian_door_stress_light
+{
+	minDistance	800
+	maxDistance	2500
+	volumeDb	0
+
+	sound/ambience/industrial/metal_stress1
+	shakeData 0 aaaaaabbbbbbcccdeedcccbbbbbcddeddddeeeeeeedeeffffgiighhiiikjkhhhhggghhfghhhhfhfgegfdeddedccdfeffgfeedddccddeeeeeeeeeefggedcbbbaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_stress2
+	shakeData 1 aaaabbbbbcbdbdcddecedefeffefggefgdfcedgddecgedecfdfedddefdfcccgdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_stress3
+	shakeData 2 aaaaacbdcdeegefefhfghhgggeifhhdgdgfggchfhfdfeheccdcbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_stress4
+	shakeData 3 aaaaaaaababbbbbbcccccddddddeeffhhiihgfghhgffhhgghhljiikonllnmmkjkjllklmmmlmlmklljkjijikjmmkhgfefffffghfeddcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound guardian_door_stress_violent
+{
+	minDistance	800
+	maxDistance	2500
+	volumeDb	0
+
+	sound/ambience/industrial/metal_twist1
+	shakeData 0 bgilnmnnsttrttwuuwtwxtrmionoqqllmnmmljhededdcccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_twist2
+	shakeData 1 bdfijmruutsswustttttvtstruustsrqtrrrnkhgggfedcccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_twist3
+	shakeData 2 geifklnooooppporqpqqsprqrrrvsrsrssussurtsqsutruuusrvttqtursusrstuustwursvtttrrrsssrsvtssqturpqpmkheeddccccbbbbbbbaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process2_lift_accel
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/lift_accel
+	shakeData 0 efjllmjmlprpsnsotlmqoumooloomlklkjiiijjkmkkjijihigmkinmklmjjljlkkjlnknkllnknmqnklknnnpmnqpd
+}
+
+
+sound process2_lift_move
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	looping
+
+	sound/ambience/process/lift_move
+	shakeData 0 pltqroonqmmrqqoqqqqqqqoppnpqqnopqpplornpnquprsqnnpnlkmnlkklkklkokkjiimijlminimjlmjlkkllkllmmnklmojnlqnkllolnpmnsr
+}
+
+
+sound process2_lift_decel
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/process/lift_decel
+	shakeData 0 qpuyrutvxstxqurusuorrsosvpquwuupopqmpsoomoptoomkklkjghhigfggffffgeecddeccccdcccbcbbbbaaaaaa
+}
+
+
+sound process2_iron_maiden_trapdoor
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+	shakes		0.2
+
+	sound/doors/hangar_bay/open
+	shakeData 0 kmywyzzzzxyzyzwzxuvustmnoljhhgfeedccbbbbbaaaaaaaaaaaaaa
+}
+
+
+sound process2_iron_maiden_raise
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/objects/casket/raise
+	shakeData 0 kqtttsvquwvwxtvwuqsvrrtquursvsqtstvqrvstqpqnqqqpoqpqtqlmmlmjkllnmllilkkilkopnjiiijhgffdedcccccbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process2_iron_maiden_casket_rotate
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/objects/casket/rotate
+	shakeData 0 aacdefijknrquqrqtstikhjjhfefedcbaaaaaaa
+}
+
+
+sound process2_node_raise_rotate
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/process/node_rotate
+	shakeData 0 jlmnpoqmonnpqnmlimjmnllmjiijijjgggffeggfgggfeeefdddeeeeddddeeeeeefeeedfeededdddedeeeeeefeffeffffffecbaaaaaaaaaaaaaaaa
+}
+
+
+sound process2_node_platform_start
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/core/movers/platform_start
+	shakeData 0 dbgnssumkkiha
+}
+
+
+sound process2_node_platform_loop
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+	looping
+
+	sound/ambience/core/movers/platform_move
+	shakeData 0 prrpnonmlllolmjklmmlmonnnnnonnomnmmooptomqlnopmoqm
+}
+
+
+sound process2_node_platform_end
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/core/movers/platform_stop
+	shakeData 0 mwsmjjghhijgfgefedcccbbaaaaaaa
+}
+
+
+sound process2_node_platform_rotate1
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/process/platform_rotate1
+	shakeData 0 jhhiifghgihedcbbbbaaaaaaaaaaa
+}
+
+
+sound process2_node_platform_rotate2
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/process/platform_rotate2
+	shakeData 0 jhhihhiihggghhhhihiiedcdccbbbbbbabbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process2_node_platform_rotate3
+{
+	minDistance	400
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/process/platform_rotate3
+	shakeData 0 jhhiihhghiihggffghhghiihihiijhddddcdcdcbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound process2_pillar_unlock
+{
+	minDistance	400
+	maxDistance	1600
+	volumeDb	0
+
+	sound/ambience/process/pillar_unlock
+	shakeData 0 tzzzxwwupuwtpnookismlojkkmlkkmjnkjjhgecdcbbbbaaaaaaaaaa
+}
+
+
+sound process2_pillar_move
+{
+	minDistance	400
+	maxDistance	1600
+	volumeDb	0
+	looping
+
+	sound/ambience/process/pillar_move
+	shakeData 0 nmlloponoomlllmmomnllkmlnljikmklmmklkjiihgiikkmljjghkkkknpnopo
+}
+
+
+sound process_beam_shutdown
+{
+	minDistance	400
+	maxDistance	1600
+	volumeDb	0
+	global
+
+	sound/ambience/process/beam_shutdown
+	shakeData 0 bdeehghgiigiggfkjjjlikipsoqnqrvwtrpvtwqqnrtomjmrqmljnknkkknommimkjhhljijkhmjkmjpmslonntnqmlknmnmijpimmjjkjikjiljmqinmilmhmigihikiigehjgigfgfdeedecbcbbaaa
+}
+
+
+

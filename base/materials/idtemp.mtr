@@ -1,0 +1,449 @@
+//from ID
+
+
+textures/decals/hangingwires_shadow
+{
+	qer_editorimage		textures/decals/hangingwires_shadow
+	nonSolid
+	translucent
+	{
+		blend 			gl_dst_color,gl_zero
+		map				textures/decals/hangingwires_shadow
+	}	
+}
+
+
+textures/decals/hangingwires
+{
+	nonSolid
+	translucent
+//	noImpact
+	noshadows
+	qer_editorimage		textures/decals/hangingwires.tga
+	bumpmap			textures/decals/hangingwires_local.tga
+	{
+		blend		diffusemap
+		map		textures/decals/hangingwires_d.tga
+		alphatest	.25
+	}
+	specularmap		textures/decals/hangingwires_s.tga
+}
+
+textures/decals/hangingwires2sided
+{
+	twoSided
+	nonSolid
+	translucent
+//	noimpact
+	noshadows
+	qer_editorimage		textures/decals/hangingwires.tga
+	bumpmap			textures/decals/hangingwires_local.tga
+	{
+		blend		diffusemap
+		map		textures/decals/hangingwires_d.tga
+		alphatest	.25
+	}
+	specularmap		textures/decals/hangingwires_s.tga
+}
+
+
+
+
+textures/decals/sdirt12
+{
+	translucent
+	DECAL_MACRO
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt12.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map	textures/decals/sdirt12.tga
+		colored
+	}	
+}
+/* removed as per fred.
+textures/decals/pressurepanel_a
+{
+ 	noShadows
+	qer_editorimage 	textures/decals/pressurepanel_a.tga
+	nonsolid
+	bumpmap				textures/decals/pressurepanel_local.tga
+	{       
+		blend			diffusemap
+		map				textures/decals/pressurepanel_a_d.tga
+		alphaTest 		0.5
+	}
+	specularmap			textures/decals/pressurepanel_s.tga
+}
+*/
+	
+textures/decals/wirejumble
+{
+	qer_editorimage textures/decals/wirejumble.tga
+//	DECAL_MACRO
+	noShadows
+	nonSolid
+	translucent
+//	noImpact	
+	{
+		blend	diffuseMap	
+		map textures/decals/wirejumble_d.tga
+		alphaTest .5
+	}
+	
+	bumpMap textures/decals/wirejumble_local.tga
+	specularMap textures/decals/wirejumble_s.tga
+}
+
+
+textures/decals/stainwall
+{
+
+	DECAL_MACRO
+	//polygonOffset
+	qer_editorimage	textures/decals/stainwall.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/stainwall.tga
+	}	
+}
+
+textures/decals/dirty_frame
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noImpact
+	noshadows
+	//polygonOffset
+	qer_editorimage	textures/decals/dirty_frame.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/dirty_frame.tga
+	}	
+}
+
+textures/decals/drophose
+{
+	twoSided
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage		textures/decals/drophose.tga
+	bumpmap			textures/decals/drophose_local.tga
+	{
+		blend		diffusemap
+		map		textures/decals/drophose_d.tga
+		alphatest	.25
+	}
+	specularmap		textures/decals/drophose_s.tga
+}
+
+textures/decals/sdirt6
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt6.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/sdirt6.tga
+		colored
+	}	
+}
+
+textures/decals/sdirt7
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt7.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/sdirt7.tga
+		colored
+	}	
+}
+
+textures/decals/sdirt8
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt8.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/sdirt8.tga	
+		colored
+	}	
+}
+
+
+
+textures/decals/sdirt10
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt10.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/sdirt10.tga
+		colored	
+	}	
+}
+
+
+textures/decals/sdirt10a
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt10a.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map	textures/decals/sdirt10a.tga
+		colored
+	}	
+}
+
+
+textures/decals/sdirt11
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt11.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map	textures/decals/sdirt11.tga
+		colored
+	}	
+}
+
+
+textures/decals/sdirt11a
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt11a.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map	textures/decals/sdirt11a.tga
+		colored
+	}	
+}
+
+textures/decals/stain01bwet
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	qer_EditorImage	textures/decals/stain01bwet.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/stain01b.tga
+	}	
+
+	specularmap	 textures/decals/stain01b_s.tga
+}
+
+textures/decals/stain03
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	qer_EditorImage	textures/decals/stain03.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/stain03.tga
+	}	
+}
+
+textures/decals/stainwallfade
+{
+
+	DECAL_MACRO
+	qer_editorimage	textures/decals/stainwallfade.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/stainwallfade.tga
+	}	
+}
+
+textures/decals/stain01b
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	//polygonOffset
+	qer_editorimage	textures/decals/stain01b.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/stain01b.tga
+	}	
+}
+
+textures/decals/sdirt2
+{
+	DECAL_MACRO
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/sdirt2.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/sdirt2.tga
+		colored	
+	}	
+}
+
+textures/decals/dirtblast
+{
+	translucent
+	nonsolid
+	noimpact
+	noshadows
+	qer_editorimage	textures/decals/dirtblast.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map	textures/decals/dirtblast.tga
+		colored
+	}	
+}
+
+textures/decals/glass_on_floor
+{
+	translucent
+	twoSided
+	noshadows
+	qer_editorimage	textures/decals/glass_on_floor.tga
+	
+	{
+		blend diffuseMap
+		map textures/decals/glass_on_floor.tga
+	}
+	{
+		blend specularMap
+		map textures/decals/glass_on_floor.tga
+	}
+
+}
+
+textures/decals/skid_turn
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	//polygonOffset
+	qer_editorimage textures/decals/skid_turn.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/skid_turn_d.tga
+	}	
+}
+
+
+textures/decals/skid
+{
+	DECAL_MACRO
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+	//polygonOffset
+	qer_editorimage textures/decals/skid.tga
+	{
+		blend gl_dst_color,gl_zero
+		map textures/decals/skid.tga
+	}	
+}
+
+textures/glass/breakyglass3_nvp
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	materialType glass
+	forceoverlays
+
+	qer_editorimage textures/glass/id/breakyglass3
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/id/breakyglass3)
+	}	
+	{
+	    blend gl_dst_alpha, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+			red		Parm0
+	        green   Parm1
+	        blue	Parm2
+        texgen		reflect
+//		vertexColor
+	}
+	
+}
+
+
+textures/glass/glass1
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	materialType glass
+	forceoverlays
+
+	qer_editorimage textures/glass/ID/glass1
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/Id/glass1)
+	}	
+	{
+	    blend gl_dst_alpha, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+			red		Parm0
+	        green   Parm1
+	        blue	Parm2
+        texgen		reflect
+
+	}
+	
+}

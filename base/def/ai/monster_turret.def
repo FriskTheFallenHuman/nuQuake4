@@ -1,0 +1,210 @@
+/*
+===============================================================================
+
+	Turret
+
+===============================================================================
+*/
+
+export turret
+{
+	options -prefix TURRET_ -scale .4 -keep muzzle_flash_big muzzle_flash_small
+	mesh	work/models/monsters/turret/animations/TURRET_idle.ma		-dest models/monsters/turret/wallTurret_mesh
+	anim	work/models/monsters/turret/animations/TURRET_idle.ma		-dest models/monsters/turret/wallTurret_idle
+	anim	work/models/monsters/turret/animations/TURRET_fire.ma		-dest models/monsters/turret/wallTurret_fire
+	anim	work/models/monsters/turret/animations/TURRET_walk.ma		-dest models/monsters/turret/wallTurret_walk
+
+	options -prefix TURRET_ -scale .44 -keep muzzle_flash_big muzzle_flash_small
+	mesh	work/models/monsters/turret/animations/TURRET_idle.ma		-dest models/monsters/turret/rocket_mesh
+	anim	work/models/monsters/turret/animations/TURRET_idle.ma		-dest models/monsters/turret/rocket_idle
+	anim	work/models/monsters/turret/animations/TURRET_fire.ma		-dest models/monsters/turret/rocket_fire
+	anim	work/models/monsters/turret/animations/TURRET_walk.ma		-dest models/monsters/turret/rocket_walk
+	
+	options -prefix TURRET_ -scale .2 -keep muzzle_flash_big muzzle_flash_small
+	mesh	work/models/monsters/turret/animations/TURRET_idle.ma		-dest models/monsters/turret/small/wallTurret_mesh
+	anim	work/models/monsters/turret/animations/TURRET_idle.ma		-dest models/monsters/turret/small/wallTurret_idle
+	anim	work/models/monsters/turret/animations/TURRET_fire.ma		-dest models/monsters/turret/small/wallTurret_fire
+	anim	work/models/monsters/turret/animations/TURRET_walk.ma		-dest models/monsters/turret/small/wallTurret_walk
+	
+	options  -prefix TURRET_ -align ALL -scale .3937
+	mesh	final/models/cinematics/network/marine_room_seps/turret_00.ma	-dest models/monsters/turret/cin_breach_turret
+	anim	final/models/cinematics/network/marine_room_seps/turret_00.ma	-dest models/monsters/turret/cin_breach_turret
+}
+
+/*
+===============================================================================
+
+	Turret Model
+
+===============================================================================
+*/
+
+model model_monster_turret
+{
+	mesh												models/monsters/turret/wallTurret_mesh.md5mesh
+	channel legs										( origin )
+	channel torso										( *origin -origin )
+
+	anim idle											models/monsters/turret/wallTurret_idle.md5anim
+	{
+		frame 1											ai_disablePain
+	}
+ 	anim walk											models/monsters/turret/wallTurret_walk.md5anim
+	{
+		frame 1											ai_disablePain
+	}
+	anim range_attack									models/monsters/turret/wallTurret_fire.md5anim
+	{
+		//rate	.6
+		frame 1											ai_disablePain
+		frame 3											ai_attack		blaster				muzzle_flash_big
+		frame 3											fx				fx_blaster_flash	muzzle_flash_big
+	}
+}
+
+/*
+===============================================================================
+
+	Turret Attacks
+
+===============================================================================
+*/
+
+entityDef damage_turret_blaster
+{
+	"inherit"											"damage_bullet_base"
+	"damage"											"5"
+}
+
+entityDef projectile_turret_blaster
+{
+	"inherit"											"projectile_turret_flying_blaster"
+	"def_damage"										"damage_turret_blaster"
+	"fx_impact"											"effects/monsters/turret/f_impact.fx"
+}	
+
+/*
+entityDef projectile_turret_blaster
+{
+	"inherit"											"projectile_blaster_base"
+	"def_damage"										"damage_turret_blaster"
+	"velocity"											"1000 0 0"
+	"fx_fly"											"effects/monsters/turret/f_projectile.fx"
+	"fx_impact"											"effects/monsters/turret/f_impact.fx"
+	"snd_fly"											"weapon_energy_projectile_loop"
+}
+*/
+
+/*
+===============================================================================
+
+	Turret Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_turret
+{
+	"inherit"											"actor_default"
+	"spawnclass"										"rvMonsterTurret"
+
+	// --------------------------------- Actions ------------------------------------
+	"actionTimer_rangedAttack_rate"						"1"				
+
+	"action_rangedAttack"								"0"
+
+	"action_blasterAttack"								"1"
+	"action_blasterAttack_Rate"							"1"
+	"action_blasterAttack_minRange"						"0"
+	"action_blasterAttack_maxRange"						"3000"
+	"action_blasterAttack_blendFrames"					"0"
+	"action_blasterAttack_noturn"						"0"
+
+	// --------------------------------- Body ------------------------------------
+	"model"												"model_monster_turret"
+	"size"												"43 43 74"
+	"mass"												"100000"
+	"use_aas"											""
+	"static"											"1"
+	"remove_on_Death"									"1"
+	"health"											"100"
+//	"shieldHealth"										"100"
+	//NOTE: this is damage done to the impacting vehicle, not to me by the vehicle
+	"vehicle_impact_damage"								"50"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_min"											"-80 -720 0"
+	"look_max"											"80 720 0"
+	"joint_eyeOffset"									"body_bone"
+	"look_joint body_bone"								"1 0 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"fov"												"80"				// so it can still see you straight down or up
+	"turn_rate"											"180"				// how fast it turns (degrees per second?)
+	"painThreshold"										"0"
+	"bleed"												"0"
+	
+	"minShots"											"6"
+	"maxShots"											"12"
+	
+	"def_attack_blaster"								"projectile_turret_blaster"
+	"attack_blaster_accuracy"							".25"
+	"attack_blaster_spread"								"0"
+	"attack_blaster_cone"								"180"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_death"											"effects/monsters/turret/d_death.fx"
+	"fx_blaster_flash"									"effects/monsters/turret/d_flash.fx"
+//	"fx_shieldHit"										"effects/monsters/turret/d_shieldhit.fx"
+//	"fx_shieldBreak"									"effects/monsters/turret/d_shieldbreak.fx"
+}
+
+/*
+===============================================================================
+
+	Small Turret Model
+
+===============================================================================
+*/
+
+model model_monster_turret_small
+{
+	mesh												models/monsters/turret/small/wallTurret_mesh.md5mesh
+	channel legs										( origin )
+	channel torso										( *origin -origin )
+
+	anim idle											models/monsters/turret/small/wallTurret_idle.md5anim
+	{
+		frame 1											ai_disablePain
+	}
+ 	anim walk											models/monsters/turret/small/wallTurret_walk.md5anim
+	{
+		frame 1											ai_disablePain
+	}
+	anim range_attack									models/monsters/turret/small/wallTurret_fire.md5anim
+	{
+		frame 1											ai_disablePain
+		frame 3											ai_attack		blaster				muzzle_flash_big
+		frame 3											fx				fx_blaster_flash	muzzle_flash_big
+	}
+}
+
+/*
+===============================================================================
+
+	Small Turret Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_turret_small
+{
+	"inherit"											"monster_turret"
+	"spawnclass"										"rvMonsterTurret"
+
+	// --------------------------------- Body ------------------------------------
+	"model"												"model_monster_turret_small"
+	"size"												"21 21 37"
+	"mass"												"50000"
+	"use_aas"											""
+}

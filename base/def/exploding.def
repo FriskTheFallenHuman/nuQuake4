@@ -1,0 +1,745 @@
+
+//------------------------------------------------------------------------------
+//							Interractive moveables
+//------------------------------------------------------------------------------
+
+entityDef moveable_barrel_exploding1 {
+	"inherit"					"moveable_base_barrel"
+	"editor_menu"				"moveable_explode"
+
+	"model"						"models\mapobjects\strogg\barrels\medium1_low.lwo"
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+	"health"					"100"
+	"burn"						"10"
+	"explode"					"1"
+	"fx_burn"					"effects/moveables/barrel/burn.fx"
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"def_splash_Damage"			"damage_explosion"
+	"bleed"						"1"
+}
+
+entityDef moveable_crate_exploding1 {
+	"inherit"					"moveable_base_fixed"
+	"editor_menu"				"moveable_explode"
+
+	"model"						"models\mapobjects\strogg\crates\crate1_small.lwo"
+	"density"					"0.003"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+
+	"health"					"75"
+	"burn"						"10"
+	"explode"					"1"
+	"fx_burn"					"effects/moveables/barrel/burn.fx"
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"def_splash_Damage"			"damage_explosion"
+	"bleed"						"1"
+}
+
+
+
+
+
+//------------------------------------------------------------------------------
+//							Exploding Barrels
+//------------------------------------------------------------------------------
+// Burns until dead, then propells until it hits something or explodes in mid air
+
+entityDef moveable_barrel_test { 	
+	"editor_menu"				"moveable_explode"
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+
+	"spawnclass"				"idMoveable"
+
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+
+	"axis_fx_loop"				"-2"
+	
+	"health"					"50"
+
+	"model"						"models\mapobjects\strogg\barrels\medium1_low.lwo"
+
+	"def_stage1"				"moveable_stage_burn"
+	"def_stage2"				"moveable_stage_ignite"
+	"def_stage3"				"moveable_stage_launch"
+	"def_stage4"				"moveable_stage_explode"
+}
+
+entityDef moveable_barrel_test2 { 	
+	"inherit"					"moveable_barrel_exploding1"
+
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 20"
+	"offset_force"				"0 0 0"
+
+	"health"					"75"
+	
+	"def_stage1"				"moveable_stage_waitfordead"
+	"def_stage2"				"moveable_stage_randomdelay"
+	"def_stage3"				"moveable_stage_explode"
+	
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_b"	
+}
+
+// Barrels that should shoot towards the middle of the tram intro area.
+entityDef foomable_barrel_tram { 	
+	"inherit"					"moveable_barrel_test"
+
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 20"
+	"offset_force"				"0 0 0"
+
+	"health"					"50"
+	
+	//special tram intro area consideration, so they go towards the platform.
+	"def_stage3"				"moveable_stage_launch_tram"
+	
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_b"	
+}
+
+//red stroyent barrels that explode with fire
+entityDef foomable_barrel_red_stroyent {
+	"inherit"					"moveable_barrel_exploding1"
+	
+	"model"						"models\mapobjects\strogg\barrels\stroyent_barrel_clip.lwo"
+	"skin"						"skins/mapobjects/strogg/barrels/stroyent_c"
+
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	"axis_fx_loop"				"-2"
+	
+	"health"					"50"
+
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+
+	"def_stage1"				"moveable_stage_burn"
+	"def_stage2"				"moveable_stage_ignite"
+	"def_stage3"				"moveable_stage_explode"			
+
+}
+
+// same as above, however this barrel launches into the air when lit
+entityDef foomable_barrel_red_stroyent_launch	{
+	"inherit"					"foomable_barrel_red_stroyent"
+
+	"def_stage3"				"moveable_stage_launch_red"
+	"def_stage4"				"moveable_stage_explode"			
+
+}
+
+entityDef damage_moveable_burn {
+	"damage"					"5"
+}
+
+entityDef damage_explosion_push {
+	"damage"					"25"
+	"radius"					"64"
+	"push"						"5000" // "20000"
+}
+
+entityDef moveable_stage_burn {
+	"fx_impact"					"effects/moveables/barrel/burn.fx"		// Plays effect at impact
+	"end_time"					".25"
+}
+
+entityDef moveable_stage_ignite {
+	"fx_loop"					"effects/moveables/barrel/ignite.fx"
+	"dir_fx_loop"				"0 0 -1"
+	"end_health"				"1"
+	"end_time_min"				".5"									// Duration the stage is active for
+	"end_time_max"				".75"
+}
+
+entityDef moveable_stage_launch {
+	// Effects
+	"fx_explode"				"effects/moveables/barrel/launch.fx"
+
+	"fx_loop"					"effects/moveables/barrel/fly.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Launch velocities
+	"vel_local_min"				"-100 100 300"							// Local impulse to apply while stage is active
+	"vel_local_max"				"-100 100 800"							// Local impulse to apply while stage is active
+	"vel_world_min"				"0 0 100"								// World impulse to apply while stage is active
+	"vel_world_max"				"0 0 400"								
+
+	// Radius damage
+	"def_splash_damage"			"damage_explosion_push"
+	
+	// Swap out skin for a damaged skin
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_a_burt"
+
+	// Kick out the bottom of the barrel
+	"vel_def_debris1"			"0 0 -500"
+	"def_debris1"				"debris_barrel_top"
+
+	// End conditions
+	"end_time_min"				".5"									// Duration the stage is active for
+	"end_time_max"				".75"
+}
+
+//use this for the red barrel, so that when it launches it still looks red and doesn't magically change to green!
+entityDef moveable_stage_launch_red	{
+	"inherit"					"moveable_stage_launch"
+	"skin"						"skins/mapobjects/strogg/barrels/stroyent_c"
+}
+
+entityDef moveable_stage_waitfordead {
+	"end_health"				"1"
+}
+
+entityDef moveable_stage_randomdelay {
+	"end_time_min"				".25"
+	"end_time_max"				".5"
+}
+
+entityDef moveable_stage_launch_tram {
+	"inherit"					"moveable_stage_launch"
+	"vel_local"					"0 0 600"									// Local impulse to apply while stage is active
+	"vel_world"					"0 800 100"								// World impulse to apply while stage is active
+	"def_splash_damage"			""
+}
+
+entityDef debris_barrel_top {
+//	"model"						"models/gibs/head_pork.lwo"
+	"model" 					"models/mapobjects/fuel_barrel/exp_barrel2b.lwo"
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.1"
+	"trailAttenuateSpeed"		"200"
+
+	"fx_trail"					"effects/moveables/barrel/debris_fly.fx"
+	"snd_bounce"				"generic_barrelpart_impact"
+}
+
+entityDef moveable_stage_explode {
+	"fx_explode"				"effects/moveables/barrel/explode.fx"	// on off effect to play
+	"def_splash_damage"			"damage_hugeExplosion"					// Splash damage
+	"remove"					"1"										// Remove entity on this stage
+	"triggerTargets"			"1"
+
+	// Side chunk
+	"vel_def_debris1_min"		"-500 -500 0"
+	"vel_def_debris1_max"		" 500  500 0"
+	"offset_def_debris1"		"0 0 15"
+	"def_debris1"				"debris_barrel_top"
+	
+	// Another Side Chunk
+	"vel_def_debris2_min"		"-500 -500 0"
+	"vel_def_debris2_max"		" 500  500 0"
+	"offset_def_debris2"		"0 0 30"
+	"def_debris2"				"debris_barrel_top"
+
+	// Top chunk	
+	"vel_def_debris3"			"0 0 1000"	
+	"def_debris3"				"debris_barrel_top"
+	"offset_def_debris3"		"0 0 40"
+}
+
+
+entityDef debris_gib {
+	"model" 					"models/gibs/torso_pork.lwo"
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.1"
+	"trailAttenuateSpeed"		"200"
+
+	"fx_trail"					"effects/moveables/barrel/debris_fly.fx"
+//	"snd_bounce"				"generic_barrelpart_impact"
+}
+
+/*------------------------------
+Small Standard Barrel (Exploding)
+-------------------------------*/
+
+entityDef damage_exploding_barrel_small 
+{
+	// Damage on explode	---------------------------------------------
+	"damage"						"90"
+	"radius"						"192"
+	"push"							"15000"
+}
+
+entityDef debris_exploding_barrel_small_top 
+{
+	// Model and collision sound	-------------------------------------
+	"model" 				"models/mapobjects/fuel_barrel/exp_barrel2b.lwo"
+	"snd_bounce"				"generic_barrelpart_impact"
+	
+	// Physics values	---------------------------------------------
+	"density"				"0.02"
+	"friction"				"0.5"
+	"angular_friction"			"0.1"
+	"bouncyness"				"0.2"
+	
+	// Trail settings	---------------------------------------------
+	"trailAttenuateSpeed"			"150"
+	"fx_trail"				"effects/moveables/barrel/debris_fly.fx"
+}
+
+entityDef exploding_barrel_small_burn
+{
+	// Effect on impact	---------------------------------------------
+	"fx_impact"				"effects/moveables/barrel/burn2.fx"
+	
+	// Stage length		---------------------------------------------
+	"end_time"				".25" 
+}
+
+entityDef exploding_barrel_small_ignite
+{
+	// Effect and Axis	---------------------------------------------
+	"fx_loop"				"effects/moveables/barrel/ignite2.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Health and Stage Length	-------------------------------------
+	"end_health"				"1"
+	"end_time"				"1"
+}
+
+entityDef exploding_barrel_small_explode 
+{
+	// On Explode		---------------------------------------------
+	"def_splash_damage"			"damage_exploding_barrel_small"
+	"fx_explode"				"effects/moveables/barrel/explode.fx"
+	"remove"				"1"
+	"triggerTargets"			"1"
+	
+	// Debris piece 1	---------------------------------------------
+	"def_debris1"				"debris_exploding_barrel_small_top"
+	"offset_def_debris1"			"0 0 10"
+	"vel_def_debris1_min"			"-100 -100 200"
+	"vel_def_debris1_max"			"100   100 450"
+}
+
+entityDef exploding_barrel_small
+{
+	// Base Definitions	---------------------------------------------
+	"inherit"				"moveable_base_barrel"
+	"model"					"models\mapobjects\strogg\barrels\medium1_low.lwo"
+	"skin"					"skins/mapobjects/strogg/barrels/medium1_b"
+	"editor_menu"				"moveable"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+	"editor_color"				".5 0 0"
+
+	// Physics values	---------------------------------------------
+	"density"				"0.005"
+	"friction"				"0.05"
+	"bouncyness"				"0.2"
+
+	// Effect offsets	---------------------------------------------
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	// Effect axis		 ---------------------------------------------
+	"axis_fx_loop"				"-2"
+
+	// Explosion setup	---------------------------------------------
+	"explode"				"1"
+	"fx_burn"				"effects/moveables/barrel/burn2.fx"
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"def_splash_Damage"			"damage_exploding_barrel_small"
+
+	// Health 		---------------------------------------------
+	"health"				"50"
+
+	// Stage Definitions	---------------------------------------------
+	"def_stage1"				"exploding_barrel_small_burn"
+	"def_stage2"				"exploding_barrel_small_ignite"
+	"def_stage3"				"exploding_barrel_small_explode"			
+}
+
+/*-----------------------------
+Small Standard Barrel (Sizzling)
+------------------------------*/
+
+entityDef damage_sizzling_barrel_small 
+{
+	// Damage on explode	---------------------------------------------
+	"damage"				"150"
+	"radius"				"256"
+	"push"					"15000"
+}
+
+entityDef debris_sizzling_barrel_small_top 
+{
+	// Model and collision sound	-------------------------------------
+	"model" 				"models/mapobjects/fuel_barrel/exp_barrel2b.lwo"
+	"snd_bounce"				"generic_barrelpart_impact"
+	
+	// Physics values	---------------------------------------------
+	"density"				"0.02"
+	"friction"				"0.5"
+	"angular_friction"			"0.1"
+	"bouncyness"				"0.2"
+	
+	// Trail settings	---------------------------------------------
+	"trailAttenuateSpeed"			"150"
+	"fx_trail"				"effects/moveables/barrel/debris_fly.fx"
+}
+
+entityDef sizzling_barrel_small_burn
+{
+	// Effect on impact	---------------------------------------------
+	"fx_impact"				"effects/moveables/barrel/burn2.fx"
+	
+	// Stage length		---------------------------------------------
+	"end_time"				".25" 
+}
+
+entityDef sizzling_barrel_small_ignite
+{
+	// Effect and Axis	---------------------------------------------
+	"fx_loop"				"effects/moveables/barrel/ignite2.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Health and Stage Length	-------------------------------------
+	"end_health"				"1"
+	"end_time"				"3"
+}
+
+entityDef sizzling_barrel_small_explode 
+{
+	// On Explode		---------------------------------------------
+	"def_splash_damage"			"damage_sizzling_barrel_small"
+	"fx_explode"				"effects/moveables/barrel/explode.fx"
+	"remove"				"1"
+	"triggerTargets"			"1"
+	
+	// Debris piece 1	---------------------------------------------
+	"def_debris1"				"debris_sizzling_barrel_small_top"
+	"offset_def_debris1"			"0 0 10"
+	"vel_def_debris1_min"			"-100 -100 200"
+	"vel_def_debris1_max"			"100   100 450"
+}
+
+entityDef sizzling_barrel_small
+{
+	// Base Definitions	---------------------------------------------
+	"inherit"				"moveable_base_barrel"
+	"model"					"models\mapobjects\strogg\barrels\medium1_low.lwo"
+	"skin"					"skins/mapobjects/strogg/barrels/medium1_a"
+	"editor_menu"				"moveable"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+	"editor_color"				".5 0 0"
+
+	// Physics values	---------------------------------------------
+	"density"				"0.005"
+	"friction"				"0.05"
+	"bouncyness"				"0.2"
+
+	// Effect offsets	---------------------------------------------
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	// Effect axis		 ---------------------------------------------
+	"axis_fx_loop"				"-2"
+
+	// Explosion setup	---------------------------------------------
+	"explode"				"1"
+	"fx_burn"				"effects/moveables/barrel/burn2.fx"
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"def_splash_Damage"			"damage_sizzling_barrel_small"
+
+	// Health 		---------------------------------------------
+	"health"				"50"
+
+	// Stage Definitions	---------------------------------------------
+	"def_stage1"				"sizzling_barrel_small_burn"
+	"def_stage2"				"sizzling_barrel_small_ignite"
+	"def_stage3"				"sizzling_barrel_small_explode"			
+}
+
+/*------------------------------
+Small Standard Barrel (Launching)
+-------------------------------*/
+
+entityDef exploding_barrel_small_launch
+{
+	// Effects
+	"fx_explode"				"effects/moveables/barrel/launch.fx"
+
+	"fx_loop"				"effects/moveables/barrel/fly.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Launch velocities
+	"vel_local_min"				"-100 100 600"			// Local impulse to apply while stage is active
+	"vel_local_max"				"-100 100 900"			// Local impulse to apply while stage is active
+	"vel_world_min"				"0 0 200"			// World impulse to apply while stage is active
+	"vel_world_max"				"0 0 300"								
+
+	// Radius damage
+	"def_splash_damage"			"damage_explosion_push"
+	
+	// Swap out skin for a damaged skin
+	"skin"					"skins/mapobjects/strogg/barrels/medium1_a_burt"
+
+	// Kick out the bottom of the barrel
+	"vel_def_debris1"			"0 0 -500"
+	"def_debris1"				"debris_barrel_top"
+
+	// End conditions
+	"end_time_min"				".75"
+	"end_time_max"				"1"
+}
+
+entityDef launching_barrel_small
+{
+	"inherit"				"exploding_barrel_small"
+
+	"def_stage3"				"exploding_barrel_small_launch"	
+	"def_stage4"				"exploding_barrel_small_explode"
+}
+
+/*------------------------------
+Large Stroyent Barrel (Exploding)
+-------------------------------*/
+
+entityDef damage_exploding_barrel_large
+{
+	// Damage on explode	---------------------------------------------
+	"damage"				"120"
+	"radius"				"192"
+	"push"					"15000"
+}
+
+entityDef debris_exploding_barrel_large_top 
+{
+	// Model and collision sound	-------------------------------------
+	"model" 				"models/mapobjects/fuel_barrel/exp_barrel2b.lwo"
+	"snd_bounce"				"generic_barrelpart_impact"
+	
+	// Physics values	---------------------------------------------
+	"density"				"0.02"
+	"friction"				"0.5"
+	"angular_friction"			"0.1"
+	"bouncyness"				"0.2"
+	
+	// Trail settings	---------------------------------------------
+	"trailAttenuateSpeed"			"150"
+	"fx_trail"				"effects/moveables/barrel/debris_fly.fx"
+}
+
+entityDef exploding_barrel_large_burn
+{
+	// Effect on impact	---------------------------------------------
+	"fx_impact"				"effects/moveables/barrel/burn2.fx"
+	
+	// Stage length		---------------------------------------------
+	"end_time"				".25" 
+}
+
+entityDef exploding_barrel_large_ignite
+{
+	// Effect and Axis	---------------------------------------------
+	"fx_loop"				"effects/moveables/barrel/ignite2.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Health and Stage Length	-------------------------------------
+	"end_health"				"1"
+	"end_time"				"1"
+}
+
+entityDef exploding_barrel_large_explode 
+{
+	// On Explode		---------------------------------------------
+	"def_splash_damage"			"damage_exploding_barrel_large"
+	"fx_explode"				"effects/moveables/barrel/explode.fx"
+	"remove"				"1"
+	"triggerTargets"			"1"
+	
+	// Debris piece 1	---------------------------------------------
+	"def_debris1"				"debris_exploding_barrel_large_top"
+	"offset_def_debris1"			"0 0 10"
+	"vel_def_debris1_min"			"-100 -100 200"
+	"vel_def_debris1_max"			"100 100 450"
+}
+
+entityDef exploding_barrel_large {
+	
+	// Base Definitions	---------------------------------------------
+	"inherit"				"moveable_base_barrel"
+	"model"					"models\mapobjects\strogg\barrels\stroyent_barrel_clip.lwo"
+	"skin"					"skins/mapobjects/strogg/barrels/stroyent_c"
+	"editor_menu"				"moveable"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+	"editor_color"				".5 0 0"
+
+	// Physics values	---------------------------------------------
+	"density"				"0.1"
+	"friction"				"0.01"
+	"bouncyness"				"0.1"
+
+	// Effect offsets	---------------------------------------------
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	// Effect axis		 ---------------------------------------------
+	"axis_fx_loop"				"-2"
+	
+	// Health 		---------------------------------------------
+	"health"				"50"
+
+	// Stage Definitions	---------------------------------------------
+	"def_stage1"				"exploding_barrel_large_burn"
+	"def_stage2"				"exploding_barrel_large_ignite"
+	"def_stage3"				"exploding_barrel_large_explode"	
+}
+
+/*------------------------------
+Large Stroyent Barrel (Sizzling)
+-------------------------------*/
+
+entityDef damage_sizzling_barrel_large
+{
+	// Damage on explode	---------------------------------------------
+	"damage"				"175"
+	"radius"				"256"
+	"push"					"20000"
+}
+
+entityDef debris_sizzling_barrel_large_top 
+{
+	// Model and collision sound	-------------------------------------
+	"model" 				"models/mapobjects/fuel_barrel/exp_barrel2b.lwo"
+	"snd_bounce"				"generic_barrelpart_impact"
+	
+	// Physics values	---------------------------------------------
+	"density"				"0.02"
+	"friction"				"0.5"
+	"angular_friction"			"0.1"
+	"bouncyness"				"0.2"
+	
+	// Trail settings	---------------------------------------------
+	"trailAttenuateSpeed"			"150"
+	"fx_trail"				"effects/moveables/barrel/debris_fly.fx"
+}
+
+entityDef sizzling_barrel_large_burn
+{
+	// Effect on impact	---------------------------------------------
+	"fx_impact"				"effects/moveables/barrel/burn2.fx"
+	
+	// Stage length		---------------------------------------------
+	"end_time"				".25" 
+}
+
+entityDef sizzling_barrel_large_ignite
+{
+	// Effect and Axis	---------------------------------------------
+	"fx_loop"				"effects/moveables/barrel/ignite2.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Health and Stage Length	-------------------------------------
+	"end_health"				"1"
+	"end_time"				"3"
+}
+
+entityDef sizzling_barrel_large_explode 
+{
+	// On Explode		---------------------------------------------
+	"def_splash_damage"			"damage_sizzling_barrel_large"
+	"fx_explode"				"effects/moveables/barrel/explode.fx"
+	"remove"				"1"
+	"triggerTargets"			"1"
+	
+	// Debris piece 1	---------------------------------------------
+	"def_debris1"				"debris_sizzling_barrel_large_top"
+	"offset_def_debris1"			"0 0 10"
+	"vel_def_debris1_min"			"-100 -100 200"
+	"vel_def_debris1_max"			"100 100 450"
+}
+
+entityDef sizzling_barrel_large {
+	
+	// Base Definitions	---------------------------------------------
+	"inherit"				"moveable_base_barrel"
+	"model"					"models\mapobjects\strogg\barrels\stroyent_barrel_clip.lwo"
+	"skin"					"skins/mapobjects/strogg/barrels/stroyent_b"
+	"editor_menu"				"moveable"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+	"editor_color"				".5 0 0"
+
+	// Physics values	---------------------------------------------
+	"density"				"0.1"
+	"friction"				"0.01"
+	"bouncyness"				"0.1"
+
+	// Effect offsets	---------------------------------------------
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	// Effect axis		 ---------------------------------------------
+	"axis_fx_loop"				"-2"
+	
+	// Health 		---------------------------------------------
+	"health"				"50"
+
+	// Stage Definitions	---------------------------------------------
+	"def_stage1"				"sizzling_barrel_large_burn"
+	"def_stage2"				"sizzling_barrel_large_ignite"
+	"def_stage3"				"sizzling_barrel_large_explode"	
+}
+
+/*------------------------------
+Small Standard Barrel (Launching)
+-------------------------------*/
+
+entityDef exploding_barrel_large_launch
+{
+	// Effects
+	"fx_explode"				"effects/moveables/barrel/launch.fx"
+
+	"fx_loop"				"effects/moveables/barrel/fly.fx"
+	"dir_fx_loop"				"0 0 -1"
+	
+	// Launch velocities
+	"vel_local_min"				"-100 100 600"			// Local impulse to apply while stage is active
+	"vel_local_max"				"-100 100 900"			// Local impulse to apply while stage is active
+	"vel_world_min"				"0 0 200"			// World impulse to apply while stage is active
+	"vel_world_max"				"0 0 300"							
+
+	// Radius damage
+	"def_splash_damage"			"damage_explosion_push"
+	
+	// Force skin to remain red
+	"skin"					"skins/mapobjects/strogg/barrels/stroyent_c"
+
+	// Kick out the bottom of the barrel
+	"vel_def_debris1"			"0 0 -500"
+	"def_debris1"				"debris_exploding_barrel_large_top"
+
+	// End conditions
+	"end_time_min"				".75"
+	"end_time_max"				"1"
+}
+
+entityDef launching_barrel_large
+{
+	"inherit"				"exploding_barrel_large"
+
+	"def_stage3"				"exploding_barrel_large_launch"	
+	"def_stage4"				"exploding_barrel_large_explode"
+}

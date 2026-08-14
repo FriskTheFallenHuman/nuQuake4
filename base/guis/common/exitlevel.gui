@@ -1,0 +1,276 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	visible	1
+	comment	"set 'gui::gui_parm_strogg' == 1 to set the font to be unreadable strogg."
+
+	onInit {
+		if ( "gui::gui_parm_strogg" == 1 ) {
+			set "t_exit::visible" "1";
+			set "t_exit_r::visible" "0";
+		} else {
+			set "t_exit::visible" "0";
+			set "t_exit_r::visible" "1";
+		}
+	}
+
+	windowDef grid1
+	{
+		rect	0,233,320,247
+		visible	1
+		background	"gfx/guis/common/grid1"
+		matcolor	0.486,0.486,0.486,0.2
+	}
+	windowDef grid2
+	{
+		rect	320,233,320,247
+		visible	1
+		background	"gfx/guis/common/grid1"
+		matcolor	0.486,0.486,0.486,0.2
+	}
+	windowDef bg
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/exit/exit_bg"
+		matcolor	0.949,0.313,0.0431,1
+	}
+	windowDef arr1
+	{
+		rect	0,0,640,240
+		visible	1
+		background	"gfx/guis/exit/exit_arr1"
+		matcolor	0.945,0.490,0.0392,0.4
+	}
+	windowDef arr2
+	{
+		rect	0,0,640,240
+		visible	1
+		background	"gfx/guis/exit/exit_arr2"
+		matcolor	0.945,0.490,0.0392,0.4
+	}
+	windowDef arr3
+	{
+		rect	0,0,640,240
+		visible	1
+		background	"gfx/guis/exit/exit_arr3"
+		matcolor	0.945,0.490,0.0392,1
+	}
+	windowDef icon
+	{
+		rect	10,-11,135,119
+		visible	1
+		background	"gfx/guis/common/strogg/decal"
+		matcolor	0,0,0,1
+	}
+	windowDef title2
+	{
+		rect	455,13,175,23
+		visible	1
+		forecolor	0,0,0,1
+		text	"80456-3213-7834"
+		textscale	0.46
+		font	"fonts/strogg"
+	}
+	windowDef t_proc1
+	{
+		rect	239,455,78,19
+		visible	1
+		forecolor	1,1,1,1
+		text	"84278.324"
+		textscale	0.36
+		font	"fonts/strogg"
+		textalign	2
+
+		onTime 0 {
+			set "text" "84278.324" ;
+		}
+
+		onTime +100 {
+			set "text" "43536.832" ;
+		}
+
+		onTime +100 {
+			set "text" "76245.003" ;
+		}
+
+		onTime +100 {
+			set "text" "57452.659" ;
+		}
+
+		onTime +100 {
+			set "text" "35945.202" ;
+		}
+
+		onTime +100 {
+			set "text" "94320.953" ;
+		}
+
+		onTime +100 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef t_proc2
+	{
+		rect	395,455,78,19
+		visible	1
+		forecolor	1,1,1,1
+		text	"84278324"
+		textscale	0.36
+		font	"fonts/strogg"
+		textalign	2
+
+		onTime 0 {
+			set "text" "84278.324" ;
+		}
+
+		onTime +200 {
+			set "text" "43536.832" ;
+		}
+
+		onTime +200 {
+			set "text" "76245.003" ;
+		}
+
+		onTime +200 {
+			set "text" "57452.659" ;
+		}
+
+		onTime +200 {
+			set "text" "35945.202" ;
+		}
+
+		onTime +200 {
+			set "text" "94320.953" ;
+		}
+
+		onTime +200 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef t_bar1
+	{
+		rect	173,454,64,16
+		visible	1
+		background	"gfx/guis/common/bar1"
+		matcolor	0.972,0.639,0.0117,1
+	}
+	windowDef t_bar2
+	{
+		rect	329,454,64,16
+		visible	1
+		background	"gfx/guis/common/bar1"
+		matcolor	0.972,0.639,0.0117,1
+	}
+	windowDef t_exit
+	{
+		rect	0,291,640,165
+		visible	0
+		forecolor	1,1,1,1
+		text	"#str_200379"
+		textscale	3
+		font	"fonts/strogg"
+		textalign	1
+	}
+	windowDef t_exit_r
+	{
+		rect	0,273,640,165
+		visible	0
+		forecolor	1,1,1,1
+		text	"#str_200379"
+		textscale	2.5
+		font	"fonts/r_strogg"
+		textalign	1
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef static
+		{
+			visible	1
+			rect	0,-212,640,806
+			background	"gfx/guis/common/static2"
+			matcolor	0.705,0.701,0.545,0.24
+			matscalex	-1
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-67,640,552
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.560,0.549,0.419,1
+		}
+		windowDef dirt
+		{
+			rect	0,-143,672,772
+			visible	1
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.286,0.258,0.172,.8
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches5"
+			matcolor	0.749,0.984,1,.4
+		}
+		windowDef blackedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+		windowDef addlines
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/add_lines1"
+			matcolor	0.164,0.164,0.164,1
+		}
+	}
+	windowDef anim
+	{
+		rect	0,0,1,1
+		visible	1
+
+		onTime 0 {
+			transition "arr3::matcolor_w" "1" "0.4" "600" ;
+			transition "arr2::matcolor_w" "0.4" "1" "600" ;
+		}
+
+		onTime +600 {
+			transition "arr2::matcolor_w" "1" "0.4" "600" ;
+			transition "arr1::matcolor_w" "0.4" "1" "600" ;
+		}
+
+		onTime +600 {
+			transition "arr1::matcolor_w" "1" "0.4" "600" ;
+		}
+
+		onTime +600 {
+			transition "arr3::matcolor_w" "0.4" "1" "600" ;
+		}
+
+		onTime +600 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef button
+	{
+		rect	0,0,640,480
+		visible	1
+
+		onAction {
+			noninteractive "1" ;
+			set "visible" "0" ;
+			set "cmd" "play guisound_beep2 ; activate" ;
+		}
+
+	}
+}

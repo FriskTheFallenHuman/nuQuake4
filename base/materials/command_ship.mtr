@@ -1,0 +1,547 @@
+guide textures/command_ship/mcc_girder32_01_alpha generic_alpha("command_ship/MCC_Girder32_01")
+
+guide textures/command_ship/mcc_htrim_02 generic_shader("command_ship/mcc_htrim_02")
+guide textures/command_ship/cs_railing01d generic_nonormal("command_ship/cs_railing01d")
+guide textures/command_ship/mcc_ceiling128_01_alpha generic_alpha("command_ship/mcc_ceiling128_01")
+guide textures/command_ship/mcc_hhalf_06 generic_shader("command_ship/mcc_hhalf_06")
+guide textures/command_ship/mcc_vhalf32_01 generic_shader("command_ship/mcc_vhalf32_01")
+guide textures/command_ship/mcc_ceiling128_01 generic_shader("command_ship/MCC_Ceiling128_01")
+
+
+guide textures/command_ship/cs_floor2_1 generic_shader_ed("command_ship/cs_floor2_1_ed", "command_ship/cs_floor2_1")
+guide textures/command_ship/cs_floorplate1c generic_shader("command_ship/cs_floorplate1c")
+guide textures/command_ship/csa_trim2 generic_shader("command_ship/csa_trim2")
+guide textures/command_ship/hflr1 generic_shader("command_ship/hflr1")
+guide textures/command_ship/mcc_flrhalf_02 generic_shader("command_ship/mcc_flrhalf_02")
+guide textures/command_ship/mcc_flrtrim64_02 generic_shader("command_ship/MCC_FlrTrim64_02")
+
+textures/command_ship/csa_flrtrim_06_b
+{
+	qer_editorimage textures/command_ship/csa_flrtrim_06_b_local.tga
+
+	bumpmap 		textures/command_ship/csa_flrtrim_06_b_local.tga
+	specularmap		textures/command_ship/csa_flrtrim_06_s.tga       
+    diffuseMap 		textures/command_ship/csa_flrtrim_06_d.tga
+}
+
+
+guide textures/command_ship/c_flr2 generic_shader("command_ship/c_flr2")
+guide textures/command_ship/c_flr4 generic_shader("command_ship/c_flr4")
+guide textures/command_ship/c_flr7 generic_shader("command_ship/c_flr7")
+guide textures/command_ship/mcc_Girder32_01_alpha2side generic_shader2sidedalpha("command_ship/mcc_Girder32_01")
+guide textures/command_ship/mcc_Girder32_01 generic_shader("command_ship/mcc_Girder32_01")
+guide textures/command_ship/mcc_quarter_03 generic_shader("command_ship/mcc_quarter_03")
+guide textures/command_ship/mcc_basegreen generic_full_noheight("command_ship/mcc_basegreen")
+guide textures/command_ship/cswall_01 generic_shader("command_ship/cswall_01")
+guide textures/command_ship/cswall_01_med generic_full_noheight_mi("command_ship/cswall_01_med")
+guide textures/command_ship/cswall_01b generic_shader("command_ship/cswall_01b")
+
+// Pipes //
+
+guide textures/command_ship/cs_pipecrud generic_shader("command_ship/cs_pipecrud")
+
+guide textures/command_ship/cs_pipetech generic_shader("command_ship/cs_pipetech")
+textures/command_ship/cs_pipetech_01
+{
+	qer_editorimage	textures/command_ship/cs_pipetech_01_d .tga
+	bumpmap		addnormals( textures/command_ship/cs_pipetech_local.tga, heightmap( textures/command_ship/cs_pipetech_h.tga, 1 ) )
+	diffusemap		textures/command_ship/cs_pipetech_01_d.tga
+	specularmap		textures/command_ship/cs_pipetech_s.tga
+}
+textures/command_ship/cs_pipetech_02
+{
+	qer_editorimage	textures/command_ship/cs_pipetech_02_d .tga
+	bumpmap		addnormals( textures/command_ship/cs_pipetech_local.tga, heightmap( textures/command_ship/cs_pipetech_h.tga, 1 ) )
+	diffusemap		textures/command_ship/cs_pipetech_02_d.tga
+	specularmap		textures/command_ship/cs_pipetech_s.tga
+}
+textures/command_ship/cs_pipetech_03
+{
+	qer_editorimage	textures/command_ship/cs_pipetech_03_d .tga
+	bumpmap		addnormals( textures/command_ship/cs_pipetech_local.tga, heightmap( textures/command_ship/cs_pipetech_h.tga, 1 ) )
+	diffusemap		textures/command_ship/cs_pipetech_03_d.tga
+	specularmap		textures/command_ship/cs_pipetech_s.tga
+}
+
+guide textures/command_ship/cs_pipehexigon generic_shader("command_ship/cs_pipehexigon")
+textures/command_ship/cs_pipehexigon_01
+{
+	qer_editorimage	textures/command_ship/cs_pipehexigon_01_d.tga
+	bumpmap		addnormals( textures/command_ship/cs_pipehexigon_local.tga, heightmap( textures/command_ship/cs_pipehexigon_h.tga, 1 ) )
+	diffusemap		textures/command_ship/cs_pipehexigon_01_d.tga
+	specularmap		textures/command_ship/cs_pipehexigon_s.tga
+}
+textures/command_ship/cs_pipehexigon_02
+{
+	qer_editorimage	textures/command_ship/cs_pipehexigon_02_d.tga
+	bumpmap		addnormals( textures/command_ship/cs_pipehexigon_local.tga, heightmap( textures/command_ship/cs_pipehexigon_h.tga, 1 ) )
+	diffusemap		textures/command_ship/cs_pipehexigon_02_d.tga
+	specularmap		textures/command_ship/cs_pipehexigon_s.tga
+}
+textures/command_ship/cs_pipehexigon_03
+{
+	qer_editorimage	textures/command_ship/cs_pipehexigon_03_d.tga
+	bumpmap		addnormals( textures/command_ship/cs_pipehexigon_local.tga, heightmap( textures/command_ship/cs_pipehexigon_h.tga, 1 ) )
+	diffusemap		textures/command_ship/cs_pipehexigon_03_d.tga
+	specularmap		textures/command_ship/cs_pipehexigon_s.tga
+}
+
+guide textures/command_ship/cs_pipediamond generic_full_noheight("command_ship/cs_pipediamond")
+
+textures/command_ship/cs_pipediamond_01
+{
+	qer_editorimage	textures/command_ship/cs_pipediamond_01_d.tga
+	bumpmap			textures/command_ship/cs_pipediamond_local.tga
+	diffusemap		textures/command_ship/cs_pipediamond_01_d.tga
+	specularmap		textures/command_ship/cs_pipediamond_s.tga
+}
+textures/command_ship/cs_pipediamond_02
+{
+	qer_editorimage	textures/command_ship/cs_pipediamond_02_d.tga
+	bumpmap			textures/command_ship/cs_pipediamond_local.tga
+	diffusemap		textures/command_ship/cs_pipediamond_02_d.tga
+	specularmap		textures/command_ship/cs_pipediamond_s.tga
+}
+textures/command_ship/cs_pipediamond_03
+{
+	qer_editorimage	textures/command_ship/cs_pipediamond_03_d.tga
+	bumpmap			textures/command_ship/cs_pipediamond_local.tga
+	diffusemap		textures/command_ship/cs_pipediamond_03_d.tga
+	specularmap		textures/command_ship/cs_pipediamond_s.tga
+}
+
+// Pipes //
+
+guide textures/command_ship/csa_trim1 generic_shader("command_ship/csa_trim1")
+guide textures/command_ship/csa_trim3 generic_shader("command_ship/csa_trim3")
+guide textures/command_ship/csa_trim3b generic_full_noheight("command_ship/csa_trim3b")
+guide textures/command_ship/csa_trim3c generic_full_noheight("command_ship/csa_trim3c")
+
+textures/command_ship/csa_trim3c_1
+{
+	qer_EditorImage	textures/command_ship/csa_trim3c_d.tga
+	bumpMap			textures/command_ship/csa_trim3c_local.tga
+	diffuseMap		textures/command_ship/csa_trim3c_d.tga 
+	specularMap		textures/command_ship/csa_trim3c_s.tga 
+	{
+		blend		add
+		map			textures/command_ship/csa_trim3c_add.tga 
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/command_ship/csa_trim3d generic_shader("command_ship/csa_trim3d")
+guide textures/command_ship/csa_trim3d_med generic_variant_noheight("command_ship/csa_trim3d","command_ship/csa_trim3d_med")
+guide textures/command_ship/csa_trim3e generic_shader("command_ship/csa_trim3e")
+guide textures/command_ship/csa_trim3e_med generic_full_noheight("command_ship/csa_trim3e_med")
+guide textures/command_ship/csa_trim3f generic_shader("command_ship/csa_trim3f")
+guide textures/command_ship/csa_trim3f_med generic_variant_noheight("command_ship/csa_trim3f","command_ship/csa_trim3f_med")
+guide textures/command_ship/csa_trim4 generic_full_noheight("command_ship/csa_trim4")
+guide textures/command_ship/csa_trim5 generic_shader("command_ship/csa_trim5")
+guide textures/command_ship/csa_trim5_med generic_variant_noheight_mi("command_ship/csa_trim5","command_ship/csa_trim5_med")
+guide textures/command_ship/csa_trim5b generic_shader("command_ship/csa_trim5b")
+guide textures/command_ship/csa_trim5b_med generic_variant_noheight("command_ship/csa_trim5b","command_ship/csa_trim5b_med")
+guide textures/command_ship/csa_trim5b_1 generic_shader_mi("command_ship/csa_trim5b_1")
+guide textures/command_ship/csa_trim5b_1_med generic_variant_noheight("command_ship/csa_trim5b_1","command_ship/csa_trim5b_1_med")
+guide textures/command_ship/csa_trim5b_2 generic_shader_mi("command_ship/csa_trim5b_2")
+guide textures/command_ship/csa_trim5b_2_med generic_variant_noheight_mi("command_ship/csa_trim5b_2","command_ship/csa_trim5b_2_med")
+guide textures/command_ship/csa_trim5b_3 generic_shader_mi("command_ship/csa_trim5b_3")
+guide textures/command_ship/csa_trim5b_3_med generic_variant_noheight_mi("command_ship/csa_trim5b_3","command_ship/csa_trim5b_3_med")
+guide textures/command_ship/csa_trim5c generic_full_noheight("command_ship/csa_trim5c")
+guide textures/command_ship/csa_trim5c_med generic_variant_noheight("command_ship/csa_trim5c","command_ship/csa_trim5c_med")
+guide textures/command_ship/csa_trim5d generic_shader("command_ship/csa_trim5d")
+guide textures/command_ship/csa_trim5d_med generic_variant_noheight_mi("command_ship/csa_trim5d","command_ship/csa_trim5d_med")
+guide textures/command_ship/csa_trim5e generic_shader("command_ship/csa_trim5e")
+guide textures/command_ship/csa_trim5e_med generic_variant_noheight_mi("command_ship/csa_trim5e","command_ship/csa_trim5e_med")
+guide textures/command_ship/csa_trim5e_1 generic_shader_mi("command_ship/csa_trim5e_1")
+guide textures/command_ship/csa_trim5e_1_med generic_variant_noheight_mi("command_ship/csa_trim5e_1","command_ship/csa_trim5e_1_med")
+guide textures/command_ship/csa_trim5e_2 generic_shader_mi("command_ship/csa_trim5e_2")
+guide textures/command_ship/csa_trim5e_2_med generic_variant_noheight_mi("command_ship/csa_trim5e_2","command_ship/csa_trim5e_2_med")
+
+guide textures/command_ship/csa_trim5f generic_shader("command_ship/csa_trim5f")
+guide textures/command_ship/csa_trim5f_med generic_variant_noheight("command_ship/csa_trim5f","command_ship/csa_trim5f_med")
+guide textures/command_ship/csa_trim6 generic_shader("command_ship/csa_trim6")
+guide textures/command_ship/csa_trim6b generic_shader("command_ship/csa_trim6b")
+guide textures/command_ship/csa_trim6b_med generic_variant_noheight_mi("command_ship/csa_trim6b","command_ship/csa_trim6b_med")
+guide textures/command_ship/csa_trim7 generic_shader("command_ship/csa_trim7")
+guide textures/command_ship/csa_trim7_med generic_variant_noheight_mi("command_ship/csa_trim7","command_ship/csa_trim7_med")
+guide textures/command_ship/csa_trim8 generic_full_noheight("command_ship/csa_trim8")
+guide textures/command_ship/csa_trim8a generic_shader("command_ship/csa_trim8a")
+guide textures/command_ship/csa_trim8a_med generic_full_noheight("command_ship/csa_trim8a_med")
+guide textures/command_ship/csa_trim9 generic_shader("command_ship/csa_trim9")
+guide textures/command_ship/csa_trim9_med generic_variant_noheight("command_ship/csa_trim9","command_ship/csa_trim9_med")
+guide textures/command_ship/csa_cieling1 generic_shader("command_ship/csa_cieling1")
+guide textures/command_ship/csa_cieling1a generic_shader("command_ship/csa_cieling1a")
+guide textures/command_ship/csa_cieling1a_med generic_full_noheight("command_ship/csa_cieling1a_med")
+guide textures/command_ship/csa_cieling1b generic_shader("command_ship/csa_cieling1b")
+guide textures/command_ship/csa_cieling2 generic_shader("command_ship/csa_cieling2")
+guide textures/command_ship/csa_cieling3 generic_shader("command_ship/csa_cieling3")
+guide textures/command_ship/csa_floor1 generic_shader("command_ship/csa_floor1")
+guide textures/command_ship/csa_floor1b generic_shader("command_ship/csa_floor1b")
+guide textures/command_ship/csa_floor1b_med generic_variant_noheight_mi("command_ship/csa_floor1b","command_ship/csa_floor1b_med")
+guide textures/command_ship/csa_flrtrim_01 generic_shader("command_ship/csa_flrtrim_01")
+guide textures/command_ship/csa_flrtrim_01_med generic_variant_noheight("command_ship/csa_flrtrim_01","command_ship/csa_flrtrim_01_med")
+guide textures/command_ship/csa_flrtrim_03 generic_shader("command_ship/csa_flrtrim_03")
+guide textures/command_ship/csa_flrtrim_03_med generic_variant_noheight("command_ship/csa_flrtrim_03","command_ship/csa_flrtrim_03_med")
+guide textures/command_ship/csa_wall4 generic_shader("command_ship/csa_wall4")
+
+textures/command_ship/csa_wall4b
+{
+	qer_EditorImage	textures/command_ship/csa_wall4_d.tga
+	bumpMap			textures/command_ship/csa_wall4_local.tga
+	diffuseMap		textures/command_ship/csa_wall4_d.tga
+	specularMap		textures/command_ship/csa_wall4_s.tga
+	{
+		blend		add
+		map			textures/command_ship/csa_wall4_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/command_ship/csa_wall5_med generic_variant_noheight_mi("command_ship/csa_wall5","command_ship/csa_wall5_med")
+guide textures/command_ship/csa_wall13 generic_shader("command_ship/csa_wall13")
+guide textures/command_ship/csa_wall13b generic_shader("command_ship/csa_wall13b")
+
+textures/command_ship/csa_wall13c
+{
+	qer_EditorImage	textures/command_ship/csa_wall13b_d.tga
+	bumpMap			textures/command_ship/csa_wall13b_local.tga
+	diffuseMap		textures/command_ship/csa_wall13b_d.tga
+	specularMap		textures/command_ship/csa_wall13b_s.tga
+	{
+		blend		add
+		map			textures/command_ship/csa_wall13b_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/command_ship/csa_wall15 generic_shader("command_ship/csa_wall15")
+guide textures/command_ship/csa_wall16 generic_full_noheight("command_ship/csa_wall16")
+guide textures/command_ship/csa_wall16_med generic_variant_noheight("command_ship/csa_wall16","command_ship/csa_wall16_med")
+guide textures/command_ship/csa_wall16b generic_shader("command_ship/csa_wall16b")
+guide textures/command_ship/csa_wall17 generic_shader("command_ship/csa_wall17")
+guide textures/command_ship/csa_wall18 generic_shader("command_ship/csa_wall18")
+guide textures/command_ship/csa_wall18_med generic_variant_noheight_mi("command_ship/csa_wall18","command_ship/csa_wall18_med")
+guide textures/command_ship/csa_wall18a generic_shader("command_ship/csa_wall18a")
+
+guide textures/command_ship/csa_wall19a generic_full_noheight_mi("command_ship/csa_wall19a")
+guide textures/command_ship/csa_wall19a_mar generic_shader_mi("command_ship/csa_wall19a_mar")
+guide textures/command_ship/csa_wall19b generic_full_noheight_mi("command_ship/csa_wall19b")
+guide textures/command_ship/csa_wall19b_mar generic_shader_mi("command_ship/csa_wall19b_mar")
+guide textures/command_ship/csa_wall19c generic_full_noheight_mi("command_ship/csa_wall19c")
+guide textures/command_ship/csa_wall19c_mar generic_shader_mi("command_ship/csa_wall19c_mar")
+guide textures/command_ship/csa_flrtrim_04 generic_full_noheight("command_ship/csa_flrtrim_04")
+guide textures/command_ship/csa_flrtrim_04b generic_shader("command_ship/csa_flrtrim_04b")
+guide textures/command_ship/csa_flrtrim_05 generic_full_noheight("command_ship/csa_flrtrim_05")
+guide textures/command_ship/csa_flrtrim_05b generic_full_noheight("command_ship/csa_flrtrim_05b")
+guide textures/command_ship/csa_flrtrim_06 generic_full_noheight("command_ship/csa_flrtrim_06")
+guide textures/command_ship/csa_flrtrim_06b generic_full_noheight("command_ship/csa_flrtrim_06b")
+
+
+textures/command_ship/csa_flrtrim_06_c
+{
+	qer_EditorImage	textures/command_ship/csa_flrtrim_06_b_local.tga
+	bumpMap			textures/command_ship/csa_flrtrim_06_b_local.tga
+	diffuseMap		textures/command_ship/csa_flrtrim_06_d.tga 
+	specularMap		textures/command_ship/csa_flrtrim_06_s.tga 
+	{
+		blend		add
+		map			textures/command_ship/csa_flrtrim_06_b_add.tga 
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/command_ship/pipes_corner_alpha2side generic_shader2sidedalpha("command_ship/pipes_corner")
+guide textures/command_ship/pipes_corner_2_alpha2side generic_shader2sidedalpha("command_ship/pipes_corner_2")
+guide textures/command_ship/pipes_alpha2side generic_shader2sidedalpha("command_ship/pipes")
+guide textures/command_ship/pipes_bend_alpha2side generic_shader2sidedalpha("command_ship/pipes_bend")
+
+
+//----------------------------------------------------------------------------------
+textures/command_ship/mcc_text_gui
+{	//Gui surface for showing gui_parm1 text
+	qer_editorimage	textures/command_ship/mcc_screen_01_qer.tga
+
+	noshadows
+	noselfshadow
+	nonsolid
+	twosided
+		
+	guiSurf		entity
+}
+
+//----------------------------------------------------------------------------------
+/*textures/command_ship/mcc_Girder128_01
+{	//Support beams with alpha'd out areas
+
+	qer_editorimage	textures/command_ship/mcc_Girder128_01_d.tga
+	noshadows
+	translucent
+//	trans
+
+	{
+	blend		bumpmap
+	map		addnormals(textures/command_ship/mcc_Girder128_01_local.tga,heightmap(textures/command_ship/mcc_Girder128_01_h.tga,4))
+	}
+
+	{
+	blend		diffusemap
+	map		textures/command_ship/mcc_Girder128_01_d.tga
+	alphatest	.5
+	}
+
+	{
+	blend		specularmap
+	map		textures/command_ship/mcc_Girder128_01_s.tga
+	}
+}
+*/
+//----------------------------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////
+//cs additions//////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+guide textures/command_ship/cs_floor3_1 generic_shader_ed("command_ship/cs_floor3_1_ed", "command_ship/cs_floor3_1")
+guide textures/command_ship/cs_floor1_1 generic_shader_ed("command_ship/cs_floor1_1_ed", "command_ship/cs_floor1_1")
+guide textures/command_ship/cs_warning generic_shader("command_ship/cs_warning")
+guide textures/command_ship/cs_railing01a generic_nonormal("command_ship/cs_railing01a")
+guide textures/command_ship/cs_railing01b generic_nonormal("command_ship/cs_railing01b")
+guide textures/command_ship/cs_railing01e generic_nonormal("command_ship/cs_railing01e")
+guide textures/command_ship/cs_prisonpipecapt generic_alpha("command_ship/cs_prisonpipecapt")
+
+//medical area
+guide textures/command_ship/mcc_frame1_2side generic_shader2sidedalpha("command_ship/mcc_frame1")
+guide textures/command_ship/mcc_frame3_2side generic_shader2sidedalpha("command_ship/mcc_frame3")
+guide textures/command_ship/mcc_floornew2 generic_shader_ed("command_ship/mcc_floornew2_ed", "command_ship/mcc_floornew2")
+guide textures/command_ship/mcc_floornew3_alpha generic_alpha_ed("command_ship/mcc_floornew3_alpha_ed", "command_ship/mcc_floornew3_alpha")
+guide textures/command_ship/mcc_floornew3_alpha_2side generic_shader2sidedalpha("command_ship/mcc_floornew3_alpha")
+guide textures/command_ship/medflr1_med generic_variant_noheight("command_ship/medflr1","command_ship/medflr1_med")
+guide textures/command_ship/medflr2_med generic_variant_noheight("command_ship/medflr2","command_ship/medflr2_med")
+guide textures/command_ship/medflr2 generic_shader("command_ship/medflr2")
+guide textures/command_ship/medflr3 generic_shader("command_ship/medflr3")
+guide textures/command_ship/medflr3_med generic_variant_noheight("command_ship/medflr3","command_ship/medflr3_med")
+guide textures/command_ship/hflr1a generic_colorvariant("command_ship/hflr1a", "command_ship/hflr1")
+guide textures/command_ship/mcc_grating128_02a generic_colorvariant("command_ship/mcc_grating128_02a", "command_ship/mcc_grating128_02")
+
+guide textures/command_ship/mcc_trimnew_2 generic_shader("command_ship/mcc_trimnew_2")
+guide textures/command_ship/mcc_trimnew_3 generic_shader("command_ship/mcc_trimnew_3")
+
+textures/command_ship/mcc_floornew3_alpha_med
+{
+
+	
+	qer_editorimage textures/command_ship/mcc_floornew3_alpha_med_d.tga
+
+	bumpmap 		textures/command_ship/mcc_floornew3_alpha_local.tga
+	specularmap		textures/command_ship/mcc_floornew3_alpha_med_s.tga       
+
+    {	
+		blend diffuseMap
+		map	textures/command_ship/mcc_floornew3_alpha_med_d.tga
+		alphatest .5
+	}
+}
+
+textures/command_ship/mcc_floornew3_var
+{
+
+	
+	qer_editorimage textures/command_ship/mcc_floornew3_var_d.tga
+
+	bumpmap 		textures/command_ship/mcc_floornew3_alpha_local.tga
+	specularmap		textures/command_ship/mcc_floornew3_var_s.tga       
+
+    {	
+		blend diffuseMap
+		map	textures/command_ship/mcc_floornew3_var_d.tga
+		alphatest .5
+	}
+}
+
+textures/command_ship/csa_flrtrim_04stripe
+{
+	qer_editorimage	textures/command_ship/csa_flrtrim_04stripe_d.tga
+	bumpmap		addnormals( textures/command_ship/csa_flrtrim_04b_local.tga, heightmap( textures/command_ship/csa_flrtrim_04stripe_h.tga, 1 ) )
+	diffusemap		textures/command_ship/csa_flrtrim_04stripe_d.tga
+	specularmap		textures/command_ship/csa_flrtrim_04stripe_s.tga
+}
+
+textures/command_ship/box1_top_bottom
+{
+	qer_editorimage	textures/command_ship/box1_top_bottom_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box1_top_bottom_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box1_top_bottom_d.tga
+	specularmap		textures/command_ship/box1_top_bottom_s.tga
+}
+
+textures/command_ship/box1_side_no_handle
+{
+	qer_editorimage	textures/command_ship/box1_side_no_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box1_side_no_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box1_side_no_handle_d.tga
+	specularmap		textures/command_ship/box1_side_no_handle_s.tga
+}
+
+textures/command_ship/box1_side_handle
+{
+	qer_editorimage	textures/command_ship/box1_side_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box1_side_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box1_side_handle_d.tga
+	specularmap		textures/command_ship/box1_side_handle_s.tga
+}
+
+textures/command_ship/box1_side_handle2
+{
+	qer_editorimage	textures/command_ship/box1_side_handle2_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box1_side_handle2_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box1_side_handle2_d.tga
+	specularmap		textures/command_ship/box1_side_handle2_s.tga
+}
+
+
+
+textures/command_ship/box2_top_bottom
+{
+	qer_editorimage	textures/command_ship/box2_top_bottom_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box2_top_bottom_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box2_top_bottom_d.tga
+	specularmap		textures/command_ship/box2_top_bottom_s.tga
+}
+
+textures/command_ship/box2_side_no_handle
+{
+	qer_editorimage	textures/command_ship/box2_side_no_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box2_side_no_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box2_side_no_handle_d.tga
+	specularmap		textures/command_ship/box2_side_no_handle_s.tga
+}
+
+textures/command_ship/box2_side_handle
+{
+	qer_editorimage	textures/command_ship/box2_side_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box2_side_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box2_side_handle_d.tga
+	specularmap		textures/command_ship/box2_side_handle_s.tga
+}
+
+textures/command_ship/box2_side_handle2
+{
+	qer_editorimage	textures/command_ship/box2_side_handle2_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box2_side_handle2_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box2_side_handle2_d.tga
+	specularmap		textures/command_ship/box2_side_handle2_s.tga
+}
+
+
+textures/command_ship/box3_top_bottom
+{
+	qer_editorimage	textures/command_ship/box3_top_bottom_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box3_top_bottom_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box3_top_bottom_d.tga
+	specularmap		textures/command_ship/box3_top_bottom_s.tga
+}
+
+textures/command_ship/box3_side_no_handle
+{
+	qer_editorimage	textures/command_ship/box3_side_no_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box3_side_no_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box3_side_no_handle_d.tga
+	specularmap		textures/command_ship/box3_side_no_handle_s.tga
+}
+
+textures/command_ship/box3_side_handle
+{
+	qer_editorimage	textures/command_ship/box3_side_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box3_side_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box3_side_handle_d.tga
+	specularmap		textures/command_ship/box3_side_handle_s.tga
+}
+
+textures/command_ship/box3_side_handle2
+{
+	qer_editorimage	textures/command_ship/box3_side_handle2_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box3_side_handle2_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box3_side_handle2_d.tga
+	specularmap		textures/command_ship/box3_side_handle2_s.tga
+}
+
+
+
+
+
+textures/command_ship/box4_top_bottom
+{
+	qer_editorimage	textures/command_ship/box4_top_bottom_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box4_top_bottom_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box4_top_bottom_d.tga
+	specularmap		textures/command_ship/box4_top_bottom_s.tga
+}
+
+textures/command_ship/box4_side_no_handle
+{
+	qer_editorimage	textures/command_ship/box4_side_no_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box4_side_no_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box4_side_no_handle_d.tga
+	specularmap		textures/command_ship/box4_side_no_handle_s.tga
+}
+
+textures/command_ship/box4_side_handle
+{
+	qer_editorimage	textures/command_ship/box4_side_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box4_side_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box4_side_handle_d.tga
+	specularmap		textures/command_ship/box4_side_handle_s.tga
+}
+
+textures/command_ship/box4_side_handle2
+{
+	qer_editorimage	textures/command_ship/box4_side_handle2_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box4_side_handle2_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box4_side_handle2_d.tga
+	specularmap		textures/command_ship/box4_side_handle2_s.tga
+}
+
+
+
+
+
+textures/command_ship/box5_top_bottom
+{
+	qer_editorimage	textures/command_ship/box5_top_bottom_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box5_top_bottom_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box5_top_bottom_d.tga
+	specularmap		textures/command_ship/box5_top_bottom_s.tga
+}
+
+textures/command_ship/box5_side_no_handle
+{
+	qer_editorimage	textures/command_ship/box5_side_no_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box5_side_no_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box5_side_no_handle_d.tga
+	specularmap		textures/command_ship/box5_side_no_handle_s.tga
+}
+
+textures/command_ship/box5_side_handle
+{
+	qer_editorimage	textures/command_ship/box5_side_handle_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box5_side_handle_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box5_side_handle_d.tga
+	specularmap		textures/command_ship/box5_side_handle_s.tga
+}
+
+textures/command_ship/box5_side_handle2
+{
+	qer_editorimage	textures/command_ship/box5_side_handle2_d .tga
+	bumpmap		addnormals( textures/command_ship/box_local.tga, heightmap( textures/command_ship/box5_side_handle2_h.tga, 1 ) )
+	diffusemap		textures/command_ship/box5_side_handle2_d.tga
+	specularmap		textures/command_ship/box5_side_handle2_s.tga
+}

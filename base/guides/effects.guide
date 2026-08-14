@@ -1,0 +1,285 @@
+inlineGuide parallax_bump( TextureParm, OffsetX, OffsetY )
+{
+	qer_editorimage		TextureParm_d.tga
+
+	{
+		if glslPrograms == 1
+		
+		glslProgram				"glsl/Parallaxbump.glsl"
+		
+		customLighting
+		
+		shaderParm				vViewOrigin						viewOrigin
+		
+		shaderParm				vLightOrigin					lightOrigin
+		
+		// Color Modulation.
+		shaderParm				vColorModulate					colorModulate
+		
+		// Color Addition.
+		shaderParm				vColorAdd						colorAdd
+		
+		// Light Falloff.
+		shaderParm				vLightFalloffS					lightFalloff_s
+		
+		// Light Projection Matrix.
+		shaderParm				vLightProjectionS				lightProject_s
+		shaderParm				vLightProjectionT				lightProject_t
+		shaderParm				vLightProjectionQ				lightProject_q
+		
+		// Diffuse Color.
+		shaderParm				vDiffuseColor					diffuseColor
+		
+		// Specular Color.
+		shaderParm				vSpecularColor					specularColor
+		
+		// The offset amount.
+		shaderParm				vScaleBias						OffsetX, OffsetY
+		
+		// Diffuse Map.
+		shaderTexture			DiffuseMap						TextureParm_d.tga
+		
+		// Specular Map.
+		shaderTexture			SpecularMap						TextureParm_s.tga
+
+		// The specular table image.
+		shaderTexture			SpecularTableImage				specularTableImage
+		
+		// Normal Map.
+		shaderTexture			NormalMap						TextureParm_local.tga
+	
+		// Light Falloff Image.
+		shaderTexture			LightFalloffImage				lightfalloffImage
+		
+		// Light Image.
+		shaderTexture			LightImage						lightImage
+	}
+	
+	// Normal Fallback for no fragment programs.
+	{
+		if glslPrograms == 0
+		
+		highquality
+		
+		blend		diffusemap
+		map			TextureParm_d.tga
+	}
+	
+	{
+		if glslPrograms == 0	
+		
+		highquality
+		
+		blend		bumpmap
+		map 		TextureParm_local.tga
+	}
+
+	{
+		if glslPrograms == 0
+		
+		highquality
+		
+		blend		specularmap
+		map 		TextureParm_s.tga
+	}
+}
+
+guide customlit( TextureParm )
+{
+	qer_editorimage	textures/TextureParm_d.tga
+//	sort				postProcess
+
+	{
+		if glslPrograms == 1
+		
+		glslProgram				"glsl/Customlit.glsl"
+		
+		customLighting
+		
+		shaderParm				vViewOrigin						viewOrigin
+		
+		shaderParm				vLightOrigin					lightOrigin
+		
+		// Color Modulation.
+		shaderParm				vColorModulate					colorModulate
+		
+		// Color Addition.
+		shaderParm				vColorAdd						colorAdd
+		
+		// Light Falloff.
+		shaderParm				vLightFalloffS					lightFalloff_s
+		
+		// Light Projection Matrix.
+		shaderParm				vLightProjectionS				lightProject_s
+		shaderParm				vLightProjectionT				lightProject_t
+		shaderParm				vLightProjectionQ				lightProject_q
+		
+		// Diffuse Color.
+		shaderParm				vDiffuseColor					diffuseColor
+		
+		// Specular Color.
+		shaderParm				vSpecularColor					specularColor
+		
+		// The offset amount.
+		shaderParm				vScaleBias						OffsetX, OffsetY
+		
+		// Diffuse Map.
+		shaderTexture			DiffuseMap						TextureParm_d.tga
+		
+		// Specular Map.
+		shaderTexture			SpecularMap						TextureParm_s.tga
+
+		// The specular table image.
+		shaderTexture			SpecularTableImage				specularTableImage
+		
+		// Normal Map.
+		shaderTexture			NormalMap						TextureParm_local.tga
+	
+		// Light Falloff Image.
+		shaderTexture			LightFalloffImage				lightfalloffImage
+		
+		// Light Image.
+		shaderTexture			LightImage						lightImage
+	}
+
+	// Fallback for no glsl
+	{
+		if glslPrograms == 0
+
+		// FIXME!!!
+		map				_white
+	}
+}
+
+guide refractiveGlass( OffsetImage, EnvImage, IoR, FresnelPower )
+{
+	qer_editorimage "textures/base_wall/spacetile_n.tga"
+
+	noShadows
+	noSelfShadow
+	materialType glass
+	sort		farthest
+	translucent
+
+	{
+		if fragmentPrograms == 1
+		
+		program					"arbFP1_Glass.cg"
+
+		vertexParm				0		POTCorrectionX, POTCorrectionY
+		
+		// Index of Refraction and Fresnel Power.
+		vertexParm				1		IoR, FresnelPower
+		
+		// The refraction offset image.
+		fragmentMap				0		"OffsetImage_n.tga"
+
+		// The scene projective texture.
+		fragmentMap				1		"_currentRender"
+		
+		// The environment map.
+		fragmentMap				2		cubeMap	EnvImage
+	}
+
+	{
+		if fragmentPrograms == 0
+		
+		vertexProgram			"nvFP20_Glass.cg"
+		fp20Program				"nvFP20_Glass.cg"
+
+		vertexParm				0		POTCorrectionX, POTCorrectionY
+		
+		// Index of Refraction and Fresnel Power.
+		vertexParm				1		IoR, FresnelPower
+		
+		// The refraction offset image.
+		fragmentMap				0		linear	mirroredrepeat	dsdt	uncompressed	"OffsetImage_dsdt.tga"
+
+		// The scene projective texture.
+		fragmentMap				1		"_currentRender"
+		
+		// The environment map.
+		fragmentMap				2		cubeMap	EnvImage
+	}	
+}
+
+guide depthSpriteAlphaTest( ColorMap, DepthMap, Scale, AlphaTestAmt )
+{
+	qer_editorimage ColorMap.tga
+	
+	noShadows
+	translucent
+	noSelfShadow
+	
+	{
+		alphaTest		AlphaTestAmt
+		map				ColorMap.tga
+	}
+}
+
+guide depthSpriteAlphaBlend( ColorMap, DepthMap, Scale )
+{
+	qer_editorimage ColorMap.tga
+	
+	noShadows
+	translucent
+	noSelfShadow
+	
+	{
+		blend			blend
+		vertexColor
+		map				ColorMap.tga
+	}
+}
+
+guide depthSpriteAdditive( ColorMap, DepthMap, Scale )
+{
+	qer_editorimage ColorMap.tga
+	
+	noShadows
+	translucent
+	noSelfShadow
+	
+	{
+		blend			GL_ONE, GL_ONE
+		vertexColor
+		map				ColorMap.tga
+	}
+}
+
+guide depthSpriteAdditiveAnim32( ColorMap, DepthMap, Scale, TimeOffset )
+{
+	qer_editorimage ColorMap.tga
+	
+	noShadows
+	translucent
+	noSelfShadow
+	
+	{
+		scale			1 / 32 , 1
+		scroll			table32[ time * TimeOffset ], 0
+
+		blend			GL_ONE, GL_ONE
+		vertexColor
+		map				ColorMap.tga
+	}
+}
+
+guide depthSpriteBlendAnim32( ColorMap, DepthMap, Scale, TimeOffset )
+{
+	qer_editorimage ColorMap.tga
+	
+	noShadows
+	translucent
+	noSelfShadow
+	
+	{
+		blend			blend
+		vertexColor
+		
+		scale			1 / 32 , 1
+		scroll			table32[ time * TimeOffset ], 0
+		
+		map				ColorMap.tga
+	}
+}

@@ -1,0 +1,505 @@
+
+
+sound harvester_alert
+{
+	description	"Big chittery roar"
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	shakes		0.5
+	no_dups
+
+	sound/strogg/harvester/alert1
+	shakeData 0 lzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyrxuvvuxvsonnjlghgfgedddccbbbaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert2
+	shakeData 1 ejwwxzzzyzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzyzyzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzzxqvrtttwuqnmmikghgfgededbcbbbaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert3
+	shakeData 2 cryyzzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxwvvtuswurnmmikghgfgededbbbbbaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert4
+	shakeData 3 kwyyyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxrvtutrvvqnnlmikgggfgeddddcbbbbaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert5
+	shakeData 4 kwxwyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzyysvsutsvtplkjiffeddccbbaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_pain
+{
+	description	"Big chittery pain(s)"
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	shakes		0.3
+	no_dups
+
+	sound/strogg/harvester/pain1
+	shakeData 0 szzzzzzzzzzzzzxzzzzzzzyzzyxyxysussomjhhfdcca
+	sound/strogg/harvester/pain2
+	shakeData 1 mxzzzyzzyzzzzzzzzzzzyzzzzzyzywvvsmnigfdcbaaa
+	sound/strogg/harvester/pain3
+	shakeData 2 wzzzzzzzzzzzzzzzzyyyzyyyyzzzzyvyvstopmmkhjigheedcccccbbbaaaaaaaaa
+}
+
+
+sound harvester_steps_cinematic
+{
+	description	"Big chittery step(s)"
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	shakes		0.4
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/step1
+	shakeData 0 rvnxyttwrrwxxswqtomkkiefhcccbbbaaaaaaaaaa
+	sound/strogg/harvester/step2
+	shakeData 1 ouqxtmvrnnwtnpnlihegedcccbabaaaaaaaa
+	sound/strogg/harvester/step3
+	shakeData 2 mstwtuvwxvwvqvwupqmjlmilgjgddddbbaaaaaaaaa
+	sound/strogg/harvester/step4
+	shakeData 3 yxxuuutvuprspqqniphhggegecdbbbaaaaaaaaaa
+}
+
+
+sound harvester_steps
+{
+	description	"Big chittery step(s)"
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/step1
+	shakeData 0 rvnxyttwrrwxxswqtomkkiefhcccbbbaaaaaaaaaa
+	sound/strogg/harvester/step2
+	shakeData 1 ouqxtmvrnnwtnpnlihegedcccbabaaaaaaaa
+	sound/strogg/harvester/step3
+	shakeData 2 mstwtuvwxvwvqvwupqmjlmilgjgddddbbaaaaaaaaa
+	sound/strogg/harvester/step4
+	shakeData 3 yxxuuutvuprspqqniphhggegecdbbbaaaaaaaaaa
+}
+
+
+sound harvester_steps2
+{
+	description	"Big chittery step(s)"
+
+	minDistance	400
+	maxDistance	10000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/step1
+	shakeData 0 rvnxyttwrrwxxswqtomkkiefhcccbbbaaaaaaaaaa
+	sound/strogg/harvester/step2
+	shakeData 1 ouqxtmvrnnwtnpnlihegedcccbabaaaaaaaa
+	sound/strogg/harvester/step3
+	shakeData 2 mstwtuvwxvwvqvwupqmjlmilgjgddddbbaaaaaaaaa
+	sound/strogg/harvester/step4
+	shakeData 3 yxxuuutvuprspqqniphhggegecdbbbaaaaaaaaaa
+}
+
+
+sound harvester_death
+{
+	description	"Big chittery death"
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	shakes		0.3
+	no_dups
+
+	sound/strogg/harvester/death
+	shakeData 0 kvvvxzyyzyyxuyxxxwwwwvwwvyxyuvvuvxwvwuwwvuywvwuxuwyyyvwvvwwywxvwwywxwwxvwvxvwwxwyxwwwxwxwvwxtvvrqruvutuvtqspnjhjffffeeddccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_tendrils
+{
+	description	"not so chittery tendril whip thingies."
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/tendril1
+	shakeData 0 bdegprzutpuurollkkjhhhfeeedddccbbcbbbaaaaaaaaaaaaaa
+	sound/strogg/harvester/tendril2
+	shakeData 1 abbbcddgfghkxzwvuuvoqkkmlijiggggfdccbbbbaaaaaaaaaaaaaa
+	sound/strogg/harvester/tendril3
+	shakeData 2 bcfgrtrvxzptupoonljjiggefeeddccbbbaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_flesh
+{
+	description	"not so chittery tendril whip thingies."
+
+	minDistance	40
+	maxDistance	10000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/flesh1
+	shakeData 0 aaaabbaabacabaaacacbaababcbbbacbbaebbebbbacbbabbbaaabaaabaaaabaaaaaaaaaaaaa
+	sound/strogg/harvester/flesh2
+	shakeData 1 aaabbabbbbccddcbbcbcddegdcccbbaaaabdaabaaaaabaaaaaacaaaaaa
+	sound/strogg/harvester/flesh3
+	shakeData 2 aaaabbabbcbcaabbbdccdcbbbbcbdbbbbbbaababbedaaaccaaaaabdbaabbbbaaaaaa
+	sound/strogg/harvester/flesh4
+	shakeData 3 aaabbbbaabbbcabbbbbbbbceccbbcbbbbbcdabaaccaaaaaaa
+}
+
+
+sound harvester_bridge_crush
+{
+	description	"crushing the bridge"
+
+	minDistance	2000
+	maxDistance	6000
+	volumeDb	0
+
+	sound/strogg/harvester/bridge_crush
+	shakeData 0 dwzzzzzzzzzzzzzzzzyxutrttqlpopnpopnomkjkjjkilihzzzzzyzsrlkijlmjhfehsoliggeecfcceedcccdccedddceedcbcbbaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_steam_blast
+{
+	description	"blasting the harvester with steam"
+
+	minDistance	200
+	maxDistance	3000
+	volumeDb	0
+
+	sound/strogg/harvester/steam_blast
+	shakeData 0 begkprqqrrsqrrqsqqrqrrsrqrsqqrqsqrqrppqqpppqqppppppqpqoponppoooppooononoopoonoonnooononnononnonnoomlkjgffeeeeddbaaaaaaaaaaababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_claw_dirt
+{
+	minDistance	40
+	maxDistance	4000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/blade_impact_dirt1
+	shakeData 0 izzzzzzstjklfdcdbbdbbckdccdcbdaaaabaaaaaaaa
+	sound/strogg/harvester/blade_impact_dirt2
+	shakeData 1 zzzzxvyvklligddbbbdffegcbbbbcbbdabaabaaaaaa
+	sound/strogg/harvester/blade_impact_dirt3
+	shakeData 2 fmzzwxwyxvqmifeecgbccbbbbcbbcbbbjgdggccccaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_dirt4
+	shakeData 3 dgzzzzxzxwvkokigihfdcdcabbaaaaaaaaaaaaaa
+}
+
+
+sound harvester_claw_metal
+{
+	minDistance	40
+	maxDistance	4000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/blade_impact_metal1
+	shakeData 0 zzzzzzzzyzyosnjhfffdcbbaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_metal2
+	shakeData 1 zzzzzzyzzwpmkhfeccbbaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_metal3
+	shakeData 2 yzyzzzyyvxuqqrmkkiihgfecbaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_metal4
+	shakeData 3 hzzzxzzzzzxzutolfdcbbbaaaaaaaaaaaaa
+}
+
+
+sound harvester_claw_flesh
+{
+	minDistance	40
+	maxDistance	4000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/blade_impact_flesh1
+	shakeData 0 izzzzzurqkjkfddddebbbaaabaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_flesh2
+	shakeData 1 zzzzzuunjkhfecbaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_flesh3
+	shakeData 2 clzzzzvxstokiedccbbbaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_impact_flesh4
+	shakeData 3 vwzzzzxzvvwkokjggffecbcfbcdbbbacaaaaaaaa
+}
+
+
+sound harvester_claw_swing
+{
+	minDistance	40
+	maxDistance	4000
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/harvester/blade_swing1
+	shakeData 0 acdglvzwyysjhebbbaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_swing2
+	shakeData 1 dcccelpyyxzyofedbbbbbaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/blade_swing3
+	shakeData 2 aabehuxyzzrlgfdcbbbaaaaaaaaaaaaaa
+}
+
+
+sound harvester_stress
+{
+	minDistance	39
+	maxDistance	10000
+	volumeDb	4
+
+	sound/ambience/industrial/metal_stress1
+	shakeData 0 aaaaaabbbbbbcccdeedcccbbbbbcddeddddeeeeeeedeeffffgiighhiiikjkhhhhggghhfghhhhfhfgegfdeddedccdfeffgfeedddccddeeeeeeeeeefggedcbbbaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_stress2
+	shakeData 1 aaaabbbbbcbdbdcddecedefeffefggefgdfcedgddecgedecfdfedddefdfcccgdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_stress3
+	shakeData 2 aaaaacbdcdeegefefhfghhgggeifhhdgdgfggchfhfdfeheccdcbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_stress4
+	shakeData 3 aaaaaaaababbbbbbcccccddddddeeffhhiihgfghhgffhhgghhljiikonllnmmkjkjllklmmmlmlmklljkjijikjmmkhgfefffffghfeddcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_twist
+{
+	minDistance	39
+	maxDistance	10000
+	volumeDb	0
+
+	sound/ambience/industrial/metal_twist_short1
+	shakeData 0 dimmnutsuuwwvxsmjoqrlnmmljfedcccbbbbaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_twist_short2
+	shakeData 1 cfkluvusuuvttvtuuwstrsrrpihffddcccbbbbbaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_twist_short3
+	shakeData 2 giglopppoposrsrttsqruuutrrlhfdcccbbbaaaaaaaaaaaa
+}
+
+
+sound harvester_nailgun
+{
+	minDistance	196
+	maxDistance	8000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/gunner/nailgun1
+	shakeData 0 zwywvsmkkefeccbbbbbaaaaaaaaaaaaa
+	sound/strogg/gunner/nailgun2
+	shakeData 1 zzyzrqsmpieddcbbbaaaaaaaaaaaa
+	sound/strogg/gunner/nailgun3
+	shakeData 2 zyzzrrplolffccbabbbaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_rocket_launcher
+{
+	minDistance	80
+	maxDistance	10000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/weapons/grenade/explode1
+	shakeData 0 zzzsxvyroolknmmtjkhgolihlliromokjjjkjhjhjigffedddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode2
+	shakeData 1 zznotvvtrrnmpmomhimhkhgifgiplkmliikigijghggffeecdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode3
+	shakeData 2 zzywwzxxxtvupnmhfhhhjggfefglihigfefdddddccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode4
+	shakeData 3 zzswpwxxuysppjjjkhlkikhjlmpmjkkmkjkiihhgffhfgedecccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_grenade_launcher
+{
+	minDistance	80
+	maxDistance	4000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/gunner/grenadelaunch
+	shakeData 0 zzyztmqrmmhhgfedcccbbbaaaaaaaaaaaaa
+}
+
+
+sound harvester_truck_explosion_e3
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	-3
+	global
+
+	sound/ambience/convoy/truck_explosion
+	shakeData 0 eowztppqszzzzzzzzzzzzzzzzyxzzyzwvzwuyuzyzyyqpyxxvzrqqqonkklokopnjjlmljighhigeefeegeggdcbbccbddbbcbbabbbaabcabbbbabbaaabaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_alert_e3
+{
+	description	"Big chittery roar"
+
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+	shakes		0.5
+	global
+	no_dups
+
+	sound/strogg/harvester/alert1
+	shakeData 0 lzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyrxuvvuxvsonnjlghgfgedddccbbbaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert2
+	shakeData 1 ejwwxzzzyzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzyzyzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzzxqvrtttwuqnmmikghgfgededbcbbbaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert3
+	shakeData 2 cryyzzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxwvvtuswurnmmikghgfgededbbbbbaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert4
+	shakeData 3 kwyyyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzxxxrvtutrvvqnnlmikgggfgeddddcbbbbaaaaaaaaaaaaaaaaaaa
+	sound/strogg/harvester/alert5
+	shakeData 4 kwxwyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyzzzzzzzzzzzzzzzzzzzyysvsutsvtplkjiffeddccbbaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_steps_e3
+{
+	description	"Big chittery step(s)"
+
+	minDistance	800
+	maxDistance	3000
+	volumeDb	0
+	shakes		0.4
+	global
+	no_dups
+
+	sound/strogg/harvester/step1
+	shakeData 0 rvnxyttwrrwxxswqtomkkiefhcccbbbaaaaaaaaaa
+	sound/strogg/harvester/step2
+	shakeData 1 ouqxtmvrnnwtnpnlihegedcccbabaaaaaaaa
+	sound/strogg/harvester/step3
+	shakeData 2 mstwtuvwxvwvqvwupqmjlmilgjgddddbbaaaaaaaaa
+	sound/strogg/harvester/step4
+	shakeData 3 yxxuuutvuprspqqniphhggegecdbbbaaaaaaaaaa
+}
+
+
+sound harvester_pain_e3
+{
+	description	"Big chittery pain(s)"
+
+	minDistance	393
+	maxDistance	3000
+	volumeDb	0
+	shakes		0.3
+	global
+	no_dups
+
+	sound/strogg/harvester/pain1
+	shakeData 0 szzzzzzzzzzzzzxzzzzzzzyzzyxyxysussomjhhfdcca
+	sound/strogg/harvester/pain2
+	shakeData 1 mxzzzyzzyzzzzzzzzzzzyzzzzzyzywvvsmnigfdcbaaa
+	sound/strogg/harvester/pain3
+	shakeData 2 wzzzzzzzzzzzzzzzzyyyzyyyyzzzzyvyvstopmmkhjigheedcccccbbbaaaaaaaaa
+}
+
+
+sound harvester_explosion_dying
+{
+	minDistance	400
+	maxDistance	10000
+	volumeDb	-6
+	soundClass	1
+
+	sound/effects/explosions/no_debris01
+	shakeData 0 zzzzzzyyzzzzzyyxwrsyyrvvwqvnllolmnklijgehggigdecccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/no_debris02
+	shakeData 1 xwynwxqxwtyyzzyvqwxvxyysuxprtuvrpkknsolqunlojkjjmkhgfffjegdgecccdbccbbbababbaaaaaaaaaaaa
+	sound/effects/explosions/no_debris03
+	shakeData 2 wzzzzzzzzzzzxyzzxuyxwvtyusmplqnlnmfokiiiegggddcccbbbcbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/no_debris04
+	shakeData 3 vvwxzzzzzzzzyyzzzyzyyutwsspqwuwttrtnswvsuotskopkrnkmnlmmjijhilkegffilihedcedccdbccbbbbccaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_explosion_death_a
+{
+	minDistance	400
+	maxDistance	10000
+	volumeDb	-6
+	shakes		0.2
+	soundClass	1
+
+	sound/effects/explosions/metal01
+	shakeData 0 szzzszyzyxzysuuvruqrqtpuqooqtpmqpolqlmlijllklhhjggfeeeddcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/metal02
+	shakeData 1 qzzzyzszzyutrxwyxvsvssstutuwwvtutssqussttusrsstprpqppppprppnoppoonoolnmnnmnmmoknmnnmkmmnnmnmklnojnkkikiifhighffeefdddddcdccccccbcccbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/metal03
+	shakeData 2 uzzzwpxzzzxvxvxsvywywxywzvxxwvvvtvtvrttouwwvutllkkonhjhiiqmfedkeccbcbbaaaaaaaaaaaaa
+}
+
+
+sound harvester_explosion_death_b
+{
+	minDistance	400
+	maxDistance	10000
+	volumeDb	-6
+	shakes		0.2
+	soundClass	1
+
+	sound/effects/explosions/fiery01
+	shakeData 0 wyxwzswpvuptxxwwotsstrtrrqpursustqqsrqqrrqqrrroqqqrrqqpoqqpqqpppppjkmhnkmlhliihfhhdeedcbcddbbbbaaaaaaaaaaaaaaa
+	sound/effects/explosions/fiery02
+	shakeData 1 lyvzztoztvvutvwwxwqutstqqqqttuqotsuqqrpprpqppoqmnpmmkklmkihjihfdfeddegccbbbbbbbbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_explosion_death_c
+{
+	minDistance	585
+	maxDistance	10000
+	volumeDb	0
+	soundClass	1
+
+	sound/weapons/rocketlauncher/explode0
+	shakeData 0 zzyzzxuutwtssrtrrrsrrsrkpmnnllonmokmopkkokkmkgkkhhjhhfgheedecccccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/rocketlauncher/explode1
+	shakeData 1 xzzyywxwxuuvvuvuutuursoqrpmpoqjnmnojilnlmjhjljhkigghhfefecccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/rocketlauncher/explode2
+	shakeData 2 zzzzyzzyyutwtptuuuusopoqrsqrpqormrrlknpmnjjjmjgljghiigefgdcdcccccbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound harvester_explosion_death_d
+{
+	minDistance	585
+	maxDistance	10000
+	volumeDb	0
+
+	sound/weapons/grenade/explode1
+	shakeData 0 zzzsxvyroolknmmtjkhgolihlliromokjjjkjhjhjigffedddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode2
+	shakeData 1 zznotvvtrrnmpmomhimhkhgifgiplkmliikigijghggffeecdccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode3
+	shakeData 2 zzywwzxxxtvupnmhfhhhjggfefglihigfefdddddccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/weapons/grenade/explode4
+	shakeData 3 zzswpwxxuysppjjjkhlkikhjlmpmjkkmkjkiihhgffhfgedecccbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+
+

@@ -1,0 +1,66 @@
+/***********************************************************************
+CONVOY PUMP
+***********************************************************************/
+
+export convoy_pump
+{
+	options -prefix convoy_pump_ -scale 1.6
+	mesh	work/models/mapobjects/strogg/outdoor_objects/pump/pump_animations/pump_idle.ma		-dest models/mapobjects/strogg/convoy/pump
+	anim	work/models/mapobjects/strogg/outdoor_objects/pump/pump_animations/pump_anim.ma		-dest models/mapobjects/strogg/convoy/pump_anim
+	anim	work/models/mapobjects/strogg/outdoor_objects/pump/pump_animations/pump_idle.ma		-dest models/mapobjects/strogg/convoy/pump_stop
+}
+
+model model_env_convoy_pump
+{
+	mesh			"models/mapobjects/strogg/convoy/pump.md5mesh"
+	anim idle		"models/mapobjects/strogg/convoy/pump_anim.md5anim"
+	anim stop		"models/mapobjects/strogg/convoy/pump_stop.md5anim"
+}
+
+entityDef env_convoy_pump
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	"editor_usage"			"scripted pump for convoy"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_convoy_pump"
+	"anim"					"idle"
+	"start_anim"			"idle"
+}
+
+
+/***********************************************************************
+CONVOY PUMP SMALL
+***********************************************************************/
+
+export convoy_pump_small
+{
+	options -prefix convoy_pump_
+	mesh	work/models/mapobjects/strogg/outdoor_objects/pump/pump_animations/pump_idle.ma		-dest models/mapobjects/strogg/convoy/pump_small
+}
+
+model model_env_convoy_pump_small
+{
+	mesh			"models/mapobjects/strogg/convoy/pump_small.md5mesh"
+	anim idle		"models/mapobjects/strogg/convoy/pump_anim.md5anim"
+	anim stop		"models/mapobjects/strogg/convoy/pump_stop.md5anim"
+}
+
+entityDef env_convoy_pump_small
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	"editor_usage"			"scripted pump for convoy"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_convoy_pump_small"
+	"anim"					"idle"
+	"start_anim"			"idle"
+}

@@ -1,0 +1,152 @@
+/*
+===============================================================================
+
+	RocketTurret Entity Definition
+
+===============================================================================
+*/
+entityDef damage_turret_rocket_direct {
+	"inherit"							"damage_rocketDirect"
+	
+	"damage"							"100"
+}
+
+entityDef damage_turret_rocket_splash {
+	"inherit"							"damage_rocketSplash"
+	
+	"damage"							"20"
+	"radius"							"10"
+}
+
+entityDef projectile_turret_rocket {
+	"inherit"							"projectile_rocket"
+	"spawnclass"						"idGuidedProjectile"
+	
+	"model"								"models/monsters/heavyhovertank/rocket.lwo"
+	
+	"size"								"64 64 64"
+	"clipmask_rendermodel"				"0"
+	"no_contents"						"0"
+	
+	"detonate_on_death"					"1"
+	
+	"health"							"1"
+
+	"turn_accel"						"0.2"
+	
+	"speed"								"650"
+
+	"def_damage"						"damage_turret_rocket_direct"
+	"def_splash_damage"					"damage_turret_rocket_splash"
+}
+
+entityDef monster_turret_rocket {
+	"inherit"							"monster_turret"
+
+	"shieldHealth"						"100"
+
+	"minShots"							"1"
+	"maxShots"							"2"
+	
+	"attack_blaster_spread"				"30"
+	
+	"def_attack_blaster"				"projectile_turret_rocket"
+	"fx_blaster_flash"					"effects/levels/tram/turretflash.fx"
+	"fx_shieldHit"										"effects/monsters/turret/d_shieldhit.fx"
+	"fx_shieldBreak"									"effects/monsters/turret/d_shieldbreak.fx"
+}
+
+entityDef damage_convoy_rocket_direct
+{
+	"damage"							"30"
+	"push"								"400"
+	"knockback"							"400"
+	"mtr_splat"							""
+	"gib"								"0"
+}
+
+entityDef damage_convoy_rocket_splash
+{
+	"damage"							"10"
+	"radius"							"300"
+	"knockback"							"400"
+	"push"								"400"
+	"gib"								"0"
+}
+
+entityDef convoy_projectile_turret_rocket
+{
+	"inherit"							"projectile_rocket"
+	"spawnclass"						"idGuidedProjectile"
+	
+	"size"								"64 64 64"
+	"noshadows"							"0"
+	"clipmask_largeshot"				"1"
+	"no_contents"						"0"
+
+	"model"								"models/monsters/heavyhovertank/rocket.lwo"
+
+	"health"							"10"
+
+	"angular_velocity"					"0 0 5"
+
+	"def_damage"						"damage_convoy_rocket_direct"
+	"def_splash_damage"					"damage_convoy_rocket_splash"
+	"speed"								"350"
+
+	"fx_fly"							"effects/monsters/heavy_tank/fly.fx"
+	"fx_impact"							"effects/monsters/heavy_tank/impact.fx"
+	"fx_detonate"						"effects/monsters/heavy_tank/impact.fx"
+	"fx_fuse"							"effects/monsters/heavy_tank/impact.fx"
+
+	"snd_fly"							"weapon_energy_projectile_loop"
+}
+
+entityDef convoy_monster_turret_rocket
+{
+	"inherit"							"monster_turret"
+	"editor_menu"										"level"
+
+	"model"												"model_convoy_monster_turret"
+
+	"minShots"							"1"
+	"maxShots"							"2"
+	
+	"health"							"1"
+	"shieldHealth"				"150"
+
+	"actionTimer_rangedAttack_rate"						"1.5"				
+	"action_blasterAttack_Rate"							"1"
+
+	"size"								"96 96 96"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_rocket_flash"						"effects/monsters/heavy_tank/muzzleflash.fx"	
+	"fx_shieldHit"										"effects/monsters/turret/d_shieldhit.fx"
+	"fx_shieldBreak"									"effects/monsters/turret/d_shieldbreak.fx"
+	"fx_death"								"effects/monsters/turret/bunkerturret_death.fx"
+
+	"def_attack_rocket"						"convoy_projectile_turret_rocket"
+}
+
+model model_convoy_monster_turret
+{
+	mesh												models/monsters/Turret/rocket_mesh.md5mesh
+	channel legs										( origin )
+	channel torso										( *origin -origin )
+
+	anim idle											models/monsters/Turret/rocket_idle.md5anim
+	{
+		frame 1											ai_disablePain
+	}
+ 	anim walk											models/monsters/Turret/rocket_walk.md5anim
+	{
+		frame 1											ai_disablePain
+	}
+	anim range_attack									models/monsters/Turret/rocket_fire.md5anim
+	{
+		frame 1									ai_disablePain
+		frame 3									ai_attack			rocket				muzzle_flash_big
+		frame 3									fx					fx_rocket_flash		muzzle_flash_big
+	}
+}

@@ -1,0 +1,734 @@
+ 
+//#include "scripts/doom_defs.script"
+
+namespace boss_brain	{
+
+#define COLOR_BATTERY_BLUE '0 0.82 0.95'
+#define COLOR_BATTERY_BLUE2 '0.24 0.8 0.89'
+
+#define HEALTH_TESLA 150
+#define HEALTH_BRAIN 3500
+
+//used to maintain battery spinning
+float g_batterySpin = 0;
+
+//tesla coil energy to brain
+float g_teslaToBrain = 1;
+
+//is the brain shield on?
+float g_brainShieldActive = 0;
+
+//can the brain be damaged?
+float g_brainDamageable = 0;
+
+//has the scene started yet?
+float g_battleStarted = 0;
+
+//the health of the tesla coil
+float g_teslaHealth = 0;
+
+//the state of the tesla coil-- broken or working.
+float g_teslaBroken = 0;
+
+//master function for ascending and building the brain
+void buildBrain( );
+
+//activates a TSD Column
+void activateTSDColumn( float fCol);
+void closeTSDColumn( float fCol);
+
+//increases or decreases battery speed
+void speedBatteries( entity entBattery, float fDestSpeed, float fAccelPerSec);
+
+//generate the brain
+void playGenbeamEffects();
+void playGenbeamEffects2();
+
+//blasts electricty from the coil to the brain
+void teslaToBrainFX ( entity fx, entity nulls, float fDuration );
+void teslaToBattery( entity fx, float fBattery, float fDuration);
+
+//keeps the player away from the brain
+void maintainBrainShield();
+//keeps track of brain health and damage
+void maintainBrainHealth();
+
+//this is when the teslaCoil is overloaded with damage and can blast out the brain
+void teslaOverload();
+
+//huge bright flash of light
+void lightFlash();
+
+//sends repairbots in to fix the tesla coil
+void repairBotsGo();
+
+//restores the shield bar
+void restoreShieldBar( float fPercent, float seconds );
+
+// Keeps track of the Tesla coil health. When it 
+// gets too blasted it goes into overdrive, and blows out
+// the brain shield.
+void maintainTeslaHealth();
+
+
+
+
+//this builds up the brain 
+void buildBrain()	{
+	sys.println("*** BUILDING BRAIN ***");
+	sys.trigger( $tgt_fademusic_out );
+
+
+
+	$env_brain.show();
+	
+	//for each new build of the brain make sure it's set up right.
+	g_brainDamageable = 0;
+	$dmg_brain.hide();
+
+	entity entBrainMover = $mvr_brainstalk;
+
+	entity tgtBrainBottom = sys.getEntity( "tgt_brainstalk_bottom");
+	entity tgtBrainTop = sys.getEntity( "tgt_brainstalk_top");
+
+	entity entBrainDoor1 = sys.getEntity( "door_brain_1");
+	entity entBrainDoor2 = sys.getEntity( "door_brain_2");
+
+	entity fxShield = $fx_brain_shield;
+	entity fxHeat = $fx_brain_heat;
+	entity fxBreak = $fx_brain_shield_break;
+
+
+	float fBattery1 = tgtBrainTop.getFloatKey("battery1");
+	float fBattery2 = tgtBrainTop.getFloatKey("battery2");
+
+	vector vTop = tgtBrainTop.getWorldOrigin();
+	vTop_z += 64;
+	fxHeat.setWorldOrigin( vTop);
+	
+	//start the batteries
+	/*
+	thread activateTSDColumn( 1 );
+	thread activateTSDColumn( 2 );
+	thread activateTSDColumn( 3 );
+	thread activateTSDColumn( 4 );
+	*/
+
+	//open the doors 
+	sys.trigger($func_aas_obstacle_1); //prevent monsters from hanging out ontop of the door
+	entBrainDoor1.open();
+	sys.waitFor( entBrainDoor1);
+	
+	//chatter from strauss about how cool you are.
+	sys.trigger( $chatter_strauss_2 );
+
+	fxHeat.start();
+
+	//colour shift room
+	sys.trigger($target_entity_fadein_1);
+	sys.trigger($target_entity_fadein_2);
+	sys.trigger($target_entity_fadein_3);
+	
+	//lift up the brain stalk
+	entBrainMover.time(6);
+	entBrainMover.decelTime(2);
+	entBrainMover.moveTo( tgtBrainTop);
+	sys.wait(2);
+
+	thread teslaToBattery( $fx_coil_battery_blast_1, 1, 6);
+	thread teslaToBattery( $fx_coil_battery_blast_2, 2, 6);
+	thread teslaToBattery( $fx_coil_battery_blast_3, 3, 6);
+	thread teslaToBattery( $fx_coil_battery_blast_4, 4, 6);
+	//turn on the absorber
+	$fx_tesla_black_absorb.start();
+	sys.trigger( $speaker_laser_start );
+
+
+	g_brainShieldActive = 1;
+	g_brainDamageable = 0;
+	$dmg_brain.hide();
+	
+	sys.waitFor( entBrainMover);
+	$dmg_brain.unbind();
+	fxHeat.stop();
+
+	
+	//wait and then charge brain
+	sys.wait(1);
+	
+	thread playGenbeamEffects();
+	playGenbeamEffects2();
+
+	sys.trigger( $bossbattle_brain);
+	g_battleStarted = 1;
+	fxShield.start();
+	sys.trigger( $spkr_shield_up);
+
+	//move this to boss init
+	g_brainShieldActive = 1;
+	thread maintainBrainHealth();
+	
+	$dmg_brain.show();
+	//turn off the absorber
+	$fx_tesla_black_absorb.stop();
+	sys.trigger( $speaker_laser_end );
+
+
+	thread maintainTeslaHealth();
+
+	sys.trigger( $spawnerBrain_baddies);
+	
+	//close the brain columns.
+	thread closeTSDColumn( 1);
+	thread closeTSDColumn( 2);
+	thread closeTSDColumn( 3);
+	thread closeTSDColumn( 4);
+
+	//start the brain music
+	sys.trigger( $speaker_music_2 );
+	$speaker_music_2.remove();
+	sys.trigger( $tgt_fademusic_in );
+	sys.trigger( $speaker_music_3 );
+
+}
+
+//------------------------------------------------------
+// activateTSDColumn
+//
+// activates and opens a TSD battery column
+//------------------------------------------------------
+void activateTSDColumn( float fCol)	{
+	
+	entity entDoor = sys.getEntity("mover_battery_door_" + fCol);
+	entity entRotator = sys.getEntity("rot_battery_" + fCol);
+	entity entSpeaker = sys.getEntity("speaker_batteries_" + fCol);
+	sys.trigger( entSpeaker );
+
+
+	entity fx;
+	fx = sys.getEntity( "fx_battery_core_" + fCol);
+	fx.start();
+
+	entDoor.time( 4);
+	entDoor.move( UP, 128);
+	
+	thread speedBatteries( entRotator, 300, 20);
+
+}
+
+void closeTSDColumn( float fCol)	{
+
+	entity entDoor = sys.getEntity("mover_battery_door_" + fCol);
+	entity entRotator = sys.getEntity("rot_battery_" + fCol);
+	entity entSpeaker = sys.getEntity("speaker_batteries_" + fCol);
+
+	entDoor.time( 4);
+	entDoor.move( DOWN, 128);
+
+	sys.waitFor( entDoor);
+
+	entity fx;
+	fx = sys.getEntity( "fx_battery_core_" + fCol);
+	fx.stop();
+	sys.trigger( entSpeaker );
+
+	sys.wait(0.2);
+	g_batterySpin = 0;
+
+}
+
+//------------------------------------------------------
+// speedBatteries
+//
+// Accelerates the torso batteries.
+//------------------------------------------------------
+void speedBatteries( entity entBattery, float fDestSpeed, float fAccelPerSec)	{
+	
+	float fSpeed = entBattery.getFloatKey("speed");
+	float fRestoreSpeed = fSpeed;
+	float fTime = sys.getTime();
+	float fNewTime = 0;
+	float fTick;
+
+	vector vOldAngles;
+	vector vNewAngles;
+		
+	//turn on the global flag
+	g_batterySpin = 1;
+	
+	while(g_batterySpin == 1)	{
+		
+		//accelerate while the brain is loading
+		if( fSpeed < fDestSpeed)	{
+			fNewTime = sys.getTime();
+			fTick = (fNewTime - fTime);	
+			fSpeed += fAccelPerSec * fTick; 		
+			fTime = fNewTime;
+		}	
+			//adjust the angles
+			vOldAngles = entBattery.getAngles();
+			vOldAngles_y += fSpeed * fTick;
+			if( vOldAngles_y >= 360)
+				vOldAngles_y -= 360;
+			
+			//go
+			entBattery.setAngles( vOldAngles);
+
+			sys.waitFrame();
+	}
+
+	entBattery.setKey("speed", fRestoreSpeed );
+}
+
+//------------------------------------------------------
+// maintainTeslaCoil
+//
+// Keeps track of the Tesla coil health. When it 
+// gets too blasted it goes into overdrive, and blows out
+// the brain shield.
+//------------------------------------------------------
+void maintainTeslaHealth()	{
+
+	entity entTesla = $damage_tesla;
+	float fHealth;
+	float fDamage;
+
+
+	//set the tesla coil health
+	entTesla.setHealth( HEALTH_TESLA);
+	g_teslaHealth = HEALTH_TESLA;
+
+	//run maintainence
+	while(1)	{
+
+			//if the shield has been damaged, reduce health.
+			fHealth = entTesla.getHealth();
+			//sys.println("Coil getHealth returned " + fHealth);
+			if ( fHealth != HEALTH_TESLA )	{
+				fDamage = HEALTH_TESLA - fHealth;
+				sys.println("Tesla coil damaged " + fDamage + " points.");
+
+				//if the shields are up, carry the damage over 100%. If the shields are recharging, the damage is reduced.
+				if ( g_brainDamageable == 2)	{
+					fDamage *= 0.2;
+				}
+
+				//apply the damage if the coil is not overloading
+				if(  g_teslaBroken != 1 )	{
+					g_teslaHealth -= fDamage;
+					if( g_teslaHealth < 0)	{
+						g_teslaHealth = 0;				
+					}
+				}
+
+				//restore the tesla coil health to full.
+				entTesla.setHealth( HEALTH_TESLA );
+
+				//if the shields are up and the tesla strength is 0, trigger the overload event.
+				if( g_teslaBroken == 0 && g_teslaHealth <= 0)	{
+					g_teslaBroken = 1;
+					g_teslaHealth = 0;
+					sys.trigger( $relay_tesla_damage);
+				}
+
+			}
+
+			//the shield regains health over time. If it's pristine, it gains a little. If it's recharging, it gains a lot.
+			float fRestore = 0;
+
+			//overloading: do nothing. 
+			if( g_teslaBroken == 1)	{
+				fRestore = 0;
+			}
+
+			if( g_teslaBroken == 0)	{
+				fRestore = 0.4;				
+			}
+
+			if( g_teslaBroken == 2)	{
+				fRestore = 0.6;
+			}
+
+			//add fRestore to the value
+			g_teslaHealth += fRestore;
+			//sys.println("tesla health is at " + g_teslaHealth);
+			if( g_teslaHealth > HEALTH_TESLA )	{
+				g_teslaHealth = HEALTH_TESLA;
+			}
+			float fPercent;
+
+			fPercent = g_teslaHealth / HEALTH_TESLA;
+
+			//update the shield bar.
+			$target_bossbattle_1.allowShieldBar( 1 );
+			$target_bossbattle_1.setShieldPercent( fPercent );
+
+			//if the shields are down, play the warning bar, and maybe turn them on.
+			if( g_teslaBroken == 2)	{
+				$target_bossbattle_1.allowShieldWarnBar( 1 );
+				
+				//restore shield power at 90%
+				if( fPercent > 0.90 )	{
+					//turn the shields back on.
+					sys.trigger( $spkr_shield_up);
+					$fx_brain_shield.start();
+					$stc_brain_shield_d20.show();
+					g_brainShieldActive = 1;
+					g_brainDamageable = 0;
+					g_teslaBroken = 0;
+					$target_bossbattle_1.allowShieldWarnBar( 0 );
+				}
+			}
+
+
+			sys.waitFrame();	
+	
+		}
+
+}
+//-------------------------------------------------------------------------------
+// Kills all the brain / Makron summoned monsters
+//
+// void killAllMonsters
+//
+// jshepard | Aug 2005
+//-------------------------------------------------------------------------------
+void killAllMonsters()	{
+	entity entMonster;
+	entity tgt_monsterManager;
+	tgt_monsterManager = $tgt_monsterManager;
+
+	ForEachTargetOf( tgt_monsterManager, entMonster )	{
+		$death.directDamage( entMonster, "damage_gib");
+
+	}
+
+}
+
+
+//------------------------------------------------------
+// destroyBrain
+//
+// destroys the brain and ends the game.
+//------------------------------------------------------
+void destroyBrain()	{
+
+		//kill all the threads!
+		$fx_brain_shield.remove();
+		$fx_brain_heat.remove();
+		$fx_brain_shield_break.remove();
+		sys.killthread(  "maintainBrainShield" );
+		sys.killthread(	 "maintainBrainHealth" );
+
+		//kill all the monsters
+		thread killAllMonsters();
+		$spawnerBrain_baddies.remove();
+	
+		sys.trigger( $tgt_fademusic_out );
+
+	
+		//start the brain dying
+		sys.trigger($item_objective_destroy_nexus_complete);
+		playAnimWait( $env_brain, ANIMCHANNEL_ALL, "spasm" );
+		$env_brain.playAnim(  ANIMCHANNEL_ALL, "death" );
+		$env_brain.setShaderParm (7, sys.getTime()); //burn out fast to hide something
+		sys.wait(.5);
+
+		//make sure player is still alive.
+		if( $player1.getHealth() < 1)	{
+			return;
+		}
+
+		sys.awardAchievement("completedGame");
+//		sys.trigger( $fx_braingoo_1);
+//		sys.trigger( $fx_braingoo_2);
+		$speaker_music_3.remove();
+		sys.trigger( $tgt_fademusic_in );
+	
+		thread map_core::playEndingCinematic();
+
+}
+
+
+//------------------------------------------------------
+// maintainBrainHealth
+//
+// Translates damage done to the brain shell into actual
+// damage to the boss monster off-screen who maintains the
+// boss bar.
+//------------------------------------------------------
+void maintainBrainHealth()	{
+
+	float fHealth;
+	float fOldHealth;
+	float fDamage;
+
+	//wait a few seconds for the brain to be fully constructed
+	sys.wait(5);
+
+	
+	//this will init the brain health
+	$boss_brain.setHealth( getBossHealthByDifficulty( HEALTH_BRAIN, sys.getcvar("g_skill") ));
+	$target_bossbattle_1.setMaxBossHealth( getBossHealthByDifficulty( HEALTH_BRAIN,  sys.getcvar("g_skill") ));
+	$dmg_brain.setHealth( $boss_brain.getHealth() );
+
+	fOldHealth = $dmg_brain.getHealth();
+
+	//this loop runs until the brain is dead.
+	while(1)	{
+		
+		if( g_brainDamageable == 1)	{
+			fHealth = $dmg_brain.getHealth();
+			if ( fHealth != fOldHealth)	{
+				fDamage = fOldHealth - fHealth;
+				fOldHealth = fHealth;
+				$boss_brain.setHealth( $boss_brain.getHealth() - fDamage);
+				sys.println("Brain damaged " + fDamage);
+				sys.trigger( $speaker_brain_hurt);
+
+			}
+		}
+	//HERE IS WHERE THE BRAIN DIES!----------------------
+		if( $boss_brain.getHealth() <= 0)	{
+
+			thread destroyBrain();
+			return;
+		}
+		//---------------------------------------------------
+		sys.waitFrame();	
+	}
+
+}
+
+void killBrain()	{
+	$boss_brain.setHealth( 0);	
+}
+
+//------------------------------------------------------
+// playGenbeamEffects
+//
+// Generates either the left or right side of the brain
+//------------------------------------------------------
+void playGenbeamEffects()	{
+
+	sys.trigger( $fx_beam_brain_1);
+	sys.trigger( $fx_beam_brain_3);
+
+
+	$env_brain.playEffect ("fx_brain_gen", "_rearRight_LOB", 1);
+	$env_brain.playEffect ("fx_brain_gen", "_front_rightLob", 1);
+	$env_brain.playEffect ("fx_brain_gen", "_Right_Lower_LOB", 1);
+	$env_brain.playEffect ("fx_brain_gen", "_CentralRight_LOB", 1);
+	
+	$env_brain.setShaderParm (6, sys.getTime());
+
+	sys.wait (3);
+
+
+	$env_brain.stopEffect ("fx_brain_gen");
+	$env_brain.stopEffect ("fx_brain_gen");
+	$env_brain.stopEffect ("fx_brain_gen");
+	$env_brain.stopEffect ("fx_brain_gen");	
+
+	sys.trigger( $fx_beam_brain_1);
+	sys.trigger( $fx_beam_brain_3);
+
+}
+
+void playGenbeamEffects2()	{
+	sys.trigger( $fx_beam_brain_2);
+	sys.trigger( $fx_beam_brain_4);
+
+//filler particle effects
+	$env_brain.playEffect ("fx_brain_gen", "_rearLeft_LOB", 1);
+	$env_brain.playEffect ("fx_brain_gen", "_front_leftLob", 1);
+	$env_brain.playEffect ("fx_brain_gen", "_Left_Lower_LOB", 1);
+	$env_brain.playEffect ("fx_brain_gen", "_CentralLeft_LOB", 1);
+	
+//	brain alpha generation 
+	$env_brain.setShaderParm (5, sys.getTime());
+
+	sys.wait (3);
+
+//turn offfiller particle effects
+	$env_brain.stopEffect ("fx_brain_gen");
+	$env_brain.stopEffect ("fx_brain_gen");
+	$env_brain.stopEffect ("fx_brain_gen");
+	$env_brain.stopEffect ("fx_brain_gen");	
+ 
+	sys.trigger( $fx_beam_brain_2);
+	sys.trigger( $fx_beam_brain_4);
+
+}
+
+void teslaToBrainFX( entity fx, entity nulls, float fDuration )
+{
+	entity target;
+	float fTime = sys.getTime() + fDuration;
+	sys.wait( sys.random(1));
+	while (sys.getTime() < fTime ) 
+	{
+		//sys.wait ( sys.random ( 3 ) );
+
+		target = nulls.randomTarget ( "" );
+		fx.setKey ( "target", target.getName() );
+		fx.start();
+
+		sys.wait (0.2 + sys.random(0.2));   // wait duration of effect +1
+	}
+
+	//turn off the FX
+	fx.stop();
+}
+
+// overload of the tesla coil, this will blast and break the shield.
+void teslaOverload()	{
+
+	//create explosions on the coil
+	$fx_tesla_sparks_1.start();
+	$fx_tesla_sparks_2.start();
+	$fx_tesla_sparks_3.start();
+	$fx_tesla_sparks_4.start();
+
+	thread teslaToBrainFX( $fx_coil_battery_blast_7, $tgt_tesla_brain_random_master, 11 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_8, $tgt_tesla_brain_random_master, 11 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_9, $tgt_tesla_brain_random_master, 11 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_10, $tgt_tesla_brain_random_master, 11 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_11, $tgt_tesla_brain_random_master, 11 );
+
+	sys.wait(2.25);
+	sys.trigger( $spkr_tesla_explode);
+	sys.wait(0.75);
+
+	thread teslaToBrainFX( $fx_coil_battery_blast_1, $tgt_tesla_master, 8 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_2, $tgt_tesla_master, 8 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_3, $tgt_tesla_master, 8 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_4, $tgt_tesla_master, 8 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_5, $tgt_tesla_master, 8 );
+	thread teslaToBrainFX( $fx_coil_battery_blast_6, $tgt_tesla_master, 8 ); 
+	$env_brain.playAnim ( ANIMCHANNEL_ALL, "charge");
+
+	//blow out the shield
+	sys.wait(1);
+	$fx_brain_shield.stop();
+	$fx_brain_shield_break.start();
+	$stc_brain_shield_d20.hide();
+	thread lightFlash();
+	sys.trigger( $spkr_shield_break);
+	g_brainShieldActive = 0;
+	g_brainDamageable = 1;
+	$dmg_brain.show();
+	
+	sys.wait(4);
+	$fx_tesla_sparks_1.stop();
+	$fx_tesla_sparks_2.stop();
+	$fx_tesla_sparks_3.stop();
+	$fx_tesla_sparks_4.stop();
+
+	//repair bots need to repair.
+	repairBotsGo();
+
+
+}
+void lightFlash()	{
+
+	$light_huge.On();
+	float t = 1;
+	while( t > 0)	{
+		$light_huge.setLightParms(t, 0, 0, 1);
+		t -= .01;
+		sys.waitFrame();
+	}
+	$light_huge.Off();
+}
+
+
+void repairBotsGo()	{
+
+	//enter the repair bots
+	sys.trigger( $spawner_repairbots_1);
+	sys.trigger( $spawner_repairbots_2);
+
+	//begin re-powering the shield
+	sys.println("Tesla coil recharging!");
+	g_teslaBroken = 2;
+
+}
+
+void repairTeslaCoil(entity entRepair)	{
+
+	sys.println( entRepair.getName() + " is on duty!");
+	aiScriptedFaceWait( entRepair, $tgt_tesla_repair, 1);
+	aiScriptedActionWait( entRepair, $tgt_tesla_repair, 1);
+}
+
+void teslaToBattery( entity fx, float fBattery, float fDuration)	{
+
+	entity target = sys.getEntity( "tgt_battery_tesla_" + fBattery);
+
+	fx.setKey ( "target", target.getName() );
+	fx.start();
+	sys.wait( fDuration);
+	fx.stop();
+
+}
+
+void maintainBrainShield()	{
+
+	while( 1)	{
+	
+		if( g_brainShieldActive == 1 && $player1.distanceTo( $env_brain) < 490 )	{
+		
+			sys.println("Shield hit!");
+			$death.directDamage( $player1, "damage_triggerhurt_50");
+			$player_physics.setWorldOrigin( $player1.getWorldOrigin());
+		
+			vector vDist = VectorSubtract($player1.getWorldOrigin(), $env_brain.getWorldOrigin());
+			vDist = sys.vecNormalize( vDist) * 6000000;
+			$player1.bind( $player_physics);
+	
+			$player_physics.applyImpulse( $player_physics, $player_physics.getWorldOrigin(), vDist);
+			sys.wait(0.25);
+			$player1.unbind();
+				
+
+		}
+		sys.wait(0.25);
+	}
+
+}
+
+//restores the shield bar
+void restoreShieldBar( float fPercent, float seconds )	{
+
+	if( !seconds )	{
+		sys.warning("restoreShieldBar: Thanks for the divide by zero, tough guy.");
+		return;
+	}
+
+	float HPS = fPercent / seconds;
+	float fGoalTime = sys.getTime() + seconds;
+	float fTime = sys.getTime();
+	float fOldTime = fTime;
+	float fValue = 0;
+	while( fTime < fGoalTime )	{
+		
+		float fDelta;
+		fTime = sys.getTime();
+		fDelta = fTime - fOldTime;
+		fOldTime = fTime;
+
+		//move along according to the delta
+		fValue += (fDelta * HPS);
+		$target_bossbattle_1.setShieldPercent( fValue );
+		
+		sys.waitFrame();
+
+	}
+	
+
+}
+
+
+
+} // End Namespace

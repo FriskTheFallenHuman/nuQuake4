@@ -1,0 +1,479 @@
+
+
+sound ambient_dispersal_ambience01
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	looping
+
+	sound/ambience/dispersal/disp_ambience01
+	shakeData 0 mnnkmlijhjklmppomosppqponnmosnoknnqolkoqljkkjijjjjhjopkjmjmiijikjiikjkhhhjhjijkiihihgjkljhiihifjihjkhiilhjjgfhhijihhhjjhiikkjkgjijllhkhijllkilhkijkjkokliikkihiihiihjkonkllmjkoliknikjiiohllkmmmh
+}
+
+
+sound ambient_dispersal_ambience02
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	looping
+
+	sound/ambience/dispersal/disp_ambience02
+	shakeData 0 fdeeffedfeeeeeedfefgeegefehfgfgeeffgggffgefefffhfgfiihgijhgggiiegffegfhfegghejilohikikhiighffffggefeeeeeffeghfhffgfgfghighijjgkhlmlnpqrvsnkkmlnsrpnnkijkmkmmmmlkiihghghggghhighgffhhffheeeeggghgihggfegegfgfgeehhegfgfefeeffhfffeeeeeeedfffedeffeedcddeeeccdeedcdeececdddddedddcdededddddddeedddeccdddfededee
+}
+
+
+sound ambient_heart_distance
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/dispersal/heart_ambience
+	shakeData 0 aaabbjpnmgghjgfdbabcfdcacaaaaaaaaaaexxvlkkehfddcaaaaaaaotohjohjljdjeaadchfccbaaaaaaaaaaaaaaaayxqhkliegdccbaa
+}
+
+
+sound heart_pump_in
+{
+	minDistance	39
+	maxDistance	1968
+	volumeDb	6
+	shakes		0.1
+	no_occlusion
+
+	sound/ambience/dispersal/heart/pump_in1
+	shakeData 0 xyxvkidbaaaaa
+	sound/ambience/dispersal/heart/pump_in2
+	shakeData 1 yyxusjqhfcbaaaa
+	sound/ambience/dispersal/heart/pump_in3
+	shakeData 2 xxwyskoghdbaaaaa
+}
+
+
+sound heart_pump_out
+{
+	minDistance	39
+	maxDistance	1968
+	volumeDb	6
+	shakes		0.1
+	no_occlusion
+
+	sound/ambience/dispersal/heart/pump_out1
+	shakeData 0 hkyvyxnpsrosjccggnjddbabaaaaaaaaa
+	sound/ambience/dispersal/heart/pump_out2
+	shakeData 1 qxxowwmqusptkffhfmiedbbbbaaaaaaaaa
+	sound/ambience/dispersal/heart/pump_out3
+	shakeData 2 xxoyvwlovsqtjcghfnidebbbaaaaaaaaa
+}
+
+
+sound heart_pump_scream
+{
+	minDistance	393
+	maxDistance	1771
+	volumeDb	0
+	shakes		0.1
+
+	sound/ambience/dispersal/heart/scream
+	shakeData 0 acchhlmkijolomgkoonqommnnmsqrqtvuttololpmpprsrpqqsrokkkpoklljkpmmmjnnhglmijikmjjmiijhgejgegeddddddccccbbbbcbbbbbababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound heart_pump_scream2
+{
+	minDistance	393
+	maxDistance	1771
+	volumeDb	0
+	shakes		0.1
+
+	sound/ambience/dispersal/heart/scream2
+	shakeData 0 qrtsuvruvuruvuswusttxuvuwwvvqqrvrwuvurtuwtpqvvpttsvtsustoluuorrvtqsvqtrpnunpsolpqpropqplmonpnmpommpnqlknominlliihgkgheffhffdeddbaaa
+}
+
+
+sound heart_die
+{
+	minDistance	393
+	maxDistance	1771
+	volumeDb	0
+	shakes		0.1
+
+	sound/ambience/dispersal/heart/die
+	shakeData 0 cpxyypktxnmunthsounttnqqsjnrrjprrqjgljmnoipnjpgnpmpkkmpqoffjlpfdgghfdbbbbcdcaaaa
+}
+
+
+sound heart_zap
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+
+	sound/ambience/dispersal/heart/zap
+	shakeData 0 ruwwwtqqrvsswttsrtrpnnlmppoqpqqopmnllmmnkmmikkkkighghggedeeddcccccbbcbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound heart_zap2
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+
+	sound/ambience/dispersal/heart/zap
+	shakeData 0 ruwwwtqqrvsswttsrtrpnnlmppoqpqqopmnllmmnkmmikkkkighghggedeeddcccccbbcbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound heart_bar_movement
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+
+	sound/ambience/dispersal/heart/bar_movement
+	shakeData 0 hvypnrnotvjrjjvngdcbaa
+}
+
+
+sound needle_inject
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+
+	sound/objects/needle/inject1
+	shakeData 0 kpwzxztusqkljkjkifegeeddeeeeddbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/needle/inject2
+	shakeData 1 mqyzvvsunkikihiigededeefeeeddccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound barrel_machine_accel
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	9
+
+	sound/objects/lift01/start
+	shakeData 0 bcejqqoqsqouxtxe
+}
+
+
+sound barrel_machine_move
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	9
+	looping
+
+	sound/objects/lift01/move
+	shakeData 0 qtrrrosqooqpprqpqqruqnpotptqpqpsoropoqqpmlptqmnnnnponmmronolonoqoomnonmnnnknmolomomlmlmnmnqonmnllmjjljjllkmnnmp
+}
+
+
+sound barrel_machine_decel
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	9
+
+	sound/objects/lift01/end
+	shakeData 0 qtxwsmikedefdecdejlheeeedccbaaa
+}
+
+
+sound barrel_start
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	2
+
+	sound/ambience/dispersal/barrel/kerchunk
+	shakeData 0 qlutumiyxvstolihlkfgffjiiggfffedddddcccccbbbaaaaaaaa
+}
+
+
+sound barrel_machinery1
+{
+	minDistance	118
+	maxDistance	900
+	volumeDb	0
+	looping
+
+	sound/ambience/industrial/machinery10
+	shakeData 0 ekjknjlllkoqnmpmqqlllmnljllliihgihifgffgeffeffegfdfeedeeehjjhljnpqnnqkopolkpnololkllkjihghhggfgeeffgeefefeededee
+}
+
+
+sound barrel_machinery2
+{
+	minDistance	39
+	maxDistance	700
+	volumeDb	-6
+	looping
+
+	sound/ambience/industrial/machinery11
+	shakeData 0 bcbbbbbbbbbbbbbbbbbccccbbcdcddccccccdccddccccchcbfcmdbbbbbbbbbcfhcbbbbbbbbbbbbbbbbbbcbdccbbbcccccddddcdccccdddccheccfjebbbbbbbbbbbhdcbbbbbbbbbbbbbbbbbbbccbbbccdccdcddcceccccdcdcccfbdehdbbbbbbbbbbbhecb
+}
+
+
+sound dispersal_barrel_powerup
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/recomp/lt_pwr_up2
+	shakeData 0 aabbceeefjhijifikiiimjpkoonljjlkjnmomlnplmqtpposqnmmjljliklomonlnnknprmotrquvvstwtoprmkjhgfeedccbaaaaaaaaaa
+}
+
+
+sound barrel_scrape
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	2
+	looping
+
+	sound/ambience/dispersal/barrel/scrapes
+	shakeData 0 sqrstrrqtqpqoooonmljjijiiijjiihhhhhhghgghjjlpqpmorihhhigfhijkhhgfeeefeeggfighhiihnkkolnqkoqopqntrrtruttuuutrr
+}
+
+
+sound juicy_bodyfall
+{
+	minDistance	118
+	maxDistance	708
+	volumeDb	-9
+
+	sound/impact/body/juicy01
+	shakeData 0 zzzzzzzywwuzyyyqqjffdcccbbaaaaaaa
+	sound/impact/body/juicy02
+	shakeData 1 zzzzywyyytqljfbbaa
+	sound/impact/body/juicy03
+	shakeData 2 zzzzxyvvvsqhgeebccabaaaaaaa
+}
+
+
+sound chain_door_close
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+
+	sound/doors/dispersal_chain/close
+	shakeData 0 gpowulklqjhhdddcbbaaaaaa
+}
+
+
+sound dispersal_injector_arm_motor1
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/motor1
+	shakeData 0 ytzzotttvvxtxwxzxxplhhkpihijeedddcdcbbbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound dispersal_injector_arm_motor2
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/motor2
+	shakeData 0 ymzzloqtvvuusuuwwzzzzzywxlheccbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound dispersal_injector_arm_motor3
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/motor3
+	shakeData 0 oyyzttruwtuxyvyxyysurzzkddccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound dispersal_injector_arm_motor4
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/motor4
+	shakeData 0 xhxylllptorppqqttxyzzwuspjggeeeefddfddeeeedcbbbbbbababbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound dispersal_injector_arm_motor5
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/motor5
+	shakeData 0 ewuyuwstvuvzxtxxzyqnitvdbbbbbabaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound dispersal_injector_arm_lock
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/lock1
+	shakeData 0 yvxytlpkmwwofdiliggedcaa
+}
+
+
+sound dispersal_injector_arm_unlock
+{
+	minDistance	196
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/mech_servo/unlock1
+	shakeData 0 zyxvuyrujyrjjkfhggdddccbaaaaaaa
+}
+
+
+sound dispersal_torso_squirm
+{
+	minDistance	39
+	maxDistance	354
+	volumeDb	-8
+
+	sound/objects/digester/squirm1
+	shakeData 0 bbfcdcfreqfhkhcfcdfepcfcghsbbfeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/digester/squirm2
+	shakeData 1 cbcnsdfhjmddcjdldecdcbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/digester/squirm3
+	shakeData 2 bbbgfdkikoddicqdhgcbdcbccbbbaaaaaabaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/digester/squirm4
+	shakeData 3 ceccqeiecccccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/digester/squirm5
+	shakeData 4 cabdgdufdddddfmdddddeddddugdfdbagdbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound dispersal_torso_spasm
+{
+	minDistance	39
+	maxDistance	354
+	volumeDb	-4
+
+	sound/objects/digester/spasm1
+	shakeData 0 onlnpwwyxwvuxvvuqnfdcbdgloefekpnjkqpqqmiflikgcbaaaaa
+	sound/objects/digester/spasm2
+	shakeData 1 onmnonqponsidccbbbbbbbceehwsronjfdbaaaaaaaaaaaaa
+	sound/objects/digester/spasm3
+	shakeData 2 pnmmmmccdstwvwrlighikijhfdbccbcmtrpturqmikkgebaaaa
+}
+
+
+sound dispersal_hook_down
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+
+	sound/ambience/dispersal/hooks/hook_down
+	shakeData 0 dtzzoeccridbaaaaaaaa
+}
+
+
+sound dispersal_hook_ouch
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	-4
+
+	sound/ambience/dispersal/hooks/hooked
+	shakeData 0 qtyyyrroowqtmlifkgfjohillfhgmminsffbbebcbbccbcbaaaaaaaaa
+}
+
+
+sound dispersal_hook_exhale
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	4
+
+	sound/ambience/dispersal/hooks/breath1
+	shakeData 0 aabcfgjkigghgggedddcdccbbbbbaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/dispersal/hooks/breath2
+	shakeData 1 bbdceeddeeededdedddcdeddccccccbbbbabbaaaaaaa
+	sound/ambience/dispersal/hooks/breath3
+	shakeData 2 abbdefhhhkijhiihghijkligghffecdcbaaaaaaaa
+}
+
+
+sound dispersal_hook_motor
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/ambience/dispersal/hooks/motor_loop
+	shakeData 0 eeefeeefefefeeefeeed
+}
+
+
+sound dispersal_hook_thump
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	-6
+
+	sound/ambience/dispersal/hooks/thump
+	shakeData 0 qjefjkhcccaaaaa
+}
+
+
+sound mover_dispersal_elevator_start
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/ambience/dispersal/elevator/accel
+	shakeData 0 hjgeeedljxrnjjhhfecbaa
+}
+
+
+sound mover_dispersal_elevator_move
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	looping
+
+	sound/ambience/core/movers/elev_move
+	shakeData 0 pltqroonqmmrqqoqqqqqqqoppnpqqnopqpplornpnquprsqnnpnlkmnlkklkklkokkjiimijlminimjlmjlkkllkllmmnklmojnlqnkllolnpmnsr
+}
+
+
+sound mover_dispersal_elevator_stop
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/ambience/dispersal/elevator/decel
+	shakeData 0 plqmomjikjffgffedcbba
+}
+
+
+
+

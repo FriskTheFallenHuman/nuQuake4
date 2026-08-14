@@ -1,0 +1,82 @@
+guide water( LightColor_r, LightColor_g, LightColor_b,
+			 DarkColor_r, DarkColor_g, DarkColor_b,
+			 NormalMapParm1, NormalMapParm2,
+			 fresnelIOR, fresnelPower )
+{
+	qer_editorimage textures/sewers/sw_water_01.tga
+
+	noshadows
+	noselfshadow
+	sort nearest
+	water
+	materialType	water
+	discrete
+
+	// FIXME: I have to use this or the fragment program doesn't work right for some reason!?!?!
+	// Perhaps some state is not being set somewhere??
+	{
+		blend		diffusemap
+		map		gfx/effects/fluids_drips/water1.tga
+		vertexColor
+		rgb		0.0
+		alpha 0.0
+	}
+
+	// Make sure the reflection and refraction render maps are updated
+	// using the surface this material is applied to.
+	// NOTE: This will only update once a frame using the first surface
+	// with this material - i.e. make sure the heights are the same.
+	// TODO: Perhaps allow height to be overwritten with material var?
+	{
+		reflectionRenderMap			512			256
+	}
+
+	{
+		if glslPrograms == 1
+		
+		glslProgram				"glsl/Water.glsl"
+
+		// Index of Refraction and Fresnel Power.
+		shaderParm				fRefractionIndexAndPower	fresnelIOR, fresnelPower
+		
+		// Light Color.
+		shaderParm				vColorLight					LightColor_r, LightColor_g, LightColor_b
+		
+		// Dark Color.
+		shaderParm				vColorDark					DarkColor_r, DarkColor_g, DarkColor_b
+
+		// Power of Two texture correction.
+		shaderParm				POTCorrection				POTCorrectionX, POTCorrectionY
+		
+		// Animating normal map.
+		shaderParm				TextureTranslateScale		sintable[ time * 0.1 ],	sintable[ time * 0.01 ] + time * 0.5,		0.8,	0.2
+		shaderParm				TextureTranslateScale2		0,						time * 0.1,									2.0,	2.0
+		
+		// The water fog color with depth blending factor.
+		shaderParm				vFogColor					0.1f, 0.15f, 0.2f, 0.4f
+		
+		// The distortion scale for reflection and refraction and the amount to scale the two normal maps.
+		shaderParm				vDistortionScale			30.0f, 10.0f, 0.8f, 0.5f
+
+		// The local eye position.
+		shaderParm				localEyePos					viewOrigin
+
+		// The dynamic normalmap.
+		shaderTexture			NoiseNormalTexture			linear 	uncompressed	NormalMapParm1.tga
+		shaderTexture			NoiseNormalTexture2			linear 	uncompressed	NormalMapParm2.tga
+		
+		// The dynamic reflection image.
+		shaderTexture			ReflectTexture				_reflectionRender	
+
+		// The dynamic refraction image.
+		shaderTexture			RefractTexture				_currentRender
+	}
+
+	// Fallback for Geforce 3 and 4 cards.
+	{
+		if glslPrograms == 0
+
+		// FIXME!!!
+		map				_white
+	}
+}

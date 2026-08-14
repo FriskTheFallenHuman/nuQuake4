@@ -1,0 +1,354 @@
+//------------------------------------------------------------------------------
+// phat_ride.def
+//
+// test vehicle for quake4
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_phatride
+{
+	"editor_color"				"0 .5 .25"
+	"editor_mins"				"-32 -32 0"
+	"editor_maxs"				"32 32 16"
+	"editor_rotatable"			"1"
+	"editor_usage"				"A pimpin ride."
+
+	"spawnclass"				"rvVehicleRigid"
+
+	"gui_hud"					"guis/vehicles/turret_hud.gui"
+
+	"model"						"model_storage_pod_crash"
+	"mins"						"-80 -96 -32"
+	"maxs"						"80 96 32"
+	"anim"						"idle"
+
+	"def_position_driver"		"vehicle_phatride_driver"
+	
+	"health"					"1000"
+	
+	"mass"						"1800"
+	"size"						"110 80 140"
+
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_phatride_driver
+{
+	"def_part_hover_fl"			"vehicle_phatride_hoverpad_fl"
+	"def_part_hover_bl"			"vehicle_phatride_hoverpad_bl"
+	"def_part_hover_fr"			"vehicle_phatride_hoverpad_fr"
+	"def_part_hover_br"			"vehicle_phatride_hoverpad_br"
+				
+	"def_part_yaw"				"vehicle_phatride_turret_yaw"
+	"def_part_pitch"			"vehicle_phatride_turret_pitch"
+	
+	"def_part_main"				"vehicle_phatride_weapon_main"
+	"def_part_mgun"				"vehicle_phatride_weapon_mgun"		
+	
+	"def_part_light1"			"vehicle_phatride_light1"
+	"def_part_light2"			"vehicle_phatride_light2"
+		
+	"def_part_thruster_forward"	"vehicle_phatride_thruster_forward"
+	"def_part_thruster_turn"	"vehicle_phatride_thruster_right"
+	"def_part_thruster_turn2"	"vehicle_phatride_thruster_right2"
+
+	"eyeJoint"					"eye_90"
+	
+	"driverJoint"				"origin"
+	"driverVisible"				"0"
+
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_phatride_hoverpad
+{
+	"spawnclass"				"rvVehicleHoverpad"
+
+	"height"					"80"
+	"dampen"					"30"
+	"size"						"30"
+
+	"force"						"266.5"
+	"forceTable"				"vehicle_phatride_hover"
+	"forceUpTime"				"2"
+	"forceDownTime"				"4"
+
+	"fx_dust"					"effects/vehicles/gev/dust.fx"
+	"fx_dust_concrete"			"effects/vehicles/gev/dust_concrete.fx"
+	"fx_dust_rock"				"effects/vehicles/gev/dust_rock.fx"	
+
+	"snd_loop"					"vehicle_phatride_hoverpad"
+	"volume"					"-12 -4"
+	"freqShift"					"1 1.6"
+	"fadetime"					"2"	
+}
+
+entityDef vehicle_phatride_hoverpad_fl
+{
+	"inherit"					"vehicle_phatride_hoverpad"
+	"offset"					"100 60 0"
+	"force"						"300"
+}
+
+entityDef vehicle_phatride_hoverpad_fr
+{
+	"inherit"					"vehicle_phatride_hoverpad"
+	"offset"					"100 -60 0"
+	"force"						"300"
+}
+
+entityDef vehicle_phatride_hoverpad_bl
+{
+	"inherit"					"vehicle_phatride_hoverpad"
+	"offset"					"-100 60 0"
+}
+
+entityDef vehicle_phatride_hoverpad_br
+{
+	"inherit"					"vehicle_phatride_hoverpad"
+	"offset"					"-100 -60 0"
+}
+
+entityDef vehicle_phatride_turret_yaw
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"turret"
+	
+	"yaw"						"0"
+	"minyaw"					"-120"
+	"maxyaw"					"120"
+	"yawinvert"					"1"
+	
+	"turnrate"					"180"
+
+	"snd_loop"					"vehicle_turret_move"
+	"volume"					"-10 8"
+}
+
+entityDef vehicle_phatride_turret_pitch
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"gun_pivot"
+
+	"pitch"						"1"
+	"minpitch"					"-50"
+	"maxpitch"					"10"
+
+	"snd_loop"					"vehicle_turret_move"
+	"volume"					"-10 6"
+}
+
+entityDef vehicle_phatride_weapon_main
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"muzzle"
+	
+	"firedelay"					"1.2"
+	"def_projectile"			"projectile_phatride_main"
+	"fx_muzzleflash"			"effects/vehicles/gev/maingun/muzzleflash.fx"
+	"spread"					".25"
+	
+	"force"						"-150000 -100000 0"
+	
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"500"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"40 0 0"
+	
+	"anim"						"cannon"
+	"animchannel"				"0"
+	
+	"positions"					"0"
+}
+
+entityDef vehicle_phatride_weapon_mgun
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"mgun1"
+	"joint2"					"mgun2"
+	"joint3"					"mgun3"
+	
+	"firedelay"					".07"
+	"def_hitscan"				"hitscan_phatride_bullet"
+	"fx_muzzleflash"			"effects/vehicles/gev/machinegun/muzzleflash.fx"
+	"spread"					"2"
+
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"300"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"40 0 0"
+
+	"positions"					"1"
+}
+
+entityDef vehicle_phatride_light
+{
+	"spawnclass"				"rvVehicleLight"
+	
+	"mtr_light"					"gfx/lights/vehicle"
+	"color"						"1 1 .9"
+	"radius"					"800"
+	"target"					"2000 0 0"
+	"up"						"0 900 0"
+	"right"						"0 0 1300"
+	"pointLight"				"0"
+	
+	"flaresurface"				"models/vehicles/flare"
+	
+	"snd_on"					"big_metal_open"
+	"snd_off"					"big_metal_close"
+	
+	"offset"					"0 0 0"
+}
+
+entityDef vehicle_phatride_light1
+{
+	"inherit"					"vehicle_phatride_light"
+	"joint"						"Light1"
+}
+
+entityDef vehicle_phatride_light2
+{
+	"inherit"					"vehicle_phatride_light"
+	"joint"						"Light2"
+}
+
+entityDef vehicle_phatride_thruster_forward
+{
+	"spawnclass"				"rvVehicleThruster"
+	"force"						"15000"
+	"forceAxis"					"1"
+	"useCenterMass"				"1"
+	"offset"					"-100 0 25"
+	"key"						"forward"
+}
+
+entityDef vehicle_phatride_thruster_right
+{
+	"spawnclass"				"rvVehicleThruster"
+	"force"						"6000"
+	"forceAxis"					"0"
+	"useCenterMass"				"1"
+	"offset"					"200 0 0"
+	"key"						"right"
+}
+
+entityDef vehicle_phatride_thruster_right2
+{
+	"spawnclass"				"rvVehicleThruster"
+	"force"						"6000"
+	"forceAxis"					"0"
+	"useCenterMass"				"1"
+	"offset"					"-200 0 0"
+	"key"						"right"
+}
+
+//------------------------------------------------------------------------------
+//								Projectiles
+//------------------------------------------------------------------------------
+
+entityDef projectile_phatride_main
+{
+	"inherit"					"projectile_blaster"
+
+	"mins"						"-4 -4 -4"
+	"maxs"						"4 4 4"
+	"cone"						"1"
+
+	"velocity"					"10000 0 0"
+	
+	"def_damage"				"damage_phatride_main"
+	"def_splash_damage"			"damage_phatride_main_splash"
+	
+	"fx_fly"					""
+	"fx_trail"					""
+	"fx_impact"					"effects/vehicles/gev/maingun/impact.fx"
+	"fx_impact_rock"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_dirt"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_sand"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_gravel"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_concrete"		"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_detonate"				"effects/vehicles/gev/maingun/detonate.fx"
+	
+	"mass"						"10"		
+}
+
+entityDef hitscan_phatride_bullet
+{
+	"inherit"					"hitscan_bullet"	
+
+	"def_damage"				"damage_phatride_bullet"
+
+	"push"						"15000"
+
+	"fx_impact"					"effects/vehicles/gev/machinegun/impact_default.fx"
+	"fx_impact_concrete"		"effects/vehicles/gev/machinegun/impact_concrete.fx"
+	"fx_impact_dirt"			"effects/vehicles/gev/machinegun/impact_concrete.fx"
+	"fx_impact_rock"			"effects/vehicles/gev/machinegun/impact_concrete.fx"
+	"fx_impact_sand"			"effects/vehicles/gev/machinegun/impact_concrete.fx"
+	"fx_impact_gravel"			"effects/vehicles/gev/machinegun/impact_concrete.fx"
+	"fx_impact_flesh"			"effects/vehicles/gev/machinegun/impact_flesh.fx"						
+	
+	"fx_tracer"					"effects/vehicles/gev/machinegun/tracer.fx"
+	"tracerchance"				".40"
+}
+
+//------------------------------------------------------------------------------
+//								Damage Defs
+//------------------------------------------------------------------------------
+
+entityDef damage_phatride_main
+{
+	"inherit"					"damage_bullet"
+	"damage"					"200"
+}
+
+entityDef damage_phatride_main_splash
+{
+	"inherit"					"damage_phatride_main"
+	
+	"damage"					"300"
+	"radius"					"100"
+	"knockback"					"30"
+	"push"						"2500"
+}
+
+entityDef damage_phatride_bullet
+{
+	"inherit"					"damage_bullet"
+	"damage"					"16"	
+}
+
+entityDef damage_phatride_crash
+{
+	"inherity"					"damage_bullet"
+	"damage"					"150"
+	"push"						"300000"
+}
+
+table vehicle_phatride_hover
+{
+	clamp
+	{
+		0.0, 1.0, 1.5, 2.0, 2.5, 3.0 
+	}
+}

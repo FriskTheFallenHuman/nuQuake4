@@ -1,0 +1,398 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui, gui_parm_stroyent = 1 adds stroyent junk on the screen"
+	visible	1
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	definevec4	"white"	1,1,1,1
+	definevec4	"white_0"	1,1,1,0
+	definevec4	"burst"	0.749,0.843,0.866,1
+	windowDef data
+	{
+		rect	14,0,398,480
+		visible	1
+		background	"gfx/guis/common/strogg/data"
+		matcolor	1,1,1,0.1
+		shear	0, .064
+		matscalex	-1
+	}
+	windowDef elec
+	{
+		visible	1
+		rect	37,142,402,362
+		background	"gfx/guis/monitors/strogg/common5_elec"
+		matcolor	0.749,0.843,0.866,0.678*guitable_8_10[time*0.001]
+
+		onTime 200 {
+			set "elec::visible" "0" ;
+			set "bcirc1::visible" "0" ;
+			set "bcirc2::visible" "0" ;
+			set "elecblur::visible" "1" ;
+			transition "elecblur::rect" "$elecblur::rect" "$d_elecblur::rect" "50" ;
+		}
+
+		onTime 250 {
+			transition "elecblur::rect" "$d_elecblur::rect" "$d2_elecblur::rect" "100" ;
+		}
+
+		onTime 350 {
+			transition "elecblur::rect" "$d2_elecblur::rect" "$elecblur::rect" "50" ;
+		}
+
+		onTime 400 {
+			set "elec::visible" "1" ;
+			set "bcirc1::visible" "1" ;
+			set "bcirc2::visible" "1" ;
+			set "elecblur::visible" "0" ;
+		}
+
+		onTime 5000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef p_elec
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef bcirc1
+		{
+			visible	1
+			rect	225,291,65,72
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	0.749,0.843,0.866,.6*guitable_8_10[time*0.001]
+			rotate	350
+		}
+		windowDef bcirc2
+		{
+			visible	1
+			rect	172,274,52,59
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	0.749,0.843,0.866,0.4*guitable_8_10[time*0.001]
+			rotate	350
+		}
+		windowDef elecblur
+		{
+			visible	0
+			rect	37,142,402,362
+			background	"gfx/guis/monitors/strogg/common5_elecblur"
+			matcolor	0.749,0.843,0.866,0.678
+		}
+		windowDef d_elecblur
+		{
+			visible	0
+			rect	1,142,402,362
+			background	"gfx/guis/monitors/strogg/common5_elecblur"
+			matcolor	0.501,0.678,0.733,1*guitable_8_10[time*0.001]
+		}
+		windowDef d2_elecblur
+		{
+			visible	0
+			rect	43,142,402,362
+			background	"gfx/guis/monitors/strogg/common5_elecblur"
+			matcolor	0.501,0.678,0.733,1*guitable_8_10[time*0.001]
+		}
+		windowDef burst
+		{
+			visible	1
+			rect	657,435,150,150
+			background	"gfx/guis/common/blur_circle1"
+			matcolor	0.501,0.960,1,1
+
+			onTime 0 {
+				transition "burst::rect" "$burst::rect" "$d_burst::rect" "250" ;
+				transition "burst::matcolor" "$desktop::burst" "$desktop::white_0" "250" ;
+			}
+
+			onTime 5000 {
+				resettime "0" ;
+			}
+
+		}
+		windowDef d_burst
+		{
+			visible	0
+			rect	-59,190,20,20
+			background	"gfx/guis/common/blur_circle1"
+			matcolor	1,1,1,1
+		}
+		windowDef d_btm_l_circ
+		{
+			visible	0
+			rect	119,422,17,43
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	1,1,1,1
+			rotate	35
+		}
+		windowDef d_top_l_circ
+		{
+			visible	0
+			rect	110,185,7,43
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	1,1,1,1
+			rotate	320
+		}
+		windowDef d_top_r_circ
+		{
+			visible	0
+			rect	337,181,13,41
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	1,1,1,1
+			rotate	50
+		}
+		windowDef d_btm_r_circ
+		{
+			visible	0
+			rect	320,381,22,39
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	1,1,1,1
+			rotate	320
+		}
+		windowDef btm_l_circ
+		{
+			visible	1
+			rect	185,366,17,43
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	0.749,0.843,0.866,0.72
+			rotate	35
+
+			onTime 0 {
+				transition "btm_l_circ::rect" "$btm_l_circ::rect" "$d_btm_l_circ::rect" "250" ;
+				transition "btm_l_circ::matcolor" "$desktop::burst" "$desktop::white_0" "250" ;
+			}
+
+			onTime 400 {
+				resettime "0" ;
+			}
+
+		}
+		windowDef top_l_circ
+		{
+			visible	1
+			rect	189,248,7,43
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	0.749,0.843,0.866,0.72
+			rotate	320
+
+			onTime 0 {
+				transition "top_l_circ::rect" "$top_l_circ::rect" "$d_top_l_circ::rect" "250" ;
+				transition "top_l_circ::matcolor" "$desktop::burst" "$desktop::white_0" "250" ;
+			}
+
+			onTime 400 {
+				resettime "0" ;
+			}
+
+		}
+		windowDef top_r_circ
+		{
+			visible	1
+			rect	300,241,12,40
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	0.749,0.843,0.866,0.72
+			rotate	50
+
+			onTime 0 {
+				transition "top_r_circ::rect" "$top_r_circ::rect" "$d_top_r_circ::rect" "250" ;
+				transition "top_r_circ::matcolor" "$desktop::burst" "$desktop::white_0" "250" ;
+			}
+
+			onTime 400 {
+				resettime "0" ;
+			}
+
+		}
+		windowDef btm_r_circ
+		{
+			visible	1
+			rect	288,349,22,39
+			background	"gfx/guis/common/blur_circle2"
+			matcolor	0.749,0.843,0.866,0.72
+			rotate	320
+
+			onTime 0 {
+				transition "btm_r_circ::rect" "$btm_r_circ::rect" "$d_btm_r_circ::rect" "250" ;
+				transition "btm_r_circ::matcolor" "$desktop::burst" "$desktop::white_0" "250" ;
+			}
+
+			onTime 400 {
+				resettime "0" ;
+			}
+
+		}
+	}
+	windowDef bg
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/common5_bg"
+		matcolor	0.960,0.576,0.0549,0.878*guitable_8_10[time*0.00065]
+	}
+	windowDef decal1
+	{
+		rect	423,416,45,45
+		visible	1
+		background	"gfx/guis/common/strogg/decal1"
+		matcolor	0,0,0,0.4
+	}
+	windowDef scrolltext
+	{
+		rect	78,10,249,169
+		visible	1
+		background	"gfx/guis/common/strogg/scrolltext1"
+		matcolor	0.988,0.941,0.780,0.8
+		shear	0,.06
+	}
+	windowDef p_scrolltext2
+	{
+		rect	43,9,34,169
+		visible	1
+		shear	0,.06
+		windowDef scrolltext2
+		{
+			rect	-129,0,158,169
+			visible	1
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0,0,0,1
+			shear	0,.06
+		}
+	}
+	windowDef scrolltext3
+	{
+		rect	469,255,144,195
+		visible	1
+		background	"gfx/guis/common/strogg/scrolltext2fast"
+		matcolor	0,0,0,0.8
+		shear	0,.06
+	}
+	windowDef nonscrolltext4
+	{
+		rect	570,9,54,140
+		visible	1
+		background	"gfx/guis/common/strogg/nonscrolltext1"
+		matcolor	0,0,0,0.8
+		shear	0,.06
+	}
+	windowDef numbers
+	{
+		rect	466,217,114,30
+		visible	1
+		forecolor	0.929,0.737,0.152,1
+		text	"269.34"
+		textscale	0.8
+		font	"fonts/strogg"
+	}
+	windowDef btn1
+	{
+		rect	419,8,148,79
+		visible	1
+		background	"gfx/guis/monitors/strogg/common5_btn"
+		matcolor	0.996,0.529,0.0627,1
+	}
+	windowDef btn2
+	{
+		rect	422,53,148,79
+		visible	1
+		background	"gfx/guis/monitors/strogg/common5_btn"
+		matcolor	1,0.429,0.0527,1*guitable_8_5[time*0.002]
+	}
+	windowDef btn3
+	{
+		rect	425,99,148,79
+		visible	1
+		background	"gfx/guis/monitors/strogg/common5_btn"
+		matcolor	0.996,0.529,0.0627,1
+	}
+	windowDef t_btn1
+	{
+		rect	450,37,83,22
+		visible	1
+		forecolor	0,0,0,1
+		text	"power"
+		textscale	0.6
+		font	"fonts/strogg"
+	}
+	windowDef t_btn2
+	{
+		rect	452,81,83,22
+		visible	1
+		forecolor	1,1,1,1*guitable_8_5[time*0.002]
+		text	"reset"
+		textscale	0.6
+		font	"fonts/strogg"
+	}
+	windowDef t_btn3
+	{
+		rect	454,129,90,22
+		visible	1
+		forecolor	0,0,0,1
+		text	system
+		textscale	0.6
+		font	"fonts/strogg"
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	1,-204,640,906
+			background	"gfx/guis/common/monitor_line6"
+			matcolor	0.972,0.741,0.321,0.2
+		}
+		windowDef monitor_mid
+		{
+			visible	1
+			rect	0,-162,640,713
+			background	"gfx/guis/common/monitor_mid"
+			matcolor	0.8,0.913,0.917,0.8*guitable_8_10[time*0.0005]
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-10,-23,667,422
+			background	"gfx/guis/common/gradient"
+			matcolor	0.674,0.8,0.635,0.2*guitable_8_10[time*0.002]
+		}
+		windowDef btm_grad
+		{
+			visible	1
+			rect	-3,100,667,434
+			background	"gfx/guis/common/gradient"
+			matcolor	0.941,0.588,0.109,0.2
+			matscaley	-1
+		}
+		windowDef dirt_stroyent
+		{
+			visible	"gui::gui_parm_stroyent"
+			rect	0,0,751,480
+			background	"gfx/guis/common/screen_dirt5"
+			matcolor	0.411,0.447,0.164,1
+			matscalex	-1
+		}
+		windowDef broken_glass_b
+		{
+			visible	"gui::gui_parm_broken"
+			rect	2,5,640,480
+			background	"gfx/guis/common/broken_glass4"
+			matcolor	0,0,0,1
+			matscalex	-1
+		}
+		windowDef broken_glass
+		{
+			visible	"gui::gui_parm_broken"
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass4"
+			matcolor	0.819,0.905,0.921,1
+			matscalex	-1
+		}
+		windowDef monitor_darkedge
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

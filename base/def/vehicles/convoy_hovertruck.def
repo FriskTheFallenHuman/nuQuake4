@@ -1,0 +1,90 @@
+/*
+===============================================================================
+	Binding bone for hovertruck in convoy
+===============================================================================
+*/
+export env_convoy_hovertruck
+{
+	options -prefix BIND_ -scale .3937 -sourcedir work/models/vehicles/marine_hover_flatbed/animations -destdir models/vehicles/hover_truck
+	mesh	convoy_ride_first.ma			-range 1 2 -dest bind
+	anim	convoy_ride_first.ma			-dest convoy1_bind
+
+	anim	convoy_ride_2.ma			-range 1 7859		-dest front_truck_start
+	anim	convoy_ride_2.ma			-range 7859 9921	-dest front_truck_loop
+	anim	convoy_ride_2.ma			-range 9921 10368	-dest front_truck_end
+
+	anim	convoy_ride_2.ma			-range 1 7580		-dest second_truck_start
+	anim	convoy_ride_2.ma			-range 7580 7581	-dest second_truck_idle
+	anim	convoy_ride_2.ma			-range 9146 10406	-dest second_truck_end
+
+	anim	convoy_ride_2.ma			-range 1 7599		-dest third_truck_start
+	anim	convoy_ride_2.ma			-range 7599	7600	-dest third_truck_idle
+	anim	convoy_ride_2.ma			-range 9209 10408	-dest third_truck_end
+
+	
+	options -prefix BIND_ -scale .3937 -sourcedir work/models/cinematics/GAME_INTRO -destdir models/vehicles/hover_truck
+	anim	intro_level_fx1.ma			-range 1287 1571 -dest intro_fx1
+	anim	intro_level_fx2.ma			-range 1287 1571 -dest intro_fx2
+	anim	intro_level_fx3.ma			-range 1287 1571 -dest intro_fx3
+	anim	intro_level_fx4.ma			-range 2720 2821 -dest intro_fx4
+}
+
+model model_env_convoy_hovertruck
+{
+	mesh								models/vehicles/hover_truck/bind.md5mesh	
+	anim idle							models/vehicles/hover_truck/convoy1_bind.md5anim
+	anim convoy_ride_1					models/vehicles/hover_truck/convoy1_bind.md5anim
+	anim convoy_ride_2					models/vehicles/hover_truck/convoy2_start_bind.md5anim
+	anim convoy_ride_2_end				models/vehicles/hover_truck/convoy2_finish_bind.md5anim
+	anim convoy_loop					models/vehicles/hover_truck/convoy2_loop_bind.md5anim
+	anim convoy_loop_finish				models/vehicles/hover_truck/convoy2_finish_loop.md5anim
+	anim	front_truck_start			models/vehicles/hover_truck/front_truck_start.md5anim
+	anim	front_truck_loop			models/vehicles/hover_truck/front_truck_loop.md5anim
+	{
+		frame	1350					call map_convoy1::trucksResume
+		frame	2062					call map_convoy1::trucksCantResume
+	}
+
+	anim	front_truck_end				models/vehicles/hover_truck/front_truck_end.md5anim
+	anim	second_truck_start			models/vehicles/hover_truck/second_truck_start.md5anim
+	anim	second_truck_idle			models/vehicles/hover_truck/second_truck_idle.md5anim
+	anim	second_truck_end			models/vehicles/hover_truck/second_truck_end.md5anim
+	anim	third_truck_start			models/vehicles/hover_truck/third_truck_start.md5anim
+	anim	third_truck_idle			models/vehicles/hover_truck/third_truck_idle.md5anim
+	anim	third_truck_end				models/vehicles/hover_truck/third_truck_end.md5anim
+
+	//animated fx for the thing.
+	anim intro_fx1						models/vehicles/hover_truck/intro_fx1.md5anim
+	{
+		frame 1							fx fx_projectile2 bind_hovertruck
+	}
+	anim intro_fx2						models/vehicles/hover_truck/intro_fx2.md5anim
+	{
+		frame 1							fx fx_projectile2 bind_hovertruck
+	}
+	anim intro_fx3						models/vehicles/hover_truck/intro_fx3.md5anim
+	{
+		frame 1							fx fx_projectile2 bind_hovertruck
+	}
+	anim intro_fx4						models/vehicles/hover_truck/intro_fx4.md5anim
+	{
+		frame 1							fx fx_projectile3 bind_hovertruck
+	}
+}
+
+entityDef	env_convoy_hovertruck
+{
+	"spawnClass"						"idAnimated"
+	"editor_color"						"1 .5 0"
+	"editor_mins"						"-16 -16 0"
+	"editor_maxs"						"16 16 64"
+	"editor_usage"						"Single bone for binding vehicles or fx to."
+	"model"								"model_env_convoy_hovertruck"
+	"anim"								"idle"
+	
+	//projectile for the intro cinematic//
+	
+	"fx_projectile"						"effects/cinematics/intro/biggun_proj.fx"
+	"fx_projectile2"					"effects/cinematics/intro/biggun_proj2.fx"
+	"fx_projectile3"					"effects/cinematics/intro/biggun_proj3.fx"
+}

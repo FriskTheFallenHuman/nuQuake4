@@ -1,0 +1,494 @@
+/*
+===============================================================================
+
+	Scientist
+
+===============================================================================
+*/
+
+export scientist
+{
+	options -prefix SCI_ -align ALL -scale .3937 -keep needle effects_bone -parent lftEye_target head -parent rtEye_target head -parent metallic_parts waist -parent canA_1 metallic_parts -parent canB_1 metallic_parts -parent canC_1 metallic_parts -parent canD_1 metallic_parts -parent bckRt_armBase metallic_parts -parent bckLft_armBase metallic_parts -keep rtEye_ball lftEye_ball -parent rtEye_ball head -parent lftEye_ball head -parent effects_bone metallic_parts
+	mesh	work/models/monsters/Scientist/animations/sci_idle_neutralpose.ma		-dest models/monsters/scientist/scientist
+	anim	work/models/monsters/Scientist/animations/sci_idle_neutralpose.ma		-dest models/monsters/scientist/idle_neutral
+	anim	work/models/monsters/Scientist/animations/sci_idle_attackpose.ma		-dest models/monsters/scientist/idle_attack
+	anim	work/models/monsters/Scientist/animations/sci_twitch_idle_neutralpose.ma	-dest models/monsters/scientist/idle_twitch
+	anim	work/models/monsters/Scientist/animations/sci_attack_to_neutral.ma		-dest models/monsters/scientist/trans_to_neutral
+	anim	work/models/monsters/Scientist/animations/sci_neutral_to_attack.ma		-dest models/monsters/scientist/trans_to_attack
+	anim	work/models/monsters/Scientist/animations/sci_evade_ducking.ma		-dest models/monsters/scientist/evade_duck
+	anim	work/models/monsters/Scientist/animations/sci_evade_left.ma			-dest models/monsters/scientist/evade_left
+	anim	work/models/monsters/Scientist/animations/sci_evade_right.ma			-dest models/monsters/scientist/evade_right
+	anim	work/models/monsters/Scientist/animations/sci_melee_front_arms.ma		-dest models/monsters/scientist/melee_front_arms
+	anim	work/models/monsters/Scientist/animations/sci_melee_lunge_fwd.ma		-dest models/monsters/scientist/melee_lunge_fwd
+	anim	work/models/monsters/Scientist/animations/sci_melee_syringe.ma		-dest models/monsters/scientist/melee_syringe
+	anim	work/models/monsters/Scientist/animations/sci_melee_tool.ma			-dest models/monsters/scientist/melee_tool
+	anim	work/models/monsters/Scientist/animations/sci_move_forward_attackpose.ma	-dest models/monsters/scientist/move_forward_attack
+	anim	work/models/monsters/Scientist/animations/sci_move_backward_attackpose.ma	-dest models/monsters/scientist/move_backward_attack
+	anim	work/models/monsters/Scientist/animations/sci_move_forward_neutralpose.ma	-dest models/monsters/scientist/move_forward_neutral
+	anim	work/models/monsters/Scientist/animations/sci_move_backward_neutralpose.ma	-dest models/monsters/scientist/move_backward_neutral
+	anim	work/models/monsters/Scientist/animations/sci_pain_head_attack.ma		-dest models/monsters/scientist/pain_head_attack
+	anim	work/models/monsters/Scientist/animations/sci_pain_stomach_attack.ma	-dest models/monsters/scientist/pain_stomach_attack
+	anim	work/models/monsters/Scientist/animations/sci_pain_head_neutral.ma		-dest models/monsters/scientist/pain_head_neutral
+	anim	work/models/monsters/Scientist/animations/sci_pain_stomach_neutral.ma	-dest models/monsters/scientist/pain_stomach_neutral
+	anim	work/models/monsters/Scientist/animations/sci_descend_100.ma	-dest models/monsters/scientist/100unit_descend
+	anim	work/models/monsters/Scientist/animations/sci_descend_200.ma	-dest models/monsters/scientist/200unit_descend
+	anim	work/models/monsters/Scientist/animations/sci_descend_300.ma	-dest models/monsters/scientist/300unit_descend
+	anim	work/models/monsters/Scientist/animations/sci_ragdoll_pose.ma	-dest models/monsters/scientist/ragdoll
+	anim	work/models/monsters/Scientist/animations/sci_throwing_object.ma	-dest models/monsters/scientist/throw_object
+
+	anim	work/models/monsters/Scientist/animations/sci_shoot_needle.ma			-dest models/monsters/scientist/shoot_needle
+	anim	work/models/monsters/Scientist/animations/sci_ink_cloud.ma			-dest models/monsters/scientist/inky_cloud
+	anim	work/models/monsters/Scientist/animations/sci_pain_std.ma			-dest models/monsters/scientist/pain_std
+	anim	work/models/monsters/Scientist/animations/sci_pain_std2.ma			-dest models/monsters/scientist/pain_std2
+	anim	work/models/monsters/Scientist/animations/sci_pain_con.ma		-dest models/monsters/scientist/pain_con
+	anim	work/models/monsters/Scientist/animations/sci_pain_strm.ma		-range 1 4 -dest models/monsters/scientist/pain_strm_start
+	anim	work/models/monsters/Scientist/animations/sci_pain_strm.ma		-range 4 11 -dest models/monsters/scientist/pain_strm_loop
+	anim	work/models/monsters/Scientist/animations/sci_pain_strm.ma		-range 11 15 -dest models/monsters/scientist/pain_strm_end
+	
+	anim	work/models/monsters/Scientist/animations/medlabs_working_on_human_A3.ma		-dest models/monsters/scientist/work_on_human
+	anim	work/models/monsters/Scientist/animations/medlabs_working_on_human_B7.ma		-rotate -90 -dest models/monsters/scientist/medlabs_work
+	anim	work/models/monsters/Scientist/animations/medlabs_working_on_human_C1.ma		-dest models/monsters/scientist/work_on_human2
+	anim	work/models/monsters/Scientist/animations/medlabs_working_on_human_D1.ma		-range 1 35 -dest models/monsters/scientist/work_on_human3_start
+	anim	work/models/monsters/Scientist/animations/medlabs_working_on_human_D1.ma		-range 35 220 -dest models/monsters/scientist/work_on_human3_loop
+	anim	work/models/monsters/Scientist/animations/medlabs_working_on_human_D1.ma		-range 220 270 -dest models/monsters/scientist/work_on_human3_end	
+	anim	work/models/cinematics/anderson_death/level.ma									-range 180 1100 -dest models/monsters/scientist/anderson_cin_medlabs
+}
+
+/*
+===============================================================================
+
+	Scientist Model
+
+===============================================================================
+*/
+
+model model_monster_scientist
+{
+	mesh												models/monsters/scientist/scientist.md5mesh	
+
+	channel	torso										( *waist )
+	channel	legs										( *metallic_parts origin -*waist )	
+
+	offset												( 0 0 -48 )
+
+	anim af_pose										models/monsters/scientist/ragdoll.md5anim
+
+	anim idle_neutral									models/monsters/scientist/idle_neutral.md5anim
+	{
+		frame   1,56,92,127								sound_voice				snd_breathe
+		frame   19,63,95,117							sound				snd_squish
+//		frame	10,20,30,40,50,60,70,80,90,100,110,120	fx					fx_needle_drip		needle
+	}
+	anim idle_to_attack 								models/monsters/scientist/trans_to_attack.md5anim 
+	{
+		frame	1										ai_disablePain
+		frame   1										sound_voice				snd_alert
+		frame   2										sound				snd_squish
+		frame   3,12									sound				snd_weapons
+	}
+	anim trans_to_neutral 								models/monsters/scientist/trans_to_neutral.md5anim 
+	{
+		frame	1										ai_disablePain
+		frame   6										sound				snd_squish
+		frame   8										sound_voice				snd_breathe
+		frame   11										sound				snd_weapons
+	}
+	anim move_backward_neutral							models/monsters/scientist/move_backward_neutral.md5anim 
+	{
+		frame	1										ai_disablePain
+		frame   1										sound_voice				snd_breathe
+		frame   4,37									sound				snd_weapons
+		frame   5,15,32,38,50,65						sound				snd_squish
+//		frame	10,20,30,40,50,60						fx					fx_needle_drip		needle
+	}
+
+	anim idle 											models/monsters/scientist/idle_attack.md5anim 
+	{
+		frame   1										sound_voice				snd_breathe
+		frame   5,9,17,41,53,57,70						sound				snd_weapons
+		frame   6,26,31,42,64							sound				snd_squish
+//		frame	10,20,30,40,50,60,70					fx					fx_needle_drip		needle
+	}
+	anim walk				 							models/monsters/scientist/move_forward_attack.md5anim
+	{
+		frame   1										sound_voice				snd_breathe
+		frame   5,9,17,41,53,57,70						sound				snd_weapons
+		frame   6,26,31,42,64							sound				snd_squish
+//		frame	10,20,30,40,50,60,70					fx					fx_needle_drip		needle
+	}
+	anim run				 							models/monsters/scientist/move_forward_attack.md5anim
+	{
+		frame   1										sound_voice				snd_breathe
+		frame   5,9,17,41,53,57,70						sound				snd_weapons
+		frame   6,26,31,42,64							sound				snd_squish
+//		frame	10,20,30,40,50,60,70					fx					fx_needle_drip		needle
+	}
+
+	anim charge_attack 									models/monsters/scientist/melee_lunge_fwd.md5anim 		
+	{
+		
+		frame	3										fx					fx_swipe						bkLft_wrst
+		frame	7										ai_attack_melee		melee
+
+		frame	9										fx					fx_swipe						blade_joint
+		frame	13										ai_attack_melee		melee
+
+		frame	12										fx					fx_swipe						bkRt_knife
+		frame	15										ai_attack_melee		melee
+
+		frame	22										fx					fx_swipe						blade_joint
+		frame	24										ai_attack_melee		melee
+	}
+	anim melee_attack1 									models/monsters/scientist/melee_syringe.md5anim 		
+	{
+//		frame	2										fx					fx_needle_drip		needle
+		frame	5										fx					fx_swipe						bkLft_wrst
+		frame   2										sound				snd_servo
+		frame	5										sound_weapon				snd_swing
+		frame	9										ai_attack_melee		melee_needle
+		frame   9										sound				snd_weapons
+	}
+	anim melee_attack2	 								models/monsters/scientist/melee_front_arms.md5anim 
+	{
+		frame	5										fx					fx_swipe						lft_wrist
+		frame	5										sound_item				snd_swing
+		frame	8										ai_attack_melee		melee
+		
+		frame	19										sound_weapon				snd_saw
+
+		frame	17										fx					fx_swipe						blade_joint
+		frame	22										ai_attack_melee		melee
+	}
+	anim melee_attack3									models/monsters/scientist/melee_tool.md5anim 
+	{
+		frame	6										fx					fx_swipe						blade_joint
+		frame	9										ai_attack_melee		melee
+		
+		frame	8,17									sound_weapon				snd_saw
+
+		frame	16										fx					fx_swipe						blade_joint
+		frame	18										ai_attack_melee		melee
+	}
+
+	anim range_attack_grenade							models/monsters/scientist/throw_object.md5anim
+	{
+		frame	1										sound_voice				snd_growl
+		frame	7										fx					fx_grenade_flash	lft_wrist
+		frame   9										ai_attack			grenade				lft_wrist 
+	}
+
+/*
+	anim range_attack_needle							models/monsters/scientist/shoot_needle.md5anim
+	{
+		frame	1										sound_voice				snd_growl
+		// fixme - what joint should this use?
+		frame	8										ai_attack			needle				needle
+	}
+*/
+	anim inky_cloud										models/monsters/scientist/inky_cloud.md5anim
+	{
+		frame	1										ai_disablePain
+	}
+
+	anim evade_left 									models/monsters/scientist/evade_left.md5anim 
+	anim evade_right 									models/monsters/scientist/evade_right.md5anim 
+
+	anim pain1									models/monsters/scientist/pain_std.md5anim
+	{
+		frame	1								sound_voice				snd_pain
+	}
+	anim pain2		 							models/monsters/scientist/pain_std2.md5anim
+	{
+		frame	1								sound_voice			snd_pain
+	}
+	anim pain_concussive 						models/monsters/scientist/pain_con.md5anim
+	{
+		frame	1								sound_voice				snd_pain
+	}
+	anim pain_stream_start	 					models/monsters/scientist/pain_strm_start.md5anim
+	{
+		frame	1								sound_voice				snd_pain
+	}
+	anim pain_stream			 				models/monsters/scientist/pain_strm_loop.md5anim
+	anim pain_stream_end	 					models/monsters/scientist/pain_strm_end.md5anim
+		
+
+	// --------- ANIMS THAT AREN'T CURRENTLY BEGIN REFERENCED OR DO NOT BELONG IN THIS FILE GO BELOW HERE --------------
+	// (NOTE: MAKE THESE WORK)
+ 	anim evade_duck 									models/monsters/scientist/evade_duck.md5anim 
+	anim sight_neutral									models/monsters/scientist/idle_twitch.md5anim 
+	anim move_backward_attack 							models/monsters/scientist/move_backward_attack.md5anim 
+	anim move_forward_neutral 							models/monsters/scientist/move_forward_neutral.md5anim 
+	anim twitch_idle 									models/monsters/scientist/idle_twitch.md5anim 
+	anim walk_neutral									models/monsters/scientist/move_forward_neutral.md5anim 
+	anim run_neutral									models/monsters/scientist/move_forward_neutral.md5anim 
+	anim pain_head_neutral 								models/monsters/scientist/pain_head_neutral.md5anim 
+	anim pain_stomach_neutral 							models/monsters/scientist/pain_stomach_neutral.md5anim 
+	anim descend1 										models/monsters/scientist/100unit_descend.md5anim 
+	anim descend2 										models/monsters/scientist/200unit_descend.md5anim 
+	anim descend3 										models/monsters/scientist/300unit_descend.md5anim
+
+	anim work_on_human2							models/monsters/scientist/work_on_human2.md5anim
+	anim work_on_human3_start						models/monsters/scientist/work_on_human3_start.md5anim
+	anim work_on_human3_loop						models/monsters/scientist/work_on_human3_loop.md5anim
+	anim work_on_human3_end							models/monsters/scientist/work_on_human3_end.md5anim
+
+	anim medlabs_work							models/monsters/scientist/medlabs_work.md5anim
+	{
+		ai_no_look
+		frame	1								disableGravity
+		frame	1								disableClip	
+		frame	1,46,80,134,207,260						sound_voice	snd_breathe
+		frame	2,20,22,32,36,45,116,187,241,253		sound	snd_squish
+		frame	101,153,164,167,209,223,271				sound	snd_weapons
+		frame	170										sound_item	bullet_impact_flesh
+		frame	210										sound_weapon	snd_saw	
+		frame	213										sound_item	snd_cut
+		frame	211										fx 		fx_chop		blade_joint
+		frame	211										call map_medlabs::determineScream
+	}
+
+	anim work_on_human							models/monsters/scientist/work_on_human.md5anim
+	{
+		frame	1								disableGravity
+		frame	1								disableClip
+		frame	1,30,41,57,67,81,103,140,151,163,204,230		sound	snd_squish
+		frame	19,70,110,145,209								sound_voice	snd_breathe
+		frame	47,116,188,195,221								sound	snd_weapons
+		frame	117												sound_weapon	snd_saw
+	}
+}
+
+/*
+===============================================================================
+
+	Scientist Attacks
+
+===============================================================================
+*/
+
+
+entityDef melee_scientist_needle
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"20"
+	"snd_miss"					"scientist_swing"
+	"snd_hit"					"scientist_needle_stick"
+	"damage"					"1"
+	"dot_duration"				"4"
+	"dot_interval"				"0.5"
+}
+
+entityDef melee_scientist
+{
+	"inherit"								"melee_monster_base"
+	"damage"								"5"
+	"knockback"								"20"
+	"snd_miss"								"scientist_swing"
+//	"def_damage"							"damage_scientist_needle"
+}
+
+entityDef damage_scientist_grenande
+{
+	"inherit"								"damage_monster_base"
+	"damage"								"10"
+
+	"knockback"					"0"
+//	"damage"					"1"
+//	"dot_duration"				"5"
+//	"dot_interval"				"0.5"
+
+	// Double Vision
+	"dv_time"					"2000"
+	"dv_scale"					".05"
+	
+	"radius"					"96"
+}
+
+entityDef damage_scientist_poison
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+//	"damage"					"5"
+	"damage"					"1"
+	"radius"					"64"
+	
+	"dot_duration"				"5"
+	"dot_interval"				"1"
+	
+	"dv_time"					"0"
+	"dv_scale"					"0"
+}	
+
+entityDef damage_scientist_death
+{
+	"inherit"								"damage_monster_base"
+	"damage"								"10"
+
+}
+
+entityDef hitscan_scientist_saw
+{
+	"inherit"								"hitscan_bullet_base"
+	"fx_tracer"								""
+	"tracerchance"							""
+	"def_damage"							"damage_bullet"
+
+}
+
+entityDef projectile_scientist_needle
+{
+	"inherit"								"projectile_blaster_base"
+	"fx_trail"								"effects/monsters/scientist/chemical_burst.fx"
+	"velocity"								"500 0 0"
+}
+
+entityDef projectile_scientist_grenade
+{
+	"inherit"								"projectile_grenade_base"
+	"mins"									"-5 -5 -5"
+	"maxs"									"5 5 5"
+	"cone"									"0"
+	
+	"fuse"									"4"
+	"fx_fly"								"effects/monsters/scientist/gas_grenade_fly.fx"
+	"fx_detonate"							"effects/monsters/scientist/gas_grenade_burst.fx"
+	"fx_impact"								"effects/monsters/scientist/gas_grenade_burst.fx"
+
+
+	"model"									"gfx/effects/models/glass_ball.lwo"
+
+	"detonate_on_fuse"						"1"
+	"detonate_on_death"						"0"
+	"detonate_on_world"						"1"
+	"detonate_on_actor"						"0"
+
+	"def_splash_damage"						"damage_scientist_grenande"
+
+	"speed"									"600"
+	"gravity"								"1"				
+	"contact_friction"						"3"
+	"bounce"								".3"
+	"clipmask_rendermodel"					"0"
+	
+	"delay_residual"						"1"
+	"residual_time"							"6"
+	"def_residual_damage"					"damage_scientist_poison"
+}
+
+/*
+===============================================================================
+
+	Scientist Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_scientist
+{
+	"inherit"						"actor_default"
+	"spawnclass"					"rvMonsterScientist"
+
+	// --------------------------------- Body ------------------------------------
+	"model"							"model_monster_scientist"
+	"size"							"32 32 48"
+	"use_aas"						"aas32"
+	"ragdoll"						"monster_scientist"	
+	"flying"						"1"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_meleeAttack"			"1"
+	"action_meleeAttack_maxRange"	"72"
+	
+	"action_rangedAttack"			"1"
+	"action_rangedAttack_rate"		"3"
+	"action_rangedAttack_anim"		"range_attack_grenade"
+//	"action_rangedAttack_anim2"		"range_attack_needle"
+	"action_rangedAttack_minRange"	"175"
+	"action_rangedAttack_maxRange"	"400"
+
+
+	// --------------------------------- Movement --------------------------------
+	"directionalMovement"			"1"
+	"fly_speed"						"120"
+//	"fly_offset"					"64"
+//	"fly_offset"					"256"
+	"fly_offset"					"48"
+	"fly_roll_max"					"15"
+//	"fly_bob_strength"				"10"
+	"fly_bob_strength"				"12"
+	"fly_bob_vert"					"3"
+	"fly_pitch_scale"				"-50"
+	"fly_roll_scale"				"5"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint chest"				"0.2 0.2 0"
+	  "look_joint shoulders"		"0.2 0.2 0"
+	    "look_joint neck"			"0.2 0.2 0"
+	      "look_joint head"			"0.4 0.4 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"						"150"
+	"melee_range"					"72"
+	"missile_visibility_joint"		"lft_wrist"
+
+	"def_attack_melee"				"melee_scientist"
+	"def_attack_melee_needle"		"melee_scientist_needle"
+//	"def_attack_needle"				"projectile_scientist_needle"
+	"def_attack_grenade"			"projectile_scientist_grenade"
+
+	"attack_grenade_aimoffset"		"-150"
+
+	"def_attack_saw"				"hitscan_scientist_saw"
+	"attack_saw_hitscan"			"1"
+	"attack_saw_lockToJoint"		"1"
+
+
+	"joint_eyeOffset"				"rtEye_ball"
+	"joint_chestOffset"				"chest"
+
+	"tactical_ranged"				"0"
+	"tactical_rush"					"1"
+	"tactical_cover"				"0"
+	"tactical_hide"					"1"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"				"*head"
+	"damage_scale head"				"2"	
+	
+	// --------------------------------- Defs   ----------------------------------
+	"def_death_damage"				"damage_scientist_death"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_obscuring_cloud"			"effects/monsters/scientist/obscuring_cloud.fx"
+	"fx_death"						"effects/monsters/scientist/gas_grenade_death.fx"
+	"fx_grenade_flash"				"effects/monsters/scientist/gas_grenade_mflash.fx"
+	"fx_swipe"						"effects/monsters/grunt/swipe_attack.fx"
+//	"fx_needle_drip"				"effects/ambient/single_drip_green.fx"
+	"fx_fly"						"effects/monsters/scientist/jetwash.fx"
+	"fx_chop"						"effects/monsters/scientist/buzzsaw_chop.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"					"scientist_alert"
+	"snd_swing"						"scientist_swing"
+	"snd_saw"						"scientist_saw"
+	"snd_cut"						"med_labs_scientist_saw_cut"
+	"snd_breathe"					"scientist_breathe"
+	"snd_alert"						"scientist_alert"
+	"snd_growl"						"scientist_growl"
+	"snd_weapons"					"scientist_weapon_move"
+	"snd_servo"						"scientist_servo"
+	"snd_squish"					"scientist_squish"
+	"snd_pain"						"berserker_pain"
+	"snd_fly"						"scientist_hover"
+	
+	"sound_bone"					"waist"
+}

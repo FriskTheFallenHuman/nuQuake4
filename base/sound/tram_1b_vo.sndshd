@@ -1,0 +1,289 @@
+
+
+sound vo_3_1_7_100_1
+{
+	description	"Welcome back, my friend. Next stop, the Strogg Data Processing Tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_100_1
+}
+
+
+sound vo_3_1_7_10_1
+{
+	description	"Strogg to our right!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_10_1
+}
+
+
+sound vo_3_1_7_10_2
+{
+	description	"Watch out - we have company on the right!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_10_2
+}
+
+
+sound vo_3_1_7_10_3
+{
+	description	"Over to the right side!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_10_3
+}
+
+
+sound vo_3_1_7_10_4
+{
+	description	"Kane! To our right!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_10_4
+}
+
+
+sound vo_3_1_7_10_5
+{
+	description	"We have Strogg on the right side!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_10_5
+}
+
+
+sound vo_3_1_7_10_6
+{
+	description	"Watch to the right, Kane!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_10_6
+}
+
+
+sound vo_3_1_7_20_1
+{
+	description	"Strogg on our left side!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_20_1
+}
+
+
+sound vo_3_1_7_20_2
+{
+	description	"Look to the left!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_20_2
+}
+
+
+sound vo_3_1_7_20_3
+{
+	description	"Watch the left side!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_20_3
+}
+
+
+sound vo_3_1_7_20_4
+{
+	description	"Shoot the Strogg on our left!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_20_4
+}
+
+
+sound vo_3_1_7_20_5
+{
+	description	"Kane! There are more on the left!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_20_5
+}
+
+
+sound vo_3_1_7_20_6
+{
+	description	"We have enemies to the left!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_20_6
+}
+
+
+sound vo_3_1_7_30_1
+{
+	description	"Kane, stop them!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_30_1
+}
+
+
+sound vo_3_1_7_30_2
+{
+	description	"That was too close."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_30_2
+}
+
+
+sound vo_3_1_7_30_3
+{
+	description	"They hit us!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_30_3
+}
+
+
+sound vo_3_1_7_30_4
+{
+	description	"The tram cannot take much more of this abuse."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_30_4
+}
+
+
+sound vo_3_1_7_40_1
+{
+	description	"We are very lucky to be alive."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_40_1
+}
+
+
+sound vo_3_1_7_40_2
+{
+	description	"Are you unhurt, Kane?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_40_2
+}
+
+
+sound vo_3_1_7_40_4
+{
+	description	"This is not going as easily as planned."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_40_4
+}
+
+
+sound vo_3_1_7_80_1
+{
+	description	"Those fuel lines have ruptured! We cannot move any further until you find a way to shut off the lines and stop the fire."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_80_1
+}
+
+
+sound vo_3_1_7_80_2
+{
+	description	"It hit the fuel lines! We cannot move any further. Find a way to shut off the lines and stop the fire."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1b/3_1_7_80_2
+}
+
+
+

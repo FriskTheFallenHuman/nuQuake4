@@ -1,0 +1,232 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	windowDef bg
+	{
+		rect	0,0,639,481
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc1_bg"
+		matcolor	.2,.2,.18,1
+	}
+	windowDef bar4
+	{
+		rect	0,421,363,76
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc1_bar"
+		matcolor	.69,.69,.59,1
+	}
+	windowDef bar6
+	{
+		rect	240,420,299,76
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc1_parallelogram"
+		matcolor	0.31,0.39,0.27,1
+	}
+	windowDef bar7
+	{
+		rect	292,420,301,76
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc2_parallelogram"
+		matcolor	0.737,0.847,0.388,1
+	}
+	windowDef triangle
+	{
+		rect	318,446,47,27
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc1_triangle"
+		matcolor	0.309,0.388,0.266,1
+
+		onTime 0 {
+			transition "matcolor" "1,1,1,1" "0.309,0.388,0.266,1" "500" ;
+		}
+
+		onTime 500 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef lil_squares
+	{
+		rect	4,450,176,19
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc1_lilsquares"
+		matcolor	0.686,0.686,0.588,1
+	}
+	windowDef txt_munitionsstatus
+	{
+		rect	101,14,329,28
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200583"
+		textscale	0.47
+		font	"fonts/marine"
+	}
+	windowDef ssp_manual
+	{
+		rect	367,433,197,40
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200584"
+		textscale	0.6
+		font	"fonts/marine"
+	}
+	windowDef belt
+	{
+		rect	0,160,642,161
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc2_belt"
+		matcolor	0.674,0.674,0.576,1
+	}
+	windowDef bar5
+	{
+		rect	-2,-15,644,76
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc2_topbar"
+		matcolor	0.686,0.686,0.588,1
+	}
+	windowDef lil_squares1
+	{
+		rect	460,13,176,19
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc1_lilsquares"
+		matcolor	0.686,0.686,0.588,1
+	}
+	windowDef learnmore
+	{
+		rect	40,406,511,37
+		visible	1
+		forecolor	0.556,0.6,0.298,1
+		text	"#str_200585"
+		textscale	0.35
+		font	"fonts/marine"
+	}
+	windowDef instructions
+	{
+		rect	96,310,446,37
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200586"
+		textscale	0.6
+		font	"fonts/marine"
+		textalign	1
+	}
+	windowDef instructions1
+	{
+		rect	96,331,446,37
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200587"
+		textscale	0.6
+		font	"fonts/marine"
+		textalign	1
+	}
+	windowDef m
+	{
+		rect	7,-9,41,56
+		visible	1
+		forecolor	1,1,1,1
+		text	"m"
+		textscale	1
+		font	"fonts/marine"
+	}
+	windowDef c1
+	{
+		rect	64,-9,41,56
+		visible	1
+		forecolor	1,1,1,1
+		text	"c"
+		textscale	1
+		font	"fonts/marine"
+	}
+	windowDef c2
+	{
+		rect	38,-9,41,56
+		visible	1
+		forecolor	1,1,1,1
+		text	"c"
+		textscale	1
+		font	"fonts/marine"
+	}
+	windowDef warning
+	{
+		rect	69,39,535,131
+		visible	1
+		forecolor	1,1,1,1
+		text	"#str_200370"
+		textscale	2.2
+		font	"fonts/marine"
+	}
+	windowDef belt1
+	{
+		rect	247,170,144,137
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc2_warning_bg"
+		matcolor	0.64,0.35,0.12,.9
+
+		onTime 0 {
+			transition "matcolor_w" "0.9" "0.2" "800" ;
+		}
+
+		onTime 800 {
+			transition "matcolor_w" "0.2" "0.9" "800" ;
+		}
+
+		onTime 1600 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef belt2
+	{
+		rect	215,136,211,199
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc2_warning"
+		matcolor	1,1,1,1
+
+		onTime 0 {
+			transition "matcolor_w" "0.9" "0.2" "800" ;
+		}
+
+		onTime 800 {
+			transition "matcolor_w" "0.2" "0.9" "800" ;
+		}
+
+		onTime 1600 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef sline
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_line3"
+			matcolor	0.682,0.666,0.556,0.364
+		}
+		windowDef monitor_darkedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0.0509,0.0509,0.0509,1
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches3"
+			matcolor	0.835,0.847,0.705,0.345
+		}
+		windowDef topreflect
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_glow2"
+			matcolor	0.909,0.905,0.784,0.498
+		}
+	}
+}

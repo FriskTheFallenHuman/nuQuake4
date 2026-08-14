@@ -1,0 +1,31 @@
+export cin_camera_test_rj
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/camera_testing/animations -destdir models/test/cinematic_cameras
+	camera	camera_test_rj.ma		-dest test_camera_rj
+}
+
+camera camera_rj
+{
+	anim test_camera_rj				"models/test/cinematic_cameras/test_camera_rj.md5camera"	
+	{
+		frame 1						sound	snd_gear2
+		frame 1						leftfoot
+		frame 10					sound	snd_gear2
+		frame 10					rightfoot
+		frame 20					sound	snd_gear2
+		frame 20					rightfoot
+		frame 30					sound	snd_gear2
+		frame 30					rightfoot
+	}
+}
+
+entityDef  cin_camera_test_rj {
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"camera_rj"
+}

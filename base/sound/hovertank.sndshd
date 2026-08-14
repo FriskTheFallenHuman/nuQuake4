@@ -1,0 +1,153 @@
+
+
+sound htank_hover
+{
+	description	"hover tank cruising around"
+
+	minDistance	195
+	maxDistance	780
+	volumeDb	0
+	looping
+
+	sound/strogg/hovertank/hover_loop
+	shakeData 0 slkkpsrqmmtrvrqtlnkmpmnppplmppqpomnrqrrmooslrolkmknmssssmmosqmlnpmlllrsrmolupsrqprtputsnmmlklknrojnluurnrqsqooutopnpmmrpnmjmnqmqvsspptrsqqpmnk
+}
+
+
+sound htank_alert
+{
+	description	"It sees you!"
+
+	minDistance	400
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/hovertank/alert
+	shakeData 0 lpqtxxvwtyzzzzzzzwxyytqvxvxxyrzzzxwnexyzzzyyzxyuogec
+	sound/strogg/hovertank/chatter_combat2
+	shakeData 1 zzzzzzzyzzzvyzxzwzzzyzzzwzzxzzxzwzxyzyrihxxzxzzzxlba
+}
+
+
+sound htank_chatter
+{
+	description	"chattin' it up."
+
+	minDistance	400
+	maxDistance	780
+	volumeDb	-4
+
+	sound/strogg/hovertank/chatter1
+	shakeData 0 jxsuvpponmoqpquurtnzzzzqtxnihxoloqnmlyxxyzyxxkxltlimyvwyzzyvvpqrprtrpnqlehnooppmmmjmhfleikeijbdaaaaaa
+	sound/strogg/hovertank/chatter2
+	shakeData 1 anprvsuuvzswwqktkopmrqppusrsjqsypouvormqnqouqsqjnyuzystvklxyttvmglrzootzxwrrxoyyuvrzzwuvrlekotomkihjinqqyuvuolkmljmkmldcbaaaaaa
+}
+
+
+sound htank_chatter_combat
+{
+	description	"chattin' it up...angry-like."
+
+	minDistance	400
+	maxDistance	780
+	volumeDb	-4
+
+	sound/strogg/hovertank/chatter_combat1
+	shakeData 0 delzzyzzyzzwzzzzzzzzzxvzyzzzzzxyvzzzzzzzyzzzzzzzzzzzzzzzzzzyuphfeeeba
+	sound/strogg/hovertank/chatter_combat2
+	shakeData 1 zzzzzzzyzzzvyzxzwzzzyzzzwzzxzzxzwzxyzyrihxxzxzzzxlba
+}
+
+
+sound htank_pain
+{
+	description	"Ouch"
+
+	minDistance	400
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/hovertank/pain1
+	shakeData 0 ipxzzzyzzzyuyvlfcaaaa
+	sound/strogg/hovertank/pain2
+	shakeData 1 hgpuwwzyyyzzzzystolfa
+}
+
+
+sound htank_grunt
+{
+	description	"Ouch"
+
+	minDistance	400
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/hovertank/pain1
+	shakeData 0 ipxzzzyzzzyuyvlfcaaaa
+	sound/strogg/hovertank/pain2
+	shakeData 1 hgpuwwzyyyzzzzystolfa
+}
+
+
+sound htank_rocket_ready
+{
+	description	"bring up rocket"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/hovertank/rocket_ready
+	shakeData 0 txzpfbgaecccdjcmedaaaaaaaaaaaaaaaaaaacrsxzxqqifdcxmfdbaaaaaaaaaaaaaaaa
+}
+
+
+sound htank_rocket_stow
+{
+	description	"put rocket away"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/hovertank/rocket_stow
+	shakeData 0 brxzytrqwvgdcahcafccdbjfldba
+}
+
+
+sound htank_strafe
+{
+	description	"movement"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/hovertank/strafe
+	shakeData 0 loljlonqpwwwsqzvytrvrytxwrpjikhgedba
+}
+
+
+sound htank_wiff
+{
+	description	"swinging around"
+
+	minDistance	200
+	maxDistance	800
+	volumeDb	0
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+}
+
+
+
+
+
+

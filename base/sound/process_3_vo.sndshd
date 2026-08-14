@@ -1,0 +1,111 @@
+
+
+sound vo_3_1_15_10_1
+{
+	description	"Now we must find the security station on the roof. Lead the way."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_3/3_1_15_10_1
+}
+
+sound vo_3_1_15_50_1
+{
+	description	"The Core security interlock from the Processing Tower is now active. Well done, Corporal Kane. Sergeant Slidjonovitch, I would ask you to remain there and not allow the Strogg to reset that console."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_3/3_1_15_50_1
+}
+
+
+sound vo_3_1_15_50_2
+{
+	description	"Understood, Strauss. I will comply."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_3/3_1_15_50_2
+}
+
+
+sound vo_3_1_15_50_3
+{
+	description	"Kane, you must now take the elevator down to the tram station and then take a tram to the Data Networking tower. I will meet you there. Strauss, out."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_3/3_1_15_50_3
+}
+
+
+sound vo_3_1_15_50_4
+{
+	description	"Good luck to you, Kane. Ah, but then you don't need luck so long as you have a weapon in your hands. Fare well."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_3/3_1_15_50_4
+}
+
+
+sound vo_3_1_15_55_1
+{
+	description	"Go now, Kane. You must take a tram to the Networking Tower. I will remain behind and protect this security station."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_3/3_1_15_55_1
+}
+
+
+sound vo_3_1_15_55_2
+{
+	description	"Kane, you are needed at the Networking Tower. Go quickly. Many lives depend on you."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_3/3_1_15_55_2
+}
+
+
+sound vo_3_1_15_55_3
+{
+	description	"Kane, don't make me pull rank. Get to the Networking Tower immediately."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_3/3_1_15_55_3
+}
+
+
+
+
+

@@ -1,0 +1,505 @@
+
+
+sound putra_fatguy_door
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/putra/fatguy/fatty_door
+	shakeData 0 zzzzzzzzzzzzzzzzzzyyyzyzzzzzzzzzzzzzzzzzzzzzzxzxutpnnmmkjiihghtzzzzzzzzzzzzzzzzzzzyyytwwuqtsvummntqnnmnkkmposomohccbccbbdbaaaaaaaaaa
+}
+
+
+sound putra_guts_loop1
+{
+	minDistance	78
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/putra/fatguy/guts_loop1
+	shakeData 0 abacadaaaabbbdaaigebbdceddjedcccggcbbbcbbbabbcebaabbbaabaaaaabbaacaaaaabaabbhigefeddcdcccccfbbbbbbbbbaaabcbbbbbbbbaaabbbaabbaabhdeffdcccbcbbbcdbbabbdbbbaaaaaaabaaagbaaa
+}
+
+
+sound putra_guts_loop2
+{
+	minDistance	78
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/putra/fatguy/guts_loop2
+	shakeData 0 gdedeifeeedeedefeddiedddeefeffeeeededddecedfgeedccdddcddeddddddcedcdcdddedcedcededdedfdgceddddddddcedfddddccdeccdcccdddedidifkkfjkgjffgfdfhfffggeihfkjhhedfdghdeed
+}
+
+
+sound putra_guts_loop3
+{
+	minDistance	78
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/putra/fatguy/guts_loop3
+	shakeData 0 ddcddddddceedejdnooigfhenjigekgfgegjheiggeefhfdeemeeefdggeefeffeffddfdddeeddgiheegeeedheegfhggjhemigghefghefgfhhefdgffgffefehegfffedgehfdheekeeeedheeededeeddecdddddcdceecddeeeefed
+}
+
+
+sound putra_guts_loop4
+{
+	minDistance	78
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/putra/fatguy/guts_loop4
+	shakeData 0 pnoqmqmoihjpinpkhsnilhpijjknkioimjlnhnprpnkippmompjpkiggihepjjhilllfkfkijmlikhjihkhehhghmgkkgllljimifjgfegiihjhmllkpkhijehggijlkhhnhhgmphmiiqkllgjgmgilggjhgjjilsjxkginhnpighjnihllliikg
+}
+
+
+sound putra_fatguy_breath
+{
+	minDistance	157
+	maxDistance	984
+	volumeDb	-4
+	looping
+
+	sound/ambience/putra/fatguy/breath_loop
+	shakeData 0 cedffhgkoosqqjtomjmnhknjjlhhkiigiehghhiijjihkjlkjkmjnqqroqpmqqqpoqusstqsrpnopkssrtrlrpllgjieeehfgjdjegfgffifihfhcehddffdddeeehhhkhfeeehggfeefdedeiijeiffedefhkjjhkhinlnkijlijjlmnjjklnjijfhiiifegheggghhggefgdddddedhjhkhikfigdedegihjjigjhfkiihigmjimlkijkmijllgmigifhkjkjijlkilkkllkljlilkmkjllhkiiihggdehfeccbcdeefdehighiheihijliilklhiffhjglkkhhlkijjhgkfgjhhffkhiggegfhihfipfhfhegeejdddfffhlglknlllmlmlnllnnkmkiijlmkkmlklmmikpnkjimjgihgfffhefekgefgddhicfjchfkmldeefhfehmpilfedhdccddgpfffefedojikdlikfjfedgfekstnjhdhffeddccbdbggcnkfpegggdeddccccb
+}
+
+
+sound putra_fatguy_arm_extend
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	0
+
+	sound/objects/mech_servo/motor1
+	shakeData 0 ytzzotttvvxtxwxzxxplhhkpihijeedddcdcbbbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor2
+	shakeData 1 ymzzloqtvvuusuuwwzzzzzywxlheccbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor3
+	shakeData 2 oyyzttruwtuxyvyxyysurzzkddccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor4
+	shakeData 3 xhxylllptorppqqttxyzzwuspjggeeeefddfddeeeedcbbbbbbababbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor5
+	shakeData 4 ewuyuwstvuvzxtxxzyqnitvdbbbbbabaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_needle_inject
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	0
+
+	sound/objects/needle/inject1
+	shakeData 0 kpwzxztusqkljkjkifegeeddeeeeddbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/needle/inject2
+	shakeData 1 mqyzvvsunkikihiigededeefeeeddccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_deep_metal_thump
+{
+	minDistance	157
+	maxDistance	1574
+	volumeDb	6
+
+	sound/ambience/industrial/deep_metal_thump01
+	shakeData 0 uyyxvwwvsrvqrqoomroqoqmlsjokmikpinkifhhgigefhhfigegggdgeegegdgeceefdecddeeddcccfdedccdededcccddccbbdccccbcccbcbbbbbbcaccbbbcbbbbbbbabbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/deep_metal_thump03
+	shakeData 1 wxxyxvwvqrponllkjkjggefeeddccbcbbbbbabaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_growl
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	4
+
+	sound/ambience/putra/fatguy/growl1
+	shakeData 0 ekuzwzzzyyzzzyzxzzzyzzzyvzxxsstpjnkhfcdbaaaa
+	sound/ambience/putra/fatguy/growl2
+	shakeData 1 fovxzxzyzzzzzzzzyzzzzzzzzzyttqkjmllmpkjfeedfdeeedcbaa
+}
+
+
+sound putra_fatguy_explode
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	0
+
+	sound/ambience/putra/fatguy/explode
+	shakeData 0 fszwwtwrtotmqlomrpornkhfilgdikehlmegihhdedieddebebbbcabdabdbaccbbaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_feed
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	4
+
+	sound/ambience/putra/fatguy/squeal2
+	shakeData 0 cgfjootxyzzzzzzyzzzyzxwzzyxzzzyxzzzzzzzzzyzzzxxzyyzxyzzzzyzzzzzxxxzyyyzytwyxsjlgjssrkkgihfegefdfikkpuyzvwyxyzxzzzyzzzzzzxuvzxytopldcbbaaaaa
+	sound/ambience/putra/fatguy/squeal3
+	shakeData 1 ghkowvyzwxstwxxzzyzzxzzzzxzzyyyyzzzzzzzzzzzzzyzzzxzzzzzzzywzzyzyzzzzzyzzyzzxvuyxrmjgedbbaaaaaaaaaa
+}
+
+
+sound putra_fatguy_roar
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	4
+	global
+
+	sound/ambience/putra/fatguy/squeal1
+	shakeData 0 bgozzzzzzzzyzzzyzzzyzzzzzyyxyzzzyzzzzzyzyxyyzyxzyyxyzzzzyyyxyyzyzyzzzyvzyyzzwxzxzyzyuzwyxyyvszxyzyyzvztzztvysyyytrvswuvuqzyzpnyyzvtwvxrtypvyzstzrtqsrxuusolpltgdcbabaaaaaa
+}
+
+
+sound putra_fatguy_pain
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	4
+
+	sound/ambience/putra/fatguy/squeal1
+	shakeData 0 bgozzzzzzzzyzzzyzzzyzzzzzyyxyzzzyzzzzzyzyxyyzyxzyyxyzzzzyyyxyyzyzyzzzyvzyyzzwxzxzyzyuzwyxyyvszxyzyyzvztzztvysyyytrvswuvuqzyzpnyyzvtwvxrtypvyzstzrtqsrxuusolpltgdcbabaaaaaa
+	sound/ambience/putra/fatguy/squeal2
+	shakeData 1 cgfjootxyzzzzzzyzzzyzxwzzyxzzzyxzzzzzzzzzyzzzxxzyyzxyzzzzyzzzzzxxxzyyyzytwyxsjlgjssrkkgihfegefdfikkpuyzvwyxyzxzzzyzzzzzzxuvzxytopldcbbaaaaa
+	sound/ambience/putra/fatguy/squeal3
+	shakeData 2 ghkowvyzwxstwxxzzyzzxzzzzxzzyyyyzzzzzzzzzzzzzyzzzxzzzzzzzywzzyzyzzzzzyzzyzzxvuyxrmjgedbbaaaaaaaaaa
+}
+
+
+sound putra_fatguy_die
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	4
+
+	sound/ambience/putra/fatguy/die
+	shakeData 0 bhrxwzzzzxxyzvyyxzzzxzyyyyzzzzzzzzyzwzzxywzzyxwyvvvxwyzyyzzyyzzzzzyyyzxzzyzzxyzzzyyxzyyzzzzyzyxyxyyyxuvvspnrrnrnqonkkimgedcbbbaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_tendrils
+{
+	minDistance	390
+	maxDistance	2340
+	volumeDb	0
+
+	sound/ambience/putra/fatguy/tendril1
+	shakeData 0 bcddjoqpuvtzxxyzzwztvrqppjnjkgiighgeeeefdcbaaaaaaaaaaaa
+	sound/ambience/putra/fatguy/tendril2
+	shakeData 1 bbcfippqwtxzzyyuzwvsroppkhkfhheedddcccbbaaaaaaaaaaaaa
+	sound/ambience/putra/fatguy/tendril3
+	shakeData 2 abcciopqtvxyzxyzzxxtsrpqolkigfhgfgfdecddcbbbbcaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_claw_impact
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/fatguy/claw_impact1
+	shakeData 0 avzzzzzvzyypsmgeddbbbaaaaaaaaaaaaa
+	sound/ambience/putra/fatguy/claw_impact2
+	shakeData 1 zzzzzzzzurmkjedccbbaaaaaaaaaaaaaaa
+	sound/ambience/putra/fatguy/claw_impact3
+	shakeData 2 mzzzzzzzzttvlgeebbbbaaaaaaaaaaaaaaa
+	sound/ambience/putra/fatguy/claw_impact4
+	shakeData 3 aenzzzzzzzzzxwrokkigfdcbbabaaaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_distant_scream
+{
+	minDistance	196
+	maxDistance	1574
+	volumeDb	6
+	shakes		0.1
+
+	sound/ambience/dispersal/heart/scream
+	shakeData 0 acchhlmkijolomgkoonqommnnmsqrqtvuttololpmpprsrpqqsrokkkpoklljkpmmmjnnhglmijikmjjmiijhgejgegeddddddccccbbbbcbbbbbababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_barrel_fall
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/impact/barrel/impact1
+	shakeData 0 zywyvqnrqkhhhhgfddccccbaaaaaaaaaa
+	sound/impact/barrel/impact2
+	shakeData 1 zzxzuspuxuqqpmnjhghfhddccbbbbbbbaaaaaa
+	sound/impact/barrel/impact3
+	shakeData 2 zzzywxvxurtqpihggqmonpoinheccbaaaaaaaaaaaaa
+}
+
+
+sound putra_mech_arm_extend
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-6
+
+	sound/objects/mech_servo/motor1
+	shakeData 0 ytzzotttvvxtxwxzxxplhhkpihijeedddcdcbbbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor2
+	shakeData 1 ymzzloqtvvuusuuwwzzzzzywxlheccbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor3
+	shakeData 2 oyyzttruwtuxyvyxyysurzzkddccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor4
+	shakeData 3 xhxylllptorppqqttxyzzwuspjggeeeefddfddeeeedcbbbbbbababbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/mech_servo/motor5
+	shakeData 4 ewuyuwstvuvzxtxxzyqnitvdbbbbbabaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_needle_inject
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	-7
+
+	sound/objects/needle/inject1
+	shakeData 0 kpwzxztusqkljkjkifegeeddeeeeddbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/objects/needle/inject2
+	shakeData 1 mqyzvvsunkikihiigededeefeeeddccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_valve_turn
+{
+	minDistance	78
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/putra/valve_turn
+	shakeData 0 pskdcbbbaaapuofefiiijkptqfenptzxiedddcccsrjcccccccrwqceccbbccddbbbbbbbbbbbbbcdededcbbbbbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_acid_spray1
+{
+	minDistance	78
+	maxDistance	1574
+	volumeDb	-4
+
+	sound/effects/generic/steam_01
+	shakeData 0 ahkoommmnnnlmkjjhiggffeeedbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_02
+	shakeData 1 aaaflklllnllkjkkjhighghgfgffffeddddddcccbcbbbbbbbbbbbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_03
+	shakeData 2 hnlnonoonqqnrnonmmlhggfeegfffffhkiihhggffeddccbbbbaaaaaaaaaaaa
+	sound/effects/generic/steam_04
+	shakeData 3 fotvusrsstrtrsrrsqqqpppqroqprpooopnqopooqjgfddaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_05
+	shakeData 4 iillmlnlnllkljjkkijiiiiiiighgghfgffgffffgfefeeeeeefeeefeeddddeddecddccdcccccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound putra_fatguy_acid_spray2
+{
+	minDistance	78
+	maxDistance	1574
+	volumeDb	-4
+	looping
+
+	sound/effects/generic/blowtorch
+	shakeData 0 eedeeeeeeeeegded
+}
+
+
+sound putra_fatguy_acid_spray3
+{
+	minDistance	39
+	maxDistance	1574
+	volumeDb	-9
+
+	sound/effects/dispersal/acid_pump
+	shakeData 0 bcbbeeedfedheggdfecffgdedddeededgddedgkiigeggeddfecfjefccdececbbbcbbababababbaaaaaaa
+}
+
+
+
+
+sound elect_scream
+{
+	minDistance	390
+	maxDistance	1950
+	volumeDb	0
+
+	sound/vo/putra/elect_scream_1.wav
+	shakeData 0 bvxxyyyqxvwxsrqhhehpwvwvwvuvwyyxxwwxxwxwxxywwxrwvvwuwvuttutvvvvwwwgeba
+	sound/vo/putra/elect_scream_2.wav
+	shakeData 1 buwwxywwvyxvoooqwtmkqxxxninllvxyymkqxymmoppvyswvqtvvywxwvwywwyyzxxvwwueaa
+	sound/vo/putra/elect_scream_3.wav
+	shakeData 2 hyxxzxyvuuuuvxxvuvvtkebfhaaabqyxyyyytebaaaaaaaaaaaaaabdhplopnpnopopoppppmlljjiiijjjidcccbbbbbabbaaaa
+	sound/vo/putra/elect_scream_4.wav
+	shakeData 3 abxwyzvxyyxvuwwvyvwwwyxxyyxpfghjlpnkkkuzxiecca
+}
+
+sound putra_barrel_arm
+{
+	minDistance	40
+	maxDistance	1574
+	volumeDb	0
+
+	sound/ambience/putra/barrel_arm
+	shakeData 0 zzuwqxyzzwzzvwyxwuytwztxuxuwxutzywuzxvwwyswvxywyxyvzvuxyyxwxyvvzxtzxyuvvwvyytxyzzuzvwuuxrqsnttqrpjqmprrronnnlqoplkmjieca
+}
+
+
+sound putra_frame_accel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/frame_accel
+	shakeData 0 hyxvwxwsnonpmuxvxwuxpoonnuw
+}
+
+
+sound putra_frame_move
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/ambience/putra/frame_move
+	shakeData 0 uvwwuqnlnpmxstvuunoqnmlvvvvvwponponxttuuupooqppwuuvtvulnoqnuxuuwuopppqpd
+}
+
+
+sound putra_frame_decel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/frame_decel
+	shakeData 0 omuruxvwpqpqooyxwwuwrpoolqnd
+}
+
+
+sound putra_frame_stopped
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/frame_stopped
+	shakeData 0 yyywzywrplllmlgfdccccbaaaaaa
+}
+
+
+sound putra_arm_accel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/arm_accel
+	shakeData 0 hkkqtuqtsutpb
+}
+
+
+sound putra_arm_move
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/ambience/putra/arm_move
+	shakeData 0 rnonookmspmmqhtnoovtkkkukkqopnnloiosmtnmpmmkoqnqqmpnnmol
+}
+
+
+sound putra_arm_decel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/arm_decel
+	shakeData 0 pqmorrpmloqk
+}
+
+
+sound putra_arm_stopped
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/arm_stopped
+	shakeData 0 mmtrpnsuunlliijkhheedccbaa
+}
+
+
+sound putra_hand_accel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/hand_accel
+	shakeData 0 xrrtj
+}
+
+
+sound putra_hand_move
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/ambience/putra/hand_move
+	shakeData 0 mnmlkmnnjj
+}
+
+
+sound putra_hand_decel
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/hand_decel
+	shakeData 0 mknmk
+}
+
+
+sound putra_hand_stopped
+{
+	minDistance	120
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/putra/hand_stopped
+	shakeData 0 mvigcba
+}
+
+
+

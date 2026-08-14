@@ -1,0 +1,315 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	definevec4	"scan_on"	0.521,0.929,0.0705,0.14
+	definevec4	"scan_off"	0.521,0.929,0.0705,0
+	definevec4	"scan_n_on"	0.968,0.262,0.0235,0.22
+	definevec4	"scan_n_off"	0.968,0.262,0.0235,0
+	definevec4	"scan_l_on"	1,0.501,0,0.22
+	definevec4	"scan_l_off"	1,0.501,0,0
+
+	onNamedEvent weapon_ammo {
+		if ( "gui::player_ammo" > 9 )
+		{
+			set "bg::visible" "1" ;
+			set "bg_lowammo::visible" "0" ;
+			set "bg_noammo::visible" "0" ;
+			set "bg_o::visible" "1" ;
+			set "bg_o2::visible" "1" ;
+			set "bg_o_lowammo::visible" "0" ;
+			set "bg_o2_lowammo::visible" "0" ;
+			set "bg_o_noammo::visible" "0" ;
+			set "bg_o2_noammo::visible" "0" ;
+			set "scan::visible" "1" ;
+			set "scan_lowammo::visible" "0" ;
+			set "scan_noammo::visible" "0" ;
+			
+			set "gui::lightColor" "$desktop::scan_on";
+			
+			setlightcolor "bg::matcolor";
+		}		
+		else if ( "gui::player_ammo" > 2 )
+		{
+			set "bg::visible" "1" ;
+			set "bg_lowammo::visible" "0" ;
+			set "bg_noammo::visible" "0" ;
+			set "bg_o::visible" "1" ;
+			set "bg_o2::visible" "1" ;
+			set "bg_o_lowammo::visible" "0" ;
+			set "bg_o2_lowammo::visible" "0" ;
+			set "bg_o_noammo::visible" "0" ;
+			set "bg_o2_noammo::visible" "0" ;
+			set "scan::visible" "1" ;
+			set "scan_lowammo::visible" "0" ;
+			set "scan_noammo::visible" "0" ;
+			
+			setlightcolor "bg::matcolor";
+		}		
+		else if ( "gui::player_ammo" > 0 )
+		{
+			set "bg::visible" "0" ;
+			set "bg_lowammo::visible" "1" ;
+			set "bg_noammo::visible" "0" ;
+			set "bg_o::visible" "0" ;
+			set "bg_o2::visible" "0" ;
+			set "bg_o_lowammo::visible" "1" ;
+			set "bg_o2_lowammo::visible" "1" ;
+			set "bg_o_noammo::visible" "0" ;
+			set "bg_o2_noammo::visible" "0" ;
+			set "scan::visible" "0" ;
+			set "scan_lowammo::visible" "1" ;
+			set "scan_noammo::visible" "0" ;
+			
+			setlightcolor "bg_lowammo::matcolor";
+		}		
+		else
+		{
+			set "bg::visible" "0" ;
+			set "bg_lowammo::visible" "0" ;
+			set "bg_noammo::visible" "1" ;
+			set "bg_o::visible" "0" ;
+			set "bg_o2::visible" "0" ;
+			set "bg_o_lowammo::visible" "0" ;
+			set "bg_o2_lowammo::visible" "0" ;
+			set "bg_o_noammo::visible" "1" ;
+			set "bg_o2_noammo::visible" "1" ;
+			set "scan::visible" "0" ;
+			set "scan_lowammo::visible" "0" ;
+			set "scan_noammo::visible" "1" ;
+			
+			setlightcolor "bg_noammo::matcolor";
+		}
+	}
+
+	onNamedEvent weapon_noammo {
+		set "bg::visible" "0" ;
+		set "bg_lowammo::visible" "0" ;
+		set "bg_noammo::visible" "1" ;
+		set "bg_o::visible" "0" ;
+		set "bg_o2::visible" "0" ;
+		set "bg_o_lowammo::visible" "0" ;
+		set "bg_o2_lowammo::visible" "0" ;
+		set "bg_o_noammo::visible" "1" ;
+		set "bg_o2_noammo::visible" "1" ;
+		set "scan::visible" "0" ;
+		set "scan_lowammo::visible" "0" ;
+		set "scan_noammo::visible" "1" ;
+		
+		setlightcolor "bg_noammo::matcolor";
+	}
+
+	windowDef bg
+	{
+		rect	117,124,400,169
+		visible	1
+		background	"gfx/guis/weapons/shotgun/bg"
+		matcolor	0.450,0.650,0.250,1*guitable_1_92[time*0.003]
+	}
+	windowDef bg_lowammo
+	{
+		rect	117,124,400,169
+		visible	0
+		background	"gfx/guis/weapons/shotgun/bg"
+		matcolor	0.792,0.560,0.0823,1*guitable_8_10[time*0.003]
+	}
+	windowDef bg_noammo
+	{
+		rect	117,124,400,169
+		visible	0
+		background	"gfx/guis/weapons/shotgun/bg"
+		matcolor	0.780,0.172,0.105,1*guitable_10_5[time*0.002]
+	}
+	windowDef ammo
+	{
+		rect	164,85,275,185
+		visible	1
+		forecolor	0,0,0,0.772
+		text	"gui::player_ammo"
+		textscale	3.5
+		font	"fonts/marine"
+		textalign	1
+		textspacing	-7
+	}
+	windowDef left
+	{
+		rect	153,168,54,64
+		visible	1
+		background	"gfx/guis/common/gradient2"
+		matcolor	0,0,0,.6
+	}
+	windowDef right
+	{
+		rect	424,168,54,64
+		visible	1
+		background	"gfx/guis/common/gradient2"
+		matcolor	0,0,0,.6
+		matscalex	-1
+	}
+	windowDef bg_o
+	{
+		rect	117,124,400,169
+		visible	1
+		background	"gfx/guis/weapons/shotgun/bg_o"
+		matcolor	0.717,0.686,0.309,0.5*guitable_1_92[time*0.009]
+	}
+	windowDef bg_o_lowammo
+	{
+		rect	117,124,400,169
+		visible	0
+		background	"gfx/guis/weapons/shotgun/bg_o"
+		matcolor	0.996,0.603,0.0117,0.5*guitable_8_10[time*0.003]
+	}
+	windowDef bg_o_noammo
+	{
+		rect	117,124,400,169
+		visible	0
+		background	"gfx/guis/weapons/shotgun/bg_o"
+		matcolor	1,0.509,0.0156,0.5*guitable_10_5[time*0.002]
+	}
+	windowDef bg_o2
+	{
+		rect	205,198,223,72
+		visible	1
+		background	"gfx/guis/weapons/shotgun/bg_o"
+		matcolor	0.827,0.984,0.733,0.3*guitable_1_92[time*0.009]
+	}
+	windowDef bg_o2_lowammo
+	{
+		rect	205,198,223,72
+		visible	0
+		background	"gfx/guis/weapons/shotgun/bg_o"
+		matcolor	0.984,0.788,0,0.3*guitable_8_10[time*0.003]
+	}
+	windowDef bg_o2_noammo
+	{
+		rect	205,198,223,72
+		visible	0
+		background	"gfx/guis/weapons/shotgun/bg_o"
+		matcolor	0.984,0.647,0.0156,0.3*guitable_10_5[time*0.002]
+	}
+	windowDef scan
+	{
+		rect	176,130,278,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.521,0.929,0.0705,0
+		matscaley	-1
+
+		onTime 0 {
+			transition "scan::rect" "$scan::rect" "$d_scan1::rect" "200" ;
+			transition "scan::matcolor" "$desktop::scan_off" "$desktop::scan_on" "200" ;
+		}
+
+		onTime 200 {
+			transition "scan::rect" "$d_scan1::rect" "$d_scan2::rect" "400" ;
+		}
+
+		onTime 600 {
+			transition "scan::rect" "$d_scan2::rect" "$d_scan3::rect" "200" ;
+		}
+
+		onTime 800 {
+			transition "scan::rect" "$d_scan3::rect" "$d_scan4::rect" "200" ;
+			transition "scan::matcolor" "$desktop::scan_on" "$desktop::scan_off" "200" ;
+		}
+
+		onTime 2000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef scan_noammo
+	{
+		rect	176,130,278,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.968,0.262,0.0235,0
+		matscaley	-1
+
+		onTime 0 {
+			transition "scan_noammo::rect" "$scan_noammo::rect" "$d_scan1::rect" "200" ;
+			transition "scan_noammo::matcolor" "$desktop::scan_n_off" "$desktop::scan_n_on" "200" ;
+		}
+
+		onTime 200 {
+			transition "scan_noammo::rect" "$d_scan1::rect" "$d_scan2::rect" "400" ;
+		}
+
+		onTime 600 {
+			transition "scan_noammo::rect" "$d_scan2::rect" "$d_scan3::rect" "200" ;
+		}
+
+		onTime 800 {
+			transition "scan_noammo::rect" "$d_scan3::rect" "$d_scan4::rect" "200" ;
+			transition "scan_noammo::matcolor" "$desktop::scan_n_on" "$desktop::scan_n_off" "200" ;
+		}
+
+		onTime 2000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef scan_lowammo
+	{
+		rect	176,130,278,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	1,0.6,0,0
+		matscaley	-1
+
+		onTime 0 {
+			transition "scan_lowammo::rect" "$scan_lowammo::rect" "$d_scan1::rect" "200" ;
+			transition "scan_lowammo::matcolor" "$desktop::scan_l_off" "$desktop::scan_l_on" "200" ;
+		}
+
+		onTime 200 {
+			transition "scan_lowammo::rect" "$d_scan1::rect" "$d_scan2::rect" "400" ;
+		}
+
+		onTime 600 {
+			transition "scan_lowammo::rect" "$d_scan2::rect" "$d_scan3::rect" "200" ;
+		}
+
+		onTime 800 {
+			transition "scan_lowammo::rect" "$d_scan3::rect" "$d_scan4::rect" "200" ;
+			transition "scan_lowammo::matcolor" "$desktop::scan_l_on" "$desktop::scan_l_off" "200" ;
+		}
+
+		onTime 2000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef d_scan1
+	{
+		rect	160,142,310,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.521,0.929,0.0705,0.2
+		matscaley	-1
+	}
+	windowDef d_scan2
+	{
+		rect	160,197,310,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.521,0.929,0.0705,0.2
+		matscaley	-1
+	}
+	windowDef d_scan3
+	{
+		rect	191,216,251,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.521,0.929,0.0705,0.2
+		matscaley	-1
+	}
+	windowDef d_scan4
+	{
+		rect	191,228,251,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.521,0.929,0.0705,0.2
+		matscaley	-1
+	}
+}

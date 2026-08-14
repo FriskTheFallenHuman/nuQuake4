@@ -1,0 +1,179 @@
+/*
+===============================================================================
+	Marine Fatigues (char_marine_fatigues)
+===============================================================================
+*/
+
+export test_marine_fatigues
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL  -sourcedir work/models/characters/marine_fatigues/mocap_animations -destdir models/test/egnewtest
+	
+	addoptions -skipmesh dummy_head_mesh
+
+	mesh	fatigue_marine_mesh.ma				-dest fatigue_marine_mesh
+	anim	fatigue_marine_mesh.ma				-dest fatigue_marine_idle
+	anim	weaponless_idle_1.ma					-dest weaponless_idle1
+	anim	m_sitting_working_consoles_1.ma			-dest sitting_working_consoles_1
+	anim	m_sitting_working_consoles_2.ma			-dest sitting_working_consoles_2
+	anim	m_sitting_working_consoles_3.ma			-dest sitting_working_consoles_3
+	anim	m_sitting_working_consoles_4.ma			-dest sitting_working_consoles_4
+	//anim	weaponless_points_2.ma					-dest points
+	anim	unarmed_idle.ma						-range 0 0 -dest unarmed_idle
+	anim	m_sitting_working_consoles_5.ma			-dest sitting_working_consoles_5
+	anim	weaponless_walk_1.ma				-dest weaponless_walk_fast
+	anim	weaponless_walk_2.ma				-dest weaponless_walk_slow
+	anim	weaponless_run01.ma				-dest weaponless_run
+	anim	sarge_briefing_1.ma				-dest sarge_briefing_1
+	anim	sarge_briefing_2.ma				-dest sarge_briefing_2
+	anim	sarge_briefing_3.ma				-dest sarge_briefing_3
+	anim	sarge_briefing_4.ma				-dest sarge_briefing_4
+	anim	sarge_briefing_5.ma				-dest sarge_briefing_5
+	anim	sarge_briefing_6.ma				-dest sarge_briefing_6
+	anim	sarge_briefing_7.ma				-dest sarge_briefing_7
+	anim	onbackworking_Zack_work.ma			-dest onbackworking_Zack
+	anim	onbackworking_Nick_work.ma			-dest onbackworking_Nick
+	anim	idle_against_wall.ma				-dest idle_against_wall
+	anim	weaponless_idle_2.ma			-range 13 60 -dest weaponless_idle2_start
+	anim	weaponless_idle_2.ma			-range 60 362 -dest weaponless_idle2_loop
+	anim	weaponless_idle_2.ma			-range 362 457 -dest weaponless_idle2_end
+	anim	weaponless_idle_3.ma			-range 1 60 -dest weaponless_idle3_start
+	anim	weaponless_idle_3.ma			-range 60 310 -dest weaponless_idle3_loop
+	anim	weaponless_idle_3.ma			-range 493 548 -dest weaponless_idle3_end
+	anim	weaponless_idle_4.ma			-range 10 65 -dest weaponless_idle_4_start
+	anim	weaponless_idle_4.ma			-range 65 155 -dest weaponless_idle_4_loop
+	anim	weaponless_idle_4.ma			-range 350 395 -dest weaponless_idle_4_end
+	anim	weaponless_idle_5.ma			-range 35 90 -dest weaponless_idle_5_start
+	anim	weaponless_idle_5.ma			-range 90 165 -dest weaponless_idle_5_loop
+	anim	weaponless_idle_5.ma			-range 470 500 -dest weaponless_idle_5_end
+	anim	weaponless_idle_6.ma			-range 1 60 -dest weaponless_idle_6_start
+	anim	weaponless_idle_6.ma			-range 60 140 -dest weaponless_idle_6_loop
+	anim	weaponless_idle_6.ma			-range 350 432 -dest weaponless_idle_6_end
+	anim	working_wall_panel_2.ma			-range 282 351 -dest working_wall_panel
+	anim	working_wall_panel_2.ma			-range 351 445 -dest working_wall_panel_2
+	anim	working_wall_panel_2.ma			-range 445 590 -dest working_wall_panel_3
+	anim	weaponless_points.ma			-range 91 151 -dest weaponless_point_right
+	anim	weaponless_points.ma			-range 151 215 -dest weaponless_point_left	
+	anim	weaponless_points.ma			-range 215 276 -dest weaponless_point_front	
+	anim	weaponless_points.ma			-range 276 387 -dest weaponless_point_back
+	anim	weaponless_points.ma			-range 387 481 -dest weaponless_point_down
+	anim	weaponless_points.ma			-range 481 567 -dest weaponless_point_up
+	anim	mcc1_d_chamber_action.ma		-dest mcc1_d_chamber_action
+	anim	mcc1_d_chamber_loop.ma			-dest mcc1_d_chamber_loop
+	anim	mcc1_reaction_seated_1.ma			-dest mcc1_reaction_seated_1
+	anim	mcc1_reaction_seated_2.ma			-dest mcc1_reaction_seated_2
+	anim	onbackworking_Nick_spark.ma		-dest onbackworking_Nick_spark
+	anim	onbackworking_Zack_spark.ma		-dest onbackworking_Zack_spark
+	anim	onbackworking_Zack_work_idle.ma		-dest onbackworking_Zack_work_idle
+	anim	lookingdown_gui_1.ma			-dest lookingdown_gui_1
+	anim	lookingdown_gui_2.ma			-dest lookingdown_gui_2
+	anim	lookingdown_gui_3.ma			-dest lookingdown_gui_3
+	anim	sit_sleeping.ma				-dest sit_sleeping
+	anim	working_on_knee.ma					-dest working_on_knee
+	
+	addoptions  -sourcedir work/models/characters/Officer/referenced
+	mesh	tempIdle.ma						-dest officer_mesh
+
+}
+
+/*
+===============================================================================
+	Marine Fatigues
+===============================================================================
+*/
+
+model model_test_marine_fatigues
+{
+	mesh									models/test/egnewtest/fatigue_marine_mesh.md5mesh
+	anim idle								models/test/egnewtest/fatigue_marine_idle.md5anim
+	anim sitting_working_consoles_1			models/test/egnewtest/sitting_working_consoles_1.md5anim
+	anim sitting_working_consoles_2			models/test/egnewtest/sitting_working_consoles_2.md5anim
+	anim sitting_working_consoles_3			models/test/egnewtest/sitting_working_consoles_3.md5anim
+	anim sitting_working_consoles_4			models/test/egnewtest/sitting_working_consoles_4.md5anim
+	anim points								models/test/egnewtest/points.md5anim
+	anim unarmed_idle						models/test/egnewtest/unarmed_idle.md5anim
+	anim sitting_working_consoles_5			models/test/egnewtest/sitting_working_consoles_5.md5anim
+	anim weaponless_walk_fast				models/test/egnewtest/weaponless_walk_fast.md5anim
+	anim weaponless_walk_slow				models/test/egnewtest/weaponless_walk_slow.md5anim
+	anim weaponless_run						models/test/egnewtest/weaponless_run.md5anim
+	
+	anim weaponless_idle1					models/test/egnewtest/weaponless_idle1.md5anim	
+	anim weaponless_idle2_start				models/test/egnewtest/weaponless_idle2_start.md5anim
+	anim weaponless_idle2_loop				models/test/egnewtest/weaponless_idle2_loop.md5anim
+	anim weaponless_idle2_end				models/test/egnewtest/weaponless_idle2_end.md5anim
+	anim weaponless_idle3_start				models/test/egnewtest/weaponless_idle3_start.md5anim
+	anim weaponless_idle3_loop				models/test/egnewtest/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3_end				models/test/egnewtest/weaponless_idle3_end.md5anim
+	anim weaponless_idle_4_start			models/test/egnewtest/weaponless_idle_4_start.md5anim
+	anim weaponless_idle_4_loop				models/test/egnewtest/weaponless_idle_4_loop.md5anim
+	anim weaponless_idle_4_end				models/test/egnewtest/weaponless_idle_4_end.md5anim
+	anim weaponless_idle_5_start			models/test/egnewtest/weaponless_idle_5_start.md5anim
+	anim weaponless_idle_5_loop				models/test/egnewtest/weaponless_idle_5_loop.md5anim
+	anim weaponless_idle_5_end				models/test/egnewtest/weaponless_idle_5_end.md5anim
+	anim weaponless_idle_6_start			models/test/egnewtest/weaponless_idle_6_start.md5anim
+	anim weaponless_idle_6_loop				models/test/egnewtest/weaponless_idle_6_loop.md5anim
+	anim weaponless_idle_6_end				models/test/egnewtest/weaponless_idle_6_end.md5anim
+
+	
+	anim sarge_briefing_1					models/test/egnewtest/sarge_briefing_1.md5anim
+	anim sarge_briefing_2					models/test/egnewtest/sarge_briefing_2.md5anim
+	anim sarge_briefing_3					models/test/egnewtest/sarge_briefing_3.md5anim
+	anim sarge_briefing_4					models/test/egnewtest/sarge_briefing_4.md5anim
+	anim sarge_briefing_5					models/test/egnewtest/sarge_briefing_5.md5anim
+	anim sarge_briefing_6					models/test/egnewtest/sarge_briefing_6.md5anim
+	anim sarge_briefing_7					models/test/egnewtest/sarge_briefing_7.md5anim
+	
+	anim weaponless_point_right				models/test/egnewtest/weaponless_point_right.md5anim
+	anim weaponless_point_left				models/test/egnewtest/weaponless_point_left.md5anim
+	anim weaponless_point_front				models/test/egnewtest/weaponless_point_front.md5anim
+	anim weaponless_point_back				models/test/egnewtest/weaponless_point_back.md5anim
+	anim weaponless_point_down				models/test/egnewtest/weaponless_point_down.md5anim
+	anim weaponless_point_up				models/test/egnewtest/weaponless_point_up.md5anim
+
+	anim onbackworking_Zack					models/test/egnewtest/onbackworking_Zack.md5anim
+	anim onbackworking_Nick					models/test/egnewtest/onbackworking_Nick.md5anim
+	anim idle_against_wall					models/test/egnewtest/idle_against_wall.md5anim
+	anim working_wall_panel				models/test/egnewtest/working_wall_panel.md5anim
+	anim working_wall_panel_2			models/test/egnewtest/working_wall_panel_2.md5anim
+	anim working_wall_panel_3			models/test/egnewtest/working_wall_panel_3.md5anim
+	anim mcc1_d_chamber_action				models/test/egnewtest/mcc1_d_chamber_action.md5anim
+	anim mcc1_d_chamber_loop				models/test/egnewtest/mcc1_d_chamber_loop.md5anim
+	anim mcc1_reaction_seated_1				models/test/egnewtest/mcc1_reaction_seated_1.md5anim
+	anim mcc1_reaction_seated_2				models/test/egnewtest/mcc1_reaction_seated_2.md5anim
+	anim onbackworking_Nick_spark				models/test/egnewtest/onbackworking_Nick_spark.md5anim
+	anim onbackworking_Zack_spark				models/test/egnewtest/onbackworking_Zack_spark.md5anim
+	anim onbackworking_Zack_work_idle				models/test/egnewtest/onbackworking_Zack_work_idle.md5anim
+	anim lookingdown_gui_1 					models/test/egnewtest/lookingdown_gui_1.md5anim
+	anim lookingdown_gui_2					models/test/egnewtest/lookingdown_gui_2.md5anim
+	anim lookingdown_gui_3					models/test/egnewtest/lookingdown_gui_3.md5anim
+	anim sit_sleeping					models/test/egnewtest/sit_sleeping.md5anim
+}
+
+/*
+===============================================================================
+	Marine Fatigues Entity Definition
+===============================================================================
+*/
+
+entityDef	test_marine_fatigues
+{
+	"inherit"						"actor_default"
+	"model"							"model_test_marine_fatigues"
+	"anim"							"idle"
+}
+
+
+
+
+
+
+
+model model_test_officer
+{
+	inherit							model_test_marine_fatigues
+	mesh							models/test/egnewtest/officer_mesh.md5mesh
+}
+
+
+entityDef test_officer {
+	"model"			"model_test_officer"
+}

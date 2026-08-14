@@ -1,0 +1,2010 @@
+sound vo_001overhere
+{
+	description	"Hey, over here."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	global		
+	onDemand
+
+	sound/vo/building_b/001overhere
+}
+
+sound vo_001_holy
+{
+	description	"Holy Mother of . . . That thing's frickin' huge! Edwards, get back!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/001_holy
+}
+
+
+sound vo_002_headsup
+{
+	description	"Heads up. The Strogg are breaking through our perimiter. They'll be on us in 3...2...1"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/002_headsup
+}
+
+sound vo_002_reinforcements
+{
+	description	"Oh my God!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/002_reinforcements
+}
+
+sound vo_002_reinforcements2
+{
+	description	"Badger squad, requesting reinforcements!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/002_reinforcements2
+}
+
+sound vo_002_bravoteam
+{
+	description	"Bravo Team here! We've got a situaton in alpha niner. Requesting backup for the  . . . Oh, God, just send backup now!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/002_bravoteam
+}
+
+sound vo_radio_event1_1
+{
+	description	"Oh, this is not good!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/radio_event1_1
+}
+
+sound vo_radio_event1_2
+{
+	description	"I can't see a thing!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/radio_event1_2
+}
+
+sound vo_radio_event1_3
+{
+	description	"Someone get these lights back on ASAP!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/radio_event1_3
+}
+
+sound vo_radio_event1_4
+{
+	description	"We got movement!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/radio_event1_4
+}
+
+sound vo_marine_dragged
+{
+	description	"Gaaaaahhhh!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	global
+
+	sound/vo/building_b/marine_dragged
+}
+
+sound vo_1_1_0_0001
+{
+	description	"Medic! Medic! Where's the damn medic?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_0_0001
+}
+
+
+sound vo_1_1_0_0002
+{
+	description	"Get your shit wired, Marines! I want this perimeter secured now!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_0_0002
+}
+
+
+sound vo_1_1_0_0003
+{
+	description	"Uplink established with HQ."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_0_0003
+}
+
+
+sound vo_1_1_10_0001
+{
+	description	"The Strogg do some seriously weird shit to prisoners."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_10_0001
+}
+
+
+sound vo_1_1_10_0002
+{
+	description	"Yeah, like what?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_10_0002
+}
+
+
+sound vo_1_1_10_0003
+{
+	description	"They remove different organs just to see how long a human can last without 'em."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_10_0003
+}
+
+
+sound vo_1_1_11_0001
+{
+	description	"Hey, buddy! What's the word? Has the perimeter been secured? Aaaaaaahhh!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_11_0001
+}
+
+
+sound vo_1_1_12_0001
+{
+	description	"What the hell? They got to main power!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_12_0001
+}
+
+
+sound vo_1_1_12_0002
+{
+	description	"Quiet! Keep your eyes open."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_12_0002
+}
+
+
+sound vo_1_1_12_0003
+{
+	description	"Watch the ceilings."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_12_0003
+}
+
+
+sound vo_1_1_12_0004
+{
+	description	"Who's got a scanner?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_12_0004
+}
+
+
+sound vo_1_1_12_0005
+{
+	description	"Gimme a second."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_12_0005
+}
+
+
+sound vo_1_1_12_0006
+{
+	description	"Scanner reads clear. They're gone."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_12_0006
+}
+
+
+sound vo_1_1_13_2_0001
+{
+	description	"HQ, this is Fox Squad in sector 6A. We have engaged the Strogg."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_2_0001
+}
+
+
+sound vo_1_1_13_2_0002
+{
+	description	"Do you require assistance?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_2_0002
+}
+
+
+sound vo_1_1_13_2_0003
+{
+	description	"Affirmative. Send an additional squad immediately."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_2_0003
+}
+
+
+sound vo_1_1_13_4_0001
+{
+	description	"HQ, HQ, our squad's pinned down and meeting heavy resistance. We've run out of... aaaah!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_4_0001
+}
+
+
+sound vo_1_1_13_5_0001
+{
+	description	"Sarge. We got movement - at bearing 221. I count six signals."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_5_0001
+}
+
+
+sound vo_1_1_13_5_0002
+{
+	description	"I want a straight V formation. Holtz, you take point."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_5_0002
+}
+
+
+sound vo_1_1_13_5_0003
+{
+	description	"Got it."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_5_0003
+}
+
+
+sound vo_1_1_13_5_0004
+{
+	description	"Don't bunch up and remember to check the ceilings."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_5_0004
+}
+
+
+sound vo_1_1_13_6_0001
+{
+	description	"Destroyer, U.S.S. Madison, has achieved sub-orbital position. Com-links established with primary tactical operation HQs. All company commanders transmit sit-reps immediately."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_6_0001
+}
+
+
+sound vo_1_1_13_7_0000
+{
+	description	"HQ, we have engaged the Strogg."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0000
+}
+
+
+sound vo_1_1_13_7_0001
+{
+	description	"Roger that. We read you at sector 25 L."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0001
+}
+
+
+sound vo_1_1_13_7_0002
+{
+	description	"Affirmative, HQ. We're meeting heavy resistance."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0002
+}
+
+
+sound vo_1_1_13_7_0003
+{
+	description	"Watch the left flank!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0003
+}
+
+
+sound vo_1_1_13_7_0004
+{
+	description	"Over here!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0004
+}
+
+
+sound vo_1_1_13_7_0005
+{
+	description	"Throw a charge!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0005
+}
+
+
+sound vo_1_1_13_7_0006
+{
+	description	"Get down!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0006
+}
+
+
+sound vo_1_1_13_7_0007
+{
+	description	"Do you require reinforcements? Silence."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0007
+}
+
+
+sound vo_1_1_13_7_0008
+{
+	description	"I repeat. Do you require reinforcements?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0008
+}
+
+
+sound vo_1_1_13_7_0009
+{
+	description	"Negative. The situation is under control."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_7_0009
+}
+
+sound vo_1_1_13_20_1
+{
+	description	"Corporal Kane, Voss wanted me to give you this Strogg nailgun. I bet it can sure rip the shit out of a squib."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_13_20_1
+}
+
+sound vo_1_1_1_0001
+{
+	description	"Hey, the torch is here."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_1_0001
+}
+
+
+sound vo_1_1_2_0001
+{
+	description	"Ahhh... aaaaah... uuuuh..."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_2_0001
+}
+
+
+sound vo_1_1_2_0002
+{
+	description	"Hang on. Help's comin'."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_2_0002
+}
+
+
+sound vo_1_1_2_0003
+{
+	description	"Medic! I NEED A MEDIC!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_2_0003
+}
+
+
+sound vo_1_1_3_0002
+{
+	description	"Seal it! Seal the damn window now!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_3_0002
+}
+
+
+sound vo_1_1_3_0003
+{
+	description	"Where the hell did that come from?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_3_0003
+}
+
+
+sound vo_1_1_3_0004
+{
+	description	"Don't know. But we better inform the Sarge."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_3_0004
+}
+
+
+sound vo_1_1_4_0001
+{
+	description	"Sarge, we got movement on the scanner."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_4_0001
+}
+
+
+sound vo_1_1_4_0002
+{
+	description	"Okay, be sure to lay down suppressing..."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_4_0002
+}
+
+
+sound vo_1_1_4_0003
+{
+	description	"Shit. You almost got your freakin' head ventilated."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_4_0003
+}
+
+
+sound vo_1_1_4_0004
+{
+	description	"Marines, take your positions! We got company."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_4_0004
+}
+
+
+sound vo_1_1_4_0006
+{
+	description	"Scanner's clean. Whatever it was, it's gone."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_4_0006
+}
+
+
+sound vo_1_1_5_0001
+{
+	description	"Hey! HEY!! Turn on your freakin' comm-link!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_5_0001
+}
+
+
+sound vo_1_1_6_0001
+{
+	description	"There's your objective, Corporal. Get to that console and deactivate the defense grid."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_6_0001
+}
+
+
+sound vo_1_1_7_0001
+{
+	description	"This is Famine Convoy, grid is down."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_7_0001
+}
+
+
+sound vo_1_1_7_0002
+{
+	description	"This is Pestilence Convoy, grid is down."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_7_0002
+}
+
+
+sound vo_1_1_7_0003
+{
+	description	"This is War. The Defense Grid is fully deactivated."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_7_0003
+}
+
+
+sound vo_1_1_7_0004
+{
+	description	"Shit! We've been spotted by Strogg fliers! They're coming in for a..."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_7_0004
+}
+
+
+sound vo_1_1_7_0005
+{
+	description	"War. Come in. War, please respond."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_7_0005
+}
+
+
+sound vo_1_1_7_0006
+{
+	description	"Kane, we're movin' out before the Strogg finds our convoy. We've left a hover tank for you. Grab it and you'll be able to rendezvous with us in no time. Bidwell, out."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_1_7_0006
+}
+
+
+sound vo_1_1_8_0005
+{
+	description	"Wait here. Jones, you take point."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_8_0005
+}
+
+sound vo_1_1_8_5_0002
+{
+	description	"Primary lock is cut."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_8_5_0002
+}
+
+
+sound vo_1_1_8_5_0003
+{
+	description	"Secondary lock is cut."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_8_5_0003
+}
+
+
+sound vo_1_1_8_5_0004
+{
+	description	"Cutting final interlock."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_8_5_0004
+}
+
+
+sound vo_1_1_8_5_0005
+{
+	description	"Done."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_8_5_0005
+}
+
+
+sound vo_1_1_9_0001
+{
+	description	"We're gonna lose this war. I can feel it."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_9_0001
+}
+
+
+sound vo_1_1_9_0002
+{
+	description	"Don't you be talkin' like that."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_9_0002
+}
+
+
+sound vo_1_1_9_0003
+{
+	description	"Hey, you've heard the news from the front. You know how bad things are."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_9_0003
+}
+
+
+sound vo_1_1_9_0004
+{
+	description	"I don't know nothin'. I do my job and shut the hell up - just like you should."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_1_9_0004
+}
+
+
+sound vo_1_2_10_15_1
+{
+	description	"You're part of Rhino Squad, aren't ya? Is it true Sledge over there killed a Strogg with nothing but a lead pipe?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_10_15_1
+}
+
+
+sound vo_1_2_10_15_2
+{
+	description	"I heard he did it with his bare hands."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_10_15_2
+}
+
+
+sound vo_1_2_8_100_1
+{
+	description	"Hang on, we got Strogg moving in for the kill!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_100_1
+}
+
+
+sound vo_1_2_8_100_2
+{
+	description	"Ramming speed!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_100_2
+}
+
+
+sound vo_1_2_8_100_3
+{
+	description	"Keep back! We're coming in fast!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_100_3
+}
+
+
+sound vo_1_2_8_100_4
+{
+	description	"Take positions! This zone is hot!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_100_4
+}
+
+
+sound vo_1_2_8_100_5
+{
+	description	"Hey, Kane!"
+
+	minDistance	80
+	maxDistance	2400
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_100_5
+}
+
+
+sound vo_1_2_8_100_6
+{
+	description	"You must be my escort. Nice of you to show up. Take me back to the door they want opened."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_100_6
+}
+
+
+sound vo_1_2_8_101_1
+{
+	description	"What are you standing around for? Take me to the door they want opened!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_101_1
+}
+
+sound vo_1_2_8_101_2
+{
+	description	"Troops are waitin’ on us, Marine. Get me to that door pronto."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_101_2
+}
+
+sound vo_1_2_8_101_3
+{
+	description	"Damn it! Get me to that door!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_101_3
+}
+
+sound vo_1_2_8_102_1
+{
+	description	"You go ahead and get Newberry to the door they need opened."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_102_1
+}
+
+
+sound vo_1_2_8_102_2
+{
+	description	"Don't worry about us. We're stayin' right here."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_102_2
+}
+
+
+sound vo_1_2_8_102_3
+{
+	description	"Really, kid. Get going."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_102_3
+}
+
+
+sound vo_1_2_8_10_1
+{
+	description	"Ah, Corporal Kane. You continue to surprise me by staying alive. Go to Lt.Voss in that control room. He has orders for you."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_10_1
+}
+
+
+sound vo_1_2_8_11_1
+{
+	description	"I don't think it is wise to keep Lt.Voss waiting. He is in that control room."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_11_1
+}
+
+
+sound vo_1_2_8_11_2
+{
+	description	"I advise you to go see Lt.Voss immediately."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_11_2
+}
+
+
+sound vo_1_2_8_11_3
+{
+	description	"Corporal, go see Lt.Voss now!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_11_3
+}
+
+
+sound vo_1_2_8_15_1
+{
+	description	"Rhino Squad, huh? You guys are supposed to be pretty badass."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_15_1
+}
+
+
+sound vo_1_2_8_15_2
+{
+	description	"Yeah, did Rhino really save Austin, back when the Strogg attacked Earth?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_15_2
+}
+
+
+sound vo_1_2_8_20_1
+{
+	description	"Rodriguez, Singer. Go to containment door 12. I am running a test."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_20_1
+}
+
+
+sound vo_1_2_8_20_2
+{
+	description	"Rodger that."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_20_2
+}
+
+
+sound vo_1_2_8_20_3
+{
+	description	"Glad you made it back, Kane. Strauss, what's our situation?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_20_3
+}
+
+
+sound vo_1_2_8_20_4
+{
+	description	"I now control almost all containment doors. We cannot reach the controls to turn off the laser fence. The security door is locked and I cannot open it from here."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_20_4
+}
+
+
+sound vo_1_2_8_20_5
+{
+	description	"That's where you come in, Kane. Get down to Sub-entrance 1 and free the engineering team that's trapped. Then escort one of the engineers up here to cut through that door. Take Singer and Rodriguez with you. Good luck."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_20_5
+}
+
+
+sound vo_1_2_8_21_1
+{
+	description	"You've got your orders, Kane. Move out."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_21_1
+}
+
+
+sound vo_1_2_8_21_2
+{
+	description	"Kane, what are you doing here? Get down to Sub-Entrance 1. We need that engineer ASAP!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_21_2
+}
+
+
+sound vo_1_2_8_21_3
+{
+	description	"Damn it, Kane. Get to Sub-Entrance 1 now!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_21_3
+}
+
+
+sound vo_1_2_8_22_1
+{
+	description	"This Strogg technology is very complex. I'm much too busy to talk."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_22_1
+}
+
+
+sound vo_1_2_8_22_2
+{
+	description	"I have no time to chat. Leave me alone."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_22_2
+}
+
+
+sound vo_1_2_8_22_3
+{
+	description	"Go away!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_22_3
+}
+
+
+sound vo_1_2_8_23_1
+{
+	description	"Why don't you take a step back?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_23_1
+}
+
+
+sound vo_1_2_8_23_2
+{
+	description	"You're gettin' on my nerves, Soldier."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_23_2
+}
+
+
+sound vo_1_2_8_24_1
+{
+	description	"Please, do not crowd me."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_24_1
+}
+
+
+sound vo_1_2_8_24_2
+{
+	description	"I have no time for your games - get away from me."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_24_2
+}
+
+
+sound vo_1_2_8_30_1
+{
+	description	"Just got orders from Lt.Voss. We're accompanying you to Sub-Entrance 1."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_30_1
+}
+
+
+sound vo_1_2_8_30_2
+{
+	description	"About damn time we get to frag some squibs."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_30_2
+}
+
+
+sound vo_1_2_8_30_5
+{
+	description	"Okay, Strauss. Open the door."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_30_5
+}
+
+
+sound vo_1_2_8_30_6
+{
+	description	"I will be locking the door behind you."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_30_6
+}
+
+
+sound vo_1_2_8_31_1
+{
+	description	"Let's get a move on. We're in Strogg territory."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_31_1
+}
+
+
+sound vo_1_2_8_31_2
+{
+	description	"Come on. We've got orders to get to Sub-entrance 1."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_31_2
+}
+
+
+sound vo_1_2_8_31_3
+{
+	description	"Let's go. Those engineers in Sub-Entrance 1 are waiting for us."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_31_3
+}
+
+
+sound vo_1_2_8_32_1
+{
+	description	"Stay quiet or the Strogg will hear us."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_32_1
+}
+
+
+sound vo_1_2_8_32_2
+{
+	description	"Let's get down to Sub-entrance 1 pronto."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_32_2
+}
+
+
+sound vo_1_2_8_32_3
+{
+	description	"We got our orders. Keep moving toward Sub-entrance 1."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_32_3
+}
+
+
+sound vo_1_2_8_40_1
+{
+	description	"Hit that console and get the elevator up here now!"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_40_1
+}
+
+
+sound vo_1_2_8_50_1
+{
+	description	"Damn. It's locked. Strauss, can you open this door?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_50_1
+}
+
+
+sound vo_1_2_8_50_2
+{
+	description	"Negative."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_50_2
+}
+
+
+sound vo_1_2_8_51_1
+{
+	description	"This door's open. Let's go."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_8_51_1
+}
+
+
+sound vo_1_2_8_61_1
+{
+	description	"Kane, what's the hold up? It's imperative you get to Sub-Entrance 1 ASAP."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_61_1
+}
+
+
+sound vo_1_2_8_70_1
+{
+	description	"To continue you must find the console that manually primes the door to sub-entrance 2.."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_70_1
+}
+
+
+sound vo_1_2_8_70_2
+{
+	description	"Very good. Now activating the door."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_70_2
+}
+
+
+sound vo_1_2_8_80_1
+{
+	description	"Just got word the Engineering team has seen Strogg in their vicinity. Step it up, Kane."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_80_1
+}
+
+
+sound vo_1_2_8_90_1
+{
+	description	"Yes, I see where you are - I cannot open that door from here. Find the console that allows you to manually prime it."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_90_1
+}
+
+
+sound vo_1_2_8_90_2
+{
+	description	"Ah, much better."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/building_b/1_2_8_90_2
+}
+
+
+sound vo_1_2_9_0032_1
+{
+	description	"The kid here got careless - didn't check the door before opening it. A Strogg was waitin' for him."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_0032_1
+}
+
+
+sound vo_1_2_9_0032_2
+{
+	description	"He's lost a lot of blood."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_0032_2
+}
+
+
+sound vo_1_2_9_0032_3
+{
+	description	"HQ said a medic would be here in five minutes - that was ten minutes ago."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_0032_3
+}
+
+
+sound vo_1_2_9_102_1
+{
+	description	"You know what I'm talking about, right? We're gettin' slaughtered on every front because the Strogg got us out numbered."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_102_1
+}
+
+
+sound vo_1_2_9_102_2
+{
+	description	"The 3rd armored walker division fought Strogg infantry about 30 clicks from here. Normally it’d be no contest, but there were so many Strogg, they swarmed the walkers."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_102_2
+}
+
+
+sound vo_1_2_9_102_3
+{
+	description	"Hey, I'm just tellin' like it is. We're all gonna wind up Strogg."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_102_3
+}
+
+
+sound vo_1_2_9_104_1
+{
+	description	"Don't listen to Mr. Sunshine over there. I've heard about plenty of battles we've won."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_104_1
+}
+
+
+sound vo_1_2_9_104_2
+{
+	description	"We have to stand a chance of winning, right? I mean, HQ wouldn't just throw away our lives on a lost cause."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_104_2
+}
+
+
+sound vo_1_2_9_104_3
+{
+	description	"We're gonna win this war, damn it. The Strogg can't be allowed to attack Earth again."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_104_3
+}
+
+
+sound vo_1_2_9_112_1
+{
+	description	"You've heard the stories about what the Strogg do to prisoners, haven't ya?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_112_1
+}
+
+
+sound vo_1_2_9_112_2
+{
+	description	"We're like animals to the freaks. They have no problems experimenting on us."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_112_2
+}
+
+
+sound vo_1_2_9_112_3
+{
+	description	"I think we're gonna be in for a big shock if we ever storm one of their prisons."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_112_3
+}
+
+
+sound vo_1_2_9_42_1
+{
+	description	"Shit, did you see that? I thought I was dead meat."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_42_1
+}
+
+
+sound vo_1_2_9_42_2
+{
+	description	"The squibs are tryin' to psyche us out - and it's starting to work."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_42_2
+}
+
+
+sound vo_1_2_9_42_3
+{
+	description	"You can't take three steps around here without checkin' over your shoulder."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_42_3
+}
+
+
+sound vo_1_2_9_52_1
+{
+	description	"Watch your step, Marine. This place is crawlin' with squibs."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_52_1
+}
+
+
+sound vo_1_2_9_52_2
+{
+	description	"The Strogg are testing our defenses, hitting us in one place and pulling back, then hitting us in another."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_52_2
+}
+
+
+sound vo_1_2_9_52_3
+{
+	description	"So far we've done a damn good job of holdin' the squibs back. We just have to keep it up."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_52_3
+}
+
+
+sound vo_1_2_9_53_1
+{
+	description	"This hit and run bullshit by the freaks is getting to be real annoying."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_53_1
+}
+
+
+sound vo_1_2_9_53_2
+{
+	description	"Biessman was attacked a few minutes ago. Poor bastard opened a door and wound up flat on his back with a Strogg chewin' on his neck."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_53_2
+}
+
+
+sound vo_1_2_9_53_3
+{
+	description	"Hey, you seen Biessman? I wonder how he's doin?"
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_53_3
+}
+
+
+sound vo_1_2_9_72_1
+{
+	description	"Hey, didn't I see you around the Air Defense Cannon? Yeah, you were part of the team that took the gun."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_72_1
+}
+
+
+sound vo_1_2_9_72_2
+{
+	description	"You Marines got a major set of balls to storm a cannon like that. You could have just set charges around it and blown it up."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_72_2
+}
+
+
+sound vo_1_2_9_72_3
+{
+	description	"Using the Strogg's own cannon to destroy the door was brilliant, absolutely brilliant."
+
+	minDistance	80
+	maxDistance	600
+	volumeDb	0
+	onDemand
+
+	sound/vo/building_b/1_2_9_72_3
+}
+
+sound buildingb_various_marinewrithe_loop
+{
+	description	"Writhing in pain!!"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+
+
+
+
+
+
+sound buildingB_various_marinedeath
+{
+	description	"I'm dead."
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	
+	sound/vo/ai/marine_3/helmet/9_12_270_2
+}
+
+sound buildingB_marine_death_glass
+{
+	description	"I'm dead, too."
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	
+	sound/vo/ai/marine_6/9_15_270_3
+}

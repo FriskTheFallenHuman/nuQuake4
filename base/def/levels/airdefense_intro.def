@@ -1,0 +1,1015 @@
+/***********************************************************************************************************************
+Air Defense
+
+Unique entities created for the intro_cinematic
+*******
+*****************************************************************************************************************/
+
+export ad_intro_parts
+{
+	options -scale .3937 -prefix PARTS_ -align ALL 		-sourcedir work/models/cinematics/intro_body_parts		-destdir models/cinematics/intro
+
+	mesh	idle.ma										-dest mesh
+	anim	idle.ma										-dest idle
+
+	options -scale .3937 -prefix PARTS_ -align ALL 		-sourcedir work/models/cinematics/GAME_INTRO			-destdir models/cinematics/intro
+	
+	anim 	intro_level_debris_parts.ma								-range 1 1200 -dest parts_intro
+	
+	
+}
+
+model model_ad_intro_parts
+{
+
+
+	mesh												models/cinematics/intro/mesh.md5mesh
+	anim idle											models/cinematics/intro/idle.md5anim
+	anim parts_intro									models/cinematics/intro/parts_intro.md5anim
+		{
+			frame 10									fx fx_blood	joint200	
+//			frame 10									fx fx_blood	joint196
+			frame 10									fx fx_blood	l_lower_arm7
+			frame 10									fx fx_blood	mid_back6
+			frame 10									fx fx_blood	up_arm1
+			frame 10									fx fx_blood	head
+			frame 10									fx fx_blood	mid_back
+			frame 10									fx fx_blood	mid_back5
+		}
+}
+
+entityDef ad_intro_parts
+{
+	"spawnclass"										"idAnimated"
+	"model"												"model_ad_intro_parts"
+	"editor_menu"										"level"
+
+	"sg_category"										"None"
+	
+	"fx_blood"											"effects/cinematics/intro/blood.fx"
+
+
+}
+
+
+/*************************************************************************
+ 		INTRO_DEBRIS
+*************************************************************************/
+
+
+export ad_intro_debris
+{
+	options -scale .3937 -prefix DEBRIS_ -align ALL 		-sourcedir work/models/cinematics/intro_debris		-destdir models/cinematics/intro/debris
+
+	mesh	idle.ma										-dest mesh
+	anim	idle.ma										-dest idle
+
+	options -scale .3937 -prefix DEBRIS_ -align ALL 		-sourcedir work/models/cinematics/GAME_INTRO		-destdir models/cinematics/intro/debris
+
+	anim 	intro_level_debris_parts.ma								-range 1 1046 -dest debris_intro
+
+}
+
+model model_ad_intro_debris
+{
+
+
+	mesh												models/cinematics/intro/debris/mesh.md5mesh
+	anim idle											models/cinematics/intro/debris/idle.md5anim
+	anim debris_intro									models/cinematics/intro/debris/debris_intro.md5anim
+	
+
+}
+
+entityDef ad_intro_debris
+{
+	"spawnclass"										"idAnimated"
+	"model"												"model_ad_intro_debris"
+	"editor_menu"										"level"
+
+	"sg_category"										"None"
+
+
+}
+
+/*************************************************************************
+ 		INTRO_MARINES
+*************************************************************************/
+
+model ad_intro_char_marine
+{
+	inherit												model_char_marine
+
+	anim	intro_bidwell_start			models/characters/marine/intro_bidwell_start.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 80,84,93					footstep
+	}
+	anim	intro_bidwell_ramp			models/characters/marine/intro_bidwell_ramp.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 6,90,176,185				footstep
+	}
+	anim	intro_cin_sprint1			models/characters/marine/intro_cin_sprint1.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 7,14,22,30,38,45			footstep
+		frame 54,62,70,78,86			footstep
+	}
+	anim	intro_cin_sprint2			models/characters/marine/intro_cin_sprint2.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 8,14						footstep
+	}
+	anim	intro_cin_sprint3			models/characters/marine/intro_cin_sprint3.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 2,10,18,26				footstep
+	}
+	anim	intro_cin_sprint4			models/characters/marine/intro_cin_sprint4.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint5			models/characters/marine/intro_cin_sprint5.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint6			models/characters/marine/intro_cin_sprint6.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint7			models/characters/marine/intro_cin_sprint7.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint8			models/characters/marine/intro_cin_sprint8.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint9			models/characters/marine/intro_cin_sprint9.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint10			models/characters/marine/intro_cin_sprint10.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint11			models/characters/marine/intro_cin_sprint11.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint12			models/characters/marine/intro_cin_sprint12.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint13			models/characters/marine/intro_cin_sprint13.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint14			models/characters/marine/intro_cin_sprint14.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_sprint15			models/characters/marine/intro_cin_sprint15.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_bidwell_sits		models/characters/marine/intro_cin_bidwell_sits.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_anderson		models/characters/marine/intro_cin_idle_anderson.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_morris		models/characters/marine/intro_cin_idle_morris.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_sledge		models/characters/marine/intro_cin_idle_sledge.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_strauss		models/characters/marine/intro_cin_idle_strauss.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	anim	intro_cin_idle_kane			models/characters/marine/intro_cin_idle_kane.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_cortez		models/characters/marine/intro_cin_idle_cortez.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_rhodes		models/characters/marine/intro_cin_idle_rhodes.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_bidwell		models/characters/marine/intro_cin_idle_bidwell.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	anim	intro_cin_idle_anderson_second		models/characters/marine/intro_cin_idle_anderson_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_morris_second		models/characters/marine/intro_cin_idle_morris_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_sledge_second		models/characters/marine/intro_cin_idle_sledge_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_strauss_second		models/characters/marine/intro_cin_idle_strauss_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	anim	intro_cin_idle_kane_second		models/characters/marine/intro_cin_idle_kane_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_cortez_second		models/characters/marine/intro_cin_idle_cortez_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_rhodes_second		models/characters/marine/intro_cin_idle_rhodes_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_idle_bidwell_second		models/characters/marine/intro_cin_idle_bidwell_second.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	anim	intro_cin_cortez_start		models/characters/marine/intro_cin_cortez_start.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_rhodes_start		models/characters/marine/intro_cin_rhodes_start.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	anim	intro_rhodes_talks			models/characters/marine/intro_rhodes_talks.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_kane_shake1			models/characters/marine/intro_kane_shake1.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cortez_shake1			models/characters/marine/intro_cortez_shake1.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_morris_talks		models/characters/marine/intro_cin_morris_talks.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_strauss_talks		models/characters/marine/intro_cin_strauss_talks.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_bidwell_talks		models/characters/marine/intro_cin_bidwell_talks.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_strauss_scolded	models/characters/marine/intro_cin_strauss_scolded.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_voss_talks2		models/characters/marine/intro_cin_voss_talks2.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cin_voss_enters		models/characters/marine/intro_cin_voss_enters.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 20,40						footstep
+	}
+	anim	intro_morris_rocked			models/characters/marine/intro_morris_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_anderson_rocked		models/characters/marine/intro_anderson_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_sledge_rocked			models/characters/marine/intro_sledge_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_strauss_rocked		models/characters/marine/intro_strauss_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_kane_rocked			models/characters/marine/intro_kane_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cortez_rocked			models/characters/marine/intro_cortez_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_rhodes_rocked			models/characters/marine/intro_rhodes_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_bidwell_rocked		models/characters/marine/intro_bidwell_rocked.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	ad_intro_run1				models/characters/marine/ad_intro_run1.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	ad_intro_run2				models/characters/marine/ad_intro_run2.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	ad_intro_run3				models/characters/marine/ad_intro_run3.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	ad_intro_run4				models/characters/marine/ad_intro_run4.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	ad_intro_shooting			models/characters/marine/ad_intro_shooting.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 26,28,30,33,35,39			ai_attack			fromJoint				MG_muzzle_flash
+		frame 26,28,30,33,35,39			sound_weapon		npc_machinegun_fire
+		frame 26,28,30,33,35,39			fx					fx_base_flash			MG_muzzle_flash
+	}
+	anim	ad_intro_command			models/characters/marine/ad_intro_command.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	ad_intro_getup				models/characters/marine/ad_intro_getup.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 84						enableClip
+		frame 85						call	map_airdefense1::cinNailed
+		frame 86						disableClip
+
+		// chest blast	
+		frame 91						call	map_airdefense1::cinNailedFx
+		frame 91						fx	fx_gib	chest
+	}
+	anim	intro_rhodes_idle			models/characters/marine/intro_rhodes_idle.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_cortez_idle			models/characters/marine/intro_cortez_idle.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	intro_kane_stare			models/characters/marine/intro_kane_stare.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	anim	intro_cin_cam_guy			models/characters/marine/intro_cin_cam_guy.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		
+		frame 5							trigger cinematic_music
+//		frame 1							trigger cinematic_sfx
+		
+		frame	499						call		map_airdefense_intro::burnShips
+		
+		frame	500						call		map_airdefense_intro::showCorporateLogos
+		frame	500						trigger		spkr_cine_intro_logo1
+		frame	632						trigger		spkr_cine_intro_logo2
+		frame	764						trigger		spkr_cine_intro_logo4
+//		frame	896						trigger		spkr_cine_intro_logo4
+		
+		frame	980						call		map_airdefense_intro::showLogo		
+		frame	980						trigger		spkr_cine_intro_logo_main
+
+		frame	1090					call		map_airdefense_intro::removeParts
+		frame	1097					trigger		env_destroyer_1
+		frame	1200					trigger		env_destroyer_lod_1
+		frame	1287					call		map_airdefense_intro::startFxAnims_1
+	
+		frame	1500					trigger		spkr_rc_1
+		frame	1568					call		map_airdefense_intro::animSwitch_1
+		frame	1571					call		map_airdefense_intro::animSwitch_2
+		// door opens		
+		frame	1576					trigger		func_door_250
+		frame	1661					call		map_airdefense_intro::animSwitch_3
+		frame	1663					call		map_airdefense_intro::animSwitch_4
+		frame	1686					trigger		spkr_rc_2
+		frame	1696					call		map_airdefense_intro::animSwitch_5
+		frame	1733					call		map_airdefense_intro::bidwellSpeak_2
+		// door closes		
+		frame	1760					trigger		func_door_250
+		frame	1792					call		map_airdefense_intro::bidwellSpeak_3
+		frame	1818					call		map_airdefense_intro::dropshipClose
+		frame	1920					call		map_airdefense_intro::bidwellSits
+		
+		frame	2008					call		map_airdefense_intro::dropshipTakeOff
+		frame	2120					call		map_airdefense_intro::dropshipExit
+
+		frame	2720					call		map_airdefense_intro::startFxAnims_2
+
+		frame	2301					call		map_airdefense_intro::dropshipInterior_1
+		frame	2338					call		map_airdefense_intro::rhodesSpeak_1
+		frame	2430					call		map_airdefense_intro::rhodesSpeak_2
+		frame	2459					call		map_airdefense_intro::morrisTalk
+		frame	2488					call		map_airdefense_intro::kaneStares
+
+		frame	2500					trigger		spkr_boom_2				
+		frame	2520					call		map_airdefense_intro::everyoneElseSecond
+		frame	2523					call		map_airdefense_intro::straussTalk
+		frame	2573					call		map_airdefense_intro::bidwellSpeak_4
+		frame	2588					call		map_airdefense_intro::bidwellSpeak_4_vo
+		frame	2595					call		map_airdefense_intro::straussKaneSecond
+		frame	2600					call		map_airdefense_intro::vossEnters
+		frame	2616					call		map_airdefense_intro::bidwellSecond
+		frame	2669					call		map_airdefense_intro::vossSpeak_1
+
+		frame	2693					call		map_airdefense_intro::vossSpeak_2
+		frame	2848					call		map_airdefense_intro::vossSpeak_3
+
+		frame	3085					trigger		spkr_boom_3
+		frame	3086					trigger		spkr_rc_4
+		frame	3088					call		map_airdefense_intro::squadRocked
+		frame	3094					call		map_airdefense_intro::quickBlackout
+		frame	3096					call		map_airdefense1::startRocketChase
+		frame	3420					call		map_airdefense1::instantCinBlackout
+	
+		// SFX sounds
+		frame	530						sound		snd_cine_intro_frame_530
+		frame	534						sound		snd_cine_intro_frame_534
+		frame	566						sound		snd_cine_intro_frame_566
+		frame	715						sound		snd_cine_intro_frame_715
+		frame	820						sound		snd_cine_intro_frame_820
+		frame	884						sound		snd_cine_intro_frame_884
+		frame	1076					sound		snd_cine_intro_frame_1076
+		frame	1094					sound		snd_cine_intro_frame_1094
+		frame	1504					sound		snd_cine_intro_frame_1504
+		frame	1560					sound		snd_cine_intro_frame_1560
+		frame	1575					sound		snd_cine_intro_frame_1575
+		frame	1604					sound		snd_cine_intro_frame_1604
+		frame	1643					sound		snd_cine_intro_frame_1643
+		frame	1660					sound		snd_cine_intro_frame_1660
+		frame	1819					sound		snd_cine_intro_frame_1819
+		frame	1852					sound		snd_cine_intro_frame_1852
+		frame	1916					sound		snd_cine_intro_frame_1916
+		frame	1961					sound		snd_cine_intro_frame_1961
+		frame	1963					sound		snd_cine_intro_frame_1963
+		frame	2039					sound		snd_cine_intro_frame_2039
+		frame	2135					sound		snd_cine_intro_frame_2135
+		frame	2150					sound		snd_cine_intro_frame_2150
+		frame	2230					sound		snd_cine_intro_frame_2230
+		frame	3092					sound		snd_cine_intro_frame_3092
+		frame	3150					sound		snd_cine_intro_frame_3150
+		frame	3188					sound		snd_cine_intro_frame_3188
+		frame	3290					sound		snd_cine_intro_frame_3290
+		frame	3381					sound		snd_cine_intro_frame_3381
+		frame	3419					sound		snd_cine_intro_frame_3419		
+		
+		// NOTE: why the heck are these ~24 frames earlier than they seem like they should be??
+		frame 3640						call	map_airdefense1::callLevelStart
+		frame 3722						call	map_airdefense1::introCommand
+		frame 3764						call	map_airdefense1::introRun1
+		frame 3973						call	map_airdefense1::introShooting
+		frame 3976						call	map_airdefense1::introRun2
+		frame 4040						call	map_airdefense1::introRun3
+		frame 4035						call	map_airdefense1::introRun4
+		
+		frame 4043						call	map_airdefense1::getUp
+		frame 4085						call	map_airdefense1::cinGetUpVO
+		
+		frame 3496,3830,4130			call	map_airdefense1::doHeartbeatSound
+		frame 3877,4174					call	map_airdefense1::instantCinBlackout
+		frame 3641,3935,4235			call	map_airdefense1::cinFadeBackIn	
+	}
+}
+
+
+entityDef ad_intro_char_marine
+{
+	"inherit"											"char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	
+	"def_attack_fromJoint"								"hitscan_marine_bullet"
+
+	"attack_fromJoint_hitscan"							"1"
+	"attack_fromJoint_lockToJoint"						"1"
+	
+	// Get the *f* up!
+	"lipsync_vo_1_1_0_01_22"							"vo_1_1_0_01_22"
+	
+	"fx_gib"											"effects/monsters/gib.fx"	
+	
+	// mother-lode of SFX sounds
+	//------------------------------------------------------------	
+	"snd_cine_intro_frame_530"			"cine_intro_frame_530"
+	"snd_cine_intro_frame_534"			"cine_intro_frame_534"
+	"snd_cine_intro_frame_566"			"cine_intro_frame_566"
+	"snd_cine_intro_frame_715"			"cine_intro_frame_715"
+	"snd_cine_intro_frame_820"			"cine_intro_frame_820"
+	"snd_cine_intro_frame_884"			"cine_intro_frame_884"
+	"snd_cine_intro_frame_1076"			"cine_intro_frame_1076"
+	"snd_cine_intro_frame_1094"			"cine_intro_frame_1094"
+	"snd_cine_intro_frame_1504"			"cine_intro_frame_1504"
+	"snd_cine_intro_frame_1560"			"cine_intro_frame_1560"
+	"snd_cine_intro_frame_1575"			"cine_intro_frame_1575"
+	"snd_cine_intro_frame_1604"			"cine_intro_frame_1604"
+	"snd_cine_intro_frame_1643"			"cine_intro_frame_1643"
+	"snd_cine_intro_frame_1660"			"cine_intro_frame_1660"
+	"snd_cine_intro_frame_1819"			"cine_intro_frame_1819"
+	"snd_cine_intro_frame_1852"			"cine_intro_frame_1852"
+	"snd_cine_intro_frame_1916"			"cine_intro_frame_1916"
+	"snd_cine_intro_frame_1961"			"cine_intro_frame_1961"
+	"snd_cine_intro_frame_1963"			"cine_intro_frame_1963"
+	"snd_cine_intro_frame_2039"			"cine_intro_frame_2039"
+	"snd_cine_intro_frame_2135"			"cine_intro_frame_2135"
+	"snd_cine_intro_frame_2150"			"cine_intro_frame_2150"
+	"snd_cine_intro_frame_2230"			"cine_intro_frame_2230"
+	"snd_cine_intro_frame_3092"			"cine_intro_frame_3092"
+	"snd_cine_intro_frame_3150"			"cine_intro_frame_3150"
+	"snd_cine_intro_frame_3188"			"cine_intro_frame_3188"
+	"snd_cine_intro_frame_3290"			"cine_intro_frame_3290"
+	"snd_cine_intro_frame_3381"			"cine_intro_frame_3381"
+	"snd_cine_intro_frame_3419"			"cine_intro_frame_3419"	
+}
+
+entityDef ad_intro_char_marine_bidwell
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_bidwell"	
+	
+	"lipsync_vo_1_1_0_01_1"								"vo_1_1_0_01_1"
+	"lipsync_vo_1_1_0_01_4"								"vo_1_1_0_01_4"	
+	"lipsync_vo_1_1_0_01_5"								"vo_1_1_0_01_5"	
+	"lipsync_vo_1_1_0_01_12"							"vo_1_1_0_01_12"		
+}
+
+entityDef ad_intro_char_marine_sledge
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"def_head"											"char_marinehead_sledge"	
+	"editor_menu"										"level"
+}
+	
+entityDef ad_intro_char_marine_anderson
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_anderson"
+	"skin"												"skins/characters/marine/medic_anderson"
+
+}
+	
+entityDef ad_intro_char_marine_kane
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_kane2"	
+}
+
+entityDef ad_intro_char_marine_rhodes
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_rhodes"	
+
+	"lipsync_vo_1_1_0_01_6"								"vo_1_1_0_01_6"		
+	"lipsync_vo_1_1_0_01_7"								"vo_1_1_0_01_7"			
+}
+
+entityDef ad_intro_char_marine_morris
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_morris"
+	"lipsync_vo_1_1_0_01_8"								"vo_1_1_0_01_8"		
+}
+
+entityDef ad_intro_char_marine_strauss
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_strassa"
+	"lipsync_vo_1_1_0_01_11"							"vo_1_1_0_01_11"	
+	"skin"												"skins/characters/marine/tech_strauss"		
+}
+
+entityDef ad_intro_char_marine_cortez
+{
+	"inherit"											"ad_intro_char_marine"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_cortez"
+}
+
+entityDef ad_intro_char_marine_voss
+{
+	"inherit"											"char_marine_unarmed"
+	"model"												"ad_intro_char_marine"
+	"editor_menu"										"level"
+	"def_head"											"char_marinehead_voss"
+	"lipsync_vo_1_1_0_01_13"							"vo_1_1_0_01_13"			
+	"lipsync_vo_1_1_0_01_17"							"vo_1_1_0_01_17"				
+	"lipsync_vo_1_1_0_01_19"							"vo_1_1_0_01_19"					
+}
+
+/***********************************************************************
+INTRO Dropship MINI
+***********************************************************************/
+
+
+export  dropship_mini
+{
+	options -prefix DROPSHIP_ -scale .3937 -align ALL -keep fx1 fx2 fx3 fx4 fx5 fx6 fx7 fx8 fx9 fx10 fx11 fx20 fx21 fx30 fx40 fx44 fx70 fx74 fx31 fx41 fx71 fx24 fx34 fx45 fx75 fx25 fx35 fx46 fx76 fx22 fx32 fx42 fx52 fx62 fx72 fx82 fx92 fx102 fx112 fx122 fx23 fx33 fx43 fx53 fx63 fx73 fx83 fx93 fx103 fx113 fx123
+	mesh work\models\vehicles\dropship_exterior_mini\animation\idle.ma							-dest models/cinematics/intro/dropship_mini/dropship
+	anim work\models\vehicles\dropship_exterior_mini\animation\idle.ma							-dest models/cinematics/intro/dropship_mini/idle
+	anim work\models\vehicles\dropship_exterior_mini\animation\idle_test.ma						-dest models/cinematics/intro/dropship_mini/idle_test
+	anim work\models\vehicles\dropship_exterior_mini\animation\intro_mini_shot10.ma			-dest models/cinematics/intro/dropship_mini/dropship_escape1
+//	anim work\models\vehicles\dropship_exterior_mini\animation\intro_mini_shot11.ma			-dest models/cinematics/intro/dropship_mini/dropship_escape2
+//	anim work\models\vehicles\dropship_exterior_mini\animation\intro_mini_shot31.ma			-dest models/cinematics/intro/dropship_mini/dropship_blowup
+	
+}
+
+model model_dropship_mini
+{
+	mesh										models/cinematics/intro/dropship_mini/dropship.md5mesh
+	anim idle									models/cinematics/intro/dropship_mini/idle.md5anim
+	anim idle_test								models/cinematics/intro/dropship_mini/idle_test.md5anim
+	anim dropship_escape1						models/cinematics/intro/dropship_mini/dropship_escape1.md5anim
+	{
+		///ship1
+		frame 111								fx	 fx_vtol	fx8
+		frame 111 								fx	 fx_vtol	fx9
+		frame 111								fx	 fx_vtol	fx10
+		frame 111 								fx	 fx_vtol	fx11
+		frame 124								fx	fx_thrust	fx1	
+		frame 124								fx	fx_thrust	fx2
+		frame 124								fx	fx_thrust2	fx1
+		frame 124								fx	fx_thrust2	fx2	
+		
+		///ship2
+		frame 62 								fx	 fx_vtol	fx20
+		frame 62 								fx	 fx_vtol	fx21
+		frame 62 								fx	 fx_vtol	fx24
+		frame 62 								fx	 fx_vtol	fx25
+		frame 84								fx	fx_thrust	fx22	
+		frame 84								fx	fx_thrust	fx23
+		frame 84								fx	fx_thrust2	fx22
+		frame 84								fx	fx_thrust2	fx23
+		
+		///ship3
+		frame 88 								fx 	fx_vtol		fx30
+		frame 88 								fx 	fx_vtol		fx31
+		frame 88 								fx 	fx_vtol		fx34
+		frame 88 								fx 	fx_vtol		fx35
+		frame 100								fx	fx_thrust	fx32
+		frame 100								fx	fx_thrust	fx33
+		frame 100								fx	fx_thrust2	fx32
+		frame 100								fx	fx_thrust2	fx33
+		
+		///ship4
+		frame 97 								fx 	fx_vtol		fx40
+		frame 97 								fx 	fx_vtol		fx41
+		frame 97 								fx 	fx_vtol		fx44
+		frame 97 								fx 	fx_vtol		fx45
+		frame 113								fx	fx_thrust	fx42
+		frame 113								fx	fx_thrust	fx43
+		frame 113								fx	fx_thrust2	fx42
+		frame 113								fx	fx_thrust2	fx43
+		
+		///ship7
+		
+		frame 79 								fx 	fx_vtol		fx70
+		frame 79 								fx 	fx_vtol		fx71
+		frame 79 								fx 	fx_vtol		fx74
+		frame 79 								fx 	fx_vtol		fx75
+		frame 94								fx	fx_thrust	fx72	
+		frame 94								fx	fx_thrust	fx73
+		frame 94								fx	fx_thrust2	fx72
+		frame 94								fx	fx_thrust2	fx73
+		
+		//// MISC SHIPS
+		
+		frame 1									fx	fx_thrust	fx52	
+		frame 1									fx	fx_thrust	fx53
+		frame 1									fx	fx_thrust	fx62	
+		frame 1									fx	fx_thrust	fx63
+		frame 1									fx	fx_thrust	fx82	
+		frame 1									fx	fx_thrust	fx83
+		frame 1									fx	fx_thrust	fx92
+		frame 1									fx	fx_thrust	fx93
+		frame 1									fx	fx_thrust	fx102
+		frame 1									fx	fx_thrust	fx103
+		frame 1									fx	fx_thrust	fx112
+		frame 1									fx	fx_thrust	fx113
+		frame 1									fx	fx_thrust	fx122
+		frame 1									fx	fx_thrust	fx123
+		
+	}						
+/*	anim dropship_escape2						models/cinematics/intro/dropship_mini/dropship_escape2.md5anim
+	{
+		frame 1									fx	fx_thrust	fx1
+		frame 1									fx	fx_thrust	fx2
+	}
+	anim dropship_blowup						models/cinematics/intro/dropship_mini/dropship_blowup.md5anim
+	{
+		frame 1									fx	fx_thrust	fx1
+		frame 1									fx	fx_thrust	fx2
+	}
+	*/
+}
+
+
+entityDef env_dropship_mini
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-1 -1 -1"
+	"editor_maxs"					"1 1 1"
+
+	"editor_usage"					"Intro_Dropship_mini"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"model_dropship_mini"
+	"anim"							"idle"
+	"start_anim"					"idle"
+	
+	"fx_thrust"						"effects/cinematics/intro/thrust_mini.fx"
+	"fx_thrust2"					"effects/cinematics/intro/thrust_mini2.fx"
+	"fx_vtol"						"effects/cinematics/intro/vtol.fx"
+	
+	
+}
+
+/***********************************************************************
+INTRO Destroyer_w/Doors
+***********************************************************************/
+
+
+export destroyer_doors
+{
+	options -scale .3937 -prefix DESTROYER_ -keep fx1 -align ALL -sourcedir work/models/vehicles/destroyer   -destdir models/vehicles/destroyer_doors
+	
+	mesh idle_doors.ma				-dest destroyer_doors
+	anim idle_doors.ma				-dest idle
+	anim intro_doors.ma				-dest intro_doors
+	
+	
+	
+}
+
+model model_destroyer_doors
+{
+	mesh							models/vehicles/destroyer_doors/destroyer_doors.md5mesh
+	
+	anim idle						models/vehicles/destroyer_doors/idle.md5anim
+	anim intro_doors_a				models/vehicles/destroyer_doors/intro_doors.md5anim
+/*	anim intro_doors_b				models/vehicles/destroyer_doors/intro_doors2.md5anim
+	{
+		frame 110					fx 		fx_blue_impact		fx1
+		frame 120					fx		fx_fire_7sec		joint2
+		frame 158					fx		fx_huge_exp			fx1
+	}
+	*/
+	
+}
+	
+entityDef env_destroyer_doors
+{
+	"editor_usage"				"animated_destroyer_doors"
+	"editor_color"				"0 .75 .25"
+	"editor_mins"				"-32 -32 0"
+	"editor_maxs"				"32 32 16"
+
+	"spawnclass"				"idAnimated"
+
+	"model"						"model_destroyer_doors"
+	"anim"						"idle"
+	
+	"fx_lg_exp"					"effects/cinematics/intro/alg_ship_exp.fx"
+	"fx_huge_exp"				"effects/cinematics/intro/lg_exp.fx"
+	"fx_fire_7sec"				"effects/cinematics/intro/amed_ship_exp.fx"
+//	"fx_huge_exp"				"effects/explosions/surface/biggun_explosion.fx"
+	"fx_blue_impact"			"effects/cinematics/intro/biggun_impact.fx"
+	
+	
+	/***********************************************************************
+INTRO Dropship MINI_B
+***********************************************************************/
+
+}
+export  dropship_mini_b
+{
+	options -prefix DROPSHIP_ -scale .3937 -align ALL -keep fx1 fx2 fx22 fx23 fx32 fx33 fx52 fx53 fx42 fx43 fx_heat1 fx_heat2 fx_wing01 fx_wing03 fx_wing04 fx_wing05 cm1 cm2 cm3 cm4 cm5 cm6
+	mesh work\models\vehicles\dropship_exterior_mini\animation\single_idle.ma							-dest models/cinematics/intro/dropship_mini_b/dropship
+	anim work\models\vehicles\dropship_exterior_mini\animation\single_idle.ma							-dest models/cinematics/intro/dropship_mini_b/idle
+	anim work\models\cinematics\GAME_INTRO\intro_dropship_blowup3.ma									-dest models/cinematics/intro/dropship_mini_b/intro_shotdown
+	
+
+}
+
+model model_env_dropship_mini_B
+{
+	mesh										models/cinematics/intro/dropship_mini_b/dropship.md5mesh
+	anim idle									models/cinematics/intro/dropship_mini_b/idle.md5anim
+	anim intro_shotdown							models/cinematics/intro/dropship_mini_b/intro_shotdown.md5anim
+	{
+		frame 1								fx 		fx_smoketrail_explode	fx_wing03	
+		frame 31							fx 		fx_smoketrail			fx_wing01
+		frame 31							fx 		fx_gastrail				fx_wing01		
+		frame 157							fx 		fx_smoketrail			fx_wing04
+		frame 179							fx 		fx_entry				fx_heat1		
+		frame 203							fx 		fx_smoketrail			fx_wing05
+		frame 203							fx 		fx_gastrail				fx_wing05
+		frame 203							fx 		fx_entry				fx_heat2	
+	
+	//thrusts
+		frame 	30							fx		fx_thrust				fx1
+		frame 	30							fx		fx_thrust				fx2
+		frame 	1							fx		fx_thrust				fx32
+		frame 	1							fx		fx_thrust				fx33
+		frame 	160							fx		fx_thrust				fx42
+		frame 	160							fx		fx_thrust				fx43
+		frame 	202							fx		fx_thrust				fx52
+		frame 	202							fx		fx_thrust				fx53
+			
+	}
+}
+
+
+entityDef env_dropship_mini_B
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-1 -1 -1"
+	"editor_maxs"					"1 1 1"
+
+	"editor_usage"					"Intro_Dropship_mini_B"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"model_env_dropship_mini_B"
+	"anim"							"idle"
+	"start_anim"					"idle"
+	
+	"skin"							"skins/vehicles/dropship_exterior/dropship_decal3"
+	
+	"fx_thrust"						"effects/cinematics/intro/thrust_mini.fx"
+	"fx_thrust2"					"effects/cinematics/intro/thrust_mini2.fx"
+	"fx_vtol"						"effects/cinematics/intro/vtol.fx"
+	"fx_smoketrail"					"effects/cinematics/intro/ship_smoketrail.fx"
+	"fx_smoketrail_explode"			"effects/cinematics/intro/ship_smoketrail_explode.fx"
+	"fx_gastrail"					"effects/cinematics/intro/ship_gastrail.fx"
+	"fx_entry"						"effects/cinematics/intro/ship_entry.fx"	
+	
+}
+
+	/***********************************************************************
+INTRO ROCKET
+***********************************************************************/
+
+
+export  intro_rocket
+{
+	options -prefix ROCKET_ -scale .3937 -align ALL -keep fx1 fx2 fx3 fx4 fx5 fx6
+	mesh work\models\cinematics\rocket_cin\animation\idle.ma							-dest models/cinematics/intro/rocket/rocket
+	anim work\models\cinematics\rocket_cin\animation\idle.ma							-dest models/cinematics/intro/rocket/rocket_idle
+	anim work\models\cinematics\GAME_INTRO\intro_dropship_blowup3.ma					-dest models/cinematics/intro/rocket/rocket_shotdown
+	
+}
+
+model model_env_intro_rocket
+{
+	mesh										models/cinematics/intro/rocket/rocket.md5mesh
+	anim idle									models/cinematics/intro/rocket/rocket_idle.md5anim
+	anim rocket_shotdown						models/cinematics/intro/rocket/rocket_shotdown.md5anim
+	{
+//		frame 22								fx 		fx_rocket_trail		fx2
+//		frame 23								fx 		fx_rocket_trail		fx3
+//		frame 66								fx 		fx_rocket_trail		fx1
+//		frame 129								fx 		fx_rocket_trail		fx4
+//		frame 219								fx 		fx_rocket_trail		fx5
+//		frame 264								fx 		fx_rocket_trail		fx6
+		frame 12								fx 		fx_rocket_trail		fx2
+		frame 13								fx 		fx_rocket_trail		fx3
+		frame 56								fx 		fx_rocket_trail		fx1
+		frame 119								fx 		fx_rocket_trail		fx4
+		frame 209								fx 		fx_rocket_trail2	fx5
+		frame 217								fx 		fx_rocket_trail		fx6
+	}
+}
+
+
+entityDef env_intro_rocket
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-1 -1 -1"
+	"editor_maxs"					"1 1 1"
+
+	"editor_usage"					"Intro_rocket"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"model_env_intro_rocket"
+	"anim"							"idle"
+	"start_anim"					"idle"
+	
+	
+	"fx_rocket_trail"				"effects/cinematics/intro/rocket_trail1.fx"
+	"fx_rocket_trail2"				"effects/cinematics/intro/rocket_trail2.fx"
+	
+	
+}

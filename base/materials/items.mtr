@@ -1,0 +1,2243 @@
+
+//--------------------------------------------------------------------------------------------------------------------
+// team powerups
+//--------------------------------------------------------------------------------------------------------------------
+
+models/pick_ups/mp_pickups/ctf_ring
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_ring_local.tga  work/models/pick_ups/mp_pickups/ctf_ring_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_ring_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_ring_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_ring_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_ring_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_ring_glow.tga
+		
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_ring_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/ctf_ring_scout
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_ring_local.tga  work/models/pick_ups/mp_pickups/ctf_ring_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_ring_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_ring_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_ring_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_ring_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_ring_glow.tga
+			colored
+		red		 0.
+		green	 1.
+		blue	 0.
+		
+	}				
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_ring_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/ctf_ring_ammo_regen
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_ring_local.tga  work/models/pick_ups/mp_pickups/ctf_ring_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_ring_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_ring_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_ring_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_ring_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_ring_glow.tga
+			colored
+		red		 1.
+		green	 1.
+		blue	 0.
+		
+	}				
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_ring_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/ctf_ring_doubler
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_ring_local.tga  work/models/pick_ups/mp_pickups/ctf_ring_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_ring_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_ring_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_ring_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_ring_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_ring_glow.tga
+			colored
+		red		 1.
+		green	 0.
+		blue	 0.
+		
+	}				
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_ring_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/ctf_ring_guard
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_ring_local.tga  work/models/pick_ups/mp_pickups/ctf_ring_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_ring_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_ring_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_ring_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_ring_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_ring_glow.tga
+			colored
+		red		 0.
+		green	 0.
+		blue	 1.
+		
+	}				
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_ring_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/moderator
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/moderator_local.tga  work/models/pick_ups/mp_pickups_v2/moderator/models/moderator_hi.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/moderator_local.tga, heightmap(models/pick_ups/mp_pickups/moderator_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/moderator_d.tga
+	specularMap		models/pick_ups/mp_pickups/moderator_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/moderator_glow.tga
+			colored
+		red		 1.
+		green	 1.
+		blue	 1.
+		
+	}				
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/moderator_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+
+models/pick_ups/mp_pickups/ctf_ammo_regen
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_ammo_regen_local.tga  work/models/pick_ups/mp_pickups/ctf_ammo_regen_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_ammo_regen_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_ammo_regen_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_ammo_regen_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_ammo_regen_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_ammo_regen_glow.tga
+		
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_ammo_regen_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/ctf_doubler
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_doubler_local.tga  work/models/pick_ups/mp_pickups/ctf_doubler_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_doubler_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_doubler_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_doubler_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_doubler_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_doubler_glow.tga
+		
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_doubler_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+models/pick_ups/mp_pickups/ctf_guard
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_guard_local.tga  work/models/pick_ups/mp_pickups/ctf_guard_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_guard_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_guard_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_guard_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_guard_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_guard_glow.tga
+		
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_guard_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+
+
+models/pick_ups/mp_pickups/ctf_scout
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/ctf_scout_local.tga  work/models/pick_ups/mp_pickups/ctf_scout_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/ctf_scout_local.tga, heightmap(models/pick_ups/mp_pickups/ctf_scout_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/ctf_scout_d.tga
+	specularMap		models/pick_ups/mp_pickups/ctf_scout_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/ctf_scout_glow.tga
+		
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/ctf_scout_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+}
+
+
+models/items/pickups/scout
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/scout
+		colored
+	}
+}
+
+models/items/pickups/scout2
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/scout2
+		colored
+		scroll		time * 0.6 , 0
+	}
+}
+
+models/items/pickups/guard
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/guard
+		colored
+	}
+}
+
+models/items/pickups/guard2
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/guard2
+		colored
+		scroll		time * 0.6 , 0
+	}
+}
+
+models/items/pickups/ammo
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/ammo
+		colored
+	}
+}
+
+models/items/pickups/ammo2
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/ammo2
+		colored
+		scroll		time * 0.6 , 0
+	}
+}
+
+models/items/pickups/doubler
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/doubler
+		colored
+	}
+}
+
+models/items/pickups/doubler2
+{
+	DECAL_MACRO
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		blend add
+		map models/pick_ups/mp_pickups/doubler2
+		colored
+		scroll		time * 0.6 , 0
+	}
+}
+
+
+//ATLAS RIPPED AMMO BOX FOR TESTING - MAY NEED TO BE RESIZED
+//models/items/ammo/ammo_box
+//{
+//      noselfShadow
+//	unsmoothedtangents
+
+//	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .02 models/items/ammo/ammo_box_local.tga  work/models/items/ammo/ammo_box_high.lwo
+
+//	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+//	diffusemap		models/items/ammo/ammo_box_d.tga
+//	specularmap		models/items/ammo/ammo_box_s.tga
+//}
+//--------------------------------------------------------------------------------------------------------------------
+// rocket_cin
+//-------------------------------------------------------------------------------------------------------------------0
+models/cinematics/rocket_cin/rocket
+{
+	noselfShadow
+	unsmoothedTangents
+
+	renderbump  -size 512 512 -aa 2 -trace .07 -mergehigh models/cinematics/rocket_cin/rocket_local.tga work/models/cinematics/rocket_cin/rocket_hi.lwo
+
+	diffusemap	models/cinematics/rocket_cin/rocket_d.tga
+	bumpmap		addnormals(models/cinematics/rocket_cin/rocket_local.tga, heightmap(models/cinematics/rocket_cin/rocket_h.tga, 2 ))
+	specularmap	models/cinematics/rocket_cin/rocket_s.tga
+	
+	{ 
+		blend add
+		map models/cinematics/rocket_cin/rocket_g.tga
+		rgb grunttable [ time * 1.3 ]
+	}       
+        
+}
+models/items/ammo/icon
+{
+	{
+	blend diffuseMap
+	map	textures/common/nodraw
+	}
+}
+//ATLAS RIPPED HEALTH BOX FOR TESTING - MAY NEED TO BE RESIZED
+models/items/health/health
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .02 models/items/health/health_local.tga  work/models/items/health/health_high.lwo
+
+	bumpmap		addnormals (models/items/health/health_local.tga, heightmap(models/items/health/health_h.tga, 2))
+	diffusemap		models/items/health/health_d.tga
+	specularmap		models/items/health/health_s.tga
+}
+
+models/items/ammo/machinegun_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_machinegun
+		red		 1
+		green	 1
+		blue	 0
+	}
+}
+
+models/items/ammo/machinegun
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap			addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap		models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_machinegun_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		1
+		green	 1
+		blue	 0
+		
+	}						
+}
+
+models/items/ammo/machinegun_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+//		rgb 	random [time *.0125]
+		colored
+		red		 1 * (ember1 [time *.25])
+		green	 1 * (ember1 [time *.25])
+		blue	 0 * (ember1 [time *.25])
+	}
+			
+}
+
+
+
+models/items/ammo/shotgun_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_shotgun
+		red		 1
+		green	 0.5
+		blue	 0
+	}
+}
+
+models/items/ammo/shotgun
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_shotgun_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		 1
+		green	 0.5
+		blue	 0
+		
+	}						
+}
+
+models/items/ammo/shotgun_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 1 * (ember1 [time *.25])
+		green	 0.5 * (ember1 [time *.25])
+		blue	 0 * (ember1 [time *.25])
+	}		
+}
+
+models/items/ammo/nailgun_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_nailgun
+		red		 .6
+		green	 .8
+		blue	 .8
+	}
+}
+
+models/items/ammo/nailgun
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_nailgun_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		 0.6
+		green	 0.8
+		blue	 0.8
+		
+	}						
+}
+
+
+models/items/ammo/nailgun_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 0.6 * (ember1 [time *.25])
+		green	 0.8 * (ember1 [time *.25])
+		blue	 0.8 * (ember1 [time *.25])
+	}
+}
+
+models/items/ammo/railgun_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_railgun
+		red		 0
+		green	 1
+		blue	 0
+	}
+}
+
+models/items/ammo/railgun
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_railgun_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		0
+		green	 1
+		blue	 0
+		
+	}						
+}
+
+models/items/ammo/railgun_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 0 * (ember1 [time *.25])
+		green	 1 * (ember1 [time *.25])
+		blue	 0 * (ember1 [time *.25])
+	}
+			
+}
+
+
+models/items/ammo/hyperblaster_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_hyperblaster
+		red		 0
+		green	 0.45
+		blue	 1
+	}
+}
+
+models/items/ammo/hyperblaster
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_hyperblaster_d.tga
+	
+	}
+	
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		0
+		green	 .45
+		blue	 1
+		
+	}				
+}
+
+models/items/ammo/hyperblaster_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 0 * (ember1 [time *.25])
+		green	 .45 * (ember1 [time *.25])
+		blue	 1 * (ember1 [time *.25])
+	}
+			
+}
+
+models/items/ammo/rocketlauncher_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_rocket
+		red		 1
+		green	 0
+		blue	 0
+	}
+}
+
+models/items/ammo/rocketlauncher
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_rocket_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		1
+		green	 0
+		blue	 0
+		
+	}						
+}
+
+models/items/ammo/rocketlauncher_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 1 * (ember1 [time *.25])
+		green	 0 * (ember1 [time *.25])
+		blue	 0 * (ember1 [time *.25])
+	}
+			
+}
+
+models/items/ammo/grenadelauncher_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_grenade
+		red 0.2
+		green 0.56
+		blue 0.07
+	}
+}
+
+models/items/ammo/grenadelauncher
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_grenade_d.tga
+	
+	}
+	
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red 0.2
+		green 0.56
+		blue 0.07
+		
+	}		
+}
+
+models/items/ammo/grenadelauncher_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 .2 * (ember1 [time *.25])
+		green	 .56 * (ember1 [time *.25])
+		blue	 .07 * (ember1 [time *.25])
+	}
+}
+
+models/items/ammo/lightninggun_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_lightning
+		red		 1
+		green	 1
+		blue	 .73
+	}
+}
+
+models/items/ammo/lightninggun
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap	models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_lightning_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red		 1
+		green	 1
+		blue	 0.73
+		
+	}						
+}
+
+models/items/ammo/lightninggun_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+		colored
+		red		 1 * (ember1 [time *.25])
+		green	 1 * (ember1 [time *.25])
+		blue	 .73 * (ember1 [time *.25])
+	}
+}
+
+models/items/ammo/dmg_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_darkmatter
+		red		 0.77
+		green	 0
+		blue	 1
+	}
+}
+
+models/items/ammo/dmg
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap			addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	specularmap		models/items/ammo/ammo_box_s.tga
+
+	{
+		blend	diffusemap
+		map		models/items/ammo/ammo_box_dmg_d.tga
+	}
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+			colored
+		red	 0.77
+		green	 0
+		blue	 1
+		
+	}						
+}
+
+models/items/ammo/dmg_holo
+{
+	noSelfShadow
+	unSmoothedTangents
+	translucent
+	twosided
+	
+	
+	{
+		maskColor
+		map		makealpha (models/items/ammo/ammo_bubble.tga)
+		scroll		time * 0.1 , time * 0.15
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map		models/items/ammo/ammo_box_wire.tga
+//		rgb 	random [time *.0125]
+		colored
+		red	 0.77 * (ember1 [time *.25])
+		green	 0 * (ember1 [time *.25])
+		blue	 1 * (ember1 [time *.25])
+	}
+			
+}
+
+models/items/moderator_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_moderator
+		red		 1
+		green	 1
+		blue	 .7
+	}
+}
+
+models/items/quad_damage
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+
+	{
+		blend		specularmap
+		map			models/quaddamage_d.tga
+		translate	time * 0.2 , time * 0.3
+	}
+}
+
+models/items/armor_decal
+{
+	DECAL_MACRO
+	
+	{
+		blend blend
+		map gfx/guis/hud/icons/item_armor
+	}
+}
+
+models/items/megahealth
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	
+	{
+		blend		add
+		map			models/items/health/megahealth_d.tga
+		translate	time * 0.1 , time * 0.15
+	}
+}
+
+models/items/armorshard
+{
+	
+	renderBump  -size 64 64 -aa 2 -mergeHigh -trace .05 models/items/armor/armorshard_local.tga  models/items/armor/armorshard_high.lwo
+	unSmoothedTangents
+ 
+	
+	bumpMap			models/items/armor/armorshard_local.tga
+	diffusemap		models/items/armor/armorshard_d.tga
+	specularmap		models/items/armor/armorshard_s.tga
+
+	
+	{
+		blend		add
+		map			models/items/armor/armorshard_g.tga
+	}
+
+}
+
+models/items/health_bubble
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	
+	{
+		blend		add
+		map			models/items/health/health_bubble.tga
+		translate	time * 0.1 , time * 0.15
+	}
+}
+
+models/items/ammo/ammo_box
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/items/ammo/ammo_box_local.tga  work/models/items/ammo/ammo_box_high.lwo
+
+	bumpmap		addnormals (models/items/ammo/ammo_box_local.tga, heightmap(models/items/ammo/ammo_box_h.tga, 2))
+	diffusemap		models/items/ammo/ammo_box_d.tga
+	specularmap		models/items/ammo/ammo_box_s.tga
+	
+	{
+		blend		add
+		map			models/items/ammo/ammo_box_glow.tga
+	}
+}
+
+models/items/armor/base
+{
+    noSelfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .05 models/items/armor_local.tga  work/models/items/armor_hi.lwo
+
+	bumpMap			models/items/armor/base_local.tga
+	specularmap		models/items/armor/base_s.tga
+	{
+		blend diffuseMap
+		map models/items/armor/base_d.tga
+	}
+	
+}
+
+models/items/armor/base_sp
+{
+    noSelfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .05 models/items/armor_local.tga  work/models/items/armor_hi.lwo
+
+	bumpMap			models/items/armor/base_local.tga
+	specularmap		models/items/armor/base_sp_s.tga
+
+	{
+		blend		add
+		map			models/items/armor/base_sp_g.tga
+	}
+
+	{
+		blend diffuseMap
+		map models/items/armor/base_sp_d.tga
+	}
+	
+}
+
+models/items/armor/base_red
+{
+    noSelfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .05 models/items/armor_local.tga  work/models/items/armor_hi.lwo
+
+	bumpMap			models/items/armor/base_local.tga
+	specularmap		models/items/armor/base_s.tga
+	{
+		blend diffuseMap
+		map models/items/armor/base_red_d.tga
+
+	}
+	
+}
+
+
+
+
+
+
+models/items/health/mp_health
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/items/health/mp_health_local.tga  work/models/items/health/mp_health_high.lwo
+    materialImage models/items/health/mp_health_hit
+    
+	bumpmap			addnormals (models/items/health/mp_health_local.tga, heightmap(models/items/health/mp_health_h.tga, 2))
+	diffusemap		models/items/health/mp_health_d.tga
+	specularmap		models/items/health/mp_health_s.tga
+	
+	//{
+	//	blend		add
+	//	map			models/items/health/mp_health_glow.tga
+	//}
+	{
+		blend		add
+		map			models/items/health/mp_health_glow.tga
+	//		colored
+	//	red		 1.
+	//	green	 0.12
+	//	blue	 0.03
+		
+	}				
+}
+
+models/items/health/mp_healthb
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/items/health/mp_health_local.tga  work/models/items/health/mp_health_high.lwo
+    materialImage models/items/health/mp_health_hit
+    
+	bumpmap			addnormals (models/items/health/mp_health_local.tga, heightmap(models/items/health/mp_health_h.tga, 2))
+	diffusemap		models/items/health/mp_health_d.tga
+	specularmap		models/items/health/mp_health_s.tga
+
+	{
+		blend		add
+		map			models/items/health/mp_health_glowb.tga
+//			colored
+//		red		 1.
+//		green	 0.12
+//		blue	 0.03
+		
+	}				
+	
+}
+
+models/items/health/mp_healthc
+{
+		noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/items/health/mp_health_local.tga  work/models/items/health/mp_health_high.lwo
+    materialImage models/items/health/mp_health_hit
+    
+	bumpmap			addnormals (models/items/health/mp_health_local.tga, heightmap(models/items/health/mp_health_h.tga, 2))
+	diffusemap		models/items/health/mp_health_d.tga
+	specularmap		models/items/health/mp_health_s.tga
+
+	{
+		blend		add
+		map			models/items/health/mp_health_glowc.tga
+//			colored
+//		red		 1.
+//		green	 0.12
+//		blue	 0.03
+		
+	}
+	
+}
+
+models/items/health/mp_healthd
+{
+		noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/items/health/mp_health_local.tga  work/models/items/health/mp_health_high.lwo
+    materialImage models/items/health/mp_health_hit
+    
+	bumpmap			addnormals (models/items/health/mp_health_local.tga, heightmap(models/items/health/mp_health_h.tga, 2))
+	diffusemap		models/items/health/mp_health_d.tga
+	specularmap		models/items/health/mp_health_s.tga
+
+	{
+		blend		add
+		map			models/items/health/mp_health_glowd.tga
+//			colored
+//		red		 1.
+//		green	 0.12
+//		blue	 0.03
+		
+	}
+	
+}
+
+
+models/pick_ups/sp_pickups/sp_armor_strogg
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/armor_strogg_local.tga  work/models/pick_ups/sp_pickups/sp_armor_strogg_hi.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_armor_strogg_local.tga, heightmap(models/pick_ups/sp_pickups/sp_armor_strogg_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_armor_strogg_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_armor_strogg_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_armor_strogg_glow.tga
+	}
+				
+}
+
+
+
+models/pick_ups/sp_pickups/sp_big_health
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_big_health_local.tga  work/models/pick_ups/sp_pickups/sp_big_health_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_big_health_local.tga, heightmap(models/pick_ups/sp_pickups/sp_big_health_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_big_health_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_big_health_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_big_health_glow.tga
+	}
+				
+}
+
+models/pick_ups/sp_pickups/sp_small_health
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_small_health_local.tga  work/models/pick_ups/sp_pickups/sp_small_health_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_small_health_local.tga, heightmap(models/pick_ups/sp_pickups/sp_small_health_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_small_health_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_small_health_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_small_health_glow.tga
+	}
+				
+}
+
+models/pick_ups/sp_pickups/sp_darkmatter
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_darkmatter_local.tga  work/models/pick_ups/sp_pickups/sp_darkmatter_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_darkmatter_local.tga, heightmap(models/pick_ups/sp_pickups/sp_darkmatter_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_darkmatter_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_darkmatter_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_darkmatter_glow.tga
+	}
+				
+}
+
+models/pick_ups/sp_pickups/sp_grenades
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_grenades_local.tga  work/models/pick_ups/sp_pickups/sp_grenades_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_grenades_local.tga, heightmap(models/pick_ups/sp_pickups/sp_grenades_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_grenades_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_grenades_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_grenades_glow.tga
+	}
+				
+}
+
+
+models/pick_ups/sp_pickups/sp_hyper_ammo
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_hyper_ammo_local.tga  work/models/pick_ups/sp_pickups/sp_hyper_ammo_high2.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_hyper_ammo_local.tga, heightmap(models/pick_ups/sp_pickups/sp_hyper_ammo_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_hyper_ammo_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_hyper_ammo_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_hyper_ammo_glow.tga
+	}
+				
+}
+
+models/pick_ups/sp_pickups/sp_lightning
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_lightning_local.tga  work/models/pick_ups/sp_pickups/sp_lightning_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_lightning_local.tga, heightmap(models/pick_ups/sp_pickups/sp_lightning_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_lightning_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_lightning_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_lightning_glow.tga
+	}
+				
+}
+
+models/pick_ups/sp_pickups/sp_mg_rounds
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_mg_rounds_local.tga  work/models/pick_ups/sp_pickups/sp_mg_rounds_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_mg_rounds_local.tga, heightmap(models/pick_ups/sp_pickups/sp_mg_rounds_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_mg_rounds_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_mg_rounds_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_mg_rounds_glow.tga
+	}
+				
+}
+
+
+
+models/pick_ups/sp_pickups/sp_nails
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_nails_local.tga  work/models/pick_ups/sp_pickups/sp_nails_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_nails_local.tga, heightmap(models/pick_ups/sp_pickups/sp_nails_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_nails_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_nails_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_nails_glow.tga
+	}
+				
+}
+
+models/pick_ups/sp_pickups/sp_rails
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_rails_local.tga  work/models/pick_ups/sp_pickups/sp_rails_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_rails_local.tga, heightmap(models/pick_ups/sp_pickups/sp_rails_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_rails_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_rails_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_rails_glow.tga
+	}
+				
+}
+
+
+models/pick_ups/sp_pickups/sp_rockets
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_rockets_local.tga  work/models/pick_ups/sp_pickups/sp_rockets_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_rockets_local.tga, heightmap(models/pick_ups/sp_pickups/sp_rockets_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_rockets_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_rockets_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_rockets_glow.tga
+	}
+				
+}
+
+
+models/pick_ups/sp_pickups/sp_shotgun
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/sp_pickups/sp_shotgun_local.tga  work/models/pick_ups/sp_pickups/sp_shotgun_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/sp_pickups/sp_shotgun_local.tga, heightmap(models/pick_ups/sp_pickups/sp_shotgun_h.tga, 2))
+	diffusemap		models/pick_ups/sp_pickups/sp_shotgun_d.tga
+	specularmap		models/pick_ups/sp_pickups/sp_shotgun_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/sp_pickups/sp_shotgun_glow.tga
+	}
+				
+}
+
+
+models/pick_ups/mp_pickups/mp_quad
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderbump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_quad_local.tga  work/models/pick_ups/mp_pickups/mp_quad_high.lwo
+   
+    
+	bumpmap			addnormals (models/pick_ups/mp_pickups/mp_quad_local.tga, heightmap(models/pick_ups/mp_pickups/mp_quad_h.tga, 2))
+	diffusemap		models/pick_ups/mp_pickups/mp_quad_d.tga
+	specularmap		models/pick_ups/mp_pickups/mp_quad_s.tga
+	
+	//{
+	//	blend		add
+	//	map			models/pick_ups/mp_pickups/mp_quad_glow.tga
+	//}
+	
+    {	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_quad_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}																	
+}
+
+models/pick_ups/mp_pickups/mp_mega_health
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_health_local.tga  work/models/pick_ups/mp_pickups/mp_health_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_health_local.tga, heightmap(models/pick_ups/mp_pickups/mp_health_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_health_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_health_s.tga
+	
+
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_mega_health_glow.tga
+	}
+    {	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_health_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}	
+
+}
+models/pick_ups/mp_pickups/mp_invincibility
+{
+	noselfShadow
+	translucent
+	
+	{
+		blend		add
+			colored
+		red		 1
+		green	 0.47
+		blue	 0
+		
+	}						
+				
+}
+
+models/pick_ups/mp_pickups/mp_health
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_health_local.tga  work/models/pick_ups/mp_pickups/mp_health_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_health_local.tga, heightmap(models/pick_ups/mp_pickups/mp_health_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_health_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_health_s.tga
+	
+	//{
+	//	blend		add
+	//		colored
+	//	red		 1
+	//	green	 1
+	//	blue	 0
+		
+	//}
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_health_glow.tga
+	}
+    {	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_health_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}			
+}
+
+
+models/pick_ups/mp_pickups/mp_healthb
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_health_local.tga  work/models/pick_ups/mp_pickups/mp_health_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_health_local.tga, heightmap(models/pick_ups/mp_pickups/mp_health_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_health_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_health_s.tga
+	
+	//{
+	//	blend		add
+	//		colored
+	//	red		 1
+	//	green	 1
+	//	blue	 0
+		
+	//}
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_health_glowb.tga
+	}
+    {	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_health_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}			
+}
+
+
+models/pick_ups/mp_pickups/mp_healthc
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_health_local.tga  work/models/pick_ups/mp_pickups/mp_health_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_health_local.tga, heightmap(models/pick_ups/mp_pickups/mp_health_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_health_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_health_s.tga
+	
+	//{
+	//	blend		add
+	//		colored
+	//	red		 1
+	//	green	 1
+	//	blue	 0
+		
+	//}
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_health_glowc.tga
+	}
+    {	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_health_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}			
+}
+
+
+models/pick_ups/mp_pickups/mp_healthd
+{
+	noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_health_local.tga  work/models/pick_ups/mp_pickups/mp_health_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_health_local.tga, heightmap(models/pick_ups/mp_pickups/mp_health_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_health_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_health_s.tga
+	
+	//{
+	//	blend		add
+	//		colored
+	//	red		 1
+	//	green	 1
+	//	blue	 0
+		
+	//}
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_health_glowd.tga
+	}
+    {	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_health_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}			
+}
+
+models/pick_ups/mp_pickups/mp_health_orb_green
+{
+	noSelfShadow
+	translucent 
+	
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen5
+        texgen		reflect
+		colored
+		red		 0.45
+		green	 0.7
+		blue	 0.45
+	}				
+}
+
+models/pick_ups/mp_pickups/mp_health_orb_yellow
+{
+	noSelfShadow
+	translucent 
+	
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen5
+        texgen		reflect
+		colored
+		red		 0.7
+		green	 0.7
+		blue	 0.45
+	}				
+}
+
+models/pick_ups/mp_pickups/mp_health_orb_orange
+{
+	noSelfShadow
+	translucent 
+	
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen5
+        texgen		reflect
+		colored
+		red		 0.7
+		green	 0.53
+		blue	 0.45
+	}				
+}
+
+models/pick_ups/mp_pickups/mp_mega_health_orb
+{
+	noSelfShadow
+	translucent 
+	
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen5
+        texgen		reflect
+		colored
+		red		 0
+		green	 0.52
+		blue	 0.85
+	}				
+}
+
+models/pick_ups/mp_pickups/mp_haste
+{
+	noSelfShadow
+	unSmoothedTangents
+
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_haste_local.tga  work/models/pick_ups/mp_pickups/mp_haste_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_haste_local.tga, heightmap(models/pick_ups/mp_pickups/mp_haste_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_haste_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_haste_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_haste_glow.tga
+	//		colored
+	//	red		 0.70
+	//	green	 0.90
+	//	blue	 0
+		
+	}						
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_haste_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}				
+}
+
+
+models/pick_ups/mp_pickups/mp_haste_rings
+{
+	noselfShadow
+	translucent
+	twoSided
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_haste_rings.tga
+		scroll 0, 2 * time
+		rgb .25
+		
+	}						
+				
+}
+
+models/pick_ups/mp_pickups/mp_haste_rings2
+{
+	noselfShadow
+	translucent
+	twoSided
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_haste_rings.tga
+		scroll 0, 1.77 * time
+		rgb .25
+		
+	}						
+				
+}
+
+
+
+models/pick_ups/mp_pickups/mp_regeneration
+
+{
+	noSelfShadow
+	unSmoothedTangents
+
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_regeneration_local.tga  work/models/pick_ups/mp_pickups/mp_regeneration_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_regeneration_local.tga, heightmap(models/pick_ups/mp_pickups/mp_regeneration_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_regeneration_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_regeneration_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_regeneration_glow.tga
+	//		colored
+	//	red		 0.70
+	//	green	 0.90
+	//	blue	 0
+		
+	}						
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_regeneration_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}				
+}
+
+models/pick_ups/mp_pickups/mp_invisibility
+{
+	noselfShadow
+	translucent
+	
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen5
+        texgen		reflect
+		colored
+		red		 0.4
+		green	 0.5
+		blue	 0.65
+	}						
+				
+/*	{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .09 models/pick_ups/mp_pickups/mp_invisibility_local.tga  work/models/pick_ups/mp_pickups/mp_invisibility_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_invisibility_local.tga, heightmap(models/pick_ups/mp_pickups/mp_invisibility_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_invisibility_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_invisibility_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_invisibility_glow.tga
+		
+			colored
+		red		 1
+		green	 0.70
+		blue	 0
+		
+	}
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_invisibility_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+       texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}													
+
+}
+*/
+}
+
+
+models/pick_ups/mp_pickups/mp_invisibility_base
+{
+	  noselfShadow
+	unSmoothedTangents
+	
+	renderBump  -size 128 128 -aa 2 -mergeHigh -trace .05 models/pick_ups/mp_pickups/mp_invisibility_base_local.tga  work/models/pick_ups/mp_pickups/mp_invisibility_base_high.lwo
+   
+    
+	bumpMap			addnormals (models/pick_ups/mp_pickups/mp_invisibility_base_local.tga, heightmap(models/pick_ups/mp_pickups/mp_invisibility_base_h.tga, 2))
+	diffuseMap		models/pick_ups/mp_pickups/mp_invisibility_base_d.tga
+	specularMap		models/pick_ups/mp_pickups/mp_invisibility_base_s.tga
+	
+	{
+		blend		add
+		map			models/pick_ups/mp_pickups/mp_invisibility_base_glow.tga
+		
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/pick_ups/mp_pickups/mp_quad_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}								
+}
+
+
+models/items/banner_flags/strogg_flag_long
+{
+	noselfShadow
+	unSmoothedTangents
+	twoSided
+	
+	renderbump  -size 128 512 -aa 2 -mergeHigh -trace .01 models/items/banner_flags/strogg_flag_long_local.tga  work/guis/psds/mp/flag_models/lwo/flag_long_hi.lwo
+   
+    bumpMap			addnormals (models/items/banner_flags/strogg_flag_long_local.tga, heightmap(models/items/banner_flags/strogg_flag_long_h.tga, 1))
+//	diffusemap		models/items/banner_flags/strogg_flag_long_d.tga
+	specularmap		models/items/banner_flags/strogg_flag_long_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize( models/items/banner_flags/strogg_flag_long_d.tga, 0 )
+		alphatest .5
+	}
+	
+}
+
+models/items/banner_flags/strogg_flag_short
+{
+	noselfShadow
+	unSmoothedTangents
+	twoSided
+	
+	renderbump  -size 128 256 -aa 2 -mergeHigh -trace .02 models/items/banner_flags/strogg_flag_short_local.tga  work/guis/psds/mp/flag_models/lwo/flag_short_hi.lwo
+   
+    bumpMap			addnormals (models/items/banner_flags/strogg_flag_short_local.tga, heightmap(models/items/banner_flags/strogg_flag_short_h.tga, 1))
+//	diffusemap		models/items/banner_flags/strogg_flag_short_d.tga
+	specularmap		models/items/banner_flags/strogg_flag_short_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize( models/items/banner_flags/strogg_flag_short_d.tga, 0 )
+		alphatest .5
+	}
+
+	
+}
+
+models/items/banner_flags/marine_flag_long
+{
+	noselfShadow
+	unSmoothedTangents
+	twoSided
+	
+	renderbump  -size 128 512 -aa 2 -mergeHigh -trace .01 models/items/banner_flags/strogg_flag_long_local.tga  work/guis/psds/mp/flag_models/lwo/flag_long_hi.lwo
+   
+    bumpMap			addnormals (models/items/banner_flags/strogg_flag_long_local.tga, heightmap(models/items/banner_flags/marine_flag_long_h.tga, 1))
+//	diffusemap		models/items/banner_flags/marine_flag_long_d.tga
+	specularmap		models/items/banner_flags/marine_flag_long_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize( models/items/banner_flags/marine_flag_long_d.tga, 0 )
+		alphatest .5
+	}
+	
+}
+
+models/items/banner_flags/marine_flag_short
+{
+	noselfShadow
+	unSmoothedTangents
+	twoSided
+	
+	renderbump  -size 128 256 -aa 2 -mergeHigh -trace .02 models/items/banner_flags/strogg_flag_short_local.tga  work/guis/psds/mp/flag_models/lwo/flag_short_hi.lwo
+   
+    bumpMap			addnormals (models/items/banner_flags/strogg_flag_short_local.tga, heightmap(models/items/banner_flags/marine_flag_short_h.tga, 1))
+//	diffusemap		models/items/banner_flags/marine_flag_short_d.tga
+	specularmap		models/items/banner_flags/marine_flag_short_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize( models/items/banner_flags/marine_flag_short_d.tga, 0 )
+		alphatest .5
+	}
+
+	
+}
+
+models/items/banner_flags/smc_flag_wall
+{
+	noselfShadow
+	unSmoothedTangents
+	twoSided
+	
+	renderBump  -size 256 128 -aa 2 -mergeHigh -trace .01 models/items/banner_flags/smc_flag_wall_local.tga  work/guis/psds/mp/flag_models/lwo/smc_flag_hi.lwo
+   
+    bumpMap			addnormals (models/items/banner_flags/smc_flag_wall_local.tga, heightmap(models/items/banner_flags/smc_flag_wall_h.tga, 1))
+//	diffuseMap		models/items/banner_flags/smc_flag_wall_d.tga
+	specularmap		models/items/banner_flags/smc_flag_wall_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize( models/items/banner_flags/smc_flag_wall_d.tga, 0 )
+		alphatest .5
+	}
+	
+}
+
+models/items/banner_flags/smc_flag_floor
+{
+	noselfShadow
+	unSmoothedTangents
+	twoSided
+	
+	renderBump  -size 256 128 -aa 2 -mergeHigh -trace .05 models/items/banner_flags/smc_flag_floor_local.tga  work/guis/psds/mp/flag_models/lwo/smc_flag_floor_hi.lwo
+   
+    bumpMap			addnormals (models/items/banner_flags/smc_flag_floor_local.tga, heightmap(models/items/banner_flags/smc_flag_floor_h.tga, 1))
+//	diffuseMap		models/items/banner_flags/smc_flag_floor_d.tga
+	specularmap		models/items/banner_flags/smc_flag_floor_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize( models/items/banner_flags/smc_flag_floor_d.tga, 0 )
+		alphatest .5
+	}
+	
+}
+
+models/mapobjects/multiplayer/teleporter
+{
+	noselfShadow
+	unsmoothedTangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -mergehigh models/mapobjects/multiplayer/teleporter_local.tga work/models/mapobjects/multiplayer/teleporter_high.lwo
+	materialImage models/mapobjects/multiplayer/teleporter_hit
+	
+	diffusemap	models/mapobjects/multiplayer/teleporter_d.tga
+	bumpmap		addnormals(models/mapobjects/multiplayer/teleporter_local.tga, heightmap(models/mapobjects/multiplayer/teleporter_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/teleporter_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/multiplayer/teleporter_glow.tga
+	}   
+	
+	
+	}
+
+

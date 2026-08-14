@@ -1,0 +1,867 @@
+textures/rock/rock05a_to_rock05i
+
+{
+	    //noSelfShadow
+ 		materialType rock       
+		qer_editorimage textures/rock/roadway2_d.tga
+        {
+		blend		bumpmap
+		map		heightmap( textures/rock/rock05i_h.tga, 2 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05i_d.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05i_s.tga
+		VertexColor
+	}
+	{ 
+		blend		bumpmap
+		map		heightmap (textures/rock/rock05a_h.tga, 8)
+
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05a_d.tga
+		inverseVertexColor
+	}
+	{
+		blend 		specularmap
+		map		textures/rock/rock05a_s.tga
+		inverseVertexColor
+	}
+
+}
+
+textures/rock/sharprock
+{
+	qer_EditorImage		textures/rock/sharprock
+	materialType rock
+	bumpmap				addnormals (textures/rock/sharprock_local, heightmap (textures/rock/newdarkrock_bmp.tga, 10) ) 
+	diffusemap			textures/rock/sharprock
+	specularmap			textures/rock/sharprock_s
+}
+
+
+
+
+//----------------------------------
+// terrain blending
+//----------------------------------
+
+
+
+textures/rock/sharprock01_brown_to_strata01
+{
+        materialType rock
+        qer_editorimage textures/rock/smoothrock01_d.tga
+	{
+		blend		bumpmap
+		map		textures/rock/sharprock_local.tga
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/sharprock01_brown_d.tga
+		vertexColor
+	}
+	{
+		blend		bumpmap
+		map			textures/rock/smoothrock01_local.tga
+	}
+	
+	{
+		blend		diffusemap
+		map		textures/rock/smoothrock01_d.tga
+		inverseVertexColor
+	}	
+}
+
+textures/rock/sand01_to_strata01
+{
+        materialType rock
+        qer_editorimage textures/rock/sand01_d.tga
+        {
+		blend		bumpmap
+		map		textures/rock/sand01_local.tga
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/sand01_d.tga
+		vertexColor
+	}
+	{
+		blend		bumpmap
+		map			textures/rock/smoothrock01_local.tga
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/smoothrock01_d.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/sharprock01_brown
+{
+	qer_EditorImage		textures/rock/sharprock01_brown_d.tga
+	materialType rock
+	bumpmap				textures/rock/sharprock_local.tga 
+	diffusemap			textures/rock/sharprock01_brown_d.tga
+}
+
+textures/rock/sand01
+{
+	qer_EditorImage		textures/rock/sand01_d.tga
+	materialType rock
+	bumpmap				textures/rock/sand01_local.tga 
+	diffusemap			textures/rock/sand01_d.tga
+}
+
+textures/rock/smoothrock01_to_sharprock01_brown
+{
+        materialType rock
+	{
+		blend		bumpmap
+		map		textures/rock/smoothrock01_local.tga
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/smoothrock01_d.tga
+		vertexColor
+	}
+	{
+		blend		bumpmap
+		map		textures/rock/sharprock_local.tga
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/sharprock01_brown_d.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/sharprock01_brown_to_smoothrock01
+{
+        materialType rock
+	{
+		blend		bumpmap
+		map		textures/rock/sharprock_local.tga
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/sharprock01_brown_d.tga
+		vertexColor
+	}
+	{
+		blend		bumpmap
+		map		textures/rock/smoothrock01_local.tga
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/smoothrock01_d.tga
+		inverseVertexColor
+	}
+}
+		
+textures/rock/sand01_to_sharprock01_brown
+{
+        materialType rock     
+        {
+		blend		bumpmap
+		map		textures/rock/sand01_local.tga
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/sand01_d.tga
+		vertexColor
+	}
+	{
+		blend		bumpmap
+		map		textures/rock/sharprock_local.tga
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/sharprock01_brown_d.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/skysand2_to_sharprock01_brown
+{
+        materialType rock     
+        {
+		blend		bumpmap
+		map		heightmap (textures/rock/skysand1_h.tga, 2)
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/skysand2_d.tga
+		inverseVertexColor
+	}
+	{
+		blend		bumpmap
+		map		textures/rock/sharprock_local.tga
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/sharprock01_brown_d.tga
+		vertexColor
+	}
+}
+
+textures/rock/sand01_to_skysand2
+{
+        materialType rock     
+        {
+		blend		bumpmap
+		map		textures/rock/sand01_local.tga
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/sand01_d.tga
+		vertexColor
+	}
+	{
+		blend 		bumpmap
+		map		heightmap (textures/rock/skysand1_h.tga, 2)
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/skysand2_d.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/sand01_to_smolder
+{
+
+ 	materialType rock       
+	qer_editorimage textures/common_misc/smolder_d.tga
+	{ 
+		blend		bumpmap
+		map	       	textures/rock/sand01_local.tga
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/sand01_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+}
+
+textures/rock/sand01_to_burnt
+{
+
+ 	materialType rock       
+	qer_editorimage textures/common_misc/smolder_d.tga
+	{ 
+		blend		bumpmap
+		map	       	textures/rock/sand01_local.tga
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/sand01_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/rock/rock05i_burnt_local.tga, heightmap ( textures/rock/rock05i_burnt_h.tga, 1 ) )
+	}
+	{
+		blend 	diffusemap
+		map	textures/rock/rock05i_burnt_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/rock/rock05i_burnt_s.tga
+		rgb 0.25
+		inverseVertexColor
+	}
+}
+
+//----------------------------------
+
+guide textures/rock/rock05 generic_nonormal_height ("rock/rock05","4")
+guide textures/rock/rock05a generic_nonormal_height ("rock/rock05a","8")
+
+textures/rock/rock05b
+{
+	qer_editorimage textures/rock/rock05b_local
+      materialType rock  
+      		
+	diffusemap	textures/rock/rock05_d.tga
+	specularmap	textures/rock/rock05_s.tga
+        bumpmap	        addnormals (textures/rock/rock05b_local.tga, heightmap (textures/rock/rock05_h.tga, 2))
+        
+}
+
+textures/rock/rock05b_noshadows
+{
+	qer_editorimage textures/rock/rock05b_local
+      materialType rock  
+      	noShadows
+	
+	diffusemap	textures/rock/rock05_d.tga
+	specularmap	textures/rock/rock05_s.tga
+        bumpmap	        addnormals (textures/rock/rock05b_local.tga, heightmap (textures/rock/rock05_h.tga, 2))
+        
+}
+
+textures/rock/rock05c
+{
+	qer_editorimage textures/rock/rock05c_local
+   	materialType rock  
+      		
+	diffusemap	textures/rock/rock05a_d.tga
+	specularmap	textures/rock/rock05a_s.tga
+        bumpmap	        addnormals (textures/rock/rock05c_local.tga, heightmap (textures/rock/rock05a_h.tga, 15))
+        
+}
+
+guide textures/rock/rock05D generic_shader_heightmap ("rock/rock05d", "8")
+guide textures/rock/rock05e generic_shader_heightmap ("rock/rock05e", "8")
+
+textures/rock/rock_05_rock_05c
+
+{
+             noSelfShadow
+         // qer_editorimage textures/rock/rock_05e_blend.tga
+         materialType rock  
+	
+	
+	{
+		blend		bumpmap
+		map		heightmap( textures/rock/rock05_h.tga, 4 ) 
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/rock05_d.tga
+		VertexColor
+	}
+	{
+		blend 		specularmap
+		map		textures/rock/rock05_s.tga
+		VertexColor
+	}
+	{
+		blend		bumpmap
+		map		addnormals( textures/rock/rock05c_local.tga, heightmap( textures/rock/rock05a_h.tga, 10 ) )
+	}
+	
+	{
+		blend		diffusemap
+		map		textures/rock/rock05a_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend 		specularmap
+		map		textures/rock/rock05a_s.tga
+		inverseVertexColor
+	}
+}	
+
+guide textures/rock/rock05i generic_nonormal_height_type("rock/rock05i", "2", "rock")
+
+guide textures/rock/roadway2 generic_nonormal_height_type("rock/roadway2", "2", "rock")
+
+textures/rock/rock05b_rock05g
+{
+        noSelfShadow
+        
+    {
+		blend		bumpmap
+		map		addnormals (textures/rock/rock05b_local.tga, heightmap (textures/rock/rock05_h.tga, 2))
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05_d.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05_s.tga
+		VertexColor
+	}
+
+    { 
+		blend		bumpmap
+		map		heightmap (textures/rock/rock05g_h.tga, 7)
+
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05g_d.tga
+		inverseVertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05g_s.tga
+		inverseVertexColor
+	}
+
+}
+
+
+//----------------------------------------------------------------------------------
+textures/rock/skysand1
+{
+	//noSelfShadow
+	materialType rock
+	qer_editorimage textures/rock/skysand1_d.tga       
+
+	{
+		blend 		bumpmap
+		map		heightmap (textures/rock/skysand1_bmp.tga, 4)
+	}
+
+	{
+		blend 		diffusemap
+		map		textures/rock/skysand1_d.tga
+	}
+
+	{
+		blend		specularmap
+		map		textures/rock/skysand1_s.tga
+	}
+
+}
+
+// for blends to the non-specular
+textures/rock/skysand2
+{
+	//noSelfShadow
+	materialType rock
+	qer_editorimage textures/rock/skysand1_d.tga       
+
+	{
+		blend 		bumpmap
+		map		heightmap (textures/rock/skysand1_h.tga, 2)
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/skysand2_d.tga
+	}
+
+//	{
+//		blend		specularmap
+//		map		textures/rock/skysand1_s.tga
+//	}
+
+}
+
+//------------------------------------------------------------------------------------------------
+
+//Convoy Bomb Pit Blend---------------------------------------------------------------------------------
+
+
+textures/rock/rock05i_to_sand
+
+
+{
+	        //noselfshadow
+ 		materialType rock       
+		qer_editorimage textures/rock/rock05a_d.tga
+    {
+		blend		bumpmap
+		map		heightmap( textures/rock/rock05i_h.tga, 4 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05i_d.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05i_s.tga
+		VertexColor
+	}
+
+
+	{
+		blend 		bumpmap
+		map		heightmap (textures/rock/skysand1_bmp.tga, 4)
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/skysand1_d.tga
+		inverseVertexColor
+	}
+	{
+		blend		specularmap
+		map		textures/rock/skysand1_s.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/medlabs_rock_vista_a
+{
+
+	materialType	rock
+	qer_editorimage	textures/rock/rock05c_local.tga
+	
+    {
+		blend		bumpmap
+		map		heightmap( textures/rock/rock05i_h.tga, 4 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05i_d.tga
+		//VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05i_s.tga
+		//VertexColor
+	}
+}
+
+textures/rock/medlabs_rock_vista_blend
+{
+
+ 		materialType rock       
+		qer_editorimage textures/rock/rock05i_d.tga
+    {
+		blend		bumpmap
+		map		heightmap( textures/rock/rock05i_h.tga, 4 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05i_d.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05i_s.tga
+		VertexColor
+	}
+	{ 
+		blend		bumpmap
+		map		heightmap (textures/rock/rock05n_h.tga, 4)
+
+	}
+	{
+		blend		diffusemap
+		map		textures/rock/rock05n_d.tga
+		inverseVertexColor
+	}
+	{
+		blend 		specularmap
+		map		textures/rock/rock05n_s.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/medlabs_rock_vista_b
+{
+
+	materialType	rock
+	qer_editorimage	textures/rock/rock05n_d.tga
+	
+	{ 
+		blend		bumpmap
+		map	        /*addnormals (textures/rock/rock05b_local.tga,*/ heightmap (textures/rock/rock05n_h.tga, 4)//)
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05n_d.tga
+		//inverseVertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05n_s.tga
+		//inverseVertexColor
+	}
+}
+
+textures/rock/q4dm2_wall
+{
+
+	materialType	rock
+	qer_editorimage	textures/rock/rock01_d.tga
+	
+    {
+		blend		bumpmap
+		map		heightmap( textures/rock/rock01_h.tga, 4 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock01_d.tga
+		//VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock01_s.tga
+		//VertexColor
+	}
+}
+
+textures/rock/q4dm2_blend
+{
+
+ 		materialType rock       
+		qer_editorimage textures/rock/rock01_d.tga
+	{
+		blend		bumpmap
+		map		heightmap( textures/rock/rock02_h.tga, 4 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock02_d.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock02_s.tga
+		VertexColor
+	}
+	{ 
+		blend		bumpmap
+		map		heightmap (textures/rock/rock01_h.tga, 4)
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock01_d.tga
+		inverseVertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock01_s.tga
+		inverseVertexColor
+	}
+}
+
+textures/rock/q4dm2_ground
+{
+
+	materialType	rock
+	qer_editorimage	textures/rock/rock02_d.tga
+	
+	{ 
+		blend		bumpmap
+		map	        /*addnormals (textures/rock/rock05b_local.tga,*/ heightmap (textures/rock/rock02_h.tga, 4)//)
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock02_d.tga
+		//inverseVertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock02_s.tga
+		//inverseVertexColor
+	}
+}
+
+textures/rock/concrete_to_rock
+{
+
+	materialType	rock
+	qer_editorimage	textures/rock/rock05_d.tga	
+	{
+		blend	bumpmap
+		map	heightmap( textures/common_misc/concrete09_h.tga, 10 ) 
+	}
+	{
+		blend	diffusemap
+		map	textures/common_misc/concrete09_d.tga
+		VertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/concrete09_s.tga
+		VertexColor
+	}
+	
+	{
+		blend	bumpmap
+		map	addnormals ( textures/rock/rock05c_local.tga ,heightmap( textures/rock/rock05_h.tga, 16 ))
+	}
+	{
+		blend	diffusemap
+		map	textures/rock/rock05_d.tga
+		InversevertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/rock/rock05_s.tga
+		InversevertexColor
+	}
+}
+
+textures/rock/smoothrock01
+{
+	qer_editorimage textures/rock/smoothrock01_d.tga
+	materialType rock
+	diffuseMap	textures/rock/smoothrock01_d.tga
+//	specularmap	textures/rock/smoothrock01_s.tga
+//        bumpmap	        addnormals (textures/rock/smoothrock01_local.tga,heightmap (textures/rock/smoothrock01_h.tga, 4))
+}
+
+textures/rock/sharprock_to_rock05i
+
+{
+		materialType rock       
+		qer_editorimage textures/rock/sharprock.tga
+	{
+		blend	bumpmap
+		map		heightmap( textures/rock/rock05i_h.tga, 2 ) 
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05i_d.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/rock05i_s.tga
+		VertexColor
+	}
+	{ 
+		blend	bumpmap
+		map		addnormals (textures/rock/sharprock_local, heightmap (textures/rock/newdarkrock_bmp.tga, 10) )
+
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/sharprock.tga
+		inverseVertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/sharprock_s.tga
+		inverseVertexColor
+	}
+
+}
+
+textures/rock/sharprock_to_sand
+{
+	        //noselfshadow
+ 		materialType rock       
+		qer_editorimage textures/rock/rock05_d.tga
+	{
+		blend 		bumpmap
+		map		heightmap (textures/rock/skysand1_bmp.tga, 4)
+	}
+	{
+		blend 		diffusemap
+		map		textures/rock/skysand1_d.tga
+		inverseVertexColor
+	}
+	{
+		blend		specularmap
+		map		textures/rock/skysand1_s.tga
+		inverseVertexColor
+	}
+
+	{ 
+		blend	bumpmap
+		map		addnormals (textures/rock/sharprock_local, heightmap (textures/rock/newdarkrock_bmp.tga, 10) )
+
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/sharprock.tga
+		VertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/sharprock_s.tga
+		VertexColor
+	}
+}
+
+
+textures/rock/vistarock_gray
+{
+
+	materialType	rock
+	qer_editorimage	textures/rock/rock05n_d.tga
+	noSelfShadow
+	
+	{ 
+		blend		bumpmap
+		map	        addnormals (textures/rock/sharprock_local, heightmap (textures/rock/newdarkrock_bmp.tga, 10) )
+	}
+
+	{
+		blend		diffusemap
+		map		textures/rock/rock05n_d.tga
+		//inverseVertexColor
+	}
+
+	{
+		blend 		specularmap
+		map		textures/rock/sharprock_s.tga
+		//inverseVertexColor
+	}
+}

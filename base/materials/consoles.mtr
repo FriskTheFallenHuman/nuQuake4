@@ -1,0 +1,213 @@
+//console textures 
+guide textures/consoles/console4b generic_typeshader ("consoles/console4b", "electronics")
+
+
+guide textures/consoles/conmonitorback1b generic_typeshader ("consoles/conmonitorback1b", "electronics")
+guide textures/consoles/conmonitorback1c generic_typeshader ("consoles/conmonitorback1c", "electronics")
+guide textures/consoles/conmonitorback1d generic_Localvariant_typeshader ("consoles/conmonitorback1c", "consoles/conmonitorback1d", "electronics")
+guide textures/consoles/conmonitorback1e generic_typeshader ("consoles/conmonitorback1e", "electronics")
+guide textures/consoles/conmonitorback1f generic_typeshader ("consoles/conmonitorback1f", "electronics")
+guide textures/consoles/conmonitorback1g generic_Localvariant_typeshader ("consoles/conmonitorback1c", "consoles/conmonitorback1g", "electronics")
+
+guide textures/consoles/conmonitorxl1b generic_materialimageshader ("consoles/conmonitorxl1b")
+
+textures/consoles/conmonitorxl1b_glow
+{
+	qer_editorimage textures/consoles/conmonitorxl1b_d
+	materialImage textures/consoles/conmonitorxl1b_hit
+
+	bumpmap addnormals ( textures/consoles/conmonitorxl1b_local, heightmap ( textures/consoles/conmonitorxl1b_h, 1 ) )
+	diffusemap	textures/consoles/conmonitorxl1b_d
+	specularmap	textures/consoles/conmonitorxl1b_s
+	{
+		blend	add
+		map		textures/consoles/conmonitorxl1a_add
+
+		red		parm0  
+		green	parm1  
+		blue	parm2  
+	}
+}
+
+guide textures/consoles/conmonitorxl1c generic_materialimageshader ("consoles/conmonitorxl1c")
+guide textures/consoles/conmonitorxl1d generic_Localvariant_mi ("consoles/conmonitorxl1c", "consoles/conmonitorxl1d")
+
+textures/consoles/conmonitorxl1e
+{
+	qer_editorimage textures/consoles/conmonitorxl1e_d
+	materialimage textures/consoles/conmonitorxl1e_hit
+
+	bumpmap addnormals ( textures/consoles/conmonitorxl1c_local, heightmap ( textures/consoles/conmonitorxl1e_h, 1 ) )
+	diffusemap	textures/consoles/conmonitorxl1e_d
+	specularmap	textures/consoles/conmonitorxl1e_s
+	{
+		blend	add
+		map		textures/consoles/conmonitorxl1e_add
+
+		red		parm0  
+		green	parm1  
+		blue	parm2  
+	}
+}
+
+/////////////
+
+guide textures/consoles/console1b generic_typeshader ("consoles/console1b", "electronics")
+guide textures/consoles/console1c generic_typeshader ("consoles/console1c", "electronics")
+guide textures/consoles/console1d generic_Localvariant_typeshader ("consoles/console1c", "consoles/console1d", "electronics")
+
+textures/consoles/console1e
+{
+	qer_editorimage textures/consoles/console1e_d
+	materialType	electronics
+
+	bumpmap addnormals ( textures/consoles/console1c_local, heightmap ( textures/consoles/console1e_h, 1 ) )
+	diffusemap	textures/consoles/console1e_d
+	specularmap	textures/consoles/console1e_s
+	{
+	blend 	add
+	map	textures/consoles/console1e_add.tga
+	rgb	5
+	}
+
+
+	{
+	blend 	add
+	map	textures/consoles/console1e_add2.tga
+	rgb 	(3 * sintable [.2 - time ]) +.2
+	}
+}
+
+guide textures/consoles/console2b generic_typeshader ("consoles/console2b", "electronics")
+
+textures/consoles/console2b_glow
+{
+	qer_editorimage textures/consoles/console2b_d
+	materialType	electronics
+
+	bumpmap addnormals ( textures/consoles/console2b_local, heightmap ( textures/consoles/console2b_h, 1 ) )
+	diffusemap	textures/consoles/console2b_d
+	specularmap	textures/consoles/console2b_s
+	
+	{
+	blend	add
+	map		textures/consoles/console2b_add1
+	rgb		5
+	}
+
+	{
+	blend	add
+	map		textures/consoles/console2b_add2
+	rgb		(3 * sintable [.2 - time ]) +.2
+	}
+}
+
+guide textures/consoles/console2c generic_typeshader ("consoles/console2c", "electronics")
+
+textures/consoles/console2e
+{
+	qer_editorimage textures/consoles/console2e_d
+	materialType	electronics
+
+	bumpmap addnormals ( textures/consoles/console2c_local, heightmap ( textures/consoles/console2e_h, 1 ) )
+	diffusemap	textures/consoles/console2e_d
+	specularmap	textures/consoles/console2e_s
+	{
+		blend		add
+		map		textures/consoles/console2e_add
+
+		red		Parm0  
+		green		Parm1  
+		blue		Parm2  
+	}
+}
+
+guide textures/consoles/console3b generic_typeshader ("consoles/console3b", "electronics")
+guide textures/consoles/console3c generic_typeshader ("consoles/console3c", "electronics")
+guide textures/consoles/console3d generic_Localvariant_typeshader ("consoles/console3b","consoles/console3d", "electronics")
+
+textures/consoles/console3e
+{
+	qer_editorimage textures/consoles/console3e_d
+	materialType	electronics
+
+	bumpmap addnormals ( textures/consoles/console3e_local, heightmap ( textures/consoles/console3e_h, 1 ) )
+	diffusemap	textures/consoles/console3e_d
+	specularmap	textures/consoles/console3e_s
+
+	{
+	blend 	add
+	map	textures/consoles/console3e_add.tga
+	rgb	5
+	}
+	{
+	blend 	add
+	map	textures/consoles/console3e_add2.tga
+	rgb 	(9 * sintable [.2 + time ]) +.2
+	}
+}
+
+guide textures/consoles/console4c generic_typeshader ("consoles/console4c", "electronics")
+guide textures/consoles/console4d generic_Localvariant_typeshader ("consoles/console4c", "consoles/console4d", "electronics")
+
+textures/consoles/console4e
+{
+	qer_editorimage textures/consoles/console4e_d
+	materialType	electronics
+
+	bumpmap addnormals ( textures/consoles/console4e_local, heightmap ( textures/consoles/console4e_h, 1 ) )
+	diffusemap	textures/consoles/console4e_d
+	specularmap	textures/consoles/console4e_s
+
+	{
+	blend 	add
+	map	textures/consoles/console4e_add.tga
+	rgb	5
+	}
+	{
+	blend 	add
+	map	textures/consoles/console4e_add2.tga
+	rgb 	(9 * sintable [.2 + time ]) +.2
+	}
+	{
+	blend 	add
+	map	textures/consoles/console4e_add3.tga
+	rgb 	(3 * sintable [3 - time ]) + 1
+	}
+}
+
+
+guide textures/consoles/console5b generic_typeshader ("consoles/console5b", "electronics")
+guide textures/consoles/console5c generic_typeshader ("consoles/console5c", "electronics")
+guide textures/consoles/console5d generic_Localvariant_typeshader ("consoles/console5c", "consoles/console5d", "electronics")
+guide textures/consoles/console5e generic_Localvariant_typeshader ("consoles/console5c", "consoles/console5e", "electronics")
+guide textures/consoles/console6b generic_typeshader ("consoles/console6b", "electronics")
+guide textures/consoles/console6c generic_typeshader ("consoles/console6c", "electronics")
+
+textures/consoles/console6e
+{
+	qer_editorimage textures/consoles/console6e_d
+	materialType	electronics
+
+	bumpmap addnormals ( textures/consoles/console6c_local, heightmap ( textures/consoles/console6e_h, 1 ) )
+	diffusemap	textures/consoles/console6e_d
+	specularmap	textures/consoles/console6e_s
+	{
+		blend		add
+		map		textures/consoles/console6e_add
+
+		red		Parm0  
+		green		Parm1  
+		blue		Parm2  
+	}
+}
+
+guide textures/consoles/console7c generic_typeshader ("consoles/console7c", "electronics")
+guide textures/consoles/console7d generic_typeshader ("consoles/console7d", "electronics")
+guide textures/consoles/console7e generic_typeshader ("consoles/console7e", "electronics")
+guide textures/consoles/console7f generic_Localvariant_typeshader ("consoles/console7e", "consoles/console7f", "electronics")
+guide textures/consoles/console7g generic_Localvariant_typeshader ("consoles/console7c", "consoles/console7g", "electronics")
+guide textures/consoles/console8b generic_typeshader ("consoles/console8b", "electronics")
+guide textures/consoles/console8c generic_typeshader ("consoles/console8c", "electronics")
+guide textures/consoles/console8d generic_typeshader ("consoles/console8d", "electronics")
+guide textures/consoles/console8e generic_Localvariant_typeshader ("consoles/console8c", "consoles/console8e", "electronics")

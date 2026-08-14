@@ -1,0 +1,4294 @@
+/*
+===============================================================================
+
+	AI Personas : Please keep this list up to date
+
+
+=======
+ACT 1
+=======
+
+Rhino Squad:
+persona_rhino_anderson_pfc
+persona_rhino_bidwell_sgt
+persona_rhino_cortez_cpl
+persona_rhino_morris_sgt
+persona_rhino_rhodes_cpl
+persona_rhino_sledge_lcpl
+persona_rhino_strauss_pvt
+persona_rhino_voss_lt
+
+Jabronis:
+persona_marine_act1_1
+persona_marine_act1_2
+persona_marine_act1_3
+persona_marine_act1_4
+persona_marine_act1_5
+persona_marine_act1_6
+persona_marine_act1_7
+persona_marine_act1_8
+
+=======
+ACT 2:
+	These work for acts 2 and 3, but they're labeled 2 just in case we create special Act 3 actors.
+=======
+
+Rhino Squad:
+persona_rhino_anderson_pfc_act2
+persona_rhino_bidwell_sgt_act2
+persona_rhino_cortez_cpl_act2
+persona_rhino_morris_sgt_act2 (added for Medlabs)
+persona_rhino_morris_lt
+persona_rhino_rhodes_cpl_act2
+persona_rhino_sledge_sgt
+persona_rhino_strauss_pvt_act2
+persona_rhino_voss_lt_act2
+
+Jabronis:
+persona_marine_act2_1
+persona_marine_act2_2
+persona_marine_act2_3
+persona_marine_act2_4
+persona_marine_act2_5
+persona_marine_act2_6
+persona_marine_act2_7
+persona_marine_act2_8
+
+
+===============================================================================
+*/
+
+entityDef persona_test
+{
+	"npc_name"				"#str_107500"
+	"npc_description"		"#str_107501"	
+}
+
+//------------------------------------------------------------------------------
+// Squad Personas
+//
+//------------------------------------------------------------------------------
+
+entityDef persona_rhino
+{
+	"npc_description"			"#str_107502"
+
+}
+
+entityDef persona_badger
+{
+	"npc_description"			"#str_107503"
+	"skin"						"skins/models/characters/marine/badger"
+
+}
+
+entityDef persona_wolf
+{
+	"npc_description"			"#str_107504"
+	"skin"						"skins/models/characters/marine/wolf"
+
+}
+
+entityDef persona_kodiak
+{
+	"npc_description"			"#str_107505"
+	"skin"						"skins/models/characters/marine/kodiak"
+
+}
+
+entityDef persona_eagle
+{
+	"npc_description"			"#str_107506"
+	"skin"						"skins/models/characters/marine/eagle"
+
+}
+
+entityDef persona_raven
+{
+	"npc_description"			"#str_107507"
+	"skin"						"skins/models/characters/marine/raven"
+
+}
+
+entityDef persona_warthog
+{
+	"npc_description"			"#str_107508"
+	"skin"						"skins/models/characters/marine/warthog"
+
+}
+
+entityDef persona_viper
+{
+	"npc_description"			"#str_107509"
+	"skin"						"skins/models/characters/marine/viper"
+
+}
+
+entityDef persona_cobra
+{
+	"npc_description"			"#str_107510"
+	"skin"						"skins/models/characters/marine/cobra"
+
+}
+
+//------------------------------------------------------------------------------
+// Character Personas
+//
+// These characters appear in multiple levels through the game and are
+// persistant NPCS... until they get their necks snapped, guts rended, or die in a fire.
+//
+// Be cool and label them as such:  squad_name_rank
+//
+//------------------------------------------------------------------------------
+
+entityDef persona_rhino_anderson_pfc
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_anderson_1"
+
+	"npc_name"					"#str_107511"
+		
+	"def_head"					"char_marinehead_anderson"
+
+
+
+}
+
+entityDef persona_rhino_anderson_pfc_act2
+{
+	"inherit1"					"persona_rhino_anderson_pfc"
+	"inherit2"					"lipsync_anderson_2"
+}
+
+
+entityDef persona_rhino_bidwell_sgt
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_bidwell_1"
+
+	"npc_name"					"#str_107512"
+		
+	"def_head"					"char_marinehead_bidwell"
+}
+
+entityDef persona_rhino_bidwell_sgt_act2
+{
+	"inherit1"					"persona_rhino_bidwell_sgt"
+	"inherit2"					"lipsync_bidwell_2"
+}
+
+entityDef persona_rhino_cortez_cpl
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_cortez_1"
+
+	"npc_name"					"#str_107513"
+		
+	"def_head"					"char_marinehead_cortez"
+
+	"def_attack_base"				"hitscan_marine_bullet_cortez"
+	"attack_base_hitscan"			"1"
+	"attack_base_accuracy"			"1"
+	"attack_base_predict"			"1"
+	"attack_base_spread"			"0"
+
+	"minShots"						"1"
+	"maxShots"						"1"
+
+	"snd_gun"						"npc_cortez_fire"
+	"snd_base_flash"				"npc_cortez_fire"
+}
+
+entityDef persona_rhino_cortez_cpl_act2
+{
+	"inherit1"					"persona_rhino_cortez_cpl"
+	"inherit2"					"lipsync_cortez_2"
+}
+
+entityDef persona_rhino_morris_sgt
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_morris_1"
+
+	"npc_name"					"#str_107514"
+		
+	"def_head"					"char_marinehead_morris"
+}
+
+entityDef persona_rhino_morris_lt
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_morris_2"
+
+	"npc_name"					"#str_107515"
+		
+	"def_head"					"char_marinehead_morris"
+}
+
+entityDef persona_rhino_morris_sgt_act2
+{
+	"inherit"					"persona_rhino_morris_lt"
+
+	"npc_name"					"#str_107514"
+}
+
+entityDef persona_rhino_rhodes_cpl
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_rhodes_1"
+
+	"npc_name"					"#str_107516"
+		
+	"def_head"					"char_marinehead_rhodes"
+}
+
+entityDef persona_rhino_rhodes_cpl_act2
+{
+	"inherit1"					"persona_rhino_rhodes_cpl"
+	"inherit2"					"lipsync_rhodes_2"
+}
+
+entityDef persona_rhino_sledge_lcpl
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_sledge_1"
+
+	"npc_name"					"#str_107517"
+		
+	"def_head"					"char_marinehead_sledge"
+}
+
+entityDef persona_rhino_sledge_sgt
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_sledge_2"
+
+	"npc_name"					"#str_107518"
+		
+	"def_head"					"char_marinehead_sledge"
+}
+
+
+entityDef persona_rhino_strauss_pvt
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_strauss_1"
+
+	"npc_name"					"#str_107519"
+		
+	"def_head"					"char_marinehead_strassa"
+}
+
+entityDef persona_rhino_strauss_pvt_act2
+{
+	"inherit1"					"persona_rhino_strauss_pvt"
+	"inherit2"					"lipsync_strauss_2"
+}
+
+entityDef persona_rhino_voss_lt
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"lipsync_voss_1"
+
+	"npc_name"					"#str_107520"
+		
+	"def_head"					"char_marinehead_voss"
+}
+
+entityDef persona_rhino_voss_lt_act2
+{
+	"inherit1"					"persona_rhino_voss_lt"
+	"inherit2"					"lipsync_voss_2"
+}
+
+entityDef persona_marine_act1_1
+{
+	"def_head"					"char_marinehead_gen_african_american_2"
+	"inherit1"					"lipsync_marine_act1_1"
+}
+entityDef persona_marine_act1_1_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_1_h"
+}
+
+
+entityDef persona_marine_act1_2
+{
+	"def_head"					"char_marinehead_gen_white_2"
+	"inherit1"					"lipsync_marine_act1_2"
+}
+entityDef persona_marine_act1_2_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_2_h"
+}
+
+
+entityDef persona_marine_act1_3
+{
+	"def_head"					"char_marinehead_gen_asian"
+	"inherit1"					"lipsync_marine_act1_3"
+}
+entityDef persona_marine_act1_3_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_3_h"
+}
+
+entityDef persona_marine_act1_4
+{
+	"def_head"					"char_marinehead_gen_african_american_3"
+	"inherit1"					"lipsync_marine_act1_4"
+}
+entityDef persona_marine_act1_4_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_4_h"
+}
+
+entityDef persona_marine_act1_5
+{
+	"def_head"					"char_marinehead_gen_white"
+	"inherit1"					"lipsync_marine_act1_5"
+}
+entityDef persona_marine_act1_5_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_5_h"
+}
+
+
+entityDef persona_marine_act1_6
+{
+	"def_head"					"char_marinehead_gen_white_4"
+	"inherit1"					"lipsync_marine_act1_6"
+}
+entityDef persona_marine_act1_6_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_6_h"
+}
+
+
+entityDef persona_marine_act1_7
+{
+	"def_head"					"char_marinehead_gen_african_american"
+	"inherit1"					"lipsync_marine_act1_7"
+}
+entityDef persona_marine_act1_7_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_7_h"
+}
+
+
+entityDef persona_marine_act1_8
+{
+	"def_head"					"char_marinehead_gen_asian_2"
+	"inherit1"					"lipsync_marine_act1_8"
+}
+entityDef persona_marine_act1_8_helmet
+{
+	"def_head"					"char_marinehead_helmet"
+	"inherit1"					"lipsync_marine_act1_8_h"
+}
+
+
+//-----------------------------------------------------------------
+
+
+entityDef persona_marine_act2_1
+{
+	"inherit2"					"persona_marine_act1_1"
+	"inherit1"					"lipsync_marine_act2_1"
+}
+entityDef persona_marine_act2_1_helmet
+{
+	"inherit2"					"lipsync_marine_act2_1_h"
+	"inherit1"					"persona_marine_act1_1_helmet"
+}
+
+entityDef persona_marine_act2_2
+{
+	"inherit2"					"persona_marine_act1_2"
+	"inherit1"					"lipsync_marine_act2_2"
+}
+entityDef persona_marine_act2_2_helmet
+{
+	"inherit2"					"lipsync_marine_act2_2_h"
+	"inherit1"					"persona_marine_act1_2_helmet"
+}
+
+
+entityDef persona_marine_act2_3
+{
+	"inherit2"					"persona_marine_act1_3"
+	"inherit1"					"lipsync_marine_act2_3"
+}
+entityDef persona_marine_act2_3_helmet
+{
+	"inherit2"					"lipsync_marine_act2_3_h"
+	"inherit1"					"persona_marine_act1_3_helmet"
+}
+
+
+entityDef persona_marine_act2_4
+{
+	"inherit2"					"persona_marine_act1_4"
+	"inherit1"					"lipsync_marine_act2_4"
+}
+entityDef persona_marine_act2_4_helmet
+{
+	"inherit2"					"lipsync_marine_act2_4_h"
+	"inherit1"					"persona_marine_act1_4_helmet"
+}
+
+
+entityDef persona_marine_act2_5
+{
+	"inherit2"					"persona_marine_act1_5"
+	"inherit1"					"lipsync_marine_act2_5"
+}
+entityDef persona_marine_act2_5_helmet
+{
+	"inherit2"					"lipsync_marine_act2_5_h"
+	"inherit1"					"persona_marine_act1_5_helmet"
+}
+
+
+entityDef persona_marine_act2_6
+{
+	"inherit2"					"persona_marine_act1_6"
+	"inherit1"					"lipsync_marine_act2_6"
+}
+entityDef persona_marine_act2_6_helmet
+{
+	"inherit2"					"lipsync_marine_act2_6_h"
+	"inherit1"					"persona_marine_act1_6_helmet"
+}
+
+
+entityDef persona_marine_act2_7
+{
+	"inherit2"					"persona_marine_act1_7"
+	"inherit1"					"lipsync_marine_act2_7"
+}
+entityDef persona_marine_act2_7_helmet
+{
+	"inherit2"					"lipsync_marine_act2_7_h"
+	"inherit1"					"persona_marine_act1_7_helmet"
+}
+
+
+entityDef persona_marine_act2_8
+{
+	"inherit2"					"persona_marine_act1_8"
+	"inherit1"					"lipsync_marine_act2_8"
+}
+entityDef persona_marine_act2_8_helmet
+{
+	"inherit2"					"lipsync_marine_act2_8_h"
+	"inherit1"					"persona_marine_act1_8_helmet"
+}
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------
+// Lipsyncs
+//
+//  **	**	*****	**	**	**
+//	**	**	**		 ****	**
+//	******	*****	  **	**
+//	**	**	**		  **	
+//	**	**	*****	  **	**
+//
+//	Please make sure that only lipsync data appear past this point. Don't just throw
+//	stuff at the end of the file because you feel like it doesn't matter. Thanks!
+//------------------------------------------------------------------------------
+
+//vo_9_1_x_x
+entityDef lipsync_anderson_1
+{
+	"lipsync_pain1"										"vo_9_1_260_1"
+	"lipsync_pain2"										"vo_9_1_260_2"
+	"lipsync_pain3"										"vo_9_1_260_3"
+	"lipsync_pain4"										"vo_9_1_260_4"
+
+	"lipsync_death1"									"vo_9_1_270_1"
+	"lipsync_death2"									"vo_9_1_270_2"
+	"lipsync_death3"									"vo_9_1_270_3"
+
+	"lipsync_busy_1"								"vo_9_1_30_1"
+	"lipsync_busy_2"								"vo_9_1_30_2"
+	"lipsync_busy_3"								"vo_9_1_30_3"
+	"lipsync_busy_4"								"vo_9_1_30_4"
+
+	//"lipsync_sniper1"							"vo_9_1_70_1"
+	//"lipsync_sniper2"							"vo_9_1_70_2"
+	//"lipsync_sniper3"							"vo_9_1_70_3"
+	//"lipsync_high_sniper1"						"vo_9_1_70_1"
+	//"lipsync_high_sniper2"						"vo_9_1_70_2"
+	//"lipsync_high_sniper3"						"vo_9_1_70_3"
+	
+	"lipsync_mandown1"							"vo_9_1_80_1"
+	"lipsync_mandown2"							"vo_9_1_80_2"
+	"lipsync_mandown3"							"vo_9_1_80_3"
+	//"lipsync_mandown4"							"vo_9_1_80_4"	
+	
+	"lipsync_victory1"							"vo_9_1_90_1"
+	"lipsync_victory2"							"vo_9_1_90_2"
+	"lipsync_victory3"							"vo_9_1_90_3"
+	"lipsync_victory4"							"vo_9_1_90_4"
+	"lipsync_victory5"							"vo_9_1_90_5"
+	"lipsync_victory6"							"vo_9_1_90_6"
+	//"lipsync_victory7"							"vo_9_1_90_7"
+	//"lipsync_victory8"							"vo_9_1_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_1_100_1"
+	//"lipsync_watchit2"							"vo_9_1_100_2"
+	//"lipsync_watchit3"							"vo_9_1_100_3"
+	
+	"lipsync_thanks1"							"vo_9_1_130_1"
+	"lipsync_thanks2"							"vo_9_1_130_2"
+	"lipsync_thanks3"							"vo_9_1_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_1_140_1"
+	"lipsync_niceshot2"							"vo_9_1_140_2"
+	"lipsync_niceshot3"							"vo_9_1_140_3"
+	"lipsync_niceshot4"							"vo_9_1_140_4"
+	"lipsync_niceshot5"							"vo_9_1_140_5"
+	//"lipsync_niceshot6"							"vo_9_1_140_6"
+	//"lipsync_niceshot7"							"vo_9_1_140_7"
+	//"lipsync_niceshot8"							"vo_9_1_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_1_150_1"
+	"lipsync_checkfire2"						"vo_9_1_150_2"
+	"lipsync_checkfire3"						"vo_9_1_150_3"
+	"lipsync_checkfire4"						"vo_9_1_150_4"
+	"lipsync_checkfire5"						"vo_9_1_150_5"
+	//"lipsync_checkfire6"						"vo_9_1_150_6"
+	//"lipsync_checkfire7"						"vo_9_1_150_7"
+	//"lipsync_checkfire8"						"vo_9_1_150_8"
+	//"lipsync_checkfire9"						"vo_9_1_150_9"
+	//"lipsync_checkfire10"						"vo_9_1_150_10"
+	//"lipsync_checkfire11"						"vo_9_1_150_11"
+
+//	"lipsync_traitor1"							"vo_9_1_160_1"
+//	"lipsync_traitor2"							"vo_9_1_160_2"
+//	"lipsync_traitor3"							"vo_9_1_160_3"
+	//"lipsync_traitor4"							"vo_9_1_160_4"
+	//"lipsync_traitor5"							"vo_9_1_160_5"
+	//"lipsync_traitor6"							"vo_9_1_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_1_210_1"
+	"lipsync_enemy_left2"						"vo_9_1_210_2"
+	//"lipsync_enemy_left3"						"vo_9_1_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_1_220_1"
+	"lipsync_enemy_right2"						"vo_9_1_220_2"
+	//"lipsync_enemy_right3"						"vo_9_1_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_1_230_1"
+	"lipsync_enemy_high2"						"vo_9_1_230_2"
+	//"lipsync_enemy_high3"						"vo_9_1_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_1_200_1"
+	"lipsync_enemy_behind2"						"vo_9_1_200_2"
+	//"lipsync_enemy_behind3"						"vo_9_1_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_1_240_1"
+	"lipsync_enemy_default2"					"vo_9_1_240_2"
+	"lipsync_enemy_default3"					"vo_9_1_240_3"
+	"lipsync_enemy_default4"					"vo_9_1_240_4"
+
+	//Anderson doesn't have these
+//	"lipsync_enemy_default5"					"vo_9_1_240_5"
+//	"lipsync_enemy_default6"					"vo_9_1_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_1_250_1"
+	"lipsync_canihelpyou2"						"vo_9_1_250_2"
+	"lipsync_canihelpyou3"						"vo_9_1_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_1_250_4"
+	"lipsync_canihelpyou5"						"vo_9_1_250_5"
+	"lipsync_canihelpyou6"						"vo_9_1_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_1_40_1"
+	//"lipsync_cover2"							"vo_9_1_40_2"
+	//"lipsync_cover3"							"vo_9_1_40_3"
+	//"lipsync_cover4"							"vo_9_1_40_4"
+	//"lipsync_cover5"							"vo_9_1_40_5"
+	//"lipsync_cover6"							"vo_9_1_40_6"
+
+	"lipsync_call_marine_1"								"vo_9_1_290_1"
+	"lipsync_call_marine_2"								"vo_9_1_290_2"
+	"lipsync_call_marine_3"								"vo_9_1_290_3"
+
+	"lipsync_call_player_1"								"vo_9_1_300_1"
+	"lipsync_call_player_2"								"vo_9_1_300_2"
+	"lipsync_call_player_3"								"vo_9_1_300_3"
+	"lipsync_call_player_4"								"vo_9_1_300_4"
+
+	"lipsync_heal_start_1"								"vo_9_1_310_1"
+	"lipsync_heal_start_2"								"vo_9_1_310_2"
+	"lipsync_heal_start_3"								"vo_9_1_310_3"
+	"lipsync_heal_start_4"								"vo_9_1_310_4"
+	"lipsync_heal_start_5"								"vo_9_1_310_5"
+	
+	"lipsync_heal_end_1"								"vo_9_1_320_1"
+	"lipsync_heal_end_2"								"vo_9_1_320_2"
+	"lipsync_heal_end_3"								"vo_9_1_320_3"
+	"lipsync_heal_end_4"								"vo_9_1_320_4"
+
+	"lipsync_heal_busy_1"								"vo_9_1_30_2"
+	"lipsync_heal_busy_2"								"vo_9_1_30_3"
+
+	"lipsync_heal_noheal_1"								"vo_9_1_250_1"
+	"lipsync_heal_noheal_2"								"vo_9_1_250_3"
+
+	"snd_med_gun_heal"									"med_gun_heal"
+}
+
+
+//vo_9_8_x_x
+entityDef lipsync_voss_1
+{
+	"lipsync_pain1"										"vo_9_8_260_1"
+	"lipsync_pain2"										"vo_9_8_260_2"
+	"lipsync_pain3"										"vo_9_8_260_3"
+	"lipsync_pain4"										"vo_9_8_260_4"
+
+	"lipsync_death1"									"vo_9_8_270_1"
+	"lipsync_death2"									"vo_9_8_270_2"
+	"lipsync_death3"									"vo_9_8_270_3"
+
+	"lipsync_busy_1"								"vo_9_8_30_1"
+	"lipsync_busy_2"								"vo_9_8_30_2"
+//	"lipsync_busy_3"								"vo_9_8_30_3"
+//	"lipsync_busy_4"								"vo_9_8_30_4"
+
+	//"lipsync_sniper1"							"vo_9_8_70_1"
+	//"lipsync_sniper2"							"vo_9_8_70_2"
+	//"lipsync_sniper3"							"vo_9_8_70_3"
+	//"lipsync_high_sniper1"						"vo_9_8_70_1"
+	//"lipsync_high_sniper2"						"vo_9_8_70_2"
+	//"lipsync_high_sniper3"						"vo_9_8_70_3"
+	
+	"lipsync_mandown1"							"vo_9_8_80_1"
+	"lipsync_mandown2"							"vo_9_8_80_2"
+	"lipsync_mandown3"							"vo_9_8_80_3"
+	//"lipsync_mandown4"							"vo_9_8_80_4"	
+	
+	"lipsync_victory1"							"vo_9_8_90_1"
+	"lipsync_victory2"							"vo_9_8_90_2"
+	"lipsync_victory3"							"vo_9_8_90_3"
+	"lipsync_victory4"							"vo_9_8_90_4"
+	"lipsync_victory5"							"vo_9_8_90_5"
+	"lipsync_victory6"							"vo_9_8_90_6"
+	//"lipsync_victory7"							"vo_9_8_90_7"
+	//"lipsync_victory8"							"vo_9_8_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_8_100_1"
+	//"lipsync_watchit2"							"vo_9_8_100_2"
+	//"lipsync_watchit3"							"vo_9_8_100_3"
+	
+	"lipsync_thanks1"							"vo_9_8_130_1"
+	"lipsync_thanks2"							"vo_9_8_130_2"
+	"lipsync_thanks3"							"vo_9_8_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_8_140_1"
+	"lipsync_niceshot2"							"vo_9_8_140_2"
+	"lipsync_niceshot3"							"vo_9_8_140_3"
+	"lipsync_niceshot4"							"vo_9_8_140_4"
+	"lipsync_niceshot5"							"vo_9_8_140_5"
+	//"lipsync_niceshot6"							"vo_9_8_140_6"
+	//"lipsync_niceshot7"							"vo_9_8_140_7"
+	//"lipsync_niceshot8"							"vo_9_8_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_8_150_1"
+	"lipsync_checkfire2"						"vo_9_8_150_2"
+	"lipsync_checkfire3"						"vo_9_8_150_3"
+	"lipsync_checkfire4"						"vo_9_8_150_4"
+	"lipsync_checkfire5"						"vo_9_8_150_5"
+	//"lipsync_checkfire6"						"vo_9_8_150_6"
+	//"lipsync_checkfire7"						"vo_9_8_150_7"
+	//"lipsync_checkfire8"						"vo_9_8_150_8"
+	//"lipsync_checkfire9"						"vo_9_8_150_9"
+	//"lipsync_checkfire10"						"vo_9_8_150_10"
+	//"lipsync_checkfire11"						"vo_9_8_150_11"
+
+//	"lipsync_traitor1"							"vo_9_8_160_1"
+//	"lipsync_traitor2"							"vo_9_8_160_2"
+//	"lipsync_traitor3"							"vo_9_8_160_3"
+	//"lipsync_traitor4"							"vo_9_8_160_4"
+	//"lipsync_traitor5"							"vo_9_8_160_5"
+	//"lipsync_traitor6"							"vo_9_8_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_8_210_1"
+	"lipsync_enemy_left2"						"vo_9_8_210_2"
+	//"lipsync_enemy_left3"						"vo_9_8_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_8_220_1"
+	"lipsync_enemy_right2"						"vo_9_8_220_2"
+	//"lipsync_enemy_right3"						"vo_9_8_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_8_230_1"
+	"lipsync_enemy_high2"						"vo_9_8_230_2"
+	//"lipsync_enemy_high3"						"vo_9_8_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_8_200_1"
+	"lipsync_enemy_behind2"						"vo_9_8_200_2"
+	//"lipsync_enemy_behind3"						"vo_9_8_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_8_240_1"
+	"lipsync_enemy_default2"					"vo_9_8_240_2"
+	"lipsync_enemy_default3"					"vo_9_8_240_3"
+	"lipsync_enemy_default4"					"vo_9_8_240_4"
+	//"lipsync_enemy_default5"					"vo_9_8_240_5"
+	//"lipsync_enemy_default6"					"vo_9_8_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_8_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_8_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_8_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_8_250_4"
+	"lipsync_canihelpyou5"						"vo_9_8_250_5"
+	"lipsync_canihelpyou6"						"vo_9_8_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_8_40_1"
+	//"lipsync_cover2"							"vo_9_8_40_2"
+	//"lipsync_cover3"							"vo_9_8_40_3"
+	//"lipsync_cover4"							"vo_9_8_40_4"
+	//"lipsync_cover5"							"vo_9_8_40_5"
+	//"lipsync_cover6"							"vo_9_8_40_6"
+}
+
+//vo_9_2_x_x
+entityDef lipsync_bidwell_1
+{
+	"lipsync_pain1"										"vo_9_2_260_1"
+	"lipsync_pain2"										"vo_9_2_260_2"
+	"lipsync_pain3"										"vo_9_2_260_3"
+	"lipsync_pain4"										"vo_9_2_260_4"
+
+	"lipsync_death1"									"vo_9_2_270_1"
+	"lipsync_death2"									"vo_9_2_270_2"
+	"lipsync_death3"									"vo_9_2_270_3"
+
+	"lipsync_busy_1"								"vo_9_2_30_1"
+/*	"lipsync_busy_2"								"vo_9_2_30_2"
+	"lipsync_busy_3"								"vo_9_2_30_3"
+	"lipsync_busy_4"								"vo_9_2_30_4" */
+
+	//"lipsync_sniper1"							"vo_9_2_70_1"
+	//"lipsync_sniper2"							"vo_9_2_70_2"
+	//"lipsync_sniper3"							"vo_9_2_70_3"
+	//"lipsync_high_sniper1"						"vo_9_2_70_1"
+	//"lipsync_high_sniper2"						"vo_9_2_70_2"
+	//"lipsync_high_sniper3"						"vo_9_2_70_3"
+	
+	"lipsync_mandown1"							"vo_9_2_80_1"
+	"lipsync_mandown2"							"vo_9_2_80_2"
+	"lipsync_mandown3"							"vo_9_2_80_3"	
+	
+	"lipsync_victory1"							"vo_9_2_90_1"
+	"lipsync_victory2"							"vo_9_2_90_2"
+	"lipsync_victory3"							"vo_9_2_90_3"
+	"lipsync_victory4"							"vo_9_2_90_4"
+	"lipsync_victory5"							"vo_9_2_90_5"
+	"lipsync_victory6"							"vo_9_2_90_6"
+	
+	//"lipsync_watchit1"							"vo_9_2_100_1"
+	//"lipsync_watchit2"							"vo_9_2_100_2"
+	//"lipsync_watchit3"							"vo_9_2_100_3"
+	
+	"lipsync_thanks1"							"vo_9_2_130_1"
+	"lipsync_thanks2"							"vo_9_2_130_2"
+	"lipsync_thanks3"							"vo_9_2_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_2_140_1"
+	"lipsync_niceshot2"							"vo_9_2_140_2"
+	"lipsync_niceshot3"							"vo_9_2_140_3"
+	"lipsync_niceshot4"							"vo_9_2_140_4"
+	"lipsync_niceshot5"							"vo_9_2_140_5"
+	
+	"lipsync_checkfire1"						"vo_9_2_150_1"
+	"lipsync_checkfire2"						"vo_9_2_150_2"
+	"lipsync_checkfire3"						"vo_9_2_150_3"
+	"lipsync_checkfire4"						"vo_9_2_150_4"
+	"lipsync_checkfire5"						"vo_9_2_150_5"
+	//"lipsync_checkfire6"						"vo_9_2_150_6"
+	//"lipsync_checkfire7"						"vo_9_2_150_7"
+	//"lipsync_checkfire8"						"vo_9_2_150_8"
+	//"lipsync_checkfire9"						"vo_9_2_150_9"
+	//"lipsync_checkfire10"						"vo_9_2_150_10"
+	//"lipsync_checkfire11"						"vo_9_2_150_11"
+
+//	"lipsync_traitor1"							"vo_9_2_160_1"
+//	"lipsync_traitor2"							"vo_9_2_160_2"
+//	"lipsync_traitor3"							"vo_9_2_160_3"
+	//"lipsync_traitor4"							"vo_9_2_160_4"
+	//"lipsync_traitor5"							"vo_9_2_160_5"
+	//"lipsync_traitor6"							"vo_9_2_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_2_210_1"
+	"lipsync_enemy_left2"						"vo_9_2_210_2"
+
+	"lipsync_enemy_right1"						"vo_9_2_220_1"
+	"lipsync_enemy_right2"						"vo_9_2_220_2"
+
+	"lipsync_enemy_high1"						"vo_9_2_230_1"
+	"lipsync_enemy_high2"						"vo_9_2_230_2"
+
+	"lipsync_enemy_behind1"						"vo_9_2_200_1"
+	"lipsync_enemy_behind2"						"vo_9_2_200_2"
+	
+	"lipsync_enemy_default1"					"vo_9_2_240_1"
+	"lipsync_enemy_default2"					"vo_9_2_240_2"
+	"lipsync_enemy_default3"					"vo_9_2_240_3"
+	"lipsync_enemy_default4"					"vo_9_2_240_4"
+
+	"lipsync_canihelpyou1"						"vo_9_2_250_1"
+/*	"lipsync_canihelpyou2"						"vo_9_2_250_2"
+	"lipsync_canihelpyou3"						"vo_9_2_250_3" */
+	/* "lipsync_canihelpyou4"						"vo_9_2_250_4"
+	"lipsync_canihelpyou5"						"vo_9_2_250_5"
+	"lipsync_canihelpyou6"						"vo_9_2_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_2_40_1"
+	//"lipsync_cover2"							"vo_9_2_40_2"
+	//"lipsync_cover3"							"vo_9_2_40_3"
+	//"lipsync_cover4"							"vo_9_2_40_4"
+	//"lipsync_cover5"							"vo_9_2_40_5"
+	//"lipsync_cover6"							"vo_9_2_40_6"
+}
+
+//vo_9_3_x_x
+entityDef lipsync_cortez_1
+{
+	"lipsync_pain1"										"vo_9_3_260_1"
+	"lipsync_pain2"										"vo_9_3_260_2"
+	"lipsync_pain3"										"vo_9_3_260_3"
+	"lipsync_pain4"										"vo_9_3_260_4"
+
+	"lipsync_death1"									"vo_9_3_270_1"
+	"lipsync_death2"									"vo_9_3_270_2"
+	"lipsync_death3"									"vo_9_3_270_3"
+
+	"lipsync_busy_1"								"vo_9_3_30_1"
+	"lipsync_busy_2"								"vo_9_3_30_2"
+/*	"lipsync_busy_3"								"vo_9_3_30_3"
+	"lipsync_busy_4"								"vo_9_3_30_4" */
+
+	//"lipsync_sniper1"							"vo_9_3_70_1"
+	//"lipsync_sniper2"							"vo_9_3_70_2"
+	//"lipsync_sniper3"							"vo_9_3_70_3"
+	//"lipsync_high_sniper1"						"vo_9_3_70_1"
+	//"lipsync_high_sniper2"						"vo_9_3_70_2"
+	//"lipsync_high_sniper3"						"vo_9_3_70_3"
+	
+	"lipsync_mandown1"							"vo_9_3_80_1"
+	"lipsync_mandown2"							"vo_9_3_80_2"
+	"lipsync_mandown3"							"vo_9_3_80_3"	
+	
+	"lipsync_victory1"							"vo_9_3_90_1"
+	"lipsync_victory2"							"vo_9_3_90_2"
+	"lipsync_victory3"							"vo_9_3_90_3"
+	"lipsync_victory4"							"vo_9_3_90_4"
+	"lipsync_victory5"							"vo_9_3_90_5"
+	"lipsync_victory6"							"vo_9_3_90_6"
+	
+	//"lipsync_watchit1"							"vo_9_3_100_1"
+	//"lipsync_watchit2"							"vo_9_3_100_2"
+	//"lipsync_watchit3"							"vo_9_3_100_3"
+	
+	"lipsync_thanks1"							"vo_9_3_130_1"
+	"lipsync_thanks2"							"vo_9_3_130_2"
+	"lipsync_thanks3"							"vo_9_3_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_3_140_1"
+	"lipsync_niceshot2"							"vo_9_3_140_2"
+	"lipsync_niceshot3"							"vo_9_3_140_3"
+	"lipsync_niceshot4"							"vo_9_3_140_4"
+	"lipsync_niceshot5"							"vo_9_3_140_5"
+	
+	"lipsync_checkfire1"						"vo_9_3_150_1"
+	"lipsync_checkfire2"						"vo_9_3_150_2"
+	"lipsync_checkfire3"						"vo_9_3_150_3"
+	"lipsync_checkfire4"						"vo_9_3_150_4"
+	"lipsync_checkfire5"						"vo_9_3_150_5"
+	//"lipsync_checkfire6"						"vo_9_3_150_6"
+	//"lipsync_checkfire7"						"vo_9_3_150_7"
+	//"lipsync_checkfire8"						"vo_9_3_150_8"
+	//"lipsync_checkfire9"						"vo_9_3_150_9"
+	//"lipsync_checkfire10"						"vo_9_3_150_10"
+	//"lipsync_checkfire11"						"vo_9_3_150_11"
+
+//	"lipsync_traitor1"							"vo_9_3_160_1"
+//	"lipsync_traitor2"							"vo_9_3_160_2"
+//	"lipsync_traitor3"							"vo_9_3_160_3"
+	//"lipsync_traitor4"							"vo_9_3_160_4"
+	//"lipsync_traitor5"							"vo_9_3_160_5"
+	//"lipsync_traitor6"							"vo_9_3_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_3_210_1"
+	"lipsync_enemy_left2"						"vo_9_3_210_2"
+
+	"lipsync_enemy_right1"						"vo_9_3_220_1"
+	"lipsync_enemy_right2"						"vo_9_3_220_2"
+
+	"lipsync_enemy_high1"						"vo_9_3_230_1"
+	"lipsync_enemy_high2"						"vo_9_3_230_2"
+
+	"lipsync_enemy_behind1"						"vo_9_3_200_1"
+	"lipsync_enemy_behind2"						"vo_9_3_200_2"
+	
+	"lipsync_enemy_default1"					"vo_9_3_240_1"
+	"lipsync_enemy_default2"					"vo_9_3_240_2"
+	"lipsync_enemy_default3"					"vo_9_3_240_3"
+	"lipsync_enemy_default4"					"vo_9_3_240_4"
+
+	"lipsync_canihelpyou1"						"vo_9_3_250_1"
+/*	"lipsync_canihelpyou2"						"vo_9_3_250_2"
+	"lipsync_canihelpyou3"						"vo_9_3_250_3" */
+	/* "lipsync_canihelpyou4"						"vo_9_3_250_4"
+	"lipsync_canihelpyou5"						"vo_9_3_250_5"
+	"lipsync_canihelpyou6"						"vo_9_3_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_3_40_1"
+	//"lipsync_cover2"							"vo_9_3_40_2"	
+	//"lipsync_cover3"							"vo_9_3_40_3"
+	//"lipsync_cover4"							"vo_9_3_40_4"
+	//"lipsync_cover5"							"vo_9_3_40_5"
+	//"lipsync_cover6"							"vo_9_3_40_6"
+}
+
+//vo_9_4_x_x
+entityDef lipsync_morris_1
+{
+	"lipsync_pain1"										"vo_9_4_260_1"
+	"lipsync_pain2"										"vo_9_4_260_2"
+	"lipsync_pain3"										"vo_9_4_260_3"
+	"lipsync_pain4"										"vo_9_4_260_4"
+
+	"lipsync_death1"									"vo_9_4_270_1"
+	"lipsync_death2"									"vo_9_4_270_2"
+	"lipsync_death3"									"vo_9_4_270_3"
+
+	"lipsync_busy_1"								"vo_9_4_30_1"
+	"lipsync_busy_2"								"vo_9_4_30_2"
+//	"lipsync_busy_3"								"vo_9_4_30_3"
+//	"lipsync_busy_4"								"vo_9_4_30_4"
+
+	//"lipsync_sniper1"							"vo_9_4_70_1"
+	//"lipsync_sniper2"							"vo_9_4_70_2"
+	//"lipsync_sniper3"							"vo_9_4_70_3"
+	//"lipsync_high_sniper1"						"vo_9_4_70_1"
+	//"lipsync_high_sniper2"						"vo_9_4_70_2"
+	//"lipsync_high_sniper3"						"vo_9_4_70_3"
+	
+	"lipsync_mandown1"							"vo_9_4_80_1"
+	"lipsync_mandown2"							"vo_9_4_80_2"
+	"lipsync_mandown3"							"vo_9_4_80_3"
+	//"lipsync_mandown4"							"vo_9_4_80_4"	
+	
+	"lipsync_victory1"							"vo_9_4_90_1"
+	"lipsync_victory2"							"vo_9_4_90_2"
+	"lipsync_victory3"							"vo_9_4_90_3"
+	"lipsync_victory4"							"vo_9_4_90_4"
+	"lipsync_victory5"							"vo_9_4_90_5"
+	"lipsync_victory6"							"vo_9_4_90_6"
+	//"lipsync_victory7"							"vo_9_4_90_7"
+	//"lipsync_victory8"							"vo_9_4_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_4_100_1"
+	//"lipsync_watchit2"							"vo_9_4_100_2"
+	//"lipsync_watchit3"							"vo_9_4_100_3"
+	
+	"lipsync_thanks1"							"vo_9_4_130_1"
+	"lipsync_thanks2"							"vo_9_4_130_2"
+	"lipsync_thanks3"							"vo_9_4_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_4_140_1"
+	"lipsync_niceshot2"							"vo_9_4_140_2"
+	"lipsync_niceshot3"							"vo_9_4_140_3"
+	"lipsync_niceshot4"							"vo_9_4_140_4"
+	"lipsync_niceshot5"							"vo_9_4_140_5"
+	//"lipsync_niceshot6"							"vo_9_4_140_6"
+	//"lipsync_niceshot7"							"vo_9_4_140_7"
+	//"lipsync_niceshot8"							"vo_9_4_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_4_150_1"
+	"lipsync_checkfire2"						"vo_9_4_150_2"
+	"lipsync_checkfire3"						"vo_9_4_150_3"
+	"lipsync_checkfire4"						"vo_9_4_150_4"
+	"lipsync_checkfire5"						"vo_9_4_150_5"
+	//"lipsync_checkfire6"						"vo_9_4_150_6"
+	//"lipsync_checkfire7"						"vo_9_4_150_7"
+	//"lipsync_checkfire8"						"vo_9_4_150_8"
+	//"lipsync_checkfire9"						"vo_9_4_150_9"
+	//"lipsync_checkfire10"						"vo_9_4_150_10"
+	//"lipsync_checkfire11"						"vo_9_4_150_11"
+
+//	"lipsync_traitor1"							"vo_9_4_160_1"
+//	"lipsync_traitor2"							"vo_9_4_160_2"
+//	"lipsync_traitor3"							"vo_9_4_160_3"
+	//"lipsync_traitor4"							"vo_9_4_160_4"
+	//"lipsync_traitor5"							"vo_9_4_160_5"
+	//"lipsync_traitor6"							"vo_9_4_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_4_210_1"
+	"lipsync_enemy_left2"						"vo_9_4_210_2"
+	//"lipsync_enemy_left3"						"vo_9_4_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_4_220_1"
+	"lipsync_enemy_right2"						"vo_9_4_220_2"
+	//"lipsync_enemy_right3"						"vo_9_4_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_4_230_1"
+	"lipsync_enemy_high2"						"vo_9_4_230_2"
+	//"lipsync_enemy_high3"						"vo_9_4_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_4_200_1"
+	"lipsync_enemy_behind2"						"vo_9_4_200_2"
+	//"lipsync_enemy_behind3"						"vo_9_4_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_4_240_1"
+	"lipsync_enemy_default2"					"vo_9_4_240_2"
+	"lipsync_enemy_default3"					"vo_9_4_240_3"
+	"lipsync_enemy_default4"					"vo_9_4_240_4"
+	//"lipsync_enemy_default5"					"vo_9_4_240_5"
+	//"lipsync_enemy_default6"					"vo_9_4_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_4_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_4_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_4_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_4_250_4"
+	"lipsync_canihelpyou5"						"vo_9_4_250_5"
+	"lipsync_canihelpyou6"						"vo_9_4_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_4_40_1"
+	//"lipsync_cover2"							"vo_9_4_40_2"
+	//"lipsync_cover3"							"vo_9_4_40_3"
+	//"lipsync_cover4"							"vo_9_4_40_4"
+	//"lipsync_cover5"							"vo_9_4_40_5"
+	//"lipsync_cover6"							"vo_9_4_40_6"
+}
+
+
+//vo_9_5_x_x
+entityDef lipsync_rhodes_1
+{
+	"lipsync_pain1"										"vo_9_5_260_1"
+	"lipsync_pain2"										"vo_9_5_260_2"
+	"lipsync_pain3"										"vo_9_5_260_3"
+	"lipsync_pain4"										"vo_9_5_260_4"
+
+	"lipsync_death1"									"vo_9_5_270_1"
+	"lipsync_death2"									"vo_9_5_270_2"
+	"lipsync_death3"									"vo_9_5_270_3"
+
+	"lipsync_busy_1"								"vo_9_5_30_1"
+//	"lipsync_busy_2"								"vo_9_5_30_2"
+//	"lipsync_busy_3"								"vo_9_5_30_3"
+//	"lipsync_busy_4"								"vo_9_5_30_4"
+
+	//"lipsync_sniper1"							"vo_9_5_70_1"
+	//"lipsync_sniper2"							"vo_9_5_70_2"
+	//"lipsync_sniper3"							"vo_9_5_70_3"
+	//"lipsync_high_sniper1"						"vo_9_5_70_1"
+	//"lipsync_high_sniper2"						"vo_9_5_70_2"
+	//"lipsync_high_sniper3"						"vo_9_5_70_3"
+	
+	"lipsync_mandown1"							"vo_9_5_80_1"
+	"lipsync_mandown2"							"vo_9_5_80_2"
+	"lipsync_mandown3"							"vo_9_5_80_3"
+	//"lipsync_mandown4"							"vo_9_5_80_4"	
+	
+	"lipsync_victory1"							"vo_9_5_90_1"
+	"lipsync_victory2"							"vo_9_5_90_2"
+	"lipsync_victory3"							"vo_9_5_90_3"
+	"lipsync_victory4"							"vo_9_5_90_4"
+	"lipsync_victory5"							"vo_9_5_90_5"
+	"lipsync_victory6"							"vo_9_5_90_6"
+	//"lipsync_victory7"							"vo_9_5_90_7"
+	//"lipsync_victory8"							"vo_9_5_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_5_100_1"
+	//"lipsync_watchit2"							"vo_9_5_100_2"
+	//"lipsync_watchit3"							"vo_9_5_100_3"
+	
+	"lipsync_thanks1"							"vo_9_5_130_1"
+	"lipsync_thanks2"							"vo_9_5_130_2"
+	"lipsync_thanks3"							"vo_9_5_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_5_140_1"
+	"lipsync_niceshot2"							"vo_9_5_140_2"
+	"lipsync_niceshot3"							"vo_9_5_140_3"
+	"lipsync_niceshot4"							"vo_9_5_140_4"
+	"lipsync_niceshot5"							"vo_9_5_140_5"
+	//"lipsync_niceshot6"							"vo_9_5_140_6"
+	//"lipsync_niceshot7"							"vo_9_5_140_7"
+	//"lipsync_niceshot8"							"vo_9_5_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_5_150_1"
+	"lipsync_checkfire2"						"vo_9_5_150_2"
+	"lipsync_checkfire3"						"vo_9_5_150_3"
+	"lipsync_checkfire4"						"vo_9_5_150_4"
+	"lipsync_checkfire5"						"vo_9_5_150_5"
+	//"lipsync_checkfire6"						"vo_9_5_150_6"
+	//"lipsync_checkfire7"						"vo_9_5_150_7"
+	//"lipsync_checkfire8"						"vo_9_5_150_8"
+	//"lipsync_checkfire9"						"vo_9_5_150_9"
+	//"lipsync_checkfire10"						"vo_9_5_150_10"
+	//"lipsync_checkfire11"						"vo_9_5_150_11"
+
+//	"lipsync_traitor1"							"vo_9_5_160_1"
+//	"lipsync_traitor2"							"vo_9_5_160_2"
+//	"lipsync_traitor3"							"vo_9_5_160_3"
+	//"lipsync_traitor4"							"vo_9_5_160_4"
+	//"lipsync_traitor5"							"vo_9_5_160_5"
+	//"lipsync_traitor6"							"vo_9_5_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_5_210_1"
+	"lipsync_enemy_left2"						"vo_9_5_210_2"
+	//"lipsync_enemy_left3"						"vo_9_5_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_5_220_1"
+	"lipsync_enemy_right2"						"vo_9_5_220_2"
+	//"lipsync_enemy_right3"						"vo_9_5_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_5_230_1"
+	"lipsync_enemy_high2"						"vo_9_5_230_2"
+	//"lipsync_enemy_high3"						"vo_9_5_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_5_200_1"
+	"lipsync_enemy_behind2"						"vo_9_5_200_2"
+	//"lipsync_enemy_behind3"						"vo_9_5_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_5_240_1"
+	"lipsync_enemy_default2"					"vo_9_5_240_2"
+	"lipsync_enemy_default3"					"vo_9_5_240_3"
+	"lipsync_enemy_default4"					"vo_9_5_240_4"
+	//"lipsync_enemy_default5"					"vo_9_5_240_5"
+	//"lipsync_enemy_default6"					"vo_9_5_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_5_250_1"
+	"lipsync_canihelpyou2"						"vo_9_5_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_5_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_5_250_4"
+	"lipsync_canihelpyou5"						"vo_9_5_250_5"
+	"lipsync_canihelpyou6"						"vo_9_5_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_5_40_1"
+	//"lipsync_cover2"							"vo_9_5_40_2"
+	//"lipsync_cover3"							"vo_9_5_40_3"
+	//"lipsync_cover4"							"vo_9_5_40_4"
+	//"lipsync_cover5"							"vo_9_5_40_5"
+	//"lipsync_cover6"							"vo_9_5_40_6"
+}
+
+//vo_9_6_x_x
+entityDef lipsync_sledge_1
+{
+	"lipsync_pain1"										"vo_9_6_260_1"
+	"lipsync_pain2"										"vo_9_6_260_2"
+	"lipsync_pain3"										"vo_9_6_260_3"
+	"lipsync_pain4"										"vo_9_6_260_4"
+
+	"lipsync_death1"									"vo_9_6_270_1"
+	"lipsync_death2"									"vo_9_6_270_2"
+	"lipsync_death3"									"vo_9_6_270_3"
+
+	"lipsync_busy_1"								"vo_9_6_30_1"
+//	"lipsync_busy_2"								"vo_9_6_30_2"
+//	"lipsync_busy_3"								"vo_9_6_30_3"
+//	"lipsync_busy_4"								"vo_9_6_30_4"
+
+	//"lipsync_sniper1"							"vo_9_6_70_1"
+	//"lipsync_sniper2"							"vo_9_6_70_2"
+	//"lipsync_sniper3"							"vo_9_6_70_3"
+	//"lipsync_high_sniper1"						"vo_9_6_70_1"
+	//"lipsync_high_sniper2"						"vo_9_6_70_2"
+	//"lipsync_high_sniper3"						"vo_9_6_70_3"
+	
+	"lipsync_mandown1"							"vo_9_6_80_1"
+	"lipsync_mandown2"							"vo_9_6_80_2"
+	"lipsync_mandown3"							"vo_9_6_80_3"	
+	
+	"lipsync_victory1"							"vo_9_6_90_1"
+	"lipsync_victory2"							"vo_9_6_90_2"
+	"lipsync_victory3"							"vo_9_6_90_3"
+	"lipsync_victory4"							"vo_9_6_90_4"
+	"lipsync_victory5"							"vo_9_6_90_5"
+	"lipsync_victory6"							"vo_9_6_90_6"
+	
+	//"lipsync_watchit1"							"vo_9_6_100_1"
+	//"lipsync_watchit2"							"vo_9_6_100_2"
+	//"lipsync_watchit3"							"vo_9_6_100_3"
+	
+	"lipsync_thanks1"							"vo_9_6_130_1"
+	"lipsync_thanks2"							"vo_9_6_130_2"
+	"lipsync_thanks3"							"vo_9_6_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_6_140_1"
+	"lipsync_niceshot2"							"vo_9_6_140_2"
+	"lipsync_niceshot3"							"vo_9_6_140_3"
+	"lipsync_niceshot4"							"vo_9_6_140_4"
+	"lipsync_niceshot5"							"vo_9_6_140_5"
+	
+	"lipsync_checkfire1"						"vo_9_6_150_1"
+	"lipsync_checkfire2"						"vo_9_6_150_2"
+	"lipsync_checkfire3"						"vo_9_6_150_3"
+	"lipsync_checkfire4"						"vo_9_6_150_4"
+	"lipsync_checkfire5"						"vo_9_6_150_5"
+	//"lipsync_checkfire6"						"vo_9_6_150_6"
+	//"lipsync_checkfire7"						"vo_9_6_150_7"
+	//"lipsync_checkfire8"						"vo_9_6_150_8"
+	//"lipsync_checkfire9"						"vo_9_6_150_9"
+	//"lipsync_checkfire10"						"vo_9_6_150_10"
+	//"lipsync_checkfire11"						"vo_9_6_150_11"
+
+//	"lipsync_traitor1"							"vo_9_6_160_1"
+//	"lipsync_traitor2"							"vo_9_6_160_2"
+//	"lipsync_traitor3"							"vo_9_6_160_3"
+	//"lipsync_traitor4"							"vo_9_6_160_4"
+	//"lipsync_traitor5"							"vo_9_6_160_5"
+	//"lipsync_traitor6"							"vo_9_6_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_6_210_1"
+	"lipsync_enemy_left2"						"vo_9_6_210_2"
+
+	"lipsync_enemy_right1"						"vo_9_6_220_1"
+	"lipsync_enemy_right2"						"vo_9_6_220_2"
+
+	"lipsync_enemy_high1"						"vo_9_6_230_1"
+	"lipsync_enemy_high2"						"vo_9_6_230_2"
+
+	"lipsync_enemy_behind1"						"vo_9_6_200_1"
+	"lipsync_enemy_behind2"						"vo_9_6_200_2"
+	
+	"lipsync_enemy_default1"					"vo_9_6_240_1"
+	"lipsync_enemy_default2"					"vo_9_6_240_2"
+	"lipsync_enemy_default3"					"vo_9_6_240_3"
+	"lipsync_enemy_default4"					"vo_9_6_240_4"
+
+	"lipsync_canihelpyou1"						"vo_9_6_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_6_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_6_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_6_250_4"
+	"lipsync_canihelpyou5"						"vo_9_6_250_5"
+	"lipsync_canihelpyou6"						"vo_9_6_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_6_40_1"
+	//"lipsync_cover2"							"vo_9_6_40_2"
+	//"lipsync_cover3"							"vo_9_6_40_3"
+	//"lipsync_cover4"							"vo_9_6_40_4"
+	//"lipsync_cover5"							"vo_9_6_40_5"
+	//"lipsync_cover6"							"vo_9_6_40_6"
+}
+
+//vo_9_7_x_x
+entityDef lipsync_strauss_1
+{
+	"lipsync_pain1"										"vo_9_7_260_1"
+	"lipsync_pain2"										"vo_9_7_260_2"
+	"lipsync_pain3"										"vo_9_7_260_3"
+	"lipsync_pain4"										"vo_9_7_260_4"
+
+	"lipsync_death1"									"vo_9_7_270_1"
+	"lipsync_death2"									"vo_9_7_270_2"
+	"lipsync_death3"									"vo_9_7_270_3"
+
+	"lipsync_busy_1"								"vo_9_7_30_1"
+//	"lipsync_busy_2"								"vo_9_7_30_2"
+//	"lipsync_busy_3"								"vo_9_7_30_3"
+//	"lipsync_busy_4"								"vo_9_7_30_4"
+
+	//"lipsync_sniper1"							"vo_9_7_70_1"
+	//"lipsync_sniper2"							"vo_9_7_70_2"
+	//"lipsync_sniper3"							"vo_9_7_70_3"
+	//"lipsync_high_sniper1"						"vo_9_7_70_1"
+	//"lipsync_high_sniper2"						"vo_9_7_70_2"
+	//"lipsync_high_sniper3"						"vo_9_7_70_3"
+	
+	"lipsync_mandown1"							"vo_9_7_80_1"
+	"lipsync_mandown2"							"vo_9_7_80_2"
+	"lipsync_mandown3"							"vo_9_7_80_3"	
+	
+//	"lipsync_victory1"							"vo_9_7_90_1"
+	"lipsync_victory2"							"vo_9_7_90_2"
+	"lipsync_victory3"							"vo_9_7_90_3"
+	"lipsync_victory4"							"vo_9_7_90_4"
+	"lipsync_victory5"							"vo_9_7_90_5"
+	"lipsync_victory6"							"vo_9_7_90_6"
+	
+	//"lipsync_watchit1"							"vo_9_7_100_1"
+	//"lipsync_watchit2"							"vo_9_7_100_2"
+	//"lipsync_watchit3"							"vo_9_7_100_3"
+	
+	"lipsync_thanks1"							"vo_9_7_130_1"
+	"lipsync_thanks2"							"vo_9_7_130_2"
+	"lipsync_thanks3"							"vo_9_7_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_7_140_1"
+	"lipsync_niceshot2"							"vo_9_7_140_2"
+	"lipsync_niceshot3"							"vo_9_7_140_3"
+	"lipsync_niceshot4"							"vo_9_7_140_4"
+	"lipsync_niceshot5"							"vo_9_7_140_5"
+	
+	"lipsync_checkfire1"						"vo_9_7_150_1"
+	"lipsync_checkfire2"						"vo_9_7_150_2"
+	"lipsync_checkfire3"						"vo_9_7_150_3"
+	"lipsync_checkfire4"						"vo_9_7_150_4"
+	"lipsync_checkfire5"						"vo_9_7_150_5"
+	//"lipsync_checkfire6"						"vo_9_7_150_6"
+	//"lipsync_checkfire7"						"vo_9_7_150_7"
+	//"lipsync_checkfire8"						"vo_9_7_150_8"
+	//"lipsync_checkfire9"						"vo_9_7_150_9"
+	//"lipsync_checkfire10"						"vo_9_7_150_10"
+	//"lipsync_checkfire11"						"vo_9_7_150_11"
+
+//	"lipsync_traitor1"							"vo_9_7_160_1"
+//	"lipsync_traitor2"							"vo_9_7_160_2"
+//	"lipsync_traitor3"							"vo_9_7_160_3"
+	//"lipsync_traitor4"							"vo_9_7_160_4"
+	//"lipsync_traitor5"							"vo_9_7_160_5"
+	//"lipsync_traitor6"							"vo_9_7_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_7_210_1"
+	"lipsync_enemy_left2"						"vo_9_7_210_2"
+
+	"lipsync_enemy_right1"						"vo_9_7_220_1"
+	"lipsync_enemy_right2"						"vo_9_7_220_2"
+
+	"lipsync_enemy_high1"						"vo_9_7_230_1"
+	"lipsync_enemy_high2"						"vo_9_7_230_2"
+
+	"lipsync_enemy_behind1"						"vo_9_7_200_1"
+	"lipsync_enemy_behind2"						"vo_9_7_200_2"
+	
+//	"lipsync_enemy_default1"					"vo_9_7_240_1"
+	"lipsync_enemy_default2"					"vo_9_7_240_2"
+	"lipsync_enemy_default3"					"vo_9_7_240_3"
+	"lipsync_enemy_default4"					"vo_9_7_240_4"
+
+	"lipsync_canihelpyou1"						"vo_9_7_250_1"
+	"lipsync_canihelpyou2"						"vo_9_7_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_7_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_7_250_4"
+	"lipsync_canihelpyou5"						"vo_9_7_250_5"
+	"lipsync_canihelpyou6"						"vo_9_7_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_7_40_1"
+	//"lipsync_cover2"							"vo_9_7_40_2"
+	//"lipsync_cover3"							"vo_9_7_40_3"
+	//"lipsync_cover4"							"vo_9_7_40_4"
+	//"lipsync_cover5"							"vo_9_7_40_5"
+	//"lipsync_cover6"							"vo_9_7_40_6"
+
+//call
+	"lipsync_call_player_tech_1"				"vo_9_7_360_1"
+	"lipsync_call_player_tech_2"				"vo_9_7_360_2"
+	"lipsync_call_player_tech_3"				"vo_9_7_360_3"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_7_370_1"
+	"lipsync_heal_start_tech_2"					"vo_9_7_370_2"
+	"lipsync_heal_start_tech_3"					"vo_9_7_370_3"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_7_380_1"
+	"lipsync_heal_end_tech_2"					"vo_9_7_380_2"
+	"lipsync_heal_end_tech_3"					"vo_9_7_380_3"
+
+/*
+//call
+	"lipsync_call_player_tech_1"				"vo_9_7_290_1"
+	"lipsync_call_player_tech_2"				"vo_9_7_300_1"
+	"lipsync_call_player_tech_3"				"vo_9_7_300_2"
+	"lipsync_call_player_tech_4"				"vo_9_7_300_3"
+	"lipsync_call_player_tech_5"				"vo_9_7_300_4"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_7_290_2"
+	"lipsync_heal_start_tech_2"					"vo_9_7_290_3"
+	"lipsync_heal_start_tech_3"					"vo_9_7_310_3"
+	"lipsync_heal_start_tech_4"					"vo_9_7_310_4"
+
+//move
+	"lipsync_heal_move_1"						"vo_9_7_310_1"
+	"lipsync_heal_move_2"						"vo_9_7_310_2"
+	"lipsync_heal_move_3"						"vo_9_7_310_5"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_7_320_1"
+	"lipsync_heal_end_tech_2"					"vo_9_7_320_2"
+	"lipsync_heal_end_tech_3"					"vo_9_7_320_3"
+	"lipsync_heal_end_tech_4"					"vo_9_7_320_4"
+*/
+
+//busy
+	"lipsync_heal_busy_1"						"vo_9_7_30_1"
+//	"lipsync_heal_busy_2"						"vo_9_7_30_2"
+//	"lipsync_heal_busy_3"						"vo_9_7_30_3"
+//	"lipsync_heal_busy_4"						"vo_9_7_30_4"
+
+//noheal
+	"lipsync_heal_noheal_1"						"vo_9_7_250_1"
+	"lipsync_heal_noheal_2"						"vo_9_7_250_2"
+
+
+}
+
+
+//------------------------------------------------------------
+// beyond here lie the "redshirt" non character marines.
+
+//vo_9_10_x_x
+entityDef lipsync_marine_act1_1
+{
+	"lipsync_pain1"										"vo_9_10_260_1"
+	"lipsync_pain2"										"vo_9_10_260_2"
+	"lipsync_pain3"										"vo_9_10_260_3"
+	"lipsync_pain4"										"vo_9_10_260_4"
+
+	"lipsync_death1"									"vo_9_10_270_1"
+	"lipsync_death2"									"vo_9_10_270_2"
+	"lipsync_death3"									"vo_9_10_270_3"
+
+	"lipsync_busy_1"								"vo_9_10_30_1"
+	"lipsync_busy_2"								"vo_9_10_30_2"
+//	"lipsync_busy_3"								"vo_9_10_30_3"
+//	"lipsync_busy_4"								"vo_9_10_30_4"
+
+//	//"lipsync_sniper1"							"vo_9_10_70_1"
+//	//"lipsync_sniper2"							"vo_9_10_70_2"
+//	//"lipsync_sniper3"							"vo_9_10_70_3"
+//	//"lipsync_high_sniper1"						"vo_9_10_70_1"
+//	//"lipsync_high_sniper2"						"vo_9_10_70_2"
+//	//"lipsync_high_sniper3"						"vo_9_10_70_3"
+	
+	"lipsync_mandown1"							"vo_9_10_80_1"
+	"lipsync_mandown2"							"vo_9_10_80_2"
+	"lipsync_mandown3"							"vo_9_10_80_3"
+	"lipsync_mandown4"							"vo_9_10_80_4"	
+	
+	"lipsync_victory1"							"vo_9_10_90_1"
+	"lipsync_victory2"							"vo_9_10_90_2"
+	"lipsync_victory3"							"vo_9_10_90_3"
+	"lipsync_victory4"							"vo_9_10_90_4"
+	"lipsync_victory5"							"vo_9_10_90_5"
+	"lipsync_victory6"							"vo_9_10_90_6"
+	"lipsync_victory7"							"vo_9_10_90_7"
+	"lipsync_victory8"							"vo_9_10_90_8"
+	
+//	//"lipsync_watchit1"							"vo_9_10_100_1"
+//	//"lipsync_watchit2"							"vo_9_10_100_2"
+//	//"lipsync_watchit3"							"vo_9_10_100_3"
+	
+	"lipsync_thanks1"							"vo_9_10_130_1"
+	"lipsync_thanks2"							"vo_9_10_130_2"
+	"lipsync_thanks3"							"vo_9_10_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_10_140_1"
+	"lipsync_niceshot2"							"vo_9_10_140_2"
+	"lipsync_niceshot3"							"vo_9_10_140_3"
+	"lipsync_niceshot4"							"vo_9_10_140_4"
+	"lipsync_niceshot5"							"vo_9_10_140_5"
+	"lipsync_niceshot6"							"vo_9_10_140_6"
+	"lipsync_niceshot7"							"vo_9_10_140_7"
+	"lipsync_niceshot8"							"vo_9_10_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_10_150_1"
+	"lipsync_checkfire2"						"vo_9_10_150_2"
+	"lipsync_checkfire3"						"vo_9_10_150_3"
+	"lipsync_checkfire4"						"vo_9_10_150_4"
+	"lipsync_checkfire5"						"vo_9_10_150_5"
+	//"lipsync_checkfire6"						"vo_9_10_150_6"
+	//"lipsync_checkfire7"						"vo_9_10_150_7"
+	//"lipsync_checkfire8"						"vo_9_10_150_8"
+	//"lipsync_checkfire9"						"vo_9_10_150_9"
+	//"lipsync_checkfire10"						"vo_9_10_150_10"
+	//"lipsync_checkfire11"						"vo_9_10_150_11"
+
+//	"lipsync_traitor1"							"vo_9_10_160_1"
+//	"lipsync_traitor2"							"vo_9_10_160_2"
+//	"lipsync_traitor3"							"vo_9_10_160_3"
+	//"lipsync_traitor4"							"vo_9_10_160_4"
+	//"lipsync_traitor5"							"vo_9_10_160_5"
+	//"lipsync_traitor6"							"vo_9_10_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_10_210_1"
+	"lipsync_enemy_left2"						"vo_9_10_210_2"
+	"lipsync_enemy_left3"						"vo_9_10_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_10_220_1"
+	"lipsync_enemy_right2"						"vo_9_10_220_2"
+	"lipsync_enemy_right3"						"vo_9_10_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_10_230_1"
+	"lipsync_enemy_high2"						"vo_9_10_230_2"
+	"lipsync_enemy_high3"						"vo_9_10_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_10_200_1"
+	"lipsync_enemy_behind2"						"vo_9_10_200_2"
+	"lipsync_enemy_behind3"						"vo_9_10_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_10_240_1"
+	"lipsync_enemy_default2"					"vo_9_10_240_2"
+	"lipsync_enemy_default3"					"vo_9_10_240_3"
+	"lipsync_enemy_default4"					"vo_9_10_240_4"
+	"lipsync_enemy_default5"					"vo_9_10_240_5"
+	"lipsync_enemy_default6"					"vo_9_10_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_10_250_1"
+	"lipsync_canihelpyou2"						"vo_9_10_250_2"
+	"lipsync_canihelpyou3"						"vo_9_10_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_10_250_4"
+	"lipsync_canihelpyou5"						"vo_9_10_250_5"
+	"lipsync_canihelpyou6"						"vo_9_10_250_6" */
+	
+//	//"lipsync_cover1"							"vo_9_10_40_1"
+//	//"lipsync_cover2"							"vo_9_10_40_2"
+//	//"lipsync_cover3"							"vo_9_10_40_3"
+//	//"lipsync_cover4"							"vo_9_10_40_4"
+//	//"lipsync_cover5"							"vo_9_10_40_5"
+//	//"lipsync_cover6"							"vo_9_10_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_10_290_1"
+	"lipsync_call_marine_2"						"vo_9_10_290_2"
+	"lipsync_call_marine_3"						"vo_9_10_290_3"
+
+	"lipsync_call_player_1"						"vo_9_10_300_1"
+	"lipsync_call_player_2"						"vo_9_10_300_2"
+	"lipsync_call_player_3"						"vo_9_10_300_3"
+	"lipsync_call_player_4"						"vo_9_10_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_10_310_1"
+	"lipsync_heal_start_2"						"vo_9_10_310_2"
+	"lipsync_heal_start_3"						"vo_9_10_310_3"
+	"lipsync_heal_start_4"						"vo_9_10_310_4"
+	"lipsync_heal_start_5"						"vo_9_10_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_10_320_1"
+	"lipsync_heal_end_2"						"vo_9_10_320_2"
+	"lipsync_heal_end_3"						"vo_9_10_320_3"
+	"lipsync_heal_end_4"						"vo_9_10_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_10_30_1"
+	"lipsync_heal_busy_2"						"vo_9_10_30_2"
+
+	"lipsync_heal_noheal_1"						"vo_9_10_250_1"
+	"lipsync_heal_noheal_2"						"vo_9_10_250_3"
+
+//call
+	"lipsync_call_player_tech_1"				"vo_9_10_360_1"
+	"lipsync_call_player_tech_2"				"vo_9_10_360_2"
+	"lipsync_call_player_tech_3"				"vo_9_10_360_3"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_10_370_1"
+	"lipsync_heal_start_tech_2"					"vo_9_10_370_2"
+	"lipsync_heal_start_tech_3"					"vo_9_10_370_3"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_10_380_1"
+	"lipsync_heal_end_tech_2"					"vo_9_10_380_2"
+	"lipsync_heal_end_tech_3"					"vo_9_10_380_3"
+
+
+	"snd_med_gun_heal"							"med_gun_heal"
+
+}
+
+//vo_9_11_x_x
+entityDef lipsync_marine_act1_2
+{
+	"lipsync_pain1"										"vo_9_11_260_1"
+	"lipsync_pain2"										"vo_9_11_260_2"
+	"lipsync_pain3"										"vo_9_11_260_3"
+	"lipsync_pain4"										"vo_9_11_260_4"
+
+	"lipsync_death1"									"vo_9_11_270_1"
+	"lipsync_death2"									"vo_9_11_270_2"
+	"lipsync_death3"									"vo_9_11_270_3"
+
+	"lipsync_busy_1"								"vo_9_11_30_1"
+//	"lipsync_busy_2"								"vo_9_11_30_2"
+//	"lipsync_busy_3"								"vo_9_11_30_3"
+//	"lipsync_busy_4"								"vo_9_11_30_4"
+
+	//"lipsync_sniper1"							"vo_9_11_70_1"
+	//"lipsync_sniper2"							"vo_9_11_70_2"
+	//"lipsync_sniper3"							"vo_9_11_70_3"
+	//"lipsync_high_sniper1"						"vo_9_11_70_1"
+	//"lipsync_high_sniper2"						"vo_9_11_70_2"
+	//"lipsync_high_sniper3"						"vo_9_11_70_3"
+	
+	"lipsync_mandown1"							"vo_9_11_80_1"
+	"lipsync_mandown2"							"vo_9_11_80_2"
+	"lipsync_mandown3"							"vo_9_11_80_3"
+	"lipsync_mandown4"							"vo_9_11_80_4"	
+	
+	"lipsync_victory1"							"vo_9_11_90_1"
+	"lipsync_victory2"							"vo_9_11_90_2"
+	"lipsync_victory3"							"vo_9_11_90_3"
+	"lipsync_victory4"							"vo_9_11_90_4"
+	"lipsync_victory5"							"vo_9_11_90_5"
+	"lipsync_victory6"							"vo_9_11_90_6"
+	"lipsync_victory7"							"vo_9_11_90_7"
+	"lipsync_victory8"							"vo_9_11_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_11_100_1"
+	//"lipsync_watchit2"							"vo_9_11_100_2"
+	//"lipsync_watchit3"							"vo_9_11_100_3"
+	
+	"lipsync_thanks1"							"vo_9_11_130_1"
+	"lipsync_thanks2"							"vo_9_11_130_2"
+	"lipsync_thanks3"							"vo_9_11_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_11_140_1"
+	"lipsync_niceshot2"							"vo_9_11_140_2"
+	"lipsync_niceshot3"							"vo_9_11_140_3"
+	"lipsync_niceshot4"							"vo_9_11_140_4"
+	"lipsync_niceshot5"							"vo_9_11_140_5"
+	"lipsync_niceshot6"							"vo_9_11_140_6"
+	"lipsync_niceshot7"							"vo_9_11_140_7"
+	"lipsync_niceshot8"							"vo_9_11_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_11_150_1"
+	"lipsync_checkfire2"						"vo_9_11_150_2"
+	"lipsync_checkfire3"						"vo_9_11_150_3"
+	"lipsync_checkfire4"						"vo_9_11_150_4"
+	"lipsync_checkfire5"						"vo_9_11_150_5"
+	//"lipsync_checkfire6"						"vo_9_11_150_6"
+	//"lipsync_checkfire7"						"vo_9_11_150_7"
+	//"lipsync_checkfire8"						"vo_9_11_150_8"
+	//"lipsync_checkfire9"						"vo_9_11_150_9"
+	//"lipsync_checkfire10"						"vo_9_11_150_10"
+	//"lipsync_checkfire11"						"vo_9_11_150_11"
+
+//	"lipsync_traitor1"							"vo_9_11_160_1"
+//	"lipsync_traitor2"							"vo_9_11_160_2"
+//	"lipsync_traitor3"							"vo_9_11_160_3"
+	//"lipsync_traitor4"							"vo_9_11_160_4"
+	//"lipsync_traitor5"							"vo_9_11_160_5"
+	//"lipsync_traitor6"							"vo_9_11_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_11_210_1"
+	"lipsync_enemy_left2"						"vo_9_11_210_2"
+	"lipsync_enemy_left3"						"vo_9_11_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_11_220_1"
+	"lipsync_enemy_right2"						"vo_9_11_220_2"
+	"lipsync_enemy_right3"						"vo_9_11_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_11_230_1"
+	"lipsync_enemy_high2"						"vo_9_11_230_2"
+	"lipsync_enemy_high3"						"vo_9_11_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_11_200_1"
+	"lipsync_enemy_behind2"						"vo_9_11_200_2"
+	"lipsync_enemy_behind3"						"vo_9_11_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_11_240_1"
+	"lipsync_enemy_default2"					"vo_9_11_240_2"
+	"lipsync_enemy_default3"					"vo_9_11_240_3"
+	"lipsync_enemy_default4"					"vo_9_11_240_4"
+	"lipsync_enemy_default5"					"vo_9_11_240_5"
+	"lipsync_enemy_default6"					"vo_9_11_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_11_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_11_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_11_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_11_250_4"
+	"lipsync_canihelpyou5"						"vo_9_11_250_5"
+	"lipsync_canihelpyou6"						"vo_9_11_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_11_40_1"
+	//"lipsync_cover2"							"vo_9_11_40_2"
+	//"lipsync_cover3"							"vo_9_11_40_3"
+	//"lipsync_cover4"							"vo_9_11_40_4"
+	//"lipsync_cover5"							"vo_9_11_40_5"
+	//"lipsync_cover6"							"vo_9_11_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_11_290_1"
+	"lipsync_call_marine_2"						"vo_9_11_290_2"
+	"lipsync_call_marine_3"						"vo_9_11_290_3"
+
+	"lipsync_call_player_1"						"vo_9_11_300_1"
+	"lipsync_call_player_2"						"vo_9_11_300_2"
+	"lipsync_call_player_3"						"vo_9_11_300_3"
+	"lipsync_call_player_4"						"vo_9_11_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_11_310_1"
+	"lipsync_heal_start_2"						"vo_9_11_310_2"
+	"lipsync_heal_start_3"						"vo_9_11_310_3"
+	"lipsync_heal_start_4"						"vo_9_11_310_4"
+	"lipsync_heal_start_5"						"vo_9_11_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_11_320_1"
+	"lipsync_heal_end_2"						"vo_9_11_320_2"
+	"lipsync_heal_end_3"						"vo_9_11_320_3"
+	"lipsync_heal_end_4"						"vo_9_11_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_11_30_1"
+	"lipsync_heal_busy_2"						"vo_9_11_30_2"
+
+	"lipsync_heal_noheal_1"						"vo_9_11_250_1"
+//	"lipsync_heal_noheal_2"						"vo_9_11_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+
+
+}
+
+//vo_9_12_x_x
+entityDef lipsync_marine_act1_3
+{
+	"lipsync_pain1"										"vo_9_12_260_1"
+	"lipsync_pain2"										"vo_9_12_260_2"
+	"lipsync_pain3"										"vo_9_12_260_3"
+	"lipsync_pain4"										"vo_9_12_260_4"
+
+	"lipsync_death1"									"vo_9_12_270_1"
+	"lipsync_death2"									"vo_9_12_270_2"
+	"lipsync_death3"									"vo_9_12_270_3"
+
+///	"lipsync_busy_1"								"vo_9_12_30_1"
+//	"lipsync_busy_2"								"vo_9_12_30_2"
+//	"lipsync_busy_3"								"vo_9_12_30_3"
+//	"lipsync_busy_4"								"vo_9_12_30_4"
+
+	//"lipsync_sniper1"							"vo_9_12_70_1"
+	//"lipsync_sniper2"							"vo_9_12_70_2"
+	//"lipsync_sniper3"							"vo_9_12_70_3"
+	//"lipsync_high_sniper1"						"vo_9_12_70_1"
+	//"lipsync_high_sniper2"						"vo_9_12_70_2"
+	//"lipsync_high_sniper3"						"vo_9_12_70_3"
+	
+	"lipsync_mandown1"							"vo_9_12_80_1"
+	"lipsync_mandown2"							"vo_9_12_80_2"
+	"lipsync_mandown3"							"vo_9_12_80_3"
+	"lipsync_mandown4"							"vo_9_12_80_4"	
+	
+	"lipsync_victory1"							"vo_9_12_90_1"
+	"lipsync_victory2"							"vo_9_12_90_2"
+	"lipsync_victory3"							"vo_9_12_90_3"
+	"lipsync_victory4"							"vo_9_12_90_4"
+	"lipsync_victory5"							"vo_9_12_90_5"
+	"lipsync_victory6"							"vo_9_12_90_6"
+	"lipsync_victory7"							"vo_9_12_90_7"
+	"lipsync_victory8"							"vo_9_12_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_12_100_1"
+	//"lipsync_watchit2"							"vo_9_12_100_2"
+	//"lipsync_watchit3"							"vo_9_12_100_3"
+	
+	"lipsync_thanks1"							"vo_9_12_130_1"
+	"lipsync_thanks2"							"vo_9_12_130_2"
+	"lipsync_thanks3"							"vo_9_12_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_12_140_1"
+	"lipsync_niceshot2"							"vo_9_12_140_2"
+	"lipsync_niceshot3"							"vo_9_12_140_3"
+	"lipsync_niceshot4"							"vo_9_12_140_4"
+	"lipsync_niceshot5"							"vo_9_12_140_5"
+	"lipsync_niceshot6"							"vo_9_12_140_6"
+	"lipsync_niceshot7"							"vo_9_12_140_7"
+	"lipsync_niceshot8"							"vo_9_12_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_12_150_1"
+	"lipsync_checkfire2"						"vo_9_12_150_2"
+	"lipsync_checkfire3"						"vo_9_12_150_3"
+	"lipsync_checkfire4"						"vo_9_12_150_4"
+	"lipsync_checkfire5"						"vo_9_12_150_5"
+	//"lipsync_checkfire6"						"vo_9_12_150_6"
+	//"lipsync_checkfire7"						"vo_9_12_150_7"
+	//"lipsync_checkfire8"						"vo_9_12_150_8"
+	//"lipsync_checkfire9"						"vo_9_12_150_9"
+	//"lipsync_checkfire10"						"vo_9_12_150_10"
+	//"lipsync_checkfire11"						"vo_9_12_150_11"
+
+//	"lipsync_traitor1"							"vo_9_12_160_1"
+//	"lipsync_traitor2"							"vo_9_12_160_2"
+//	"lipsync_traitor3"							"vo_9_12_160_3"
+	//"lipsync_traitor4"							"vo_9_12_160_4"
+	//"lipsync_traitor5"							"vo_9_12_160_5"
+	//"lipsync_traitor6"							"vo_9_12_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_12_210_1"
+	"lipsync_enemy_left2"						"vo_9_12_210_2"
+	"lipsync_enemy_left3"						"vo_9_12_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_12_220_1"
+	"lipsync_enemy_right2"						"vo_9_12_220_2"
+	"lipsync_enemy_right3"						"vo_9_12_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_12_230_1"
+	"lipsync_enemy_high2"						"vo_9_12_230_2"
+	"lipsync_enemy_high3"						"vo_9_12_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_12_200_1"
+	"lipsync_enemy_behind2"						"vo_9_12_200_2"
+	"lipsync_enemy_behind3"						"vo_9_12_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_12_240_1"
+	"lipsync_enemy_default2"					"vo_9_12_240_2"
+	"lipsync_enemy_default3"					"vo_9_12_240_3"
+	"lipsync_enemy_default4"					"vo_9_12_240_4"
+	"lipsync_enemy_default5"					"vo_9_12_240_5"
+	"lipsync_enemy_default6"					"vo_9_12_240_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_12_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_12_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_12_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_12_250_4"
+	"lipsync_canihelpyou5"						"vo_9_12_250_5"
+	"lipsync_canihelpyou6"						"vo_9_12_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_12_40_1"
+	//"lipsync_cover2"							"vo_9_12_40_2"
+	//"lipsync_cover3"							"vo_9_12_40_3"
+	//"lipsync_cover4"							"vo_9_12_40_4"
+	//"lipsync_cover5"							"vo_9_12_40_5"
+	//"lipsync_cover6"							"vo_9_12_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_12_290_1"
+	"lipsync_call_marine_2"						"vo_9_12_290_2"
+	"lipsync_call_marine_3"						"vo_9_12_290_3"
+
+	"lipsync_call_player_1"						"vo_9_12_300_1"
+	"lipsync_call_player_2"						"vo_9_12_300_2"
+	"lipsync_call_player_3"						"vo_9_12_300_3"
+	"lipsync_call_player_4"						"vo_9_12_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_12_310_1"
+	"lipsync_heal_start_2"						"vo_9_12_310_2"
+	"lipsync_heal_start_3"						"vo_9_12_310_3"
+	"lipsync_heal_start_4"						"vo_9_12_310_4"
+	"lipsync_heal_start_5"						"vo_9_12_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_12_320_1"
+	"lipsync_heal_end_2"						"vo_9_12_320_2"
+	"lipsync_heal_end_3"						"vo_9_12_320_3"
+	"lipsync_heal_end_4"						"vo_9_12_320_4"
+
+//	"lipsync_heal_busy_1"						"vo_9_12_30_1"
+//	"lipsync_heal_busy_2"						"vo_9_12_30_2"
+
+//	"lipsync_heal_noheal_1"						"vo_9_12_250_1"
+//	"lipsync_heal_noheal_2"						"vo_9_12_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+//call
+	"lipsync_call_player_tech_1"				"vo_9_12_360_1"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_12_370_1"
+	"lipsync_heal_start_tech_2"					"vo_9_12_370_2"
+	"lipsync_heal_start_tech_3"					"vo_9_12_370_3"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_12_380_1"
+	"lipsync_heal_end_tech_2"					"vo_9_12_380_2"
+	"lipsync_heal_end_tech_3"					"vo_9_12_380_3"
+
+}
+
+//vo_9_13_x_x
+entityDef lipsync_marine_act1_4
+{
+	"lipsync_pain1"									"vo_9_13_260_1"
+	"lipsync_pain2"									"vo_9_13_260_2"
+	"lipsync_pain3"									"vo_9_13_260_3"
+	"lipsync_pain4"									"vo_9_13_260_4"
+
+	"lipsync_death1"									"vo_9_13_270_1"
+	"lipsync_death2"									"vo_9_13_270_2"
+	"lipsync_death3"									"vo_9_13_270_3"
+
+	"lipsync_busy_1"								"vo_9_13_30_1"
+	"lipsync_busy_2"								"vo_9_13_30_2"
+//	"lipsync_busy_3"								"vo_9_13_30_3"
+//	"lipsync_busy_4"								"vo_9_13_30_4"
+
+	//"lipsync_sniper1"							"vo_9_13_70_1"
+	//"lipsync_sniper2"							"vo_9_13_70_2"
+	//"lipsync_sniper3"							"vo_9_13_70_3"
+	//"lipsync_high_sniper1"						"vo_9_13_70_1"
+	//"lipsync_high_sniper2"						"vo_9_13_70_2"
+	//"lipsync_high_sniper3"						"vo_9_13_70_3"
+	
+	"lipsync_mandown1"							"vo_9_13_80_1"
+	"lipsync_mandown2"							"vo_9_13_80_2"
+	"lipsync_mandown3"							"vo_9_13_80_3"
+	"lipsync_mandown4"							"vo_9_13_80_4"	
+	
+	"lipsync_victory1"							"vo_9_13_90_1"
+	"lipsync_victory2"							"vo_9_13_90_2"
+	"lipsync_victory3"							"vo_9_13_90_3"
+	"lipsync_victory4"							"vo_9_13_90_4"
+	"lipsync_victory5"							"vo_9_13_90_5"
+	"lipsync_victory6"							"vo_9_13_90_6"
+	"lipsync_victory7"							"vo_9_13_90_7"
+	"lipsync_victory8"							"vo_9_13_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_13_100_1"
+	//"lipsync_watchit2"							"vo_9_13_100_2"
+	//"lipsync_watchit3"							"vo_9_13_100_3"
+	
+	"lipsync_thanks1"							"vo_9_13_130_1"
+	"lipsync_thanks2"							"vo_9_13_130_2"
+	"lipsync_thanks3"							"vo_9_13_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_13_140_1"
+	"lipsync_niceshot2"							"vo_9_13_140_2"
+	"lipsync_niceshot3"							"vo_9_13_140_3"
+	"lipsync_niceshot4"							"vo_9_13_140_4"
+	"lipsync_niceshot5"							"vo_9_13_140_5"
+	"lipsync_niceshot6"							"vo_9_13_140_6"
+	"lipsync_niceshot7"							"vo_9_13_140_7"
+	"lipsync_niceshot8"							"vo_9_13_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_13_150_1"
+	"lipsync_checkfire2"						"vo_9_13_150_2"
+	"lipsync_checkfire3"						"vo_9_13_150_3"
+	"lipsync_checkfire4"						"vo_9_13_150_4"
+	"lipsync_checkfire5"						"vo_9_13_150_5"
+	//"lipsync_checkfire6"						"vo_9_13_150_6"
+	//"lipsync_checkfire7"						"vo_9_13_150_7"
+	//"lipsync_checkfire8"						"vo_9_13_150_8"
+	//"lipsync_checkfire9"						"vo_9_13_150_9"
+	//"lipsync_checkfire10"						"vo_9_13_150_10"
+	//"lipsync_checkfire11"						"vo_9_13_150_11"
+
+//	"lipsync_traitor1"							"vo_9_13_160_1"
+//	"lipsync_traitor2"							"vo_9_13_160_2"
+//	"lipsync_traitor3"							"vo_9_13_160_3"
+	//"lipsync_traitor4"							"vo_9_13_160_4"
+	//"lipsync_traitor5"							"vo_9_13_160_5"
+	//"lipsync_traitor6"							"vo_9_13_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_13_210_1"
+	"lipsync_enemy_left2"						"vo_9_13_210_2"
+	"lipsync_enemy_left3"						"vo_9_13_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_13_220_1"
+	"lipsync_enemy_right2"						"vo_9_13_220_2"
+	"lipsync_enemy_right3"						"vo_9_13_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_13_230_1"
+	"lipsync_enemy_high2"						"vo_9_13_230_2"
+	"lipsync_enemy_high3"						"vo_9_13_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_13_200_1"
+	"lipsync_enemy_behind2"						"vo_9_13_200_2"
+	"lipsync_enemy_behind3"						"vo_9_13_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_13_240_1"
+	"lipsync_enemy_default2"					"vo_9_13_240_2"
+	"lipsync_enemy_default3"					"vo_9_13_240_3"
+	"lipsync_enemy_default4"					"vo_9_13_240_4"
+	"lipsync_enemy_default5"					"vo_9_13_240_5"
+	"lipsync_enemy_default6"					"vo_9_13_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_13_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_13_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_13_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_13_250_4"
+	"lipsync_canihelpyou5"						"vo_9_13_250_5"
+	"lipsync_canihelpyou6"						"vo_9_13_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_13_40_1"
+	//"lipsync_cover2"							"vo_9_13_40_2"
+	//"lipsync_cover3"							"vo_9_13_40_3"
+	//"lipsync_cover4"							"vo_9_13_40_4"
+	//"lipsync_cover5"							"vo_9_13_40_5"
+	//"lipsync_cover6"							"vo_9_13_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_13_290_1"
+	"lipsync_call_marine_2"						"vo_9_13_290_2"
+	"lipsync_call_marine_3"						"vo_9_13_290_3"
+
+	"lipsync_call_player_1"						"vo_9_13_300_1"
+	"lipsync_call_player_2"						"vo_9_13_300_2"
+	"lipsync_call_player_3"						"vo_9_13_300_3"
+	"lipsync_call_player_4"						"vo_9_13_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_13_310_1"
+	"lipsync_heal_start_2"						"vo_9_13_310_2"
+	"lipsync_heal_start_3"						"vo_9_13_310_3"
+	"lipsync_heal_start_4"						"vo_9_13_310_4"
+	"lipsync_heal_start_5"						"vo_9_13_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_13_320_1"
+	"lipsync_heal_end_2"						"vo_9_13_320_2"
+	"lipsync_heal_end_3"						"vo_9_13_320_3"
+	"lipsync_heal_end_4"						"vo_9_13_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_13_30_1"
+	"lipsync_heal_busy_2"						"vo_9_13_30_2"
+
+	"lipsync_heal_noheal_1"						"vo_9_13_250_1"
+	"lipsync_heal_noheal_2"						"vo_9_13_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+//call
+	"lipsync_call_player_tech_1"				"vo_9_13_360_1"
+	"lipsync_call_player_tech_2"				"vo_9_13_360_2"
+	"lipsync_call_player_tech_3"				"vo_9_13_360_3"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_13_370_1"
+	"lipsync_heal_start_tech_2"					"vo_9_13_370_2"
+	"lipsync_heal_start_tech_3"					"vo_9_13_370_3"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_13_380_1"
+	"lipsync_heal_end_tech_2"					"vo_9_13_380_2"
+	"lipsync_heal_end_tech_3"					"vo_9_13_380_3"
+
+}
+
+//vo_9_14_x_x
+entityDef lipsync_marine_act1_5
+{
+	"lipsync_pain1"									"vo_9_14_260_1"
+	"lipsync_pain2"									"vo_9_14_260_2"
+	"lipsync_pain3"									"vo_9_14_260_3"
+	"lipsync_pain4"									"vo_9_14_260_4"
+
+	"lipsync_death1"									"vo_9_14_270_1"
+	"lipsync_death2"									"vo_9_14_270_2"
+	"lipsync_death3"									"vo_9_14_270_3"
+
+	"lipsync_busy_1"								"vo_9_14_30_1"
+//	"lipsync_busy_2"								"vo_9_14_30_2"
+//	"lipsync_busy_3"								"vo_9_14_30_3"
+//	"lipsync_busy_4"								"vo_9_14_30_4"
+
+
+	//"lipsync_sniper1"							"vo_9_14_70_1"
+	//"lipsync_sniper2"							"vo_9_14_70_2"
+	//"lipsync_sniper3"							"vo_9_14_70_3"
+	//"lipsync_high_sniper1"						"vo_9_14_70_1"
+	//"lipsync_high_sniper2"						"vo_9_14_70_2"
+	//"lipsync_high_sniper3"						"vo_9_14_70_3"
+	
+	"lipsync_mandown1"							"vo_9_14_80_1"
+	"lipsync_mandown2"							"vo_9_14_80_2"
+	"lipsync_mandown3"							"vo_9_14_80_3"
+	"lipsync_mandown4"							"vo_9_14_80_4"	
+	
+	"lipsync_victory1"							"vo_9_14_90_1"
+	"lipsync_victory2"							"vo_9_14_90_2"
+	"lipsync_victory3"							"vo_9_14_90_3"
+	"lipsync_victory4"							"vo_9_14_90_4"
+	"lipsync_victory5"							"vo_9_14_90_5"
+	"lipsync_victory6"							"vo_9_14_90_6"
+	"lipsync_victory7"							"vo_9_14_90_7"
+	"lipsync_victory8"							"vo_9_14_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_14_100_1"
+	//"lipsync_watchit2"							"vo_9_14_100_2"
+	//"lipsync_watchit3"							"vo_9_14_100_3"
+	
+	"lipsync_thanks1"							"vo_9_14_130_1"
+	"lipsync_thanks2"							"vo_9_14_130_2"
+	"lipsync_thanks3"							"vo_9_14_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_14_140_1"
+	"lipsync_niceshot2"							"vo_9_14_140_2"
+	"lipsync_niceshot3"							"vo_9_14_140_3"
+	"lipsync_niceshot4"							"vo_9_14_140_4"
+	"lipsync_niceshot5"							"vo_9_14_140_5"
+	"lipsync_niceshot6"							"vo_9_14_140_6"
+	"lipsync_niceshot7"							"vo_9_14_140_7"
+	"lipsync_niceshot8"							"vo_9_14_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_14_150_1"
+	"lipsync_checkfire2"						"vo_9_14_150_2"
+	"lipsync_checkfire3"						"vo_9_14_150_3"
+	"lipsync_checkfire4"						"vo_9_14_150_4"
+	"lipsync_checkfire5"						"vo_9_14_150_5"
+	//"lipsync_checkfire6"						"vo_9_14_150_6"
+	//"lipsync_checkfire7"						"vo_9_14_150_7"
+	//"lipsync_checkfire8"						"vo_9_14_150_8"
+	//"lipsync_checkfire9"						"vo_9_14_150_9"
+	//"lipsync_checkfire10"						"vo_9_14_150_10"
+	//"lipsync_checkfire11"						"vo_9_14_150_11"
+
+//	"lipsync_traitor1"							"vo_9_14_160_1"
+//	"lipsync_traitor2"							"vo_9_14_160_2"
+//	"lipsync_traitor3"							"vo_9_14_160_3"
+	//"lipsync_traitor4"							"vo_9_14_160_4"
+	//"lipsync_traitor5"							"vo_9_14_160_5"
+	//"lipsync_traitor6"							"vo_9_14_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_14_210_1"
+	"lipsync_enemy_left2"						"vo_9_14_210_2"
+	"lipsync_enemy_left3"						"vo_9_14_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_14_220_1"
+	"lipsync_enemy_right2"						"vo_9_14_220_2"
+	"lipsync_enemy_right3"						"vo_9_14_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_14_230_1"
+	"lipsync_enemy_high2"						"vo_9_14_230_2"
+	"lipsync_enemy_high3"						"vo_9_14_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_14_200_1"
+	"lipsync_enemy_behind2"						"vo_9_14_200_2"
+	"lipsync_enemy_behind3"						"vo_9_14_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_14_240_1"
+	"lipsync_enemy_default2"					"vo_9_14_240_2"
+	"lipsync_enemy_default3"					"vo_9_14_240_3"
+	"lipsync_enemy_default4"					"vo_9_14_240_4"
+	"lipsync_enemy_default5"					"vo_9_14_240_5"
+	"lipsync_enemy_default6"					"vo_9_14_240_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_14_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_14_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_14_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_14_250_4"
+	"lipsync_canihelpyou5"						"vo_9_14_250_5"
+	"lipsync_canihelpyou6"						"vo_9_14_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_14_40_1"
+	//"lipsync_cover2"							"vo_9_14_40_2"
+	//"lipsync_cover3"							"vo_9_14_40_3"
+	//"lipsync_cover4"							"vo_9_14_40_4"
+	//"lipsync_cover5"							"vo_9_14_40_5"
+	//"lipsync_cover6"							"vo_9_14_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_14_290_1"
+	"lipsync_call_marine_2"						"vo_9_14_290_2"
+	"lipsync_call_marine_3"						"vo_9_14_290_3"
+
+	"lipsync_call_player_1"						"vo_9_14_300_1"
+	"lipsync_call_player_2"						"vo_9_14_300_2"
+	"lipsync_call_player_3"						"vo_9_14_300_3"
+	"lipsync_call_player_4"						"vo_9_14_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_14_310_1"
+	"lipsync_heal_start_2"						"vo_9_14_310_2"
+	"lipsync_heal_start_3"						"vo_9_14_310_3"
+	"lipsync_heal_start_4"						"vo_9_14_310_4"
+	"lipsync_heal_start_5"						"vo_9_14_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_14_320_1"
+	"lipsync_heal_end_2"						"vo_9_14_320_2"
+	"lipsync_heal_end_3"						"vo_9_14_320_3"
+	"lipsync_heal_end_4"						"vo_9_14_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_14_30_1"
+	"lipsync_heal_busy_2"						"vo_9_14_30_2"
+
+//	"lipsync_heal_noheal_1"						"vo_9_14_250_1"
+//	"lipsync_heal_noheal_2"						"vo_9_14_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+}
+
+//vo_9_15_x_x
+entityDef lipsync_marine_act1_6
+{
+	"lipsync_pain1"									"vo_9_15_260_1"
+	"lipsync_pain2"									"vo_9_15_260_2"
+	"lipsync_pain3"									"vo_9_15_260_3"
+	"lipsync_pain4"									"vo_9_15_260_4"
+
+	"lipsync_death1"									"vo_9_15_270_1"
+	"lipsync_death2"									"vo_9_15_270_2"
+	"lipsync_death3"									"vo_9_15_270_3"
+
+	"lipsync_busy_1"								"vo_9_15_30_1"
+	"lipsync_busy_2"								"vo_9_15_30_2"
+	"lipsync_busy_3"								"vo_9_15_30_3"
+//	"lipsync_busy_4"								"vo_9_15_30_4"
+
+	//"lipsync_sniper1"							"vo_9_15_70_1"
+	//"lipsync_sniper2"							"vo_9_15_70_2"
+	//"lipsync_sniper3"							"vo_9_15_70_3"
+	//"lipsync_high_sniper1"						"vo_9_15_70_1"
+	//"lipsync_high_sniper2"						"vo_9_15_70_2"
+	//"lipsync_high_sniper3"						"vo_9_15_70_3"
+	
+	"lipsync_mandown1"							"vo_9_15_80_1"
+	"lipsync_mandown2"							"vo_9_15_80_2"
+	"lipsync_mandown3"							"vo_9_15_80_3"
+	"lipsync_mandown4"							"vo_9_15_80_4"	
+	
+	"lipsync_victory1"							"vo_9_15_90_1"
+	"lipsync_victory2"							"vo_9_15_90_2"
+	"lipsync_victory3"							"vo_9_15_90_3"
+	"lipsync_victory4"							"vo_9_15_90_4"
+	"lipsync_victory5"							"vo_9_15_90_5"
+	"lipsync_victory6"							"vo_9_15_90_6"
+	"lipsync_victory7"							"vo_9_15_90_7"
+	"lipsync_victory8"							"vo_9_15_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_15_100_1"
+	//"lipsync_watchit2"							"vo_9_15_100_2"
+	//"lipsync_watchit3"							"vo_9_15_100_3"
+	
+	"lipsync_thanks1"							"vo_9_15_130_1"
+	"lipsync_thanks2"							"vo_9_15_130_2"
+	"lipsync_thanks3"							"vo_9_15_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_15_140_1"
+	"lipsync_niceshot2"							"vo_9_15_140_2"
+	"lipsync_niceshot3"							"vo_9_15_140_3"
+	"lipsync_niceshot4"							"vo_9_15_140_4"
+	"lipsync_niceshot5"							"vo_9_15_140_5"
+	"lipsync_niceshot6"							"vo_9_15_140_6"
+	"lipsync_niceshot7"							"vo_9_15_140_7"
+	"lipsync_niceshot8"							"vo_9_15_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_15_150_1"
+	"lipsync_checkfire2"						"vo_9_15_150_2"
+	"lipsync_checkfire3"						"vo_9_15_150_3"
+	"lipsync_checkfire4"						"vo_9_15_150_4"
+	"lipsync_checkfire5"						"vo_9_15_150_5"
+	//"lipsync_checkfire6"						"vo_9_15_150_6"
+	//"lipsync_checkfire7"						"vo_9_15_150_7"
+	//"lipsync_checkfire8"						"vo_9_15_150_8"
+	//"lipsync_checkfire9"						"vo_9_15_150_9"
+	//"lipsync_checkfire10"						"vo_9_15_150_10"
+	//"lipsync_checkfire11"						"vo_9_15_150_11"
+
+//	"lipsync_traitor1"							"vo_9_15_160_1"
+//	"lipsync_traitor2"							"vo_9_15_160_2"
+//	"lipsync_traitor3"							"vo_9_15_160_3"
+	//"lipsync_traitor4"							"vo_9_15_160_4"
+	//"lipsync_traitor5"							"vo_9_15_160_5"
+	//"lipsync_traitor6"							"vo_9_15_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_15_210_1"
+	"lipsync_enemy_left2"						"vo_9_15_210_2"
+	"lipsync_enemy_left3"						"vo_9_15_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_15_220_1"
+	"lipsync_enemy_right2"						"vo_9_15_220_2"
+	"lipsync_enemy_right3"						"vo_9_15_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_15_230_1"
+	"lipsync_enemy_high2"						"vo_9_15_230_2"
+	"lipsync_enemy_high3"						"vo_9_15_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_15_200_1"
+	"lipsync_enemy_behind2"						"vo_9_15_200_2"
+	"lipsync_enemy_behind3"						"vo_9_15_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_15_240_1"
+	"lipsync_enemy_default2"					"vo_9_15_240_2"
+	"lipsync_enemy_default3"					"vo_9_15_240_3"
+	"lipsync_enemy_default4"					"vo_9_15_240_4"
+	"lipsync_enemy_default5"					"vo_9_15_240_5"
+	"lipsync_enemy_default6"					"vo_9_15_240_6"
+
+	"lipsync_canihelpyou1"						"vo_9_15_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_15_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_15_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_15_250_4"
+	"lipsync_canihelpyou5"						"vo_9_15_250_5"
+	"lipsync_canihelpyou6"						"vo_9_15_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_15_40_1"
+	//"lipsync_cover2"							"vo_9_15_40_2"
+	//"lipsync_cover3"							"vo_9_15_40_3"
+	//"lipsync_cover4"							"vo_9_15_40_4"
+	//"lipsync_cover5"							"vo_9_15_40_5"
+	//"lipsync_cover6"							"vo_9_15_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_15_290_1"
+	"lipsync_call_marine_2"						"vo_9_15_290_2"
+	"lipsync_call_marine_3"						"vo_9_15_290_3"
+
+	"lipsync_call_player_1"						"vo_9_15_300_1"
+	"lipsync_call_player_2"						"vo_9_15_300_2"
+	"lipsync_call_player_3"						"vo_9_15_300_3"
+	"lipsync_call_player_4"						"vo_9_15_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_15_310_1"
+	"lipsync_heal_start_2"						"vo_9_15_310_2"
+	"lipsync_heal_start_3"						"vo_9_15_310_3"
+	"lipsync_heal_start_4"						"vo_9_15_310_4"
+	"lipsync_heal_start_5"						"vo_9_15_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_15_320_1"
+	"lipsync_heal_end_2"						"vo_9_15_320_2"
+	"lipsync_heal_end_3"						"vo_9_15_320_3"
+	"lipsync_heal_end_4"						"vo_9_15_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_15_30_1"
+	"lipsync_heal_busy_2"						"vo_9_15_30_2"
+
+	"lipsync_heal_noheal_1"						"vo_9_15_250_1"
+//	"lipsync_heal_noheal_2"						"vo_9_15_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+}
+
+//vo_9_16_x_x
+entityDef lipsync_marine_act1_7
+{
+	"lipsync_pain1"									"vo_9_16_260_1"
+	"lipsync_pain2"									"vo_9_16_260_2"
+	"lipsync_pain3"									"vo_9_16_260_3"
+	"lipsync_pain4"									"vo_9_16_260_4"
+
+	"lipsync_death1"									"vo_9_16_270_1"
+	"lipsync_death2"									"vo_9_16_270_2"
+	"lipsync_death3"									"vo_9_16_270_3"
+
+	"lipsync_busy_1"								"vo_9_16_30_1"
+//	"lipsync_busy_2"								"vo_9_16_30_2"
+//	"lipsync_busy_3"								"vo_9_16_30_3"
+//	"lipsync_busy_4"								"vo_9_16_30_4"
+
+	//"lipsync_sniper1"							"vo_9_16_70_1"
+	//"lipsync_sniper2"							"vo_9_16_70_2"
+	//"lipsync_sniper3"							"vo_9_16_70_3"
+	//"lipsync_high_sniper1"						"vo_9_16_70_1"
+	//"lipsync_high_sniper2"						"vo_9_16_70_2"
+	//"lipsync_high_sniper3"						"vo_9_16_70_3"
+	
+	"lipsync_mandown1"							"vo_9_16_80_1"
+	"lipsync_mandown2"							"vo_9_16_80_2"
+	"lipsync_mandown3"							"vo_9_16_80_3"
+	"lipsync_mandown4"							"vo_9_16_80_4"	
+	
+	"lipsync_victory1"							"vo_9_16_90_1"
+	"lipsync_victory2"							"vo_9_16_90_2"
+	"lipsync_victory3"							"vo_9_16_90_3"
+	"lipsync_victory4"							"vo_9_16_90_4"
+	"lipsync_victory5"							"vo_9_16_90_5"
+	"lipsync_victory6"							"vo_9_16_90_6"
+	"lipsync_victory7"							"vo_9_16_90_7"
+	"lipsync_victory8"							"vo_9_16_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_16_100_1"
+	//"lipsync_watchit2"							"vo_9_16_100_2"
+	//"lipsync_watchit3"							"vo_9_16_100_3"
+	
+	"lipsync_thanks1"							"vo_9_16_130_1"
+	"lipsync_thanks2"							"vo_9_16_130_2"
+	"lipsync_thanks3"							"vo_9_16_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_16_140_1"
+	"lipsync_niceshot2"							"vo_9_16_140_2"
+	"lipsync_niceshot3"							"vo_9_16_140_3"
+	"lipsync_niceshot4"							"vo_9_16_140_4"
+	"lipsync_niceshot5"							"vo_9_16_140_5"
+	"lipsync_niceshot6"							"vo_9_16_140_6"
+	"lipsync_niceshot7"							"vo_9_16_140_7"
+	"lipsync_niceshot8"							"vo_9_16_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_16_150_1"
+	"lipsync_checkfire2"						"vo_9_16_150_2"
+	"lipsync_checkfire3"						"vo_9_16_150_3"
+	"lipsync_checkfire4"						"vo_9_16_150_4"
+	"lipsync_checkfire5"						"vo_9_16_150_5"
+	//"lipsync_checkfire6"						"vo_9_16_150_6"
+	//"lipsync_checkfire7"						"vo_9_16_150_7"
+	//"lipsync_checkfire8"						"vo_9_16_150_8"
+	//"lipsync_checkfire9"						"vo_9_16_150_9"
+	//"lipsync_checkfire10"						"vo_9_16_150_10"
+	//"lipsync_checkfire11"						"vo_9_16_150_11"
+
+//	"lipsync_traitor1"							"vo_9_16_160_1"
+//	"lipsync_traitor2"							"vo_9_16_160_2"
+//	"lipsync_traitor3"							"vo_9_16_160_3"
+	//"lipsync_traitor4"							"vo_9_16_160_4"
+	//"lipsync_traitor5"							"vo_9_16_160_5"
+	//"lipsync_traitor6"							"vo_9_16_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_16_210_1"
+	"lipsync_enemy_left2"						"vo_9_16_210_2"
+	"lipsync_enemy_left3"						"vo_9_16_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_16_220_1"
+	"lipsync_enemy_right2"						"vo_9_16_220_2"
+	"lipsync_enemy_right3"						"vo_9_16_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_16_230_1"
+	"lipsync_enemy_high2"						"vo_9_16_230_2"
+	"lipsync_enemy_high3"						"vo_9_16_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_16_200_1"
+	"lipsync_enemy_behind2"						"vo_9_16_200_2"
+	"lipsync_enemy_behind3"						"vo_9_16_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_16_240_1"
+	"lipsync_enemy_default2"					"vo_9_16_240_2"
+	"lipsync_enemy_default3"					"vo_9_16_240_3"
+	"lipsync_enemy_default4"					"vo_9_16_240_4"
+	"lipsync_enemy_default5"					"vo_9_16_240_5"
+	"lipsync_enemy_default6"					"vo_9_16_240_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_16_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_16_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_16_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_16_250_4"
+	"lipsync_canihelpyou5"						"vo_9_16_250_5"
+	"lipsync_canihelpyou6"						"vo_9_16_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_16_40_1"
+	//"lipsync_cover2"							"vo_9_16_40_2"
+	//"lipsync_cover3"							"vo_9_16_40_3"
+	//"lipsync_cover4"							"vo_9_16_40_4"
+	//"lipsync_cover5"							"vo_9_16_40_5"
+	//"lipsync_cover6"							"vo_9_16_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_16_290_1"
+	"lipsync_call_marine_2"						"vo_9_16_290_2"
+	"lipsync_call_marine_3"						"vo_9_16_290_3"
+
+	"lipsync_call_player_1"						"vo_9_16_300_1"
+	"lipsync_call_player_2"						"vo_9_16_300_2"
+	"lipsync_call_player_3"						"vo_9_16_300_3"
+	"lipsync_call_player_4"						"vo_9_16_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_16_310_1"
+	"lipsync_heal_start_2"						"vo_9_16_310_2"
+	"lipsync_heal_start_3"						"vo_9_16_310_3"
+	"lipsync_heal_start_4"						"vo_9_16_310_4"
+	"lipsync_heal_start_5"						"vo_9_16_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_16_320_1"
+	"lipsync_heal_end_2"						"vo_9_16_320_2"
+	"lipsync_heal_end_3"						"vo_9_16_320_3"
+	"lipsync_heal_end_4"						"vo_9_16_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_16_30_1"
+//	"lipsync_heal_busy_2"						"vo_9_16_30_2"
+
+//	"lipsync_heal_noheal_1"						"vo_9_16_250_1"
+//	"lipsync_heal_noheal_2"						"vo_9_16_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+}
+
+//vo_9_17_x_x
+entityDef lipsync_marine_act1_8
+{
+	"lipsync_pain1"									"vo_9_17_260_1"
+	"lipsync_pain2"									"vo_9_17_260_2"
+	"lipsync_pain3"									"vo_9_17_260_3"
+	"lipsync_pain4"									"vo_9_17_260_4"
+
+	"lipsync_death1"									"vo_9_17_270_1"
+	"lipsync_death2"									"vo_9_17_270_2"
+	"lipsync_death3"									"vo_9_17_270_3"
+
+	"lipsync_busy_1"								"vo_9_17_30_1"
+//	"lipsync_busy_2"								"vo_9_17_30_2"
+//	"lipsync_busy_3"								"vo_9_17_30_3"
+//	"lipsync_busy_4"								"vo_9_17_30_4"
+
+	//"lipsync_sniper1"							"vo_9_17_70_1"
+	//"lipsync_sniper2"							"vo_9_17_70_2"
+	//"lipsync_sniper3"							"vo_9_17_70_3"
+	//"lipsync_high_sniper1"						"vo_9_17_70_1"
+	//"lipsync_high_sniper2"						"vo_9_17_70_2"
+	//"lipsync_high_sniper3"						"vo_9_17_70_3"
+	
+	"lipsync_mandown1"							"vo_9_17_80_1"
+	"lipsync_mandown2"							"vo_9_17_80_2"
+	"lipsync_mandown3"							"vo_9_17_80_3"
+	"lipsync_mandown4"							"vo_9_17_80_4"	
+	
+	"lipsync_victory1"							"vo_9_17_90_1"
+	"lipsync_victory2"							"vo_9_17_90_2"
+	"lipsync_victory3"							"vo_9_17_90_3"
+	"lipsync_victory4"							"vo_9_17_90_4"
+	"lipsync_victory5"							"vo_9_17_90_5"
+	"lipsync_victory6"							"vo_9_17_90_6"
+	"lipsync_victory7"							"vo_9_17_90_7"
+	"lipsync_victory8"							"vo_9_17_90_8"
+	
+	//"lipsync_watchit1"							"vo_9_17_100_1"
+	//"lipsync_watchit2"							"vo_9_17_100_2"
+	//"lipsync_watchit3"							"vo_9_17_100_3"
+	
+	"lipsync_thanks1"							"vo_9_17_130_1"
+	"lipsync_thanks2"							"vo_9_17_130_2"
+	"lipsync_thanks3"							"vo_9_17_130_3"
+	
+	"lipsync_niceshot1"							"vo_9_17_140_1"
+	"lipsync_niceshot2"							"vo_9_17_140_2"
+	"lipsync_niceshot3"							"vo_9_17_140_3"
+	"lipsync_niceshot4"							"vo_9_17_140_4"
+	"lipsync_niceshot5"							"vo_9_17_140_5"
+	"lipsync_niceshot6"							"vo_9_17_140_6"
+	"lipsync_niceshot7"							"vo_9_17_140_7"
+	"lipsync_niceshot8"							"vo_9_17_140_8"
+	
+	"lipsync_checkfire1"						"vo_9_17_150_1"
+	"lipsync_checkfire2"						"vo_9_17_150_2"
+	"lipsync_checkfire3"						"vo_9_17_150_3"
+	"lipsync_checkfire4"						"vo_9_17_150_4"
+	"lipsync_checkfire5"						"vo_9_17_150_5"
+	//"lipsync_checkfire6"						"vo_9_17_150_6"
+	//"lipsync_checkfire7"						"vo_9_17_150_7"
+	//"lipsync_checkfire8"						"vo_9_17_150_8"
+	//"lipsync_checkfire9"						"vo_9_17_150_9"
+	//"lipsync_checkfire10"						"vo_9_17_150_10"
+	//"lipsync_checkfire11"						"vo_9_17_150_11"
+
+//	"lipsync_traitor1"							"vo_9_17_160_1"
+//	"lipsync_traitor2"							"vo_9_17_160_2"
+//	"lipsync_traitor3"							"vo_9_17_160_3"
+	//"lipsync_traitor4"							"vo_9_17_160_4"
+	//"lipsync_traitor5"							"vo_9_17_160_5"
+	//"lipsync_traitor6"							"vo_9_17_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_17_210_1"
+	"lipsync_enemy_left2"						"vo_9_17_210_2"
+	"lipsync_enemy_left3"						"vo_9_17_210_3"
+
+	"lipsync_enemy_right1"						"vo_9_17_220_1"
+	"lipsync_enemy_right2"						"vo_9_17_220_2"
+	"lipsync_enemy_right3"						"vo_9_17_230_3"
+
+	"lipsync_enemy_high1"						"vo_9_17_230_1"
+	"lipsync_enemy_high2"						"vo_9_17_230_2"
+	"lipsync_enemy_high3"						"vo_9_17_230_3"
+
+	"lipsync_enemy_behind1"						"vo_9_17_200_1"
+	"lipsync_enemy_behind2"						"vo_9_17_200_2"
+	"lipsync_enemy_behind3"						"vo_9_17_200_3"
+	
+	"lipsync_enemy_default1"					"vo_9_17_240_1"
+	"lipsync_enemy_default2"					"vo_9_17_240_2"
+	"lipsync_enemy_default3"					"vo_9_17_240_3"
+	"lipsync_enemy_default4"					"vo_9_17_240_4"
+	"lipsync_enemy_default5"					"vo_9_17_240_5"
+	"lipsync_enemy_default6"					"vo_9_17_240_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_17_250_1"
+//	"lipsync_canihelpyou2"						"vo_9_17_250_2"
+//	"lipsync_canihelpyou3"						"vo_9_17_250_3"
+	/* "lipsync_canihelpyou4"						"vo_9_17_250_4"
+	"lipsync_canihelpyou5"						"vo_9_17_250_5"
+	"lipsync_canihelpyou6"						"vo_9_17_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_17_40_1"
+	//"lipsync_cover2"							"vo_9_17_40_2"
+	//"lipsync_cover3"							"vo_9_17_40_3"
+	//"lipsync_cover4"							"vo_9_17_40_4"
+	//"lipsync_cover5"							"vo_9_17_40_5"
+	//"lipsync_cover6"							"vo_9_17_40_6"
+
+	"lipsync_call_marine_1"						"vo_9_17_290_1"
+	"lipsync_call_marine_2"						"vo_9_17_290_2"
+	"lipsync_call_marine_3"						"vo_9_17_290_3"
+
+	"lipsync_call_player_1"						"vo_9_17_300_1"
+	"lipsync_call_player_2"						"vo_9_17_300_2"
+	"lipsync_call_player_3"						"vo_9_17_300_3"
+	"lipsync_call_player_4"						"vo_9_17_300_4"
+
+	"lipsync_heal_start_1"						"vo_9_17_310_1"
+	"lipsync_heal_start_2"						"vo_9_17_310_2"
+	"lipsync_heal_start_3"						"vo_9_17_310_3"
+	"lipsync_heal_start_4"						"vo_9_17_310_4"
+	"lipsync_heal_start_5"						"vo_9_17_310_5"
+
+	"lipsync_heal_end_1"						"vo_9_17_320_1"
+	"lipsync_heal_end_2"						"vo_9_17_320_2"
+	"lipsync_heal_end_3"						"vo_9_17_320_3"
+	"lipsync_heal_end_4"						"vo_9_17_320_4"
+
+	"lipsync_heal_busy_1"						"vo_9_17_30_1"
+	"lipsync_heal_busy_2"						"vo_9_17_30_2"
+
+//	"lipsync_heal_noheal_1"						"vo_9_17_250_1"
+//	"lipsync_heal_noheal_2"						"vo_9_17_250_3"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+
+//call
+	"lipsync_call_player_tech_1"				"vo_9_17_360_1"
+	"lipsync_call_player_tech_2"				"vo_9_17_360_2"
+	"lipsync_call_player_tech_3"				"vo_9_17_360_3"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_17_370_1"
+	"lipsync_heal_start_tech_2"					"vo_9_17_370_2"
+	"lipsync_heal_start_tech_3"					"vo_9_17_370_3"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_17_380_1"
+	"lipsync_heal_end_tech_2"					"vo_9_17_380_2"
+	"lipsync_heal_end_tech_3"					"vo_9_17_380_3"
+}
+
+//-----------------------------------------------------------
+// Acts 2 and 3 lipsyncs-- same as above but with new flavors to represent Kane as a strogg.
+
+entityDef lipsync_anderson_2	{
+
+	"inherit"									"lipsync_anderson_1"	
+
+//	"lipsync_traitor1"							"vo_9_1_160_4"
+//	"lipsync_traitor2"							"vo_9_1_160_5"
+//	"lipsync_traitor3"							"vo_9_1_160_6"
+
+	"lipsync_canihelpyou1"						"vo_9_1_250_4"
+	"lipsync_canihelpyou2"						"vo_9_1_250_5"
+	"lipsync_canihelpyou3"						"vo_9_1_250_6"
+
+	"lipsync_checkfire6"						"vo_9_1_150_6"
+	"lipsync_checkfire7"						"vo_9_1_150_7"
+	"lipsync_checkfire8"						"vo_9_1_150_8"
+
+}
+
+entityDef lipsync_bidwell_2	{
+
+	"inherit"									"lipsync_bidwell_1"	
+
+//	"lipsync_traitor1"							"vo_9_2_160_4"
+//	"lipsync_traitor2"							"vo_9_2_160_5"
+//	"lipsync_traitor3"							"vo_9_2_160_6"
+
+	"lipsync_canihelpyou1"						"vo_9_2_250_4"
+	"lipsync_canihelpyou2"						"vo_9_2_250_5"
+	"lipsync_canihelpyou3"						"vo_9_2_250_6"
+
+	"lipsync_checkfire6"						"vo_9_2_150_6"
+	"lipsync_checkfire7"						"vo_9_2_150_7"
+	"lipsync_checkfire8"						"vo_9_2_150_8"
+
+}
+
+entityDef lipsync_cortez_2	{
+
+	"inherit"									"lipsync_cortez_1"	
+
+//	"lipsync_traitor1"							"vo_9_3_160_4"
+//	"lipsync_traitor2"							"vo_9_3_160_5"
+//	"lipsync_traitor3"							"vo_9_3_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_3_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_3_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_3_250_6"
+
+	"lipsync_checkfire6"						"vo_9_3_150_6"
+	"lipsync_checkfire7"						"vo_9_3_150_7"
+	"lipsync_checkfire8"						"vo_9_3_150_8"
+
+}
+
+entityDef lipsync_morris_2	{
+
+	"inherit"									"lipsync_morris_1"	
+
+//	"lipsync_traitor1"							"vo_9_4_160_4"
+//	"lipsync_traitor2"							"vo_9_4_160_5"
+//	"lipsync_traitor3"							"vo_9_4_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_4_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_4_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_4_250_6"
+
+	"lipsync_checkfire6"						"vo_9_4_150_6"
+	"lipsync_checkfire7"						"vo_9_4_150_7"
+	"lipsync_checkfire8"						"vo_9_4_150_8"
+
+}
+
+entityDef lipsync_rhodes_2	{
+
+	"inherit"									"lipsync_rhodes_1"	
+
+//	"lipsync_traitor1"							"vo_9_5_160_4"
+//	"lipsync_traitor2"							"vo_9_5_160_5"
+//	"lipsync_traitor3"							"vo_9_5_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_5_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_5_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_5_250_6"
+
+	"lipsync_checkfire6"						"vo_9_5_150_6"
+	"lipsync_checkfire7"						"vo_9_5_150_7"
+	"lipsync_checkfire8"						"vo_9_5_150_8"
+
+}
+
+entityDef lipsync_sledge_2	{
+
+	"inherit"									"lipsync_sledge_1"	
+
+//	"lipsync_traitor1"							"vo_9_6_160_4"
+//	"lipsync_traitor2"							"vo_9_6_160_5"
+//	"lipsync_traitor3"							"vo_9_6_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_6_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_6_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_6_250_6"
+
+	"lipsync_checkfire6"						"vo_9_6_150_6"
+	"lipsync_checkfire7"						"vo_9_6_150_7"
+	"lipsync_checkfire8"						"vo_9_6_150_8"
+
+}
+
+entityDef lipsync_strauss_2	{
+
+	"inherit"									"lipsync_strauss_1"	
+
+//	"lipsync_traitor1"							"vo_9_7_160_4"
+//	"lipsync_traitor2"							"vo_9_7_160_5"
+//	"lipsync_traitor3"							"vo_9_7_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_7_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_7_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_7_250_6"
+
+	"lipsync_checkfire6"						"vo_9_7_150_6"
+	"lipsync_checkfire7"						"vo_9_7_150_7"
+	"lipsync_checkfire8"						"vo_9_7_150_8"
+
+}
+
+entityDef lipsync_voss_2	{
+
+	"inherit"									"lipsync_voss_1"	
+
+//	"lipsync_traitor1"							"vo_9_8_160_4"
+//	"lipsync_traitor2"							"vo_9_8_160_5"
+//	"lipsync_traitor3"							"vo_9_8_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_8_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_8_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_8_250_6"
+
+	"lipsync_checkfire6"						"vo_9_8_150_6"
+	"lipsync_checkfire7"						"vo_9_8_150_7"
+	"lipsync_checkfire8"						"vo_9_8_150_8"
+
+}
+
+entityDef lipsync_marine_act2_1	{
+
+	"inherit"									"lipsync_marine_act1_1"	
+
+//	"lipsync_traitor1"							"vo_9_10_160_4"
+//	"lipsync_traitor2"							"vo_9_10_160_5"
+//	"lipsync_traitor3"							"vo_9_10_160_6"
+
+	"lipsync_canihelpyou1"						"vo_9_10_250_4"
+	"lipsync_canihelpyou2"						"vo_9_10_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_10_250_6"
+
+	"lipsync_checkfire6"						"vo_9_10_150_6"
+	"lipsync_checkfire7"						"vo_9_10_150_7"
+	"lipsync_checkfire8"						"vo_9_10_150_8"
+	"lipsync_checkfire9"						"vo_9_10_150_9"
+	"lipsync_checkfire10"						"vo_9_10_150_10"
+	"lipsync_checkfire11"						"vo_9_10_150_11"
+
+}
+
+entityDef lipsync_marine_act2_2	{
+
+	"inherit"									"lipsync_marine_act1_2"	
+
+//	"lipsync_traitor1"							"vo_9_11_160_4"
+//	"lipsync_traitor2"							"vo_9_11_160_5"
+//	"lipsync_traitor3"							"vo_9_11_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_11_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_11_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_11_250_6"
+
+	"lipsync_checkfire6"						"vo_9_11_150_6"
+	"lipsync_checkfire7"						"vo_9_11_150_7"
+	"lipsync_checkfire8"						"vo_9_11_150_8"
+	"lipsync_checkfire9"						"vo_9_11_150_9"
+	"lipsync_checkfire10"						"vo_9_11_150_10"
+	"lipsync_checkfire11"						"vo_9_11_150_11"
+
+}
+
+entityDef lipsync_marine_act2_3	{
+
+	"inherit"									"lipsync_marine_act1_3"	
+
+//	"lipsync_traitor1"							"vo_9_12_160_4"
+//	"lipsync_traitor2"							"vo_9_12_160_5"
+//	"lipsync_traitor3"							"vo_9_12_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_12_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_12_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_12_250_6"
+
+	"lipsync_checkfire6"						"vo_9_12_150_6"
+	"lipsync_checkfire7"						"vo_9_12_150_7"
+	"lipsync_checkfire8"						"vo_9_12_150_8"
+	"lipsync_checkfire9"						"vo_9_12_150_9"
+	"lipsync_checkfire10"						"vo_9_12_150_10"
+	"lipsync_checkfire11"						"vo_9_12_150_11"
+
+}
+
+entityDef lipsync_marine_act2_4	{
+
+	"inherit"									"lipsync_marine_act1_4"	
+
+//	"lipsync_traitor1"							"vo_9_13_160_4"
+//	"lipsync_traitor2"							"vo_9_13_160_5"
+//	"lipsync_traitor3"							"vo_9_13_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_13_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_13_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_13_250_6"
+
+	"lipsync_checkfire6"						"vo_9_13_150_6"
+	"lipsync_checkfire7"						"vo_9_13_150_7"
+	"lipsync_checkfire8"						"vo_9_13_150_8"
+	"lipsync_checkfire9"						"vo_9_13_150_9"
+	"lipsync_checkfire10"						"vo_9_13_150_10"
+	"lipsync_checkfire11"						"vo_9_13_150_11"
+
+}
+
+entityDef lipsync_marine_act2_5	{
+
+	"inherit"									"lipsync_marine_act1_5"	
+
+//	"lipsync_traitor1"							"vo_9_14_160_4"
+//	"lipsync_traitor2"							"vo_9_14_160_5"
+//	"lipsync_traitor3"							"vo_9_14_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_14_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_14_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_14_250_6"
+
+	"lipsync_checkfire6"						"vo_9_14_150_6"
+	"lipsync_checkfire7"						"vo_9_14_150_7"
+	"lipsync_checkfire8"						"vo_9_14_150_8"
+	"lipsync_checkfire9"						"vo_9_14_150_9"
+	"lipsync_checkfire10"						"vo_9_14_150_10"
+	"lipsync_checkfire11"						"vo_9_14_150_11"
+
+}
+
+entityDef lipsync_marine_act2_6	{
+
+	"inherit"									"lipsync_marine_act1_6"	
+
+//	"lipsync_traitor1"							"vo_9_15_160_4"
+//	"lipsync_traitor2"							"vo_9_15_160_5"
+//	"lipsync_traitor3"							"vo_9_15_160_6"
+
+	"lipsync_canihelpyou1"						"vo_9_15_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_15_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_15_250_6"
+
+	"lipsync_checkfire6"						"vo_9_15_150_6"
+	"lipsync_checkfire7"						"vo_9_15_150_7"
+	"lipsync_checkfire8"						"vo_9_15_150_8"
+	"lipsync_checkfire9"						"vo_9_15_150_9"
+	"lipsync_checkfire10"						"vo_9_15_150_10"
+	"lipsync_checkfire11"						"vo_9_15_150_11"
+
+}
+
+entityDef lipsync_marine_act2_7	{
+
+	"inherit"									"lipsync_marine_act1_7"	
+
+//	"lipsync_traitor1"							"vo_9_16_160_4"
+//	"lipsync_traitor2"							"vo_9_16_160_5"
+//	"lipsync_traitor3"							"vo_9_16_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_16_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_16_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_16_250_6"
+
+	"lipsync_checkfire6"						"vo_9_16_150_6"
+	"lipsync_checkfire7"						"vo_9_16_150_7"
+	"lipsync_checkfire8"						"vo_9_16_150_8"
+	"lipsync_checkfire9"						"vo_9_16_150_9"
+	"lipsync_checkfire10"						"vo_9_16_150_10"
+	"lipsync_checkfire11"						"vo_9_16_150_11"
+
+}
+
+entityDef lipsync_marine_act2_8	{
+
+	"inherit"									"lipsync_marine_act1_8"	
+
+//	"lipsync_traitor1"							"vo_9_17_160_4"
+//	"lipsync_traitor2"							"vo_9_17_160_5"
+//	"lipsync_traitor3"							"vo_9_17_160_6"
+
+//	"lipsync_canihelpyou1"						"vo_9_17_250_4"
+//	"lipsync_canihelpyou2"						"vo_9_17_250_5"
+//	"lipsync_canihelpyou3"						"vo_9_17_250_6"
+
+	"lipsync_checkfire6"						"vo_9_17_150_6"
+	"lipsync_checkfire7"						"vo_9_17_150_7"
+	"lipsync_checkfire8"						"vo_9_17_150_8"
+	"lipsync_checkfire9"						"vo_9_17_150_9"
+	"lipsync_checkfire10"						"vo_9_17_150_10"
+	"lipsync_checkfire11"						"vo_9_17_150_11"
+
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Helmeted Marines
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//vo_9_10_x_x
+entityDef lipsync_marine_act1_1_h
+{
+	"lipsync_pain1"									"vo_9_10_260_1_h"
+	"lipsync_pain2"									"vo_9_10_260_2_h"
+	"lipsync_pain3"									"vo_9_10_260_3_h"
+	"lipsync_pain4"									"vo_9_10_260_4_h"
+
+	"lipsync_death1"									"vo_9_10_270_1_h"
+	"lipsync_death2"									"vo_9_10_270_2_h"
+	"lipsync_death3"									"vo_9_10_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_10_30_1_h"
+	"lipsync_busy_2"								"vo_9_10_30_2_h"
+//	"lipsync_busy_3"								"vo_9_10_30_3_h"
+//	"lipsync_busy_4"								"vo_9_10_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_10_70_1_h"
+	//"lipsync_sniper2"							"vo_9_10_70_2_h"
+	//"lipsync_sniper3"							"vo_9_10_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_10_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_10_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_10_70_3_h"
+
+	"lipsync_mandown1"							"vo_9_10_80_1_h"
+	"lipsync_mandown2"							"vo_9_10_80_2_h"
+	"lipsync_mandown3"							"vo_9_10_80_3_h"
+	"lipsync_mandown4"							"vo_9_10_80_4_h"
+	
+	"lipsync_victory1"							"vo_9_10_90_1_h"
+	"lipsync_victory2"							"vo_9_10_90_2_h"
+	"lipsync_victory3"							"vo_9_10_90_3_h"
+	"lipsync_victory4"							"vo_9_10_90_4_h"
+	"lipsync_victory5"							"vo_9_10_90_5_h"
+	"lipsync_victory6"							"vo_9_10_90_6_h"
+	"lipsync_victory7"							"vo_9_10_90_7_h"
+	"lipsync_victory8"							"vo_9_10_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_10_100_1_h"
+	//"lipsync_watchit2"							"vo_9_10_100_2_h"
+	//"lipsync_watchit3"							"vo_9_10_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_10_130_1_h"
+	"lipsync_thanks2"							"vo_9_10_130_2_h"
+	"lipsync_thanks3"							"vo_9_10_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_10_140_1_h"
+	"lipsync_niceshot2"							"vo_9_10_140_2_h"
+	"lipsync_niceshot3"							"vo_9_10_140_3_h"
+	"lipsync_niceshot4"							"vo_9_10_140_4_h"
+	"lipsync_niceshot5"							"vo_9_10_140_5_h"
+	"lipsync_niceshot6"							"vo_9_10_140_6_h"
+	"lipsync_niceshot7"							"vo_9_10_140_7_h"
+	"lipsync_niceshot8"							"vo_9_10_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_10_150_1_h"
+	"lipsync_checkfire2"						"vo_9_10_150_2_h"
+	"lipsync_checkfire3"						"vo_9_10_150_3_h"
+	"lipsync_checkfire4"						"vo_9_10_150_4_h"
+	"lipsync_checkfire5"						"vo_9_10_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_10_150_6"
+	//"lipsync_checkfire7"						"vo_9_10_150_7"
+	//"lipsync_checkfire8"						"vo_9_10_150_8"
+	//"lipsync_checkfire9"						"vo_9_10_150_9"
+	//"lipsync_checkfire10"						"vo_9_10_150_10"
+	//"lipsync_checkfire11"						"vo_9_10_150_11"
+
+//	"lipsync_traitor1"							"vo_9_10_160_1_h"
+//	"lipsync_traitor2"							"vo_9_10_160_2_h"
+//	"lipsync_traitor3"							"vo_9_10_160_3_h"
+	//"lipsync_traitor4"							"vo_9_10_160_4_h"
+	//"lipsync_traitor5"							"vo_9_10_160_5_h"
+	//"lipsync_traitor6"							"vo_9_10_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_10_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_10_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_10_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_10_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_10_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_10_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_10_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_10_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_10_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_10_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_10_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_10_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_10_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_10_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_10_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_10_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_10_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_10_240_6_h"
+
+	"lipsync_canihelpyou1"						"vo_9_10_250_1_h"
+	"lipsync_canihelpyou2"						"vo_9_10_250_2_h"
+	"lipsync_canihelpyou3"						"vo_9_10_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_10_250_4"
+	"lipsync_canihelpyou5"						"vo_9_10_250_5"
+	"lipsync_canihelpyou6"						"vo_9_10_250_6" */
+	
+	//"lipsync_cover1"							"vo_9_10_40_1_h"
+	//"lipsync_cover2"							"vo_9_10_40_2_h"
+	//"lipsync_cover3"							"vo_9_10_40_3_h"
+	//"lipsync_cover4"							"vo_9_10_40_4_h"
+	//"lipsync_cover5"							"vo_9_10_40_5_h"
+	//"lipsync_cover6"							"vo_9_10_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_10_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_10_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_10_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_10_300_1_h"
+	"lipsync_call_player_2"						"vo_9_10_300_2_h"
+	"lipsync_call_player_3"						"vo_9_10_300_3_h"
+	"lipsync_call_player_4"						"vo_9_10_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_10_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_10_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_10_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_10_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_10_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_10_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_10_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_10_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_10_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_10_30_1_h"
+	"lipsync_heal_busy_2"						"vo_9_10_30_2_h"
+
+	"lipsync_heal_noheal_1"						"vo_9_10_250_1_h"
+	"lipsync_heal_noheal_2"						"vo_9_10_250_3_h"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+//call
+	"lipsync_call_player_tech_1"				"vo_9_10_360_1_h"
+	"lipsync_call_player_tech_2"				"vo_9_10_360_2_h"
+	"lipsync_call_player_tech_3"				"vo_9_10_360_3_h"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_10_370_1_h"
+	"lipsync_heal_start_tech_2"					"vo_9_10_370_2_h"
+	"lipsync_heal_start_tech_3"					"vo_9_10_370_3_h"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_10_380_1_h"
+	"lipsync_heal_end_tech_2"					"vo_9_10_380_2_h"
+	"lipsync_heal_end_tech_3"					"vo_9_10_380_3_h"
+
+}
+
+//vo_9_11_x_x
+entityDef lipsync_marine_act1_2_h
+{
+	"lipsync_pain1"									"vo_9_11_260_1_h"
+	"lipsync_pain2"									"vo_9_11_260_2_h"
+	"lipsync_pain3"									"vo_9_11_260_3_h"
+	"lipsync_pain4"									"vo_9_11_260_4_h"
+
+	"lipsync_death1"									"vo_9_11_270_1_h"
+	"lipsync_death2"									"vo_9_11_270_2_h"
+	"lipsync_death3"									"vo_9_11_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_11_30_1_h"
+//	"lipsync_busy_2"								"vo_9_11_30_2_h"
+//	"lipsync_busy_3"								"vo_9_11_30_3_h"
+//	"lipsync_busy_4"								"vo_9_11_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_11_70_1_h"
+	//"lipsync_sniper2"							"vo_9_11_70_2_h"
+	//"lipsync_sniper3"							"vo_9_11_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_11_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_11_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_11_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_11_80_1_h"
+	"lipsync_mandown2"							"vo_9_11_80_2_h"
+	"lipsync_mandown3"							"vo_9_11_80_3_h"
+	"lipsync_mandown4"							"vo_9_11_80_4_h"
+	
+	"lipsync_victory1"							"vo_9_11_90_1_h"
+	"lipsync_victory2"							"vo_9_11_90_2_h"
+	"lipsync_victory3"							"vo_9_11_90_3_h"
+	"lipsync_victory4"							"vo_9_11_90_4_h"
+	"lipsync_victory5"							"vo_9_11_90_5_h"
+	"lipsync_victory6"							"vo_9_11_90_6_h"
+	"lipsync_victory7"							"vo_9_11_90_7_h"
+	"lipsync_victory8"							"vo_9_11_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_11_100_1_h"
+	//"lipsync_watchit2"							"vo_9_11_100_2_h"
+	//"lipsync_watchit3"							"vo_9_11_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_11_130_1_h"
+	"lipsync_thanks2"							"vo_9_11_130_2_h"
+	"lipsync_thanks3"							"vo_9_11_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_11_140_1_h"
+	"lipsync_niceshot2"							"vo_9_11_140_2_h"
+	"lipsync_niceshot3"							"vo_9_11_140_3_h"
+	"lipsync_niceshot4"							"vo_9_11_140_4_h"
+	"lipsync_niceshot5"							"vo_9_11_140_5_h"
+	"lipsync_niceshot6"							"vo_9_11_140_6_h"
+	"lipsync_niceshot7"							"vo_9_11_140_7_h"
+	"lipsync_niceshot8"							"vo_9_11_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_11_150_1_h"
+	"lipsync_checkfire2"						"vo_9_11_150_2_h"
+	"lipsync_checkfire3"						"vo_9_11_150_3_h"
+	"lipsync_checkfire4"						"vo_9_11_150_4_h"
+	"lipsync_checkfire5"						"vo_9_11_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_11_150_6"
+	//"lipsync_checkfire7"						"vo_9_11_150_7"
+	//"lipsync_checkfire8"						"vo_9_11_150_8"
+	//"lipsync_checkfire9"						"vo_9_11_150_9"
+	//"lipsync_checkfire10"						"vo_9_11_150_10"
+	//"lipsync_checkfire11"						"vo_9_11_150_11"
+
+//	"lipsync_traitor1"							"vo_9_11_160_1_h"
+//	"lipsync_traitor2"							"vo_9_11_160_2_h"
+//	"lipsync_traitor3"							"vo_9_11_160_3_h"
+	//"lipsync_traitor4"							"vo_9_11_160_4"
+	//"lipsync_traitor5"							"vo_9_11_160_5"
+	//"lipsync_traitor6"							"vo_9_11_160_6"
+
+	"lipsync_enemy_left1"						"vo_9_11_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_11_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_11_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_11_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_11_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_11_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_11_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_11_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_11_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_11_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_11_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_11_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_11_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_11_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_11_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_11_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_11_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_11_240_6_h"
+
+	"lipsync_canihelpyou1"						"vo_9_11_250_1_h"
+//	"lipsync_canihelpyou2"						"vo_9_11_250_2_h"
+//	"lipsync_canihelpyou3"						"vo_9_11_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_11_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_11_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_11_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_11_40_1_h"
+	//"lipsync_cover2"							"vo_9_11_40_2_h"
+	//"lipsync_cover3"							"vo_9_11_40_3_h"
+	//"lipsync_cover4"							"vo_9_11_40_4_h"
+	//"lipsync_cover5"							"vo_9_11_40_5_h"
+	//"lipsync_cover6"							"vo_9_11_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_11_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_11_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_11_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_11_300_1_h"
+	"lipsync_call_player_2"						"vo_9_11_300_2_h"
+	"lipsync_call_player_3"						"vo_9_11_300_3_h"
+	"lipsync_call_player_4"						"vo_9_11_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_11_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_11_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_11_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_11_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_11_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_11_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_11_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_11_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_11_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_11_30_1_h"
+	"lipsync_heal_busy_2"						"vo_9_11_30_2_h"
+
+	"lipsync_heal_noheal_1"						"vo_9_11_250_1_h"
+//	"lipsync_heal_noheal_2"						"vo_9_11_250_3_h"
+
+	"snd_med_gun_heal"							"med_gun_heal"
+
+
+}
+
+//vo_9_12_x_x
+entityDef lipsync_marine_act1_3_h
+{
+	"lipsync_pain1"									"vo_9_12_260_1_h"
+	"lipsync_pain2"									"vo_9_12_260_2_h"
+	"lipsync_pain3"									"vo_9_12_260_3_h"
+	"lipsync_pain4"									"vo_9_12_260_4_h"
+
+	"lipsync_death1"									"vo_9_12_270_1_h"
+	"lipsync_death2"									"vo_9_12_270_2_h"
+	"lipsync_death3"									"vo_9_12_270_3_h"
+
+//	"lipsync_busy_1"								"vo_9_12_30_1_h"
+//	"lipsync_busy_2"								"vo_9_12_30_2_h"
+//	"lipsync_busy_3"								"vo_9_12_30_3_h"
+//	"lipsync_busy_4"								"vo_9_12_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_12_70_1_h"
+	//"lipsync_sniper2"							"vo_9_12_70_2_h"
+	//"lipsync_sniper3"							"vo_9_12_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_12_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_12_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_12_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_12_80_1_h"
+	"lipsync_mandown2"							"vo_9_12_80_2_h"
+	"lipsync_mandown3"							"vo_9_12_80_3_h"
+	"lipsync_mandown4"							"vo_9_12_80_4_h"	
+	
+	"lipsync_victory1"							"vo_9_12_90_1_h"
+	"lipsync_victory2"							"vo_9_12_90_2_h"
+	"lipsync_victory3"							"vo_9_12_90_3_h"
+	"lipsync_victory4"							"vo_9_12_90_4_h"
+	"lipsync_victory5"							"vo_9_12_90_5_h"
+	"lipsync_victory6"							"vo_9_12_90_6_h"
+	"lipsync_victory7"							"vo_9_12_90_7_h"
+	"lipsync_victory8"							"vo_9_12_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_12_100_1_h"
+	//"lipsync_watchit2"							"vo_9_12_100_2_h"
+	//"lipsync_watchit3"							"vo_9_12_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_12_130_1_h"
+	"lipsync_thanks2"							"vo_9_12_130_2_h"
+	"lipsync_thanks3"							"vo_9_12_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_12_140_1_h"
+	"lipsync_niceshot2"							"vo_9_12_140_2_h"
+	"lipsync_niceshot3"							"vo_9_12_140_3_h"
+	"lipsync_niceshot4"							"vo_9_12_140_4_h"
+	"lipsync_niceshot5"							"vo_9_12_140_5_h"
+	"lipsync_niceshot6"							"vo_9_12_140_6_h"
+	"lipsync_niceshot7"							"vo_9_12_140_7_h"
+	"lipsync_niceshot8"							"vo_9_12_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_12_150_1_h"
+	"lipsync_checkfire2"						"vo_9_12_150_2_h"
+	"lipsync_checkfire3"						"vo_9_12_150_3_h"
+	"lipsync_checkfire4"						"vo_9_12_150_4_h"
+	"lipsync_checkfire5"						"vo_9_12_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_12_150_6_h"
+	//"lipsync_checkfire7"						"vo_9_12_150_7_h"
+	//"lipsync_checkfire8"						"vo_9_12_150_8_h"
+	//"lipsync_checkfire9"						"vo_9_12_150_9_h"
+	//"lipsync_checkfire10"						"vo_9_12_150_10_h"
+	//"lipsync_checkfire11"						"vo_9_12_150_11_h"
+
+//	"lipsync_traitor1"							"vo_9_12_160_1_h"
+//	"lipsync_traitor2"							"vo_9_12_160_2_h"
+//	"lipsync_traitor3"							"vo_9_12_160_3_h"
+	//"lipsync_traitor4"							"vo_9_12_160_4_h"
+	//"lipsync_traitor5"							"vo_9_12_160_5_h"
+	//"lipsync_traitor6"							"vo_9_12_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_12_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_12_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_12_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_12_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_12_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_12_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_12_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_12_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_12_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_12_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_12_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_12_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_12_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_12_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_12_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_12_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_12_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_12_240_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_12_250_1_h"
+//	"lipsync_canihelpyou2"						"vo_9_12_250_2_h"
+//	"lipsync_canihelpyou3"						"vo_9_12_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_12_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_12_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_12_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_12_40_1_h"
+	//"lipsync_cover2"							"vo_9_12_40_2_h"
+	//"lipsync_cover3"							"vo_9_12_40_3_h"
+	//"lipsync_cover4"							"vo_9_12_40_4_h"
+	//"lipsync_cover5"							"vo_9_12_40_5_h"
+	//"lipsync_cover6"							"vo_9_12_40_6_h"
+	"lipsync_call_marine_1"						"vo_9_12_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_12_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_12_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_12_300_1_h"
+	"lipsync_call_player_2"						"vo_9_12_300_2_h"
+	"lipsync_call_player_3"						"vo_9_12_300_3_h"
+	"lipsync_call_player_4"						"vo_9_12_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_12_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_12_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_12_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_12_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_12_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_12_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_12_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_12_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_12_320_4_h"
+
+//	"lipsync_heal_busy_1"						"vo_9_12_30_1_h"
+//	"lipsync_heal_busy_2"						"vo_9_12_30_2_h"
+
+//	"lipsync_heal_noheal_1"						"vo_9_12_250_1_h"
+//	"lipsync_heal_noheal_2"						"vo_9_12_250_3_h"
+	"snd_med_gun_heal"							"med_gun_heal"
+//call
+	"lipsync_call_player_tech_1"				"vo_9_12_360_1_h"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_12_370_1_h"
+	"lipsync_heal_start_tech_2"					"vo_9_12_370_2_h"
+	"lipsync_heal_start_tech_3"					"vo_9_12_370_3_h"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_12_380_1_h"
+	"lipsync_heal_end_tech_2"					"vo_9_12_380_2_h"
+	"lipsync_heal_end_tech_3"					"vo_9_12_380_3_h"
+
+}
+
+//vo_9_13_x_x
+entityDef lipsync_marine_act1_4_h
+{
+	"lipsync_pain1"									"vo_9_13_260_1_h"
+	"lipsync_pain2"									"vo_9_13_260_2_h"
+	"lipsync_pain3"									"vo_9_13_260_3_h"
+	"lipsync_pain4"									"vo_9_13_260_4_h"
+
+	"lipsync_death1"									"vo_9_13_270_1_h"
+	"lipsync_death2"									"vo_9_13_270_2_h"
+	"lipsync_death3"									"vo_9_13_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_13_30_1_h"
+	"lipsync_busy_2"								"vo_9_13_30_2_h"
+//	"lipsync_busy_3"								"vo_9_13_30_3_h"
+//	"lipsync_busy_4"								"vo_9_13_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_13_70_1_h"
+	//"lipsync_sniper2"							"vo_9_13_70_2_h"
+	//"lipsync_sniper3"							"vo_9_13_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_13_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_13_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_13_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_13_80_1_h"
+	"lipsync_mandown2"							"vo_9_13_80_2_h"
+	"lipsync_mandown3"							"vo_9_13_80_3_h"
+	"lipsync_mandown4"							"vo_9_13_80_4_h"	
+	
+	"lipsync_victory1"							"vo_9_13_90_1_h"
+	"lipsync_victory2"							"vo_9_13_90_2_h"
+	"lipsync_victory3"							"vo_9_13_90_3_h"
+	"lipsync_victory4"							"vo_9_13_90_4_h"
+	"lipsync_victory5"							"vo_9_13_90_5_h"
+	"lipsync_victory6"							"vo_9_13_90_6_h"
+	"lipsync_victory7"							"vo_9_13_90_7_h"
+	"lipsync_victory8"							"vo_9_13_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_13_100_1_h"
+	//"lipsync_watchit2"							"vo_9_13_100_2_h"
+	//"lipsync_watchit3"							"vo_9_13_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_13_130_1_h"
+	"lipsync_thanks2"							"vo_9_13_130_2_h"
+	"lipsync_thanks3"							"vo_9_13_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_13_140_1_h"
+	"lipsync_niceshot2"							"vo_9_13_140_2_h"
+	"lipsync_niceshot3"							"vo_9_13_140_3_h"
+	"lipsync_niceshot4"							"vo_9_13_140_4_h"
+	"lipsync_niceshot5"							"vo_9_13_140_5_h"
+	"lipsync_niceshot6"							"vo_9_13_140_6_h"
+	"lipsync_niceshot7"							"vo_9_13_140_7_h"
+	"lipsync_niceshot8"							"vo_9_13_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_13_150_1_h"
+	"lipsync_checkfire2"						"vo_9_13_150_2_h"
+	"lipsync_checkfire3"						"vo_9_13_150_3_h"
+	"lipsync_checkfire4"						"vo_9_13_150_4_h"
+	"lipsync_checkfire5"						"vo_9_13_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_13_150_6_h"
+	//"lipsync_checkfire7"						"vo_9_13_150_7_h"
+	//"lipsync_checkfire8"						"vo_9_13_150_8_h"
+	//"lipsync_checkfire9"						"vo_9_13_150_9_h"
+	//"lipsync_checkfire10"						"vo_9_13_150_10_h"
+	//"lipsync_checkfire11"						"vo_9_13_150_11_h"
+
+//	"lipsync_traitor1"							"vo_9_13_160_1_h"
+//	"lipsync_traitor2"							"vo_9_13_160_2_h"
+//	"lipsync_traitor3"							"vo_9_13_160_3_h"
+	//"lipsync_traitor4"							"vo_9_13_160_4_h"
+	//"lipsync_traitor5"							"vo_9_13_160_5_h"
+	//"lipsync_traitor6"							"vo_9_13_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_13_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_13_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_13_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_13_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_13_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_13_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_13_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_13_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_13_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_13_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_13_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_13_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_13_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_13_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_13_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_13_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_13_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_13_240_6_h"
+
+	"lipsync_canihelpyou1"						"vo_9_13_250_1_h"
+	"lipsync_canihelpyou2"						"vo_9_13_250_2_h"
+	"lipsync_canihelpyou3"						"vo_9_13_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_13_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_13_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_13_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_13_40_1_h"
+	//"lipsync_cover2"							"vo_9_13_40_2_h"
+	//"lipsync_cover3"							"vo_9_13_40_3_h"
+	//"lipsync_cover4"							"vo_9_13_40_4_h"
+	//"lipsync_cover5"							"vo_9_13_40_5_h"
+	//"lipsync_cover6"							"vo_9_13_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_13_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_13_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_13_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_13_300_1_h"
+	"lipsync_call_player_2"						"vo_9_13_300_2_h"
+	"lipsync_call_player_3"						"vo_9_13_300_3_h"
+	"lipsync_call_player_4"						"vo_9_13_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_13_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_13_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_13_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_13_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_13_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_13_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_13_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_13_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_13_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_13_30_1_h"
+	"lipsync_heal_busy_2"						"vo_9_13_30_2_h"
+
+	"lipsync_heal_noheal_1"						"vo_9_13_250_1_h"
+	"lipsync_heal_noheal_2"						"vo_9_13_250_3_h"
+	"snd_med_gun_heal"							"med_gun_heal"
+//call
+	"lipsync_call_player_tech_1"				"vo_9_13_360_1_h"
+	"lipsync_call_player_tech_2"				"vo_9_13_360_2_h"
+	"lipsync_call_player_tech_3"				"vo_9_13_360_3_h"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_13_370_1_h"
+	"lipsync_heal_start_tech_2"					"vo_9_13_370_2_h"
+	"lipsync_heal_start_tech_3"					"vo_9_13_370_3_h"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_13_380_1_h"
+	"lipsync_heal_end_tech_2"					"vo_9_13_380_2_h"
+	"lipsync_heal_end_tech_3"					"vo_9_13_380_3_h"
+}
+
+//vo_9_14_x_x
+entityDef lipsync_marine_act1_5_h
+{
+	"lipsync_pain1"									"vo_9_14_260_1_h"
+	"lipsync_pain2"									"vo_9_14_260_2_h"
+	"lipsync_pain3"									"vo_9_14_260_3_h"
+	"lipsync_pain4"									"vo_9_14_260_4_h"
+
+	"lipsync_death1"									"vo_9_14_270_1_h"
+	"lipsync_death2"									"vo_9_14_270_2_h"
+	"lipsync_death3"									"vo_9_14_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_14_30_1_h"
+//	"lipsync_busy_2"								"vo_9_14_30_2_h"
+//	"lipsync_busy_3"								"vo_9_14_30_3_h"
+//	"lipsync_busy_4"								"vo_9_14_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_14_70_1_h"
+	//"lipsync_sniper2"							"vo_9_14_70_2_h"
+	//"lipsync_sniper3"							"vo_9_14_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_14_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_14_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_14_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_14_80_1_h"
+	"lipsync_mandown2"							"vo_9_14_80_2_h"
+	"lipsync_mandown3"							"vo_9_14_80_3_h"
+	"lipsync_mandown4"							"vo_9_14_80_4_h"	
+	
+	"lipsync_victory1"							"vo_9_14_90_1_h"
+	"lipsync_victory2"							"vo_9_14_90_2_h"
+	"lipsync_victory3"							"vo_9_14_90_3_h"
+	"lipsync_victory4"							"vo_9_14_90_4_h"
+	"lipsync_victory5"							"vo_9_14_90_5_h"
+	"lipsync_victory6"							"vo_9_14_90_6_h"
+	"lipsync_victory7"							"vo_9_14_90_7_h"
+	"lipsync_victory8"							"vo_9_14_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_14_100_1_h"
+	//"lipsync_watchit2"							"vo_9_14_100_2_h"
+	//"lipsync_watchit3"							"vo_9_14_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_14_130_1_h"
+	"lipsync_thanks2"							"vo_9_14_130_2_h"
+	"lipsync_thanks3"							"vo_9_14_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_14_140_1_h"
+	"lipsync_niceshot2"							"vo_9_14_140_2_h"
+	"lipsync_niceshot3"							"vo_9_14_140_3_h"
+	"lipsync_niceshot4"							"vo_9_14_140_4_h"
+	"lipsync_niceshot5"							"vo_9_14_140_5_h"
+	"lipsync_niceshot6"							"vo_9_14_140_6_h"
+	"lipsync_niceshot7"							"vo_9_14_140_7_h"
+	"lipsync_niceshot8"							"vo_9_14_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_14_150_1_h"
+	"lipsync_checkfire2"						"vo_9_14_150_2_h"
+	"lipsync_checkfire3"						"vo_9_14_150_3_h"
+	"lipsync_checkfire4"						"vo_9_14_150_4_h"
+	"lipsync_checkfire5"						"vo_9_14_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_14_150_6_h"
+	//"lipsync_checkfire7"						"vo_9_14_150_7_h"
+	//"lipsync_checkfire8"						"vo_9_14_150_8_h"
+	//"lipsync_checkfire9"						"vo_9_14_150_9_h"
+	//"lipsync_checkfire10"						"vo_9_14_150_10_h"
+	//"lipsync_checkfire11"						"vo_9_14_150_11_h"
+
+//	"lipsync_traitor1"							"vo_9_14_160_1_h"
+//	"lipsync_traitor2"							"vo_9_14_160_2_h"
+//	"lipsync_traitor3"							"vo_9_14_160_3_h"
+	//"lipsync_traitor4"							"vo_9_14_160_4_h"
+	//"lipsync_traitor5"							"vo_9_14_160_5_h"
+	//"lipsync_traitor6"							"vo_9_14_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_14_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_14_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_14_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_14_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_14_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_14_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_14_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_14_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_14_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_14_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_14_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_14_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_14_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_14_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_14_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_14_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_14_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_14_240_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_14_250_1_h"
+//	"lipsync_canihelpyou2"						"vo_9_14_250_2_h"
+//	"lipsync_canihelpyou3"						"vo_9_14_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_14_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_14_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_14_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_14_40_1_h"
+	//"lipsync_cover2"							"vo_9_14_40_2_h"
+	//"lipsync_cover3"							"vo_9_14_40_3_h"
+	//"lipsync_cover4"							"vo_9_14_40_4_h"
+	//"lipsync_cover5"							"vo_9_14_40_5_h"
+	//"lipsync_cover6"							"vo_9_14_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_14_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_14_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_14_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_14_300_1_h"
+	"lipsync_call_player_2"						"vo_9_14_300_2_h"
+	"lipsync_call_player_3"						"vo_9_14_300_3_h"
+	"lipsync_call_player_4"						"vo_9_14_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_14_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_14_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_14_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_14_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_14_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_14_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_14_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_14_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_14_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_14_30_1_h"
+	"lipsync_heal_busy_2"						"vo_9_14_30_2_h"
+
+//	"lipsync_heal_noheal_1"						"vo_9_14_250_1_h"
+//	"lipsync_heal_noheal_2"						"vo_9_14_250_3_h"
+}
+
+//vo_9_15_x_x
+entityDef lipsync_marine_act1_6_h
+{
+	"lipsync_pain1"									"vo_9_15_260_1_h"
+	"lipsync_pain2"									"vo_9_15_260_2_h"
+	"lipsync_pain3"									"vo_9_15_260_3_h"
+	"lipsync_pain4"									"vo_9_15_260_4_h"
+
+	"lipsync_death1"									"vo_9_15_270_1_h"
+	"lipsync_death2"									"vo_9_15_270_2_h"
+	"lipsync_death3"									"vo_9_15_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_15_30_1_h"
+	"lipsync_busy_2"								"vo_9_15_30_2_h"
+	"lipsync_busy_3"								"vo_9_15_30_3_h"
+//	"lipsync_busy_4"								"vo_9_15_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_15_70_1_h"
+	//"lipsync_sniper2"							"vo_9_15_70_2_h"
+	//"lipsync_sniper3"							"vo_9_15_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_15_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_15_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_15_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_15_80_1_h"
+	"lipsync_mandown2"							"vo_9_15_80_2_h"
+	"lipsync_mandown3"							"vo_9_15_80_3_h"
+	"lipsync_mandown4"							"vo_9_15_80_4_h"	
+	
+	"lipsync_victory1"							"vo_9_15_90_1_h"
+	"lipsync_victory2"							"vo_9_15_90_2_h"
+	"lipsync_victory3"							"vo_9_15_90_3_h"
+	"lipsync_victory4"							"vo_9_15_90_4_h"
+	"lipsync_victory5"							"vo_9_15_90_5_h"
+	"lipsync_victory6"							"vo_9_15_90_6_h"
+	"lipsync_victory7"							"vo_9_15_90_7_h"
+	"lipsync_victory8"							"vo_9_15_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_15_100_1_h"
+	//"lipsync_watchit2"							"vo_9_15_100_2_h"
+	//"lipsync_watchit3"							"vo_9_15_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_15_130_1_h"
+	"lipsync_thanks2"							"vo_9_15_130_2_h"
+	"lipsync_thanks3"							"vo_9_15_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_15_140_1_h"
+	"lipsync_niceshot2"							"vo_9_15_140_2_h"
+	"lipsync_niceshot3"							"vo_9_15_140_3_h"
+	"lipsync_niceshot4"							"vo_9_15_140_4_h"
+	"lipsync_niceshot5"							"vo_9_15_140_5_h"
+	"lipsync_niceshot6"							"vo_9_15_140_6_h"
+	"lipsync_niceshot7"							"vo_9_15_140_7_h"
+	"lipsync_niceshot8"							"vo_9_15_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_15_150_1_h"
+	"lipsync_checkfire2"						"vo_9_15_150_2_h"
+	"lipsync_checkfire3"						"vo_9_15_150_3_h"
+	"lipsync_checkfire4"						"vo_9_15_150_4_h"
+	"lipsync_checkfire5"						"vo_9_15_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_15_150_6_h"
+	//"lipsync_checkfire7"						"vo_9_15_150_7_h"
+	//"lipsync_checkfire8"						"vo_9_15_150_8_h"
+	//"lipsync_checkfire9"						"vo_9_15_150_9_h"
+	//"lipsync_checkfire10"						"vo_9_15_150_10_h"
+	//"lipsync_checkfire11"						"vo_9_15_150_11_h"
+
+//	"lipsync_traitor1"							"vo_9_15_160_1_h"
+//	"lipsync_traitor2"							"vo_9_15_160_2_h"
+//	"lipsync_traitor3"							"vo_9_15_160_3_h"
+	//"lipsync_traitor4"							"vo_9_15_160_4_h"
+	//"lipsync_traitor5"							"vo_9_15_160_5_h"
+	//"lipsync_traitor6"							"vo_9_15_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_15_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_15_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_15_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_15_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_15_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_15_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_15_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_15_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_15_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_15_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_15_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_15_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_15_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_15_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_15_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_15_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_15_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_15_240_6_h"
+
+	"lipsync_canihelpyou1"						"vo_9_15_250_1_h"
+//	"lipsync_canihelpyou2"						"vo_9_15_250_2_h"
+//	"lipsync_canihelpyou3"						"vo_9_15_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_15_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_15_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_15_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_15_40_1_h"
+	//"lipsync_cover2"							"vo_9_15_40_2_h"
+	//"lipsync_cover3"							"vo_9_15_40_3_h"
+	//"lipsync_cover4"							"vo_9_15_40_4_h"
+	//"lipsync_cover5"							"vo_9_15_40_5_h"
+	//"lipsync_cover6"							"vo_9_15_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_15_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_15_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_15_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_15_300_1_h"
+	"lipsync_call_player_2"						"vo_9_15_300_2_h"
+	"lipsync_call_player_3"						"vo_9_15_300_3_h"
+	"lipsync_call_player_4"						"vo_9_15_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_15_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_15_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_15_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_15_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_15_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_15_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_15_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_15_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_15_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_15_30_1_h"
+	"lipsync_heal_busy_2"						"vo_9_15_30_2_h"
+
+//	"lipsync_heal_noheal_1"						"vo_9_15_250_1_h"
+//	"lipsync_heal_noheal_2"						"vo_9_15_250_3_h"
+}
+
+//vo_9_16_x_x
+entityDef lipsync_marine_act1_7_h
+{
+	"lipsync_pain1"									"vo_9_16_260_1_h"
+	"lipsync_pain2"									"vo_9_16_260_2_h"
+	"lipsync_pain3"									"vo_9_16_260_3_h"
+	"lipsync_pain4"									"vo_9_16_260_4_h"
+
+	"lipsync_death1"									"vo_9_16_270_1_h"
+	"lipsync_death2"									"vo_9_16_270_2_h"
+	"lipsync_death3"									"vo_9_16_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_16_30_1_h"
+//	"lipsync_busy_2"								"vo_9_16_30_2_h"
+//	"lipsync_busy_3"								"vo_9_16_30_3_h"
+//	"lipsync_busy_4"								"vo_9_16_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_16_70_1_h"
+	//"lipsync_sniper2"							"vo_9_16_70_2_h"
+	//"lipsync_sniper3"							"vo_9_16_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_16_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_16_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_16_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_16_80_1_h"
+	"lipsync_mandown2"							"vo_9_16_80_2_h"
+	"lipsync_mandown3"							"vo_9_16_80_3_h"
+	"lipsync_mandown4"							"vo_9_16_80_4_h"	
+	
+	"lipsync_victory1"							"vo_9_16_90_1_h"
+	"lipsync_victory2"							"vo_9_16_90_2_h"
+	"lipsync_victory3"							"vo_9_16_90_3_h"
+	"lipsync_victory4"							"vo_9_16_90_4_h"
+	"lipsync_victory5"							"vo_9_16_90_5_h"
+	"lipsync_victory6"							"vo_9_16_90_6_h"
+	"lipsync_victory7"							"vo_9_16_90_7_h"
+	"lipsync_victory8"							"vo_9_16_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_16_100_1_h"
+	//"lipsync_watchit2"							"vo_9_16_100_2_h"
+	//"lipsync_watchit3"							"vo_9_16_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_16_130_1_h"
+	"lipsync_thanks2"							"vo_9_16_130_2_h"
+	"lipsync_thanks3"							"vo_9_16_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_16_140_1_h"
+	"lipsync_niceshot2"							"vo_9_16_140_2_h"
+	"lipsync_niceshot3"							"vo_9_16_140_3_h"
+	"lipsync_niceshot4"							"vo_9_16_140_4_h"
+	"lipsync_niceshot5"							"vo_9_16_140_5_h"
+	"lipsync_niceshot6"							"vo_9_16_140_6_h"
+	"lipsync_niceshot7"							"vo_9_16_140_7_h"
+	"lipsync_niceshot8"							"vo_9_16_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_16_150_1_h"
+	"lipsync_checkfire2"						"vo_9_16_150_2_h"
+	"lipsync_checkfire3"						"vo_9_16_150_3_h"
+	"lipsync_checkfire4"						"vo_9_16_150_4_h"
+	"lipsync_checkfire5"						"vo_9_16_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_16_150_6_h"
+	//"lipsync_checkfire7"						"vo_9_16_150_7_h"
+	//"lipsync_checkfire8"						"vo_9_16_150_8_h"
+	//"lipsync_checkfire9"						"vo_9_16_150_9_h"
+	//"lipsync_checkfire10"						"vo_9_16_150_10_h"
+	//"lipsync_checkfire11"						"vo_9_16_150_11_h"
+
+//	"lipsync_traitor1"							"vo_9_16_160_1_h"
+//	"lipsync_traitor2"							"vo_9_16_160_2_h"
+//	"lipsync_traitor3"							"vo_9_16_160_3_h"
+	//"lipsync_traitor4"							"vo_9_16_160_4_h"
+	//"lipsync_traitor5"							"vo_9_16_160_5_h"
+	//"lipsync_traitor6"							"vo_9_16_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_16_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_16_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_16_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_16_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_16_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_16_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_16_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_16_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_16_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_16_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_16_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_16_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_16_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_16_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_16_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_16_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_16_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_16_240_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_16_250_1_h"
+//	"lipsync_canihelpyou2"						"vo_9_16_250_2_h"
+//	"lipsync_canihelpyou3"						"vo_9_16_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_16_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_16_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_16_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_16_40_1_h"
+	//"lipsync_cover2"							"vo_9_16_40_2_h"
+	//"lipsync_cover3"							"vo_9_16_40_3_h"
+	//"lipsync_cover4"							"vo_9_16_40_4_h"
+	//"lipsync_cover5"							"vo_9_16_40_5_h"
+	//"lipsync_cover6"							"vo_9_16_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_16_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_16_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_16_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_16_300_1_h"
+	"lipsync_call_player_2"						"vo_9_16_300_2_h"
+	"lipsync_call_player_3"						"vo_9_16_300_3_h"
+	"lipsync_call_player_4"						"vo_9_16_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_16_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_16_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_16_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_16_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_16_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_16_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_16_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_16_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_16_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_16_30_1_h"
+//	"lipsync_heal_busy_2"						"vo_9_16_30_2_h"
+
+//	"lipsync_heal_noheal_1"						"vo_9_16_250_1_h"
+//	"lipsync_heal_noheal_2"						"vo_9_16_250_3_h"
+}
+
+//vo_9_17_x_x
+entityDef lipsync_marine_act1_8_h
+{
+	"lipsync_pain1"									"vo_9_17_260_1_h"
+	"lipsync_pain2"									"vo_9_17_260_2_h"
+	"lipsync_pain3"									"vo_9_17_260_3_h"
+	"lipsync_pain4"									"vo_9_17_260_4_h"
+
+	"lipsync_death1"									"vo_9_17_270_1_h"
+	"lipsync_death2"									"vo_9_17_270_2_h"
+	"lipsync_death3"									"vo_9_17_270_3_h"
+
+	"lipsync_busy_1"								"vo_9_17_30_1_h"
+//	"lipsync_busy_2"								"vo_9_17_30_2_h"
+//	"lipsync_busy_3"								"vo_9_17_30_3_h"
+//	"lipsync_busy_4"								"vo_9_17_30_4_h"
+
+	//"lipsync_sniper1"							"vo_9_17_70_1_h"
+	//"lipsync_sniper2"							"vo_9_17_70_2_h"
+	//"lipsync_sniper3"							"vo_9_17_70_3_h"
+	//"lipsync_high_sniper1"						"vo_9_17_70_1_h"
+	//"lipsync_high_sniper2"						"vo_9_17_70_2_h"
+	//"lipsync_high_sniper3"						"vo_9_17_70_3_h"
+	
+	"lipsync_mandown1"							"vo_9_17_80_1_h"
+	"lipsync_mandown2"							"vo_9_17_80_2_h"
+	"lipsync_mandown3"							"vo_9_17_80_3_h"
+	"lipsync_mandown4"							"vo_9_17_80_4_h"	
+	
+	"lipsync_victory1"							"vo_9_17_90_1_h"
+	"lipsync_victory2"							"vo_9_17_90_2_h"
+	"lipsync_victory3"							"vo_9_17_90_3_h"
+	"lipsync_victory4"							"vo_9_17_90_4_h"
+	"lipsync_victory5"							"vo_9_17_90_5_h"
+	"lipsync_victory6"							"vo_9_17_90_6_h"
+	"lipsync_victory7"							"vo_9_17_90_7_h"
+	"lipsync_victory8"							"vo_9_17_90_8_h"
+	
+	//"lipsync_watchit1"							"vo_9_17_100_1_h"
+	//"lipsync_watchit2"							"vo_9_17_100_2_h"
+	//"lipsync_watchit3"							"vo_9_17_100_3_h"
+	
+	"lipsync_thanks1"							"vo_9_17_130_1_h"
+	"lipsync_thanks2"							"vo_9_17_130_2_h"
+	"lipsync_thanks3"							"vo_9_17_130_3_h"
+	
+	"lipsync_niceshot1"							"vo_9_17_140_1_h"
+	"lipsync_niceshot2"							"vo_9_17_140_2_h"
+	"lipsync_niceshot3"							"vo_9_17_140_3_h"
+	"lipsync_niceshot4"							"vo_9_17_140_4_h"
+	"lipsync_niceshot5"							"vo_9_17_140_5_h"
+	"lipsync_niceshot6"							"vo_9_17_140_6_h"
+	"lipsync_niceshot7"							"vo_9_17_140_7_h"
+	"lipsync_niceshot8"							"vo_9_17_140_8_h"
+	
+	"lipsync_checkfire1"						"vo_9_17_150_1_h"
+	"lipsync_checkfire2"						"vo_9_17_150_2_h"
+	"lipsync_checkfire3"						"vo_9_17_150_3_h"
+	"lipsync_checkfire4"						"vo_9_17_150_4_h"
+	"lipsync_checkfire5"						"vo_9_17_150_5_h"
+	//"lipsync_checkfire6"						"vo_9_17_150_6_h"
+	//"lipsync_checkfire7"						"vo_9_17_150_7_h"
+	//"lipsync_checkfire8"						"vo_9_17_150_8_h"
+	//"lipsync_checkfire9"						"vo_9_17_150_9_h"
+	//"lipsync_checkfire10"						"vo_9_17_150_10_h"
+	//"lipsync_checkfire11"						"vo_9_17_150_11_h"
+
+//	"lipsync_traitor1"							"vo_9_17_160_1_h"
+//	"lipsync_traitor2"							"vo_9_17_160_2_h"
+//	"lipsync_traitor3"							"vo_9_17_160_3_h"
+	//"lipsync_traitor4"							"vo_9_17_160_4_h"
+	//"lipsync_traitor5"							"vo_9_17_160_5_h"
+	//"lipsync_traitor6"							"vo_9_17_160_6_h"
+
+	"lipsync_enemy_left1"						"vo_9_17_210_1_h"
+	"lipsync_enemy_left2"						"vo_9_17_210_2_h"
+	"lipsync_enemy_left3"						"vo_9_17_210_3_h"
+
+	"lipsync_enemy_right1"						"vo_9_17_220_1_h"
+	"lipsync_enemy_right2"						"vo_9_17_220_2_h"
+	"lipsync_enemy_right3"						"vo_9_17_230_3_h"
+
+	"lipsync_enemy_high1"						"vo_9_17_230_1_h"
+	"lipsync_enemy_high2"						"vo_9_17_230_2_h"
+	"lipsync_enemy_high3"						"vo_9_17_230_3_h"
+
+	"lipsync_enemy_behind1"						"vo_9_17_200_1_h"
+	"lipsync_enemy_behind2"						"vo_9_17_200_2_h"
+	"lipsync_enemy_behind3"						"vo_9_17_200_3_h"
+	
+	"lipsync_enemy_default1"					"vo_9_17_240_1_h"
+	"lipsync_enemy_default2"					"vo_9_17_240_2_h"
+	"lipsync_enemy_default3"					"vo_9_17_240_3_h"
+	"lipsync_enemy_default4"					"vo_9_17_240_4_h"
+	"lipsync_enemy_default5"					"vo_9_17_240_5_h"
+	"lipsync_enemy_default6"					"vo_9_17_240_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_17_250_1_h"
+//	"lipsync_canihelpyou2"						"vo_9_17_250_2_h"
+//	"lipsync_canihelpyou3"						"vo_9_17_250_3_h"
+	/* "lipsync_canihelpyou4"						"vo_9_17_250_4_h"
+	"lipsync_canihelpyou5"						"vo_9_17_250_5_h"
+	"lipsync_canihelpyou6"						"vo_9_17_250_6_h" */
+	
+	//"lipsync_cover1"							"vo_9_17_40_1_h"
+	//"lipsync_cover2"							"vo_9_17_40_2_h"
+	//"lipsync_cover3"							"vo_9_17_40_3_h"
+	//"lipsync_cover4"							"vo_9_17_40_4_h"
+	//"lipsync_cover5"							"vo_9_17_40_5_h"
+	//"lipsync_cover6"							"vo_9_17_40_6_h"
+
+	"lipsync_call_marine_1"						"vo_9_17_290_1_h"
+	"lipsync_call_marine_2"						"vo_9_17_290_2_h"
+	"lipsync_call_marine_3"						"vo_9_17_290_3_h"
+
+	"lipsync_call_player_1"						"vo_9_17_300_1_h"
+	"lipsync_call_player_2"						"vo_9_17_300_2_h"
+	"lipsync_call_player_3"						"vo_9_17_300_3_h"
+	"lipsync_call_player_4"						"vo_9_17_300_4_h"
+
+	"lipsync_heal_start_1"						"vo_9_17_310_1_h"
+	"lipsync_heal_start_2"						"vo_9_17_310_2_h"
+	"lipsync_heal_start_3"						"vo_9_17_310_3_h"
+	"lipsync_heal_start_4"						"vo_9_17_310_4_h"
+	"lipsync_heal_start_5"						"vo_9_17_310_5_h"
+
+	"lipsync_heal_end_1"						"vo_9_17_320_1_h"
+	"lipsync_heal_end_2"						"vo_9_17_320_2_h"
+	"lipsync_heal_end_3"						"vo_9_17_320_3_h"
+	"lipsync_heal_end_4"						"vo_9_17_320_4_h"
+
+	"lipsync_heal_busy_1"						"vo_9_17_30_1_h"
+	"lipsync_heal_busy_2"						"vo_9_17_30_2_h"
+
+//	"lipsync_heal_noheal_1"						"vo_9_17_250_1_h"
+//	"lipsync_heal_noheal_2"						"vo_9_17_250_3_h"
+
+//call
+	"lipsync_call_player_tech_1"				"vo_9_17_360_1_h"
+	"lipsync_call_player_tech_2"				"vo_9_17_360_2_h"
+	"lipsync_call_player_tech_3"				"vo_9_17_360_3_h"
+
+//start
+	"lipsync_heal_start_tech_1"					"vo_9_17_370_1_h"
+	"lipsync_heal_start_tech_2"					"vo_9_17_370_2_h"
+	"lipsync_heal_start_tech_3"					"vo_9_17_370_3_h"
+
+//done
+	"lipsync_heal_end_tech_1"					"vo_9_17_380_1_h"
+	"lipsync_heal_end_tech_2"					"vo_9_17_380_2_h"
+	"lipsync_heal_end_tech_3"					"vo_9_17_380_3_h"
+}
+
+
+entityDef lipsync_marine_act2_1_h	{
+
+	"inherit"									"lipsync_marine_act1_1_h"	
+
+//	"lipsync_traitor1"							"vo_9_10_160_4_h"
+//	"lipsync_traitor2"							"vo_9_10_160_5_h"
+//	"lipsync_traitor3"							"vo_9_10_160_6_h"
+
+	"lipsync_canihelpyou1"						"vo_9_10_250_4_h"
+	"lipsync_canihelpyou2"						"vo_9_10_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_10_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_10_150_6_h"
+	"lipsync_checkfire7"						"vo_9_10_150_7_h"
+	"lipsync_checkfire8"						"vo_9_10_150_8_h"
+	"lipsync_checkfire9"						"vo_9_10_150_9_h"
+	"lipsync_checkfire10"						"vo_9_10_150_10_h"
+	"lipsync_checkfire11"						"vo_9_10_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_2_h	{
+
+	"inherit"									"lipsync_marine_act1_2_h"	
+
+//	"lipsync_traitor1"							"vo_9_11_160_4_h"
+//	"lipsync_traitor2"							"vo_9_11_160_5_h"
+//	"lipsync_traitor3"							"vo_9_11_160_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_11_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_11_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_11_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_11_150_6_h"
+	"lipsync_checkfire7"						"vo_9_11_150_7_h"
+	"lipsync_checkfire8"						"vo_9_11_150_8_h"
+	"lipsync_checkfire9"						"vo_9_11_150_9_h"
+	"lipsync_checkfire10"						"vo_9_11_150_10_h"
+	"lipsync_checkfire11"						"vo_9_11_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_3_h	{
+
+	"inherit"									"lipsync_marine_act1_3"	
+
+//	"lipsync_traitor1"							"vo_9_12_160_4_h"
+//	"lipsync_traitor2"							"vo_9_12_160_5_h"
+//	"lipsync_traitor3"							"vo_9_12_160_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_12_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_12_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_12_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_12_150_6_h"
+	"lipsync_checkfire7"						"vo_9_12_150_7_h"
+	"lipsync_checkfire8"						"vo_9_12_150_8_h"
+	"lipsync_checkfire9"						"vo_9_12_150_9_h"
+	"lipsync_checkfire10"						"vo_9_12_150_10_h"
+	"lipsync_checkfire11"						"vo_9_12_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_4_h	{
+
+	"inherit"									"lipsync_marine_act1_4_h"	
+
+//	"lipsync_traitor1"							"vo_9_13_160_4_h"
+//	"lipsync_traitor2"							"vo_9_13_160_5_h"
+//	"lipsync_traitor3"							"vo_9_13_160_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_13_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_13_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_13_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_13_150_6_h"
+	"lipsync_checkfire7"						"vo_9_13_150_7_h"
+	"lipsync_checkfire8"						"vo_9_13_150_8_h"
+	"lipsync_checkfire9"						"vo_9_13_150_9_h"
+	"lipsync_checkfire10"						"vo_9_13_150_10_h"
+	"lipsync_checkfire11"						"vo_9_13_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_5_h	{
+
+	"inherit"									"lipsync_marine_act1_5_h"	
+
+//	"lipsync_traitor1"							"vo_9_14_160_4_h"
+//	"lipsync_traitor2"							"vo_9_14_160_5_h"
+//	"lipsync_traitor3"							"vo_9_14_160_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_14_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_14_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_14_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_14_150_6_h"
+	"lipsync_checkfire7"						"vo_9_14_150_7_h"
+	"lipsync_checkfire8"						"vo_9_14_150_8_h"
+	"lipsync_checkfire9"						"vo_9_14_150_9_h"
+	"lipsync_checkfire10"						"vo_9_14_150_10_h"
+	"lipsync_checkfire11"						"vo_9_14_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_6_h	{
+
+	"inherit"									"lipsync_marine_act1_6_h"	
+
+//	"lipsync_traitor1"							"vo_9_15_160_4_h"
+//	"lipsync_traitor2"							"vo_9_15_160_5_h"
+//	"lipsync_traitor3"							"vo_9_15_160_6_h"
+
+	"lipsync_canihelpyou1"						"vo_9_15_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_15_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_15_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_15_150_6_h"
+	"lipsync_checkfire7"						"vo_9_15_150_7_h"
+	"lipsync_checkfire8"						"vo_9_15_150_8_h"
+	"lipsync_checkfire9"						"vo_9_15_150_9_h"
+	"lipsync_checkfire10"						"vo_9_15_150_10_h"
+	"lipsync_checkfire11"						"vo_9_15_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_7_h	{
+
+	"inherit"									"lipsync_marine_act1_7_h"	
+
+//	"lipsync_traitor1"							"vo_9_16_160_4_h"
+//	"lipsync_traitor2"							"vo_9_16_160_5_h"
+//	"lipsync_traitor3"							"vo_9_16_160_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_16_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_16_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_16_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_16_150_6_h"
+	"lipsync_checkfire7"						"vo_9_16_150_7_h"
+	"lipsync_checkfire8"						"vo_9_16_150_8_h"
+	"lipsync_checkfire9"						"vo_9_16_150_9_h"
+	"lipsync_checkfire10"						"vo_9_16_150_10_h"
+	"lipsync_checkfire11"						"vo_9_16_150_11_h"
+
+}
+
+entityDef lipsync_marine_act2_8_h	{
+
+	"inherit"									"lipsync_marine_act1_8_h"	
+
+//	"lipsync_traitor1"							"vo_9_17_160_4_h"
+//	"lipsync_traitor2"							"vo_9_17_160_5_h"
+//	"lipsync_traitor3"							"vo_9_17_160_6_h"
+
+//	"lipsync_canihelpyou1"						"vo_9_17_250_4_h"
+//	"lipsync_canihelpyou2"						"vo_9_17_250_5_h"
+//	"lipsync_canihelpyou3"						"vo_9_17_250_6_h"
+
+	"lipsync_checkfire6"						"vo_9_17_150_6_h"
+	"lipsync_checkfire7"						"vo_9_17_150_7_h"
+	"lipsync_checkfire8"						"vo_9_17_150_8_h"
+	"lipsync_checkfire9"						"vo_9_17_150_9_h"
+	"lipsync_checkfire10"						"vo_9_17_150_10_h"
+	"lipsync_checkfire11"						"vo_9_17_150_11_h"
+
+
+}
+
+//!!!!!!!!!!!!!!
+//Please don't throw stuff down here if it's not new lipsyncs. Thanks!!

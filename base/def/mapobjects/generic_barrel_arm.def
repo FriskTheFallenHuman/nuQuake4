@@ -1,0 +1,110 @@
+/***********************************************************************
+GENERIC BARREL ARM
+***********************************************************************/
+
+export generic_barrel_arm
+{
+	options -prefix RCMP_3ARM_ -align ALL -sourcedir work/models/mapobjects/strogg/machines/arms_generic/arm_01/animations -destdir models/mapobjects/strogg/machines/arms_generic/arm_01
+	mesh three_barrel_arm_room_process_a.ma		-dest generic_barrel_arm  
+	anim three_barrel_arm_room_process_a.ma		-dest idle
+	anim three_barrel_arm_room_process_a.ma		-dest test	
+}
+
+entityDef env_generic_barrel_arm
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for core"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_generic_barrel_arm"
+	"anim"						"idle"
+	
+	"snd_extend"				"recomp_barrel_arm_extend"
+	"snd_thump"					"recomp_barrel_arm_thump"
+	"snd_attach"				"recomp_barrel_arm_attach"
+	"snd_steam"					"recomp_barrel_arm_steam"
+	"snd_detach"				"recomp_barrel_arm_detach"
+}
+
+model model_generic_barrel_arm
+{
+	mesh					models/mapobjects/strogg/machines/arms_generic/arm_01/generic_barrel_arm.md5mesh
+	anim idle				models/mapobjects/strogg/machines/arms_generic/arm_01/idle.md5anim
+	{
+		frame	3,10,24,27,47,57,86,112,124,140,148,170,180,207,236					sound		snd_extend
+		frame	39,75,118,162,198,241												sound		snd_attach
+		frame	41,120,164,200,243													sound		snd_steam
+		frame	48,171																sound		snd_thump
+		frame	46,69,131,169,192													sound		snd_detach
+	}
+	anim test				models/mapobjects/strogg/machines/arms_generic/arm_01/test.md5anim
+	{
+		frame	3,10,24,27,47,57,86,112,124,140,148,170,180,207,236					sound		snd_extend
+		frame	39,75,118,162,198,241												sound		snd_attach
+		frame	41,120,164,200,243													sound		snd_steam
+		frame	48,171																sound		snd_thump
+		frame	46,69,131,169,192													sound		snd_detach
+	}
+}
+
+
+
+
+
+/***********************************************************************
+GENERIC BARREL ARM
+***********************************************************************/
+
+export generic_4barrel_arm
+{
+	options -prefix RCMP_ -align ALL -sourcedir work/models/mapobjects/strogg/machines/arms_generic/arm_01/animations -destdir models/mapobjects/strogg/machines/arms_generic/arm_01
+	mesh four_barrels_arm_process_01.ma		-dest generic_4barrel_arm  
+	anim four_barrels_arm_process_01.ma		-dest idle_4barrel
+}
+
+entityDef env_generic_4barrel_arm
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for core"
+
+	"spawnclass"					"idAnimated"
+
+	"combatModel"					"1"
+	
+	"model"						"model_generic_4barrel_arm"
+	"anim"						"idle"
+	
+	"snd_rotate"				"recomp_barrel_arm_rotate"
+	"snd_extend"				"recomp_barrel_arm_extend"
+	"snd_thump"					"recomp_barrel_arm_thump"
+	"snd_attach"				"recomp_barrel_arm_attach"
+	"snd_steam"					"recomp_barrel_arm_steam"
+	"snd_detach"				"recomp_barrel_arm_detach"
+	//FX
+	"fx_bubble"					"effects/levels/recomp_fizz.fx"
+}
+
+model model_generic_4barrel_arm
+{
+	mesh					models/mapobjects/strogg/machines/arms_generic/arm_01/generic_4barrel_arm.md5mesh
+	anim idle				models/mapobjects/strogg/machines/arms_generic/arm_01/idle_4barrel.md5anim
+	{
+		frame	7,41,48,90,126,137,180,192,227,230,274,288,309,319,365,378,412,417,468,493,505,550,561,598,604,649,688,732							sound		snd_extend
+		frame	26,115,211,300,396,485,582,674							sound		snd_attach
+		frame	55,237,422,608											sound		snd_rotate
+		frame	28,117,213,302,398,487,584,676,91,284,468,654			sound		snd_steam
+		frame	105,289,474,660											sound		snd_thump
+		frame	125,310,496,681											sound		snd_detach
+		frame	85														fx	fx_bubble	barrel_B_bone
+		frame	270													fx	fx_bubble	barrel_A_bone
+		frame	455														fx	fx_bubble	barrel_D_bone
+		frame	640														fx	fx_bubble	barrel_C_bone
+	}
+}

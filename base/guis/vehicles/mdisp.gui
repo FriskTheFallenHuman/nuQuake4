@@ -1,0 +1,985 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	nocursor	1
+	backcolor	0,0,0,1
+	definevec4	"warn_on"	1,.35,0,1
+	definevec4	"warn_off"	1,.35,0,.5
+
+	onNamedEvent shot_static {
+		resettime "anim_static" "0" ;
+	}
+
+	onNamedEvent shock_stall {
+		resettime "anim_shock_stall" "0" ;
+	}
+
+	onNamedEvent shock_stall_restart {
+		resettime "anim_shock_restart" "0" ;
+	}
+
+	onNamedEvent warning_locked {
+		resettime "anim_hazjump" "0" ;
+	}
+
+	onNamedEvent warning_hazard {
+		resettime "anim_haz" "0" ;
+	}
+
+	onNamedEvent info_safe {
+		resettime "anim_hazclear" "0" ;
+	}
+
+	onNamedEvent static_on {
+		resettime "anim_staticloop" "0" ;
+	}
+
+	onNamedEvent static_off {
+		stoptransitions "anim_staticloop" ;
+		transition "black::backcolor" "0,0,0,0.4" "0,0,0,0" "0" ;
+		transition "static1::matcolor" "0.949,0.717,0.4,0.6" "0.949,0.717,0.4,0" "0" ;
+		transition "static2::matcolor" "0.6,0.968,0.709,0.6" "0.6,0.968,0.709,0" "0" ;
+		
+		transition "p_main::rect" "$d_main1::rect" "$p_main::rect" "0" ;
+	}
+
+	windowDef p_main
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef main
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/vehicles/mdisp_main"
+			matcolor	0.478,0.521,0.227,1
+		}
+		windowDef stext1
+		{
+			visible	1
+			rect	19,102,61,69
+			background	"gfx/guis/common/smalltext1"
+			matcolor	0.866,0.619,0.250,1
+		}
+		windowDef l_edge
+		{
+			visible	1
+			rect	0,0,80,480
+			background	"gfx/guis/vehicles/mdisp_edge"
+			matcolor	0.772,0.972,0.305,1
+		}
+		windowDef r_edge
+		{
+			visible	1
+			rect	560,0,80,480
+			background	"gfx/guis/vehicles/mdisp_edge"
+			matcolor	0.772,0.972,0.305,1
+			matscalex	-1
+		}
+		windowDef btns
+		{
+			visible	1
+			rect	253,362,345,91
+			background	"gfx/guis/vehicles/mdisp_btns"
+			matcolor	0.866,0.619,0.250,1
+		}
+		windowDef t_btn1
+		{
+			rect	312,386,118,27
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200896"
+			textscale	0.48
+			font	"fonts/marine"
+		}
+		windowDef t_btn2
+		{
+			rect	456,386,93,27
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200417"
+			textscale	0.48
+			font	"fonts/marine"
+		}
+		windowDef up_arrow
+		{
+			visible	1
+			rect	306,119,37,14
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.866,0.619,0.250,1
+		}
+		windowDef dn_arrow
+		{
+			visible	1
+			rect	306,146,37,14
+			background	"gfx/guis/common/arrow2"
+			matcolor	0.866,0.619,0.250,1
+			matscaley	-1
+		}
+		windowDef t_range
+		{
+			rect	304,129,39,19
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200893"
+			textscale	0.24
+			font	"fonts/marine"
+		}
+		windowDef t_random1
+		{
+			rect	147,86,69,19
+			visible	1
+			forecolor	1,1,1,1
+			text	"486-35"
+			textscale	0.3
+			font	"fonts/marine"
+		}
+		windowDef t_random2
+		{
+			rect	123,412,119,13
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200894"
+			textscale	0.2
+			font	"fonts/marine"
+		}
+		windowDef l_line
+		{
+			visible	1
+			rect	345,72,22,11
+			background	"gfx/guis/common/line1"
+			matcolor	0.709,0.678,0.290,1
+			rotate	90
+		}
+		windowDef r_line
+		{
+			visible	1
+			rect	587,72,22,11
+			background	"gfx/guis/common/line1"
+			matcolor	0.709,0.678,0.290,1
+			rotate	90
+		}
+		windowDef t_sys_stat
+		{
+			rect	359,61,236,35
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200895"
+			textscale	0.5
+			font	"fonts/marine"
+		}
+		windowDef p_status
+		{
+			rect	0,0,640,480
+			visible	1
+			windowDef mechs
+			{
+				visible	1
+				rect	49,177,282,199
+				background	"gfx/guis/vehicles/mdisp_mech"
+				matcolor	0.584,0.580,0.474,1
+			}
+			windowDef box1
+			{
+				visible	1
+				rect	99,195,48,49
+				background	"gfx/guis/common/simplebox3"
+				matcolor	0.866,0.619,0.250,1
+			}
+			windowDef box2
+			{
+				visible	1
+				rect	268,201,38,38
+				background	"gfx/guis/common/simplebox3"
+				matcolor	0.866,0.619,0.250,1
+			}
+			windowDef box3
+			{
+				visible	1
+				rect	69,269,45,71
+				background	"gfx/guis/common/simplebox3"
+				matcolor	0.866,0.619,0.250,1
+			}
+			windowDef box4
+			{
+				visible	1
+				rect	199,241,59,40
+				background	"gfx/guis/common/simplebox3"
+				matcolor	0.866,0.619,0.250,1
+			}
+			windowDef box5
+			{
+				visible	1
+				rect	288,309,30,29
+				background	"gfx/guis/common/simplebox3"
+				matcolor	0.866,0.619,0.250,1
+			}
+			windowDef stext2
+			{
+				visible	1
+				rect	150,302,72,71
+				background	"gfx/guis/common/smalltext3"
+				matcolor	0.866,0.619,0.250,1
+			}
+			windowDef stext3
+			{
+				visible	1
+				rect	188,141,72,70
+				background	"gfx/guis/common/smalltext1"
+				matcolor	0.866,0.619,0.250,1
+				matscalex	-1
+			}
+		}
+	}
+	windowDef p_hazenv
+	{
+		rect	0,0,640,480
+		visible	0
+		windowDef haz_line1
+		{
+			visible	1
+			rect	33,153,579,27
+			background	"gfx/guis/common/line1"
+			matcolor	0.815,0.541,0.168,1
+		}
+		windowDef haz_symb
+		{
+			visible	1
+			rect	60,168,190,190
+			background	"gfx/guis/common/haz_symb1"
+			matcolor	1,0.823,0.133,1
+		}
+		windowDef t_haz1
+		{
+			rect	42,114,552,40
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200902"
+			textscale	.7
+			font	"fonts/marine"
+		}
+		windowDef t_haz2
+		{
+			rect	252,155,376,228
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200903"
+			textscale	1.2
+			font	"fonts/marine"
+		}
+		windowDef l_haz_edge
+		{
+			visible	1
+			rect	6,0,97,480
+			background	"gfx/guis/vehicles/mdisp_edge"
+			matcolor	0.917,0.321,0.0666,1
+		}
+		windowDef r_haz_edge
+		{
+			visible	1
+			rect	530,0,104,480
+			background	"gfx/guis/vehicles/mdisp_edge"
+			matcolor	0.917,0.321,0.0666,1
+			matscalex	-1
+		}
+		windowDef haz_t_warn
+		{
+			visible	1
+			rect	20,28,596,103
+			background	"gfx/guis/common/warnbar1"
+			matcolor	0.913,0.317,0.0627,1
+			rotate	180
+		}
+		windowDef haz_b_warn
+		{
+			visible	1
+			rect	24,346,596,103
+			background	"gfx/guis/common/warnbar1"
+			matcolor	0.917,0.321,0.0666,1
+		}
+		windowDef hazflicker
+		{
+			visible	1
+			rect	0,0,640,480
+			backcolor	0,0,0,.5
+
+			onTime 0 {
+				transition "backcolor" "0,0,0,0" "0,0,0,0.5" "250" ;
+			}
+
+			onTime 250 {
+				transition "backcolor" "0,0,0,0.5" "0,0,0,0" "250" ;
+			}
+
+			onTime 500 {
+				resettime "0" ;
+			}
+
+		}
+	}
+	windowDef p_hazclear
+	{
+		rect	0,0,640,480
+		visible	0
+		windowDef haz_clr_line1
+		{
+			visible	1
+			rect	33,153,579,27
+			background	"gfx/guis/common/line1"
+			matcolor	0.909,1,0.592,.6
+		}
+		windowDef haz_clr_symb
+		{
+			visible	1
+			rect	60,168,190,190
+			background	"gfx/guis/common/haz_symb1"
+			matcolor	0.909,1,0.592,1
+		}
+		windowDef t_haz_clr1
+		{
+			rect	42,108,552,55
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200904"
+			textscale	.9
+			font	"fonts/marine"
+			textalign	1
+		}
+		windowDef t_haz_clr2
+		{
+			rect	260,164,360,186
+			visible	1
+			forecolor	1,1,1,1
+			text	"#str_200905"
+			textscale	1.08
+			font	"fonts/marine"
+		}
+		windowDef l_haz_clr_edge
+		{
+			visible	1
+			rect	6,0,97,480
+			background	"gfx/guis/vehicles/mdisp_edge"
+			matcolor	0.517,0.713,0.254,1
+		}
+		windowDef r_haz_clr_edge
+		{
+			visible	1
+			rect	530,0,104,480
+			background	"gfx/guis/vehicles/mdisp_edge"
+			matcolor	0.517,0.713,0.254,1
+			matscalex	-1
+		}
+		windowDef haz_clr_t_warn
+		{
+			visible	1
+			rect	20,28,596,103
+			background	"gfx/guis/common/warnbar1"
+			matcolor	0.517,0.713,0.254,1
+			rotate	180
+		}
+		windowDef haz_clr_b_warn
+		{
+			visible	1
+			rect	24,346,596,103
+			background	"gfx/guis/common/warnbar1"
+			matcolor	0.517,0.713,0.254,1
+		}
+		windowDef hazclr_flicker1
+		{
+			visible	1
+			rect	0,0,640,480
+			backcolor	0,0,0,.25
+
+			onTime 0 {
+				transition "backcolor" "0,0,0,0" "0,0,0,0.25" "500" ;
+			}
+
+			onTime 500 {
+				transition "backcolor" "0,0,0,0.25" "0,0,0,0" "500" ;
+			}
+
+			onTime 1000 {
+				resettime "0" ;
+			}
+
+		}
+	}
+	windowDef d_main1
+	{
+		rect	50,-57,640,480
+		visible	0
+	}
+	windowDef d_main2
+	{
+		rect	-110,30,640,480
+		visible	0
+	}
+	windowDef d_main3
+	{
+		rect	93,89,640,480
+		visible	0
+	}
+	windowDef d_main4
+	{
+		rect	-38,-156,640,480
+		visible	0
+	}
+	windowDef p_map_window
+	{
+		rect	358,95,239,165
+		visible	1
+
+		onTime 0 {
+			transition "map::rect" "$map::rect" "$d_map::rect" "8000" "2000" "2000" ;
+		}
+
+		onTime +10000 {	
+			transition "map::rect" "$d_map::rect" "$map::rect" "8000" "2000" "2000" ;
+		}
+
+		onTime +10000 {	
+			resettime "0" ;
+		}
+
+		windowDef map
+		{
+			rect	-2,-9,497,401
+			visible	1
+			background	"gfx/guis/monitors/marine/mcc13_bigmap"
+			matcolor	0.752,0.541,0.219,1
+		}
+		windowDef d_map
+		{
+			rect	-254,-233,497,401
+			visible	0
+			background	"gfx/guis/monitors/marine/mcc13_bigmap"
+			matcolor	1,0.501,0,1
+		}
+	}
+	windowDef d_main5
+	{
+		rect	-17,60,640,480
+		visible	0
+	}
+	windowDef decal2
+	{
+		rect	362,214,40,40
+		visible	1
+		background	"gfx/guis/common/marine/decal2"
+		matcolor	1,1,1,0.4
+	}
+	windowDef scrolltext2
+	{
+		rect	362,93,233,263
+		visible	1
+		background	"gfx/guis/common/marine/scrolltext1faster"
+		matcolor	0.745,0.886,0.686,0.2
+	}
+	windowDef t_num1
+	{
+		rect	365,261,160,36
+		visible	1
+		forecolor	1,1,1,.2
+		text	"#str_200332"
+		textscale	0.4
+		font	"fonts/lowpixel"
+
+		onTime 0 {
+			set "text" "#str_200332" ;
+		}
+
+		onTime +100 {
+			set "text" "#str_200333" ;
+		}
+
+		onTime +100 {
+			set "text" "#str_200334" ;
+		}
+
+		onTime +100 {
+			set "text" "#str_200335" ;
+		}
+
+		onTime +100 {
+			set "text" "#str_200336" ;
+		}
+
+		onTime +100 {
+			set "text" "#str_200337" ;
+		}
+
+		onTime +100 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef t_num2
+	{
+		rect	365,282,160,36
+		visible	1
+		forecolor	1,1,1,.2
+		text	"#str_200338"
+		textscale	0.4
+		font	"fonts/lowpixel"
+
+		onTime 0 {
+			set "text" "#str_200338" ;
+		}
+
+		onTime +150 {
+			set "text" "#str_200339" ;
+		}
+
+		onTime +150 {
+			set "text" "#str_200340" ;
+		}
+
+		onTime +150 {
+			set "text" "#str_200341" ;
+		}
+
+		onTime +150 {
+			set "text" "#str_200342" ;
+		}
+
+		onTime +150 {
+			set "text" "#str_200343" ;
+		}
+
+		onTime +150 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef t_num3
+	{
+		rect	365,301,160,36
+		visible	1
+		forecolor	1,1,1,.2
+		text	"#str_200344"
+		textscale	0.4
+		font	"fonts/lowpixel"
+
+		onTime 0 {
+			set "text" "#str_200344" ;
+		}
+
+		onTime +200 {
+			set "text" "#str_200345" ;
+		}
+
+		onTime +200 {
+			set "text" "#str_200346" ;
+		}
+
+		onTime +200 {
+			set "text" "#str_200347" ;
+		}
+
+		onTime +200 {
+			set "text" "#str_200348" ;
+		}
+
+		onTime +200 {
+			set "text" "#str_200349" ;
+		}
+
+		onTime +200 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef key
+	{
+		rect	366,326,163,25
+		visible	1
+		background	"gfx/guis/monitors/marine/mcc13_key"
+		matcolor	0.745,0.858,0.607,.5
+	}
+	windowDef details
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef unnamed
+		{
+			rect	493,192,100,22
+			visible	1
+			backcolor	0.717,0.756,0.556,0.501
+		}
+		windowDef unnamed1
+		{
+			rect	493,220,100,21
+			visible	1
+			backcolor	0.717,0.756,0.556,0.505
+		}
+		windowDef unnamed2
+		{
+			rect	493,247,100,21
+			visible	1
+			backcolor	0.717,0.756,0.556,0.8
+		}
+		windowDef unnamed3
+		{
+			rect	493,274,100,21
+			visible	1
+			backcolor	0.717,0.756,0.556,0.505
+		}
+		windowDef unnamed4
+		{
+			rect	493,301,100,21
+			visible	1
+			backcolor	0.717,0.756,0.556,0.505
+		}
+		windowDef triangle1
+		{
+			rect	521,329,39,19
+			visible	1
+			background	"gfx/guis/monitors/marine/mcc1_triangle"
+			matcolor	0.674,0.803,0.654,0.505
+		}
+		windowDef triangle2
+		{
+			rect	521,167,39,19
+			visible	1
+			background	"gfx/guis/monitors/marine/mcc1_triangle"
+			matcolor	0.674,0.803,0.654,0.505
+			matscaley	-1
+		}
+		windowDef number1
+		{
+			rect	504,191,76,22
+			visible	1
+			forecolor	0,0,0,1
+			text	"1302.2"
+			textscale	0.32
+			font	"fonts/marine"
+		}
+		windowDef number2
+		{
+			rect	503,218,75,22
+			visible	1
+			forecolor	0,0,0,1
+			text	"1302.8"
+			textscale	0.32
+			font	"fonts/marine"
+		}
+		windowDef number3
+		{
+			rect	503,246,75,22
+			visible	1
+			forecolor	0,0,0,1
+			text	"1302.9"
+			textscale	0.32
+			font	"fonts/marine"
+		}
+		windowDef number4
+		{
+			rect	503,273,75,22
+			visible	1
+			forecolor	0,0,0,1
+			text	"1303.0"
+			textscale	0.32
+			font	"fonts/marine"
+		}
+		windowDef number5
+		{
+			rect	503,299,75,22
+			visible	1
+			forecolor	0,0,0,1
+			text	"0455.8"
+			textscale	0.32
+			font	"fonts/marine"
+		}
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef black
+		{
+			visible	1
+			rect	0,0,640,480
+			backcolor	0,0,0,0
+		}
+		windowDef static2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/img_static3"
+			matcolor	0.6,0.968,0.709,0
+		}
+		windowDef static1
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/static1"
+			matcolor	0.949,0.717,0.4,0
+		}
+		windowDef flicker
+		{
+			visible	1
+			rect	0,0,640,480
+			backcolor	0,0,0,0.14*guitable_random1[time*.8]
+		}
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-197,640,820
+			background	"gfx/guis/common/monitor_line6"
+			matcolor	0.745,0.592,0.231,0.0980
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-168,-198,943,535
+			background	"gfx/guis/common/gradient"
+			matcolor	0.956,1,0.458,0.498*guitable_10_5[time*.0008]
+		}
+		windowDef add_lines
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/add_lines1"
+			matcolor	0.278,0.290,0.243,1
+		}
+		windowDef dirt
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_dirt2"
+			matcolor	0.705,0.658,0.513,1
+		}
+		windowDef blackedge
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef anim_shock_stall
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 300 {
+			transition "Desktop::rect" "0,0,640,480" "10,232,620,4" "100" ;
+		}
+
+		onTime 600 {
+			set "Desktop::visible" "0" ;
+		}
+
+	}
+	windowDef anim_shock_restart
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			set "Desktop::visible" "1" ;
+			transition "Desktop::rect" "10,232,620,4" "0,0,640,480" "100" ;
+		}
+
+	}
+	windowDef anim_static
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "black::backcolor" "0,0,0,0" "0,0,0,0.4" "0" ;
+			transition "static1::matcolor" "0.949,0.717,0.4,0" "0.949,0.717,0.4,0.6" "0" ;
+			transition "static2::matcolor" "0.6,0.968,0.709,0" "0.6,0.968,0.709,0.6" "0" ;
+			
+			transition "p_main::rect" "$d_main1::rect" "$d_main2::rect" "0" ;
+		}
+
+		onTime 50 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main4::rect" "0" ;
+		}
+
+		onTime 100 {
+			transition "p_main::rect" "$d_main3::rect" "$d_main1::rect" "0" ;
+		}
+
+		onTime 150 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main1::rect" "0" ;
+			
+			transition "static1::matcolor" "0.949,0.717,0.4,0.6" "1,1,1,1" "0" ;
+			transition "static2::matcolor" "0.6,0.968,0.709,0.6" "1,1,1,1" "0" ;
+		}
+
+		onTime 200 {
+			transition "p_main::rect" "$d_main3::rect" "$d_main5::rect" "0" ;
+		}
+
+		onTime 250 {
+			transition "p_main::rect" "$d_main1::rect" "$d_main3::rect" "0" ;
+			
+			transition "static1::matcolor" "1,1,1,1" "0.949,0.717,0.4,0.6" "0" ;
+			transition "static2::matcolor" "1,1,1,1" "0.6,0.968,0.709,0.6" "0" ;
+		}
+
+		onTime 300 {
+			transition "p_main::rect" "$d_main4::rect" "$d_main2::rect" "0" ;
+		}
+
+		onTime 350 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main1::rect" "0" ;
+		}
+
+		onTime 400 {
+			transition "p_main::rect" "$d_main1::rect" "$d_main5::rect" "0" ;
+		}
+
+		onTime 450 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main1::rect" "0" ;
+		}
+
+		onTime 500 {
+			transition "black::backcolor" "0,0,0,0.4" "0,0,0,0" "0" ;
+			transition "static1::matcolor" "0.949,0.717,0.4,0.6" "0.949,0.717,0.4,0" "0" ;
+			transition "static2::matcolor" "0.6,0.968,0.709,0.6" "0.6,0.968,0.709,0" "0" ;
+			
+			transition "p_main::rect" "$d_main1::rect" "$p_main::rect" "0" ;
+		}
+
+	}
+	windowDef anim_hazjump
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			set "p_main::visible" "0" ;
+			set "p_hazenv::visible" "1" ;
+			set "p_hazclear::visible" "0" ;
+			set "flicker::visible" "0" ;
+		}
+
+		onTime 2000 {
+			set "p_main::visible" "1" ;
+			set "p_hazenv::visible" "0" ;
+			set "p_hazclear::visible" "0" ;
+			set "flicker::visible" "1" ;
+		}
+
+	}
+	windowDef anim_haz
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			set "p_main::visible" "0" ;
+			set "p_hazenv::visible" "1" ;
+			set "p_hazclear::visible" "0" ;
+			set "flicker::visible" "0" ;
+		}
+
+		onTime 4500 {
+			set "p_main::visible" "1" ;
+			set "p_hazenv::visible" "0" ;
+			set "p_hazclear::visible" "0" ;
+			set "flicker::visible" "1" ;
+		}
+
+	}
+	windowDef anim_hazclear
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			set "p_main::visible" "0" ;
+			set "p_hazenv::visible" "0" ;
+			set "p_hazclear::visible" "1" ;
+			set "flicker::visible" "0" ;
+		}
+
+		onTime 4500 {
+			set "p_main::visible" "1" ;
+			set "p_hazenv::visible" "0" ;
+			set "p_hazclear::visible" "0" ;
+			set "flicker::visible" "1" ;
+		}
+
+	}
+	windowDef anim_staticloop
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "black::backcolor" "0,0,0,0" "0,0,0,0.4" "0" ;
+			transition "static1::matcolor" "0.949,0.717,0.4,0" "0.949,0.717,0.4,0.6" "0" ;
+			transition "static2::matcolor" "0.6,0.968,0.709,0" "0.6,0.968,0.709,0.6" "0" ;
+			
+			transition "p_main::rect" "$d_main1::rect" "$d_main2::rect" "0" ;
+		}
+
+		onTime 50 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main4::rect" "0" ;
+		}
+
+		onTime 100 {
+			transition "p_main::rect" "$d_main3::rect" "$d_main1::rect" "0" ;
+		}
+
+		onTime 150 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main1::rect" "0" ;
+			
+			transition "static1::matcolor" "0.949,0.717,0.4,0.6" "1,1,1,1" "0" ;
+			transition "static2::matcolor" "0.6,0.968,0.709,0.6" "1,1,1,1" "0" ;
+		}
+
+		onTime 200 {
+			transition "p_main::rect" "$d_main3::rect" "$d_main5::rect" "0" ;
+		}
+
+		onTime 250 {
+			transition "p_main::rect" "$d_main1::rect" "$d_main3::rect" "0" ;
+			
+			transition "static1::matcolor" "1,1,1,1" "0.949,0.717,0.4,0.6" "0" ;
+			transition "static2::matcolor" "1,1,1,1" "0.6,0.968,0.709,0.6" "0" ;
+		}
+
+		onTime 300 {
+			transition "p_main::rect" "$d_main4::rect" "$d_main2::rect" "0" ;
+		}
+
+		onTime 350 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main1::rect" "0" ;
+		}
+
+		onTime 400 {
+			transition "p_main::rect" "$d_main1::rect" "$d_main5::rect" "0" ;
+		}
+
+		onTime 450 {
+			transition "p_main::rect" "$d_main2::rect" "$d_main1::rect" "0" ;
+		}
+
+		onTime 500 {
+			transition "black::backcolor" "0,0,0,0.4" "0,0,0,0" "0" ;
+			transition "static1::matcolor" "0.949,0.717,0.4,0.6" "0.949,0.717,0.4,0" "0" ;
+			transition "static2::matcolor" "0.6,0.968,0.709,0.6" "0.6,0.968,0.709,0" "0" ;
+			
+			transition "p_main::rect" "$d_main1::rect" "$p_main::rect" "0" ;
+		}
+
+		onTime +250 {
+			resettime "0" ;
+		}
+
+	}
+}

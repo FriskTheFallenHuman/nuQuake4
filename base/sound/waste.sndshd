@@ -1,0 +1,176 @@
+
+
+sound waste_large_scraper_start
+{
+	minDistance	40
+	maxDistance	700
+	volumeDb	2
+
+	sound/ambience/waste/lrg_scraper_start
+	shakeData 0 sxzzwywyzzzqokihhggedccbaa
+}
+
+
+sound waste_large_scraper_move
+{
+	minDistance	40
+	maxDistance	700
+	volumeDb	-1
+	looping
+
+	sound/ambience/waste/lrg_scraper_loop
+	shakeData 0 zxswvtvzwyvzwxvsztywzyxzrxuxrywtvqsxtyxwyzzzyztqrwyuzzzyvxyxxtuzyzutvuzzvsquourqstvqwzzzysuoryuuvvwsuuqytssvqtuqvuyvuqrplrrqnqqquzvlomnlimirptxttvw
+}
+
+
+sound waste_large_scraper_stop
+{
+	minDistance	40
+	maxDistance	700
+	volumeDb	2
+
+	sound/ambience/waste/lrg_scraper_stop
+	shakeData 0 fzzzzuoonlmuyufdcbbaaaaaa
+}
+
+
+sound waste_small_scraper_start
+{
+	minDistance	40
+	maxDistance	700
+	volumeDb	2
+
+	sound/ambience/waste/small_scraper_start
+	shakeData 0 ivttxrwmkmuusqppnlmjihffecbbaaa
+}
+
+
+sound waste_small_scraper_move
+{
+	minDistance	40
+	maxDistance	700
+	volumeDb	-1
+	looping
+
+	sound/ambience/waste/small_scraper_loop
+	shakeData 0 ehhhhhhijjjihihgghhfedefddedhefjhhghihhjmihgfgfh
+}
+
+
+sound waste_small_scraper_stop
+{
+	minDistance	40
+	maxDistance	700
+	volumeDb	2
+
+	sound/ambience/waste/small_scraper_stop
+	shakeData 0 psurzrijhhhfebaa
+}
+
+
+sound waste_grinder
+{
+	minDistance	200
+	maxDistance	600
+	volumeDb	0
+	looping
+
+	sound/ambience/waste/grind_wheel
+	shakeData 0 wxwyzxtxzyxywxwwyuuyzwyzuxtywyzrvzzwxuyyzwzzztvxxyyxytwzwxyzxxvzxpzzxuwzxwwtvwzuywyzsyytzwwwzvyxwm
+}
+
+
+sound waste_light_power_down
+{
+	minDistance	200
+	maxDistance	1400
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/waste/lt_pwr_dwn
+	shakeData 0 begghjihghkjlilpqqovxurwwqqstmmrnlnonlnpmnkjjlkllllmpsqnosrmoomkpmmkiklklkqlojpmkjiljifjiigheeddcbbaa
+}
+
+
+sound waste_computer_scan
+{
+	minDistance	400
+	maxDistance	400
+	volumeDb	0
+	global
+
+	sound/ambience/waste/computer_scan
+	shakeData 0 ffgfggihgffeeefggffghffdefffffggghgffefefghggfigeeffeffggfghhefeeegghfgfgggefefgghgfffghfefgiihkmlmnojgeeccdedeeedcccbbcccccccbbbbabbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound waste_voss_needle
+{
+	minDistance	200
+	maxDistance	1400
+	volumeDb	6
+
+	sound/strogg/voss/needle_arm
+	shakeData 0 pzzzzzzzzzzypolgdcbaa
+}
+
+
+sound waste_voss_recharge
+{
+	minDistance	200
+	maxDistance	1400
+	volumeDb	0
+
+	leadin	sound/strogg/voss/recharge_leadin
+	sound/strogg/voss/recharge_loop
+	shakeData 0 qqqotrspsoqqpqrtsuttutusstpsttutsuvsutpttqrqmrtututrrptsrrolonotrpqononnqpmnnmmponopouo
+}
+
+
+sound voss_steps
+{
+	minDistance	300
+	maxDistance	2600
+	volumeDb	0
+
+	sound/vehicles/walker/step1
+	shakeData 0 yzzzyywqxtproohjifdfedccbaaaa
+	sound/vehicles/walker/step2
+	shakeData 1 zzzyxxxwtxwmkofeddcbbaa
+	sound/vehicles/walker/step3
+	shakeData 2 zzyxwywxzruomlkkhdecbaa
+	sound/vehicles/walker/step4
+	shakeData 3 yzzvvyxwxlslojfhgeedccbbaaaa
+}
+
+
+sound voss_servo
+{
+	minDistance	100
+	maxDistance	2100
+	volumeDb	0
+
+	sound/strogg/voss/servo1
+	shakeData 0 dcdefffiiijfbaaaaaaa
+	sound/strogg/voss/servo2
+	shakeData 1 edghllnonppsqgbaaaaaaa
+	sound/strogg/voss/servo3
+	shakeData 2 fcfghikjklmgbbaa
+	sound/strogg/voss/servo4
+	shakeData 3 abbcdefggggghfbaaaaa
+}
+
+
+sound waste_bridge_collapse
+{
+	minDistance	100
+	maxDistance	2100
+	volumeDb	0
+
+	sound/ambience/waste/bridge_collapse
+	shakeData 0 zzxwwpzzzzzzzzyzwsloihggeeeddccbcbbbbbaaaaaaaaaaaaaaaaa
+}
+
+
+
+

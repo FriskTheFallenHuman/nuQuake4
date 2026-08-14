@@ -1,0 +1,107 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui, gui_parm_stroyent = 1 adds stroyent junk on the screen"
+	visible	1
+	rect	0,0,640,480
+	backcolor	0.137,0.176,0.188,1
+	windowDef static1
+	{
+		visible	1
+		rect	0,0,640,480
+		background	"gfx/guis/common/img_static1"
+		matcolor	1,1,1,0.4
+
+		onTime 0 {
+			transition "static1::rect" "$static1::rect" "$d_static3::rect" "100" ;
+		}
+
+		onTime 100 {
+			transition "static1::rect" "$d_static3::rect" "$d_static1::rect" "100" ;
+		}
+
+		onTime 200 {
+			transition "static1::rect" "$d_static1::rect" "$d_static2::rect" "100" ;
+		}
+
+		onTime 300 {
+			transition "static1::rect" "$d_static2::rect" "$d_static3::rect" "100" ;
+		}
+
+		onTime 400 {
+			transition "static1::rect" "$d_static3::rect" "$static1::rect" "100" ;
+		}
+
+		onTime 11500 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-493,640,1584
+			background	"gfx/guis/common/monitor_line6"
+			matcolor	0.752,0.850,0.913,0.08
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.411,0.372,0.247,0.2
+		}
+		windowDef glass2
+		{
+			visible	1
+			rect	3,3,640,480
+			background	"gfx/guis/common/broken_glass1"
+			matcolor	0,0,0,1
+		}
+		windowDef glass
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass1"
+			matcolor	1,1,1,1
+		}
+		windowDef dirt_stroyent
+		{
+			rect	0,0,640,480
+			visible	"gui::gui_parm_stroyent"
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.160,0.180,0.0941,1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef d_static1
+	{
+		visible	0
+		rect	-149,166,928,150
+		background	"gfx/guis/common/img_static1"
+		matcolor	1,1,1,1
+	}
+	windowDef d_static2
+	{
+		visible	0
+		rect	90,-53,334,632
+		background	"gfx/guis/common/img_static1"
+		matcolor	1,1,1,1
+	}
+	windowDef d_static3
+	{
+		visible	0
+		rect	-188,-976,2122,1902
+		background	"gfx/guis/common/img_static1"
+		matcolor	1,1,1,1
+	}
+}

@@ -1,0 +1,537 @@
+
+
+sound vo_2_2_7_100_1
+{
+	description	"These aren't zombies - they're partially Stroggified Marines. This is some kind of dumping ground for botched transfers."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_100_1
+}
+
+
+sound vo_2_2_7_10_1
+{
+	description	"Hey, you're Matthew Kane. My squad was scattered during an attack. I just got word we're assembling back at the entrance to this facility. Watch yourself. There's acid sprayers in here that'll chew through armor in no time."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_10_1
+}
+
+sound vo_2_2_7_130_1
+{
+	description	"I heard the voice again - it was Cowell!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_130_1
+}
+
+
+sound vo_2_2_7_160_1
+{
+	description	"My gun's jammed! Someone. Anyone. I need backup now!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_160_1
+}
+
+
+sound vo_2_2_7_160_2
+{
+	description	"GaaaahHeeeeeeelp me! Heeeelp meee!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_160_2
+}
+
+
+sound vo_2_2_7_170_1
+{
+	description	"Hey, it's that Kane guy."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_1
+}
+
+
+sound vo_2_2_7_170_2
+{
+	description	"Damn are we lucky to see you. We're the last of Cobra squad. That door's the exit out but we can't get through the security scanner."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_2
+}
+
+
+sound vo_2_2_7_170_3
+{
+	description	"Yeah, it fried Pvt. Johnson when he tried to go through."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_3
+}
+
+
+sound vo_2_2_7_170_4
+{
+	description	"I analyzed the scanning circuits - all they're looking for is proper Strogg ID codes."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_4
+}
+
+
+sound vo_2_2_7_170_5
+{
+	description	"Wouldn't Kane have those codes? He looks prett Strogg to me."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_5
+}
+
+
+sound vo_2_2_7_170_6
+{
+	description	"Yeah... yeah, I bet they do."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_6
+}
+
+
+sound vo_2_2_7_170_7
+{
+	description	"How about it, Kane? You wanna trying walking through? It should read you as Strogg."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_170_7
+}
+
+
+sound vo_2_2_7_171_1
+{
+	description	"Let me see that Rocket Launcher.  Here, now if you hold scope after you've fired a rocket, you can guide it where you want it to go.  It's great for shooting around cover."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_171_1
+}
+
+sound vo_2_2_7_172_1
+{
+	description	"Kane! You have to get out of here!!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	
+
+	sound/vo/waste/2_2_7_172_1
+}
+
+
+sound vo_2_2_7_172_1_cin
+{
+	description	"Kane! You have to get out of here!!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	global
+	onDemand
+
+	sound/vo/waste/2_2_7_172_1_cin
+}
+
+sound vo_2_2_7_172_2
+{
+	description	"Go! GET OUT OF HERE!!"
+
+	minDistance	400
+	maxDistance	2200
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_172_2
+}
+
+
+sound vo_2_2_7_172_2_cin
+{
+	description	"Go! GET OUT OF HERE!!"
+
+	minDistance	400
+	maxDistance	2200
+	volumeDb	0
+	global
+	onDemand
+
+	sound/vo/waste/2_2_7_172_2_cin
+}
+
+sound vo_2_2_7_172_3
+{
+	description	"I CAN'T CONTROL IT. RUN!!"
+
+	minDistance	400
+	maxDistance	2200
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_172_3
+}
+
+
+sound vo_2_2_7_172_3_cin
+{
+	description	"I CAN'T CONTROL IT. RUN!!"
+
+	minDistance	400
+	maxDistance	2200
+	volumeDb	0
+	global
+	onDemand
+
+	sound/vo/waste/2_2_7_172_3_cin
+}
+
+sound vo_2_2_7_174_1
+{
+	description	"They're taking over my mind! KILL ME!"
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_1
+}
+
+
+sound vo_2_2_7_174_2
+{
+	description	"They're too strong, Kane."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_2
+}
+
+
+sound vo_2_2_7_174_3
+{
+	description	"Do it! Kill me now!"
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_3
+}
+
+
+sound vo_2_2_7_174_4
+{
+	description	"Kane."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_4
+}
+
+sound vo_2_2_7_174_4_cin
+{
+	description	"Kane."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_4_cin
+}
+
+sound vo_2_2_7_174_5
+{
+	description	"Aaaahh... it hurts, Kane."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_5
+}
+
+
+sound vo_2_2_7_174_6
+{
+	description	"End the pain... please, end it."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_6
+}
+
+
+sound vo_2_2_7_174_7
+{
+	description	"I don't know how much longer I can last."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_174_7
+}
+
+
+sound vo_2_2_7_174_7_cin
+{
+	description	"I don't know how much longer I can last."
+
+	minDistance	400
+	maxDistance	2600
+	volumeDb	0
+	global
+	onDemand
+
+	sound/vo/waste/2_2_7_174_7_cin
+}
+
+sound vo_2_2_7_180_1
+{
+	description	"Kane! Is there some way to turn of this grid so we can get through?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_180_1
+}
+
+
+sound vo_2_2_7_190_1
+{
+	description	"Wow, he was your LT? You had to do it man. If he'd lived, the Strogg would have gotten a lot of military secrets from him. C'mon, let's get the hell out of here."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_190_1
+}
+
+
+sound vo_2_2_7_220_1
+{
+	description	"Look! It's Matthew Kane! He's alive! Come on. Get onboard. We'll have you back at the Hannibal in no time."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_220_1
+}
+
+
+sound vo_2_2_7_220_2
+{
+	description	"Come on! Get onboard! Move it! Move it!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_220_2
+}
+
+
+sound vo_2_2_7_230_1
+{
+	description	"HQ, we've located the few survivors of the Waste Facility. We are dusting off now and en route to your position."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_230_1
+}
+
+sound vo_2_2_7_50_1
+{
+	description	"There are freakin' zombies down here. I just killed one, but it bit me. Shit, I need the medic."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_50_1
+}
+
+
+sound vo_2_2_7_60_1
+{
+	description	"Where the hell is everyone? I can't get readings on any medchips. We gotta regroup or they're gonna pick us apart."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_60_1
+}
+
+
+sound vo_2_2_7_75_1
+{
+	description	"Hey, so you're still alive. Good. Let's go hook up with my squad at the entrance."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/2_2_7_75_1
+}
+
+
+sound vo_pa_waste_10
+{
+	description	"Neutralization process initiated."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/pa_waste_10
+}
+
+sound vo_pa_waste_20
+{
+	description	"Tactical unit dispatched to tunnel breach."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/pa_waste_20
+}
+
+sound vo_pa_waste_30
+{
+	description	"Multiple entities detected in resovoir 12."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/pa_waste_30
+}
+
+sound vo_pa_waste_40
+{
+	description	"Warning: Decomposition solution activated."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/pa_waste_40
+}
+
+sound vo_pa_waste_50
+{
+	description	"Intruder alert, sector d429 - terminated."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/pa_waste_50
+}
+
+sound vo_pa_waste_60
+{
+	description	"Station 48 security grid deactivated."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/waste/pa_waste_60
+}

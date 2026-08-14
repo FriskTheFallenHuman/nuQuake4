@@ -1,0 +1,36 @@
+MD5Version 10
+commandline "anim work/models/vehicles/destroyer/idle_doors.ma -dest models/vehicles/destroyer_doors/idle.md5anim -game Quake4 -scale .3937 -prefix DESTROYER_ -keep fx1 -align ALL"
+
+numFrames 2
+numJoints 6
+frameRate 24
+numAnimatedComponents 0
+
+hierarchy {
+	"origin"	-1 0 0	//
+	"joint1"	0 0 0	// origin
+	"joint7"	1 0 0	// joint1
+	"joint8"	1 0 0	// joint1
+	"joint2"	0 0 0	// origin
+	"fx1"	4 0 0	// joint2
+}
+
+bounds {
+	( -274.7268981934 -1237.4451904297 -313.3098754883 ) ( 1874.7235107422 1353.9365234375 208.6953735352 )
+	( -274.7268981934 -1237.4451904297 -313.3098754883 ) ( 1874.7235107422 1353.9365234375 208.6953735352 )
+}
+
+baseframe {
+	( 0 0 0 ) ( 0 0 0 )
+	( 0 0 0 ) ( -0.5 -0.5 -0.5 )
+	( 725.7554931641 -265.1184997559 0 ) ( 0 0 0 )
+	( 769.8060302734 -265.1184997559 0 ) ( 0 0 0 )
+	( 1599.9968261719 0 0 ) ( -0.5 -0.5 -0.5 )
+	( -1074.9976806641 23.1938552856 0 ) ( 0 -1 0 )
+}
+
+frame 0 {
+}
+
+frame 1 {
+}

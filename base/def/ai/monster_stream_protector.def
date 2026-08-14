@@ -1,0 +1,478 @@
+/*
+===============================================================================
+
+	Stream Protector
+
+===============================================================================
+*/
+
+export stream_protector {
+	options -scale .3937 -prefix SP_ -align ALL -keep NG_muzzle DM_muzzle R_CG L_CG missile_joint_1 missile_joint_2 missile_joint_3 missile_joint_4 -parent L_CG chest -parent R_CG chest
+	mesh	work/models/monsters/Stream_Protector/animations/walk.ma				-dest models/monsters/stream_protector/stream_protector
+	anim	work/models/monsters/Stream_Protector/animations/walk.ma				-dest models/monsters/stream_protector/walk
+	anim	work/models/monsters/Stream_Protector/animations/walk_backward.ma		-dest models/monsters/stream_protector/walk_backward
+	anim	work/models/monsters/Stream_Protector/animations/idle.ma				-dest models/monsters/stream_protector/idle
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_dmg.ma	-dest models/monsters/stream_protector/range_attack_dmg
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_cg.ma		-dest models/monsters/stream_protector/range_attack_cg
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_ng.ma		-dest models/monsters/stream_protector/range_attack_ng
+	anim	work/models/monsters/Stream_Protector/animations/melee_backhand.ma		-dest models/monsters/stream_protector/melee_backhand
+	anim	work/models/monsters/Stream_Protector/animations/melee_stomp.ma			-dest models/monsters/stream_protector/melee_stomp
+	anim	work/models/monsters/Stream_Protector/animations/turn_right_90.ma		-dest models/monsters/stream_protector/turn_right_90
+	anim	work/models/monsters/Stream_Protector/animations/turn_left_90.ma		-dest models/monsters/stream_protector/turn_left_90
+//	anim	work/models/monsters/Stream_Protector/animations/pain_head.ma			-dest models/monsters/stream_protector/pain_head
+//	anim	work/models/monsters/Stream_Protector/animations/pain_left.ma			-dest models/monsters/stream_protector/pain_left
+//	anim	work/models/monsters/Stream_Protector/animations/pain_right.ma			-dest models/monsters/stream_protector/pain_right
+	anim	work/models/monsters/Stream_Protector/animations/range_blaster_start.ma		-range 1 15 -dest models/monsters/stream_protector/range_blaster_start
+	anim	work/models/monsters/Stream_Protector/animations/range_blaster_start.ma		-range 15 22 -dest models/monsters/stream_protector/range_blaster_fire
+	anim	work/models/monsters/Stream_Protector/animations/range_blaster_start.ma		-range 42 61 -dest models/monsters/stream_protector/range_blaster_end
+	anim	work/models/monsters/Stream_Protector/animations/range_plasma.ma		-range 1 20 -dest models/monsters/stream_protector/range_plasma_start
+	anim	work/models/monsters/Stream_Protector/animations/range_plasma.ma		-range 20 58 -dest models/monsters/stream_protector/range_plasma_fire
+	anim	work/models/monsters/Stream_Protector/animations/range_plasma.ma		-range 58 75 -dest models/monsters/stream_protector/range_plasma_end
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_lightning.ma	-range 1 40 -dest models/monsters/stream_protector/range_attack_lightning_start
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_lightning.ma	-range 40 78 -dest models/monsters/stream_protector/range_attack_lightning_fire
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_lightning.ma	-range 78 98 -dest models/monsters/stream_protector/range_attack_lightning_end
+	anim	work/models/monsters/Stream_Protector/animations/drop_grate.ma			-dest models/monsters/stream_protector/drop_grate
+	anim	work/models/monsters/Stream_Protector/animations/walk_right.ma			-dest models/monsters/stream_protector/walk_right
+	anim	work/models/monsters/Stream_Protector/animations/walk_left.ma			-dest models/monsters/stream_protector/walk_left
+	anim	work/models/monsters/Stream_Protector/animations/range_attack_missile.ma	-dest models/monsters/stream_protector/range_attack_missile
+	anim	work/models/monsters/Stream_Protector/animations/crawl_out.ma			-dest models/monsters/stream_protector/crawl_out
+	anim	work/models/monsters/Stream_Protector/animations/pain_std.ma			-dest models/monsters/stream_protector/pain
+	anim	work/models/monsters/Stream_Protector/animations/pain_std2.ma			-dest models/monsters/stream_protector/pain1
+	anim	work/models/monsters/Stream_Protector/animations/pain_con.ma			-dest models/monsters/stream_protector/pain_concussive
+	anim	work/models/monsters/Stream_Protector/animations/pain_strm.ma			-range 1 4 -dest models/monsters/stream_protector/pain_stream_start
+	anim	work/models/monsters/Stream_Protector/animations/pain_strm.ma			-range 4 12 -dest models/monsters/stream_protector/pain_stream_loop
+	anim	work/models/monsters/Stream_Protector/animations/pain_strm.ma			-range 12 15 -dest models/monsters/stream_protector/pain_stream_end
+	anim	work/models/monsters/Stream_Protector/animations/death2.ma				-dest models/monsters/stream_protector/death
+	anim	work/models/monsters/Stream_Protector/animations/death3.ma				-dest models/monsters/stream_protector/death_short_a
+	anim	work/models/monsters/Stream_Protector/animations/death4.ma				-dest models/monsters/stream_protector/death_short_b
+	anim	work/models/monsters/Stream_Protector/animations/protector_cinematic.ma		-dest models/monsters/stream_protector/hub2_cinematic
+	anim	work/models/monsters/Stream_Protector/animations/protector_cinematic_02c.ma		-dest models/monsters/stream_protector/hub2_cinematic_02
+}
+
+/*
+===============================================================================
+
+	Stream Protector Model Definition
+
+===============================================================================
+*/
+
+model model_monster_stream_protector
+{
+	mesh												models/monsters/stream_protector/stream_protector.md5mesh
+
+	channel torso										( *waist )
+	channel legs										( *hips root origin -*waist )
+
+	anim idle											models/monsters/stream_protector/idle.md5anim
+	{
+		frame   8,14,33,37,42,46,51,57					footstep
+		frame   8,12,30,35,41,42,47,54					sound			snd_servo
+	}
+	anim walk_backwards									models/monsters/stream_protector/walk_backward.md5anim
+	{
+		frame   2,5,6,9,10,11,13,15,21,22,24,26,30,33,34,35,42,43,44				footstep
+		frame   3,7,12,18,21,23,27,31,39				sound			snd_servo
+	}
+	anim walk											models/monsters/stream_protector/walk.md5anim
+	{
+		frame   2,5,6,9,10,11,13,15,21,22,24,26,30,33,34,35,42,43,44				footstep
+		frame   3,7,12,18,21,23,27,31,39				sound			snd_servo
+	}
+	anim walk_right										models/monsters/stream_protector/walk_right.md5anim
+	{
+		frame   5,10,17,20								footstep
+		frame   3,8,15,18								sound			snd_servo
+	}
+	anim walk_left										models/monsters/stream_protector/walk_left.md5anim
+	{
+		frame   5,10,17,20								footstep
+		frame   3,8,15,18								sound			snd_servo
+	}
+//	anim turn_right_90									models/monsters/stream_protector/turn_right_90.md5anim
+//	anim turn_left_90									models/monsters/stream_protector/turn_left_90.md5anim
+	
+	anim turn_left_90									models/monsters/stream_protector/turn_right_90.md5anim, models/monsters/stream_protector/turn_right_90.md5anim
+	{
+		anim_turn
+		frame	1,3,4,5,7,8,10,13,14,15,16,19,23		footstep
+		frame	2,4,6,9,11,17,20						sound			snd_servo
+	}
+
+	anim turn_right_90									models/monsters/stream_protector/turn_left_90.md5anim, models/monsters/stream_protector/turn_left_90.md5anim
+	{
+		anim_turn
+		frame	1,4,5,6,7,10,13,14,15,16,19,23			footstep
+		frame	2,4,6,9,11,17,20						sound			snd_servo
+	}
+
+	anim melee_attack1									models/monsters/stream_protector/melee_backhand.md5anim
+	{
+		frame	13										sound				snd_growl
+		frame	16										fx					fx_swipe		L_wrist
+		frame   16										sound_weapon			snd_swing
+		frame	18										ai_attack_melee 	melee
+		frame  	1,8,11,17,25,34,38						footstep
+		frame   4,9,14,22,31,35							sound				snd_servo
+	}
+	anim melee_attack2									models/monsters/stream_protector/melee_stomp.md5anim
+	{
+		frame	12										sound					snd_growl
+		frame	21										fx					fx_swipe		L_wrist
+		frame   24,29									sound_weapon				snd_swing
+		frame	25										ai_attack_melee		melee
+		frame  	4,35,49,53								footstep
+		frame   1,11,20,23,28,32,46,50					sound				snd_servo
+		frame	25,30									sound_item				snd_stomp
+	}
+	anim range_attack1									models/monsters/stream_protector/range_attack_dmg.md5anim
+	{	
+		frame	1										sound_weapon					snd_ready_weapon
+		frame	23										ai_attack			blaster					DM_muzzle
+		frame	23										fx					fx_blaster_flash		DM_muzzle
+	}
+	anim range_attack_shoulder							models/monsters/stream_protector/range_attack_cg.md5anim
+	{
+		frame	18										sound_weapon				snd_ready_weapon
+		frame	26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50	ai_attack	blaster				R_CG
+		frame	26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50	fx			fx_blaster_flash	R_CG
+		frame	26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50	ai_attack	blaster				L_CG
+		frame	26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50	fx			fx_blaster_flash	L_CG
+	}
+	anim range_attack3									models/monsters/stream_protector/range_attack_ng.md5anim
+	{
+		frame	1										sound_weapon					snd_ready_weapon
+		frame	11, 16, 20, 24, 28, 32, 36				ai_attack				blaster				NG_muzzle
+		frame	11, 16, 20, 24, 28, 32, 36				fx						fx_blaster_flash	NG_muzzle
+	}
+	anim range_blaster_start							models/monsters/stream_protector/range_blaster_start.md5anim
+	{
+		frame	1										sound_weapon				snd_ready_weapon
+		frame  	6,9,11									footstep
+	}
+	
+	anim range_blaster_fire								models/monsters/stream_protector/range_blaster_fire.md5anim
+	{
+		frame 1											ai_attack			heavyBlaster		DM_muzzle
+		frame 1											fx					fx_blaster_flash	DM_muzzle
+	}
+	anim range_blaster_end								models/monsters/stream_protector/range_blaster_end.md5anim
+	{
+		frame  	4,6,16,19								footstep
+	}
+	
+	anim range_plasma_start								models/monsters/stream_protector/range_plasma_start.md5anim
+	{
+		frame	8										sound_weapon			snd_ready_weapon
+		frame  	7,15									footstep
+	}
+	anim range_plasma_fire								models/monsters/stream_protector/range_plasma_fire.md5anim
+	{
+		frame	1										sound	snd_flame_start
+		frame	2										sound	snd_flame_whoosh
+	}
+	
+	anim range_plasma_end								models/monsters/stream_protector/range_plasma_end.md5anim
+	{
+		frame  	9,16									footstep
+	}
+	
+	
+	anim range_attack_lightning_start					models/monsters/stream_protector/range_attack_lightning_start.md5anim
+	{
+		frame	14										sound_weapon			snd_ready_weapon
+	}
+	anim range_attack_lightning_fire					models/monsters/stream_protector/range_attack_lightning_fire.md5anim
+	anim range_attack_lightning_end						models/monsters/stream_protector/range_attack_lightning_end.md5anim
+	anim range_attack_missile							models/monsters/stream_protector/range_attack_missile.md5anim
+	{
+		frame 6,7,11,13,15,22,27,63,65,67,72			footstep
+		frame 32,38,45,52								sound_weapon	network_guardian_rocket_fire
+
+		frame 32										ai_attack		rocket		missile_joint_1
+		frame 32										fx				fx_rocket_flash	missile_joint_1
+		
+		frame 38										ai_attack		rocket		missile_joint_2	
+		frame 38										fx				fx_rocket_flash	missile_joint_2
+		
+		frame 45										ai_attack		rocket		missile_joint_3
+		frame 45										fx				fx_rocket_flash	missile_joint_3
+		
+		frame 52										ai_attack		rocket		missile_joint_4
+		frame 52										fx				fx_rocket_flash	missile_joint_4
+	}
+	
+	anim crawl_out										models/monsters/stream_protector/crawl_out.md5anim
+	{
+		frame	1										disableGravity
+		frame	1,4,7,9,30,36,44,47,53,55,57,64,70,72,74,78		footstep
+		frame	5,14,21,32,41,50,60,73							sound			snd_servo
+		frame	1												sound			snd_chatter
+	}
+	anim pain										models/monsters/stream_protector/pain.md5anim
+	{
+		frame	1										sound_voice				snd_pain
+	}
+	anim pain1										models/monsters/stream_protector/pain1.md5anim
+	{
+		frame	1										sound_voice				snd_pain
+	}
+	anim pain_concussive							models/monsters/stream_protector/pain_concussive.md5anim
+	{
+		frame	1										sound_voice				snd_pain
+	}
+	anim pain_stream_start							models/monsters/stream_protector/pain_stream_start.md5anim
+	anim pain_stream_loop							models/monsters/stream_protector/pain_stream_loop.md5anim
+	anim pain_stream_end							models/monsters/stream_protector/pain_stream_end.md5anim
+	{
+		frame	1										disableGravity
+	}
+	
+	anim drop_grate										models/monsters/stream_protector/drop_grate.md5anim
+	{
+		frame	20										disableClip
+		frame	22										call				map_process1::knockdownGrate
+		frame   30										enableClip
+	}
+	anim death								models/monsters/stream_protector/death.md5anim
+	{
+		frame 1											sound_voice			snd_death
+		frame 42										sound_weapon		snd_fall
+	}
+	anim death2								models/monsters/stream_protector/death_short_a.md5anim
+	{
+		frame 1											sound_voice			snd_death
+		frame 8											sound_weapon		snd_fall
+	}
+	anim death3								models/monsters/stream_protector/death_short_b.md5anim
+	{
+		frame 1											sound_voice			snd_death
+		frame 9											sound_weapon		snd_fall
+	}
+	anim hub2_cinematic						models/monsters/stream_protector/hub2_cinematic.md5anim
+	{
+		ai_no_look
+		frame 1											disableClip
+		frame 1											disableGravity
+		frame 182										sound_voice		snd_growl
+		frame 183										sound		snd_alert
+		frame 290										sound		snd_alert
+		frame 401,489,490								footstep
+		frame 491										sound		generic_creature_fall_metal
+		frame 529										sound		snd_fall
+		frame 529										fx			fx_camshakemed		origin
+		frame 529										enableClip
+		frame 529										enableClip
+	}
+	anim hub2_cinematic_02					models/monsters/stream_protector/hub2_cinematic_02.md5anim
+	{
+		ai_no_look
+		frame 1											disableClip
+		frame 1											disableGravity
+		frame 328,339,361,372,377,382,390,412,436,439,448	footstep
+		frame 350										sound		snd_alert
+		frame 405										sound		snd_growl
+		frame 414,436									sound		generic_creature_fall_metal
+		frame 525										enableClip
+		frame 525										enableClip
+		frame 530										sound		snd_fall
+		frame 530										fx			fx_camshakemed		origin
+	}
+				
+}
+
+/*
+===============================================================================
+
+	Stream Protector Attacks
+
+===============================================================================
+*/
+
+entityDef melee_stream_protector
+{
+	"inherit"								"melee_monster_base"
+	"damage"								"30"
+	"knockback"								"50"
+}
+
+
+entityDef damage_streamprotector_rocket_direct
+{
+	"damage"							"20"
+	"push"								"100"
+	"mtr_splat"							""
+	"gib"								"0"
+}
+
+entityDef damage_streamprotector_rocket_splash
+{
+	"damage"							"20"
+	"radius"							"75"
+	"knockback"							"20"
+	"push"								"0"
+	"gib"								"0"
+}
+
+entityDef projectile_streamprotector_rocket
+{
+	"inherit"					"projectile_rocket"
+	"spawnclass"				"idGuidedProjectile"
+
+	"driftRange"				"12"
+	"driftRate"					".1"	
+	"driftRotate"				"90"
+	"driftDiversity"			"4"
+	"driftProjectRange"			"256"
+
+	"speed"						"450"
+	
+	"turn_max"					"180"
+
+	"def_damage"				"damage_streamprotector_rocket_direct"
+	"def_splash_damage"			"damage_streamprotector_rocket_splash"
+
+	"fx_fly"					"effects/monsters/stream_protector/fly.fx"
+//	"fx_impact"					"effects/monsters/light_tank/impact.fx"
+}
+
+/*
+===============================================================================
+
+	Stream Protector Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_stream_protector
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterStreamProtector"
+
+	// --------------------------------- Actions ------------------------------------
+	"actiontimer_rangedattack_rate"			".5"
+	
+	"action_meleeAttack"					"1"
+	
+	"action_plasmaAttack"					"1"
+	"action_plasmaAttack_rate"				"8"
+	"action_plasmaAttack_minrange"			"100"
+	"action_plasmaAttack_maxrange"			"325"
+	
+	"action_heavyBlasterAttack"				"1"
+	"action_heavyBlasterAttack_rate"		"2"
+	"action_heavyBlasterAttack_minRange"	"200"
+	"action_heavyBlasterAttack_maxRange"	"1000"
+	
+	"action_blasterAttack"					"1"
+	"action_blasterAttack_rate"				"2"
+	"action_blasterAttack_minRange"			"0"
+	"action_blasterAttack_maxRange"			"1000"
+	"action_blasterAttack_anim"				"range_attack_shoulder"
+
+	"action_lightningAttack"				"0"
+	"action_lightningAttack_rate"			"2"
+	"action_lightningAttack_minRange"		"0"
+	"action_lightningAttack_maxRange"		"600"
+
+	"action_rocketAttack"					"1"
+	"action_rocketAttack_rate"				"2"
+	"action_rocketAttack_minRange"			"256"
+	"action_rocketAttack_maxRange"			"2000"
+	"action_rocketAttack_anim"				"range_attack_missile"
+
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_stream_protector"
+	"health"								"1000"
+
+	"size"									"94 94 96"
+	"use_aas"								"aas96"
+
+	"joint_plasmaMuzzle"					"NG_Muzzle"
+	"joint_eyeOffset"						"jaw"
+	"joint_chestOffset"						"chest"
+	
+	"painThreshold"							"15"
+	"painThresholdBig"						"0"
+	"forceWalk"								"1"
+
+	"chatter_idle_rate"						"8"
+	"chatter_combat_rate"					"8"	
+
+	"directionalMovement"					"1"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"						".3 .3 0"
+	  "look_joint chest"					".4 .4 0"
+	    "look_joint shoulders"				".2 .3 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"aggressiveRange"						"512"
+	"searchRange"							"128 2048"
+	"maxLostVisTime"						"1"
+
+	"def_attack_plasma"						"projectile_lightTank_plasma"
+	"attack_plasma_accuracy"				"2"
+	"attack_plasma_lockToJoint"				"1"
+	
+	"def_attack_heavyblaster"				"projectile_gladiator_blaster"	
+	"attack_heavyblaster_accuracy"			"1"
+
+	"def_attack_blaster"					"projectile_strogg_marine_blaster"	
+	"attack_blaster_accuracy"				"2"
+	
+	"def_attack_rocket"						"projectile_streamprotector_rocket"
+	"attack_rocket_spread"					"5"
+
+	"def_attack_melee"						"melee_gladiator"
+	
+	"attackRange"							"200 1000"
+
+	"tactical_ranged"						"1"
+	"tactical_rush"							"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"0"
+	
+	"melee_range"							"128"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck"
+	"damage_zone legs"						"*hips root origin -*waist"
+	"damage_scale head"						"2"	
+	"damage_scale legs"						".75"	
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_alert"								"s_protector_alert"	
+	"lipsync_sight"							"s_protector_alert"	
+	"lipsync_chatter_idle"					"s_protector_chatter"
+	"lipsync_chatter_combat"				"s_protector_chatter"				
+	"snd_growl"								"s_protector_growl"
+	"snd_pain"								"s_protector_pain"
+	"snd_death"								"s_protector_death"
+	"snd_fall"								"s_protector_fall"
+	"snd_footstep"							"s_protector_step"					
+	"snd_servo"								"s_protector_servo"						
+	"snd_swing"								"s_protector_swing"
+	"snd_stomp"								"s_protector_blade_clang"
+	"snd_ready_weapon"						"s_protector_ready_weapon"
+	"snd_chatter"							"s_protector_chatter"
+	
+	"snd_flame_start"						"lt_tank_flame_start"
+	"snd_flame_whoosh"						"lt_tank_flame_whoosh"
+	
+	"sound_bone"							"jaw"
+	
+	// --------------------------------- Effects ---------------------------------
+	"fx_blaster_flash"						"effects/monsters/stream_protector/blaster_mflash.fx"
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"				// FX_REPLACE
+	"fx_plasma_muzzle"						"effects/monsters/stream_protector/flame_mflash.fx"
+	"fx_rocket_flash"						"effects/monsters/stream_protector/r_muzzleflash.fx"
+	"fx_camshakemed"						"effects/monsters/camerashakemedium.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+}

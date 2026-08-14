@@ -1,0 +1,182 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	definevec4	"scan_on"	0.670,0.913,0.952,.2
+	definevec4	"scan_off"	0.670,0.913,0.952,0
+
+	onNamedEvent weapon_ammo {
+		setlightcolor "bg::matcolor";
+		
+		if ( "gui::player_ammo" >= 10 )
+		{
+			set "bg::visible" "1" ;
+			set "bg_low::visible" "0" ;
+			
+			set "reload_off::visible" "1" ;
+			set "reload::visible" "0" ;
+		}
+		
+		if ( "gui::player_ammo" < 10 )
+		{
+			set "bg::visible" "0" ;
+			set "bg_low::visible" "1" ;
+			
+			set "reload_off::visible" "0" ;
+			set "reload::visible" "1" ;
+		}
+	}
+
+	windowDef bg
+	{
+		rect	62,10,514,515
+		visible	1
+		background	"gfx/guis/weapons/hyperblaster/bg"
+		matcolor	0.521*guitable_random1[time*0.0006],0.705*guitable_random1[time*0.0006],0.980*guitable_random1[time*0.0006],1
+	}
+	windowDef bg_low
+	{
+		rect	62,10,514,515
+		visible	0
+		background	"gfx/guis/weapons/hyperblaster/bg"
+		matcolor	0.521*guitable_10_5[time*0.003],0.705*guitable_10_5[time*0.003],0.980*guitable_10_5[time*0.003],1
+	}
+	windowDef ammo
+	{
+		rect	96,8,416,332
+		visible	1
+		forecolor	0,0,0,0.847
+		text	"gui::player_ammo"
+		textscale	4.2
+		font	"fonts/marine"
+		textalign	1
+		forceaspectheight	300
+		textspacing	-10
+	}
+	windowDef zero
+	{
+		rect	117,3,224,325
+		visible	0
+		forecolor	0,0,0,0.85
+		text	0
+		textscale	6
+		font	"fonts/marine"
+		textalign	1
+		forceaspectheight	420
+	}
+	windowDef ammo2
+	{
+		rect	301,3,228,325
+		visible	0
+		forecolor	0,0,0,0.85
+		text	"gui::player_ammo"
+		textscale	6
+		font	"fonts/marine"
+		textalign	1
+		forceaspectheight	420
+	}
+	windowDef left_circ
+	{
+		rect	123,325,70,70
+		visible	1
+		background	"gfx/guis/common/strogg/dualcircle"
+		matcolor	0.313,0.996,0.549,1
+	}
+	windowDef right_circ
+	{
+		rect	462,326,69,69
+		visible	1
+		background	"gfx/guis/common/strogg/dualcircle"
+		matcolor	0.313,0.996,0.549,1
+		matscalex	-1
+	}
+	windowDef d_scan1
+	{
+		rect	110,137,420,152
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.670,0.913,0.952,0.18
+		matscaley	-1
+	}
+	windowDef d_scan2
+	{
+		rect	110,347,420,42
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.670,0.913,0.952,0.18
+		matscaley	-1
+	}
+	windowDef reload
+	{
+		rect	194,342,266,60
+		visible	0
+		background	"gfx/guis/weapons/hyperblaster/reload"
+		matcolor	0.996,0.258,0.0117,1
+
+		onTime 0 {
+			transition "matcolor_w" "1" ".35" "250" ;
+		}
+
+		onTime +250 {
+			transition "matcolor_w" ".35" "1" "250" ;
+		}
+
+		onTime +250 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef reload_off
+	{
+		rect	194,342,266,60
+		visible	1
+		background	"gfx/guis/weapons/hyperblaster/reload"
+		matcolor	0,0,0,1
+	}
+	windowDef p_overlayandscan
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef bg_o
+		{
+			rect	4,97,631,306
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.329,0.525,0.686,0.25*guitable_random1[time*0.0006]
+			matscaley	-1
+		}
+		windowDef bg_o2
+		{
+			rect	138,112,352,218
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.729,0.760,0.980,0.15*guitable_random1[time*0.0006]
+			matscaley	-1
+		}
+		windowDef scan
+		{
+			rect	110,137,420,42
+			visible	1
+			background	"gfx/guis/common/gradient"
+			matcolor	0.670,0.913,0.952,0
+			matscaley	-1
+
+			onTime 0 {
+				transition "scan::rect" "$scan::rect" "$d_scan1::rect" "500" ;
+				transition "scan::matcolor" "$desktop::scan_off" "$desktop::scan_on" "200" ;
+			}
+
+			onTime 500 {
+				transition "scan::rect" "$d_scan1::rect" "$d_scan2::rect" "500" ;
+			}
+
+			onTime 800 {
+				transition "scan::matcolor" "$desktop::scan_on" "$desktop::scan_off" "200" ;
+			}
+
+			onTime 2000 {
+				resettime "0" ;
+			}
+
+		}
+	}
+}

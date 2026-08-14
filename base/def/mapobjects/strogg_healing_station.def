@@ -1,0 +1,94 @@
+
+/***********************************************************************
+strogg healing station
+
+***********************************************************************/
+
+export strogg_healing_station
+{		
+	options -scale .3937 -prefix SHS_ -align ALL  
+		  
+	mesh	work/models/mapobjects/strogg/bio_machines/healing_station/animations/idle.ma		-dest models/mapobjects/strogg/bio_machines/healing_station/mesh
+	anim	work/models/mapobjects/strogg/bio_machines/healing_station/animations/idle.ma		-dest models/mapobjects/strogg/bio_machines/healing_station/idle
+	anim	work/models/mapobjects/strogg/bio_machines/healing_station/animations/dispense.ma	-dest models/mapobjects/strogg/bio_machines/healing_station/dispense
+	anim	work/models/mapobjects/strogg/bio_machines/healing_station/animations/dispense02.ma	-dest models/mapobjects/strogg/bio_machines/healing_station/dispense_2
+	anim	work/models/mapobjects/strogg/bio_machines/healing_station/animations/screenshot.ma	-dest models/mapobjects/strogg/bio_machines/healing_station/screenshot
+}
+
+entityDef env_strogg_healing_station
+{
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"strogg_healing_station"
+	"model"							"model_env_strogg_healing_station"
+	"spawnclass"					"rvHealingStation"
+
+	"combatModel"					"1"
+	
+	"mins"							"0 -16 0"
+	"maxs"							"16 16 48"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+
+	"gui"							"guis/common/strogg/health_station.gui"
+	
+	"dispense_anim"					"dispense_2"
+	"heal_frequency"				"60"
+	"heal_amount"					"1"
+	"max_health"					"80"
+	
+	"fx_burst"						"effects/mapobjects/shealth_burst.fx"
+	"fx_burst_inv"					"effects/mapobjects/shealth_burst_inv.fx"
+	"fx_fastdrips"					"effects/mapobjects/shealth_drips.fx"
+	"fx_slowdrips1"					"effects/ambient/single_drip_red.fx"
+	"fx_slowdrips2"					"effects/ambient/single_drip_green.fx"
+	
+	"snd_start"						"health_station_start"
+	"snd_loop"						"health_station_loop"
+	"snd_stop"						"health_station_stop"
+}
+
+model model_env_strogg_healing_station
+{						
+	mesh					models/mapobjects/strogg/bio_machines/healing_station/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/bio_machines/healing_station/idle.md5anim
+		{ 
+//			frame 1 		fx	fx_slowdrips1	drip_right
+//			frame 1 		fx	fx_slowdrips1	drip_left
+		}	
+			
+	anim dispense 			models/mapobjects/strogg/bio_machines/healing_station/dispense.md5anim
+	anim dispense_2 		models/mapobjects/strogg/bio_machines/healing_station/dispense_2.md5anim
+	{
+		frame 1 			fx	fx_burst	joint13
+		frame 1 			fx	fx_burst_inv	joint11
+		frame 1				fx 	fx_fastdrips	drip_right
+		frame 1				fx 	fx_fastdrips	drip_left
+//		frame 1 		fx	fx_slowdrips1	drip_right
+//		frame 1 		fx	fx_slowdrips1	drip_right
+		
+	}
+	anim screenshot			models/mapobjects/strogg/bio_machines/healing_station/screenshot.md5anim
+}
+
+// Unusable healing station for act 1
+entityDef env_strogg_healing_station_noheal
+{
+	"inherit"					"env_strogg_healing_station"
+	"spawnclass"					"idAnimated"
+
+	"gui"						"guis/common/strogg/health_station_s.gui"
+	
+	// Leaving these in in case the frame commands on the idle anim are uncommented
+	"fx_slowdrips1"					"effects/ambient/single_drip_red.fx"
+	"fx_slowdrips2"					"effects/ambient/single_drip_green.fx"
+	
+	"start_anim"							"idle"
+	
+	"combatModel"						"1"
+}
+

@@ -1,0 +1,726 @@
+
+
+sound vehicle_buggy_crash
+{
+	description	"crashes"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	-6
+	shakes		0.1
+
+	sound/vehicles/misc/crash_01
+	shakeData 0 zzzzzzzzzyzzzzyyxrumsjnokihejgeedbbbabaaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_02
+	shakeData 1 zzzzzzzzzzzzzzxzwsunqjknjfgegeedccbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_03
+	shakeData 2 zzzzzzzzzzzzskziknifefeeccbbaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_04
+	shakeData 3 pzzzzzzzzzzyyzwsotqpnkhfhddddccbabbbbbbbaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_05
+	shakeData 4 uzzzzzzzzzzzzzzyzuvvqllojkhhggeddcbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_06
+	shakeData 5 zzzzzzzzzzyzzzztqztpljjjpljwnheedgjffffdcfdfeeddccdbbbabaaaabbaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_07
+	shakeData 6 zzzzzzzzzzzzyzwyvpuqnikifededccbbbcbbaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/crash_08
+	shakeData 7 hzzzzzzzzzzwzwvzvrusrpjkmkiifdfdeccebcbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_buggy_jump_light
+{
+	description	"jumps"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	-6
+	shakes		0.1
+
+	sound/vehicles/misc/jump_04
+	shakeData 0 bgjmvoimjiimigfedcddcccdccbbbbbbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_buggy_jump_med
+{
+	description	"jumps"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	-6
+	shakes		0.15
+
+	sound/vehicles/misc/jump_01
+	shakeData 0 pqpttqhjfffeiojiojigfedededcdbcccabbcbbbacaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/jump_05
+	shakeData 1 puuqppqrlnkmkllkgidgmhddfccmdbbbbcbacbaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_buggy_jump_hard
+{
+	description	"jumps"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	-6
+	shakes		0.2
+
+	sound/vehicles/misc/jump_02
+	shakeData 0 grtpomnonkikoklmjinnmilgemmjmgdfghfeceedcgffighecfcdddcbbbbcdbbbaaaaaaaaaaaaaaa
+	sound/vehicles/misc/jump_03
+	shakeData 1 grsoqqqpopmskjlkjkihggdfmecdecbmcbclfefeedcccccbabbcbbacbaaaabaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_buggy_explode
+{
+	description	"explode"
+
+	minDistance	39
+	maxDistance	1771
+	volumeDb	10
+	shakes		0.3
+
+	sound/vehicles/misc/explode_01
+	shakeData 0 vzzzzzzzzzzyyyvvwwtxqqpvvssxtyywwqqppqollmkmjjgkhggihfgfhhhihfkefeehddeefdfigeedddcdccccdcbbabcccbbbbbadaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/misc/explode_02
+	shakeData 1 zzzzzzzzzzzzzzzzxswnolnljliiigfedfeecccbabbaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_gev_engine_start
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	8
+
+	sound/vehicles/gev/start
+	shakeData 0 mrjinnnoptxxtxztuvvqsqtpstvyumtpswoqryyrxxzqurvurtswutuusrprvosqrqtrvwuvtwwrsuuvywvruvsooqtsom
+}
+
+
+sound vehicle_gev_engine_stop
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	8
+
+	sound/vehicles/gev/stop
+	shakeData 0 zzzzzzyzwywwyyyvuzzuxpywvwvvqopqspnkjkqlmhlkiihhghdgfecbbaa
+}
+
+
+sound vehicle_gev_engine_loop
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	6
+	frequentlyUsed
+	looping
+
+	sound/vehicles/gev/loop2
+	shakeData 0 klotqoonlmnoklnminnlnooklljjmommlkkmnmljnproonnlmmnmomlinlkopmnpompmqnmmkmmnmmmjmkoprqqolnnlklnklmnlnmnlosoppnnmnpkjlnlkomknplklkjlomlklkknnljkmroommnlnmnloljinkolplnnm
+}
+
+
+sound vehicle_gev_machinegun_fire
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	1,1.5
+	frequentlyUsed
+
+	sound/vehicles/gev/fire0
+	shakeData 0 zyuvqrtomjfecbba
+	sound/vehicles/gev/fire1
+	shakeData 1 zyyxqsppojfedbbaa
+}
+
+
+sound vehicle_gev_hoverpad
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	-12
+	looping
+
+	sound/vehicles/gev/pad_loop1
+	shakeData 0 vusursprqqnnonpprqsvuh
+}
+
+
+sound vehicle_gev_cannon
+{
+	minDistance	1181
+	maxDistance	1574
+	volumeDb	6
+	frequentlyUsed
+
+	sound/vehicles/gev/cannon1
+	shakeData 0 yzzxzzyzzzzxwquspnpjlpqnmoojklggkjkgggghgghgfgddebbbbabaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_gev_rocket_reload
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+
+	sound/vehicles/gev/reload
+	shakeData 0 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabdddeghiljmqmolpqqqorrsnrpsustsqnnmmkjigfea
+}
+
+
+sound vehicle_gev_cannon_kickback
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	-6
+
+	sound/vehicles/gev/kickback
+	shakeData 0 alyxxyuqrtla
+}
+
+
+sound vehicle_crash_small
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	3
+	shakes		0.05
+
+	sound/vehicles/impacts/crash_small1
+	shakeData 0 utvyzyorunotsoolmlnookuojijghihggegddddccbcbaaaaaa
+	sound/vehicles/impacts/crash_small2
+	shakeData 1 utwzrvtxuqpomilnfhgdfdfeehhliegddbbbaaaaaaaaaaaa
+	sound/vehicles/impacts/crash_small3
+	shakeData 2 swxwrysxtoqqosspspjmoiqnoposorstphkljmikjihdehdccccbbbaaaaaa
+}
+
+
+sound vehicle_crash_medium
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	3
+	shakes		0.1
+
+	sound/vehicles/impacts/crash_small1
+	shakeData 0 utvyzyorunotsoolmlnookuojijghihggegddddccbcbaaaaaa
+	sound/vehicles/impacts/crash_small2
+	shakeData 1 utwzrvtxuqpomilnfhgdfdfeehhliegddbbbaaaaaaaaaaaa
+	sound/vehicles/impacts/crash_small3
+	shakeData 2 swxwrysxtoqqosspspjmoiqnoposorstphkljmikjihdehdccccbbbaaaaaa
+}
+
+
+sound vehicle_crash_large
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	3
+	shakes		0.15
+
+	sound/vehicles/impacts/crash_small1
+	shakeData 0 utvyzyorunotsoolmlnookuojijghihggegddddccbcbaaaaaa
+	sound/vehicles/impacts/crash_small2
+	shakeData 1 utwzrvtxuqpomilnfhgdfdfeehhliegddbbbaaaaaaaaaaaa
+	sound/vehicles/impacts/crash_small3
+	shakeData 2 swxwrysxtoqqosspspjmoiqnoposorstphkljmikjihdehdccccbbbaaaaaa
+}
+
+
+sound vehicle_walker_power_up
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	4
+
+	sound/vehicles/walker/pwr_up
+	shakeData 0 hkjjkiihhhihhkiiihihihihhhhhiijhhgggghghggfggggggggffffeeeeeeeeeeddcdcdbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_walker_power_down
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	4
+
+	sound/vehicles/walker/pwr_down
+	shakeData 0 iikhiihjjikjiihiihiihiiiiiiihhihinlgdeededeeeedddddddcdcddddccccccddddcccdccccbbbaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_walker_malfunction
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+
+	sound/vehicles/walker/malfunction
+	shakeData 0 mqsqmlmimqqroookkprrqrusmsvsuponnmpnmoikljjijjkihfdbbaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_walker_machinegun
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	4
+	frequentlyUsed
+
+	sound/vehicles/walker/m_gun1
+	shakeData 0 zzzwoqhigefdccaaaaa
+	sound/vehicles/walker/m_gun2
+	shakeData 1 zxysptiihegedcbaaaa
+	sound/vehicles/walker/m_gun3
+	shakeData 2 zywspshihegeccaaaaa
+}
+
+
+sound vehicle_walker_rockets
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	4
+	frequentlyUsed
+
+	sound/vehicles/walker/r_launch
+	shakeData 0 yzuxpwturxxwxsvwsvuvrutuqrnphnmniegegebbcbbaaaaaaaaaa
+}
+
+
+sound vehicle_walker_rocket_reload
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+
+	sound/vehicles/walker/rocket_reload
+	shakeData 0 qlsrorrqplpptrrolqohmtvsklujkurmnkukistmnvqljdeeeokttefivilulknjviesugltljjhfhhefelggffgiikjqploxrnkkknmlhlhihhhgfhgdeffdefdcbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_walker_steps
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	-6
+	frequentlyUsed
+
+	sound/vehicles/walker/step1
+	shakeData 0 yzzzyywqxtproohjifdfedccbaaaa
+	sound/vehicles/walker/step2
+	shakeData 1 zzzyxxxwtxwmkofeddcbbaa
+	sound/vehicles/walker/step3
+	shakeData 2 zzyxwywxzruomlkkhdecbaa
+	sound/vehicles/walker/step4
+	shakeData 3 yzzvvyxwxlslojfhgeedccbbaaaa
+}
+
+
+sound vehicle_walker_servo
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	-26
+	frequentlyUsed
+
+	sound/vehicles/walker/servo_01
+	shakeData 0 abcehjoqststuvvpd
+	sound/vehicles/walker/servo_02
+	shakeData 1 bcikwjmmnomnosoc
+	sound/vehicles/walker/servo_03
+	shakeData 2 csrrttprqrqqrrrqqtsrsupwomgedba
+	sound/vehicles/walker/servo_04
+	shakeData 3 cgimlmkmmmlmnnnomnqnnpmnwpnja
+}
+
+
+sound vehicle_walker_steps_e3
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	-3
+	global
+
+	sound/vehicles/walker/step1
+	shakeData 0 yzzzyywqxtproohjifdfedccbaaaa
+	sound/vehicles/walker/step2
+	shakeData 1 zzzyxxxwtxwmkofeddcbbaa
+	sound/vehicles/walker/step3
+	shakeData 2 zzyxwywxzruomlkkhdecbaa
+	sound/vehicles/walker/step4
+	shakeData 3 yzzvvyxwxlslojfhgeedccbbaaaa
+}
+
+
+sound vehicle_walker_servo_e3
+{
+	minDistance	40
+	maxDistance	900
+	volumeDb	-18
+	global
+
+	sound/vehicles/walker/servo_01
+	shakeData 0 abcehjoqststuvvpd
+	sound/vehicles/walker/servo_02
+	shakeData 1 bcikwjmmnomnosoc
+	sound/vehicles/walker/servo_03
+	shakeData 2 csrrttprqrqqrrrqqtsrsupwomgedba
+	sound/vehicles/walker/servo_04
+	shakeData 3 cgimlmkmmmlmnnnomnqnnpmnwpnja
+}
+
+
+sound vehicle_hovertruck_start
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	-4
+
+	sound/vehicles/hovertruck/start
+	shakeData 0 fmgdeggiiijmltqqroxrsoqnspnqpmmompllmjkkmllmlki
+}
+
+
+sound vehicle_hovertruck_idle
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	-6
+	frequentlyUsed
+	looping
+
+	sound/vehicles/hovertruck/hover_loop
+	shakeData 0 nnllollnmnmpnmlolnllmpjllmljomommmmpjlmonknmnllnnmnnnmlllmnmmkpplmjnonmmlmnoqklnklkjmklmqnlnllljllmllnomolmlljkkniklqnkmmmljmkljmkooomlmlollnkmonnmonki
+}
+
+
+sound vehicle_hovertruck_idle_quiet
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	-9
+	looping
+
+	sound/vehicles/hovertruck/hover_loop
+	shakeData 0 nnllollnmnmpnmlolnllmpjllmljomommmmpjlmonknmnllnnmnnnmlllmnmmkpplmjnonmmlmnoqklnklkjmklmqnlnllljllmllnomolmlljkkniklqnkmmmljmkljmkooomlmlollnkmonnmonki
+}
+
+
+sound vehicle_hovertruck_stop
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	-4
+
+	sound/vehicles/hovertruck/stop
+	shakeData 0 qwsuswxruqvsqurruwotorpssunvnoropnwrptmkllnokklkmnjkkkhjijiigfhffggffeddeeddcdcbbbaaa
+}
+
+
+sound vehicle_hovertruck_fire
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	0
+	frequentlyUsed
+
+	sound/ambience/mcc_landing/landing_fire1
+	shakeData 0 zzzzvmjpjfdcccababaaaaaaa
+	sound/ambience/mcc_landing/landing_fire2
+	shakeData 1 vzyzzokpqedcccbdccaaaaaaaaaaaaa
+}
+
+
+sound vehicle_turret_move
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	1
+	looping
+
+	sound/vehicles/misc/turret_move
+	shakeData 0 cccdccccccccdc
+}
+
+
+sound vehicle_walker_engine
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	looping
+
+	sound/vehicles/walker/engine
+	shakeData 0 iggihfghggihgfhhiiggggkhghigfgeggjhghghfhffhghihgfggghigggggghhigfggfhgffhjgghgffiighkhhfgg
+}
+
+
+sound vehicle_walker_cannon
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	6
+	frequentlyUsed
+
+	sound/vehicles/walker/fire0
+	shakeData 0 zzxxxwxsytomnlihdcdccbcbbaaaaaaa
+	sound/vehicles/walker/fire1
+	shakeData 1 zzxxzxytwsrkkokggdcdbbbbaaaaaa
+}
+
+
+sound vehicle_walker_cannon_impact
+{
+	minDistance	196
+	maxDistance	2952
+	volumeDb	3
+	soundClass	1
+
+	sound/effects/explosions/no_debris01
+	shakeData 0 zzzzzzyyzzzzzyyxwrsyyrvvwqvnllolmnklijgehggigdecccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/no_debris04
+	shakeData 1 vvwxzzzzzzzzyyzzzyzyyutwsspqwuwttrtnswvsuotskopkrnkmnlmmjijhilkegffilihedcedccdbccbbbbccaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_walker_shield_warning
+{
+	minDistance	393
+	maxDistance	787
+	volumeDb	-9
+	private
+	looping
+
+	sound/vehicles/walker/shield_warning
+	shakeData 0 lqprqqlomlfaaaaa
+}
+
+
+sound vehicle_walker_shield_recharge
+{
+	minDistance	393
+	maxDistance	787
+	volumeDb	-9
+	private
+
+	sound/vehicles/walker/shield_recharge
+	shakeData 0 hhhhijjjjlllmmmlkklkklllmmkmmmmnrqqtrspoonnnnooonopmoospqpoponpopponqqporpppoppqpooppppqrqa
+}
+
+
+sound vehicle_walker_hazard1
+{
+	minDistance	393
+	maxDistance	787
+	volumeDb	0
+	private
+	omnidirectional
+
+	sound/vehicles/walker/vo_enabled
+	shakeData 0 adqtslswypwsomlpkigcbajvvtrqmwuvvsxxvttsrifhdbaagnqloktvngekyxviffcbaaaaaaaaabuvxwzujhefyxqriebacqvzxoiqprrwmuutnnoqtpkebdnrwytvqotusujfcbaaadgkuonljiggmtlhihfecba
+}
+
+
+sound vehicle_walker_hazard2
+{
+	minDistance	393
+	maxDistance	787
+	volumeDb	0
+	private
+	omnidirectional
+
+	sound/vehicles/walker/vo_disabled
+	shakeData 0 auwttqmvuvvuuxvttsrkgicbaaxvvrthtwxvknmolhcbbgrruxuvwqwxvuzwvxxykkccbaaaaaaaaaaaalxvxzulhdfxxrrkebbdswxxjhrrrsxmuuqopjkrpkdclumoppwxyqkwwwuhgcbaaatrmovvlskhfnghkfdcbbbbaaaaa
+}
+
+
+sound vehicle_walker_armor
+{
+	minDistance	393
+	maxDistance	787
+	volumeDb	1
+	private
+	omnidirectional
+
+	sound/vehicles/walker/vo_armor
+	shakeData 0 bvuuywvvurohdbaqwvstiowwwplmmpjdbabbcwvqunfdrwnkebbaaaaaa
+}
+
+
+sound vehicle_walker_denied
+{
+	minDistance	393
+	maxDistance	787
+	volumeDb	0
+	private
+	omnidirectional
+
+	sound/vehicles/walker/vo_denied
+	shakeData 0 ouoknvzstkkmnwmnlhebadirxzusqstnprigebaaaaaaaaaaaa
+}
+
+
+sound vehicle_walker_death
+{
+	minDistance	393
+	maxDistance	3149
+	volumeDb	0
+	shakes		0.2
+
+	sound/effects/explosions/metal01
+	shakeData 0 szzzszyzyxzysuuvruqrqtpuqooqtpmqpolqlmlijllklhhjggfeeeddcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/explosions/metal03
+	shakeData 1 uzzzwpxzzzxvxvxsvywywxywzvxxwvvvtvtvrttouwwvutllkkonhjhiiqmfedkeccbcbbaaaaaaaaaaaaa
+}
+
+
+sound vehicle_tram_main
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	-5
+	looping
+
+	sound/vehicles/tram/main_loop
+	shakeData 0 mlpsvtsrnojkkllkknmnlkhimpookjllqponkorsttqokjlnoqqqsonljlopqqnjgjklmjijnqpppmljhiiimmnqpmm
+}
+
+
+sound vehicle_tram_main_comp
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	looping
+
+	sound/vehicles/tram/main_loop_comp
+	shakeData 0 wwxyzzyywvtwyvxrqzxurlowzvsvqnuuzzzzwuxzzzyxqqtyvuzuyyzruuuzzyyzptsuttpqwyxyyyyqusvuytxzsqr
+}
+
+
+sound vehicle_tram_malfunction
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	looping
+
+	sound/vehicles/tram/malfunction_loop
+	shakeData 0 hhiijjikmllnlmnlnkljkkjkjjjkimjkjkjjkjjkkjkjkkhijikjjkjiikjkjjijkjjijkkjjkljihhjjihijihhhhhjhhhhgghhhfghgghggggghhihhihghiijijiiijihghggighhghiiihhghihiijhihhhjhiiiggghgfgfffgffgfgffggfgfffgfgfffggfggggfgfggeffefffeffeffffgffhjjiihikmklklmklmlmlmmnopmkllnkkiljkkkjjkhiihhhgghihhghhhhghhhiihiihhhhihiif
+}
+
+
+sound vehicle_tram_track_start
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	-9
+
+	sound/vehicles/tram/track_start
+	shakeData 0 eggklnpmrrpqpmidfloqrlkksrqnomppmllmprppolmoniifcbbaaabbbaaaaa
+}
+
+
+sound vehicle_tram_track_brake
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	-6
+
+	sound/vehicles/tram/track_brake
+	shakeData 0 deggjkorsutuustrplkuvusqomnlllllmprsrrplflnknoonnprsrrtttutoprtsrsssqrmfdedcbbdgebaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound vehicle_tram_track_noise
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	-15
+
+	sound/vehicles/tram/track_noise1
+	shakeData 0 aaaabbhjhffijlijpmednnkjopomiihkhkmnppiijlmjkihgedbbaaaaaaaaaaaaaaaaaaaa
+	sound/vehicles/tram/track_noise2
+	shakeData 1 abfnqyzwxquxxsnmjfddbaaaa
+	sound/vehicles/tram/track_noise3
+	shakeData 2 aakklihkkjhhghghhggddgotuusnkdbaaa
+	sound/vehicles/tram/track_noise4
+	shakeData 3 lpqvtuwvrmijhedujecbaaaaaaaaaaa
+}
+
+
+sound vehicle_tram_track_slow
+{
+	minDistance	400
+	maxDistance	1600
+	volumeDb	-6
+	looping
+
+	sound/vehicles/tram/track_slow
+	shakeData 0 pnnplwyptjppolkonqmmpryurplwnqlpnnvqmmklojumqvppotuunkkptynmlnpqmppmolotxumnllnmkkpntlortpoqrwwvsqkpyupokjjmnhe
+}
+
+
+sound vehicle_tram_track_fast
+{
+	minDistance	400
+	maxDistance	1600
+	volumeDb	-6
+	looping
+
+	sound/vehicles/tram/track_fast
+	shakeData 0 tunpsstmttuqtsttonvsvywrosvurrmmpopxusvvvmmlplpnmlrvmnoopnnstkvnttqmnqsorurommoruuronpqmrurroqkqjmnqplmopommiommonknimokqpptopkmstrwtqooklqrqopkpptonijosqpmlmqonlmrrqonmqoqorqummmqvqrotqlmntxvsxxi
+}
+
+
+sound vehicle_tram_gun_fire
+{
+	minDistance	393
+	maxDistance	1181
+	volumeDb	0
+	frequentlyUsed
+
+	sound/vehicles/tram/fire1
+	shakeData 0 zzywuzjjgefedcbbaaaa
+	sound/vehicles/tram/fire2
+	shakeData 1 zzywsxikfefedcbbaaaa
+	sound/vehicles/tram/fire3
+	shakeData 2 zzxvuyikfffedcbbaaaa
+}
+
+
+sound vehicle_tram_horn
+{
+	minDistance	400
+	maxDistance	4000
+	volumeDb	6
+
+	sound/vehicles/tram/horn
+	shakeData 0 afnpxzzzwyyywxvzuywyzzzzzzzywyxxtxxxyyvwxxwxxzyuzxsyzywvuwzvnhecbbbaaaaaaa
+}
+
+
+sound vehicle_tram_whoosh
+{
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+
+	sound/vehicles/tram/whoosh1
+	shakeData 0 bdfjqpwomgdbaa
+	sound/vehicles/tram/whoosh2
+	shakeData 1 abdefjtumpifdcaaa
+	sound/vehicles/tram/whoosh3
+	shakeData 2 abehglsutxnggeecba
+}
+
+
+

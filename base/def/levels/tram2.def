@@ -1,0 +1,89 @@
+entityDef stage_boulder_destroyed {
+	"remove"			"1"
+}
+
+entityDef stage_boulder_large2_destroyed {
+	"inherit"			"stage_boulder_destroyed"
+	
+	"fx_explode"		"effects/vehicles/explosion.fx"
+}
+
+entityDef stage_boulder_large1_destroyed {
+	"inherit"			"stage_boulder_destroyed"
+	
+	"fx_explode"		"effects/vehicles/explosion.fx"
+}
+
+entityDef stage_boulder_med2_destroyed {
+	"inherit"			"stage_boulder_destroyed"
+	
+	"fx_explode"		"effects/levels/tram/boulder_explosion.fx"
+}
+
+entityDef stage_boulder_small2_destroyed {
+	"inherit"			"stage_boulder_destroyed"
+	
+	"fx_explode"		"effects/explosions/surface/rock_exp.fx"
+}
+
+entityDef func_damagable_boulder {
+	"inherit"			"func_damagable"
+	
+	"editor_ignore"		"1"
+	
+	"health"			"5"
+}
+
+entityDef func_damagable_boulder_large2 {
+	"inherit"			"func_damagable_boulder"
+	"editor_ignore"		"0"
+	
+	"def_stage1"		"stage_boulder_large2_destroyed"
+	
+	"model"				"models/mapobjects/strogg/outdoor/rocks/large_rock2.lwo"
+}
+
+entityDef func_damagable_boulder_large1 {
+	"inherit"			"func_damagable_boulder"
+	"editor_ignore"		"0"
+	
+	"def_stage1"		"stage_boulder_large1_destroyed"
+	
+	"model"				"models/mapobjects/strogg/outdoor/rocks/large_rock1.lwo"
+}
+
+entityDef func_damagable_boulder_med2 {
+	"inherit"			"func_damagable_boulder"
+	"editor_ignore"		"0"
+	
+	"def_stage1"		"stage_boulder_med2_destroyed"
+	
+	"model"				"models/mapobjects/strogg/outdoor/rocks/med_rock2.lwo"
+}
+
+entityDef func_damagable_boulder_small2 {
+	"inherit"			"func_damagable_boulder"
+	"editor_ignore"		"0"
+	
+	"def_stage1"		"stage_boulder_small2_destroyed"
+	
+	"model"				"models/mapobjects/strogg/outdoor/rocks/small_rock2.lwo"
+}
+
+entityDef stage_tramcar_destroyed {
+	"remove"			"1"
+	
+	"def_debris"		""
+	
+	"fx_explode"		"effects/explosions/surface/tramcar_exp.fx"
+}
+
+entityDef func_damagable_tramcar {
+	"inherit"			"func_damagable"
+	
+	"model"				"models/mapobjects/strogg/tram/tramcar/t_car_fix.lwo"
+	
+	"def_stage1"		"stage_tramcar_destroyed"
+	
+	"health"			"5"
+}

@@ -1,0 +1,341 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui."
+	visible	1
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	definevec4	"static_on"	1,1,0.756,0.25
+	definevec4	"static_off"	1,1,0.756,0.08
+	definevec4	"box_on"	0.152,0.105,0.0274,1
+	definevec4	"box_off"	0.152,0.105,0.0274,.5
+	definevec4	"scrolltext3_on"	0.156,0.309,0.266,1
+	definevec4	"scrolltext3_off"	0.156,0.309,0.266,.4
+	definevec4	"decal_on"	0.388,0.337,0.0549,0.46
+	definevec4	"decal_off"	0.388,0.337,0.0549,.16
+	definevec4	"scrolltext1_on"	0.219,0.239,0.219,1
+	definevec4	"scrolltext1_off"	0.219,0.239,0.219,.4
+	windowDef p_all
+	{
+		rect	0,0,640,480
+		visible	1
+		noclip	1
+
+		onTime 0 {
+			transition "p_all::rect" "$p_all::rect" "$p_1::rect" "50" ;
+		}
+
+		onTime 50 {
+			transition "p_all::rect" "$p_3::rect" "$p_2::rect" "50" ;
+		}
+
+		onTime 100 {
+			transition "p_all::rect" "$p_2::rect" "$p_all::rect" "50" ;
+		}
+
+		onTime 150 {
+			transition "p_all::rect" "$p_1::rect" "$p_3::rect" "50" ;
+		}
+
+		onTime 200 {
+			transition "p_all::rect" "$p_2::rect" "$p_all::rect" "50" ;
+		}
+
+		onTime 250 {
+			transition "p_all::rect" "$p_2::rect" "$p_1::rect" "50" ;
+		}
+
+		onTime 300 {
+			resettime "0" ;
+		}
+
+		windowDef scrolltext3
+		{
+			rect	93,77,230,329
+			visible	1
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0.156,0.309,0.266,.4
+		}
+		windowDef decal
+		{
+			rect	334,36,212,200
+			visible	1
+			background	"gfx/guis/common/strogg/decal"
+			matcolor	0.388,0.337,0.0549,.1
+		}
+		windowDef scrolltext1
+		{
+			rect	326,200,230,196
+			visible	1
+			background	"gfx/guis/common/strogg/scrolltext1fast"
+			matcolor	0.219,0.239,0.219,.2
+		}
+		windowDef d_scrolltext3_1
+		{
+			rect	79,66,242,352
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0.156,0.309,0.266,1
+		}
+		windowDef d_decal1
+		{
+			rect	333,22,223,214
+			visible	0
+			background	"gfx/guis/common/strogg/decal"
+			matcolor	0.388,0.337,0.0549,0.3
+		}
+		windowDef d_scrolltext1_1
+		{
+			rect	325,209,242,210
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext1fast"
+			matcolor	0.219,0.239,0.219,0.6
+		}
+		windowDef d_scrolltext3_2
+		{
+			rect	103,82,219,317
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0.156,0.309,0.266,1
+		}
+		windowDef d_decal2
+		{
+			rect	333,43,202,193
+			visible	0
+			background	"gfx/guis/common/strogg/decal"
+			matcolor	0.388,0.337,0.0549,0.3
+		}
+		windowDef d_scrolltext1_2
+		{
+			rect	325,210,219,189
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext1fast"
+			matcolor	0.219,0.239,0.219,0.6
+		}
+		windowDef d_scrolltext3_3
+		{
+			rect	12,175,293,118
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0.156,0.309,0.266,1
+		}
+		windowDef d_decal3
+		{
+			rect	319,161,270,72
+			visible	0
+			background	"gfx/guis/common/strogg/decal"
+			matcolor	0.388,0.337,0.0549,0.3
+		}
+		windowDef d_scrolltext1_3
+		{
+			rect	309,223,293,70
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext1fast"
+			matcolor	0.219,0.239,0.219,0.6
+		}
+		windowDef d_scrolltext3_4
+		{
+			rect	132,-79,192,716
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0.156,0.309,0.266,1
+		}
+		windowDef d_decal4
+		{
+			rect	333,-168,177,435
+			visible	0
+			background	"gfx/guis/common/strogg/decal"
+			matcolor	0.388,0.337,0.0549,0.3
+		}
+		windowDef d_scrolltext1_4
+		{
+			rect	327,209,192,426
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext1fast"
+			matcolor	0.219,0.239,0.219,0.6
+		}
+		windowDef s_scrolltext3
+		{
+			rect	93,77,230,329
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext3"
+			matcolor	0.156,0.309,0.266,.4
+		}
+		windowDef s_scrolltext1
+		{
+			rect	326,200,230,196
+			visible	0
+			background	"gfx/guis/common/strogg/scrolltext1fast"
+			matcolor	0.219,0.239,0.219,.2
+		}
+		windowDef s_decal
+		{
+			rect	334,36,212,200
+			visible	0
+			background	"gfx/guis/common/strogg/decal"
+			matcolor	0.388,0.337,0.0549,.1
+		}
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef static1
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/static3"
+			matcolor	1,1,0.756,0.25
+			matscalex	-1
+		}
+		windowDef static2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/static4"
+			matcolor	1,1,0.756,0.25
+		}
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-1607,640,2513
+			background	"gfx/guis/common/monitor_line4"
+			matcolor	1,0.501,0,0.1
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-16,-25,667,514
+			background	"gfx/guis/common/monitor_reflect"
+			matcolor	1,0.501,0,0.2
+		}
+		windowDef gradient
+		{
+			visible	1
+			rect	0,0,640,745
+			background	"gfx/guis/common/gradient"
+			matcolor	0.815,0.682,0.4,0.15
+		}
+		windowDef broken_glass_b
+		{
+			visible	"gui::gui_parm_broken"
+			rect	0,3,640,480
+			background	"gfx/guis/common/broken_glass5"
+			matcolor	0,0,0,1
+		}
+		windowDef broken_glass
+		{
+			visible	"gui::gui_parm_broken"
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass5"
+			matcolor	0.819,0.905,0.921,1
+		}
+		windowDef monitor_darkedge
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+			rotate	180
+		}
+	}
+	windowDef anims
+	{
+		visible	1
+		rect	0,0,1,1
+
+		onTime 0 {
+			transition "static1::matcolor" "$desktop::static_on" "$desktop::static_off" "250" ;
+			transition "static2::matcolor" "$desktop::static_on" "$desktop::static_off" "250" ;
+			
+			transition "scrolltext3::matcolor" "$desktop::scrolltext3_off" "$desktop::scrolltext3_on" "100" ;
+			transition "decal::matcolor" "$desktop::decal_off" "$desktop::decal_on" "100" ;
+			transition "scrolltext1::matcolor" "$desktop::scrolltext1_off" "$desktop::scrolltext1_on" "100" ;
+		}
+
+		onTime 100 {
+			transition "scrolltext3::rect" "$s_scrolltext3::rect" "$d_scrolltext3_1::rect" "50" ;
+			transition "decal::rect" "$s_decal::rect" "$d_decal1::rect" "50" ;
+			transition "scrolltext1::rect" "$s_scrolltext1::rect" "$d_scrolltext1_1::rect" "50" ;
+		}
+
+		onTime 150 {
+			transition "scrolltext3::rect" "$d_scrolltext3_1::rect" "$d_scrolltext3_2::rect" "50" ;
+			transition "decal::rect" "$d_decal1::rect" "$d_decal2::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_1::rect" "$d_scrolltext1_2::rect" "50" ;
+		}
+
+		onTime 200 {
+			transition "scrolltext3::rect" "$d_scrolltext3_2::rect" "$d_scrolltext3_3::rect" "50" ;
+			transition "decal::rect" "$d_decal2::rect" "$d_decal3::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_2::rect" "$d_scrolltext1_3::rect" "50" ;
+		}
+
+		onTime 250 {
+			transition "scrolltext3::rect" "$d_scrolltext3_3::rect" "$d_scrolltext3_4::rect" "50" ;
+			transition "decal::rect" "$d_decal3::rect" "$d_decal4::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_3::rect" "$d_scrolltext1_4::rect" "50" ;
+		}
+
+		onTime 300 {
+			transition "scrolltext3::rect" "$d_scrolltext3_1::rect" "$s_scrolltext3::rect" "50" ;
+			transition "decal::rect" "$d_decal1::rect" "$s_decal::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_1::rect" "$s_scrolltext1::rect" "50" ;
+		}
+
+		onTime 350 {
+			transition "scrolltext3::rect" "$d_scrolltext3_4::rect" "$d_scrolltext3_3::rect" "50" ;
+			transition "decal::rect" "$d_decal4::rect" "$d_decal4::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_4::rect" "$d_scrolltext1_3::rect" "50" ;
+		}
+
+		onTime 400 {
+			transition "scrolltext3::rect" "$d_scrolltext3_3::rect" "$d_scrolltext3_4::rect" "50" ;
+			transition "decal::rect" "$d_decal3::rect" "$d_decal4::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_3::rect" "$d_scrolltext1_4::rect" "50" ;
+		}
+
+		onTime 450 {
+			transition "scrolltext3::rect" "$d_scrolltext3_1::rect" "$s_scrolltext3::rect" "50" ;
+			transition "decal::rect" "$d_decal1::rect" "$s_decal::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_1::rect" "$s_scrolltext1::rect" "50" ;
+		}
+
+		onTime 500 {
+			transition "scrolltext3::rect" "$d_scrolltext3_3::rect" "$s_scrolltext3::rect" "50" ;
+			transition "decal::rect" "$d_decal3::rect" "$s_decal::rect" "50" ;
+			transition "scrolltext1::rect" "$d_scrolltext1_3::rect" "$s_scrolltext1::rect" "50" ;
+		}
+
+		onTime 600 {
+			transition "static1::matcolor" "$desktop::static_off" "$desktop::static_on" "250" ;
+			transition "static2::matcolor" "$desktop::static_off" "$desktop::static_on" "250" ;
+			
+			transition "scrolltext3::matcolor" "$desktop::scrolltext3_on" "$desktop::scrolltext3_off" "250" ;
+			transition "decal::matcolor" "$desktop::decal_on" "$desktop::decal_off" "250" ;
+			transition "scrolltext1::matcolor" "$desktop::scrolltext1_on" "$desktop::scrolltext1_off" "250" ;
+		}
+
+		onTime 10000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef p_1
+	{
+		rect	-9,-9,640,480
+		visible	1
+		noclip	1
+	}
+	windowDef p_2
+	{
+		rect	8,14,640,480
+		visible	1
+		noclip	1
+	}
+	windowDef p_3
+	{
+		rect	7,-4,640,480
+		visible	1
+		noclip	1
+	}
+}

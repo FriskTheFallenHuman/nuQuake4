@@ -1,0 +1,2994 @@
+//the marine//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+models/characters/marine_heads/head_collision
+{
+	noShadows
+	collision
+	materialType flesh
+}
+
+
+models/characters/marine_heads/kane6
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 2048 1024 -trace 0.05 -aa 1  models/characters/marine_heads/kane6b_local.tga work/models/characters/marines_heads/kane6b_hi.lwo
+
+		diffusemap	models/characters/marine_heads/kane6_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kane6_local.tga, heightmap ( models/characters/marine_heads/kane6_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kane6_s.tga
+	
+}
+
+models/characters/marine_heads/kane6_mp
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 2048 1024 -trace 0.05 -aa 1  models/characters/marine_heads/kane6b_local.tga work/models/characters/marines_heads/kane6b_hi.lwo
+
+		diffusemap	models/characters/marine_heads/kane6_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kane6_local.tga, heightmap ( models/characters/marine_heads/kane6_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kane6_s.tga
+
+	inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+
+
+}
+
+models/characters/marine_heads/kanestrogg_b
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 512 -trace 0.05 -aa 2  models/characters/marine_heads/kanestrogg_b_local.tga work/models/characters/marines_heads/kanestrogg_b_hi.lwo
+
+		diffusemap	models/characters/marine_heads/kanestrogg_b_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kanestrogg_b_local.tga, heightmap ( models/characters/marine_heads/kanestrogg_b_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kanestrogg_b_s.tga
+
+		{ 
+		blend add
+		map models/characters/marine_heads/kanestrogg_b_g.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+	
+}
+
+models/characters/marine_heads/kanestrogg_b_mp
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 512 -trace 0.05 -aa 2  models/characters/marine_heads/kanestrogg_b_local.tga work/models/characters/marines_heads/kanestrogg_b_hi.lwo
+
+		diffusemap	models/characters/marine_heads/kanestrogg_b_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kanestrogg_b_local.tga, heightmap ( models/characters/marine_heads/kanestrogg_b_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kanestrogg_b_s.tga
+
+		{ 
+		blend add
+		map models/characters/marine_heads/kanestrogg_b_g.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+
+models/characters/marine_heads/kanestrogg_c
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+
+		diffusemap	models/characters/marine_heads/kanestrogg_c_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kanestrogg_c_local.tga, heightmap ( models/characters/marine_heads/kanestrogg_c_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kanestrogg_c_s.tga
+
+		{ 
+		blend add
+		map models/characters/marine_heads/kanestrogg_b_g.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+	
+}
+
+models/characters/marine_heads/kanestrogg_d
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+
+		diffusemap	models/characters/marine_heads/kanestrogg_d_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kanestrogg_c_local.tga, heightmap ( models/characters/marine_heads/kanestrogg_d_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kanestrogg_d_s.tga
+
+		{ 
+		blend add
+		map models/characters/marine_heads/kanestrogg_b_g.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+	
+}
+
+
+models/characters/marine_heads/kane3
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 512 -trace 0.09 -aa 2  models/characters/marine_heads/kane3_local.tga work/models/characters/marines_heads/nm_hi.lwo
+
+		diffusemap	models/characters/marine_heads/kane3_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kane3_local.tga, heightmap ( models/characters/marine_heads/kane3_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kane3_s.tga
+	
+}
+
+models/characters/marine_heads/kane3_mp
+{
+//	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 512 -trace 0.09 -aa 2  models/characters/marine_heads/kane3_local.tga work/models/characters/marines_heads/nm_hi.lwo
+
+		diffusemap	models/characters/marine_heads/kane3_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/kane3_local.tga, heightmap ( models/characters/marine_heads/kane3_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/kane3_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine_heads/gen_white
+{
+	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2  models/characters/marine_heads/gen_white_local.tga work/models/characters/marines_heads/head_generic2_hi.lwo
+
+		diffusemap	models/characters/marine_heads/gen_white_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_white_local.tga, heightmap ( models/characters/marine_heads/gen_white_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/gen_white_s.tga
+	
+}
+
+
+models/characters/marine_heads/gen_white_2
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/gen_white_2_local.tga work/models/characters/marines_heads/djordjehi2.lwo
+
+		diffusemap			models/characters/marine_heads/gen_white_2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_white_2_local.tga, heightmap ( models/characters/marine_heads/gen_white_2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_white_2_s.tga
+}
+
+models/characters/marine_heads/gen_white_version1
+{
+	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2  models/characters/marine_heads/gen_white_local.tga work/models/characters/marines_heads/head_generic2_hi.lwo
+
+		diffusemap	models/characters/marine_heads/gen_white_version1_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_white_local.tga, heightmap ( models/characters/marine_heads/gen_white_version1_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/gen_white_version1_s.tga
+	
+}
+
+models/characters/marine_heads/gen_white_version2
+{
+	unSmoothedTangents
+	materialType flesh
+	noSelfShadow
+            
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2  models/characters/marine_heads/gen_white_local.tga work/models/characters/marines_heads/head_generic2_hi.lwo
+
+		diffusemap	models/characters/marine_heads/gen_white_version2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_white_local.tga, heightmap ( models/characters/marine_heads/gen_white_version2_h.tga, 2 ))
+		specularmap	models/characters/marine_heads/gen_white_version2_s.tga
+	
+}
+
+models/characters/marine/hair
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hair.tga
+	}
+}
+
+models/characters/marine/hair_mp
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hair.tga
+	}
+	inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+models/characters/marine/hairlight
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hairlt.tga
+	}
+}
+
+
+
+models/characters/marine/eyelash
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/eyelash.tga
+	}
+}
+
+models/characters/marine/eyelash_mp
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/eyelash.tga
+	}
+	
+	inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+models/characters/bodies_parts/autopsy
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      nonSolid	
+      
+	renderbump  -size 1024 1024 -trace 0.08 -aa 2  models/characters/bodies_parts/autopsy_local.tga work/models/characters/bodies_parts/dead_marines/medlabs_autopsy/01.lwo
+
+		diffusemap	models/characters/bodies_parts/autopsy_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/autopsy_local.tga, heightmap ( models/characters/bodies_parts/autopsy_h.tga, 4 ))
+		specularmap	models/characters/bodies_parts/autopsy_s.tga
+		
+//		{ 
+//		blend add
+//		map models/characters/bodies_parts/autopsy_g.tga
+//		}
+
+}
+
+
+
+models/characters/marine/body
+{
+	  noSelfShadow
+      unSmoothedTangents
+//      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marine/newbody_hi.lwo
+
+		diffusemap	models/characters/marine/body_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+		specularmap	models/characters/marine/body_s.tga
+		
+		{ 
+		blend add
+		map models/characters/marine/body_g.tga
+		}
+}
+
+
+models/characters/marine/body_mp
+{
+	  noSelfShadow
+      unSmoothedTangents
+//      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marine/newbody_hi.lwo
+
+		diffusemap	models/characters/marine/body_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+		specularmap	models/characters/marine/body_s.tga
+		
+		{ 
+		blend add
+		map models/characters/marine/body_g.tga
+		}
+		
+inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+
+}
+
+models/characters/marine/body_collision
+{
+	qer_editorimage models/monsters/tactical/tt_body_hit
+	noShadows
+	collision
+	materialType	flesh
+}
+
+
+models/characters/marine/decal_rhino
+{
+	qer_editorimage models/characters/marine/decal_rhino.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_rhino.tga
+	}
+}
+
+models/characters/marine/decal_rhino2
+{
+	qer_editorimage models/characters/marine/decal_rhino2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_rhino2.tga
+	}
+}
+
+models/characters/marine/decal_wolf
+{
+	qer_editorimage models/characters/marine/decal_wolf.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_wolf.tga
+	}
+}
+
+models/characters/marine/decal_wolf2
+{
+	qer_editorimage models/characters/marine/decal_wolf2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_wolf2.tga
+	}
+}
+
+models/characters/marine/decal_kodiak
+{
+	qer_editorimage models/characters/marine/decal_kodiak.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_kodiak.tga
+	}
+}
+
+models/characters/marine/decal_kodiak2
+{
+	qer_editorimage models/characters/marine/decal_kodiak2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_kodiak2.tga
+	}
+}
+
+models/characters/marine/decal_badger
+{
+	qer_editorimage models/characters/marine/decal_badger.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_badger.tga
+	}
+}
+
+models/characters/marine/decal_badger2
+{
+	qer_editorimage models/characters/marine/decal_badger2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_badger2.tga
+	}
+}
+
+
+models/characters/marine/decal_cobra
+{
+	qer_editorimage models/characters/marine/decal_cobra.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_cobra.tga
+	}
+}
+
+models/characters/marine/decal_cobra2
+{
+	qer_editorimage models/characters/marine/decal_cobra2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_cobra2.tga
+	}
+}
+
+models/characters/marine/decal_eagle
+{
+	qer_editorimage models/characters/marine/decal_eagle.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_eagle.tga
+	}
+}
+
+models/characters/marine/decal_eagle2
+{
+	qer_editorimage models/characters/marine/decal_eagle2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_eagle2.tga
+	}
+}
+
+models/characters/marine/decal_raven
+{
+	qer_editorimage models/characters/marine/decal_raven.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_raven.tga
+	}
+}
+
+
+models/characters/marine/decal_raven2
+{
+	qer_editorimage models/characters/marine/decal_raven2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_raven2.tga
+	}
+}
+
+models/characters/marine/decal_raven2_cine
+{
+	qer_editorimage models/characters/marine/decal_raven2_cine.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_raven2_cine.tga
+	}
+}
+
+models/characters/marine/decal_viper
+{
+	qer_editorimage models/characters/marine/decal_viper.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_viper.tga
+	}
+}
+
+models/characters/marine/decal_viper2
+{
+	qer_editorimage models/characters/marine/decal_viper2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_viper2.tga
+	}
+}
+
+models/characters/marine/decal_warthog
+{
+	qer_editorimage models/characters/marine/decal_warthog.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_warthog.tga
+	}
+}
+
+models/characters/marine/decal_warthog2
+{
+	qer_editorimage models/characters/marine/decal_warthog2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/decal_warthog2.tga
+	}
+}
+
+models/characters/marine/medic
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marine/newbody_hi.lwo
+
+		diffusemap	models/characters/marine/medic_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+		specularmap	models/characters/marine/body_s.tga
+	
+}
+
+models/characters/marine/medic_mp
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marine/newbody_hi.lwo
+
+		diffusemap	models/characters/marine/medic_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+		specularmap	models/characters/marine/body_s.tga
+
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+
+models/characters/marine/medic_wounded
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marine/newbody_hi.lwo
+
+		diffusemap	models/characters/marine/medic_wounded_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/medic_wounded_h.tga, 2 ))
+		specularmap	models/characters/marine/medic_wounded_s.tga
+	
+}
+
+models/characters/marine/medic_decal_1
+{
+	qer_editorimage models/characters/marine/medic_decal_1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/medic_decal_1.tga
+	}
+}
+
+models/characters/marine/medic_decal_2
+{
+	qer_editorimage models/characters/marine/medic_decal_2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/medic_decal_2.tga
+	}
+}
+
+models/characters/marine/tech
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marine/newbody_hi.lwo
+
+		diffusemap	models/characters/marine/tech_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+		specularmap	models/characters/marine/tech_s.tga
+	
+}
+
+
+models/characters/marine/tech_mp
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+		diffusemap	models/characters/marine/tech_d.tga
+		bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+		specularmap	models/characters/marine/tech_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine/tech_decal_2
+{
+	qer_editorimage models/characters/marine/tech_decal_2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/tech_decal_2.tga
+	}
+}
+
+models/characters/marine/tech_decal_1
+{
+	qer_editorimage models/characters/marine/tech_decal_1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/tech_decal_1.tga
+	}
+}
+
+models/characters/bodies_parts/chestwoundbody
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/bodies_parts/chestwoundbody_local.tga work/models/characters/bodies_parts/chestwoundbody_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/chestwoundbody_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/chestwoundbody_local.tga, heightmap ( models/characters/bodies_parts/chestwoundbody_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/chestwoundbody_s.tga, 1 )
+	
+}
+models/characters/bodies_parts/d_arm
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/bodies_parts/d_arm_local.tga work/models/characters/bodies_parts/d_arm_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/d_arm_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/d_arm_local.tga, heightmap ( models/characters/bodies_parts/d_arm_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/d_arm_s.tga, 1 )
+	
+}
+models/characters/bodies_parts/d_leg
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/bodies_parts/d_leg_local.tga work/models/characters/bodies_parts/d_leg_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/d_leg_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/d_leg_local.tga, heightmap ( models/characters/bodies_parts/d_leg_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/d_leg_s.tga, 1 )
+	
+}
+
+models/characters/bodies_parts/no_arm
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/bodies_parts/no_arm_local.tga work/models/characters/bodies_parts/no_arm_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/no_arm_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/no_arm_local.tga, heightmap ( models/characters/bodies_parts/no_arm_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/no_arm_s.tga, 1 )
+	
+}
+models/characters/bodies_parts/no_leg
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/no_leg_local.tga work/models/characters/bodies_parts/no_leg_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/no_leg_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/no_leg_local.tga, heightmap ( models/characters/bodies_parts/no_leg_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/no_leg_s.tga, 1 )
+	
+}
+
+models/characters/bodies_parts/half
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2 models/characters/bodies_parts/half_local.tga work/models/characters/bodies_parts/half_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/half_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/half_local.tga, heightmap ( models/characters/bodies_parts/half_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/half_s.tga, 1 )
+	
+}
+
+models/characters/bodies_parts/half2
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2 models/characters/bodies_parts/half2_local.tga work/models/characters/bodies_parts/half_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/half2_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/half2_local.tga, heightmap ( models/characters/bodies_parts/half2_h.tga, 4 ))
+		specularmap	downsize( models/characters/bodies_parts/half2_s.tga, 1 )
+	
+}
+
+
+models/characters/bodies_parts/half2_bl_decal
+{
+	qer_editorimage models/characters/bodies_parts/half2_bl_decal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/bodies_parts/half2_bl_decal.tga
+	}
+}
+
+models/characters/bodies_parts/half_head
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/half_head_local.tga work/models/characters/bodies_parts/half_head_hi.lwo
+
+		diffusemap	models/characters/bodies_parts/half_head_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/half_head_local.tga, heightmap ( models/characters/bodies_parts/half_head_h.tga, 4 ))
+		specularmap	models/characters/bodies_parts/half_head_s.tga
+	
+}
+
+models/characters/bodies_parts/half_head2
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/half_head2_local.tga work/models/characters/bodies_parts/half_head_hi.lwo
+
+		diffusemap	models/characters/bodies_parts/half_head2_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/half_head2_local.tga, heightmap ( models/characters/bodies_parts/half_head2_h.tga, 4 ))
+		specularmap	models/characters/bodies_parts/half_head2_s.tga
+	
+}
+
+models/characters/bodies_parts/head_shot2
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+      
+	renderbump  -size 512 512 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/head_shot2_local.tga work/models/characters/bodies_parts/head_shot_hi.lwo
+
+		diffusemap	models/characters/bodies_parts/head_shot2_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/head_shot2_local.tga, heightmap ( models/characters/bodies_parts/head_shot2_h.tga, 4 ))
+		specularmap	models/characters/bodies_parts/head_shot2_s.tga
+	
+}
+
+models/characters/marine/teeth
+{
+      noSelfShadow
+      unSmoothedTangents
+      noShadows	
+      nonSolid
+      
+      
+	renderbump  -size 256 128 -trace 0.05 -aa 2 models/characters/marine/ripped/teeth_local.tga models/characters/marine/ripped/marine_teeth_hi.lwo
+
+		diffusemap	models/characters/marine/teeth_d.tga
+		bumpmap	addnormals ( models/characters/marine/teeth_local.tga, heightmap ( models/characters/marine/teeth_h.tga, 2 ))
+		specularmap	models/characters/marine/teeth_s.tga
+	
+}
+
+
+models/characters/marine/teeth_mp
+{
+      noSelfShadow
+      unSmoothedTangents
+      noShadows	
+      nonSolid
+      
+      
+	renderbump  -size 256 128 -trace 0.05 -aa 2 models/characters/marine/ripped/teeth_local.tga models/characters/marine/ripped/marine_teeth_hi.lwo
+
+		diffusemap	models/characters/marine/teeth_d.tga
+		bumpmap	addnormals ( models/characters/marine/teeth_local.tga, heightmap ( models/characters/marine/teeth_h.tga, 2 ))
+		specularmap	models/characters/marine/teeth_s.tga
+	
+		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+
+models/characters/marine/teeth_strogg_mp
+{
+      noSelfShadow
+      unSmoothedTangents
+      noShadows	
+      nonSolid
+      
+      
+	renderbump  -size 256 128 -trace 0.05 -aa 2 models/characters/marine/ripped/teeth_local.tga models/characters/marine/ripped/marine_teeth_hi.lwo
+
+		diffusemap	models/characters/marine/teeth_d.tga
+		bumpmap	addnormals ( models/characters/marine/teeth_local.tga, heightmap ( models/characters/marine/teeth_h.tga, 2 ))
+		specularmap	models/characters/marine/teeth_s.tga
+	
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc_sm.tga)
+}
+
+
+// marine eye for new marine ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+models/characters/marine/eye
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+      
+	renderbump  -size 128 128 -trace 0.1 -aa 2 models/characters/marine/eye_local.tga work/models/characters/Marines/eye_hi.lwo
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_green_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+
+models/characters/marine/eye_mp
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+      
+	renderbump  -size 128 128 -trace 0.1 -aa 2 models/characters/marine/eye_local.tga work/models/characters/Marines/eye_hi.lwo
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_green_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+
+models/characters/marine/eye_anderson
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_blue_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+models/characters/marine/eye_anderson_mp
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_blue_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+	inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+
+}
+
+models/characters/marine/eye_voss
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_ltblue_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+models/characters/marine/eye_voss_mp
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_ltblue_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+models/characters/marine/eye_africanamerican
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_brown_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+
+models/characters/marine/eye_africanamerican_mp
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_brown_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+
+models/characters/marine/eye_colonel
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_brown_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+
+models/characters/marine/eye_djordje
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_blue_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+models/characters/marine/eye_hispanic
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_brown_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+models/characters/marine/eye_ventsarge
+{
+//	translucent
+	noselfshadow
+//	deform	eyeBall
+	unSmoothedTangents
+
+	{
+		blend diffuseMap
+		map models/characters/marine/eye_brown_d.tga
+//		centerScale	0.6, 0.6	
+	}	
+
+	{
+		blend bumpMap
+		map models/characters/marine/eye_local.tga
+	}
+	
+	{
+		blend specularMap
+		map models/characters/marine/eye_s.tga
+	}
+
+}
+
+//body parts--------------------------------------------------------------------------------
+
+models/characters/bodies_parts/hook_bodies/body1
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 512 512 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/hook_bodies/body1_local.tga work/models/characters/bodies_parts/hook_bodies/body1_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/hook_bodies/body1_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/hook_bodies/body1_local.tga, heightmap ( models/characters/bodies_parts/hook_bodies/body1_h.tga, 2 ))
+		specularmap			models/characters/bodies_parts/hook_bodies/body1_s.tga
+	
+}
+
+models/characters/bodies_parts/hook_bodies/hook1
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderbump  -size 512 512 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/hook_bodies/hook_local.tga work/models/characters/bodies_parts/hook_bodies/hook_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/hook_bodies/body1_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/hook_bodies/body1_local.tga, heightmap ( models/characters/bodies_parts/hook_bodies/body1_h.tga, 2 ))
+		specularmap			models/characters/bodies_parts/hook_bodies/body1_s.tga
+	
+}
+
+
+models/characters/bodies_parts/hook_bodies/body2
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 512 1024 -trace 0.05 -aa 2 -mergehigh models/characters/bodies_parts/hook_bodies/body2_local.tga work/models/characters/bodies_parts/hook_bodies/body2_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/hook_bodies/body2_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/hook_bodies/body2_local.tga, heightmap ( models/characters/bodies_parts/hook_bodies/body2_h.tga, 2 ))
+		specularmap			models/characters/bodies_parts/hook_bodies/body2_s.tga
+	
+}
+
+
+
+models/characters/bodies_parts/parts/head02
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 256 256 -trace 0.09 -aa 2 -mergehigh models/characters/bodies_parts/parts/head02_local.tga work/models/characters/bodies_parts/parts/head02_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/parts/head02_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/parts/head02_local.tga, heightmap ( models/characters/bodies_parts/parts/head02_h.tga, 2 ))
+		specularmap			models/characters/bodies_parts/parts/head02_s.tga
+	
+}
+models/characters/bodies_parts/parts/teeth
+{
+      noselfShadow
+	renderbump  -size 256 256 -trace 0.09 -aa 2 -mergehigh models/characters/bodies_parts/parts/teeth_local.tga work/models/characters/bodies_parts/parts/teeth_hi.lwo
+	
+}
+models/characters/bodies_parts/parts/pork_arm2
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 256 512 -trace 0.05 -aa 2 -mergehigh models/characters/bodies_parts/parts/pork_arm2_local.tga work/models/characters/bodies_parts/parts/pork_arm2_hi.lwo
+
+		diffusemap	downsize( models/characters/bodies_parts/parts/pork_arm2_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/parts/pork_arm2_local.tga, heightmap ( models/characters/bodies_parts/parts/pork_arm2_h.tga, 2 ))
+		specularmap	 downsize( models/characters/bodies_parts/parts/pork_arm2_s.tga, 1 )
+	
+}
+
+models/characters/bodies_parts/parts/pork_thigh1
+{
+    noSelfShadow
+	materialType flesh
+	renderbump  -size 128 128 -trace 0.09 -aa 2 -mergehigh models/characters/bodies_parts/parts/pork_thigh1_local.tga work/models/characters/bodies_parts/parts/pork_thigh1_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/parts/pork_thigh1_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/parts/pork_thigh1_local.tga, heightmap ( models/characters/bodies_parts/parts/pork_thigh1_h.tga, 4 ))
+		specularmap			models/characters/bodies_parts/parts/pork_thigh1_s.tga
+	
+}
+
+models/characters/bodies_parts/corpses/corpse
+{
+      noselfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/characters/bodies_parts/corpses/corpse_local.tga work/models/characters/bodies_parts/corpses/corpse6b_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/corpses/corpse_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/corpses/corpse_local.tga, heightmap ( models/characters/bodies_parts/corpses/corpse_h.tga, 4 ))
+		specularmap			models/characters/bodies_parts/corpses/corpse_s.tga
+	
+}
+
+models/characters/bodies_parts/corpses/corpse_mp
+{
+      noselfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/characters/bodies_parts/corpses/corpse_local.tga work/models/characters/bodies_parts/corpses/corpse6b_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/corpses/corpse_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/corpses/corpse_local.tga, heightmap ( models/characters/bodies_parts/corpses/corpse_h.tga, 4 ))
+		specularmap			models/characters/bodies_parts/corpses/corpse_s.tga
+	
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+
+models/characters/bodies_parts/corpses/corpse4_mp
+{
+      noselfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/characters/bodies_parts/corpses/corpse_local.tga work/models/characters/bodies_parts/corpses/corpse6b_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/corpses/corpse4_mp_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/corpses/corpse_local.tga, heightmap ( models/characters/bodies_parts/corpses/corpse_h.tga, 4 ))
+		specularmap			models/characters/bodies_parts/corpses/corpse4_mp_s.tga
+	
+}
+
+
+models/characters/bodies_parts/corpses/corpse3_mp
+{
+      noselfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.05 -aa 1 -mergehigh models/characters/bodies_parts/corpses/corpse_local.tga work/models/characters/bodies_parts/corpses/corpse6b_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/corpses/corpse3_mp_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/corpses/corpse_local.tga, heightmap ( models/characters/bodies_parts/corpses/corpse3_h.tga, 4 ))
+		specularmap			models/characters/bodies_parts/corpses/corpse3_mp_s.tga
+	
+}
+models/characters/bodies_parts/parts/pork_leg6_lo
+{
+      noselfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 256 512 -trace 0.05 -aa 2 -mergehigh models/characters/bodies_parts/parts/pork_leg6_lo_local.tga work/models/characters/bodies_parts/parts/pork_leg6_hi.lwo
+
+		diffuseMap downsize( models/characters/bodies_parts/parts/pork_leg6_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/bodies_parts/parts/pork_leg6_local.tga, heightmap ( models/characters/bodies_parts/parts/pork_leg6_h.tga, 2 ))
+		specularmap	downsize( models/characters/bodies_parts/parts/pork_leg6_s.tga, 1 )
+	
+}
+models/characters/bodies_parts/parts/pork_hip_lo
+{
+      noselfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 128 128 -trace 0.07 -aa 2 -mergehigh models/characters/bodies_parts/parts/pork_hip_lo_local.tga work/models/characters/bodies_parts/parts/pork_hip_hi.lwo
+
+		diffusemap			models/characters/bodies_parts/parts/pork_hip_d.tga
+		bumpmap	addnormals ( models/characters/bodies_parts/parts/pork_hip_local.tga, heightmap ( models/characters/bodies_parts/parts/pork_hip_h.tga, 2 ))
+		specularmap			models/characters/bodies_parts/parts/pork_hip_s.tga
+	
+}
+
+//Marine_heads-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Generic Asian Head-------------------------------------------------------------------------------------------------------------------
+
+models/characters/marine_heads/gen_asian
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/gen_asian_local.tga work/models/djordje/MarineHeads/Generic_asian/Generic_asian_HI.lwo
+
+		diffusemap			models/characters/marine_heads/gen_asian_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_asian_local.tga, heightmap ( models/characters/marine_heads/gen_asian_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_asian_s.tga
+}
+
+models/characters/marine_heads/gen_asian_2
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2 -mergehigh models/characters/marine_heads/gen_asian_2_local.tga work/models/characters/marines_heads/asian_hi.lwo
+
+		diffusemap			models/characters/marine_heads/gen_asian_2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_asian_2_local.tga, heightmap ( models/characters/marine_heads/gen_asian_2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_asian_2_s.tga
+}
+
+models/characters/marine_heads/gen_asian_2_version1
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2 -mergehigh models/characters/marine_heads/gen_asian_2_version1_local.tga work/models/characters/marines_heads/asian_hi.lwo
+
+		diffusemap			models/characters/marine_heads/gen_asian_2_version1_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_asian_2_local.tga, heightmap ( models/characters/marine_heads/gen_asian_2_version1_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_asian_2_version1_s.tga
+}
+
+models/characters/marine_heads/gen_africanamerican
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/gen_africanamerican_local.tga work/models/djordje/MarineHeads/Generic_asian/Generic_africanamerican_HI.lwo
+
+		diffusemap			models/characters/marine_heads/gen_africanamerican_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_africanamerican_local.tga, heightmap ( models/characters/marine_heads/gen_africanamerican_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_africanamerican_s.tga
+}
+
+models/characters/marine_heads/gen_africanamerican_version2
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/gen_africanamerican_local.tga work/models/djordje/MarineHeads/Generic_asian/Generic_africanamerican_HI.lwo
+
+		diffusemap			models/characters/marine_heads/gen_africanamerican_version2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_africanamerican_local.tga, heightmap ( models/characters/marine_heads/gen_africanamerican_version2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_africanamerican_version2_s.tga
+}
+
+models/characters/marine_heads/gen_africanamerican_version3
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/gen_africanamerican_local.tga work/models/djordje/MarineHeads/Generic_asian/Generic_africanamerican_HI.lwo
+
+		diffusemap			models/characters/marine_heads/gen_africanamerican_version3_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/gen_africanamerican_local.tga, heightmap ( models/characters/marine_heads/gen_africanamerican_version3_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/gen_africanamerican_version3_s.tga
+}
+
+models/characters/marine_heads/asian_eye
+{
+
+	unSmoothedTangents
+	noselfshadow
+
+	  renderbump  -size 128 128 -trace 0.09 -aa 2  models/characters/marine/marine_eye1_local.tga models/characters/marine/ripped/eye_hi.lwo
+
+		diffusemap	models/characters/marine/eye_dkbrown_d.tga
+		bumpmap		models/characters/marine/eye_local.tga
+		specularmap	models/characters/marine/eye_s.tga
+
+}
+
+models/characters/marine_heads/asian_eye_mp
+{
+
+	unSmoothedTangents
+	noselfshadow
+
+	  renderbump  -size 128 128 -trace 0.09 -aa 2  models/characters/marine/marine_eye1_local.tga models/characters/marine/ripped/eye_hi.lwo
+
+		diffusemap	models/characters/marine/eye_dkbrown_d.tga
+		bumpmap		models/characters/marine/eye_local.tga
+		specularmap	models/characters/marine/eye_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+models/characters/marine_heads/sledge
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/sledge_local.tga work/models/characters/marines_heads/andersonhi.lwo
+
+		diffusemap			models/characters/marine_heads/sledge_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/sledge_local.tga, heightmap ( models/characters/marine_heads/sledge_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/sledge_s.tga
+}
+
+models/characters/marine_heads/sledgeeye
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/strassaeye_local.tga work/models/djordje/MarineHeads/head_Johann_Strassa/head_strassa_HI.lwo
+
+		diffusemap			models/characters/marine_heads/sledgeeye_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/strassaeye_local.tga, heightmap ( models/characters/marine_heads/strassaeye_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/strassaeye_s.tga
+}
+
+models/characters/marine_heads/anderson
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/anderson_local.tga work/models/characters/marines_heads/andersonhi2.lwo
+
+		diffusemap			models/characters/marine_heads/anderson_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/anderson_local.tga, heightmap ( models/characters/marine_heads/anderson_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/anderson_s.tga
+}
+
+models/characters/marine_heads/anderson_mp
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/anderson_local.tga work/models/characters/marines_heads/andersonhi2.lwo
+
+		diffusemap			models/characters/marine_heads/anderson_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/anderson_local.tga, heightmap ( models/characters/marine_heads/anderson_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/anderson_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine_heads/morris
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/morris_local.tga work/models/characters/marines_heads/blackheadhi.lwo
+
+		diffusemap			models/characters/marine_heads/morris_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/morris_local.tga, heightmap ( models/characters/marine_heads/morris_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/morris_s.tga
+}
+
+models/characters/marine_heads/morris_mp
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/morris_local.tga work/models/characters/marines_heads/blackheadhi.lwo
+
+		diffusemap			models/characters/marine_heads/morris_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/morris_local.tga, heightmap ( models/characters/marine_heads/morris_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/morris_s.tga
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine_heads/bidwell
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2 -mergehigh models/characters/marine_heads/bidwell_local.tga work/models/characters/marines_heads/bidwell_hi.lwo
+
+		diffusemap			models/characters/marine_heads/bidwell_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/bidwell_local.tga, heightmap ( models/characters/marine_heads/bidwell_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/bidwell_s.tga
+}
+
+models/characters/marine_heads/bidwell_mp
+{
+    noSelfShadow
+    unSmoothedTangents
+	materialType flesh
+	
+
+	renderbump  -size 512 512 -trace 0.03 -aa 2 -mergehigh models/characters/marine_heads/bidwell_local.tga work/models/characters/marines_heads/bidwell_hi.lwo
+
+		diffusemap			models/characters/marine_heads/bidwell_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/bidwell_local.tga, heightmap ( models/characters/marine_heads/bidwell_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/bidwell_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+
+models/characters/marine_heads/harper
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/harper_local.tga work/models/characters/marines_heads/harper_hi.lwo
+
+		diffusemap			models/characters/marine_heads/harper_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/harper_local.tga, heightmap ( models/characters/marine_heads/harper_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/harper_s.tga
+}
+
+models/characters/marine_heads/harper_mp
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/harper_local.tga work/models/characters/marines_heads/harper_hi.lwo
+
+		diffusemap			models/characters/marine_heads/harper_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/harper_local.tga, heightmap ( models/characters/marine_heads/harper_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/harper_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine_heads/cortez2
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/cortez2_local.tga work/models/characters/marines_heads/cortez2_hi.lwo
+
+		diffusemap			models/characters/marine_heads/cortez2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/cortez2_local.tga, heightmap ( models/characters/marine_heads/cortez2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/cortez2_s.tga
+}
+
+models/characters/marine_heads/cortez2_mp
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/cortez2_local.tga work/models/characters/marines_heads/cortez2_hi.lwo
+
+		diffusemap			models/characters/marine_heads/cortez2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/cortez2_local.tga, heightmap ( models/characters/marine_heads/cortez2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/cortez2_s.tga
+	
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+
+models/characters/marine_heads/dchair_lo
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hair.tga
+	}
+}
+
+
+
+models/characters/marine_heads/hhair_lo
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hair.tga
+	}
+
+}
+
+models/characters/marine_heads/hhair_lo_mp
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hair.tga
+	}
+//		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+
+
+}
+
+models/characters/marine_heads/ltvoss
+{
+    noSelfShadow
+//  unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 1024 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/ltvoss_local.tga work/models/characters/marines_heads/ltvoss_hi.lwo
+
+		diffusemap			models/characters/marine_heads/ltvoss_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/ltvoss_local.tga, heightmap ( models/characters/marine_heads/ltvoss_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/ltvoss_s.tga
+}
+
+models/characters/marine_heads/ltvoss_mp
+{
+    noSelfShadow
+//  unSmoothedTangents
+	materialType flesh
+
+	renderbump  -size 1024 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/ltvoss_local.tga work/models/characters/marines_heads/ltvoss_hi.lwo
+
+		diffusemap			models/characters/marine_heads/ltvoss_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/ltvoss_local.tga, heightmap ( models/characters/marine_heads/ltvoss_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/ltvoss_s.tga
+
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+
+
+models/characters/marine_heads/rhodes
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/rhodes_local.tga work/models/characters/marines_heads/ventsargehi.lwo
+
+		diffusemap			models/characters/marine_heads/rhodes_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/rhodes_local.tga, heightmap ( models/characters/marine_heads/rhodes_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/rhodes_s.tga
+}
+
+models/characters/marine_heads/vshair_lo
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine/hair.tga
+	}
+}
+
+models/characters/marine_heads/strassa2
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/strassa2_local.tga work/models/characters/marines_heads/strassa2_hi.lwo
+
+		diffusemap			models/characters/marine_heads/strassa2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/strassa2_local.tga, heightmap ( models/characters/marine_heads/strassa2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/strassa2_s.tga
+}
+
+
+models/characters/marine_heads/strassa2_mp
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/strassa2_local.tga work/models/characters/marines_heads/strassa2_hi.lwo
+
+		diffusemap			models/characters/marine_heads/strassa2_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/strassa2_local.tga, heightmap ( models/characters/marine_heads/strassa2_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/strassa2_s.tga
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+
+models/characters/marine_heads/strausshair
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine_heads/strausshair.tga
+	}
+
+}
+
+
+models/characters/marine_heads/strausshair_mp
+{
+	translucent
+	twosided
+	nonsolid
+	noimpact
+	noshadows
+
+	{
+		blend FILTER
+		map models/characters/marine_heads/strausshair.tga
+	}
+
+//inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+models/characters/marine_heads/strassaeye
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/strassaeye_local.tga work/models/djordje/MarineHeads/head_Johann_Strassa/head_strassa_HI.lwo
+
+		diffusemap			models/characters/marine_heads/strassaeye_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/strassaeye_local.tga, heightmap ( models/characters/marine_heads/strassaeye_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/strassaeye_s.tga
+
+}
+
+models/characters/marine_heads/strassaeye_mp
+{
+    unSmoothedTangents
+	materialType flesh
+    noSelfShadow
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/characters/marine_heads/strassaeye_local.tga work/models/djordje/MarineHeads/head_Johann_Strassa/head_strassa_HI.lwo
+
+		diffusemap			models/characters/marine_heads/strassaeye_d.tga
+		bumpmap	addnormals ( models/characters/marine_heads/strassaeye_local.tga, heightmap ( models/characters/marine_heads/strassaeye_h.tga, 2 ))
+		specularmap			models/characters/marine_heads/strassaeye_s.tga
+		inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+
+}
+
+
+
+//body piles---------------------------------------------------------------------
+
+models/characters/bodies_parts/piles/bp_b_lo
+{
+        noSelfShadow
+        nonSolid
+	
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/characters/bodies_parts/piles/bp_b_lo_local.tga work/models/characters/bodies_parts/piles/bp_b_hi.lwo
+	
+	materialImage	models/characters/bodies_parts/piles/bp_b_lo_hit.tga
+
+	bumpmap addnormals (models/characters/bodies_parts/piles/bp_b_lo_local.tga, heightmap (models/characters/bodies_parts/piles/bp_b_lo_h.tga,3))
+	{       
+		blend		diffusemap 
+		map			models/characters/bodies_parts/piles/bp_b_lo_d.tga
+		alphaTest	.5
+	}
+	specularmap		models/characters/bodies_parts/piles/bp_b_lo_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/characters/bodies_parts/piles/bp_c_lo
+{
+        noSelfShadow
+        nonSolid
+	
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/characters/bodies_parts/piles/bp_c_lo_local.tga work/models/characters/bodies_parts/piles/bp_c_hi.lwo
+
+	materialImage	models/characters/bodies_parts/piles/bp_c_lo_hit.tga
+	
+	bumpmap addnormals (models/characters/bodies_parts/piles/bp_c_lo_local.tga, heightmap (models/characters/bodies_parts/piles/bp_c_lo_h.tga,3))
+	{       
+		blend		diffusemap 
+		map			models/characters/bodies_parts/piles/bp_c_lo_d.tga
+		alphaTest	.5
+	}
+	specularmap		models/characters/bodies_parts/piles/bp_c_lo_s.tga
+}
+
+// Start hurtbody-------------------------------------------------------------------------------------
+
+
+models/characters/marine/hurtbody_lo
+{
+      unSmoothedTangents
+      materialType flesh
+      noSelfShadow
+            
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2  models/characters/marine/hurtbody_lo_local.tga work/models/characters/marines/medmarine_hi.lwo
+
+		diffusemap	models/characters/marine/hurtbody_lo_d.tga
+		bumpmap	addnormals ( models/characters/marine/hurtbody_lo_local.tga, heightmap ( models/characters/marine/hurtbody_lo_h.tga, 2 ))
+		specularmap	models/characters/marine/hurtbody_lo_s.tga
+	
+}
+
+models/characters/marine/hurtbody_lo_d
+{
+      unSmoothedTangents
+      materialType flesh
+      noSelfShadow
+            
+	renderbump  -size 1024 1024 -trace 0.05 -aa 2  models/characters/marine/hurtbody_lo_d_local.tga work/models/characters/marine/medmarine_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/medmarine_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/medmarine_local.tga, heightmap ( models/characters/marine/medmarine_h.tga, 2 ))
+		specularmap	downsize( models/characters/marine/medmarine_s.tga, 1 )
+	
+}
+
+models/characters/marine/hurtbody2_lo
+{
+      unSmoothedTangents
+      materialType flesh
+      noSelfShadow
+            
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2  models/characters/marine/hurtbody_lo_local.tga work/models/characters/marines/hurtbody_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/medmarine_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/medmarine_local.tga, heightmap ( models/characters/marine/medmarine_h.tga, 2 ))
+		specularmap	downsize( models/characters/marine/medmarine_s.tga, 1 )
+	
+}
+
+models/characters/marine/hurtmarineeye
+{
+	unSmoothedTangents
+	noselfshadow
+
+	  renderbump  -size 128 128 -trace 0.09 -aa 2  models/characters/marine/marine_eye1_local.tga models/characters/marine/ripped/eye_hi.lwo
+
+		diffusemap	models/characters/marine/hurtmarineeye_d.tga
+		bumpmap		models/characters/marine/eye_local.tga
+		specularmap	models/characters/marine/eye_s.tga
+}
+
+models/characters/marine/hurtmarineeye_mp
+{
+	unSmoothedTangents
+	noselfshadow
+
+	  renderbump  -size 128 128 -trace 0.09 -aa 2  models/characters/marine/marine_eye1_local.tga models/characters/marine/ripped/eye_hi.lwo
+
+		diffusemap	models/characters/marine/hurtmarineeye_d.tga
+		bumpmap		models/characters/marine/eye_local.tga
+		specularmap	models/characters/marine/eye_s.tga
+		
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc_sm.tga)
+}
+
+models/characters/marine/deadeye
+{
+
+	unSmoothedTangents
+	noSelfShadow
+	nonSolid
+
+	  renderbump  -size 128 128 -trace 0.09 -aa 2  models/characters/marine/marine_eye1_local.tga models/characters/marine/ripped/eye_hi.lwo
+
+		diffusemap	models/characters/marine/deadeye_d.tga
+		bumpmap		models/characters/marine/eye_local.tga
+		specularmap	models/characters/marine/eye_s.tga
+
+	
+
+}
+models/characters/marine/hurtbody_c
+{
+      unSmoothedTangents
+      materialType flesh
+      noSelfShadow
+            
+	renderbump  -size 512 512 -trace 0.04 -aa 2  models/characters/marine/hurtbody_c_local.tga work/models/characters/marine/hurtbody_hi.lwo
+
+		diffusemap	models/characters/marine/hurtbody_c_d.tga
+		bumpmap	addnormals ( models/characters/marine/hurtbody_c_local.tga, heightmap ( models/characters/marine/hurtbody_c_h.tga, 2 ))
+		specularmap	models/characters/marine/hurtbody_c_s.tga
+
+}
+
+// Start npc doctor-------------------------------------------------------------------------------------
+
+models/characters/doctor/doctor_npc_lo
+{
+	  noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+        renderbump  -size 1024 1024 -trace 0.05 -aa 2 -MergeHigh models/characters/doctor/doctor_npc_lo_local.tga work/models/characters/doctor/doctor_npc_hi.lwo
+
+		diffusemap	models/characters/doctor/doctor_npc_lo_d.tga
+		bumpmap	addnormals ( models/characters/doctor/doctor_npc_lo_local.tga, heightmap ( models/characters/doctor/doctor_npc_lo_h.tga, 2 ))
+		specularmap	models/characters/doctor/doctor_npc_lo_s.tga
+	
+}
+
+models/characters/doctor/decal_doctor
+{
+	qer_editorimage models/characters/doctor/decal_doctor.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/doctor/decal_doctor.tga
+	}
+}
+
+
+// new inview arms -----------------------------------------------------------------------------------------------
+
+models/characters/marine/inview_arms
+{
+	 noSelfShadow
+     unSmoothedTangents
+     materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -MergeHigh models/characters/marine/inview_arms_local.tga work/models/characters/inview_arms/armgloved_hi.lwo
+	{
+		blend	diffuseMap
+		map models/characters/marine/inview_arms_d.tga
+		nomips
+	}
+	{
+		blend		bumpMap	
+		map addnormals ( models/characters/marine/inview_arms_local.tga, heightmap ( models/characters/marine/inview_arms_h.tga, 2 ))
+		nomips
+	}
+	{
+		blend specularMap	
+		map models/characters/marine/inview_arms_s.tga
+		nomips
+	}
+}
+
+//new inview arms strogg-----------------------------------------------------------------------------------------------
+
+models/characters/marine/inview_arms_strogg
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2 -MergeHigh models/characters/marine/inview_arms_strogg_local.tga work/models/characters/inview_arms/inviewarmstrogg.lwo
+	{
+		blend diffuseMap 	
+		map models/characters/marine/inview_arms_strogg_d.tga
+		nomips
+	}
+	{
+		blend	bumpMap
+		map 	addnormals ( models/characters/marine/inview_arms_strogg_local.tga, heightmap ( models/characters/marine/inview_arms_strogg_h.tga, 2 ))
+		nomips
+	}
+	{
+		blend	specularMap
+		map	models/characters/marine/inview_arms_strogg_s.tga
+		nomips
+	}
+}
+
+// helmet -----------------------------------------------------------------------------------------------
+
+models/characters/marine/helmet
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType armor
+
+	renderbump  -size 512 512 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/helmet_low_local.tga work/models/characters/marines_heads/helmet_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/helmet_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/helmet_local.tga, heightmap ( models/characters/marine/helmet_h.tga, 2 ))
+		specularmap	downsize( models/characters/marine/helmet_s.tga, 1 )
+
+	{	
+		maskcolor				
+	    map	makealpha(models/characters/marine/helmet_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+}
+
+
+
+models/characters/marine/helmet_mp
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType armor
+
+	renderbump  -size 512 512 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/helmet_low_local.tga work/models/characters/marines_heads/helmet_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/helmet_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/helmet_local.tga, heightmap ( models/characters/marine/helmet_h.tga, 2 ))
+		specularmap	downsize( models/characters/marine/helmet_s.tga, 1 )
+
+	{	
+		maskcolor				
+	    map	makealpha(models/characters/marine/helmet_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	inlineGuide corpseBurnEffect(models/monsters/corpseburneffect_sm.tga)
+}
+
+models/characters/marine/helmet2
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType armor
+
+	renderbump  -size 512 512 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/helmet_low_local.tga work/models/characters/marines_heads/helmet_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/helmet_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/helmet_local.tga, heightmap ( models/characters/marine/helmet_h.tga, 2 ))
+		specularmap	downsize( models/characters/marine/helmet_s.tga, 1 )
+
+	{	
+		maskcolor				
+	    map	makealpha(models/characters/marine/helmet_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+}
+
+models/characters/marine/helmetdecal
+{
+	qer_editorimage models/characters/marine/helmetdecal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/helmetdecal.tga
+	}
+}
+
+
+models/characters/marine/m_helmet
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 512 512 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/m_helmet_low_local.tga work/models/characters/marines_heads/helmet_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/m_helmet_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/m_helmet_local.tga, heightmap ( models/characters/marine/m_helmet_h.tga, 2 ))
+		specularmap	 downsize( models/characters/marine/m_helmet_s.tga, 1 )
+
+	{	
+		maskcolor				
+	    map	makealpha(models/characters/marine/m_helmet_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+}
+
+models/characters/marine/t_helmet
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 512 512 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/m_helmet_low_local.tga work/models/characters/marines_heads/helmet_hi.lwo
+
+		diffusemap	downsize( models/characters/marine/t_helmet_d.tga, 1 )
+		bumpmap	addnormals ( models/characters/marine/m_helmet_local.tga, heightmap ( models/characters/marine/t_helmet_h.tga, 2 ))
+		specularmap	downsize( models/characters/marine/t_helmet_s.tga, 1 )
+
+	{	
+		maskcolor				
+	    map	makealpha(models/characters/marine/t_helmet_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+}
+
+// fatigues -----------------------------------------------------------------------------------------------
+
+models/characters/marine/fatigues
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 512 256 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_local.tga work/models/characters/marine/Fatigues_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues_local.tga, heightmap ( models/characters/marine/fatigues_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues_s.tga
+	
+}
+
+models/characters/marine/fatigues2
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_local.tga work/models/characters/marine/Fatigues_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues2_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues_local.tga, heightmap ( models/characters/marine/fatigues_h.tga, 4 ))
+		specularmap	models/characters/marine/fatigues_s.tga
+	
+}
+
+models/characters/marine/fatigues3
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 512 256 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_local.tga work/models/characters/marine/Fatigues_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues3_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues_local.tga, heightmap ( models/characters/marine/fatigues_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues_s.tga
+	
+}
+
+models/characters/marine/fatigues5
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/fatigues5_local.tga work/models/characters/marine/Fatigues5_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues5_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_local.tga, heightmap ( models/characters/marine/fatigues5_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_s.tga
+}
+
+
+models/characters/marine/fatigues5_mp
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/fatigues5_local.tga work/models/characters/marine/Fatigues5_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues5_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_local.tga, heightmap ( models/characters/marine/fatigues5_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_s.tga
+	
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine/fatigues6
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/fatigues5_local.tga work/models/characters/marine/Fatigues5_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues6_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_local.tga, heightmap ( models/characters/marine/fatigues5_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_s.tga
+	
+}
+
+models/characters/marine/fatigues7
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2 -MergeHigh models/characters/marine/fatigues5_local.tga work/models/characters/marine/Fatigues5_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues7_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_local.tga, heightmap ( models/characters/marine/fatigues5_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_s.tga
+	
+}
+
+models/characters/marine/fatiguesdecal
+{
+	qer_editorimage models/characters/marine/fatiguesdecal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/fatiguesdecal.tga
+	}
+}
+
+models/characters/marine/fatiguesdecal2
+{
+	qer_editorimage models/characters/marine/fatiguesdecal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/fatiguesdecal2.tga
+	}
+}
+
+models/characters/marine/fatiguesdecal3
+{
+	qer_editorimage models/characters/marine/fatiguesdecal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/fatiguesdecal3.tga
+	}
+}
+
+models/characters/marine/fatiguesdecal5
+{
+	qer_editorimage models/characters/marine/fatiguesdecal5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/fatiguesdecal5.tga
+	}
+}
+
+models/characters/marine/fatiguesdecal6
+{
+	qer_editorimage models/characters/marine/fatiguesdecal5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/fatiguesdecal6.tga
+	}
+}
+
+models/characters/marine/fatiguesdecal7
+{
+	qer_editorimage models/characters/marine/fatiguesdecal5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/fatiguesdecal7.tga
+	}
+}
+
+models/characters/marine/fatigues_arms
+{
+	noSelfShadow
+	unSmoothedTangents
+    	materialType flesh
+
+	renderbump  -size 512 1024 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_arms_local.tga work/models/characters/marine/fatigues2_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues_arms_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues_arms_local.tga, heightmap ( models/characters/marine/fatigues_arms_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues_arms_s.tga
+	
+}
+
+models/characters/marine/fatigues5_arms
+{
+	noSelfShadow
+	unSmoothedTangents
+    	materialType flesh
+
+	renderbump  -size 512 1024 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_arms_local.tga work/models/characters/marine/fatigues2_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues5_arms_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_arms_local.tga, heightmap ( models/characters/marine/fatigues5_arms_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_arms_s.tga
+	
+}
+
+models/characters/marine/fatigues5_arms_mp
+{
+	noSelfShadow
+	unSmoothedTangents
+    	materialType flesh
+
+	renderbump  -size 512 1024 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_arms_local.tga work/models/characters/marine/fatigues2_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues5_armsb_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_arms_local.tga, heightmap ( models/characters/marine/fatigues5_arms_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_armsb_s.tga
+			inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine/fatigues5_armsb
+{
+	noSelfShadow
+	unSmoothedTangents
+    	materialType flesh
+
+	renderbump  -size 512 1024 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_arms_local.tga work/models/characters/marine/fatigues2_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues5_armsb_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues5_arms_local.tga, heightmap ( models/characters/marine/fatigues5_arms_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues5_armsb_s.tga
+	
+}
+
+models/characters/marine/fatigues_arms2
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+
+	renderbump  -size 256 128 -trace 0.03 -aa 2 -MergeHigh models/characters/marine/fatigues_arms_local.tga work/models/characters/marine/fatigues2_hi.lwo
+
+		diffusemap	models/characters/marine/fatigues_arms2_d.tga
+		bumpmap	addnormals ( models/characters/marine/fatigues_arms_local.tga, heightmap ( models/characters/marine/fatigues_arms_h.tga, 2 ))
+		specularmap	models/characters/marine/fatigues_arms2_s.tga
+	
+}
+
+/////////////////////////////////////TUBE MARINE////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+
+models/tube_marine/tm_arms_base
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 256 512 -trace 0.03 -aa 2  models/characters/tube_marine/tm_arms_base_local.tga work/models/characters/tube_marine/tm_hipoly.lwo
+
+
+
+        	diffusemap	 models/characters/tube_marine/tm_arms_base_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_arms_base_local.tga, heightmap(models/characters/tube_marine/tm_arms_base_h.tga, 2 ) )
+          	specularmap	 models/characters/tube_marine/tm_arms_base_s.tga
+}
+
+
+models/tube_marine/tm_body_base
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 512 1024 -trace 0.05 -aa 2  models/characters/tube_marine/tm_body_base_local.tga work/models/characters/tube_marine/tm_hipoly.lwo
+
+
+
+        	diffusemap	 models/characters/tube_marine/tm_body_base_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_body_base_local.tga, heightmap(models/characters/tube_marine/tm_body_base_h.tga, 2 ) )
+          	specularmap	 models/characters/tube_marine/tm_body_base_s.tga
+}
+
+models/tube_marine/tm_head_base
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 512 512 -trace 0.05 -aa 2  models/characters/tube_marine/tm_head_base_local.tga work/models/characters/tube_marine/tm_hipoly.lwo
+
+
+
+        	diffusemap	 models/characters/tube_marine/tm_head_base_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_head_base_local.tga, heightmap(models/characters/tube_marine/tm_head_base_h.tga, 2 ) )
+          	specularmap	 models/characters/tube_marine/tm_head_base_s.tga
+}
+
+models/tube_marine/tm_teeth_base
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+	renderbump  -size 128 128 -trace 0.07 -aa 2  models/characters/tube_marine/tm_teeth_base_local.tga work/models/characters/tube_marine/tm_hipoly_teeth.lwo
+
+
+
+        	diffusemap	 models/characters/tube_marine/tm_teeth_base_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_teeth_base_local.tga, heightmap(models/characters/tube_marine/tm_teeth_base_h.tga, 2 ) )
+          	specularmap	 models/characters/tube_marine/tm_teeth_base_s.tga
+}  
+
+// tube marine eyes
+
+models/tube_marine/tm_eye_right
+{
+	translucent
+	noselfshadow
+//	deform	eyeBall
+
+	{
+		blend filter
+		map models/characters/tube_marine/tm_eye_base_d.tga
+		centerScale	0.6, 0.6	
+	}	
+
+}
+
+models/tube_marine/tm_eye_left
+{
+	translucent
+	noshadows
+//	deform	eyeBall
+
+	{
+		blend filter
+		map models/characters/tube_marine/tm_eye_base_d.tga
+		centerScale	0.6, 0.6	
+	}	
+
+}
+
+// tube marine bruised
+
+
+models/characters/tube_marine/tm_arms_base_bruised
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh       
+
+
+
+        	diffusemap	 models/characters/tube_marine/tm_arms_base_bruised_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_arms_base_bruised_local.tga, heightmap(models/characters/tube_marine/tm_arms_base_bruised_h.tga, 4 ) )
+          	specularmap	 models/characters/tube_marine/tm_arms_base_bruised_s.tga
+}
+
+
+models/characters/tube_marine/tm_body_base_bruised
+{
+      
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+
+        	diffusemap	 models/characters/tube_marine/tm_body_base_bruised_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_body_base_bruised_local.tga, heightmap(models/characters/tube_marine/tm_body_base_bruised_h.tga, 4 ) )
+          	specularmap	 models/characters/tube_marine/tm_body_base_bruised_s.tga
+}
+
+models/characters/tube_marine/tm_head_base_bruised
+{
+        
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh
+
+        	diffusemap	 models/characters/tube_marine/tm_head_base_bruised_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_head_base_bruised_local.tga, heightmap(models/characters/tube_marine/tm_head_base_bruised_h.tga, 4 ) )
+          	specularmap	 models/characters/tube_marine/tm_head_base_bruised_s.tga
+}
+
+models/characters/tube_marine/tm_teeth_base_b
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh        
+
+
+        	diffusemap	 models/characters/tube_marine/tm_teeth_base_b_d.tga
+ 		bumpmap addnormals(models/characters/tube_marine/tm_teeth_base_local.tga, heightmap(models/characters/tube_marine/tm_teeth_base_b_h.tga, 2 ) )
+          	specularmap	 models/characters/tube_marine/tm_teeth_base_b_s.tga
+}  
+
+// tube marine eyes
+
+models/characters/tube_marine/tm_eye_right_bruised
+{
+	translucent
+	noselfshadow
+//	deform	eyeBall
+
+	{
+		blend filter
+		map models/characters/tube_marine/tm_eye_base_bruised_d.tga
+		centerScale	0.6, 0.6	
+	}	
+
+}
+
+models/characters/tube_marine/tm_eye_left_bruised
+{
+	translucent
+	noselfshadow
+//	deform	eyeBall
+
+	{
+		blend filter
+		map models/characters/tube_marine/tm_eye_base_bruised_d.tga
+		centerScale	0.6, 0.6	
+	}	
+
+}
+
+// tube marine dead
+
+
+models/characters/marine_officer/officer2
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh      
+
+         renderbump  -size 1024 1024 -trace 0.02 -aa 2 -mergehigh models/characters/marine_officer/officer2_local.tga work/models/characters/marine/officer2_hi.lwo
+
+        	diffusemap	 models/characters/marine_officer/officer2_d.tga
+ 		bumpmap addnormals(models/characters/marine_officer/officer2_local.tga, heightmap(models/characters/marine_officer/officer2_h.tga, 2 ) )
+          	specularmap	 models/characters/marine_officer/officer2_s.tga
+}
+
+models/characters/marine_officer/officer2_mp
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh      
+
+         renderbump  -size 1024 1024 -trace 0.02 -aa 2 -mergehigh models/characters/marine_officer/officer2_local.tga work/models/characters/marine/officer2_hi.lwo
+
+       	diffusemap	 models/characters/marine_officer/officer2_d.tga
+ 		bumpmap 	addnormals(models/characters/marine_officer/officer2_local.tga, heightmap(models/characters/marine_officer/officer2_h.tga, 2 ) )
+        specularMap	 models/characters/marine_officer/officer2_s.tga
+
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+}
+
+models/characters/marine_officer/officer2_blaster
+{
+      noSelfShadow
+      unSmoothedTangents
+      materialType flesh      
+
+         renderbump  -size 1024 1024 -trace 0.02 -aa 2 -mergehigh models/characters/marine_officer/officer2_local.tga work/models/characters/marine/officer2_hi.lwo
+
+        	diffusemap	 models/characters/marine_officer/officer2_d.tga
+ 		bumpmap addnormals(models/characters/marine_officer/officer2_local.tga, heightmap(models/characters/marine_officer/officer2_h.tga, 2 ) )
+          	specularmap	 models/characters/marine_officer/officer2_s.tga
+}
+
+models/characters/marine/backpack_decal_1
+{
+	qer_editorimage models/characters/marine/backpack_decal_1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/backpack_decal_1.tga
+	}
+
+}
+models/characters/marine/backpack_decal_2
+{
+	qer_editorimage models/characters/marine/backpack_decal_2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine/backpack_decal_2.tga
+	}
+
+}
+models/characters/marine_officer/generaldecal
+{
+	qer_editorimage models/characters/marine_officer/generaldecal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/characters/marine_officer/generaldecal.tga
+	}
+}
+
+
+models/characters/choppable_marine/tactical_leg/tac_choppedleg
+{
+	unSmoothedTangents
+	materialType monstermetal 
+	noSelfShadow
+            
+	renderbump  -size 256 256 -trace 0.05 -aa 2  models/characters/choppable_marine/tactical_leg/tac_choppedleg_local.tga work/models/characters/choppable_marine/tactical_leg/tac_choppedleg_high.lwo
+
+		diffusemap	models/characters/choppable_marine/tactical_leg/tac_choppedleg_d.tga
+		bumpmap	addnormals ( models/characters/choppable_marine/tactical_leg/tac_choppedleg_local.tga, heightmap ( models/characters/choppable_marine/tactical_leg/tac_choppedleg_h.tga, 2 ))
+		specularmap	models/characters/choppable_marine/tactical_leg/tac_choppedleg_s.tga
+		
+		{
+		blend add
+		map models/characters/choppable_marine/tactical_leg/tac_choppedleg_glow.tga
+	    }
+		
+		
+	
+}
+
+//Intro Cinematic Dead Head------------------------------------------------------------------------------------------------------------------------
+models/cinematics/intro/dh
+{
+ 		noselfShadow
+      //unSmoothedTangents
+      materialType flesh      
+
+         renderbump  -size 1024 512 -trace 0.08 -aa 2 -mergehigh models/cinematics/intro/dh_local.tga work/models/cinematics/game_intro/dh_hi.lwo
+
+        	diffusemap	 models/cinematics/intro/dh_d.tga
+ 		bumpmap addnormals(models/cinematics/intro/dh_local.tga, heightmap(models/cinematics/intro/dh_h.tga, 4 ) )
+          	specularmap	 models/cinematics/intro/dh_s.tga
+}
+
+//kane_strogg-----------------------------------------------------------------------------------------------------------------
+models/characters/kane_strogg/kane_stroggified_body
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 1024 1024 -trace 0.05 -aa 1 -mergehigh models/characters/kane_strogg/kane_stroggified_body_local.tga work/models/characters/kane_strogg/kane_stroggified_body_high.lwo
+	materialImage	models/characters/kane_strogg/kane_stroggified_body_hit.tga
+		
+	diffusemap	downsize( models/characters/kane_strogg/kane_stroggified_body_d.tga, 1 )
+	
+	bumpmap	addnormals ( models/characters/kane_strogg/kane_stroggified_body_local.tga, heightmap ( models/characters/kane_strogg/kane_stroggified_body_h.tga, 4 ))
+	specularmap	downsize( models/characters/kane_strogg/kane_stroggified_body_s.tga, 1 )
+	
+	
+	{ 	blend add
+		map models/characters/kane_strogg/kane_stroggified_body_glow.tga
+	}
+	
+}
+
+models/characters/kane_strogg/kane_stroggified_body_mp
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 1024 1024 -trace 0.05 -aa 1 -mergehigh models/characters/kane_strogg/kane_stroggified_body_local.tga work/models/characters/kane_strogg/kane_stroggified_body_high.lwo
+	materialImage	models/characters/kane_strogg/kane_stroggified_body_hit.tga
+		
+	diffusemap	downsize( models/characters/kane_strogg/kane_stroggified_body_d.tga, 1 )
+	
+	bumpmap	addnormals ( models/characters/kane_strogg/kane_stroggified_body_local.tga, heightmap ( models/characters/kane_strogg/kane_stroggified_body_h.tga, 4 ))
+	specularmap	downsize( models/characters/kane_strogg/kane_stroggified_body_s.tga, 1 )
+	
+	
+	{ 	blend add
+		map models/characters/kane_strogg/kane_stroggified_body_glow.tga
+	}
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)	
+}
+
+///////////////////////////////////////////////////////////////////
+/////////kane strogg tactical multi player variations//////////////
+///////////////////////////////////////////////////////////////////
+
+models/characters/kane_strogg/tactical_elite
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 1024 1024 -trace 0.05 -aa 1 -mergehigh models/characters/kane_strogg/kane_stroggified_body_local.tga work/models/characters/kane_strogg/kane_stroggified_body_high.lwo
+	materialImage	models/characters/kane_strogg/kane_stroggified_body_hit.tga
+		
+	diffusemap	downsize( models/characters/kane_strogg/tactical_elite_d.tga, 1 )
+	
+
+	bumpmap	addnormals ( models/characters/kane_strogg/kane_stroggified_body_local.tga, heightmap ( models/characters/kane_strogg/tactical_elite_h.tga, 4 ))
+	specularmap	downsize( models/characters/kane_strogg/tactical_elite_s.tga, 1 )
+	
+	
+	{ 	blend add
+		map models/characters/kane_strogg/kane_stroggified_body_glow.tga
+	}
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+models/characters/kane_strogg/tactical_command
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 1024 1024 -trace 0.05 -aa 1 -mergehigh models/characters/kane_strogg/kane_stroggified_body_local.tga work/models/characters/kane_strogg/kane_stroggified_body_high.lwo
+	materialImage	models/characters/kane_strogg/kane_stroggified_body_hit.tga
+		
+	diffusemap	downsize( models/characters/kane_strogg/tactical_command_d.tga, 1 )
+	
+
+	bumpmap	addnormals ( models/characters/kane_strogg/kane_stroggified_body_local.tga, heightmap ( models/characters/kane_strogg/tactical_elite_h.tga, 4 ))
+	specularmap	downsize( models/characters/kane_strogg/tactical_command_s.tga, 1 )
+
+	
+	{ 	blend add
+		map models/characters/kane_strogg/kane_stroggified_body_glow.tga
+	}
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+//kane_strogg--2048--for box art-------------------------------------------------------------------------------------------------------------
+//models/characters/kane_strogg/kane_stroggified_body_2048
+//{
+//    noselfshadow
+//    unsmoothedtangents
+//	renderbump  -size 2048 2048 -trace 0.05 -aa 1 -mergehigh models/characters/kane_strogg/kane_stroggified_body_2048_local.tga work/models/characters/kane_strogg/kane_stroggified_body_high2.lwo
+//	materialImage	models/characters/kane_strogg/stroggified_body_2048_hit.tga
+		
+//	diffusemap	downsize( models/characters/kane_strogg/kane_stroggified_body_d.tga, 1 )
+//	diffusemap	models/characters/kane_strogg/kane_stroggified_body_2048_d.tga
+
+//	bumpmap	addnormals ( models/characters/kane_strogg/kane_stroggified_body_2048_local.tga, heightmap ( models/characters/kane_strogg/kane_stroggified_body_2048_h.tga, 4 ))
+//	specularmap	downsize( models/characters/kane_strogg/kane_stroggified_body_s.tga, 1 )
+//	specularmap	models/characters/kane_strogg/kane_stroggified_body_2048_s.tga
+	
+//	{ 	blend add
+//		map models/characters/kane_strogg/kane_stroggified_body_2048_glow.tga
+//	}
+//}
+
+//----------------------------------
+//  mp skin test
+//----------------------------------
+
+models/characters/marine/bodymarine_mp
+{
+	noSelfShadow
+    unSmoothedTangents
+    materialType flesh
+      
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/characters/marine/body_local.tga work/models/characters/marines/nmbody_hi.lwo
+
+	diffusemap	models/characters/marine/mpmarine_d.tga
+	bumpmap	addnormals ( models/characters/marine/body_local.tga, heightmap ( models/characters/marine/body_h.tga, 2 ))
+	specularmap	models/characters/marine/mpmarine_s.tga
+	
+	inlineGuide corpseBurnEffect(models/monsters/burnout.tga)
+
+}

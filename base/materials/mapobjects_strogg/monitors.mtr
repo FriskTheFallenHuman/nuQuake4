@@ -1,0 +1,524 @@
+models/mapobjects/strogg/monitors/medium/med_screen
+
+{
+      noselfShadow
+//check path	renderbump  -size 256 512 -trace .2 -aa 1  models/mapobjects/strogg/screens/monitor_optimize2_local.tga models/mapobjects/strogg/screens/monitor_hi.lwo
+
+ 
+        bumpmap addnormals      (models/mapobjects/strogg/monitors/medium/med_screen_local.tga, heightmap (models/mapobjects/strogg/monitors/medium/med_screen_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/monitors/medium/med_screen_d.tga
+	specularmap		models/mapobjects/strogg/monitors/medium/med_screen_s.tga
+}
+
+//added 2 .skin files-----------------------------------------------------------------------------------
+
+models/mapobjects/strogg/monitors/medium/med_screen_a
+
+{
+      noSelfShadow
+ 
+        bumpmap addnormals      (models/mapobjects/strogg/monitors/medium/med_screen_local.tga, heightmap (models/mapobjects/strogg/monitors/medium/med_screen_a_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/monitors/medium/med_screen_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/medium/med_screen_a_s.tga
+}
+
+models/mapobjects/strogg/monitors/medium/med_screen_b
+
+{
+      noSelfShadow
+ 
+        bumpmap addnormals      (models/mapobjects/strogg/monitors/medium/med_screen_local.tga, heightmap (models/mapobjects/strogg/monitors/medium/med_screen_b_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/monitors/medium/med_screen_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/medium/med_screen_b_s.tga
+}
+//-------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/monitors/medium/med_screen_stretch
+{
+      noselfShadow
+//check path	renderbump  -size 256 512 -aa 2 -trace .05 models/mapobjects/strogg/monitors/med_monitor2_local.tga work/models/mapobjects/strogg/monitors/med_monitor2_hi.lwo
+ 
+        bumpmap 	models/mapobjects/strogg/monitors/medium/med_screen_stretch_local.tga
+	diffusemap		models/mapobjects/strogg/monitors/medium/med_screen_stretch_d.tga
+	specularmap		models/mapobjects/strogg/monitors/medium/med_screen_stretch_s.tga
+}
+
+//-------------this is for the strogg monitor screen pieces
+
+
+models/mapobjects/strogg/monitors/gui_array/bottom_arm
+{
+      noselfShadow
+
+//check path	renderbump  -size 512 512 -aa 1 -trace .07 models/mapobjects/strogg/screens/parts/screens1_bottom_arm_local.tga models/mapobjects/strogg/screens/parts/screens1_bottom_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_s.tga
+	
+}
+
+models/mapobjects/strogg/monitors/gui_array/bottom_arm_a
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_a_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_s.tga
+}
+
+models/mapobjects/strogg/monitors/gui_array/bottom_arm_b
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_b_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_s.tga
+}
+
+
+models/mapobjects/strogg/monitors/gui_array/bottom_monitor
+{
+      noselfShadow
+
+//check path	renderbump  -size 512 512 -aa 1  models/mapobjects/strogg/screens/parts/screens1_bottom_monitor_local.tga models/mapobjects/strogg/screens/parts/screens1_bottom_monitor_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_s.tga
+
+}
+
+
+models/mapobjects/strogg/monitors/gui_array/bottom_monitor_a
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_a_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_s.tga
+}
+
+
+models/mapobjects/strogg/monitors/gui_array/bottom_monitor_b
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_b_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_s.tga
+}
+
+
+
+models/mapobjects/strogg/monitors/gui_array/central_arm
+{
+      noselfShadow
+
+//check path	renderbump  -size 512 512 -aa 1  models/mapobjects/strogg/screens/parts/screens1_central_arm_local.tga models/mapobjects/strogg/screens/parts/screens1_central_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_s.tga
+
+}
+
+
+models/mapobjects/strogg/monitors/gui_array/central_arm_a
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_a_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_s.tga
+}
+
+models/mapobjects/strogg/monitors/gui_array/central_arm_b
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_b_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_s.tga
+}
+
+models/mapobjects/strogg/monitors/gui_array/left_monitor_arm
+{
+      noselfShadow
+
+//check pa	renderbump  -size 512 512 -aa 1  models/mapobjects/strogg/screens/parts/screens1_left_monitor_arm_local.tga models/mapobjects/strogg/screens/parts/screens1_left_monitor_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_s.tga
+}
+//adding 2 .skin materilas------------------------------------------------------------------
+
+models/mapobjects/strogg/monitors/gui_array/left_monitor_arm_a
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_a_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_s.tga
+}
+
+models/mapobjects/strogg/monitors/gui_array/left_monitor_arm_b
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_b_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_s.tga
+}
+
+//--------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/monitors/gui_array/right_monitor_arm
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_s.tga
+}
+
+//adding 2 .skin file materials-------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/monitors/gui_array/right_monitor_arm_a
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_a_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_a_s.tga
+}
+
+
+models/mapobjects/strogg/monitors/gui_array/right_monitor_arm_b
+{
+      noselfShadow
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/gui_array/array_comp_local.tga, heightmap (models/mapobjects/strogg/monitors/gui_array/array_comp_b_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/gui_array/array_comp_b_s.tga
+}
+
+
+//-----------------------------------------------------------------------------------------------
+
+//monitor and frame for the mediamonitor01----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/box_screen
+{
+		noselfShadow
+		unsmoothedtangents
+
+//chack path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/terminal/media_room/mediamonitor_1_local.tga models/mapobjects/strogg/terminal/media_room/mediamonitor_1_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/box_screen_local.tga, heightmap (models/mapobjects/strogg/monitors/media/box_screen_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/box_screen_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/box_screen_s.tga
+
+}
+
+//monitor and frame for the mediamonitor02 4 rendering pieces----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/flat_frame
+{
+      	noselfShadow
+		unsmoothedtangents
+
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/mediamonitor_2_local.tga models/mapobjects/strogg/screens/mediamonitor_2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/flat_frame_local.tga, heightmap (models/mapobjects/strogg/monitors/media/flat_frame_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/flat_frame_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/flat_frame_s.tga
+
+}
+
+
+//monitor and frame for the mediamonitor03----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/3_screen
+{
+      	noselfShadow
+		unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/mediamonitor_3_local.tga models/mapobjects/strogg/screens/mediamonitor_3_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/3_screen_local.tga, heightmap (models/mapobjects/strogg/monitors/media/3_screen_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/3_screen_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/3_screen_s.tga
+
+}
+
+//small_monitor_b for the large_media_monitor----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/small_b
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/small_monitor_b_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/small_monitor_b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/small_b_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/small_b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/small_b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/small_b_s.tga
+
+}
+
+//small_monitor_a for the large_media_monitor----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/small_a
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/small_monitor_a_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/small_monitor_a_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/small_a_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/small_a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/small_a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/small_a_s.tga
+
+}
+
+//armmonitor_large for the large_media_monitor----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/armscreen_large
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/armmonitor_large_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/armmonitor_large_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/armscreen_large_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/armscreen_large_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/armscreen_large_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/armscreen_large_s.tga
+
+}
+
+//armmonitor_small for the large_media_monitor----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/armscreen_small
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check screen	renderbump  -size 128 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/armmonitor_small_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/armmonitor_small_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/armscreen_small_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/armscreen_small_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/armscreen_small_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/armscreen_small_s.tga
+	
+}
+
+//main_screen for the large_media_monitor----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/screen
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/main_screen_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/main_screen_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/screen_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/screen_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/screen_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/screen_s.tga
+
+}
+
+//main_frame for the large_media_monitor----------------------------------------------------
+/*
+models/mapobjects/strogg/screens/large_media_monitor/main_frame_lo
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/main_frame_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/main_frame_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/screens/large_media_monitor/main_frame_lo_local.tga, heightmap (models/mapobjects/strogg/screens/large_media_monitor/main_frame_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/screens/large_media_monitor/main_frame_lo_d.tga
+	specularmap		models/mapobjects/strogg/screens/large_media_monitor/main_frame_lo_s.tga
+
+}
+*/
+//main_frame2 for the large_media_monitor plus 2 skin files----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/frame_2
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/main_frame_lo2_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/main_frame_hi2.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/frame_2_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/frame_2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/frame_2_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/frame_2_s.tga
+
+}
+
+models/mapobjects/strogg/monitors/media/main/frame_2a
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/frame_2_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/frame_2a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/frame_2a_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/frame_2a_s.tga
+
+}
+
+
+models/mapobjects/strogg/monitors/media/main/frame_2b
+{
+	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/frame_2_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/frame_2b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/frame_2b_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/frame_2b_s.tga
+
+}
+//main_frame_base for the large_media_monitor----------------------------------------------------
+
+models/mapobjects/strogg/monitors/media/main/frame_base
+{
+	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/screens/large_media_monitor/main_frame_base_lo_local.tga work/models/mapobjects/strogg/screens/large_media_monitor/main_frame_base_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/media/main/frame_base_local.tga, heightmap (models/mapobjects/strogg/monitors/media/main/frame_base_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/media/main/frame_base_d.tga
+	specularmap		models/mapobjects/strogg/monitors/media/main/frame_base_s.tga
+
+	{       
+      	 blend	diffuseMap 
+	 map	models/mapobjects/strogg/monitors/media/main/frame_base_d.tga
+	 alphaTest .5
+
+	}
+}
+
+
+// message bar----------------------------------------------------
+
+models/mapobjects/strogg/monitors/message_bar/bar
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+//checkpath	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/screens/message_bar/message_bar_local.tga work/models/mapobjects/strogg/screens/message_bar/message_bar_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/message_bar/bar_local.tga, heightmap (models/mapobjects/strogg/monitors/message_bar/bar_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/message_bar/bar_d.tga
+	specularmap		models/mapobjects/strogg/monitors/message_bar/bar_s.tga
+
+}
+
+// message bar arm ----------------------------------------------------
+
+models/mapobjects/strogg/monitors/message_bar/arm
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/screens/message_bar/message_bar_arm_local.tga work/models/mapobjects/strogg/screens/message_bar/message_bar_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/message_bar/arm_local.tga, heightmap (models/mapobjects/strogg/monitors/message_bar/arm_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/message_bar/arm_d.tga
+	specularmap		models/mapobjects/strogg/monitors/message_bar/arm_s.tga
+
+}
+
+// message bar2----------------------------------------------------
+
+models/mapobjects/strogg/monitors/message_bar/bar2
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/monitors/message_bar/bar3_hit
+	
+
+//checkpath	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/screens/message_bar/message_bar_local.tga work/models/mapobjects/strogg/screens/message_bar/message_bar_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/message_bar/bar_local.tga, heightmap (models/mapobjects/strogg/monitors/message_bar/bar2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/message_bar/bar2_d.tga
+	specularmap		models/mapobjects/strogg/monitors/message_bar/bar2_s.tga
+
+}
+
+// message bar arm2 ----------------------------------------------------
+
+models/mapobjects/strogg/monitors/message_bar/arm2
+{
+      	noselfShadow
+	unSmoothedTangents
+	
+	
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/screens/message_bar/message_bar_arm_local.tga work/models/mapobjects/strogg/screens/message_bar/message_bar_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/message_bar/arm_local.tga, heightmap (models/mapobjects/strogg/monitors/message_bar/arm2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/message_bar/arm2_d.tga
+	specularmap		models/mapobjects/strogg/monitors/message_bar/arm2_s.tga
+
+}
+
+// message bar3----------------------------------------------------
+
+models/mapobjects/strogg/monitors/message_bar/bar3
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/monitors/message_bar/bar3_hit
+	
+
+//checkpath	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/screens/message_bar/message_bar_local.tga work/models/mapobjects/strogg/screens/message_bar/message_bar_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/message_bar/bar_local.tga, heightmap (models/mapobjects/strogg/monitors/message_bar/bar3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/message_bar/bar3_d.tga
+	specularmap		models/mapobjects/strogg/monitors/message_bar/bar3_s.tga
+
+}
+
+// message bar arm3 ----------------------------------------------------
+
+models/mapobjects/strogg/monitors/message_bar/arm3
+{
+      	noselfShadow
+	unSmoothedTangents
+	
+	
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/screens/message_bar/message_bar_arm_local.tga work/models/mapobjects/strogg/screens/message_bar/message_bar_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/message_bar/arm_local.tga, heightmap (models/mapobjects/strogg/monitors/message_bar/arm3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/message_bar/arm3_d.tga
+	specularmap		models/mapobjects/strogg/monitors/message_bar/arm3_s.tga
+
+}
+
+//-------------this is a stationary, single monitor for the Strogg
+
+models/mapobjects/strogg/monitors/small/flat_01
+{
+      noselfShadow
+//check path	renderbump  -size 128 128 -aa 2 -MergeHigh  models/mapobjects/strogg/screens/monitor_01_local.tga models/mapobjects/strogg/screens/monitor_01_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/small/flat_01_local.tga, heightmap (models/mapobjects/strogg/monitors/small/flat_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/monitors/small/flat_01_d.tga
+	specularmap		models/mapobjects/strogg/monitors/small/flat_01_s.tga
+
+}
+models/mapobjects/strogg/monitors/Kev_gui/GUI_monitor03_lo
+{
+      noselfShadow
+
+	renderbump  -size 256 512 -aa 2 -trace .07 -MergeHigh models/mapobjects/strogg/monitors/Kev_gui/GUI_monitor03_lo_local.tga work/models/kevin/GUI_monitor03_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/monitors/Kev_gui/GUI_monitor03_lo_local.tga, heightmap (models/mapobjects/strogg/monitors/Kev_gui/GUI_monitor03_lo_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/monitors/Kev_gui/GUI_monitor03_lo_d.tga
+	specularmap		models/mapobjects/strogg/monitors/Kev_gui/GUI_monitor03_lo_s.tga
+}

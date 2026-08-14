@@ -1,0 +1,961 @@
+
+
+/***********************************************************************
+
+ moveable objects
+
+***********************************************************************/
+
+entityDef moveable_base {
+	"editor_color"						"0 .5 .8"
+	"editor_mins"						"?"
+	"editor_maxs"						"?"
+	"editor_rotatable"					"1"
+
+	"editor_usage2"						"Moveable object. Will drop to the floor and rest untill activated."
+	"editor_usage3"						"The visual model set with the 'model' key can also be used for"
+	"editor_usage4"						"collision detection. However the model may not be too complex."
+	"editor_usage5"						"max vertices = 32"
+	"editor_usage6"						"max edges = 32"
+	"editor_usage7"						"max polygons = 16"
+	"editor_usage8"						"max edges per polygon = 16"
+	"editor_usage9"						"The collision model must be an enclosed hull. Dangling polygons or"
+	"editor_usage10"					"edges are not allowed. If the visual model is too complex or does"
+	"editor_usage11"					"not meet these requirements it can be contained in a less complex"
+	"editor_usage12"					"model for collision detection. Such a collision model is specified with the"
+	"editor_usage13"					"'clipmodel' key."
+								
+	"editor_var density"				"Volume of the object times the density is the mass."
+	"editor_var friction"				"Friction with contacting surfaces in the range [0-1] where 0 is no friction."
+	"editor_var bouncyness"				"How much the object bounces in the range [0-1] where 0 is no bounce."
+ 	"editor_var mass"					"Mass of the object (overrides density)."
+	"editor_model clipmodel"			"Model to be used for collision detection."
+	"editor_var clipshrink"				"Shrink the visual model with an epsilon and use it as a clip model."
+ 	"editor_var allowStep"				"Set to 0 to prevent monsters from ever walking over this object."
+ 	"editor_var nonsolid"				"Make the object non-solid."
+	"editor_bool nodrop"				"Do not drop to the floor."
+	"editor_bool noimpact"				"Do not activate by the impact of other objects."
+	"editor_bool notpushable"			"Do not allow to be pushed."
+	"editor_bool unbindondeath"			"Unbind entity when health drops down to or below zero."
+	"editor_var health"					"If set the visual model changes to 'broken' when the health drops down to or below zero."
+	"editor_model broken"				"Visual model to be used when the health drops down to or below zero."
+	"editor_bool explode"				"If set to 1 the moveable explodes and is removed when the health drops down to or below zero."
+	"editor_var init_velocity"			"Initial linear velocity set when activated."
+	"editor_var init_avelocity"			"Initial angular velocity set when activated."
+	"editor_var init_velocityDelay"		"Delay in seconds before the initial linear velocity is set after being activated."
+	"editor_var init_avelocityDelay"	"Delay in seconds before the initial angular velocity is set after being activated."
+ 	"editor_var initialSplineTime"		"Number of milliseconds the moveable should follow the initial spline path."
+	"editor_var def_damage"				"Damage definition if it damages things it collides with"
+	"editor_var damageWhenActive"		"Only damage when active ( currently for the vagary and influence stuff )"
+ 	"editor_var fx_collide"				"FX system to start at impact position when object collides."
+
+	"spawnclass"						"idMoveable"
+
+	"density"							"0.5"
+	"friction"							"0.05"
+	"bouncyness"						"0.6"
+	"explode"							"0"
+	"unbindondeath"						"0"
+	"health"							"0"
+	"nodrop"							"0"
+	"noimpact"							"0"
+	"notPushable"						"0"
+	"clipshrink"						"0"
+	"allowStep"							"1"
+// RAVEN BEGIN
+// zquarles: changed sound
+	"snd_bounce"						"generic_box_fall"
+// RAVEN END
+}
+
+entityDef moveable_base_brick {
+	"inherit"					"moveable_base"
+	"density"					"0.05"
+	"friction"					"0.2"
+	"bouncyness"				"0"
+	"snd_bounce"				"generic_rock_impact_small"
+}
+
+entityDef moveable_base_domino {
+	"inherit"					"moveable_base"
+	"density"					"0.005"
+	"friction"					"0.6"
+	"bouncyness"				"0.2"
+}
+
+entityDef moveable_base_barrel {
+	"inherit"					"moveable_base"
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+
+	"editor_usage"				"Moveable barrel. Works just like a moveable_base. However the barrel"
+	"editor_usage1"				"has special handling to make it appear more round."
+
+	"spawnclass"				"idBarrel"
+
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+	"snd_bounce"				"generic_barrel_impact_quiet"
+}
+
+entityDef moveable_base_fixed {
+	"inherit"					"moveable_base"
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+}
+
+entityDef moveable_explodingbarrel {
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+
+	"editor_usage"					"Moveable barrel. Works just like a func_moveable. However the barrel"
+	"editor_usage1"					"has special handling to make it appear more round. This version also explodes when damaged enough."
+	"editor_usage2"					"Only add model, model_detonate or model_burn or health to override defaults"
+	"editor_var burn"				"number of seconds to burn before exploding."
+	"editor_model model_damage"		"model to leave as damaged base"
+	"editor_model model_detonate"	"ips model to switch to for explosion."
+	"editor_model model_burn"		"ips model to show when on fire."
+	"editor_var def_debris"			"add as many as you like, debris1, debris2, etc.. "
+	"editor_var health"				"how much health the barrel has, default is 5. If burn is set to 1, the health is effectively doubled so you have to kill it twice to get the explosion"
+	"editor_var respawn"			"if non zero the number of seconds to respawn after killed"
+	"editor_var triggerOnRespawn"	"if set to no zero will trigger targets this many seconds after being killed"
+	"editor_mat mtr_lightExplode"	"light shader to use for explosion"
+	"editor_mat mtr_lightBurn"		"light shader to use for burning"
+	
+	"spawnclass"				"idExplodingBarrel"
+
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+	
+
+// RAVEN BEGIN
+// bdube: our own assets
+	"health"					"25"
+	"model"						"models/mapobjects/strogg/barrels/medium1_low.lwo"
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_a"
+	
+	"snd_bounce"				"generic_barrel_impact_quiet"
+	
+	"fx_explode"				"effects/moveables/barrel/explode.fx"
+	"fx_burn"					"effects/moveables/barrel/burn.fx"		
+// RAVEN END
+}
+
+entityDef moveable_burningbarrel {
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+
+	"editor_usage"					"Moveable barrel. Works just like a func_moveable. However the barrel"
+	"editor_usage1"					"has special handling to make it appear more round. This version also explodes when damaged enough."
+	"editor_usage2"					"Only add model, model_detonate or model_burn or health to override defaults"
+	"editor_var burn"				"number of seconds to burn before exploding."
+	"editor_model model_detonate"	"ips model to switch to for explosion."
+	"editor_model model_burn"		"ips model to show when on fire."
+	"editor_var health"				"how much health the barrel has, default is 5. If burn is set to 1, the health is effectively doubled so you have to kill it twice to get the explosion"
+	"editor_var respawn"			"if non zero the number of seconds to respawn after killed"
+	"editor_var triggerOnRespawn"	"if set to no zero will trigger targets this many seconds after being killed"
+	
+	"spawnclass"				"idExplodingBarrel"
+
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+	"debris_count"				"6"
+	"def_debris"				"projectile_debris"
+	"def_shrapnel"				"projectile_shrapnel"
+	"model"						"models/mapobjects/fuel_barrel/exp_barrel.lwo"
+	"model_detonate"			"barrelexplosion.ips"
+	"model_burn"				"barrelfire.ips"
+	"skin"						"skins/exp_barrel_blue"
+	"burn"						"5"
+	"health"					"15"
+	"snd_explode"				"player_rocketlauncher_explode2"
+	
+	"snd_bounce"				"generic_barrel_impact_quiet"
+}
+
+entityDef moveable_explodingtank {
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"-8 -8 0"
+	"editor_maxs"				"8 8 48"
+
+	"editor_usage"					"Moveable tbarrel. Works just like a func_moveable. However the barrel"
+	"editor_usage1"					"has special handling to make it appear more round. This version also explodes when damaged enough."
+	"editor_usage2"					"Only add model, model_detonate or model_burn or health to override defaults"
+	"editor_var burn"				"number of seconds to burn before exploding."
+	"editor_model model_detonate"	"ips model to switch to for explosion."
+	"editor_model model_burn"		"ips model to show when on fire."
+	"editor_var health"				"how much health the barrel has, default is 5. If burn is set to 1, the health is effectively doubled so you have to kill it twice to get the explosion"
+	"editor_var respawn"			"if non zero the number of seconds to respawn after killed"
+	"editor_var triggerOnRespawn"	"if set to no zero will trigger targets this many seconds after being killed"
+	
+	"spawnclass"				"idExplodingBarrel"
+
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+	"debris_count"				"6"
+	"def_debris"				"projectile_debris"
+	"def_shrapnel"				"projectile_shrapnel"
+	"model"						"models/mapobjects/washroom/airtank.lwo"
+	"model_detonate"			"tankexplosion.ips"
+	"health"					"25"
+	"snd_explode"				"player_rocketlauncher_explode2"
+	
+	"snd_bounce"				"generic_barrel_impact_quiet"
+	
+}
+
+entityDef moveable_burningtank {
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"-8 -8 0"
+	"editor_maxs"				"8 8 48"
+
+	"editor_usage"					"Moveable barrel. Works just like a func_moveable. However the barrel"
+	"editor_usage1"					"has special handling to make it appear more round. This version also explodes when damaged enough."
+	"editor_usage2"					"Only add model, model_detonate or model_burn or health to override defaults"
+	"editor_var burn"				"number of seconds to burn before exploding."
+	"editor_model model_detonate"	"ips model to switch to for explosion."
+	"editor_model model_burn"		"ips model to show when on fire."
+	"editor_var health"				"how much health the barrel has, default is 5. If burn is set to 1, the health is effectively doubled so you have to kill it twice to get the explosion"
+	"editor_var respawn"			"if non zero the number of seconds to respawn after killed"
+	"editor_var triggerOnRespawn"	"if set to no zero will trigger targets this many seconds after being killed"
+	
+	"spawnclass"				"idExplodingBarrel"
+
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+	"debris_count"				"6"
+	"def_debris"				"projectile_debris"
+	"def_shrapnel"				"projectile_shrapnel"
+	"model"						"models/mapobjects/washroom/airtank.lwo"
+	"model_detonate"			"tankexplosion.ips"
+	"model_burn"				"tankfire.ips"
+	"skin"						"skins/airtank_grey"
+	"burn"						"5"
+	"health"					"15"
+	"snd_explode"				"player_rocketlauncher_explode2"
+	
+	"snd_bounce"				"generic_barrel_impact_quiet"
+}
+
+//------------------------------------------------------------------------------
+//								Barrel
+//------------------------------------------------------------------------------
+
+entityDef moveable_barrel_medium1a {
+	"inherit"					"moveable_base_barrel"
+	"model"						"models\mapobjects\strogg\barrels\medium1_low.lwo"
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+}
+
+entityDef moveable_barrel_medium1b {
+	"inherit"					"moveable_barrel_medium1a"
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_a"
+}
+
+entityDef moveable_barrel_medium1c {
+	"inherit"					"moveable_barrel_medium1a"
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_b"
+}
+
+entityDef moveable_barrel_medium1d {
+	"inherit"					"moveable_barrel_medium1a"
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_c"
+}
+
+entityDef moveable_barrel_medium2a {
+	"inherit"					"moveable_base_barrel"
+	"model"						"models\mapobjects\strogg\barrels\medium2_low.lwo"
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+}
+
+entityDef moveable_barrel_medium2b {
+	"inherit"					"moveable_barrel_medium1a"
+	"skin"						"skins/mapobjects/strogg/barrels/medium2_a"
+}
+
+entityDef moveable_barrel_medium2c {
+	"inherit"					"moveable_barrel_medium1a"
+	"skin"						"skins/mapobjects/strogg/barrels/medium2_b"
+}
+
+entityDef moveable_barrel_medium2d {
+	"inherit"					"moveable_barrel_medium1a"
+	"skin"						"skins/mapobjects/strogg/barrels/medium2_c"
+}
+
+entityDef moveable_barrel_stroyenta {
+	"inherit"					"moveable_base_barrel"
+	"model"						"models\mapobjects\strogg\barrels\stroyent_barrel_clip.lwo"
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+}
+
+entityDef moveable_barrel_stroyentb {
+	"inherit"					"moveable_barrel_stroyenta"
+	"skin"						"skins/mapobjects/strogg/barrels/stroyent_b"
+}
+
+entityDef moveable_barrel_stroyentc {
+	"inherit"					"moveable_barrel_stroyenta"
+	"skin"						"skins/mapobjects/strogg/barrels/stroyent_c"
+}
+
+//------------------------------------------------------------------------------
+//								Crates
+//------------------------------------------------------------------------------
+
+entityDef moveable_crate1_small {
+	"inherit"					"moveable_base_fixed"
+	"model"						"models\mapobjects\strogg\crates\crate1_small.lwo"
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+entityDef moveable_crate1_medium {
+	"inherit"					"moveable_base_fixed"
+	"model"						"models\mapobjects\strogg\crates\crate1_medium.lwo"
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+entityDef moveable_crate1_tall {
+	"inherit"					"moveable_base_fixed"
+	"model"						"models\mapobjects\strogg\crates\crate1_tall.lwo"
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+entityDef moveable_crate_ammobox
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/marine/equipment/crates/ammobox.lwo"
+	"density"					"0.5"
+	"friction"					"0.05"
+	"bouncyness"				"0.1"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+entityDef moveable_crate_crate1
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/marine/equipment/crates/crate1.lwo"
+	"density"					"0.00005"
+	"friction"					"0.05"
+	"bouncyness"				"0.1"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+entityDef moveable_crate_crate3
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/marine/equipment/crates/crate3.lwo"
+	"density"					"0.00005"
+	"friction"					"0.05"
+	"bouncyness"				"0.1"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+entityDef moveable_metal_plate {
+	"inherit"					"moveable_base"
+
+	"density"					"0.003"
+	"friction"					"0.2"
+	"bouncyness"				"0.05"
+	
+	"snd_bounce"				"generic_small_metal_break"
+}
+
+entityDef moveable_metal_panel {
+	"inherit"					"moveable_base_fixed"
+	
+	"model"						"models\mapobjects\strogg\stroyent\floors\stroy_floor_03a.lwo"		
+
+	"density"					"0.003"
+	"friction"					"0.2"
+	"bouncyness"				"0.05"
+	
+	"snd_bounce"				"generic_small_metal_break"
+}
+
+entityDef moveable_metal_beam {
+	"inherit"					"moveable_base"
+	"clipshrink"					"1"
+	
+	"density"					"0.006"
+	"friction"					"0.5"
+	"bouncyness"				"0.00"
+	
+	"snd_bounce"				"generic_small_metal_break"
+}
+
+
+entityDef moveable_metal_beam2 {
+	"inherit"					"moveable_base"
+	"model"						"models\test\beam.lwo"
+	"clipshrink"					"1"
+	
+	"density"					"0.006"
+	"friction"					"0.5"
+	"bouncyness"				"0.00"
+	
+	"snd_bounce"				"generic_small_metal_break"
+}
+
+// RAVEN BEGIN
+// jshepard: more cool loots to toss around
+entityDef moveable_pallet
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/machines/pallet/pallet_1_64.lwo"
+	"density"					"0.01"
+	"friction"					"0.2"
+	"bouncyness"				"0.5"
+	
+	"snd_bounce"				"generic_box_fall"
+
+}
+
+entityDef moveable_pallet_96
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/machines/pallet/pallet_1_96.lwo"
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.4"
+	
+	"snd_bounce"				"generic_box_fall"
+
+}
+
+
+entityDef moveable_machine_1
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine1_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+
+entityDef moveable_machine_2
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine2_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+
+}
+
+
+entityDef moveable_machine_3
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine3_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+entityDef moveable_machine_4
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine4_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+entityDef moveable_machine_5
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine5_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+entityDef moveable_machine_6
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine6_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+entityDef moveable_machine_10
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine10_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+entityDef moveable_machine_11
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/machine11_low.lwo"
+	"density"					"0.002"
+	"friction"					"0.05"
+	"bouncyness"				"0.2"
+	
+}
+
+entityDef moveable_bonesaw
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/misc_equipment/bonesaw01_lo.lwo"
+	"density"					"0.8"
+	"friction"					"0.05"
+	"bouncyness"				"0.1"
+	
+	"snd_bounce"				"generic_helmet_fall"
+}
+
+/*=============================
+roof bits for guardian 		mrenner		
+=============================*/
+entityDef moveable_pod
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/terminal/roof/debris/dropPod.lwo"
+/*	"density"					"0.08"
+	"friction"					"0.05"
+	"bouncyness"				"0.5"
+*/
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+
+}
+entityDef moveable_podDoor_1
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/terminal/roof/debris/dropPodDoor1.lwo"
+/*	"density"					"0.08"
+	"friction"					"0.02"
+	"bouncyness"				"0.5"
+*/
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+}
+entityDef moveable_podDoor_1a
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/terminal/roof/debris/dropPodDoor1a.lwo"
+/*	"density"					"0.08"
+	"friction"					"0.02"
+	"bouncyness"				"0.5"
+*/
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+
+}
+entityDef moveable_podDoor_2
+{
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/terminal/roof/debris/dropPodDoor2.lwo"
+/*	"density"					"0.08"
+	"friction"					"0.02"
+	"bouncyness"				"0.5"
+*/
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+
+}
+entityDef moveable_machine_chunk1
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/terminal/roof/debris/machine_chunk1.lwo"
+/*	"density"					"0.08"
+	"friction"					"0.02"
+	"bouncyness"				"0.5"
+*/
+	"density"					"0.00001"
+	"friction"					"0.4"
+	"bouncyness"				"0.1"
+}
+entityDef moveable_machine_chunk2
+{
+	"inherit"					"moveable_base_fixed"
+	"model"						"models/mapobjects/strogg/terminal/roof/debris/machine_chunk2.lwo"
+/*	"density"					"0.08"
+	"friction"					"0.02"
+	"bouncyness"				"0.5"
+*/
+	"density"					"0.00001"
+	"friction"					"0.4"
+	"bouncyness"				"0.1"
+}
+
+
+//------------------------------------------------------------------------------
+//							Simple breakable objects
+//------------------------------------------------------------------------------
+
+entityDef moveable_breakable	{
+	"inherit"					"moveable_base"
+	"editor_menu"				"moveable_breakable"
+
+	"activateOnTrigger"			"1"
+
+	"def_stage1"				"moveable_stage_waitfordead"
+	"def_stage2"				"moveable_stage_break_begin"
+	"def_stage3"				"moveable_stage_break_finish"
+}
+
+entityDef moveable_stage_break_begin	{
+	"fx_explode"				"effects/smoke/ground_impact.fx"
+	"triggerTargets"			"1"
+	"unbindTargets"				"1"
+	"end_time"					".01"									// Duration the stage is active for
+}
+
+entityDef moveable_stage_break {
+	"fx_explode"				"effects/smoke/ground_impact.fx"
+	"triggerTargets"			"1"
+	"unbindTargets"				"1"
+	"remove"					"1"
+}
+
+entityDef moveable_stage_break_finish	{
+	"remove"					"1"
+	"radiusPush"				"10000"
+}
+
+entityDef moveable_stage_waitforimpact	{
+	"end_onGround"				"1"
+}
+
+entityDef moveable_stage_waitfortrigger	{
+	"end_time"					".01"
+}
+
+entityDef moveable_breakonimpact	{
+	"inherit"					"moveable_base"
+	"editor_menu"				"moveable_breakable"
+	"activateOnTrigger"			"1"
+
+	"def_stage1"				"moveable_stage_waitforimpact"
+	"def_stage2"				"moveable_stage_break_begin"
+	"def_stage3"				"moveable_stage_break_finish"
+
+}
+
+//------------------------------------------------------------------------------
+//								Exploding barrels
+//------------------------------------------------------------------------------
+/*
+entityDef moveable_explodingbarrel_raven
+{
+	"inherit"					"moveable_explodingbarrel"
+
+	"model"						"models/mapobjects/strogg/barrels/medium1_low.lwo"
+	"skin"						"skins/mapobjects/strogg/barrels/medium1_a"
+
+	"health"					"25"
+	
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"fx_burn"					"effects/moveables/barrel/burn.fx"
+
+//	"model_damage"				"models\mapobjects\strogg\barrels_and_containers\barrels\medium1_low.lwo"
+	
+
+//	"def_debris"				"debris_barreltop"
+//	"def_debris1"				"debris_barrelpiece"
+//	"def_debris2"				"debris_barrelpiece"
+//	"def_debris3"				"debris_barrelpiece"
+//	"model_detonate"			"barrelexplosion.ips"
+//	"mtr_lightexplode"			"lights/squarelight1"
+}
+*/
+
+//------------------------------------------------------------------------------
+//								Gibs
+//------------------------------------------------------------------------------
+
+entityDef moveable_gib_base {
+	"inherit"					"moveable_base"
+	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_menu"				"moveable_gib"
+
+	"density"					"0.58"
+	"friction"					"0.8"
+	"bouncyness"				"0.1"
+}
+
+entityDef moveable_gib_head_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/head_pork.lwo"
+}
+
+entityDef moveable_gib_torso_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/torso_pork.lwo"
+}
+
+entityDef moveable_gib_rup_arm_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/rup_arm_pork.lwo"
+}
+
+entityDef moveable_gib_left_waist_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/left_waist_pork.lwo"
+}
+
+entityDef moveable_gib_lup_leg_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/lup_leg_pork.lwo"
+}
+
+entityDef moveable_gib_rup_leg_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/rup_leg_pork.lwo"
+}
+
+entityDef moveable_gib_rup2_leg_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/rup2_leg_pork.lwo"
+}
+
+entityDef moveable_gib_pelvis_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/pelvis_pork.lwo"
+}
+
+entityDef moveable_gib_skull {
+	"inherit"					"moveable_gib_base"
+	"clipmodel"					"models/gibs/torso_pork.lwo"
+	"model"						"models/gibs/skull.lwo"
+								
+}
+
+//------------------------------------------------------------------------------
+//								Bigger gibs (scaled)
+//------------------------------------------------------------------------------
+
+entityDef moveable_gib_big_head_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_head_pork.lwo"
+}
+
+entityDef moveable_gib_big_torso_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_torso_pork.lwo"
+}
+
+entityDef moveable_gib_big_rup_arm_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_rup_arm_pork.lwo"
+}
+
+entityDef moveable_gib_big_left_waist_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_left_waist_pork.lwo"
+}
+
+entityDef moveable_gib_big_lup_leg_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_lup_leg_pork.lwo"
+}
+
+entityDef moveable_gib_big_rup_leg_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_rup_leg_pork.lwo"
+}
+
+entityDef moveable_gib_big_rup2_leg_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_rup2_leg_pork.lwo"
+}
+
+entityDef moveable_gib_big_pelvis_pork {
+	"inherit"					"moveable_gib_base"
+	"model"						"models/gibs/big_pelvis_pork.lwo"
+}
+
+//------------------------------------------------------------------------------
+//					Moveable Marine Objects
+//------------------------------------------------------------------------------
+
+entityDef moveable_marine_helmet
+{
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/marine/equipment/helmet_moveable.lwo"
+	"density"					"0.07"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+	
+	"snd_bounce"				"generic_helmet_fall"
+}
+
+entityDef moveable_marine_helmet_shot
+{
+	"inherit"					"moveable_marine_helmet"
+	"model"						"models/mapobjects/marine/equipment/helmet_moveable_shot.lwo"
+}
+
+entityDef moveable_marine_aircannister
+{
+	"inherit"					"moveable_base_barrel"
+	"model"						"models/mapobjects/marine/equipment/misc/reuse/aircannister.lwo"
+	"density"					"0.08"
+	"friction"					"0.1"
+	"bouncyness"				"0.2"
+	
+	"snd_bounce"				"generic_helmet_fall"
+}
+
+entityDef moveable_marine_binder4
+{
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/marine/equipment/misc/reuse/binder4.lwo"
+	"density"					"0.06"
+	"friction"					"0.1"
+	"bouncyness"				"0.075"
+	
+	"snd_bounce"				"generic_binder_fall"
+}
+
+entityDef moveable_marine_fireext
+{
+	"inherit"					"moveable_base_barrel"
+	"model"						"models/mapobjects/marine/equipment/misc/fireext.lwo"
+	"density"					"0.07"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+	
+	"snd_bounce"				"generic_helmet_fall"
+}
+
+
+
+
+
+//------------------------------------------------------------------------------
+//					Moveable Objects for convoy magnet
+//------------------------------------------------------------------------------
+
+entityDef moveable_convoy_bigjunk1 {
+	"inherit"					"moveable_base_fixed"
+	"model"						"models\mapobjects\strogg\convoy\magnetObjects\largejunk1.lwo"
+	"density"					"0.3"
+	"friction"					"0.7"
+	"bouncyness"					"0.2"
+	
+	"snd_bounce"				"generic_convoy_crate"
+}
+
+
+//------------------------------------------------------------------------------
+//					Moveable doors for medlabs
+//------------------------------------------------------------------------------
+
+entityDef moveable_door_l_medlabs {
+	"inherit"					"moveable_base_barrel"
+	"model"						"models/mapobjects/strogg/doors/generic/prison/door_left_not_hollow.lwo"
+	"density"					"0.00001"
+	"friction"					"0.2"
+	"bouncyness"				"0.2"
+}
+
+//------------------------------------------------------------------------------
+//					Moveable Object for convoy2b crane
+//------------------------------------------------------------------------------
+
+entityDef moveable_convoy_roadpanel {
+	"inherit"					"moveable_base_fixed"
+	"model"						"models\mapobjects\strogg\convoy\road_panel\moveable_road_panel.lwo"
+	"density"					"1.0"
+	"friction"					"0.9"
+	"bouncyness"					"0.001"
+	
+	"snd_bounce"				"generic_large_metal_break"
+	
+	"notPushable"					"1"
+}
+
+//------------------------------------------------------------------------------
+//					Moveable version of new barrel/crate
+//------------------------------------------------------------------------------
+
+entityDef moveable_crate_strogg3_64 {
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/crates/crate3_lo.lwo"
+	"density"					".3"
+	"friction"					".6"
+	"bouncyness"					"0.03"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+//------------------------------------------------------------------------------
+//				   	Moveable version of smaller new barrel/crate
+//------------------------------------------------------------------------------
+
+entityDef moveable_crate_strogg3_48 {
+	"inherit"					"moveable_crate_strogg3_64"
+	"model"						"models/mapobjects/strogg/crates/crate3_48.lwo"
+	"density"					".1"
+	"friction"					".3"
+	"bouncyness"					"0.05"
+	
+	"snd_bounce"				"generic_box_fall"
+}
+
+
+//------------------------------------------------------------------------------
+//					Moveable version of new pallet
+//------------------------------------------------------------------------------
+
+entityDef moveable_strogg_pallet_64 {
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/machines/pallet/pallet01_lo.lwo"
+	"density"					".5"
+	"friction"					".5"
+	"bouncyness"					"0.07"
+	
+	"snd_bounce"				"generic_box_fall"
+}

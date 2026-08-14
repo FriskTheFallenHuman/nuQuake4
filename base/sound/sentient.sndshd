@@ -1,0 +1,143 @@
+
+
+sound sentient_detected
+{
+	description	"Hybrid Entity Detected"
+
+	minDistance	196
+	maxDistance	1377
+	volumeDb	0
+
+	sound/strogg/sentient/detected
+	shakeData 0 afqwsxtrmihnqsonhfcbaabnrlhosmnjgihhddcbaaaaaccdjlgooqormrgilpkhgdba
+}
+
+
+sound sentient_processing
+{
+	description	"Request Processing - This is when the Gunner calls for reinforcements"
+
+	minDistance	157
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/strogg/sentient/processing
+	shakeData 0 aajvzxwywlighuyyxzxwurvmmffffeddccbbcfxvyzywzvrutonvyzvvspollrwqvnyvxuzpiihefcdccbbbbbaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound sentient_amplified
+{
+	description	"Main magnetic drive amplified"
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/amplified
+	shakeData 0 bccdqlvpjhigghhfhigegglosrwgdeddntpskghjieecbaaabdhilsnrssslojkeccbbbdemprpmmlnloqlebbbccjqsnogdcbcljkhcbghmpprtoimjigfccbcbbaaaaaaaaaaaaaa
+}
+
+
+sound sentient_flesh_entity_process
+{
+	description	"Flesh entity detected in Process..."
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/flesh_entity_process
+	shakeData 0 bffjrwzyuvzouqwpmhbbfryxpthjojfeiknokiiiefnjkdcfjrxjeddgssjeknwhedccdhksojjjmsmlpvwrffdcbbhkqpiiokhcflljjklhebberpwuwwvkigecbcbbaaabaaaaaaaabiovwtedmnwngghhjfchjiggjijgeheeecdcbhklkhgjkhiecdkruwvytofedcdgifdbbbaaaaaaaaaaaaaaa
+}
+
+
+sound sentient_flesh_entity_storage
+{
+	description	"Flesh entity detected in Storage..."
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/flesh_entity_storage
+	shakeData 0 aaeknvyyyxvnxswsrgccbfmxtmefhmjefhfjlmimjddjnpbbbegqzrjdbgsmgelmpkeeghhheacjjlllpuvsleddcbglyqqnlldceekjmllieddfkrxsqliedccbbbbbaaaaaaabfflvngcdhdbefikghecegggiijiigdefebgnkgggfedecbrvwyyxtnhccgjjgbbbaaaaaaaaa
+}
+
+
+sound sentient_full_alert
+{
+	description	"Core Building security set to full alert"
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/full_alert
+	shakeData 0 dlmyytyzyvtwukefyzwutsuszmlghhovnsqeegouwvwtsqogmkfccbabaaaabdiljnutqcbbghjmsrkkhhedcbaaaaaaaaahyzywtmnkjhfgghpnmkoturuomhbbcccbbaaaaaaaaaaaaaa
+}
+
+
+sound sentient_hybrid_entity
+{
+	description	"Hybrid entity detected.  Terminate."
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/hybrid_entity
+	shakeData 0 bgqyuvuuotztvzxxvpqodhtxvjjqnihkjmpuspjirwunizpwzzuzpgqyyyzspgdececdbbbdwwwpymqmuyxxmoqyzyyzyursvsledccffeedbbaaaaaaaaaaaa
+}
+
+
+sound sentient_severed
+{
+	description	"Teleportation connections...severed"
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/severed
+	shakeData 0 htuvnrwxngjnmpnoighkovzuplojkvuiddcfglymlwyrngijkmjgfhgffdfgheiccixxyqsffijlmmnuvwpvsmonffnvxvsprxwtvwsrwuhdcbbbbbabaaaadegkjnlqyyymmmjnolnmheccbbaaaaaaaaaaaaaaaa
+}
+
+
+sound sentient_tracking_hybrid
+{
+	description	"Tracking hybrid entity."
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/tracking_hybrid
+	shakeData 0 ejiptryyzyvilsxxwyqjmyrjjxzwxwxnesjppvvysujgjjfbcimurmllojegihiiihgfddcaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound sentient_unknown_entity
+{
+	description	"Unknown entity at supply elevator, dispatch."
+
+	minDistance	590
+	maxDistance	1181
+	volumeDb	0
+	omnidirectional
+
+	sound/ambience/core/sentient/unknown_entity
+	shakeData 0 grpxwxzqlffglswyxzsqmnhggoogcdttyrifijmkeefhggefdecbafsxqjghmmkiffcccflvuwyyxrsqrijdcdsuroqwnilxtrmfdfejjjjkihcbcaaaaaaaadfkmhhjhgkebpywzytzpnfdefggedeccbaaaaaaaaaaaaaaaaa
+}
+
+
+
+

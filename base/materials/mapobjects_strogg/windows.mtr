@@ -1,0 +1,226 @@
+//--------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/windows/prison/96window
+{
+	noselfshadow
+	unsmoothedTangents
+
+	renderbump  -size 512 512 -aa 2 -unweld -overlap 0 models/mapobjects/strogg/windows/prison/96window_local.tga models/mapobjects/strogg/windows/prison/96window_hi.lwo
+
+	diffuseMap			models/mapobjects/strogg/windows/prison/96window_d.tga
+	bumpmap addnormals 	(models/mapobjects/strogg/windows/prison/96window_local.tga, heightmap (models/mapobjects/strogg/windows/prison/96window_h.tga,1))
+	specularmap			models/mapobjects/strogg/windows/prison/96window_s.tga
+
+}
+
+//.skin file--------------------------------------------
+
+models/mapobjects/strogg/windows/prison/96window2
+{
+	noselfshadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/windows/prison/96window2_hit
+
+
+	diffuseMap			models/mapobjects/strogg/windows/prison/96window2_d.tga
+	bumpmap addnormals 	(models/mapobjects/strogg/windows/prison/96window_local.tga, heightmap (models/mapobjects/strogg/windows/prison/96window2_h.tga,1))
+	specularmap			models/mapobjects/strogg/windows/prison/96window2_s.tga
+
+}
+//.skin file 2--------------------------------------------
+models/mapobjects/strogg/windows/prison/96window_medlabs
+{
+	noselfshadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/windows/prison/96window_medlabs_hit
+
+
+	diffuseMap			models/mapobjects/strogg/windows/prison/96window_medlabs_d.tga
+	bumpmap addnormals 	(models/mapobjects/strogg/windows/prison/96window_local.tga, heightmap (models/mapobjects/strogg/windows/prison/96window_medlabs_h.tga,1))
+	specularmap			models/mapobjects/strogg/windows/prison/96window_medlabs_s.tga
+
+}
+
+
+//---------------------------- END Prison 96window -------------------
+
+
+// terminal long window ----------------------------------------------------
+
+
+models/mapobjects/strogg/windows/terminal/exterior_wide
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/terminal/windows/exterior_window_01_local.tga models/mapobjects/strogg/terminal/windows/exterior_window_01_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/exterior_wide_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/exterior_wide_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/exterior_wide_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/exterior_wide_s.tga
+
+}
+
+
+//-------------this is a Strogg external window-----------------------------
+
+models/mapobjects/strogg/windows/terminal/exterior
+{
+      noselfShadow
+
+//check path	renderbump  -size 256 512 -aa 2 -trace .07 -MergeHigh -colormap models/mapobjects/strogg/terminal/ext_window_local.tga models/mapobjects/strogg/terminal/window_exterior_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/exterior_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/exterior_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/exterior_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/exterior_s.tga
+
+}
+
+// terminal window window 3 pieces----------------------------------------------------
+
+
+
+models/mapobjects/strogg/windows/terminal/frame_small
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/windows/window_frame_small_local.tga models/mapobjects/strogg/terminal/windows/window_frame_small_hi.lwo
+
+	bumpmap			addnormals (models/mapobjects/strogg/windows/terminal/frame_small_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/frame_small_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/frame_small_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/frame_small_s.tga
+
+}
+
+
+models/mapobjects/strogg/windows/terminal/frame_small_corner
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/windows/window_frame_small_corner_local.tga models/mapobjects/strogg/terminal/windows/window_frame_small_corner_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/frame_small_corner_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/frame_small_corner_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/frame_small_corner_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/frame_small_corner_s.tga
+
+}
+
+
+models/mapobjects/strogg/windows/terminal/frame_wide
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/windows/window_frame_wide_local.tga models/mapobjects/strogg/terminal/windows/window_frame_wide_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/frame_wide_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/frame_wide_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/frame_wide_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/frame_wide_s.tga
+
+}
+
+//core skin file entries
+models/mapobjects/strogg/windows/terminal/frame_small_core
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/windows/terminal/window_frame_small_core_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/frame_small_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/frame_small_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/frame_small_core_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/frame_small_core_s.tga
+
+}
+
+
+models/mapobjects/strogg/windows/terminal/frame_small_corner_core
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/windows/terminal/window_frame_small_corner_core_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/frame_small_corner_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/frame_small_corner_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/frame_small_corner_core_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/frame_small_corner_core_s.tga
+
+}
+
+
+models/mapobjects/strogg/windows/terminal/frame_wide_core
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/windows/terminal/window_frame_wide_core_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/windows/terminal/frame_wide_local.tga, heightmap (models/mapobjects/strogg/windows/terminal/frame_wide_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/terminal/frame_wide_core_d.tga
+	specularmap		models/mapobjects/strogg/windows/terminal/frame_wide_core_s.tga
+
+}
+
+//-------------this is a straight, standing window console with a light attached to it - created for Core
+
+models/mapobjects/strogg/windows/control/narrow_01
+{
+      noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -unweld models/mapobjects/strogg/windows/control_window_01_local.tga models/mapobjects/strogg/windows/control_window_01_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/control/narrow_01_local.tga, heightmap (models/mapobjects/strogg/windows/control/narrow_01_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/windows/control/narrow_01_d.tga
+	specularmap		models/mapobjects/strogg/windows/control/narrow_01_s.tga
+
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+//-------------this is a straight, standing window console without a light attached to it - created for Core
+
+models/mapobjects/strogg/windows/control/narrow_02
+{
+      noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -unweld models/mapobjects/strogg/windows/control_window_02_local.tga models/mapobjects/strogg/windows/control_window_02_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/control/narrow_02_local.tga, heightmap (models/mapobjects/strogg/windows/control/narrow_02_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/windows/control/narrow_02_d.tga
+	specularmap		models/mapobjects/strogg/windows/control/narrow_02_s.tga
+
+}
+
+
+models/mapobjects/strogg/windows/control/narrow_02_core
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/control/narrow_02_local.tga, heightmap (models/mapobjects/strogg/windows/control/narrow_02_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/windows/control/narrow_02_core_d.tga
+	specularmap		models/mapobjects/strogg/windows/control/narrow_02_core_s.tga
+
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+//-------------this is a curved, standing window console without a light attached to it - created for Core, attaches to the other control_window pieces
+
+models/mapobjects/strogg/windows/control/curved
+{
+      noselfShadow
+//	unsmoothedtangents
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -unweld models/mapobjects/strogg/windows/control_window/curvedc_local.tga models/mapobjects/strogg/windows/control_window_03_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/windows/control/curved_local.tga, heightmap (models/mapobjects/strogg/windows/control/curved_h.tga, 0))
+	diffusemap		models/mapobjects/strogg/windows/control/curved_d.tga
+	specularmap		models/mapobjects/strogg/windows/control/curved_s.tga
+
+}
+

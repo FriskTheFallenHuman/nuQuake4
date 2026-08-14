@@ -1,0 +1,1313 @@
+guide textures/medlabs/mdl_walltrim6 generic_shader("medlabs/mdl_walltrim6")
+guide textures/medlabs/mdl_walltrim2 generic_shader("medlabs/mdl_walltrim2")
+guide textures/medlabs/rpanel_3_p generic_shader( "medlabs/rpanel_3_p" )
+guide textures/medlabs/mdl_walltrim5 generic_shader("medlabs/mdl_walltrim5")
+guide textures/medlabs/med_miscpanel_02 generic_colorvariant( "medlabs/med_miscpanel_02", "medlabs/med_miscpanel_2" )
+guide textures/medlabs/mdl_pipes4 generic_shader("medlabs/mdl_pipes4")
+guide textures/medlabs/rpanel_2_p generic_shader( "medlabs/rpanel_2_p" )
+guide textures/medlabs/mdl_pipes1 generic_shader("medlabs/mdl_pipes1")
+
+
+guide textures/medlabs/wall1 generic_shader("medlabs/wall1")
+guide textures/medlabs/wall01_redo generic_shader("medlabs/wall01_redo")
+guide textures/medlabs/conv_model_tiles2 generic_shader("medlabs/conv_model_tiles2")
+guide textures/medlabs/blue_wall generic_shader( "medlabs/blue_wall" )
+guide textures/medlabs/cap_lg generic_shader( "medlabs/cap_lg" )
+guide textures/medlabs/greymetal generic_shader( "medlabs/greymetal" )
+guide textures/medlabs/greymetal2 generic_colorvariant( "medlabs/greymetal2", "medlabs/greymetal" )
+guide textures/medlabs/roof_track_p generic_shader( "medlabs/roof_track_p" )
+guide textures/medlabs/elevator_floor generic_shader("medlabs/elevator_floor")
+
+textures/medlabs/elevator_trim1
+{
+	qer_editorimage textures/medlabs/elevator_trim1_d.tga
+
+	bumpmap addnormals	( textures/medlabs/elevator_trim1_local.tga, heightmap ( textures/medlabs/elevator_trim1_h.tga, 3 ) )
+	specularmap			textures/medlabs/elevator_trim1_s.tga       
+      	diffusemap 		textures/medlabs/elevator_trim1_d.tga
+		
+	{
+		blend add
+		map 	textures/medlabs/elevator_trim1_add.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+//		vertexColor
+	}
+
+}
+
+textures/medlabs/elevator_wall
+{
+	qer_editorimage textures/medlabs/elevator_wall_d.tga
+
+		bumpmap addnormals	( textures/medlabs/elevator_wall_local.tga, heightmap ( textures/medlabs/elevator_wall_h.tga, 3 ) )
+		specularmap			textures/medlabs/elevator_wall_s.tga       
+      	diffusemap 		textures/medlabs/elevator_wall_d.tga
+		
+	{
+		blend add
+		map textures/medlabs/elevator_wall_add.tga
+		red   Parm0
+		green Parm1
+		blue  Parm2
+//		vertexColor		
+	}
+
+}
+textures/medlabs/greymetal2_noshadows
+{
+	noShadows
+	qer_editorimage textures/medlabs/greymetal_d.tga
+
+	bumpmap addnormals	( textures/medlabs/greymetal_local.tga, heightmap ( textures/medlabs/greymetal_h.tga, 1 ) )
+	specularmap		textures/medlabs/greymetal_s.tga       
+      	diffusemap 		textures/medlabs/greymetal_d.tga
+}
+
+
+textures/medlabs/rpanel_4a
+{
+	qer_editorimage textures/medlabs/rpanel_4a_d.tga
+
+	bumpmap addnormals	( textures/medlabs/rpanel_4_local.tga, heightmap ( textures/medlabs/rpanel_4_h.tga, 1 ) )
+	specularmap		textures/medlabs/rpanel_4_s.tga       
+      	diffusemap 		textures/medlabs/rpanel_4a_d.tga
+
+}
+
+
+guide textures/medlabs/chad_panel_2b generic_shader("medlabs/chad_panel_2b")
+guide textures/medlabs/chad_panel_3b generic_shader("medlabs/chad_panel_3b")
+guide textures/medlabs/chad_panel_4b generic_shader("medlabs/chad_panel_4b")
+guide textures/medlabs/ren_64_floor_1 generic_shader("medlabs/ren_64_floor_1")
+guide textures/medlabs/ren_64_floor_2 generic_shader("medlabs/ren_64_floor_2")
+guide textures/medlabs/ren_floor_trim_1 generic_shader("medlabs/ren_floor_trim_1")
+guide textures/medlabs/ren_floor_trim_2 generic_shader("medlabs/ren_floor_trim_2")
+guide textures/medlabs/chad_panel_5 generic_shader("medlabs/chad_panel_5")
+guide textures/medlabs/chad_panel_5rim generic_shader("medlabs/chad_panel_5rim")
+guide textures/medlabs/chad_panel_6 generic_shader("medlabs/chad_panel_6")
+guide textures/medlabs/chad_panel_7 generic_shader("medlabs/chad_panel_7")
+guide textures/medlabs/chad_panel_7b generic_shader("medlabs/chad_panel_7b")
+guide textures/medlabs/chad_pipe_2 generic_shader("medlabs/chad_pipe_2")
+
+
+
+
+textures/medlabs/doorglow
+{
+	qer_editorimage textures/medlabs/doorglow.tga	
+
+	{
+		if ( parm6 != 1 )
+		blend GL_ONE, GL_ONE
+		map textures/medlabs/doorglow.tga
+	}
+	{
+		if ( parm6 == 1 )
+		blend GL_ONE, GL_ONE
+		map textures/medlabs/doorglow.tga
+		rgb		raven_strobe1[ time * 3 ] * raven_gun_flash [ time * .9 ] 
+	
+	}
+}
+
+guide textures/medlabs/steptrim generic_shader("medlabs/steptrim")
+guide textures/medlabs/pipe_ribbed generic_shader("medlabs/pipe_ribbed")
+
+textures/medlabs/pipe_ribbed_nonsolid
+{
+	qer_EditorImage textures/medlabs/pipe_ribbed_d.tga
+	
+	nonSolid
+	bumpMap addnormals ( textures/medlabs/pipe_ribbed_local.tga, heightmap ( textures/medlabs/pipe_ribbed_h.tga, 1 ) )
+	diffusemap	textures/medlabs/pipe_ribbed_d.tga
+	specularmap	textures/medlabs/pipe_ribbed_s.tga
+}
+
+guide textures/medlabs/pipe_ribbed2 generic_colorvariant( "medlabs/pipe_ribbed2", "medlabs/pipe_ribbed" )
+
+textures/medlabs/chicklite
+{
+	qer_editorimage textures/medlabs/chicklite_d.tga
+
+	bumpmap addnormals	( textures/medlabs/chicklite_local.tga, heightmap ( textures/medlabs/chicklite_h.tga, 1 ) )
+	specularmap		textures/medlabs/chicklite_s.tga       
+      	diffusemap 		textures/medlabs/chicklite_d.tga
+		
+	{
+		blend GL_ONE, GL_ONE
+		map textures/medlabs/chicklite_glow.tga
+	}
+
+
+
+	{
+		if ( parm6 == 1 )
+		blend GL_ONE, GL_ONE
+		map textures/medlabs/chicklite_glow.tga
+		rgb raven_med_wall_flicker [time * Parm7]
+	}
+
+
+
+}
+
+textures/medlabs/medglass
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	materialType glass
+	forceoverlays
+	sort decal
+
+	
+	qer_editorimage textures/glass/medlabs
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/medlabs.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+//      cubeMap		gfx/env/gen2
+		cubeMap		gfx/env/medic
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+
+
+/*	
+
+	{
+	 	blend specularmap
+		map textures/medlabs/medglass_s.tga
+	}	
+
+
+	{
+	 	blend blend
+		map textures/medlabs/medglass_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/medic
+		texgen		reflect
+	}
+
+}
+*/
+
+//New Medlabs shaders- post scene-------------------------------------
+
+guide textures/medlabs/mdl_CeilingTrim_01 generic_shader("medlabs/mdl_CeilingTrim_01")
+guide textures/medlabs/mdl_Ceiling_01 generic_shader("medlabs/mdl_Ceiling_01")
+guide textures/medlabs/mdl_Ceiling_02 generic_shader("medlabs/mdl_Ceiling_02")
+guide textures/medlabs/mdl_FloorTrim_01 generic_shader("medlabs/mdl_FloorTrim_01")
+guide textures/medlabs/mdl_Floor_01 generic_shader("medlabs/mdl_Floor_01")
+guide textures/medlabs/mdl_Floor_02 generic_shader("medlabs/mdl_Floor_02")
+guide textures/medlabs/mdl_Floor_03 generic_shader("medlabs/mdl_Floor_03")
+guide textures/medlabs/mdl_wall1 generic_shader("medlabs/mdl_wall1")
+guide textures/medlabs/mdl_wall2 generic_shader("medlabs/mdl_wall2")
+guide textures/medlabs/mdl_wall3 generic_shader("medlabs/mdl_wall3")
+guide textures/medlabs/mdl_wall4 generic_shader("medlabs/mdl_wall4")
+guide textures/medlabs/mdl_walltrim1 generic_shader("medlabs/mdl_walltrim1")
+guide textures/medlabs/mdl_walltrim3 generic_shader("medlabs/mdl_walltrim3")
+guide textures/medlabs/mdl_walltrim7 generic_shader("medlabs/mdl_walltrim7")
+guide textures/medlabs/mdl_walltrim8 generic_shader("medlabs/mdl_walltrim8")
+
+guide textures/medlabs/med1_ceiling1 generic_shader("medlabs/med1_ceiling1")
+guide textures/medlabs/med1_floor1 generic_shader("medlabs/med1_floor1")
+guide textures/medlabs/med1_trim1 generic_shader("medlabs/med1_trim1")
+guide textures/medlabs/med1_trim2 generic_shader("medlabs/med1_trim2")
+guide textures/medlabs/med1_trim3 generic_typeshader("medlabs/med1_trim3", "hollowmetal")
+guide textures/medlabs/med1_wall1 generic_shader("medlabs/med1_wall1")
+guide textures/medlabs/med1_wall1b generic_shader("medlabs/med1_wall1b")
+guide textures/medlabs/med1_wall1c generic_shader("medlabs/med1_wall1c")
+guide textures/medlabs/med1_wall1f generic_shader("medlabs/med1_wall1f")
+guide textures/medlabs/med1_wall1g generic_shader("medlabs/med1_wall1g")
+guide textures/medlabs/med1_wall1h generic_shader("medlabs/med1_wall1h")
+guide textures/medlabs/med1_wall1J generic_shader("medlabs/med1_wall1J")
+guide textures/medlabs/med1_wall2 generic_shader_mi("medlabs/med1_wall2")
+guide textures/medlabs/med2_ceiling1 generic_typeshader("medlabs/med2_ceiling1", "hollowmetal")
+guide textures/medlabs/med2_trim1 generic_shader("medlabs/med2_trim1")
+guide textures/medlabs/med2_trim2 generic_shader("medlabs/med2_trim2")
+guide textures/medlabs/med2_trim3 generic_shader("medlabs/med2_trim3")
+guide textures/medlabs/med2_wall1 generic_shader("medlabs/med2_wall1")
+guide textures/medlabs/med2_wall2 generic_shader("medlabs/med2_wall2")
+guide textures/medlabs/med2_wall3 generic_shader("medlabs/med2_wall3")
+guide textures/medlabs/med2_wall4 generic_shader_mi("medlabs/med2_wall4")
+guide textures/medlabs/med2_wall5 generic_shader("medlabs/med2_wall5")
+guide textures/medlabs/med3_ceiling1 generic_shader("medlabs/med3_ceiling1")
+guide textures/medlabs/med3_floor1 generic_shader("medlabs/med3_floor1")
+guide textures/medlabs/med3_trim1 generic_shader("medlabs/med3_trim1")
+guide textures/medlabs/med3_trim2 generic_shader("medlabs/med3_trim2")
+guide textures/medlabs/med3_trim3 generic_shader("medlabs/med3_trim3")
+guide textures/medlabs/med3_wall1 generic_shader("medlabs/med3_wall1")
+guide textures/medlabs/med3_wall2 generic_shader_mi("medlabs/med3_wall2")
+guide textures/medlabs/med3_wall3 generic_shader_mi("medlabs/med3_wall3")
+guide textures/medlabs/med3_wall4 generic_shader("medlabs/med3_wall4")
+guide textures/medlabs/med3_wall5 generic_shader("medlabs/med3_wall5")
+guide textures/medlabs/med4_ceiling1 generic_shader("medlabs/med4_ceiling1")
+guide textures/medlabs/med4_ceiling2 generic_shader("medlabs/med4_ceiling2")
+guide textures/medlabs/med4_trim1 generic_shader("medlabs/med4_trim1")
+guide textures/medlabs/med4_trim2 generic_shader("medlabs/med4_trim2")
+guide textures/medlabs/med4_trim3 generic_shader("medlabs/med4_trim3")
+guide textures/medlabs/med4_wall1 generic_shader("medlabs/med4_wall1")
+guide textures/medlabs/med4_wall2 generic_shader_mi("medlabs/med4_wall2")
+guide textures/medlabs/med4_wall3 generic_shader_mi("medlabs/med4_wall3")
+guide textures/medlabs/med4_wall4 generic_shader("medlabs/med4_wall4")
+
+
+//textures for medlabs from terminal--renamed
+
+guide textures/medlabs/tmed4floor_1 generic_shader("medlabs/tmed4floor_1")
+guide textures/medlabs/TmedTrim_02_b generic_shader("medlabs/TmedTrim_02_b")
+guide textures/medlabs/tmedtrim_131 generic_shader("medlabs/tmedtrim_131")
+guide textures/medlabs/tmedtrim_133 generic_shader("medlabs/tmedtrim_133")
+guide textures/medlabs/tmedwall_1010 generic_shader("medlabs/tmedwall_1010")
+guide textures/medlabs/tmedwall_102 generic_shader("medlabs/tmedwall_102")
+guide textures/medlabs/tmedwall_107 generic_shader("medlabs/tmedwall_107")
+guide textures/medlabs/tmedwall_108 generic_shader("medlabs/tmedwall_108")
+guide textures/medlabs/tmedwall_109 generic_shader("medlabs/tmedwall_109")
+guide textures/medlabs/tmedwall_122 generic_shader("medlabs/tmedwall_122")
+guide textures/medlabs/tmedwall_131 generic_shader("medlabs/tmedwall_131")
+guide textures/medlabs/tmedwall_132 generic_shader("medlabs/tmedwall_132")
+guide textures/medlabs/tmedwall_132b generic_shader("medlabs/tmedwall_132b")
+guide textures/medlabs/tmedwall_133 generic_shader("medlabs/tmedwall_133")
+guide textures/medlabs/medpipecap generic_shader("medlabs/medpipecap")
+guide textures/medlabs/medbeam generic_shader("medlabs/medbeam")
+guide textures/medlabs/medsteptop generic_shader("medlabs/medsteptop")
+guide textures/medlabs/med_miscpanel_1 generic_shader("medlabs/med_miscpanel_1")
+guide textures/medlabs/med_miscpanel_2 generic_shader("medlabs/med_miscpanel_2")
+guide textures/medlabs/med_miscpanel_3 generic_shader("medlabs/med_miscpanel_3")
+guide textures/medlabs/med_miscpanel_4 generic_shader("medlabs/med_miscpanel_4")
+guide textures/medlabs/med_miscpanel_5 generic_shader("medlabs/med_miscpanel_5")
+guide textures/medlabs/med_miscpanel_6 generic_shader("medlabs/med_miscpanel_6")
+guide textures/medlabs/med_miscpanel_7 generic_shader("medlabs/med_miscpanel_7")
+guide textures/medlabs/tr_walltrim_02a generic_Localvariant("tram/tr_walltrim_02a", "medlabs/tr_walltrim_02a")
+guide textures/medlabs/tr_walltrim_03a generic_Localvariant("tram/tr_walltrim_03a", "medlabs/tr_walltrim_03a")
+guide textures/medlabs/tr_walltrim_06 generic_Localvariant("tram/tr_walltrim_06", "medlabs/tr_walltrim_06")
+guide textures/medlabs/med_miscpanel_01 generic_colorvariant( "medlabs/med_miscpanel_01", "medlabs/med_miscpanel_1" )
+guide textures/medlabs/med_miscpanel_03 generic_colorvariant( "medlabs/med_miscpanel_03", "medlabs/med_miscpanel_3" )
+guide textures/medlabs/med_miscpanel_04 generic_colorvariant( "medlabs/med_miscpanel_04", "medlabs/med_miscpanel_4" )
+guide textures/medlabs/med_miscpanel_05 generic_colorvariant( "medlabs/med_miscpanel_05", "medlabs/med_miscpanel_5" )
+guide textures/medlabs/med_miscpanel_06 generic_colorvariant( "medlabs/med_miscpanel_06", "medlabs/med_miscpanel_6" )
+guide textures/medlabs/med_miscpanel_09 generic_shader("medlabs/med_miscpanel_09")
+guide textures/medlabs/med_miscpanel_10 generic_shader("medlabs/med_miscpanel_10")
+guide textures/medlabs/med_miscpanel_11 generic_shader_mi("medlabs/med_miscpanel_11")
+
+
+
+//----Medlabs Flares
+
+textures/medlabs/flare_mini_orange
+
+// very small orange flare
+{
+	
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		1
+		green		.7
+		blue		.4
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/flare_mini_lightgreen
+
+// very small light green flare
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		1
+		blue		.9
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/flare_mini_green
+
+// very small green flare for unlocked doors
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		4
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.1
+		green		8
+		blue		.1
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/flare_mini_red
+
+// very small red flare for locked doors
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		4
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		8
+		green		.1
+		blue		.1
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/flare_lblue
+
+// smallish light blue flare for on top of light sources
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		12
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/flare_lblue_tiny
+
+// tiny light blue flare for on top of light sources
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.7
+		green		.7
+		blue		.8
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lblue_32
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		32
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lblue_48
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		48
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lblue_64
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		64
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lblue_96
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		96
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lblue_112
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		112
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lblue_128
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		128
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.9
+		green		.9
+		blue		1
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_orange_32
+
+// orange flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		32
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		1
+		green		.7
+		blue		.4
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_orange_48
+
+// orange flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		48
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		1
+		green		.7
+		blue		.4
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_orange_64
+
+// orange flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		64
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		1
+		green		.7
+		blue		.4
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lgreen_32
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		32
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.93
+		green		1
+		blue		.93
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lgreen_48
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		48
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.93
+		green		1
+		blue		.93
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lgreen_64
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		64
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.93
+		green		1
+		blue		.93
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+textures/medlabs/vol_lgreen_80
+
+// light blue flare intended to be used over a large area to give the impression of volumetric light
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		80
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.93
+		green		1
+		blue		.93
+		alpha	.1
+		vertexcolor
+	}
+
+}
+//----End Flares
+
+textures/medlabs/fluid_green_bubble_slow
+
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+	deform	turbulent	sintable .0295 time * .2 1
+	
+	
+	{
+		if ( glslPrograms )== 1
+		blend add
+		
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .65
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_green_bubble5.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	{ 
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble2.tga
+		scroll	0, time * .15
+	}
+	
+	{
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+	}
+
+	///if no glsl
+	
+	{
+		if ( glslPrograms )== 0
+		blend diffuseMap	
+		map textures/medlabs/fluid_green_bubble1.tga
+		scroll 0, time * .025
+	}
+
+	{ 
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble2.tga
+		scroll	0, time * .15
+	}
+	
+	{
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+	}
+
+}		
+
+textures/medlabs/fluid_orange_bubble_slow
+
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+	deform	turbulent	sintable .0295 time * .2 1
+	
+	{
+		if ( glslPrograms )== 1
+		blend add
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .65
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_orange_bubble5.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	{ 
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_orange_bubble2.tga
+		scroll	0, time * .15
+	}
+	
+	{
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+	}
+	
+//no glsl-----------------------------------------------------------------
+
+	{
+		if ( glslPrograms )== 0	
+		blend diffuseMap	
+		map textures/medlabs/fluid_orange_bubble1.tga
+		scroll 0, time * .025
+	}
+
+	{ 
+		if ( glslPrograms )== 0	
+		blend add
+		map textures/medlabs/fluid_orange_bubble2.tga
+		scroll	0, time * .15
+	}
+	
+	{
+		if ( glslPrograms )== 0	
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+	}
+
+}		
+
+textures/medlabs/fluid_orange_bubble
+
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+		
+	{
+		if ( glslPrograms )== 1
+		blend add
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * 1.5
+		shaderParm		sizeX				sintable[time * .0005]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_orange_bubble5.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	
+	{ 
+		if ( glslPrograms )== 1
+		blend add
+		map textures/medlabs/fluid_orange_bubble2.tga
+		scroll	0, time * .5
+//		translate 0, time + bubbletable[time]
+	}
+	
+	{
+		if ( glslPrograms )== 1
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .3
+//		translate 0, time + bubbletable[time * .3]
+	}
+	
+///noglsl-------------------------------------------------------	
+		
+	{
+		if ( glslPrograms )== 0
+		blend diffuseMap	
+		map textures/medlabs/fluid_orange_bubble1.tga
+		scroll 0, time * .1
+	}
+
+	{ 
+		if ( glslPrograms )== 0
+		blend add
+		map textures/medlabs/fluid_orange_bubble2.tga
+		scroll	0, time * .5
+	}
+	
+	{
+		if ( glslPrograms )== 0
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .3
+	}
+
+}	
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////unsmoothed textures////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+textures/medlabs/mdl_CeilingTrim_01_ut
+{
+	qer_editorimage textures/medlabs/mdl_CeilingTrim_01_d.tga
+	unSmoothedTangents
+	
+	bumpmap addnormals	( textures/medlabs/mdl_CeilingTrim_01_local.tga, heightmap ( textures/medlabs/mdl_CeilingTrim_01_h.tga, 3 ) )
+	specularmap			textures/medlabs/mdl_CeilingTrim_01_s.tga       
+      	diffusemap 		textures/medlabs/mdl_CeilingTrim_01_d.tga
+		
+}
+
+textures/medlabs/mdl_Ceiling_02_ut
+{
+	qer_editorimage textures/medlabs/mdl_Ceiling_02_d.tga
+	unSmoothedTangents
+	
+	bumpmap addnormals	( textures/medlabs/mdl_Ceiling_02_local.tga, heightmap ( textures/medlabs/mdl_Ceiling_02_h.tga, 3 ) )
+	specularmap			textures/medlabs/mdl_Ceiling_02_s.tga       
+      	diffusemap 		textures/medlabs/mdl_Ceiling_02_d.tga
+		
+}
+
+textures/medlabs/mdl_walltrim3_ut
+{
+	qer_editorimage textures/medlabs/mdl_walltrim3_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/mdl_walltrim3_local.tga, heightmap ( textures/medlabs/mdl_walltrim3_h.tga, 3 ) )
+	specularMap			textures/medlabs/mdl_walltrim3_s.tga       
+    diffuseMap 			textures/medlabs/mdl_walltrim3_d.tga
+		
+}
+
+
+textures/medlabs/med1_wall1g_ut
+{
+	qer_editorimage textures/medlabs/med1_wall1g_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med1_wall1g_local.tga, heightmap ( textures/medlabs/med1_wall1g_h.tga, 3 ) )
+	specularMap			textures/medlabs/med1_wall1g_s.tga       
+    diffuseMap 			textures/medlabs/med1_wall1g_d.tga
+		
+}
+
+textures/medlabs/med2_ceiling1_ut
+{
+	qer_editorimage textures/medlabs/med2_ceiling1_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med2_ceiling1_local.tga, heightmap ( textures/medlabs/med2_ceiling1_h.tga, 3 ) )
+	specularMap			textures/medlabs/med2_ceiling1_s.tga       
+    diffuseMap 			textures/medlabs/med2_ceiling1_d.tga
+		
+}
+
+
+textures/medlabs/med2_wall4_ut
+{
+	qer_editorimage textures/medlabs/med2_wall4_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med2_wall4_local.tga, heightmap ( textures/medlabs/med2_wall4_h.tga, 3 ) )
+	specularMap			textures/medlabs/med2_wall4_s.tga       
+    diffuseMap 			textures/medlabs/med2_wall4_d.tga
+}
+
+
+textures/medlabs/med2_wall2_ut
+{
+	qer_editorimage textures/medlabs/med2_wall2_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med2_wall2_local.tga, heightmap ( textures/medlabs/med2_wall2_h.tga, 3 ) )
+	specularMap			textures/medlabs/med2_wall2_s.tga       
+    diffuseMap 			textures/medlabs/med2_wall2_d.tga
+}
+
+
+textures/medlabs/med3_ceiling1_ut
+{
+	qer_editorimage textures/medlabs/med3_ceiling1_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med3_ceiling1_local.tga, heightmap ( textures/medlabs/med3_ceiling1_h.tga, 3 ) )
+	specularMap			textures/medlabs/med3_ceiling1_s.tga       
+    diffuseMap 			textures/medlabs/med3_ceiling1_d.tga
+}
+
+
+textures/medlabs/med4_wall1_ut
+{
+	qer_editorimage textures/medlabs/med4_wall1_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med4_wall1_local.tga, heightmap ( textures/medlabs/med4_wall1_h.tga, 3 ) )
+	specularMap			textures/medlabs/med4_wall1_s.tga       
+    diffuseMap 			textures/medlabs/med4_wall1_d.tga
+}
+
+textures/medlabs/med_miscpanel_1_ut
+{
+	qer_editorimage textures/medlabs/med_miscpanel_1_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med_miscpanel_1_local.tga, heightmap ( textures/medlabs/med_miscpanel_1_h.tga, 3 ) )
+	specularMap			textures/medlabs/med_miscpanel_1_s.tga       
+    diffuseMap 			textures/medlabs/med_miscpanel_1_d.tga
+}
+
+
+textures/medlabs/med_miscpanel_3_ut
+{
+	qer_editorimage textures/medlabs/med_miscpanel_3_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med_miscpanel_3_local.tga, heightmap ( textures/medlabs/med_miscpanel_3_h.tga, 3 ) )
+	specularMap			textures/medlabs/med_miscpanel_3_s.tga       
+    diffuseMap 			textures/medlabs/med_miscpanel_3_d.tga
+}
+
+textures/medlabs/med_miscpanel_5_ut
+{
+	qer_editorimage textures/medlabs/med_miscpanel_5_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med_miscpanel_5_local.tga, heightmap ( textures/medlabs/med_miscpanel_5_h.tga, 3 ) )
+	specularMap			textures/medlabs/med_miscpanel_5_s.tga       
+    diffuseMap 			textures/medlabs/med_miscpanel_5_d.tga
+}
+
+
+textures/medlabs/med_miscpanel_7_ut
+{
+	qer_editorimage textures/medlabs/med_miscpanel_7_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med_miscpanel_7_local.tga, heightmap ( textures/medlabs/med_miscpanel_7_h.tga, 3 ) )
+	specularMap			textures/medlabs/med_miscpanel_7_s.tga       
+    diffuseMap 			textures/medlabs/med_miscpanel_7_d.tga
+}
+
+
+textures/medlabs/ren_floor_trim_1_ut
+{
+	qer_editorimage textures/medlabs/ren_floor_trim_1_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/ren_floor_trim_1_local.tga, heightmap ( textures/medlabs/ren_floor_trim_1_h.tga, 3 ) )
+	specularMap			textures/medlabs/ren_floor_trim_1_s.tga       
+    diffuseMap 			textures/medlabs/ren_floor_trim_1_d.tga
+}
+
+
+textures/medlabs/chad_panel_5_ut
+{
+	qer_editorimage textures/medlabs/chad_panel_5_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/chad_panel_5_local.tga, heightmap ( textures/medlabs/chad_panel_5_h.tga, 3 ) )
+	specularMap			textures/medlabs/chad_panel_5_s.tga       
+    diffuseMap 			textures/medlabs/chad_panel_5_d.tga
+}
+
+textures/medlabs/chad_panel_5rim_ut
+{
+	qer_editorimage textures/medlabs/chad_panel_5rim_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/chad_panel_5rim_local.tga, heightmap ( textures/medlabs/chad_panel_5rim_h.tga, 3 ) )
+	specularMap			textures/medlabs/chad_panel_5rim_s.tga       
+    diffuseMap 			textures/medlabs/chad_panel_5rim_d.tga
+}
+
+textures/medlabs/tmedwall_1010_ut
+{
+	qer_editorimage textures/medlabs/tmedwall_1010_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/tmedwall_1010_local.tga, heightmap ( textures/medlabs/tmedwall_1010_h.tga, 3 ) )
+	specularMap			textures/medlabs/tmedwall_1010_s.tga       
+    diffuseMap 			textures/medlabs/tmedwall_1010_d.tga
+}
+
+textures/medlabs/tmedwall_102_ut
+{
+	qer_editorimage textures/medlabs/tmedwall_102_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/tmedwall_102_local.tga, heightmap ( textures/medlabs/tmedwall_102_h.tga, 3 ) )
+	specularMap			textures/medlabs/tmedwall_102_s.tga       
+    diffuseMap 			textures/medlabs/tmedwall_102_d.tga
+}
+
+
+textures/medlabs/TmedTrim_02_b_ut
+{
+	qer_editorimage textures/medlabs/TmedTrim_02_b_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/TmedTrim_02_b_local.tga, heightmap ( textures/medlabs/TmedTrim_02_b_h.tga, 3 ) )
+	specularMap			textures/medlabs/TmedTrim_02_b_s.tga       
+    diffuseMap 			textures/medlabs/TmedTrim_02_b_d.tga
+}
+
+
+textures/medlabs/pipe_ribbed_ut
+{
+	qer_editorimage textures/medlabs/pipe_ribbed_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/pipe_ribbed_local.tga, heightmap ( textures/medlabs/pipe_ribbed_h.tga, 3 ) )
+	specularMap			textures/medlabs/pipe_ribbed_s.tga       
+    diffuseMap 			textures/medlabs/pipe_ribbed_d.tga
+}
+
+textures/medlabs/medbeam_ut
+{
+	qer_editorimage textures/medlabs/medbeam_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/medbeam_local.tga, heightmap ( textures/medlabs/medbeam_h.tga, 3 ) )
+	specularMap			textures/medlabs/medbeam_s.tga       
+    diffuseMap 			textures/medlabs/medbeam_d.tga
+}
+
+textures/medlabs/conv_model_tiles2_ut
+{
+	qer_editorimage conv_model_tiles2_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/conv_model_tiles2_local.tga, heightmap ( textures/medlabs/conv_model_tiles2_h.tga, 3 ) )
+	specularMap			textures/medlabs/conv_model_tiles2_s.tga       
+    diffuseMap 			textures/medlabs/conv_model_tiles2_d.tga
+}
+
+textures/medlabs/med4_ceiling1_ut
+{
+	qer_editorimage textures/medlabs/med4_ceiling1_ut_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/medlabs/med4_ceiling1_local.tga, heightmap ( textures/medlabs/med4_ceiling1_h.tga, 3 ) )
+	specularMap			textures/medlabs/med4_ceiling1_s.tga       
+    diffuseMap 			textures/medlabs/med4_ceiling1_d.tga
+}
+
+
+
+// New Floor Tiles added from id sets.
+
+textures/medlabs/medtile01
+{	
+	qer_editorimage 	textures/medlabs/medtile01.tga
+	bumpmap 		heightmap	(textures/medlabs/medtile01_b.tga, 3)
+	diffusemap	 	textures/medlabs/medtile01_d.tga
+	specularmap		textures/medlabs/medtile01_s.tga
+}
+
+textures/medlabs/stetile1green
+{
+	qer_editorimage		textures/medlabs/stetile1green.tga
+	bumpmap			textures/medlabs/stetile1_local.tga
+	diffusemap		textures/medlabs/stetile1green_d.tga
+	specularmap		textures/medlabs/stetile1_s.tga
+}
+
+textures/medlabs/stetilepygrip4
+{
+	qer_editorimage		textures/medlabs/stetilepygrip4.tga
+	bumpmap			textures/medlabs/stetilepygrip4_local.tga
+	diffusemap		textures/medlabs/stetilepygrip4_d.tga
+	specularmap		textures/medlabs/stetilepygrip4_s.tga
+}
+
+textures/medlabs/sflpanel4a
+{
+	qer_editorimage		textures/medlabs/sflpanel4a.tga
+	bumpmap			textures/medlabs/sflpanel4a_local.tga
+	diffusemap		textures/medlabs/sflpanel4a_d.tga
+	specularmap		textures/medlabs/sflpanel4a_s.tga
+}
+
+textures/medlabs/tubearmsplatform_beamside
+{
+	noShadows
+	qer_editorimage textures/medlabs/tubearmsplatform_beamside_d.tga
+
+	bumpmap addnormals	( textures/medlabs/tubearmsplatform_beamside_local.tga, heightmap ( textures/medlabs/tubearmsplatform_beamside_h.tga, 1 ) )
+	specularmap		textures/medlabs/tubearmsplatform_beamside_s.tga       
+      	diffusemap 		textures/medlabs/tubearmsplatform_beamside_d.tga
+}
+
+textures/medlabs/tubearmsplatform_beamtopbottom
+{
+	noShadows
+	qer_editorimage textures/medlabs/tubearmsplatform_beamtopbottom_d.tga
+
+	bumpmap addnormals	( textures/medlabs/tubearmsplatform_beamtopbottom_local.tga, heightmap ( textures/medlabs/tubearmsplatform_beamtopbottom_h.tga, 1 ) )
+	specularmap		textures/medlabs/tubearmsplatform_beamtopbottom_s.tga       
+      	diffusemap 		textures/medlabs/tubearmsplatform_beamtopbottom_d.tga
+}
+
+textures/medlabs/tubearmsplatform_fastener
+{
+	noShadows
+	qer_editorimage textures/medlabs/tubearmsplatform_fastener_d.tga
+
+	bumpmap addnormals	( textures/medlabs/tubearmsplatform_fastener_local.tga, heightmap ( textures/medlabs/tubearmsplatform_fastener_h.tga, 1 ) )
+	specularmap		textures/medlabs/tubearmsplatform_fastener_s.tga       
+      	diffusemap 		textures/medlabs/tubearmsplatform_fastener_d.tga
+}
+
+textures/medlabs/tubearmsplatform_platformtopbottom
+{
+	noShadows
+	qer_editorimage textures/medlabs/tubearmsplatform_platformtopbottom_d.tga
+
+	bumpmap addnormals	( textures/medlabs/tubearmsplatform_platformtopbottom_local.tga, heightmap ( textures/medlabs/tubearmsplatform_platformtopbottom_h.tga, 1 ) )
+	specularmap		textures/medlabs/tubearmsplatform_platformtopbottom_s.tga       
+      	diffusemap 		textures/medlabs/tubearmsplatform_platformtopbottom_d.tga
+}
+
+textures/medlabs/tubearmsplatform_platformtrim
+{
+	noShadows
+	qer_editorimage textures/medlabs/tubearmsplatform_platformtrim_d.tga
+
+	bumpmap addnormals	( textures/medlabs/tubearmsplatform_platformtrim_local.tga, heightmap ( textures/medlabs/tubearmsplatform_platformtrim_h.tga, 1 ) )
+	specularmap		textures/medlabs/tubearmsplatform_platformtrim_s.tga       
+      	diffusemap 		textures/medlabs/tubearmsplatform_platformtrim_d.tga
+}
+
+textures/medlabs/gore_floor_medlabs
+{
+	bumpMap			downsize( textures/stroyent/gorefloor_c_local.tga, 2)
+	diffuseMap		downsize( textures/stroyent/gorefloor_c_d.tga, 2)
+	specularMap		downsize( textures/stroyent/gorefloor_c_s.tga, 2)
+}

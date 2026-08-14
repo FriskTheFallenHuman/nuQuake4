@@ -1,0 +1,354 @@
+//-----------------------------------------------------------------------
+//Scripts for trying to figure out how to do the node thing.
+//-----------------------------------------------------------------------
+
+
+namespace bit_nodeChain
+{
+
+//Definition of global variables
+
+
+//------------------------------------------------------------------------
+void ShowLinks(entity self)
+{
+	string	tempString;
+	entity	tempEntity;
+	entity	fakeEntity;
+
+	//Show target1
+	tempString = self.getKey("target1");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != fakeEntity)
+	{
+		tempEntity.show();
+	}
+
+	//Show target2
+	tempString = self.getKey("target2");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != fakeEntity)
+	{
+		tempEntity.show();
+	}
+
+	//Show target3
+	tempString = self.getKey("target3");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != fakeEntity)
+	{
+		tempEntity.show();
+	}
+
+	//Show target4
+	tempString = self.getKey("target4");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != fakeEntity)
+	{
+		tempEntity.show();
+	}
+
+}
+
+
+//------------------------------------------------------------------------
+void HideLinks(entity self)
+{
+	string	tempString;
+	entity	tempEntity;
+	entity	testEntity;
+
+	//Hide target1
+	tempString = self.getKey("target1");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != testEntity)
+	{
+		tempEntity.hide();
+	}
+
+	//Hide target2
+	tempString = self.getKey("target2");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != testEntity)
+	{
+		tempEntity.hide();
+	}
+
+	//Hide target3
+	tempString = self.getKey("target3");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != testEntity)
+	{
+		tempEntity.hide();
+	}
+
+	//Hide target4
+	tempString = self.getKey("target4");
+	tempEntity = sys.getEntity(tempString);
+	if(tempEntity != testEntity)
+	{
+		tempEntity.hide();
+	}
+
+}
+
+//------------------------------------------------------------------------
+string nodeRotate90( entity self, float errorCode, string stupid, entity sourceGui)
+//float nodeRotate90( entity self, float errorCode, float state, entity sourceGui)
+{	//Function to rotate a node 90 degrees
+
+	float	 state;					//Stupid hack to get around non-numeric state
+	string	tempString;
+	entity	tempEntity;
+	entity	fakeEntity;
+
+sys.print("ErrorCode sent to action was ");
+sys.println(errorCode);
+
+	if(errorCode == 1)
+	{
+		sourceGui.guiEvent("badExclusions");
+		self.setKey("busy", 0);		//Clear the object for another action
+//		return state;
+		return stupid;
+	}
+
+	if((errorCode == 11) || (errorCode == 10))
+	{
+		sourceGui.guiEvent("badPrereqisits");
+		self.setKey("busy", 0);		//Clear the object for another action
+//		return state;
+		return stupid;
+	}
+
+
+//evaluate stupid non-numeric state
+	if(stupid == "a"){state = 0;}
+	if(stupid == "b"){state = 1;}
+	if(stupid == "c"){state = 2;}
+	if(stupid == "d"){state = 3;}
+
+sys.print("State is ");
+sys.println(state);
+
+	//Increment the state
+	state++;
+
+	if(state >= 4)
+	{
+		state = 0;
+	}
+
+//evaluate stupid non-numeric stupid
+	if(state == 0){stupid = "a";}
+	if(state == 1){stupid = "b";}
+	if(state == 2){stupid = "c";}
+	if(state == 3){stupid = "d";}
+
+	if(state == 0)
+	{
+		sourceGui.guiEvent("eventOn");
+	
+		//Rotate node
+		self.time(1);
+		self.rotateOnce('0 90 0');
+		sys.waitFor(self);
+
+		ShowLinks(self);
+		self.setKey("busy", 0);		//Clear the object for another action
+
+		tempString = self.getKey("target5");	//Fire any relays (this is kinda klugie...)
+		tempEntity = sys.getEntity(tempString);
+		if(tempEntity != fakeEntity) {sys.trigger(tempEntity);}
+
+//		return state;
+		return stupid;
+	}
+
+	sourceGui.guiEvent("eventAction");
+	self.setKey("busy", 0);			//Clear the object for another action
+
+	//Rotate node
+	self.time(1);
+	HideLinks(self);
+	if(state == 1)
+	{
+		tempString = self.getKey("target5");	//Fire any relays (this is kinda klugie...)
+		tempEntity = sys.getEntity(tempString);
+		if(tempEntity != fakeEntity) {sys.trigger(tempEntity);}
+	}
+	self.rotateOnce('0 90 0');
+	sys.waitFor(self);
+
+//	return state;
+	return stupid;
+
+}
+
+//------------------------------------------------------------------------
+float CheckReq(string required)
+{	//Check the status of a required entity
+	entity	tempEntity;
+	entity	fakeEntity;
+	float	state;
+	string	stupid;
+
+	tempEntity = sys.getEntity(required);
+
+	if(tempEntity == fakeEntity)
+	{
+
+sys.print(required);
+sys.println(" is not a entity.");
+
+		return 1000;
+	}
+
+//	status = tempEntity.getFloatKey("state");
+	stupid = tempEntity.getKey("state");
+
+sys.print(required);
+sys.print("'s state is ");
+sys.println(stupid);
+
+	if(stupid == "a"){state = 0;}
+	if(stupid == "b"){state = 1;}
+	if(stupid == "c"){state = 2;}
+	if(stupid == "d"){state = 3;}
+
+sys.print(required);
+sys.print(" will return ");
+sys.println(state);
+
+
+	return state;
+	
+}
+
+//------------------------------------------------------------------------
+void ActivateLink(entity source)
+{	//Function to call when trying to activate a link in a chain
+
+//Create variables
+	string		tempString;				//Temp string for grabbing entity IDs
+
+	entity		self;					//The actual target of the script (not the triggered one)
+	float		state;					//Current state of the entity- "1" is ON
+	float		newState;				//State of the entity after the action is executed
+	string		action;					//Action to do if legally triggered
+	float		errorCode;				//Flag for what went wrong if prereqs or exclusions are not correct
+	entity		sourceGui;				//Name of the gui that is used to trigger the link
+	float		busy;					//Internal check if the object is busy
+	string		stupid;					//Aaaaaarrrrrrrgggggghhhhhh!!!!!
+	
+	float		needOn1;				//Status of first prereq
+	float		needOn2;				//Status of second prereq
+	float		needOn3;				//Status of third prereq
+	float		needOn4;				//Status of fourth prereq
+	float		needOff1;				//Status of first exclusion
+	float		needOff2;				//Status of second exclusion
+	float		needOff3;				//Status of third exclusion
+	float		needOff4;				//Status of fouth exclusion
+
+//Get real target
+	tempString = source.getKey("target");
+	self = sys.getEntity(tempString);
+
+//Get info from the target
+//	state = self.getFloatKey("state");	
+	stupid = self.getKey("state");		//not what I should be doing
+	action = self.getKey("action");
+	tempString = self.getKey("souceGui");
+	sourceGui = sys.getEntity(tempString);
+	busy = self.getFloatKey("busy");
+	
+
+	tempString = self.getKey("needOn1");
+	needOn1 = CheckReq(tempString);
+	if(needOn1 == 1000){needOn1 = 0;}		//Make the test pass if there is no prereq
+sys.print("NeedOn1 = ");
+sys.println(needOn1);
+
+	tempString = self.getKey("needOn2");
+	needOn2 = CheckReq(tempString);
+	if(needOn2 == 1000){needOn2 = 0;}		//Make the test pass if there is no prereq
+sys.print("NeedOn2 = ");
+sys.println(needOn2);
+
+	tempString = self.getKey("needOn3");
+	needOn3 = CheckReq(tempString);
+	if(needOn3 == 1000){needOn3 = 0;}		//Make the test pass if there is no prereq
+sys.print("NeedOn3 = ");
+sys.println(needOn3);
+
+	tempString = self.getKey("needOn4");
+	needOn4 = CheckReq(tempString);
+	if(needOn4 == 1000){needOn4 = 0;}		//Make the test pass if there is no prereq
+sys.print("NeedOn4 = ");
+sys.println(needOn4);
+
+	tempString = self.getKey("needOff1");
+	needOff1 = CheckReq(tempString);
+	if(needOff1 == 1000){needOff1 = 1;}	//Make the test pass if there is no exclusion
+sys.print("NeedOff1 = ");
+sys.println(needOff1);
+
+	tempString = self.getKey("needOff2");
+	needOff2 = CheckReq(tempString);
+	if(needOff2 == 1000){needOff2 = 1;}	//Make the test pass if there is no exclusion
+sys.print("NeedOff2 = ");
+sys.println(needOff2);
+
+	tempString = self.getKey("needOff3");
+	needOff3 = CheckReq(tempString);
+	if(needOff3 == 1000){needOff3 = 1;}	//Make the test pass if there is no exclusion
+sys.print("NeedOff3 = ");
+sys.println(needOff3);
+
+	tempString = self.getKey("needOff4");
+	needOff4 = CheckReq(tempString);
+	if(needOff4 == 1000){needOff4 = 1;}	//Make the test pass if there is no exclusion
+sys.print("NeedOff4 = ");
+sys.println(needOff4);
+
+//Make sure the object isn't busy
+	if(busy != 0)
+	{
+		sourceGui.guiEvent("busy");			//Object is doing something- cancel action
+		return;
+	}
+	self.setKey("busy", "1");				//Flag the object as starting an action
+
+
+//Flag if the exclusions are not correct
+	if((needOff1 == 0) || (needOff2 == 0) || (needOff3 == 0) || (needOff4 == 0))
+	{
+		errorCode = (errorCode + 1);
+sys.println("Flagging bad exclusions");
+		self.setKey("error", errorCode);
+	}
+
+//Flag if the prerequisites are not correct
+	if((needOn1 != 0) || (needOn2 != 0) || (needOn3 != 0) || (needOn4 != 0))
+	{
+		errorCode = (errorCode + 10);
+sys.println("Flagging bad prereqs");
+		self.setKey("error", errorCode);
+	}
+
+
+//Perform action
+	//action = self.getKey("action");		//? Already done...
+	if(action == "nodeRotate90")
+	{
+//		newState = nodeRotate90(self, errorCode, state, sourceGui);
+		stupid = nodeRotate90(self, errorCode, stupid, sourceGui);	
+//		self.setKey("state", newState);
+		self.setKey("state", stupid);
+	}
+
+
+}
+
+
+}	//End of namespace

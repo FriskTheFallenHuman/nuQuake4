@@ -1,0 +1,40 @@
+
+/***********************************************************************
+Flier_Engine
+
+***********************************************************************/
+
+export flier_engine
+{		
+	options -scale .3937 -align ALL -keep fx -keep base_bone
+         
+	mesh	work/models/mapobjects/strogg/machines/flier_engine/ref/flier_engine_ref.ma	  		-dest models/mapobjects/strogg/misc_equipment/flier_engine/mesh
+	anim	work/models/mapobjects/strogg/machines/flier_engine/ref/flier_engine_ref.ma			-dest models/mapobjects/strogg/misc_equipment/flier_engine/idle
+
+
+}
+
+entityDef env_flier_engine
+{
+	"model"							"model_env_flier_engine"
+	"spawnclass"						"idAnimated"
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"flyer_engine"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+	
+	"combatModel"					"1"
+}
+
+model model_env_flier_engine
+
+{
+	mesh					models/mapobjects/strogg/misc_equipment/flier_engine/mesh.md5mesh
+	anim idle			models/mapobjects/strogg/misc_equipment/flier_engine/idle.md5anim
+}

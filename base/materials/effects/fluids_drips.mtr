@@ -1,0 +1,624 @@
+
+gfx/effects/fluids_drips/drop_red2
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/drop_red2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/bubble_red2
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_red2.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/drop_additive
+{
+	qer_editorimage gfx/effects/fluids_drips/drop_additive.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fluids_drips/drop_additive.tga
+		vertexColor
+	}
+}
+
+//------------------------------------------------------------------------
+gfx/effects/fluids_drips/drop_additive_sideways
+{
+	qer_editorimage gfx/effects/fluids_drips/drop_additive.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fluids_drips/drop_additive.tga
+		vertexColor
+		rotate	.25
+	}
+}
+
+//------------------------------------------------------------------------
+gfx/effects/fluids_drips/brown_slime_line_additive
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  add
+		map    gfx/effects/fluids_drips/brown_slime_line.tga
+		vertexColor
+	}
+
+}
+
+//------------------------------------------------------------------------
+
+gfx/effects/fluids_drips/bubble_additive
+{
+	qer_editorimage gfx/effects/fluids_drips/bubble_additive.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fluids_drips/bubble_additive.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/bubble_glob
+{
+	qer_editorimage gfx/effects/fluids_drips/bubble_glob.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fluids_drips/bubble_glob.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/bubble_alpha
+{
+	qer_editorimage gfx/effects/fluids_drips/bubble_alpha.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/bubble_alpha.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/splash_line_alpha
+{
+	qer_editorimage gfx/effects/fluids_drips/splash_line.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/splash_line.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/splash_line_alpha_flipped
+{
+	qer_editorimage gfx/effects/fluids_drips/splash_line_flipped.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/splash_line_flipped.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/splash_line_alpha_green
+{
+	qer_editorimage gfx/effects/fluids_drips/splash_line_green.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/splash_line_green.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/splash_line_alpha_flip_green
+{
+	qer_editorimage gfx/effects/fluids_drips/splash_line_flip_green.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/splash_line_flip_green.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/splash_line_alpha_flip_red
+{
+	qer_editorimage gfx/effects/fluids_drips/splash_line_flip_red.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/splash_line_flip_red.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/bubble_half
+{
+	qer_editorimage gfx/effects/fluids_drips/bubble_half.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/bubble_half.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/fluids_drips/foam
+{
+	qer_editorimage gfx/effects/fluids_drips/foam.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/fluids_drips/foam.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/bubble32
+{
+	twoSided
+	{
+		blend	blend
+		map		gfx/effects/fluids_drips/bubble32		
+	}
+}
+
+gfx/effects/fluids_drips/bubbles 
+{
+	qer_editorimage 	gfx/effects/fluids_drips/bubble.tga
+	noshadows
+	translucent
+	twosided
+	
+	{
+//		ZeroClamp
+		blend blend
+		map gfx/effects/fluids_drips/bubble.tga
+	}
+}
+
+gfx/effects/fluids_drips/drop_green
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/drop_green.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/drop_blue
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/drop_blue.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/drop_red
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/drop_red.tga
+		vertexColor
+	}
+
+}
+
+
+gfx/effects/fluids_drips/bubble_green
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_green.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/bubble_blue
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_blue.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/bubble_red
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_red.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/bubble_green_half
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_green_half.tga
+		vertexColor
+	}
+
+}
+
+
+gfx/effects/fluids_drips/bubble_blue_half
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_blue_half.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/bubble_red_half
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/bubble_red_half.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/green_splash_line
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/green_splash_line.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/red_splash_line
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/red_splash_line.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/drip1
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/drip1.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/slime_pool
+{
+	noShadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/slime_pool.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/green_glob
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/green_glob.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/brown_slime_line
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/brown_slime_line.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/brown_bubble_half
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/brown_bubble_half.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/brown_bubble
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/brown_bubble.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/brown_splash_line
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/brown_splash_line.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/brown_drop
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/brown_drop.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/fluids_drips/acid_burn
+{
+	qer_editorimage gfx/effects/fluid_drips/acid_burn1.tga
+
+	DECAL_MACRO
+	{       
+      	blend		gl_zero, gl_one_minus_src_color
+		map			gfx/effects/fluids_drips/acid_burn1.tga
+		clamp		// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor	// oblique projections will be slightly faded down
+	}
+
+	{
+      	blend	add  
+		map		gfx/effects/fluids_drips/acid_burn2.tga
+		clamp
+		rgba	nailgunburn[ DecalLife ]
+
+		vertexColor	// oblique projections will be slightly faded down
+	}
+}
+
+gfx/effects/fluids_drips/gas_fluid
+{
+	DECAL_MACRO
+	{       
+	      	blend			gl_zero, gl_one_minus_src_color
+		map			gfx/effects/fluids_drips/gas_fluid.tga
+		clamp			// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor		// oblique projections will be slightly faded down
+	}
+}
+
+gfx/effects/fluids_drips/acid_burn3
+{
+	DECAL_MACRO
+	{       
+	    blend		add
+		map			gfx/effects/fluids_drips/acid_burn3.tga
+		clamp			// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife * 1.08 ]
+		vertexColor		// oblique projections will be slightly faded down
+	}
+}
+
+gfx/effects/fluids_drips/stroy_spit_alpha
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/stroy_spit_alpha.tga
+		vertexColor
+		clamp
+	}
+}
+
+
+gfx/effects/fluids_drips/stroy_spit2_alpha
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/stroy_spit2_alpha.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/fluids_drips/stroy_spit
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  add
+		map    gfx/effects/fluids_drips/stroy_spit.tga
+		vertexColor
+		clamp
+	}
+}
+
+
+gfx/effects/fluids_drips/stroy_spit2
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  add
+		map    gfx/effects/fluids_drips/stroy_spit2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fluids_drips/blood_spit_alpha
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/blood_spit_alpha.tga
+		vertexColor
+		clamp
+	}
+}
+
+
+gfx/effects/fluids_drips/blood_spit2_alpha
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/fluids_drips/blood_spit2_alpha.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/fluids_drips/blood_spit
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  add
+		map    gfx/effects/fluids_drips/blood_spit.tga
+		vertexColor
+		clamp
+	}
+}
+
+
+gfx/effects/fluids_drips/blood_spit2
+{
+	noShadows
+	twoSided
+	translucent
+	{
+		blend  add
+		map    gfx/effects/fluids_drips/blood_spit2.tga
+		vertexColor
+	}
+}

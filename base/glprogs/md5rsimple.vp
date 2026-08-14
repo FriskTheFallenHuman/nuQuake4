@@ -1,0 +1,23 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_SIMPLE
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+#
+# program.env[75]-program.env[78]	Model-view-projection transform
+# 
+# output:
+# 
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], vertex.position;
+DP4 result.position.y, program.env[76], vertex.position;
+DP4 result.position.z, program.env[77], vertex.position;
+DP4 result.position.w, program.env[78], vertex.position;
+
+END
+

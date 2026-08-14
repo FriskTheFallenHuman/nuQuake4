@@ -1,0 +1,1433 @@
+/*
+===============================================================================
+	Harvester
+===============================================================================
+*/
+export monster_harvester
+ {
+	options -prefix HARV_ -scale 1  -align ALL -sourcedir work/models/monsters/Harvester/animations -destdir models/monsters/harvester
+	addoptions -keep lft_muzzle_flash
+	addoptions -keep rt_muzzle_flash 
+	addoptions -keep l_hopper_muzzle_flash
+	addoptions -keep r_hopper_muzzle_flash 
+	addoptions -keep l_toe_front
+	addoptions -keep r_toe_front
+	addoptions -keep l_toe_back
+	addoptions -keep r_toe_back
+	addoptions -keep l_side_can_tip
+	addoptions -keep back_can_tip
+	
+
+	mesh	HARV_mesh.ma 	 					-dest mesh
+	anim	HARV_idle.ma				-range 1 100	-dest idle
+	anim	HARV_walk_cycle_C.ma			-range 1 57	-dest walk_01
+
+	anim	HARV_whip_attack_all.ma				-dest whip_attack_all
+	anim	HARV_whip_attack_front_whip.ma		-dest whip_attack_front
+	anim	HARV_whip_attack_left_whip.ma		-dest whip_attack_left
+	anim	HARV_whip_attack_right_whip.ma		-dest whip_attack_right
+
+	anim	HARV_turn_90_lt.ma			-range 1 28  -dest turn_90_lt
+	anim	HARV_turn_90_rt.ma			-range 1 28  -dest turn_90_rt
+	anim	HARV_fire_forward.ma			-range 2 9  -dest fire_forward
+	anim	HARV_fire_forward_left.ma		-range 2 9  -dest fire_forward_left
+	anim	HARV_fire_forward_right.ma		-range 2 9  -dest fire_forward_right
+	anim	HARV_fire_spray.ma			-range 1 14  -dest fire_spray_start
+	anim	HARV_fire_spray.ma			-range 14 94  -dest fire_spray_loop
+	anim	HARV_fire_spray.ma			-range 94 108  -dest fire_spray_end
+	anim	HARV_attack_rleg_fw.ma			-range 1 38  -dest attack_rleg_fw
+	anim	HARV_attack_rleg_fw_rt.ma		-range 1 38  -dest attack_rleg_fw_rt
+	anim	HARV_attack_lleg_fw.ma			-range 1 38  -dest attack_lleg_fw
+	anim	HARV_attack_lleg_fw_lt.ma		-range 1 38  -dest attack_lleg_fw_lt
+	anim	HARV_pain_light.ma			-range 2 12  -dest pain_light
+	anim	HARV_pain_light2.ma			-range 2 12  -dest pain_light2
+	anim	HARV_death.ma				-range 1 60  -dest death
+	anim	HARV_death2.ma				-range 1 130  -dest death2
+	anim	HARV_death.ma				-range 36 60 -dest dmg_death
+	anim	HARV_missile_fire.ma			-range 1 18  -dest missile_fire_start
+	anim	HARV_missile_fire.ma			-range 18 60  -dest missile_fire
+	anim 	HARV_leg_pains.ma			-range 1 12 -dest leg_pain_fr
+	anim 	HARV_leg_pains.ma			-range 12 24 -dest leg_pain_fl
+	anim 	HARV_leg_pains.ma			-range 24 36 -dest leg_pain_br
+	anim 	HARV_leg_pains.ma			-range 36 48 -dest leg_pain_bl
+	anim 	HARV_attack_rleg_fw_stab.ma		-range 1 42 -dest attack_rleg_fw_stab
+	anim 	HARV_attack_lleg_fw_stab.ma		-range 1 42 -dest attack_lleg_fw_stab
+	
+	anim	HARV_dmg_frt_walk.ma			-range 1 57	-dest dmg_frt_walk
+	anim	HARV_dmg_frt_idle.ma			-range 1 100  -dest dmg_frt_idle
+	anim	HARV_dmg_frt_pain.ma			-range 1 36  -dest dmg_frt_pain
+	anim	HARV_dmg_frt_turn90_lt.ma		-range 1 28  -dest dmg_frt_turn_90_lt
+	anim	HARV_dmg_frt_turn90_rt.ma		-range 1 28  -dest dmg_frt_turn_90_rt
+	anim	HARV_dmg_frt_fire_forward.ma		-range 2 9  -dest dmg_frt_fire_forward
+	anim	HARV_dmg_frt_fire_right.ma		-range 2 9  -dest dmg_frt_fire_right
+	anim	HARV_dmg_frt_fire_left.ma		-range 2 9  -dest dmg_frt_fire_left
+	anim	HARV_dmg_frt_pain_light.ma		-range 2 12  -dest dmg_frt_pain_light
+	
+	anim	HARV_dmg_flt_walk.ma			-range 1 57	-dest dmg_flt_walk
+	anim	HARV_dmg_flt_idle.ma			-range 1 100  -dest dmg_flt_idle
+	anim	HARV_dmg_flt_pain.ma			-range 1 36  -dest dmg_flt_pain
+	anim	HARV_dmg_flt_fire_forward.ma		-range 2 9  -dest dmg_flt_fire_forward
+	anim	HARV_dmg_flt_fire_right.ma		-range 2 9  -dest dmg_flt_fire_right
+	anim	HARV_dmg_flt_fire_left.ma		-range 2 9  -dest dmg_flt_fire_left
+	anim	HARV_dmg_flt_pain_light.ma		-range 2 12  -dest dmg_flt_pain_light
+	anim	HARV_dmg_flt_turn90_lt.ma		-range 1 28  -dest dmg_flt_turn_90_lt
+	anim	HARV_dmg_flt_turn90_rt.ma		-range 1 28  -dest dmg_flt_turn_90_rt
+	
+	anim	HARV_dmg_brt_walk.ma			-range 1 57	-dest dmg_brt_walk
+	anim	HARV_dmg_brt_idle.ma			-range 1 100  -dest dmg_brt_idle
+	anim	HARV_dmg_brt_pain.ma			-range 1 36  -dest dmg_brt_pain
+	anim	HARV_dmg_brt_fire_forward.ma		-range 2 9  -dest dmg_brt_fire_forward
+	anim	HARV_dmg_brt_fire_left.ma		-range 2 9  -dest dmg_brt_fire_left
+	anim	HARV_dmg_brt_fire_right.ma		-range 2 9  -dest dmg_brt_fire_right
+	anim	HARV_dmg_brt_pain_light.ma		-range 2 12  -dest dmg_brt_pain_light
+	anim	HARV_dmg_brt_turn90_lt.ma		-range 1 28  -dest dmg_brt_turn_90_lt
+	anim	HARV_dmg_brt_turn90_rt.ma		-range 1 28  -dest dmg_brt_turn_90_rt
+	
+	anim	HARV_dmg_blt_walk.ma			-range 1 57	-dest dmg_blt_walk
+	anim	HARV_dmg_blt_idle.ma			-range 1 100  -dest dmg_blt_idle
+	anim	HARV_dmg_blt_pain.ma			-range 1 36  -dest dmg_blt_pain
+	anim	HARV_dmg_blt_fire_forward.ma		-range 2 9  -dest dmg_blt_fire_forward
+	anim	HARV_dmg_blt_fire_left.ma		-range 2 9  -dest dmg_blt_fire_left
+	anim	HARV_dmg_blt_fire_right.ma		-range 2 9  -dest dmg_blt_fire_right
+	anim	HARV_dmg_blt_pain_light.ma		-range 2 12  -dest dmg_blt_pain_light
+	anim	HARV_dmg_blt_turn90_lt.ma		-range 1 28  -dest dmg_blt_turn_90_lt
+	anim	HARV_dmg_blt_turn90_rt.ma		-range 1 28  -dest dmg_blt_turn_90_rt
+	
+	
+}
+
+model model_monster_harvester_combat
+{
+	mesh										models/monsters/harvester/mesh.md5mesh
+	
+	channel torso								( *origin -*waist )
+	channel legs								( *waist )
+	
+	anim	idle								models/monsters/harvester/idle.md5anim
+	{
+		frame	1,50								sound		snd_flesh
+	}
+	anim	walk								models/monsters/harvester/walk_01.md5anim
+	{
+		frame	1,14,36,44							sound		snd_flesh
+//		frame	15,25,43,54							footstep
+		frame	15									fx fx_step r_toe_front
+		frame	25									fx fx_step l_toe_back
+		frame	43									fx fx_step l_toe_front
+		frame	54									fx fx_step r_toe_back
+		rate 1.5
+	}
+	anim	attack_all_whips					models/monsters/harvester/whip_attack_all.md5anim
+	{
+		frame	1,14,26								sound		snd_flesh
+		frame	3,6,9,12							sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	right_tentacles_01
+		frame	2									fx			fx_whips	right_tentacles_02
+		frame	3									fx			fx_whips	right_tentacles_03
+		frame	4									fx			fx_whips	right_tentacles_04
+		frame	5									fx			fx_whips	right_tentacles_05
+		frame	6									fx			fx_whips	right_tentacles_06
+		frame	7									fx			fx_whips	right_tentacles_07
+		frame	8									fx			fx_whips	right_tentacles_08
+		frame	9									fx			fx_whips	right_tentacles_09
+		frame	10									fx			fx_whips	right_tentacles_10
+		frame	11									fx			fx_whips	right_tentacles_11
+		frame	12									fx			fx_whips	right_tentacles_12
+		frame	13									fx			fx_whips	right_tentacles_13
+		frame	14									fx			fx_whips	right_tentacles_14
+		frame	15									fx			fx_whips	right_tentacles_15
+		frame	16									fx			fx_whips	right_tentacles_16
+		frame	17									fx			fx_whips	right_tentacles_17
+		frame	18									fx			fx_whips	right_tentacles_18
+		frame	1									fx			fx_whips	left_tentacles_01
+		frame	2									fx			fx_whips	left_tentacles_02
+		frame	3									fx			fx_whips	left_tentacles_03
+		frame	4									fx			fx_whips	left_tentacles_04
+		frame	5									fx			fx_whips	left_tentacles_05
+		frame	6									fx			fx_whips	left_tentacles_06
+		frame	7									fx			fx_whips	left_tentacles_07
+		frame	8									fx			fx_whips	left_tentacles_08
+		frame	9									fx			fx_whips	left_tentacles_09
+		frame	10									fx			fx_whips	left_tentacles_10
+		frame	11									fx			fx_whips	left_tentacles_11
+		frame	12									fx			fx_whips	left_tentacles_12
+		frame	13									fx			fx_whips	left_tentacles_13
+		frame	14									fx			fx_whips	left_tentacles_14
+		frame	15									fx			fx_whips	left_tentacles_15
+		frame	16									fx			fx_whips	left_tentacles_16
+		frame	17									fx			fx_whips	left_tentacles_17
+		frame	18									fx			fx_whips	left_tentacles_18
+		frame	1									fx			fx_whips	front_tentacles_01
+		frame	2									fx			fx_whips	front_tentacles_02
+		frame	3									fx			fx_whips	front_tentacles_03
+		frame	4									fx			fx_whips	front_tentacles_04
+		frame	5									fx			fx_whips	front_tentacles_05
+		frame	6									fx			fx_whips	front_tentacles_06
+		frame	7									fx			fx_whips	front_tentacles_07
+		frame	8									fx			fx_whips	front_tentacles_08
+		frame	9									fx			fx_whips	front_tentacles_09
+		frame	10									fx			fx_whips	front_tentacles_10
+		frame	11									fx			fx_whips	front_tentacles_11
+		frame	12									fx			fx_whips	front_tentacles_12
+		frame	13									fx			fx_whips	front_tentacles_13
+		frame	14									fx			fx_whips	front_tentacles_14
+		frame	15									fx			fx_whips	front_tentacles_15
+		frame	16									fx			fx_whips	front_tentacles_16
+		frame	17									fx			fx_whips	front_tentacles_17
+		frame	18									fx			fx_whips	front_tentacles_18
+		frame	1									fx			fx_whips	back_tentacles_01
+		frame	2									fx			fx_whips	back_tentacles_02
+		frame	3									fx			fx_whips	back_tentacles_03
+		frame	4									fx			fx_whips	back_tentacles_04
+		frame	5									fx			fx_whips	back_tentacles_05
+		frame	6									fx			fx_whips	back_tentacles_06
+		frame	7									fx			fx_whips	back_tentacles_07
+		frame	8									fx			fx_whips	back_tentacles_08
+		frame	9									fx			fx_whips	back_tentacles_09
+		frame	10									fx			fx_whips	back_tentacles_10
+		frame	11									fx			fx_whips	back_tentacles_11
+		frame	12									fx			fx_whips	back_tentacles_12
+		frame	13									fx			fx_whips	back_tentacles_13
+		frame	14									fx			fx_whips	back_tentacles_14
+		frame	15									fx			fx_whips	back_tentacles_15
+		frame	16									fx			fx_whips	back_tentacles_16
+		frame	17									fx			fx_whips	back_tentacles_17
+		frame	18									fx			fx_whips	back_tentacles_18
+	}
+	anim	attack_front_whip					models/monsters/harvester/whip_attack_front.md5anim
+	{
+		frame	1,26								sound		snd_flesh
+		frame	6,12								sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	front_tentacles_01
+		frame	2									fx			fx_whips	front_tentacles_02
+		frame	3									fx			fx_whips	front_tentacles_03
+		frame	4									fx			fx_whips	front_tentacles_04
+		frame	5									fx			fx_whips	front_tentacles_05
+		frame	6									fx			fx_whips	front_tentacles_06
+		frame	7									fx			fx_whips	front_tentacles_07
+		frame	8									fx			fx_whips	front_tentacles_08
+		frame	9									fx			fx_whips	front_tentacles_09
+		frame	10									fx			fx_whips	front_tentacles_10
+		frame	11									fx			fx_whips	front_tentacles_11
+		frame	12									fx			fx_whips	front_tentacles_12
+		frame	13									fx			fx_whips	front_tentacles_13
+		frame	14									fx			fx_whips	front_tentacles_14
+		frame	15									fx			fx_whips	front_tentacles_15
+		frame	16									fx			fx_whips	front_tentacles_16
+		frame	17									fx			fx_whips	front_tentacles_17
+		frame	18									fx			fx_whips	front_tentacles_18
+	}
+	anim	attack_left_whip					models/monsters/harvester/whip_attack_left.md5anim
+	{
+		frame	1,24								sound		snd_flesh
+		frame	4									sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	left_tentacles_01
+		frame	2									fx			fx_whips	left_tentacles_02
+		frame	3									fx			fx_whips	left_tentacles_03
+		frame	4									fx			fx_whips	left_tentacles_04
+		frame	5									fx			fx_whips	left_tentacles_05
+		frame	6									fx			fx_whips	left_tentacles_06
+		frame	7									fx			fx_whips	left_tentacles_07
+		frame	8									fx			fx_whips	left_tentacles_08
+		frame	9									fx			fx_whips	left_tentacles_09
+		frame	10									fx			fx_whips	left_tentacles_10
+		frame	11									fx			fx_whips	left_tentacles_11
+		frame	12									fx			fx_whips	left_tentacles_12
+		frame	13									fx			fx_whips	left_tentacles_13
+		frame	14									fx			fx_whips	left_tentacles_14
+		frame	15									fx			fx_whips	left_tentacles_15
+		frame	16									fx			fx_whips	left_tentacles_16
+		frame	17									fx			fx_whips	left_tentacles_17
+		frame	18									fx			fx_whips	left_tentacles_18
+	}
+	anim	attack_right_whip					models/monsters/harvester/whip_attack_right.md5anim
+	{
+		frame	1,27								sound		snd_flesh
+		frame	8									sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	right_tentacles_01
+		frame	2									fx			fx_whips	right_tentacles_02
+		frame	3									fx			fx_whips	right_tentacles_03
+		frame	4									fx			fx_whips	right_tentacles_04
+		frame	5									fx			fx_whips	right_tentacles_05
+		frame	6									fx			fx_whips	right_tentacles_06
+		frame	7									fx			fx_whips	right_tentacles_07
+		frame	8									fx			fx_whips	right_tentacles_08
+		frame	9									fx			fx_whips	right_tentacles_09
+		frame	10									fx			fx_whips	right_tentacles_10
+		frame	11									fx			fx_whips	right_tentacles_11
+		frame	12									fx			fx_whips	right_tentacles_12
+		frame	13									fx			fx_whips	right_tentacles_13
+		frame	14									fx			fx_whips	right_tentacles_14
+		frame	15									fx			fx_whips	right_tentacles_15
+		frame	16									fx			fx_whips	right_tentacles_16
+		frame	17									fx			fx_whips	right_tentacles_17
+		frame	18									fx			fx_whips	right_tentacles_18
+	}
+	
+	anim	range_attack					models/monsters/harvester/whip_attack_all.md5anim
+	{
+		frame	1,14,26								sound		snd_flesh
+		frame	3,6,9,12							sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	right_tentacles_01
+		frame	2									fx			fx_whips	right_tentacles_02
+		frame	3									fx			fx_whips	right_tentacles_03
+		frame	4									fx			fx_whips	right_tentacles_04
+		frame	5									fx			fx_whips	right_tentacles_05
+		frame	6									fx			fx_whips	right_tentacles_06
+		frame	7									fx			fx_whips	right_tentacles_07
+		frame	8									fx			fx_whips	right_tentacles_08
+		frame	9									fx			fx_whips	right_tentacles_09
+		frame	10									fx			fx_whips	right_tentacles_10
+		frame	11									fx			fx_whips	right_tentacles_11
+		frame	12									fx			fx_whips	right_tentacles_12
+		frame	13									fx			fx_whips	right_tentacles_13
+		frame	14									fx			fx_whips	right_tentacles_14
+		frame	15									fx			fx_whips	right_tentacles_15
+		frame	16									fx			fx_whips	right_tentacles_16
+		frame	17									fx			fx_whips	right_tentacles_17
+		frame	18									fx			fx_whips	right_tentacles_18
+		frame	1									fx			fx_whips	left_tentacles_01
+		frame	2									fx			fx_whips	left_tentacles_02
+		frame	3									fx			fx_whips	left_tentacles_03
+		frame	4									fx			fx_whips	left_tentacles_04
+		frame	5									fx			fx_whips	left_tentacles_05
+		frame	6									fx			fx_whips	left_tentacles_06
+		frame	7									fx			fx_whips	left_tentacles_07
+		frame	8									fx			fx_whips	left_tentacles_08
+		frame	9									fx			fx_whips	left_tentacles_09
+		frame	10									fx			fx_whips	left_tentacles_10
+		frame	11									fx			fx_whips	left_tentacles_11
+		frame	12									fx			fx_whips	left_tentacles_12
+		frame	13									fx			fx_whips	left_tentacles_13
+		frame	14									fx			fx_whips	left_tentacles_14
+		frame	15									fx			fx_whips	left_tentacles_15
+		frame	16									fx			fx_whips	left_tentacles_16
+		frame	17									fx			fx_whips	left_tentacles_17
+		frame	18									fx			fx_whips	left_tentacles_18
+		frame	1									fx			fx_whips	front_tentacles_01
+		frame	2									fx			fx_whips	front_tentacles_02
+		frame	3									fx			fx_whips	front_tentacles_03
+		frame	4									fx			fx_whips	front_tentacles_04
+		frame	5									fx			fx_whips	front_tentacles_05
+		frame	6									fx			fx_whips	front_tentacles_06
+		frame	7									fx			fx_whips	front_tentacles_07
+		frame	8									fx			fx_whips	front_tentacles_08
+		frame	9									fx			fx_whips	front_tentacles_09
+		frame	10									fx			fx_whips	front_tentacles_10
+		frame	11									fx			fx_whips	front_tentacles_11
+		frame	12									fx			fx_whips	front_tentacles_12
+		frame	13									fx			fx_whips	front_tentacles_13
+		frame	14									fx			fx_whips	front_tentacles_14
+		frame	15									fx			fx_whips	front_tentacles_15
+		frame	16									fx			fx_whips	front_tentacles_16
+		frame	17									fx			fx_whips	front_tentacles_17
+		frame	18									fx			fx_whips	front_tentacles_18
+		frame	1									fx			fx_whips	back_tentacles_01
+		frame	2									fx			fx_whips	back_tentacles_02
+		frame	3									fx			fx_whips	back_tentacles_03
+		frame	4									fx			fx_whips	back_tentacles_04
+		frame	5									fx			fx_whips	back_tentacles_05
+		frame	6									fx			fx_whips	back_tentacles_06
+		frame	7									fx			fx_whips	back_tentacles_07
+		frame	8									fx			fx_whips	back_tentacles_08
+		frame	9									fx			fx_whips	back_tentacles_09
+		frame	10									fx			fx_whips	back_tentacles_10
+		frame	11									fx			fx_whips	back_tentacles_11
+		frame	12									fx			fx_whips	back_tentacles_12
+		frame	13									fx			fx_whips	back_tentacles_13
+		frame	14									fx			fx_whips	back_tentacles_14
+		frame	15									fx			fx_whips	back_tentacles_15
+		frame	16									fx			fx_whips	back_tentacles_16
+		frame	17									fx			fx_whips	back_tentacles_17
+		frame	18									fx			fx_whips	back_tentacles_18
+	}
+	anim	range_attack2					models/monsters/harvester/whip_attack_front.md5anim
+	{
+		frame	1,26								sound		snd_flesh
+		frame	6,12								sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	front_tentacles_01
+		frame	2									fx			fx_whips	front_tentacles_02
+		frame	3									fx			fx_whips	front_tentacles_03
+		frame	4									fx			fx_whips	front_tentacles_04
+		frame	5									fx			fx_whips	front_tentacles_05
+		frame	6									fx			fx_whips	front_tentacles_06
+		frame	7									fx			fx_whips	front_tentacles_07
+		frame	8									fx			fx_whips	front_tentacles_08
+		frame	9									fx			fx_whips	front_tentacles_09
+		frame	10									fx			fx_whips	front_tentacles_10
+		frame	11									fx			fx_whips	front_tentacles_11
+		frame	12									fx			fx_whips	front_tentacles_12
+		frame	13									fx			fx_whips	front_tentacles_13
+		frame	14									fx			fx_whips	front_tentacles_14
+		frame	15									fx			fx_whips	front_tentacles_15
+		frame	16									fx			fx_whips	front_tentacles_16
+		frame	17									fx			fx_whips	front_tentacles_17
+		frame	18									fx			fx_whips	front_tentacles_18
+	}
+	anim	range_attack3					models/monsters/harvester/whip_attack_left.md5anim
+	{
+		frame	1,24								sound		snd_flesh
+		frame	4									sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	left_tentacles_01
+		frame	2									fx			fx_whips	left_tentacles_02
+		frame	3									fx			fx_whips	left_tentacles_03
+		frame	4									fx			fx_whips	left_tentacles_04
+		frame	5									fx			fx_whips	left_tentacles_05
+		frame	6									fx			fx_whips	left_tentacles_06
+		frame	7									fx			fx_whips	left_tentacles_07
+		frame	8									fx			fx_whips	left_tentacles_08
+		frame	9									fx			fx_whips	left_tentacles_09
+		frame	10									fx			fx_whips	left_tentacles_10
+		frame	11									fx			fx_whips	left_tentacles_11
+		frame	12									fx			fx_whips	left_tentacles_12
+		frame	13									fx			fx_whips	left_tentacles_13
+		frame	14									fx			fx_whips	left_tentacles_14
+		frame	15									fx			fx_whips	left_tentacles_15
+		frame	16									fx			fx_whips	left_tentacles_16
+		frame	17									fx			fx_whips	left_tentacles_17
+		frame	18									fx			fx_whips	left_tentacles_18
+	}
+	anim	range_attack4					models/monsters/harvester/whip_attack_right.md5anim
+	{
+		frame	1,27								sound		snd_flesh
+		frame	8									sound_weapon		snd_tendrils
+		frame	1									fx			fx_whips	right_tentacles_01
+		frame	2									fx			fx_whips	right_tentacles_02
+		frame	3									fx			fx_whips	right_tentacles_03
+		frame	4									fx			fx_whips	right_tentacles_04
+		frame	5									fx			fx_whips	right_tentacles_05
+		frame	6									fx			fx_whips	right_tentacles_06
+		frame	7									fx			fx_whips	right_tentacles_07
+		frame	8									fx			fx_whips	right_tentacles_08
+		frame	9									fx			fx_whips	right_tentacles_09
+		frame	10									fx			fx_whips	right_tentacles_10
+		frame	11									fx			fx_whips	right_tentacles_11
+		frame	12									fx			fx_whips	right_tentacles_12
+		frame	13									fx			fx_whips	right_tentacles_13
+		frame	14									fx			fx_whips	right_tentacles_14
+		frame	15									fx			fx_whips	right_tentacles_15
+		frame	16									fx			fx_whips	right_tentacles_16
+		frame	17									fx			fx_whips	right_tentacles_17
+		frame	18									fx			fx_whips	right_tentacles_18
+	}
+	
+	anim	turn_90_rt			models/monsters/harvester/turn_90_rt.md5anim, models/monsters/harvester/turn_90_rt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step l_toe_front
+		frame	14							fx fx_step l_toe_back
+		frame	21							fx fx_step r_toe_back
+		frame	27							fx fx_step r_toe_front
+		rate 0.5
+	}
+	anim	turn_90_lt			models/monsters/harvester/turn_90_lt.md5anim, models/monsters/harvester/turn_90_lt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step r_toe_front
+		frame	14							fx fx_step l_toe_front
+		frame	21							fx fx_step l_toe_back
+		frame	27							fx fx_step r_toe_back
+		rate 0.5
+	}
+	anim	fire_forward			models/monsters/harvester/fire_forward.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	fire_left		models/monsters/harvester/fire_forward_left.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	fire_right		models/monsters/harvester/fire_forward_right.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+
+	anim	fire_forward_spray_start	models/monsters/harvester/fire_spray_start.md5anim
+	anim	fire_forward_spray_loop		models/monsters/harvester/fire_spray_loop.md5anim
+	{
+		//1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80
+		frame 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79	fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79	ai_attack			nail_spray				lft_muzzle_flash
+		frame 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80	fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80	ai_attack			nail_spray				rt_muzzle_flash
+	}
+	anim	fire_forward_spray_end		models/monsters/harvester/fire_spray_end.md5anim
+
+	anim	attack_grenade			models/monsters/harvester/fire_forward.md5anim
+	{
+		frame 1								sound_weapon		snd_grenade_launch
+		frame 1								ai_attack			grenade					r_side_can_tip
+		frame 1								fx					fx_grenade_flash		r_side_can_tip
+		frame 2								sound_weapon		snd_grenade_launch
+		frame 2								ai_attack			grenade					l_side_can_tip
+		frame 2								fx					fx_grenade_flash		l_side_can_tip
+		frame 3								sound_weapon		snd_grenade_launch
+		frame 3								ai_attack			grenade					back_can_tip
+		frame 3								fx					fx_grenade_flash		back_can_tip
+	}
+	
+	anim	attack_rleg_fw			models/monsters/harvester/attack_rleg_fw.md5anim
+	{
+		frame	8,17,26				fx	fx_claw_swing r_toe_front
+		frame	11,20,29			ai_attack		claw		r_ankle_front
+		rate 0.75
+	}
+	anim 	attack_rleg_fw2		models/monsters/harvester/attack_rleg_fw_stab.md5anim
+	{
+		frame	22				fx	fx_claw_swing r_toe_front
+		frame	25				ai_attack		claw		r_ankle_front
+	}
+	anim	attack_rleg_fw_rt		models/monsters/harvester/attack_rleg_fw_rt.md5anim
+	{
+		frame	8,17,26				fx	fx_claw_swing r_toe_front
+		frame	11,20,29			ai_attack		claw		r_ankle_front
+		rate 0.75
+	}
+	anim	attack_lleg_fw			models/monsters/harvester/attack_lleg_fw.md5anim
+	{
+		frame	8,17,26				fx	fx_claw_swing l_toe_front
+		frame	11,20,29			ai_attack		claw		l_ankle_front
+		rate 0.75
+	}
+	anim 	attack_lleg_fw2	models/monsters/harvester/attack_lleg_fw_stab.md5anim
+	{
+		frame	22					fx	fx_claw_swing l_toe_front
+		frame	25					ai_attack		claw		l_ankle_front
+	}
+	anim	attack_lleg_fw_lt		models/monsters/harvester/attack_lleg_fw_lt.md5anim
+	{
+		frame	8,17,26				fx	fx_claw_swing l_toe_front
+		frame	11,20,29			ai_attack		claw		l_ankle_front
+		rate 0.75
+	}
+
+	anim	pain			models/monsters/harvester/pain_light.md5anim
+	{
+		frame 1				sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	pain2			models/monsters/harvester/pain_light2.md5anim
+	{
+		frame 1				sound_voice	snd_pain
+		rate 0.5
+	}
+
+	anim	death2				models/monsters/harvester/death.md5anim
+	{
+		rate 0.5
+		frame	1				sound_voice	snd_death
+		frame	1				fx			fx_death_explosion_small	r_loleg_front
+		frame	5				fx			fx_death_explosion_small	r_side_can_base
+		frame	7				fx			fx_step l_toe_front
+		frame	8				sound		snd_creak
+		frame	16				sound		snd_twist
+		frame	25				sound		snd_twist
+		frame	12				fx			fx_death_explosion_small	l_side_can_base
+		frame	16				fx			fx_death_explosion_small	abdomen_3
+		frame	20				fx			fx_death_explosion_small	head
+		frame	24				fx			fx_death_explosion_small	l_loleg_back
+		frame	32				fx			fx_death_explosion_small	l_loleg_front
+		frame	36				fx			fx_death_explosion_small	r_loleg_back
+		frame	40				fx			fx_death_explosion_small	back_shield
+		frame	45				fx			fx_death_explosion_big		waist
+	}
+
+	anim	missile_fire_start		models/monsters/harvester/missile_fire_start.md5anim
+	{
+		frame	1				sound_voice snd_roar
+	}
+	anim	attack_rocket			models/monsters/harvester/missile_fire.md5anim
+
+	anim	death				models/monsters/harvester/death2.md5anim
+	{
+		rate 0.75
+		frame	1				sound_voice	snd_death
+		frame	8				fx			fx_step l_toe_front
+		frame	19				fx			fx_step r_toe_front
+		frame	69				fx			fx_step l_toe_front
+		frame	78				fx			fx_step r_toe_front
+		frame	70				sound		snd_creak
+		frame	85				sound		snd_twist
+		frame	95				sound		snd_twist
+		frame	1				fx			fx_death_explosion_small	head
+		frame	24				fx			fx_death_explosion_small	l_loleg_back
+		frame	37				fx			fx_death_explosion_small	l_loleg_front
+		frame	64				fx			fx_death_explosion_small	r_loleg_back
+		frame	70				fx			fx_death_explosion_small	back_shield
+		frame	72				fx			fx_death_explosion_small	r_loleg_front
+		frame	85				fx			fx_death_explosion_small	r_side_can_base
+		frame	92				fx			fx_death_explosion_small	l_side_can_base
+		frame	103				fx			fx_death_explosion_small	abdomen_3
+		frame	110				fx			fx_death_explosion_big		waist
+	}
+
+
+
+
+	anim 	leg_pain_fr			models/monsters/harvester/leg_pain_fr.md5anim
+	{
+		frame 1				sound_voice	snd_pain
+		rate 0.5
+	}
+	anim 	leg_pain_fl			models/monsters/harvester/leg_pain_fl.md5anim
+	{
+		frame 1				sound_voice	snd_pain
+		rate 0.5
+	}
+	anim 	leg_pain_br			models/monsters/harvester/leg_pain_br.md5anim
+	{
+		frame 1				sound_voice	snd_pain
+		rate 0.5
+	}
+	anim 	leg_pain_bl			models/monsters/harvester/leg_pain_bl.md5anim
+	{
+		frame 1				sound_voice	snd_pain
+		rate 0.5
+	}
+
+
+
+
+	anim	dmg_frt_walk			models/monsters/harvester/dmg_frt_walk.md5anim
+	{
+//		frame	25,43,54							footstep
+		frame	25									fx fx_step l_toe_back
+		frame	43									fx fx_step l_toe_front
+		frame	54									fx fx_step r_toe_back
+		rate 1.5
+	}
+	anim	dmg_frt_idle			models/monsters/harvester/dmg_frt_idle.md5anim
+	{
+		frame	1,50								sound		snd_flesh
+	}
+	anim	dmg_frt_damaged			models/monsters/harvester/dmg_frt_pain.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_frt_turn_90_rt		models/monsters/harvester/dmg_frt_turn_90_rt.md5anim, models/monsters/harvester/dmg_frt_turn_90_rt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step l_toe_front
+		frame	14							fx fx_step l_toe_back
+		frame	21							fx fx_step r_toe_back
+		rate 0.5
+	}
+	anim	dmg_frt_turn_90_lt		models/monsters/harvester/dmg_frt_turn_90_lt.md5anim, models/monsters/harvester/dmg_frt_turn_90_lt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	14							fx fx_step l_toe_front
+		frame	21							fx fx_step l_toe_back
+		frame	27							fx fx_step r_toe_back
+		rate 0.5
+	}
+	anim	dmg_frt_fire_forward		models/monsters/harvester/dmg_frt_fire_forward.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_frt_fire_right		models/monsters/harvester/dmg_frt_fire_right.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_frt_fire_left		models/monsters/harvester/dmg_frt_fire_left.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_frt_pain		models/monsters/harvester/dmg_frt_pain_light.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	
+	anim	dmg_flt_walk			models/monsters/harvester/dmg_flt_walk.md5anim
+	{
+//		frame	15,29,54							footstep
+		frame	15									fx fx_step r_toe_front
+		frame	29									fx fx_step l_toe_back
+		frame	54									fx fx_step r_toe_back
+		rate 1.5
+	}
+	anim	dmg_flt_idle			models/monsters/harvester/dmg_flt_idle.md5anim
+	{
+		frame	1,50								sound		snd_flesh
+	}
+	anim	dmg_flt_damaged			models/monsters/harvester/dmg_flt_pain.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_flt_fire_forward		models/monsters/harvester/dmg_flt_fire_forward.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_flt_fire_right		models/monsters/harvester/dmg_flt_fire_right.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_flt_fire_left		models/monsters/harvester/dmg_flt_fire_left.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_flt_pain			models/monsters/harvester/dmg_flt_pain_light.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_flt_turn_90_rt		models/monsters/harvester/dmg_flt_turn_90_rt.md5anim, models/monsters/harvester/dmg_flt_turn_90_rt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	14							fx fx_step l_toe_back
+		frame	21							fx fx_step r_toe_back
+		frame	27							fx fx_step r_toe_front
+		rate 0.5
+	}
+	anim	dmg_flt_turn_90_lt		models/monsters/harvester/dmg_flt_turn_90_lt.md5anim, models/monsters/harvester/dmg_flt_turn_90_lt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step r_toe_front
+		frame	21							fx fx_step l_toe_back
+		frame	27							fx fx_step r_toe_back
+		rate 0.5
+	}
+
+	anim	dmg_brt_walk			models/monsters/harvester/dmg_brt_walk.md5anim
+	{
+//		frame	15,29,46							footstep
+		frame	15									fx fx_step r_toe_front
+		frame	29									fx fx_step l_toe_back
+		frame	46									fx fx_step l_toe_front
+		rate 1.5
+	}
+	anim	dmg_brt_idle			models/monsters/harvester/dmg_brt_idle.md5anim
+	{
+		frame	1,50								sound		snd_flesh
+	}
+	anim	dmg_brt_damaged			models/monsters/harvester/dmg_brt_pain.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_brt_fire_forward		models/monsters/harvester/dmg_brt_fire_forward.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_brt_fire_left		models/monsters/harvester/dmg_brt_fire_left.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_brt_fire_right		models/monsters/harvester/dmg_brt_fire_right.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_brt_pain		models/monsters/harvester/dmg_brt_pain_light.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_brt_turn_90_rt		models/monsters/harvester/dmg_brt_turn_90_lt.md5anim, models/monsters/harvester/dmg_brt_turn_90_lt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step r_toe_front
+		frame	14							fx fx_step l_toe_front
+		frame	21							fx fx_step l_toe_back
+		rate 0.5
+	}
+	anim	dmg_brt_turn_90_lt		models/monsters/harvester/dmg_brt_turn_90_rt.md5anim, models/monsters/harvester/dmg_brt_turn_90_rt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step l_toe_front
+		frame	14							fx fx_step l_toe_back
+		frame	27							fx fx_step r_toe_front
+		rate 0.5
+	}
+	
+	anim	dmg_blt_walk			models/monsters/harvester/dmg_blt_walk.md5anim
+	{
+//		frame	15,38,54							footstep
+		frame	15									fx fx_step r_toe_front
+		frame	38									fx fx_step l_toe_front
+		frame	54									fx fx_step r_toe_back
+		rate 1.5
+	}
+	anim	dmg_blt_idle			models/monsters/harvester/dmg_blt_idle.md5anim
+	{
+		frame	1,50								sound		snd_flesh
+	}
+	anim	dmg_blt_damaged			models/monsters/harvester/dmg_blt_pain.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_blt_fire_forward		models/monsters/harvester/dmg_blt_fire_forward.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_blt_fire_left		models/monsters/harvester/dmg_blt_fire_left.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_blt_fire_right		models/monsters/harvester/dmg_blt_fire_right.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	dmg_blt_pain		models/monsters/harvester/dmg_blt_pain_light.md5anim
+	{
+		frame 1						sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	dmg_blt_turn_90_rt		models/monsters/harvester/dmg_blt_turn_90_lt.md5anim, models/monsters/harvester/dmg_blt_turn_90_lt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step r_toe_front
+		frame	14							fx fx_step l_toe_front
+		frame	27							fx fx_step l_toe_back
+		rate 0.5
+	}
+	anim	dmg_blt_turn_90_lt		models/monsters/harvester/dmg_blt_turn_90_rt.md5anim, models/monsters/harvester/dmg_blt_turn_90_rt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step l_toe_front
+		frame	21							fx fx_step r_toe_back
+		frame	27							fx fx_step r_toe_front
+		rate 0.5
+	}
+
+	anim	dmg_death			models/monsters/harvester/dmg_death.md5anim
+	{
+		frame	1				sound_voice	snd_death
+		rate 0.75
+	}
+
+}
+
+entityDef hitscan_harv_claw
+{
+	"inherit"							"hitscan_base"
+	"def_damage"						"damage_harv_claw"
+	"push"								"50000"
+	"kickDir"							"0.5 0 0.5"
+	"knockback"							"300"
+	"kick_time"							"1000"
+	"gib"								"1"
+	"trace_size"						"8"
+	"range"								"1024"
+	
+	"fx_impact_dirt"					"effects/monsters/harvester/claw_dirt.fx"
+	"fx_impact_sand"					"effects/monsters/harvester/claw_dirt.fx"
+	"fx_impact_gravel"					"effects/monsters/harvester/claw_dirt.fx"
+	"fx_impact_rock"					"effects/monsters/harvester/claw_dirt.fx"
+	"fx_impact"							"effects/monsters/harvester/claw_dirt.fx"
+	"fx_impact_solidmetal"				"effects/monsters/harvester/claw_metal.fx"
+	"fx_impact_hollowmetal"				"effects/monsters/harvester/claw_metal.fx"
+	"fx_impact_armor"					"effects/monsters/harvester/claw_metal.fx"
+	"fx_impact_monstermetal"			"effects/monsters/harvester/claw_metal.fx"
+	"fx_impact_flesh"					"effects/monsters/harvester/claw_flesh.fx"
+}
+
+entityDef damage_harv_claw
+{
+	"inherit"							"melee_monster_base"
+	"damage"							"200"
+	"noShields"							"1"
+	"gib"								"1"
+	
+	"kickDir"							"0.5 0 0.5"
+	"knockback"							"300"
+	"kick_time"							"1000"
+}
+
+entityDef monster_harvester_combat
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterHarvester"
+	
+	"action_whipAttack"						"1"
+	"action_whipAttack_rate"				".5"
+	"action_whipAttack_minRange"			"0"
+	"action_whipAttack_maxRange"			"400"
+	"action_whipAttack_noTurn"				"0"
+	
+	"action_grenadeAttack"					"1"
+	"action_grenadeAttack_rate"				"1"
+	"action_grenadeAttack_minRange"			"0"
+	"action_grenadeAttack_maxRange"			"3000"
+	"action_grenadeAttack_anim"				"attack_grenade"
+
+	"action_rocketAttack"					"1"
+//	"action_rocketAttack_rate"				"15"
+	"action_rocketAttack_rate"				"5"
+	"action_rocketAttack_minRange"			"1500"
+	"action_rocketAttack_maxRange"			"30000"
+	"action_rocketAttack_anim"				"attack_rocket"
+	"action_rocketAttack_state"				"Torso_RocketAttack"
+
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_rate"				"2"
+	"action_meleeAttack_minRange"			"400"
+	"action_meleeAttack_maxRange"			"800"
+	"action_meleeAttack_anim"				"attack_rleg_fw"
+	"action_meleeAttack_state"				"Torso_ClawAttack"
+
+	"action_rangedAttack"					"1"
+	"action_rangedAttack_rate"				"1"
+	"action_rangedAttack_minRange"			"800"
+	"action_rangedAttack_maxRange"			"2500"
+	"action_rangedAttack_anim"				"fire_forward"
+	"action_rangedAttack_state"				"Torso_RangedAttack"
+	"action_rangedAttack_overrideLegs"		"0"
+	
+	"minShots"								"10"
+	"maxShots"								"40"
+
+	"action_sprayAttack"					"1"
+	"action_sprayAttack_state"				"Torso_SprayAttack"
+	"action_sprayAttack_minRange"			"800"
+	"action_sprayAttack_maxRange"			"2000"
+	"action_sprayAttack_rate"				"2"
+
+//	"action_pain"							"1" - obsolete
+	"actionTimer_pain_rate"					"5"
+	"painThreshold"							"100"
+	"death_damage_threshold"				"100"
+	"ignore_vehicle_damage"					"1"
+	"ignore_vehicle_push"					"1"
+	
+	"attackRange"							"0 1200"
+	"melee_range"							"300 800"
+	"searchRange"							"512 4096"
+	
+	"model"									"model_monster_harvester_combat"
+	"size"									"248 248 250"
+	"mass"									"2500"
+	"use_aas"								"aas250"
+		
+	"turn_rate"								"45"
+	
+	"health"								"5000"
+	
+	"tactical_ranged"						"1"
+	"tactical_rush"							"1"
+	
+	"joint_eyeOffset"						"head"
+	"joint_orientation"						"body"
+	"joint_whip_left"						"left_tentacles_18"
+	"joint_whip_right"						"right_tentacles_18"
+	"joint_whip_center"						"front_tentacles_18"
+	
+	"look_joint waist"						".25 1 0"
+	
+	"fov"									"90"
+	
+	"look_min"								"-45 -60 0"
+	"look_max"								"75 60 0"
+
+	"damage_zone head"						"*neck_base"
+
+	"damage_zone arm_right"					"*r_uparm"
+	"damage_zone arm_left"					"*l_uparm"
+	"damage_zone leg_front_right"			"*r_ankle_front"
+	"damage_zone leg_front_left"			"*l_ankle_front"
+	"damage_zone leg_back_right"			"*r_ankle_back"
+	"damage_zone leg_back_left"				"*l_ankle_back"
+	"damage_zone hopper_right"				"*rt_hopper"
+	"damage_zone hopper_left"				"*lft_hopper"
+
+	"part_0_location"						"arm_right"
+	"part_1_location"						"arm_left"
+	"part_2_location"						"leg_front_right"
+	"part_3_location"						"leg_front_left"
+	"part_4_location"						"leg_back_right"
+	"part_5_location"						"leg_back_left"
+	"part_6_location"						"hopper_right"
+	"part_7_location"						"hopper_left"
+
+	"part_0_surf"							"models/monsters/harvester/harv_sm1"
+	"part_1_surf"							"models/monsters/harvester/harv_sm2"
+	"part_2_surf"							"models/monsters/harvester/harv_lg1"
+	"part_3_surf"							"models/monsters/harvester/harv_lg2"
+	"part_4_surf"							"models/monsters/harvester/harv_lg4"
+	"part_5_surf"							"models/monsters/harvester/harv_lg3"
+	"part_6_surf"							"models/monsters/harvester/harv_can2"
+	"part_7_surf"							"models/monsters/harvester/harv_can1"
+
+	"part_0_joint"							"r_uparm"
+	"part_1_joint"							"l_uparm"
+	"part_2_joint"							"r_ankle_front"
+	"part_3_joint"							"l_ankle_front"
+	"part_4_joint"							"r_ankle_back"
+	"part_5_joint"							"l_ankle_back"
+	"part_6_joint"							"rt_hopper"
+	"part_7_joint"							"lft_hopper"
+
+	"part_0_health"							"800"
+	"part_1_health"							"800"
+	"part_2_health"							"1000"
+	"part_3_health"							"1000"
+	"part_4_health"							"1000"
+	"part_5_health"							"1000"
+	"part_6_health"							"2000"
+	"part_7_health"							"2000"
+
+	//mainly for precaching
+	"def_leg_part1"							"moveable_harvester_lg1"
+	"def_leg_part2"							"moveable_harvester_lg2"
+	"def_leg_part3"							"moveable_harvester_lg3"
+	"def_leg_part4"							"moveable_harvester_lg4"
+
+	// for lock-on targeting
+	"lockJoint1"							"body"
+	"lockJoint2"							"r_uparm"
+	"lockJointOffset2"						"32 0 0"
+	"lockJoint3"							"l_uparm"
+	"lockJointOffset3"						"32 0 0"
+	"lockJoint4"							"r_ankle_front"
+	"lockJointOffset4"						"120 0 0"
+	"lockJoint5"							"l_ankle_front"
+	"lockJointOffset5"						"120 0 0"
+	"lockJoint6"							"r_ankle_back"
+	"lockJointOffset6"						"120 0 0"
+	"lockJoint7"							"l_ankle_back"
+	"lockJointOffset7"						"120 0 0"
+	"lockJoint8"							"rt_hopper"
+	"lockJointOffset8"						"80 0 0"
+	"lockJoint9"							"lft_hopper"
+	"lockJointOffset9"						"80 0 0"
+
+	//for stopping projectile spawning when an arm has been blown off
+	"joint_muzzle_right_arm"				"rt_muzzle_flash"
+	"joint_muzzle_left_arm"					"lft_muzzle_flash"
+
+	"lipsync_sight"							"harvester_alert"
+	"lipsync_rush"							"harvester_alert"
+	"snd_roar"								"harvester_alert"
+	
+	"snd_pain"								"harvester_pain"
+	
+	//FIXME: I need these played at the bones, on the guy's origin won't be audible and won't spatialize right
+	// we don't have diff sounds for diff materials anyway
+	"snd_footstep"							"harvester_steps"
+	"snd_footstep_sand"						"harvester_steps"
+	"snd_footstep_dirt"						"harvester_steps"
+	"snd_footstep_hollowmetal"				"harvester_steps"
+	"snd_footstep_rock"						"harvester_steps"
+	
+	"snd_death"								"harvester_death"
+	"snd_tendrils"							"harvester_tendrils"
+	"snd_flesh"								"harvester_flesh"	
+
+	"snd_grenade_launch"					"harvester_grenade_launcher"
+
+	"snd_creak"								"harvester_stress"
+	"snd_twist"								"harvester_twist"
+	
+	"fx_step"								"effects/monsters/harvester/claw_step.fx"
+	"fx_death_explosion_small"				"effects/monsters/harvester/explode_dying.fx"
+	"fx_death_explosion_big"				"effects/monsters/harvester/explode_final.fx"
+
+	"fx_claw_swing"							"effects/monsters/harvester/claw_air.fx"
+	
+	"fx_muzzleflash"						"effects/monsters/harvester/nail_mflash.fx"
+	"fx_rocket_muzzleflash"					"effects/monsters/harvester/rocket_mflash.fx"
+	"fx_grenade_flash"						"effects/monsters/gunner/grenade_mflash.fx"
+
+	"fx_whips"								"effects/monsters/harvester/whip_electricity.fx"
+
+	"fx_destroy_part_tank"					"effects/monsters/harvester/can_explosion.fx"
+	"fx_destroy_part_arm"					"effects/monsters/harvester/part_explosion_arm.fx"
+	"fx_destroy_part_leg"					"effects/monsters/harvester/part_explosion.fx"
+	"fx_destroy_part_trail_tank"			"effects/monsters/harvester/part_trail.fx"
+	"fx_destroy_part_trail_arm"				"effects/monsters/harvester/part_trail.fx"
+	"fx_destroy_part_trail_leg"				"effects/monsters/harvester/part_trail.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"removeDelay"							"2"
+	"burnaway"								"2"
+	"joint_chestOffset"						"body"
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death_harvester.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport_harvester.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport_harvester.fx"
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_nail"						"projectile_harvester_nail"
+	"attack_nail_accuracy"					"1"
+	"attack_nail_spread"					"1"
+
+	"def_attack_nail_spray"					"projectile_harvester_nail"
+	"attack_nail_spray_accuracy"			"1"
+	"attack_nail_spray_spread"				"1"
+	"attack_nail_spray_locktojoint"			"1"
+
+	"def_attack_whip"						"projectile_harvester_whip"
+
+	"def_attack_rocket"						"projectile_harvester_rocket"
+	"attack_rocket_accuracy"				"0"
+	"attack_rocket_locktojoint"				"1"
+
+	"def_attack_grenade"					"projectile_harv_grenade"
+	"attack_grenade_accuracy"				"3"
+	"attack_grenade_locktojoint"			"1"
+	"attack_grenade_cone"					"0"
+
+	"def_attack_claw"						"hitscan_harv_claw"
+	"attack_claw_hitscan"					"1"
+	"attack_claw_lockToJoint"				"1"
+	"attack_claw_traceToNextJoint"			"1"
+}
+
+entityDef damage_harv_nail
+{
+	"inherit"					"damage_nailDirect"
+	"push"						"100"
+	"knockback"					"100"
+	"damage"					"50"
+}
+
+entityDef damage_harv_nail_splash
+{
+	"damage"							"50"
+	"radius"							"200"
+	"knockback"							"50"
+	"push"								"50"
+	"gib"								"0"
+}
+
+entityDef projectile_harvester_nail
+{
+	"inherit"					"projectile_nail"
+	"mass"						"200"
+	"def_damage"				"damage_harv_nail"
+	"def_splash_damage"			"damage_harv_nail_splash"
+//	"speed"						"1200"
+	"speed"						"1600"
+	"fx_fly"					"effects/monsters/strogg_marine/blaster_fly.fx"
+	"snd_fly"					"weapon_energy_projectile_loop"
+}
+
+entityDef damage_harvester_direct
+{
+	"damage"							"100"
+//	"push"								"50"
+//	"knockback"							"50"
+	"kickDir"							"1 0 0.75"
+	"knockback"							"1000"
+	"kick_time"							"2000"
+	"push"								"30000"
+	"mtr_splat"							""
+	"gib"								"0"
+	"filter"							"electrical"
+}
+
+entityDef damage_harvester_whip_splash
+{
+	"inherit"							"damage_harvester_direct"
+	"radius"							"300"
+}
+
+entityDef projectile_harvester_whip
+{
+	"inherit"							"projectile_base"
+
+	"mins"								"-32 -32 -32"
+	"maxs"								"32 32 32"
+	"cone"								"0"
+	"noshadows"							"1"
+	"clipmask_largeshot"				"1"
+	"clipmask_rendermodel"				"0"
+
+	"def_damage"						"damage_harvester_direct"
+	"def_splash_damage"					"damage_harvester_whip_splash"
+	"speed"								"0"
+
+	"fx_fly"							"effects/monsters/heavy_tank/fly.fx"
+	"fx_impact"							"effects/smoke/ground_impact.fx"
+}
+
+entityDef damage_harvester_rocket_direct
+{
+	"damage"							"400"
+	"push"								"200"
+	"mtr_splat"							""
+	"gib"								"1"
+}
+
+entityDef damage_harvester_rocket_splash
+{
+	"damage"							"300"
+	"radius"							"550"
+	"knockback"							"200"
+	"push"								"200"
+	"gib"								"1"
+}
+
+entityDef projectile_harvester_rocket
+{
+	"inherit"					"projectile_rocket"
+	"spawnclass"				"idGuidedProjectile"
+
+	"model"						"models/monsters/heavyhovertank/rocket.lwo"
+	"scale"						"4"
+	"size"						"48 48 48"
+	"clipmask_rendermodel"		"0"
+	"no_contents"				"0"
+
+	"health"					"20"
+	"detonate_on_death"			"1"
+
+	"driftRange"				"20"
+	"driftRate"					".4"	
+	"driftRotate"				"90"
+	"driftDiversity"			"1"
+	"driftProjectRange"			"256"
+	"driftDelay"				"3"
+
+	"delaySpeed"				"325"
+	"speed"						"600"
+	"speed_end"					"850"
+	"speed_duration"			"3"
+	"fuse"						"20"
+	
+	"turn_max"					"180"
+	"delayGuide"				"3"
+
+	"def_damage"				"damage_harvester_rocket_direct"
+	"def_splash_damage"			"damage_harvester_rocket_splash"
+
+	"fx_fly"					"effects/monsters/harvester/rocket_trail.fx"
+	"fx_impact"					"effects/monsters/harvester/rocket_explosion.fx"
+	"fx_impact_rock"				"effects/monsters/harvester/rocket_explosion.fx"
+	"fx_impact_concrete"				"effects/monsters/harvester/rocket_explosion.fx"
+	"fx_detonate"					"effects/monsters/harvester/rocket_explosion.fx"
+	"fx_fuse"					"effects/monsters/harvester/rocket_explosion.fx"
+}
+
+entityDef damage_tram_flyer_rocket
+{
+	"inherit"			"damage_rocketDirect"
+	"damage"					"100"
+}
+
+
+entityDef projectile_tramFlyer_rocket
+{
+	"inherit"					"projectile_rocket"
+	"spawnclass"				"idGuidedProjectile"
+	
+	"health"					"20"
+	"speed"						"2250"
+	"def_damage"				"damage_tram_flyer_rocket"
+}
+
+
+entityDef damage_harv_grenade
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"250"
+	"push"						"10000"
+	
+	"tv_scale"					"0.7"
+	"tv_time"					"4200"
+
+	// Hearing Loss
+	"hl_volumeDB"				"-25"
+	"hl_fadeOutTime"			".5"
+	"hl_time"					"3.5"
+	"hl_fadeInTime"				"1"
+	"snd_hl"					"player_sounds_ringing2"
+}
+
+entityDef damage_harv_grenade_splash
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"100"
+	"radius"					"300"
+	"push"						"10000"
+
+	"tv_scale"					"0.7"
+	"tv_time"					"4200"
+
+	// Hearing Loss
+	"hl_volumeDB"				"-25"
+	"hl_fadeOutTime"			".5"
+	"hl_time"					"2.5"
+	"hl_fadeInTime"				"1"
+	"snd_hl"					"player_sounds_ringing"
+}
+
+entityDef projectile_harv_grenade
+{
+	"inherit"					"projectile_grenade_base"
+
+	"mins"						"-16 -16 -16"
+	"maxs"						"16 16 16"
+	"cone"						""
+	"noshadows"					"1"
+	"clipmask_largeshot"		"1"
+	"scale"						"4"
+	
+	"fuse"						"4"
+		"model"						"models/weapons/grenadelauncher/w_grenade.lwo"	
+	"fx_fly"					"effects/monsters/harvester/grenade_fly.fx"
+	"fx_detonate"				"effects/monsters/gunner/grenade_burst.fx"
+	"fx_impact"					"effects/monsters/gunner/grenade_burst.fx"
+
+	"def_splash_damage"			"damage_harv_grenade_splash"
+	"def_damage"				"damage_harv_grenade"
+
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"
+
+	"bounce_count"				"-1"
+
+	"speed"						"700"
+	"speedRandom"				"200"
+	
+	"gravity"					"0.3"
+	"bounce"					".3"
+
+	"health"					"25"
+	"solid"						"1"
+
+	"delay_splash"				".2"
+
+	"snd_ricochet"				"grenade_bounce"
+}
+
+//=================================================================================================
+// Broken-Off Leg Entities
+//=================================================================================================
+
+entityDef moveable_harvester_lg1
+{
+	"inherit"					"moveable_breakable"
+
+	"explode"							"1"
+	"health"							"300"
+	"nodrop"						"1"
+
+	"model" 					"models/monsters/harvester/debris/lg1.lwo"
+	"density"					"1"
+	"friction"					"0.2"
+	"bouncyness"				"0.1"
+
+//	"trailAttenuateSpeed"		"200"
+	"fx_trail"					"effects/monsters/harvester/leg_part_trail.fx"
+//	"snd_bounce"				"effects_gib_bounce"
+}
+
+
+entityDef moveable_harvester_lg2
+{
+	"inherit"					"moveable_breakable"
+
+	"explode"							"1"
+	"health"							"300"
+	"nodrop"						"1"
+
+	"model" 					"models/monsters/harvester/debris/lg2.lwo"
+	"density"					"1"
+	"friction"					"0.2"
+	"bouncyness"				"0.1"
+
+//	"trailAttenuateSpeed"		"200"
+	"fx_trail"					"effects/monsters/harvester/leg_part_trail.fx"
+//	"snd_bounce"				"effects_gib_bounce"
+}
+
+
+entityDef moveable_harvester_lg3
+{
+	"inherit"					"moveable_breakable"
+
+	"explode"							"1"
+	"health"							"300"
+	"nodrop"						"1"
+
+	"model" 					"models/monsters/harvester/debris/lg3.lwo"
+	"density"					"1"
+	"friction"					"0.2"
+	"bouncyness"				"0.1"
+
+//	"trailAttenuateSpeed"		"200"
+	"fx_trail"					"effects/monsters/harvester/leg_part_trail.fx"
+//	"snd_bounce"				"effects_gib_bounce"
+}
+
+
+entityDef moveable_harvester_lg4
+{
+	"inherit"					"moveable_breakable"
+
+	"explode"							"1"
+	"health"							"300"
+	"nodrop"						"1"
+	
+	"model" 					"models/monsters/harvester/debris/lg4.lwo"
+	"density"					"0.02"
+	"friction"					"0.2"
+	"bouncyness"				"0.1"
+
+//	"trailAttenuateSpeed"		"200"
+	"fx_trail"					"effects/monsters/harvester/leg_part_trail.fx"
+//	"snd_bounce"				"effects_gib_bounce"
+}
+

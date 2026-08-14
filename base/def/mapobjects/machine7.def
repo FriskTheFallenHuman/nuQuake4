@@ -1,0 +1,33 @@
+
+/***********************************************************************
+Machine7
+
+***********************************************************************/
+
+export machine7
+{		
+	options -prefix MACH7_ -align ALL -keep ALL -keep base
+         
+	mesh	work/models/mapobjects/strogg/machines/machine7/idle.ma	  				-dest models/mapobjects/strogg/misc_equipment/machine7/mesh
+	anim	work/models/mapobjects/strogg/machines/machine7/spin.ma					-dest models/mapobjects/strogg/misc_equipment/machine7/spin
+
+
+}
+
+entityDef env_machine7
+{
+	"model"							"model_env_machine7"
+	"spawnclass"						"idAnimated"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+}
+
+model model_env_machine7
+
+{
+	mesh					models/mapobjects/strogg/misc_equipment/machine7/mesh.md5mesh
+	anim spin				models/mapobjects/strogg/misc_equipment/machine7/spin.md5anim
+}

@@ -1,0 +1,865 @@
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//begin hurtbody skins///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+skin skins/models/characters/marine/hurtbody_lo_b3
+{
+	"models/characters/marine/hurtbody_lo_b"
+"models/characters/marine/hurtbody_lo_b3"
+}
+
+skin skins/models/characters/marine/hurtbody_lo_b4
+{
+	"models/characters/marine/hurtbody_lo_b"
+"models/characters/marine/hurtbody_lo_b4"
+}
+
+skin skins/models/characters/marine/hurtbody_lo_b5
+{
+	"models/characters/marine/hurtbody_lo_b"
+"models/characters/marine/hurtbody_lo_b5"
+}
+
+skin skins/models/characters/marine/hurtbody_lo_b6
+{
+	"models/characters/marine/hurtbody_lo_b"
+"models/characters/marine/hurtbody_lo_b6"
+}
+
+skin skins/models/characters/marine/hurtbody2_lo
+{
+	"models/characters/marine/hurtbody_lo"
+"models/characters/marine/hurtbody2_lo"
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//begin hurtbody_c skins///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+skin skins/models/characters/marine/hurtbody_c_head2
+{
+	"models/characters/marine/hurtbody_c_head"
+"models/characters/marine/hurtbody_c_head2"
+}
+
+skin skins/models/characters/marine/hurtbody_c2b
+{
+	"models/characters/marine/hurtbody_c2"
+"models/characters/marine/hurtbody_c2b"
+}
+
+skin skins/models/characters/marine/hurtbody_cb
+{
+	"models/characters/marine/hurtbody_c"
+"models/characters/marine/hurtbody_cb"
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//begin corpse skins///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+skin skins/models/characters/bodies_parts/corpses/corpse4
+{
+	"models/characters/bodies_parts/corpses/corpse"
+"models/characters/bodies_parts/corpses/corpse4"
+}
+
+skin skins/models/characters/bodies_parts/corpses/corpse3
+{
+	"models/characters/bodies_parts/corpses/corpse"
+"models/characters/bodies_parts/corpses/corpse3"
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//Tube marine ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+skin skins/characters/tube_marine/tm_base_bruised
+{
+	"models/tube_marine/tm_arms_base" "models/characters/tube_marine/tm_arms_base_bruised"
+	"models/tube_marine/tm_body_base" "models/characters/tube_marine/tm_body_base_bruised"
+	"models/tube_marine/tm_head_base" "models/characters/tube_marine/tm_head_base_bruised"
+	"models/tube_marine/tm_teeth_base" "models/characters/tube_marine/tm_teeth_base_b"
+	"models/tube_marine/tm_eye_right" "models/characters/tube_marine/tm_eye_right_bruised"
+	"models/tube_marine/tm_eye_left" "models/characters/tube_marine/tm_eye_left_bruised"
+
+}
+
+skin skins/characters/tube_marine/tm_base_dead
+{
+
+	"models/tube_marine/tm_arms_base" "models/characters/tube_marine/tm_arms_base_dead"
+	"models/tube_marine/tm_body_base" "models/characters/tube_marine/tm_body_base_dead"
+	"models/tube_marine/tm_head_base" "models/characters/tube_marine/tm_head_base_dead"
+	"models/tube_marine/tm_teeth_base" "models/characters/tube_marine/tm_teeth_base_d"
+	"models/tube_marine/tm_eye_left" "models/characters/tube_marine/tm_eye_left_dead"
+	"models/tube_marine/tm_eye_right" "models/characters/tube_marine/tm_eye_right_dead"
+
+}
+
+
+skin skins/characters/tube_marine/tm_base_bloody
+{
+
+	"models/tube_marine/tm_arms_base" "models/characters/tube_marine/tm_arms_base_bloody"
+	"models/tube_marine/tm_body_base" "models/characters/tube_marine/tm_body_base_bloody"
+	"models/tube_marine/tm_head_base" "models/characters/tube_marine/tm_head_base_bloody"
+	"models/tube_marine/tm_teeth_base" "models/characters/tube_marine/tm_teeth_base_b"
+	"models/tube_marine/tm_eye_left" "models/characters/tube_marine/tm_eye_left_bloody"
+	"models/tube_marine/tm_eye_right" "models/characters/tube_marine/tm_eye_right_bloody"
+
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//fatigues ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+skin skins/models/characters/marine/fatigues_arms2
+{
+	"models/characters/marine/fatigues_arms" "models/characters/marine/fatigues_arms2"
+}
+
+skin skins/models/characters/marine/fatigues_arms3
+{
+	"models/characters/marine/fatigues_arms" "models/characters/marine/fatigues_arms3"
+}
+
+skin skins/models/characters/marine/fatigues5_armsb
+{
+	"models/characters/marine/fatigues5_arms" "models/characters/marine/fatigues5_armsb"
+}
+
+skin skins/models/characters/marine/fatigues2
+{
+	"models/characters/marine/fatigues" "models/characters/marine/fatigues2" 
+	"models/characters/marine/fatiguesdecal"  "models/characters/marine/fatiguesdecal3" 
+}
+
+skin skins/models/characters/marine/fatigues3
+{
+	"models/characters/marine/fatigues" "models/characters/marine/fatigues3"
+	"models/characters/marine/fatiguesdecal"  "models/characters/marine/fatiguesdecal2"  
+}
+
+skin skins/models/characters/marine/fatigues6
+{
+	"models/characters/marine/fatigues5" "models/characters/marine/fatigues6"
+	"models/characters/marine/fatiguesdecal5"  "models/characters/marine/fatiguesdecal6"  
+}
+
+skin skins/models/characters/marine/fatigues7
+{
+	"models/characters/marine/fatigues5" "models/characters/marine/fatigues7"
+	"models/characters/marine/fatiguesdecal5"  "models/characters/marine/fatiguesdecal7"  
+}
+
+skin skins/models/characters/marine/fatigues8
+{
+	"models/characters/marine/fatigues5_arms" "models/characters/marine/fatigues5_armsb" 
+}
+
+skin skins/models/characters/marine/fatigues9
+{
+	"models/characters/marine/fatigues5" "models/characters/marine/fatigues6"
+	"models/characters/marine/fatiguesdecal5"  "models/characters/marine/fatiguesdecal6"
+	"models/characters/marine/fatigues5_arms" "models/characters/marine/fatigues5_armsb"  
+}
+
+skin skins/models/characters/marine/fatigues10
+{
+	"models/characters/marine/fatigues5" "models/characters/marine/fatigues7"
+	"models/characters/marine/fatiguesdecal5"  "models/characters/marine/fatiguesdecal7"
+	"models/characters/marine/fatigues5_arms" "models/characters/marine/fatigues5_armsb"  
+}
+
+
+
+skin skins/models/characters/marine/fatigues_aa2
+{
+	"models/characters/marine/fatigues" "models/characters/marine/fatigues2" 
+	"models/characters/marine/fatigues_arms" "models/characters/marine/fatigues_arms2"
+	"models/characters/marine/fatiguesdecal"  "models/characters/marine/fatiguesdecal3" 
+}
+
+
+skin skins/models/characters/marine/fatigues_aa3
+{
+	"models/characters/marine/fatigues" "models/characters/marine/fatigues3"
+	"models/characters/marine/fatigues_arms" "models/characters/marine/fatigues_arms2"
+	"models/characters/marine/fatiguesdecal"  "models/characters/marine/fatiguesdecal2"
+}
+
+
+/*
+skin skins/characters/marine/hurtbody_LOD_lo
+{
+	"models/characters/marine/hurtbody_lo_b" "textures/common/nodraw
+	"models/characters/marine/hurtbody_lo_b3"
+}
+*/
+
+//default noweapon guy is djordje marine
+
+skin skins/characters/marine/noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"models/characters/marine_heads/djordjelow"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"models/characters/marine_eye_djordje"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+
+}
+
+skin skins/characters/marine/nohead
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"	
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"	
+	"models/characters/marine_teeth"						"textures/common/nodraw"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+skin skins/characters/marine/nm_lo
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"models/characters/newmarine_new/nm_lo"	
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"models/characters/marine_eye_right"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"models/characters/newmarine_new/hair"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+skin skins/characters/marine/andersen
+{
+	"models/characters/marine_heads/anderson_low"			"models/characters/marine_heads/anderson_low"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"models/characters/marine_eye_anderson"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/africanamerican
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"models/characters/marine_heads/africanamericanlow"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"models/characters/marine_eye_africanamerican"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+
+skin skins/characters/marine/brifingcolonel
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"models/characters/marine_heads/brifingcolonellow"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"models/characters/marine_eye_brifingcolonel"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/djordje
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"models/characters/marine_heads/djordjelow"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"models/characters/marine_eye_djordje"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/marine_heads/dchair_lo"				"models/characters/marine_heads/dchair_lo"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/hispanic
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"models/characters/marine_heads/hispaniclow"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"models/characters/marine_eye_hispanic"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/marine_heads/hhair_lo"				"models/characters/marine_heads/hhair_lo"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/ventsargelow
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"models/characters/marine_heads/ventsargelow"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"models/characters/marine_eye_ventsarge"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/marine_heads/vshair_lo"				"models/characters/marine_heads/vshair_lo"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//NO WEAPON VERSIONS///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+skin skins/characters/marine/nohead_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"	
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"	
+	"models/characters/marine_teeth"						"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+
+}
+
+skin skins/characters/marine/nm_lo_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"models/characters/newmarine_new/nm_lo"	
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"models/characters/marine_eye_right"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"models/characters/newmarine_new/hair"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+
+}
+
+skin skins/characters/marine/andersen_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"models/characters/marine_heads/anderson_low"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"models/characters/marine_eye_anderson"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/africanamerican_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"models/characters/marine_heads/africanamericanlow"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"models/characters/marine_eye_africanamerican"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+
+skin skins/characters/marine/brifingcolonel_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"models/characters/marine_heads/brifingcolonellow"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"models/characters/marine_eye_brifingcolonel"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/djordje_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"models/characters/marine_heads/djordjelow"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"models/characters/marine_eye_djordje"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"models/characters/marine_heads/dchair_lo"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/hispanic_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"models/characters/marine_heads/hispaniclow"
+	"models/characters/marine_heads/ventsargelow"			"textures/common/nodraw"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"models/characters/marine_eye_hispanic"
+	"models/characters/marine_eye_ventsarge"				"textures/common/nodraw"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/characters/marine_heads/hhair_lo"				"models/characters/marine_heads/hhair_lo"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"textures/common/nodraw"
+}
+
+
+skin skins/characters/marine/ventsargelow_noweapon
+{
+	"models/characters/marine_heads/anderson_low"			"textures/common/nodraw"
+	"models/characters/marine_heads/africanamericanlow"		"textures/common/nodraw"
+	"models/characters/marine_heads/brifingcolonellow"		"textures/common/nodraw"
+	"models/characters/marine_heads/djordjelow"				"textures/common/nodraw"
+	"models/characters/marine_heads/hispaniclow"			"textures/common/nodraw"
+	"models/characters/marine_heads/ventsargelow"			"models/characters/marine_heads/ventsargelow"
+	"models/characters/newmarine_new/nm_lo"					"textures/common/nodraw"
+	"models/characters/marine_eye_anderson"					"textures/common/nodraw"
+	"models/characters/marine_eye_africanamerican"			"textures/common/nodraw"
+	"models/characters/marine_eye_brifingcolonel"			"textures/common/nodraw"
+	"models/characters/marine_eye_djordje"					"textures/common/nodraw"
+	"models/characters/marine_eye_hispanic"					"textures/common/nodraw"
+	"models/characters/marine_eye_ventsarge"				"models/characters/marine_eye_ventsarge"
+	"models/characters/marine_eye_right"					"textures/common/nodraw"	
+	"models/characters/marine_teeth"						"models/characters/marine_teeth"
+	"models/characters/newmarine_new/hair"					"textures/common/nodraw"
+	"models/characters/marine_heads/dchair_lo"				"textures/common/nodraw"
+	"models/weapons/mp_guns/w_mg_lo"						"textures/common/nodraw"
+	"models/characters/marine_heads/vshair_lo"				"models/characters/marine_heads/vshair_lo"
+	"models/characters/marine_heads/hhair_lo"				"textures/common/nodraw"
+}
+
+
+//Marine Doctor------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/doctor/doctor_npc_lo_bloody
+{
+	"models/characters/doctor/doctor_npc_lo"
+"models/characters/doctor/doctor_npc_lo_bloody"
+}
+
+//Generic_Head2A------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine_heads/gen_white_version1
+{
+	"models/characters/marine_heads/gen_white"
+"models/characters/marine_heads/gen_white_version1"
+}
+
+//Generic_Head2B------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine_heads/gen_white_version2
+{
+	"models/characters/marine_heads/gen_white"
+"models/characters/marine_heads/gen_white_version2"
+}
+
+//Generic_Asian------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine_heads/gen_asian_2_version1
+{
+	"models/characters/marine_heads/gen_asian_2"
+"models/characters/marine_heads/gen_asian_2_version1"
+}
+
+//Generic_Africanamerican------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine_heads/gen_africanamerican_version2
+{
+	"models/characters/marine_heads/gen_africanamerican"
+"models/characters/marine_heads/gen_africanamerican_version2"
+}
+
+skin skins/models/characters/marine_heads/gen_africanamerican_version3
+{
+	"models/characters/marine_heads/gen_africanamerican"
+"models/characters/marine_heads/gen_africanamerican_version3"
+}
+
+//helmet------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/m_helmet
+{
+	"models/characters/marine/helmet"
+"models/characters/marine/m_helmet"
+}
+
+skin skins/models/characters/marine/t_helmet
+{
+	"models/characters/marine/helmet"
+"models/characters/marine/t_helmet"
+}
+
+//rhino Squad Skin------------------------------------------------------------------------------------------------------------------
+
+//rhino is the default skin.
+
+
+//Wolf Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/wolf
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_wolf"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_wolf2"
+}
+
+//badger Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/badger
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_badger"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_badger2"
+}
+
+//kodiak Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/kodiak
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_kodiak"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_kodiak2"
+}
+
+//eagle Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/eagle
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_eagle"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_eagle2"
+}
+
+//raven Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/raven
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_raven"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_raven2"
+}
+
+//warthog Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/warthog
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_warthog"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_warthog2"
+}
+
+//cobra Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/cobra
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_cobra"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_cobra2"
+}
+
+//viper Squad Skin------------------------------------------------------------------------------------------------------------------
+
+skin skins/models/characters/marine/viper
+{
+	"models/characters/marine/body"				"models/characters/marine/body"
+
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_viper"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_viper2"
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////  marine body skins  ///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//Marine Doctor for intro------------------------------------------------------------------------------------------------------------------
+
+skin skins/characters/marine/medic_anderson
+{
+	"models/characters/marine/body" 			"models/characters/marine/medic"
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_rhino"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_rhino2"
+}
+
+skin skins/characters/marine/medic_anderson_mp
+{
+	"models/characters/marine/body" 			"models/characters/marine/medic_mp"
+	"models/characters/marine/decal_rhino"		"textures/common/nodraw"	
+	"models/characters/marine/decal_rhino2"		"textures/common/nodraw"
+
+}
+
+skin skins/characters/marine/tech_strauss
+{
+	"models/characters/marine/body" "models/characters/marine/tech"
+	"models/characters/marine/decal_rhino"		"models/characters/marine/decal_rhino"	
+	"models/characters/marine/decal_rhino2"		"models/characters/marine/decal_rhino2"
+}
+
+skin skins/characters/marine/tech_strauss_mp
+{
+	"models/characters/marine/body" 			"models/characters/marine/tech_mp"
+	"models/characters/marine/decal_rhino"		"textures/common/nodraw"	
+	"models/characters/marine/decal_rhino2"		"textures/common/nodraw"
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////
+///////////////////////////kanestrogg_head_variations////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+
+//kanestrogg variations------------------------------------------------------------------------------------------------------------------
+
+skin skins/characters/marine_heads/kanestrogg_c
+{
+	"models/characters/marine_heads/kanestrogg_b"
+"models/characters/marine_heads/kanestrogg_c"
+}
+
+skin skins/characters/marine_heads/kanestrogg_d
+{
+	"models/characters/marine_heads/kanestrogg_b"
+"models/characters/marine_heads/kanestrogg_d"
+}
+
+////////////////////////////////////////////////////////////////////////////
+///////////////////////////kanestrogg_multi_player_variations///////////////
+////////////////////////////////////////////////////////////////////////////
+
+skin skins/characters/kane_strogg/tactical_elite
+{
+	"models/characters/kane_strogg/kane_stroggified_body_mp" "models/characters/kane_strogg/tactical_elite"
+}
+
+skin skins/characters/kane_strogg/tactical_command
+{
+	"models/characters/kane_strogg/kane_stroggified_body_mp" "models/characters/kane_strogg/tactical_command"
+}     
+
+
+////////////////////////////////////////////////////////////////////////////
+///////////////////////////hurt medic///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+skin skins/characters/marine/medic_wounded
+{
+	"models/characters/marine/medic" "models/characters/marine/medic_wounded"
+}
+
+

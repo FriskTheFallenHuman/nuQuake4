@@ -1,0 +1,570 @@
+/*
+===============================================================================
+
+	Grunt
+
+===============================================================================
+*/
+
+export grunt
+{	
+	options -prefix GNT_ -align ALL -scale .3937 -keep eyes  -keep gun muzzle_flash -parent hips origin  -parent waist hips -destdir models/monsters/grunt
+	
+	mesh	work/models/monsters/grunt/animations/defaul_pose_idle.ma					-dest grunt
+	anim	work/models/monsters/grunt/animations/defaul_pose_idle.ma					-dest idle
+	anim	work/models/monsters/grunt/animations/ID_gnt_walk02.ma						-dest walk	
+	anim	work/models/monsters/grunt/animations/gnt_run01.ma							-dest run
+	anim	work/models/monsters/grunt/animations/ID_gnt_run01.ma						-dest id_run
+	anim	work/models/monsters/grunt/animations/gnt_shooting.ma						-dest fire
+	anim	work/models/monsters/grunt/animations/gnt_jump_attack05.ma					-dest jump_attack
+	anim	work/models/monsters/grunt/animations/gnt_pain02.ma							-dest pain
+	anim	work/models/monsters/grunt/animations/gnt_attack_melee.ma					-dest melee01
+	anim	work/models/monsters/grunt/animations/gnt_attack_melee02.ma					-dest melee02
+	anim	work/models/monsters/grunt/animations/gnt_attack_melee04.ma					-dest melee04
+	anim	work/models/monsters/grunt/animations/gnt_attack_melee05.ma					-dest melee05
+	anim	work/models/monsters/grunt/animations/gnt_sidestep_right.ma					-dest sidestep_right
+	anim	work/models/monsters/grunt/animations/gnt_sidestep_left.ma					-dest sidestep_left
+	anim	work/models/monsters/grunt/animations/gnt_anger.ma							-dest anger
+	anim	work/models/monsters/grunt/animations/gnt_anger02.ma						-dest anger02
+	anim	work/models/monsters/grunt/animations/gnt_jump_back.ma						-dest jump_back
+	anim	work/models/monsters/grunt/animations/gnt_chainlink_3.ma					-dest chainlink
+	anim	work/models/monsters/grunt/animations/gnt_attack_melee03.ma					-dest melee03
+	anim	work/models/monsters/grunt/animations/gnt_pain04.ma							-dest pain04
+	anim	work/models/monsters/grunt/animations/gnt_pain03.ma							-dest pain03
+	anim	work/models/monsters/grunt/animations/gnt_building_b.ma						-dest building_b
+	anim	work/models/monsters/grunt/animations/gnt_chainlink_idle.ma					-dest chainlink_idle
+	anim	work/models/monsters/grunt/animations/gnt_anger03.ma						-dest anger03
+	anim	work/models/monsters/grunt/animations/gnt_jumps_through.ma					-dest jumps_through
+	anim	work/models/monsters/grunt/animations/gnt_jump_attack03.ma					-dest jump_attack02
+	anim	work/models/monsters/grunt/animations/gnt_attacks_mar_building_b.ma			-range 703 821 -dest attack_mar
+	anim	work/models/monsters/grunt/animations/gnt_body_digging.ma					-dest body_digging
+	anim	work/models/monsters/grunt/animations/gnt_acid_gun02.ma						-dest acid_gun
+	anim	work/models/monsters/grunt/animations/gnt_acid_gun03.ma						-dest acid_gun_cine
+	anim	work/models/monsters/grunt/animations/gnt_acid_gun_stepon.ma				-dest acid_gun_stepup
+	anim	work/models/monsters/grunt/animations/jump128.ma							-dest jump128
+	anim	work/models/monsters/grunt/animations/jump156.ma							-dest jump_building_b
+	anim	work/models/monsters/grunt/animations/pre_jump128.ma						-dest pre_jump128
+	anim	work/models/monsters/grunt/animations/gnt_ragdoll.ma						-dest ragdoll
+	anim	work/models/monsters/grunt/animations/gnt_stair_land.ma						-dest stair_land
+	anim	work/models/monsters/grunt/animations/gnt_stair_jump01.ma					-dest stair_jump
+	anim	work/models/monsters/grunt/animations/gnt_stair_idle.ma						-dest stair_idle
+	anim	work/models/monsters/grunt/animations/gnt_recomp_level.ma					-rotate -90 -dest recomp_pipe
+	anim	work/models/monsters/grunt/animations/gnt_pullup.ma							-dest pullup
+	anim	work/models/monsters/grunt/animations/gnt_storage_rubble2.ma				-range 88 123 -dest storage_rubble
+	anim	work/models/monsters/grunt/animations/gnt_storage_rubble2.ma				-range 87 88 -dest storage_rubble_idle
+	anim	work/models/monsters/grunt/animations/dragging_marine.ma					-dest ad_grunt_drags
+	anim	work/models/monsters/grunt/animations/gnt_bustin_pipes.ma					-dest ad_bustin_pipes
+	anim	work/models/characters/Marines/Animations/storage_step_on_grunt_GRUNT.ma	-range 75 141 -dest storage_stepped_on
+	anim	work/models/characters/marine/animation_mocap_cinematics/bld_b_smashed_against_glass_reTimed.ma		-dest slamming_mar_glass
+	anim	work/models/monsters/grunt/animations/ad_jump_final.ma						-dest ad_jump
+	anim	work/models/monsters/grunt/animations/gnt_exam_table.ma						-dest exam_table
+	anim	work/models/monsters/grunt/animations/droppod_crash.ma						-dest droppod_crash
+	anim	work/models/monsters/grunt/animations/teleport.ma						-dest teleport
+	anim	work/models/monsters/grunt/animations/tram_grunt_intro2.ma						-dest tram1_grunt_intro
+	anim	work/models/monsters/grunt/animations/gnt_pain03.ma						-dest pain_std
+	anim	work/models/monsters/grunt/animations/gnt_pain03b.ma						-dest pain_std2
+	anim	work/models/monsters/grunt/animations/gnt_pain_con.ma						-dest pain_con
+	anim	work/models/monsters/grunt/animations/gnt_pain_strm.ma						-range 1 4 -dest pain_strm_start
+	anim	work/models/monsters/grunt/animations/gnt_pain_strm.ma						-range 4 11 -dest pain_strm_loop
+	anim	work/models/monsters/grunt/animations/gnt_pain_strm.ma						-range 11 15 -dest pain_strm_end
+
+	anim	work/models/monsters/grunt/animations/gnt_on_fire2.ma			 -dest on_fire
+	anim	work/models/monsters/grunt/animations/gnt_on_fire2.ma			 -range 224 225 -dest on_fire_idle
+
+	anim	work/models/mapobjects/strogg/structural/chain/reference/chainlink_climbup_grnt.ma		-dest models/monsters/grunt/chain_grunt_up 
+	anim	work/models/mapobjects/strogg/structural/chain/reference/chainlink_jump_Grunt_Down.ma	-dest models/monsters/grunt/chain_grunt_down
+}
+
+/*
+===============================================================================
+
+	Grunt Model
+
+===============================================================================
+*/
+
+model model_monster_grunt
+{
+	mesh												models/monsters/grunt/grunt.md5mesh
+	
+	channel	torso										( *waist )
+	channel	legs										( *hips origin  -*waist)
+
+	offset												( -8 0 0 )
+
+	anim ik_pose										models/monsters/grunt/ragdoll.md5anim
+	anim af_pose										models/monsters/grunt/ragdoll.md5anim
+
+	// -------------------------------- Standard Anims ------------------------
+
+	anim on_fire									models/monsters/grunt/on_fire.md5anim
+	{
+		frame	1,16,24,43,54,66,79,90,101,157,173,187	sound			snd_pain
+		frame	5,35,90,190								sound			snd_anger
+		frame	197										sound			snd_death
+		frame	78,104									sound			generic_glass_tap_deeper
+		frame	178										sound			snd_fall
+	}
+	anim on_fire_idle								models/monsters/grunt/on_fire_idle.md5anim
+	
+	anim idle											models/monsters/grunt/idle.md5anim
+	{
+		frame	22										sound			snd_breathe2
+	}	
+	anim walk											models/monsters/grunt/walk.md5anim	
+	{
+		sync_cycle
+		frame	6,18									footstep
+	}	
+	anim run											models/monsters/grunt/ID_run.md5anim	
+	{
+		sync_cycle
+		frame	3,13									sound			snd_breathe
+		frame	7,16									footstep
+	}	
+	
+	anim pullup											models/monsters/grunt/pullup.md5anim
+	{
+		frame	10,17									sound			snd_footstep_hollowmetal
+		frame	20										sound			snd_growl
+		frame	36										sound			snd_fall
+	}	
+	
+	anim nav_smash										models/monsters/grunt/melee01.md5anim
+	{
+		frame	1										call				overrideLegs
+		frame	1										ai_disablePain
+		frame	6										footstep
+		frame	14										ai_attack_melee		melee
+		frame	14										sound				snd_smash	
+		frame	1										sound				snd_growl		
+		frame 	14										call				navCrossing::combat_smash_special
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Pain Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim pain1						models/monsters/grunt/pain_std.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain2						models/monsters/grunt/pain_std2.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain_concussive1			models/monsters/grunt/pain_con.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain_concussive2			models/monsters/grunt/pain04.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+		frame	7,17				footstep
+	}
+
+	anim pain_stream_start			models/monsters/grunt/pain_strm_start.md5anim
+	anim pain_stream				models/monsters/grunt/pain_strm_loop.md5anim
+	anim pain_stream_end			models/monsters/grunt/pain_strm_end.md5anim
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Attack Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim melee_move_attack1								models/monsters/grunt/melee01.md5anim
+	{
+		rate	.8
+		frame	12										sound_weapon		snd_wiff
+		frame	6,14									footstep
+		frame	12										fx					fx_swipe						lft_wrist
+		frame	14										ai_attack_melee		melee
+	}
+	anim melee_move_attack2								models/monsters/grunt/melee02.md5anim
+	{
+		rate	.8
+		frame	7,12									footstep
+		frame	10										sound_weapon		snd_wiff
+		frame	10										fx					fx_swipe						rt_wrist
+		frame	12										ai_attack_melee		melee
+	}
+	anim melee_move_attack3								models/monsters/grunt/melee03.md5anim
+	{
+		rate	.8
+		frame	5,19									footstep
+		frame	11										sound_weapon			snd_wiff
+		frame	11										fx					fx_swipe						rt_wrist
+		frame	13										ai_attack_melee		melee
+	}
+
+	anim melee_attack1									models/monsters/grunt/melee04.md5anim
+	{
+		frame	8										fx					fx_swipe						rt_wrist
+		frame	13										ai_attack_melee		melee
+	}
+	anim melee_attack2									models/monsters/grunt/melee05.md5anim
+	{
+		frame	8										fx					fx_swipe						rt_wrist
+		frame	13										ai_attack_melee		melee
+	}
+
+	anim range_attack									models/monsters/grunt/fire.md5anim
+	{
+		frame	1										call				overrideLegs
+		frame	2										sound			snd_rush
+		frame	16, 18, 20, 22, 24, 26, 28, 30, 32, 34	sound		snd_gatling
+		frame 	16, 18, 20, 22, 24, 26, 28, 30, 32, 34	ai_attack			chaingun				muzzle_flash
+		frame 	16, 18, 20, 22, 24, 26, 28, 30, 32, 34	fx					fx_chaingun_flash		muzzle_flash
+		frame	22										fx					fx_gundone				muzzle_flash
+	}
+	
+	anim leap_attack									models/monsters/grunt/jump_attack.md5anim
+	{	
+		ai_no_turn
+		frame	1										call				overrideLegs
+		frame	1										sound			snd_jump
+		frame	22										sound		snd_wiff			
+		frame	26										fx					fx_swipe						rt_wrist
+		frame	28										ai_attack_melee		leap
+		frame	8,26,32,38								footstep		
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Misc Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim evade_right									models/monsters/grunt/sidestep_right.md5anim
+	{
+		frame	1										call				overrideLegs
+		frame	3										sound				snd_breathe
+		frame	9,11									footstep
+	}
+	anim evade_left										models/monsters/grunt/sidestep_left.md5anim
+	{
+		frame	1										call				overrideLegs
+		frame	2										sound				snd_breathe
+		frame	9,11									footstep
+	}
+	anim anger1											models/monsters/grunt/anger03.md5anim
+	{
+		ai_no_turn
+		frame	1										ai_disablePain
+		frame	1										ai_disableDamage
+		frame	10										sound				snd_anger
+		frame	10										fx					fx_adrenaline_arms		waist
+		frame	15										fx					fx_adrenaline_arms		chest
+		frame	20										fx					fx_adrenaline_arms		shoulders
+		frame	25										fx					fx_adrenaline_arms		rt_up_arm
+		frame	30										fx					fx_adrenaline_arms		rt_elbo
+		frame	35										fx					fx_adrenaline_arms		rt_wrist
+		frame	25										fx					fx_adrenaline_arms		lft_up_arm
+		frame	30										fx					fx_adrenaline_arms		lft_elbo
+		frame	35										fx					fx_adrenaline_arms		lft_wrist
+		frame	20,21,22,23								sound				snd_adren
+		frame	17										ai_enableDamage
+	}
+	anim anger2											models/monsters/grunt/anger02.md5anim
+	{
+		ai_no_turn
+		frame	1										ai_disablePain
+		frame	1										ai_disableDamage
+		frame	1										sound					snd_anger
+		frame	10										fx					fx_adrenaline_arms		waist
+		frame	15										fx					fx_adrenaline_arms		chest
+		frame	20										fx					fx_adrenaline_arms		shoulders
+		frame	25										fx					fx_adrenaline_arms		rt_up_arm
+		frame	30										fx					fx_adrenaline_arms		rt_elbo
+		frame	32										fx					fx_adrenaline_arms		rt_wrist
+		frame	25										fx					fx_adrenaline_arms		lft_up_arm
+		frame	30										fx					fx_adrenaline_arms		lft_elbo
+		frame	32										fx					fx_adrenaline_arms		lft_wrist
+		frame	17 										sound				snd_poundground
+		frame	23,24,25,26,27							sound				snd_adren
+		frame	22										ai_enableDamage
+		frame	17										fx					fx_poundground			rt_mid_foot
+	}
+	anim jump_back										models/monsters/grunt/jump_back.md5anim	
+	{
+		frame	1										call				overrideLegs
+		frame	3										sound				snd_breathe
+		frame	9,13									footstep
+	}
+
+	anim jump128										models/monsters/grunt/jump128.md5anim	
+	{
+		frame	1										ai_disablePain
+		frame	1										disableGravity
+		frame	1										disableClip
+	
+		frame	1										sound	snd_jump
+		frame	17										sound	snd_fall_special
+	
+		frame	20										enableGravity
+		frame	20										enableClip
+	}
+
+	anim pre_jump128									models/monsters/grunt/pre_jump128.md5anim	
+	{	// Moves 113 units.
+		frame	1										ai_disablePain
+		frame	1										disableGravity
+		frame	9										footstep
+		frame	16										enableGravity
+	}
+
+	// ------------------------------------ Scripted Anims --------------------
+
+	anim acid_gun										models/monsters/grunt/acid_gun.md5anim
+	anim acid_gun_cine									models/monsters/grunt/acid_gun_cine.md5anim
+	anim acid_gun_stepup								models/monsters/grunt/acid_gun_stepup.md5anim
+	{
+		frame	7,14									footstep
+	}
+	
+	anim storage_stepped_on								models/monsters/grunt/storage_stepped_on.md5anim
+	anim droppod_crash								models/monsters/grunt/droppod_crash.md5anim
+	anim teleport									models/monsters/grunt/teleport.md5anim					
+}
+
+/*
+===============================================================================
+
+	Grunt Attacks
+
+===============================================================================
+*/
+
+entityDef damage_grunt_bullet
+{
+	"inherit"						"damage_bullet_base"
+	"damage"						"4"
+}
+
+entityDef hitscan_grunt_bullet
+{
+	"inherit"						"hitscan_bullet_base"
+	"fx_tracer"						"effects/monsters/grunt/bullet_tracer.fx"
+	"def_damage"					"damage_grunt_bullet"
+
+	"attack_spread_horizontal"		"10"
+	"attack_spread_vertical"		"7"
+}
+
+entityDef melee_grunt_base
+{
+	"inherit"						"melee_monster_base"
+	"damage"						"30"
+	"knockback"						"80"
+
+	"kickDir"						"1 0 1"
+	"kick_time"						"200"
+	"kick_amplitude"				"1"
+	
+	"blob_time"						"500"
+	"mtr_blob"						"textures/decals/genericdamage"
+	"blob_x"						"0"
+	"blob_y"						"-125"
+	"blob_width"					"400"
+	"blob_height"					"400"
+	
+	"dv_time"						"350"
+	"dv_scale"						".1"
+	
+	"tv_time"						"300"
+	
+	"fx_wound"						""
+	"snd_flesh"						"bullet_impact_flesh"	
+
+	"deathPush"						"100"
+	"deathPushMin"					"5000 350"
+	"deathPushMax"					"8000 500"	
+
+	"bleed"							"1"
+}
+
+entityDef melee_grunt
+{
+	"inherit"						"melee_grunt_base"
+	"damage"						"20"
+	"knockback"						"40"
+}
+
+entityDef melee_grunt_leap
+{
+	"inherit"						"melee_grunt_base"
+	"damage"						"40"
+	"knockback"						"80"
+}
+
+/*
+===============================================================================
+
+	Grunt Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_grunt
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterGrunt"
+
+	// ------------------------------- Actions ------------------------------------
+	"actionTimer_evade_rate"				"3"
+	
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_maxRange"			"72"
+	
+	"action_meleeMoveAttack"				"1"
+	"action_meleeMoveAttack_minRange"		"80"
+	"action_meleeMoveAttack_maxRange"		"100"
+	"action_meleeMoveAttack_anim"			"melee_move_attack"
+	
+	"action_railgunAttack"					"1"
+	"action_railgunAttack_rate"				"8"
+	"action_railgunAttack_minRange"			"300"
+	"action_railgunAttack_maxRange"			"2000"
+	
+	"action_rangedAttack"					"1"
+	"action_rangedAttack_rate"				"2"	
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"700"
+	
+	"action_leapAttack"						"1"
+	"action_leapAttack_rate"				"1"
+	"action_leapAttack_minRange"			"256"
+	"action_leapAttack_maxRange"			"384"
+	
+	"action_jumpback"						"1"
+	"action_jumpback_maxrange"				"90"
+	
+	"action_evadeLeft"						"1"
+	"action_evadeLeft_minrange"				"150"
+
+	"action_evadeRight"						"1"
+	"action_evadeRight_minrange"			"150"
+		
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_grunt"
+	"ragdoll"								"grunt"	
+	"size"									"48 48 80"
+	"use_aas"								"aas48"
+
+	"chatter_idle_rate"						"8"
+	"chatter_combat_rate"					"8"	
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"150"
+	"health_rageThreshold"					"80"
+	"painThreshold"							"1"
+	"missile_visibility_joint"				"muzzle_flash"
+	"attackRange"							"0 700"
+	
+	"tactical_ranged"						"0"
+	"tactical_rush"							"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"1"
+
+	"melee_range"							"72"	
+	
+	"def_attack_chaingun"					"hitscan_grunt_bullet"
+	"attack_chaingun_hitscan"				"1"
+	"attack_chaingun_accuracy"				"2"
+
+	"def_attack_melee"						"melee_grunt"
+	"def_attack_leap"						"melee_grunt_leap"	
+	
+	"joint_eyeOffset"						"eyes"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck"
+	"damage_zone legs"						"*hips origin  -*waist"
+	"damage_scale head"						"2"	
+	"damage_scale legs"						".75"	
+
+	// -------------------------------- Look Joints -----------------------------
+	"look_joint waist"						"0.2 0.2 0"
+	  "look_joint chest"					"0.2 0.2 0"
+	    "look_joint shoulders"				"0.2 0.2 0"
+		  "look_joint muzzle_flash"			"0.4 0.4 0"
+	      "look_joint neck"					"0.2 0.2 0"
+	        "look_joint head"				"0.2 0.2 0"
+
+	// --------------------------------- IK --------------------------------------
+/*	
+	"ik_numLegs"							"2"
+	"ik_footSize"							"4"
+	"ik_waist"								"Body"
+	"ik_hip1"								"rt_up_leg"
+	"ik_hip2"								"lft_up_leg"
+	"ik_knee1"								"rt_knee"
+	"ik_knee2"								"lft_knee"
+	"ik_ankle1"								"rt_ankle"
+	"ik_ankle2"								"lft_ankle"
+	"ik_foot1"								"rt_mid_foot"
+	"ik_foot2"								"lft_mid_foot"
+*/
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"							"grunt_sight"
+	"lipsync_rush"							"grunt_rush"
+	
+	"snd_rush"								"grunt_rush"
+	
+	"lipsync_chatter_idle"					"grunt_chatter_idle"
+	"lipsync_chatter_combat"				"grunt_chatter_combat"
+	
+	"snd_death"								"grunt_death"
+	"snd_punch"								"grunt_punch"
+	"snd_smash"								"grunt_breakthru"
+	"snd_wiff"								"grunt_wiff"
+	"snd_blaster"							"grunt_blaster"
+	"snd_gatling"							"grunt_gatling"
+	
+	"snd_footstep"							"grunt_footsteps"
+	"snd_footstep_sand"						"grunt_footsteps_dirt"
+	"snd_footstep_dirt"						"grunt_footsteps_dirt"
+	"snd_footstep_hollowmetal"				"grunt_footsteps_hollow_metal"
+	"snd_footstep_rock"						"grunt_footsteps"
+	
+	"snd_jump"								"grunt_jump"
+	"snd_pain"								"grunt_pain"
+	"snd_breathe"							"grunt_breathe"
+	"snd_breathe2"							"grunt_breathe_quiet"
+	"snd_growl"								"grunt_growl"
+	"snd_adren"								"grunt_adrenaline"
+	"snd_anger"								"grunt_anger"
+	"snd_fall"								"grunt_fall"
+	"snd_poundground"						"grunt_poundground"
+	"snd_fall_special"						"grunt_fall_special"
+	"snd_flesh"								"bullet_impact_flesh"
+	
+	"snd_crack_glass"						"grunt_glass_crack"
+	"snd_feeding"							"ambient_feed"
+	"snd_debris"							"grunt_debris"
+	
+	"snd_glass_hit"							"grunt_hit_glass"
+	
+	"sound_bone"							"waist"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_chaingun_flash"						"effects/monsters/grunt/bullet_mflash.fx"
+	"fx_adrenaline_arms"					"effects/monsters/grunt/adrenaline_steam.fx"
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"
+	"fx_gundone"							"effects/monsters/grunt/gundone.fx"
+	"fx_camerashake"						"effects/monsters/grunt/gruntcamerashake.fx"
+	"fx_poundground"						"effects/monsters/grunt/poundground.fx"
+	"fx_bloodburst"							"effects/monsters/grunt/bloodburst.fx"
+	"fx_crack_glass1"						"effects/impact/glass_impact.fx"
+	"fx_gib"								"effects/monsters/gib.fx"
+	
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+}

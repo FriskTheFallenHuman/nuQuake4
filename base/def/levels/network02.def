@@ -1,0 +1,93 @@
+/***********************************************************************************************************************
+Medlabs2
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+/***********************************************************************
+roof_floor
+***********************************************************************/
+
+export	roof_floor
+{
+	options -prefix ROOF_ -align ALL -scale .3937
+	mesh	work/models/mapobjects/strogg/network/roof_floor/animations/buckle.ma		-dest models/mapobjects/strogg/network/roof_floor/floor
+	anim	work/models/mapobjects/strogg/network/roof_floor/animations/buckle.ma		-dest models/mapobjects/strogg/network/roof_floor/buckle
+	anim	work/models/mapobjects/strogg/network/roof_floor/animations/idle.ma			-dest models/mapobjects/strogg/network/roof_floor/idle
+}
+
+entityDef env_roof_floor
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Floor that bends under Network Guardian"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_env_roof_floor"
+//	"anim"						"idle"
+}
+
+model model_env_roof_floor
+{
+	mesh					models/mapobjects/strogg/network/roof_floor/floor.md5mesh
+	
+	anim buckle				models/mapobjects/strogg/network/roof_floor/buckle.md5anim
+	anim idle				models/mapobjects/strogg/network/roof_floor/idle.md5anim
+}
+
+/***********************************************************************
+roof_generator
+***********************************************************************/
+
+export  roof_generator
+{
+	options -prefix AC_ -align ALL -scale .3937
+	mesh	work/models/mapobjects/strogg/network/ac_unit/animations/crush.ma			-dest models/mapobjects/strogg/network/ac_unit/generator
+	anim	work/models/mapobjects/strogg/network/ac_unit/animations/crush.ma			-dest models/mapobjects/strogg/network/ac_unit/crush
+	anim	work/models/mapobjects/strogg/network/ac_unit/animations/idle.ma			-dest models/mapobjects/strogg/network/ac_unit/idle
+}
+
+entityDef env_roof_generator
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Generator on roof the Network Guardian crushes"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_env_roof_generator"
+
+	"fx_busted"					"effects/weapons/lightninggun/trail_world.fx"
+//	"anim"						"idle"
+}
+
+model model_env_roof_generator
+{
+	mesh					models/mapobjects/strogg/network/ac_unit/generator.md5mesh
+	
+	anim crush				models/mapobjects/strogg/network/ac_unit/crush.md5anim
+	anim idle				models/mapobjects/strogg/network/ac_unit/idle.md5anim
+}
+
+entityDef projectile_strafe_flyer_gravity
+{
+	"inherit"			"projectile_walker_rocket"
+	
+	"speed"				"2000"
+	"gravity"			"1.2"		
+
+	"fx_fly"			"effects/vehicles/walker/rocket/trail2.fx"
+	"fx_trail"			"effects/vehicles/walker/rocket/trail2.fx"	
+	
+	"fx_impact"					"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_rock"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_dirt"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_sand"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_gravel"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_concrete"		"effects/vehicles/walker/rocket/impact2.fx"
+}

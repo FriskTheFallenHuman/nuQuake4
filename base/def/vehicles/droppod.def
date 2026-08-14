@@ -1,0 +1,130 @@
+//------------------------------------------------------------------------------
+// droppod.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export vehicle_drop_pod
+{
+	options -prefix DROP_POD_ -scale .3937 -align ALL -keep eye1 eye2	-sourcedir work\models\vehicles\marine_drop_pod\animations		 -destdir models\vehicles\marine_drop_pod
+	mesh drop_pod_idle.ma			-dest drop_pod  
+	anim drop_pod_idle.ma			-dest idle
+	anim storage1_pod_skyfall.ma	-dest storage1_pod_skyfall
+	anim Storage1_crash.ma			-dest storage_crash
+	anim doors_opening.ma			-dest doors_opening
+	anim doors_closing.ma			-dest doors_closing
+}
+
+model model_vehicle_drop_pod
+{
+	mesh							models\vehicles\marine_drop_pod\drop_pod.md5mesh
+	
+	channel torso	( *origin )
+	
+	anim idle						models\vehicles\marine_drop_pod\idle.md5anim
+
+/*
+	anim storage_crash				models\vehicles\marine_drop_pod\storage_crash.md5anim
+	{
+		rate	.5
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	12, 17, 56, 94					call			map_storage1::playTubeCrashSnd
+		//frame	5						call			map_storage1::podCrashGrunt
+		frame	6						call			map_storage1::podCrashGrunt
+		frame	30						call			map_storage1::playGib
+		
+		frame	56						call			map_storage1::shaftWallA
+		frame	85						call			map_storage1::shaftWallB
+		frame	90						call			map_storage1::shaftWallB_back
+		
+		frame	134						call			map_storage1::tubeHallA
+		frame	146						call			map_storage1::tubeHallB
+		
+		frame	153						call			map_storage1::lastWall
+
+		frame	56,87,92,136,148,156,174				call			map_storage1::playExplode
+
+	}
+*/
+	anim storage1_pod_skyfall		models\vehicles\marine_drop_pod\storage1_pod_skyfall.md5anim
+
+	anim doors_opening				models\vehicles\marine_drop_pod\doors_opening.md5anim
+	anim doors_closing				models\vehicles\marine_drop_pod\doors_closing.md5anim
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_drop_pod
+{
+	"spawnclass"					"rvVehicleDropPod"
+
+	"model"							"model_vehicle_drop_pod"
+	"anim"							"idle"
+	
+	"mins"							"-92 -24 -42"
+	"maxs"							"92 24 20"
+	"size"							"24 24 24"
+	
+	"hidesurface1"					"models/characters/marine/body"
+	"hidesurface2"					"models/monsters/tactical/tt_body"
+
+	"mass"							"1800"
+	"health"						"1000"
+
+	"def_position_driver"			"vehicle_drop_pod_driver"
+
+	"editor_usage"					"Drop pod vehicle."
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-40 -8 0"
+	"editor_maxs"					"40 8 36"
+	"editor_rotatable"				"1"
+	
+	"focusLength_enter"				"400"
+	
+	"bindOrientated"				"1"
+	
+	"allowFlipEject"				"0"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+entityDef vehicle_drop_pod_driver
+{
+	"eyeJoint"						"eye2"
+	"eyeOffset"						"4 0 1"
+
+//	"depthHack"						"0"
+
+	"def_part_yaw"					"vehicle_drop_pod_yaw"
+	"def_part_pitch"				"vehicle_drop_pod_pitch"
+}
+
+//------------------------------------------------------------------------------
+//								Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_drop_pod_yaw
+{
+	"spawnclass"					"rvVehicleTurret"
+	"turnrate"						"750"
+	"joint"							"eye2"
+	"yaw"							"0"
+
+	"minyaw"						"-80"	
+	"maxyaw"						"80"
+}
+entityDef vehicle_drop_pod_pitch
+{
+	"spawnclass"					"rvVehicleTurret"
+	"turnrate"						"750"
+	"joint"							"eye1"
+	"pitch"							"1"
+	"pitchinvert"					"1"
+	
+	"minpitch"						"-20"
+	"maxpitch"						"55"	
+}

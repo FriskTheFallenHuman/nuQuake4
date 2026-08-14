@@ -1,0 +1,3414 @@
+///this is for all misc level stuff------------------------------------------------------------------------------
+
+//medlab wall----------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+
+// big wall section where the tube goes in
+
+models/mapobjects/strogg/medlabs/wall_piece/wall
+{
+
+	renderbump  -size 512 1024  -trace .05 -aa 2  models/mapobjects/med_wall_piece/med_wall_piece_lo_local.tga models/mapobjects/med_wall_piece/med_wall_piece_hi3.lwo
+
+
+		diffusemap		models/mapobjects/strogg/medlabs/wall_piece/wall_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/medlabs/wall_piece/wall_local.tga, heightmap ( models/mapobjects/strogg/medlabs/wall_piece/wall_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/medlabs/wall_piece/wall_s.tga
+
+}
+
+
+// piston thing that pumps fluid in the tube, goes with the model above-----------------------------------------
+
+
+models/mapobjects/strogg/medlabs/wall_piece/piston
+{
+      noselfShadow
+	renderbump  -size 256 256  -trace .05 -aa 2  models/mapobjects/med_wall_piece/med_piston_local.tga models/mapobjects/med_wall_piece/med_piston_hi.lwo
+
+
+		diffusemap		models/mapobjects/strogg/medlabs/wall_piece/piston_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/medlabs/wall_piece/piston_local.tga, heightmap ( models/mapobjects/strogg/medlabs/wall_piece/piston_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/medlabs/wall_piece/piston_s.tga
+
+	{
+		blend GL_ONE, GL_ONE
+		map models/mapobjects/strogg/medlabs/wall_piece/piston_glow.tga
+		rgb		raven_slight_pulse[ time * .3] 
+	}
+}
+
+
+
+///medlab arm stuff---------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/medlabs/lab_arm/glass_collision
+{
+	noShadows
+	collision
+	materialType	glass
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/solidmetal_collision
+{
+	noShadows
+	collision
+	materialType	solidmetal
+}
+
+
+
+
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_glass
+{
+//	collision
+//	noSelfShadow
+	unsmoothedtangents
+//	noShadows
+	twoSided	
+	translucent
+	forceOverlays
+//	sort decal
+
+	qer_editorimage textures/glass/medlabs
+	materialType glass
+/*	{
+                Program           heatHaze.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1       .4         // magnitude of the distortion
+                fragmentProgram			heatHaze.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/env/vp1   // the normal map for distortion			
+             
+    }
+*/	
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/medlabs2.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+		cubeMap		gfx/env/medic
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	{
+		blend specularMap
+		map models/mapobjects/strogg/medlabs/lab_arm/tube_glass_s.tga
+	}
+}
+
+
+
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_glass2
+{
+	unSmoothedTangents
+	twoSided	
+	translucent
+	forceOverlays
+
+	qer_editorimage textures/glass/medlabs
+	materialType glass
+	{	
+		if (Parm4) == 0
+		maskcolor				
+	    map	makealpha(textures/glass/medlabs2.tga)
+	}
+
+	{
+	    if (Parm4) == 0
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+		cubeMap		gfx/env/medic
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	{
+		
+		if (Parm4) == 0
+		blend specularMap
+		map models/mapobjects/strogg/medlabs/lab_arm/tube_glass_s.tga
+	}
+	{
+		if (Parm4) == 1
+		blend add
+		map _black
+	}
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_glass_1side
+{
+	unSmoothedTangents
+	translucent
+	forceOverlays
+	nonSolid	
+
+	qer_editorimage textures/glass/medlabs
+	materialType glass
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/medlabs2.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+		cubeMap		gfx/env/medic
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	{
+		blend specularMap
+		map models/mapobjects/strogg/medlabs/lab_arm/tube_glass_s.tga
+	}
+}
+
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_fluid
+{
+	noShadows
+	translucent
+	nonSolid
+//	twoSided	
+	deform	turbulent	sintable .0295 time * .2 1
+	
+	
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .65
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_green_bubble1.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	{ 
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble2.tga
+		scroll	0, time * .15
+	}
+	
+	{
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+		scale 2, 2
+	}
+//if no glsl
+
+	{
+		if ( glslPrograms )== 0
+		blend add	
+		map textures/medlabs/fluid_green_bubble5.tga
+		scroll 0, time * .025
+		scale 3, 3
+	}
+
+	{ 
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble2.tga
+		scroll	0, time * .15
+		scale 3, 3
+	}
+	
+	{
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+		scale 3, 3
+	}
+}
+models/mapobjects/strogg/medlabs/lab_arm/tube_fluid_2side
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+	deform	turbulent	sintable .0295 time * .2 1
+	
+	
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .65
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_green_bubble4.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	{ 
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble2.tga
+		scroll	0, time * .15
+	}
+	
+	{
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+		scale 2, 2
+	}
+//if no glsl
+	{
+		if ( glslPrograms )== 0
+		blend add	
+		map textures/medlabs/fluid_green_bubble5.tga
+		scroll 0, time * .025
+		scale 3, 3
+	}
+
+	{ 
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble2.tga
+		scroll	0, time * .15
+		scale 3, 3
+	}
+	
+	{
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+		scale 3, 3
+	}
+}
+models/mapobjects/strogg/medlabs/lab_arm/tube_fluid_cap
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+	deform	turbulent	sintable .0295 time * .2 1
+
+	
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .65
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_green_bubble4.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	{ 
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble6.tga
+		scroll	0, time * .15
+		scale 3, 3
+
+	}
+//if no glsl
+	{
+		if ( glslPrograms )== 0
+		blend add	
+		map textures/medlabs/fluid_green_bubble4.tga
+		scroll 0, time * .025
+		scale 3, 3
+	}
+	{ 
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble6.tga
+		scroll	0, time * .15
+		scale 3, 3
+	}
+	
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/fluid_cap_froth
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+	deform	turbulent	sintable .00295 time * .2 1
+
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .65
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/medlabs/fluid_green_bubble4.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	{ 
+		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble6.tga
+		scroll	0, time * .15
+		scale 3, 3
+
+	}
+	
+	{ 
+		If ( glslPrograms )== 1		
+		blend blend
+		map textures/medlabs/fluid_green_cap.tga
+//		clamp
+
+	}
+
+//if no glsl
+	{
+		if ( glslPrograms )== 0
+		blend add	
+		map textures/medlabs/fluid_green_bubble4.tga
+		scroll 0, time * .025
+		scale 3, 3
+	}
+	{ 
+		If ( glslPrograms )== 0		
+		blend add
+		map textures/medlabs/fluid_green_bubble6.tga
+		scroll	0, time * .15
+		scale 3, 3
+	}
+	{ 
+		If ( glslPrograms )== 0
+//		blend gl_zero,gl_one_minus_src_color
+		blend blend
+		map textures/medlabs/fluid_green_cap.tga
+//		scroll	0, time * .15
+//		scale 2, 2
+		clamp
+
+	}
+	
+}
+
+
+// glow pass for inside tube
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_glow
+{
+	{
+		blend GL_ONE, GL_ONE
+		map models/mapobjects/strogg/medlabs/lab_arm/tube_flare.tga
+	}
+}
+
+
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_ends
+{
+	noSelfShadow
+	noShadows
+	unsmoothedtangents
+	renderbump  -size 512 1024  -trace .2 -aa 2  models/mapobjects/strogg/medlabs/medlab_arm/tube_ends_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/tube_ends_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/medlabs/lab_arm/tube_ends_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/medlabs/lab_arm/tube_ends_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/tube_ends_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/medlabs/lab_arm/tube_ends_s.tga
+
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/tube_ends_burnaway
+{
+	noSelfShadow
+	noShadows
+	unsmoothedtangents
+	renderbump  -size 512 1024  -trace .2 -aa 2  models/mapobjects/strogg/medlabs/medlab_arm/tube_ends_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/tube_ends_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/medlabs/lab_arm/tube_ends_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/medlabs/lab_arm/tube_ends_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/tube_ends_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/medlabs/lab_arm/tube_ends_s.tga
+
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)		
+
+}
+
+
+/////////////////////////////
+////////////////////////////
+//medlab arm in game materials
+///////////////////////////
+
+models/mapobjects/strogg/medlabs/lab_arm/2_grasper
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 512 1024 -trace .5 -aa 2 models/mapobjects/strogg/medlabs/medlab_arm/2_med_lab_arm_grasper_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/2_med_lab_arm_grasper_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group1_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group1_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group1_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group1_s.tga
+
+}
+
+
+models/mapobjects/strogg/medlabs/lab_arm/2_piece
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 512 1024 -trace .5 -aa 2  models/mapobjects/strogg/medlabs/medlab_arm/render/2_med_lab_new_piece_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/2_med_lab_arm_new_piece_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group1_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group1_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group1_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group1_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/medlabs/lab_arm/3_arm
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/strogg/medlabs/medlab_arm/render/3_med_lab_arm_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/3_med_lab_arm_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group2_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group2_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group2_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group2_s.tga
+
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/4_arm
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/medlab_arm/render/4_med_lab_arm_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/4_med_lab_arm_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group2_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group2_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group2_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group2_s.tga
+
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/5_arm
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/medlab_arm/render/5_med_lab_arm_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/5_med_lab_arm_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group2_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group2_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group2_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group2_s.tga
+
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/6_1ceiling
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 256 256 -trace .5 -aa 2  models/mapobjects/strogg/medlabs/medlab_arm/6_med_lab_arm_1ceiling_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/6_med_lab_arm_1ceiling_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group3_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group3_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group3_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group3_s.tga
+
+}
+
+models/mapobjects/strogg/medlabs/lab_arm/7_2ceiling
+{
+      noselfShadow
+	unsmoothedtangents
+	renderbump  -size 256 256 -trace .5 -aa 2  models/mapobjects/strogg/medlabs/medlab_arm/7_med_lab_arm_2ceiling_local.tga work/models/mapobjects/strogg/medlabs/medlab_arm/7_med_lab_arm_2ceiling_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/lab_arm/arm_group3_local.tga, heightmap ( models/mapobjects/strogg/medlabs/lab_arm/arm_group3_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/lab_arm/arm_group3_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/lab_arm/arm_group3_s.tga
+
+}
+
+//--------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/prison/console/large
+
+{
+	noselfshadow
+
+	diffusemap			models/mapobjects/strogg/prison/console/p_large_d.tga
+	bumpmap addnormals 	(models/mapobjects/strogg/prison/console/p_large_local.tga, heightmap (models/mapobjects/strogg/prison/console/p_large_h.tga,1))
+	specularmap			models/mapobjects/strogg/prison/console/p_large_s.tga
+}
+
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/prison/console/small
+
+{
+	noselfshadow
+	unsmoothedTangents
+
+	renderbump  -size 128 256 -aa 2 models/mapobjects/prison/prison_small_controller_local.tga models/mapobjects/prison/small_controller_hi.lwo
+
+	diffusemap	models/mapobjects/strogg/prison/console/p_small_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/prison/console/p_small_local.tga, heightmap (models/mapobjects/strogg/prison/console/p_small_h.tga,1))
+	specularmap	models/mapobjects/strogg/prison/console/p_small_s.tga
+}	
+	
+	models/mapobjects/strogg/prison/console/small2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/prison/console/P_small_local.tga, heightmap (models/mapobjects/strogg/prison/console/p_small2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/prison/console/p_small2_d.tga
+	specularmap		models/mapobjects/strogg/prison/console/p_small2_s.tga
+
+}
+//small plus 1 .skin entries end-----------
+
+//----------------------------------------------------------------------
+
+
+models/mapobjects/strogg/terminal/spires/spire_2
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/spires/spire_2_hit
+	
+	renderbump  -size 512 1024 -aa 1 -MergeHigh -colormap models/mapobjects/spires/spire_2_local.tga models/mapobjects/spires/spire_2a_hi.lwo
+
+
+	bumpmap	addnormals	(models/mapobjects/strogg/terminal/spires/spire_2_local.tga, heightmap (models/mapobjects/strogg/terminal/spires/spire_2_h, 2)) 
+	diffuseMap downsize( models/mapobjects/strogg/terminal/spires/spire_2_d.tga, 1 )
+	specularmap	downsize( models/mapobjects/strogg/terminal/spires/spire_2_s.tga, 1 )
+}
+
+// terminal balcony 9 pieces ----------------------------------------------------
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01a
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/balcony/balcony01a_hit
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/terminal/balcony/balcony01a_local.tga models/mapobjects/strogg/terminal/balcony/balcony01a_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01a_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01a_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01a_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01b
+{
+      	noselfShadow
+	unsmoothedtangents
+		materialImage models/mapobjects/strogg/terminal/balcony/balcony01b_hit
+
+	renderbump  -size 256 128 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/balcony/balcony01b_local.tga models/mapobjects/strogg/terminal/balcony/balcony01b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01b_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01b_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01b_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	renderbump  -size 256 128 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/balcony/balcony01c_local.tga models/mapobjects/strogg/terminal/balcony/balcony01c_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01b_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01b_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01b_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01d
+{
+      	noselfShadow
+	unsmoothedtangents
+		materialImage models/mapobjects/strogg/terminal/balcony/balcony01d_hit
+	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/balcony/balcony01d_local.tga models/mapobjects/strogg/terminal/balcony/balcony01d_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01d_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01d_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01d_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01d_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01e
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/balcony/balcony01e_hit	
+	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .09  models/mapobjects/strogg/terminal/balcony/balcony01e_local.tga models/mapobjects/strogg/terminal/balcony/balcony01e_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01e_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01e_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01e_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01e_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01f
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/terminal/balcony/balcony01f_hit
+	
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .1  models/mapobjects/strogg/terminal/balcony/balcony01f_local.tga models/mapobjects/strogg/terminal/balcony/balcony01f_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01f_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01f_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01f_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01f_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01g
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/balcony/balcony01g_hit	
+	renderbump  -size 512 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/balcony/balcony01g_local.tga models/mapobjects/strogg/terminal/balcony/balcony01g_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01g_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01g_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01g_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01g_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01h
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/balcony/balcony01h_hit	
+	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/terminal/balcony/balcony01h_local.tga models/mapobjects/strogg/terminal/balcony/balcony01h_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01h_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01h_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01h_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01h_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/terminal/balcony/balcony01i
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/balcony/balcony01i_hit	
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/terminal/balcony/balcony01i_local.tga models/mapobjects/strogg/terminal/balcony/balcony01i_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/balcony/balcony01i_local.tga, heightmap (models/mapobjects/strogg/terminal/balcony/balcony01i_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/balcony/balcony01i_d.tga
+	specularmap		models/mapobjects/strogg/terminal/balcony/balcony01i_s.tga
+
+}
+
+
+// terminal elevator ----------------------------------------------------
+
+
+models/mapobjects/strogg/terminal/elevator/terminal_elevator
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+//check path	renderbump  -size 1024 1024 -unweld -aa 1 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/elevator/terminal_elevator_local.tga work/models/mapobjects/strogg/terminal/elevator/terminal_elevator_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/elevator/terminal_elevator_local.tga, heightmap (models/mapobjects/strogg/terminal/elevator/terminal_elevator_h.tga, 2))
+	diffusemap	 	models/mapobjects/strogg/terminal/elevator/terminal_elevator_d.tga
+	specularmap		models/mapobjects/strogg/terminal/elevator/terminal_elevator_s.tga
+
+}
+
+// wire clump for renners media room
+
+
+models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk
+{
+     noselfShadow
+
+	renderbump  -size 512 512 -aa 2  models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_local.tga models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_hi.lwo
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_s.tga
+
+}
+
+
+//media room pieces-----------------------------------------------------------------------
+// top circle thing for media room
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a
+{
+     noselfShadow
+
+	renderbump  -size 512 1024  -aa 2 -unweld models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_local.tga models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_hi.lwo     
+																					     
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_s.tga
+
+}
+
+// round piece that fits at end
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b
+{
+     noselfShadow
+
+	renderbump  -size 512 1024  -aa 2 -unweld models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_local.tga models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_hi.lwo
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_s.tga
+
+}
+
+// shaft center piece
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c
+{
+     noselfShadow
+
+	renderbump  -size 512 1024  -aa 2 -unweld models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_local.tga models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_hi.lwo
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_s.tga
+
+}
+
+// support pieces that fit on top
+
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d
+{
+     noselfShadow
+
+	renderbump  -size 512 1024  -aa 2 -unweld models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_local.tga models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_hi.lwo
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_s.tga
+
+}
+
+//--------------------------------------------------------------------------------------------
+
+//dispersal center_piece2 -----------------------------------------------------------------------
+// top circle thing for dispersal with different skin than media room
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_a
+{
+     noselfShadow
+	
+																	     
+	bumpMap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_a_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_a_s.tga
+
+}
+
+// round piece that fits at end
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_b
+{
+     noselfShadow
+
+
+	bumpMap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_b_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_b_s.tga
+
+}
+
+// shaft center piece
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_c
+{
+     noselfShadow
+
+	
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_c_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece2_c_s.tga
+
+}
+
+
+//3rd .skin file for media room--------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk3
+{
+     noSelfShadow
+     materialImage models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk3_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk3_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/wirechunk3_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_a
+{
+     noselfShadow
+
+	materialImage models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_a_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_a_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_a_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_a_s.tga
+
+}
+
+// round piece that fits at end
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_b
+{
+     noselfShadow
+	materialImage models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_b_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_b_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_b_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_b_s.tga
+
+}
+
+// shaft center piece
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_c
+{
+     noSelfShadow
+     materialImage models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_c_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_c_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_c_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_c_s.tga
+
+}
+
+// support pieces that fit on top
+
+
+models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_d
+{
+     noSelfShadow
+     materialImage models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_d_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece_d_local.tga, heightmap (models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_d_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_d_d.tga
+	specularmap		models/mapobjects/strogg/terminal/media_room/center_piece/center_piece3_d_s.tga
+
+}
+//---------------------------
+
+
+
+//terminal bridge 8 pieces-----------------------------------------------------------
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_a
+{
+	noSelfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/drawbridge/bridge_a_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_a_local.tga models/mapobjects/strogg/terminal/bridge_a_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_a_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_a_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_a_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_b
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/drawbridge/bridge_b_hit
+	
+//check path 	renderbump  -size 128 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_b_local.tga models/mapobjects/strogg/terminal/bridge_b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_b_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_b_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_b_s.tga
+
+}
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_c_left
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_c_left_local.tga models/mapobjects/strogg/terminal/bridge_c_left_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_c_right
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_c_right_local.tga models/mapobjects/strogg/terminal/bridge_c_right_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_c_left_s.tga
+}
+
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_corner
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_corner_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_corner_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_corner_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_corner_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_corner_arm
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/drawbridge/bridge_corner_arm_hit	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_corner_arm_local.tga models/mapobjects/strogg/terminal/bridge_corner_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_corner_arm_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_corner_arm_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_corner_arm_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_corner_arm_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_d
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/terminal/drawbridge/bridge_d_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_d_local.tga models/mapobjects/strogg/terminal/bridge_d_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_d_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_d_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_d_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_d_s.tga
+
+}
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty
+{
+      	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_d_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty_s.tga
+
+}
+
+models/mapobjects/strogg/terminal/drawbridge/bridge_e
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage	models/mapobjects/strogg/terminal/drawbridge/bridge_e_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/bridge_e_local.tga models/mapobjects/strogg/terminal/bridge_e_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/drawbridge/bridge_e_local.tga, heightmap (models/mapobjects/strogg/terminal/drawbridge/bridge_e_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/drawbridge/bridge_e_d.tga
+	specularmap		models/mapobjects/strogg/terminal/drawbridge/bridge_e_s.tga
+
+}
+
+
+// railings for terminal 64 units wide ----------------------------------------------------
+
+models/mapobjects/strogg/terminal/railings/64_wide
+{
+	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/terminal/railings/64_wide_hit	
+	
+//check path	renderbump  -size 128 128 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/terminal/railing_64_local.tga models/mapobjects/strogg/terminal/railing_64_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/railings/64_wide_local.tga, heightmap (models/mapobjects/strogg/terminal/railings/64_wide_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/railings/64_wide_d.tga
+	specularmap		models/mapobjects/strogg/terminal/railings/64_wide_s.tga
+
+}
+
+
+//.skin file for terminal rail
+
+models/mapobjects/strogg/terminal/railings/64a_wide
+{
+	noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/terminal/railings/64a_wide_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/railings/64_wide_local.tga, heightmap (models/mapobjects/strogg/terminal/railings/64a_wide_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/railings/64a_wide_d.tga
+	specularmap		models/mapobjects/strogg/terminal/railings/64a_wide_s.tga
+
+}
+///exterior door pieces 2---------------------------------------------------------------------
+
+
+models/mapobjects/strogg/terminal/network/ext_vent/door
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/network/ext_vent/door_hit
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/exterior_vent_door_atlas_local.tga models/mapobjects/strogg/terminal/exterior_vent_door_hi.lwo
+
+	bumpMap addnormals		( models/mapobjects/strogg/terminal/network/ext_vent/door_local.tga, heightmap (models/mapobjects/strogg/terminal/network/ext_vent/door_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/network/ext_vent/door_d.tga
+	specularmap		models/mapobjects/strogg/terminal/network/ext_vent/door_s.tga
+
+}
+
+
+models/mapobjects/strogg/terminal/network/ext_vent/joint
+{
+      noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .09 models/mapobjects/strogg/terminal/exterior_vent_joint_atlas_local.tga models/mapobjects/strogg/terminal/exterior_vent_joint_hi.lwo
+
+	bumpmap	addnormals	(models/mapobjects/strogg/terminal/network/ext_vent/door_local.tga, heightmap (models/mapobjects/strogg/terminal/network/ext_vent/door_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/network/ext_vent/door_d.tga
+	specularmap		models/mapobjects/strogg/terminal/network/ext_vent/door_s.tga
+
+}
+
+///-----------------------------------------------------------------------------------------
+
+
+//----------------------------------
+// security room network gui model
+//----------------------------------
+
+models/mapobjects/terminal/network/security_room/gui
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui.tga
+		red	guitable_8_10 [ time * 1 ]//* Parm7
+		green	guitable_8_10 [ time * 1 ]//* Parm7
+		blue	guitable_8_10 [ time * 1 ]//* Parm7
+		alpha	parm3
+	}	
+
+	{
+
+		blend blend
+		Map gfx/guis/common/noise2.tga
+		scroll -1.5 * time, -3.5 * time
+		scale .75, .75
+		red	1
+		green	.8
+		blue	.4
+		alpha	.2//* Parm7
+	}
+
+
+}
+
+models/mapobjects/terminal/network/security_room/gui2
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui2.tga
+		red	guitable_1_92 [ time * 3 ]//* Parm7
+		green	guitable_1_92 [ time * 3 ]//* Parm7
+		blue	guitable_1_92 [ time * 3 ]//* Parm7
+		alpha	parm3
+	}	
+
+}
+
+models/mapobjects/terminal/network/security_room/gui_x
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+
+	{
+
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_x.tga
+		centerscale guitable_10_20 [ time * .5 ] , guitable_10_20 [ time * .5 ]
+		clamp
+		colored
+		//red Parm7
+		//green Parm7
+		//blue Parm7
+	}	
+
+
+}
+
+models/mapobjects/terminal/network/security_room/gui_t
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		if ( parm5 == 1 )
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_t.tga
+ 		red	0 * guitable_1_92 [ time * 2 ]//* Parm7
+		green	.45 * guitable_1_92 [ time * 2 ]//* Parm7
+		blue	.25 * guitable_1_92 [ time * 2 ]//* Parm7
+		alpha	parm3
+	}
+	{
+		if ( parm5 == 0 )
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_t.tga
+ 		red	.8 * guitable_8_5 [ time * 2 ]//* Parm7
+		green	0 * guitable_8_5 [ time * 2 ]//* Parm7
+		blue	0 * guitable_8_5 [ time * 2 ]//* Parm7
+		alpha	parm3
+	}	
+
+}
+
+models/mapobjects/terminal/network/security_room/gui_lock
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		if ( parm4 == 1 )
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_lock.tga
+ 		red	0 * guitable_1_92 [ time * 2 ]//* Parm7
+		green	.7 * guitable_1_92 [ time * 2 ]//* Parm7
+		blue	.3 * guitable_1_92 [ time * 2 ]//* Parm7
+		alpha	parm3
+	}
+	{
+		if ( parm4 == 0 )
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_lock.tga
+ 		red	.8 * guitable_8_5 [ time * 2 ]//* Parm7
+		green	.2 * guitable_8_5 [ time * 2 ]//* Parm7
+		blue	0 * guitable_8_5 [ time * 2 ]//* Parm7
+		alpha	parm3
+	}	
+
+
+
+}
+
+models/mapobjects/terminal/network/security_room/gui_door
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		if ( parm4 == 1 )
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_door2.tga
+ 		red	0 * guitable_1_92 [ time * 2 ]//* Parm7
+		green	.7 * guitable_1_92 [ time * 2 ]//* Parm7
+		blue	.3 * guitable_1_92 [ time * 2 ]//* Parm7
+		alpha	parm3
+	}
+	{
+		if ( parm4 == 0 )
+		blend add
+		map models/mapobjects/strogg/terminal/network/security_room/gui_door2.tga
+ 		red	.8 * guitable_8_5 [ time * 2 ]//* Parm7
+		green	.2 * guitable_8_5 [ time * 2 ]//* Parm7
+		blue	0 * guitable_8_5 [ time * 2 ]//* Parm7
+		alpha	parm3
+	}		
+}
+
+
+///bridge in network one piece--------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/shaft_bridge/O_link
+{
+      	noselfShadow
+
+	
+//checka path	renderbump  -size 1024 1024 -aa 1 -MergeHigh -trace .07  models/mapobjects/strogg/terminal/t_bridge_local.tga models/mapobjects/strogg/terminal/t_bridge_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_bridge/O_link_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_bridge/O_link_h.tga, 2))
+	diffusemap downsize( models/mapobjects/strogg/terminal/shaft_bridge/O_link_d.tga, 1 )
+	specularmap	downsize( models/mapobjects/strogg/terminal/shaft_bridge/O_link_s.tga, 1 )
+}
+///------------------------------------------------------------------------------------------
+
+// network arm 3 pieces----------------------------------------------------
+// placed in the network elevator shaft.//////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+//#1
+models/mapobjects/strogg/terminal/shaft_bridge/tri_link
+{
+     noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/network/n_arms_base_local.tga models/mapobjects/strogg/network/n_arms_base_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_bridge/tri_link_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_bridge/tri_link_h.tga, 2))
+	diffusemap	downsize( models/mapobjects/strogg/terminal/shaft_bridge/tri_link_d.tga, 1 )
+	specularmap	downsize( models/mapobjects/strogg/terminal/shaft_bridge/tri_link_s.tga, 1 )
+
+}
+
+//#2
+models/mapobjects/strogg/terminal/shaft_bridge/tri_link2
+{
+     noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/network/n_arms_base2_local.tga models/mapobjects/strogg/network/n_arms_base2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_bridge/tri_link_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_bridge/tri_link_h.tga, 2))
+	diffusemap	downsize( models/mapobjects/strogg/terminal/shaft_bridge/tri_link_d.tga, 1 )
+	specularmap	downsize( models/mapobjects/strogg/terminal/shaft_bridge/tri_link_s.tga, 1 )
+
+}
+
+
+//terminal machines 6 pieces---------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/shaft_machines/1_top
+{
+      	noselfShadow
+	//unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/shaft_machines/1_top_hit
+	
+//checkl path 	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/t_machine1a_local.tga models/mapobjects/strogg/terminal/t_machine1a_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/1_top_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/1_top_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/1_top_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/1_top_s.tga
+}
+
+
+models/mapobjects/strogg/terminal/shaft_machines/1_middle
+{
+      	noselfShadow
+	//unsmoothedtangents
+		materialImage models/mapobjects/strogg/terminal/shaft_machines/1_middle_hit
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/t_machine1b_local.tga models/mapobjects/strogg/terminal/t_machine1b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/1_middle_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/1_middle_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/1_middle_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/1_middle_s.tga
+
+}
+
+models/mapobjects/strogg/terminal/shaft_machines/1_bottom
+{
+      	noselfShadow
+	//unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/shaft_machines/1_bottom_hit
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/t_machine1c_local.tga models/mapobjects/strogg/terminal/t_machine1c_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/1_bottom_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/1_bottom_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/1_bottom_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/1_bottom_s.tga
+}
+
+models/mapobjects/strogg/terminal/shaft_machines/2_top
+{
+      	noselfShadow
+	//unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/shaft_machines/2_top_hit
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/t_machine2a_local.tga models/mapobjects/strogg/terminal/t_machine2a_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/2_top_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/2_top_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/2_top_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/2_top_s.tga
+}
+
+
+models/mapobjects/strogg/terminal/shaft_machines/2_middle
+{
+      	noselfShadow
+	//unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/shaft_machines/2_middle_hit
+	
+// check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/t_machine2b_local.tga models/mapobjects/strogg/terminal/t_machine2b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/2_middle_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/2_middle_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/2_middle_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/2_middle_s.tga
+}
+
+models/mapobjects/strogg/terminal/shaft_machines/2_bottom
+{
+      	noselfShadow
+	//unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/shaft_machines/2_bottom_hit	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/t_machine2c_local.tga models/mapobjects/strogg/terminal/t_machine2c_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/2_bottom_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/2_bottom_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/2_bottom_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/2_bottom_s.tga
+
+}
+//.skin entries for the shaft machines--------------------------------------------------
+
+
+models/mapobjects/strogg/terminal/shaft_machines/1a_top
+{
+      	noSelfShadow
+      	materialImage models/mapobjects/strogg/terminal/shaft_machines/1a_top_hit
+		
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/1_top_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/1a_top_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/1a_top_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/1a_top_s.tga
+}
+
+
+models/mapobjects/strogg/terminal/shaft_machines/1a_middle
+{
+      	noSelfShadow
+      	materialImage models/mapobjects/strogg/terminal/shaft_machines/1a_middle_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/1_middle_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/1a_middle_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/1a_middle_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/1a_middle_s.tga
+
+}
+
+models/mapobjects/strogg/terminal/shaft_machines/1a_bottom
+{
+      	noSelfShadow
+      	materialImage models/mapobjects/strogg/terminal/shaft_machines/1a_bottom_hit
+      	
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/1_bottom_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/1a_bottom_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/1a_bottom_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/1a_bottom_s.tga
+}
+
+models/mapobjects/strogg/terminal/shaft_machines/2a_top
+{
+      	noSelfShadow
+      	materialImage	models/mapobjects/strogg/terminal/shaft_machines/2a_top_hit
+      	
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/2_top_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/2a_top_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/2a_top_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/2a_top_s.tga
+}
+
+
+models/mapobjects/strogg/terminal/shaft_machines/2a_middle
+{
+      	noSelfShadow
+      	materialImage models/mapobjects/strogg/terminal/shaft_machines/2a_middle_hit
+      	
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/2_middle_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/2a_middle_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/2a_middle_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/2a_middle_s.tga
+}
+
+models/mapobjects/strogg/terminal/shaft_machines/2a_bottom
+{
+      	noSelfShadow
+      	materialImage models/mapobjects/strogg/terminal/shaft_machines/2a_bottom_hit
+      	
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/shaft_machines/2_bottom_local.tga, heightmap (models/mapobjects/strogg/terminal/shaft_machines/2a_bottom_h.tga, 2))
+	diffusemap	models/mapobjects/strogg/terminal/shaft_machines/2a_bottom_d.tga
+	specularmap	models/mapobjects/strogg/terminal/shaft_machines/2a_bottom_s.tga
+
+}
+//end .skin entries------------------------------------------------------------------------------
+
+
+// satellite pieces - 7 pieces ---------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat
+{
+     	noSelfShadow
+		unsmoothedtangents
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/satellite/sat_local.tga, heightmap (models/mapobjects/strogg/terminal/satellite/sat_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/satellite/sat_d.tga
+	specularmap		models/mapobjects/strogg/terminal/satellite/sat_s.tga
+
+{ 
+		blend add
+		map models/mapobjects/strogg/terminal/satellite/sat_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+// satellite top wing ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_1_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_1_hi.lwo
+}
+
+
+// satellite bottom wing ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_2_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_2_hi.lwo
+}
+
+// satellite left wing ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_3_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_3_hi.lwo
+}
+
+// satellite right wing ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_4
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_4_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_4_hi.lwo
+}
+// satellite small wing top ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_5
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_5_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_5_hi.lwo
+} 
+// satellite small wing bottom ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_6
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_6_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_6_hi.lwo
+}
+
+// satellite base ----------------------------------------------------
+models/mapobjects/strogg/terminal/satellite/sat_7
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -unweld -MergeHigh models/mapobjects/strogg/terminal/satellite/sat_7_local.tga work/models/mapobjects/strogg/terminal/satellite/sat_7_hi.lwo
+}
+
+
+
+
+// core probulator pieces ----------------------------------------------------
+
+
+models/mapobjects/strogg/core/verification_arm/probe_arm_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/core/verification_arm/probe_arm_lo_local.tga work/models/mapobjects/strogg/core/verification_arm/probe_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/core/verification_arm/probe_arm_lo_local.tga, heightmap (models/mapobjects/strogg/core/verification_arm/probe_arm_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/core/verification_arm/probe_arm_lo_d.tga
+	specularmap		models/mapobjects/strogg/core/verification_arm/probe_arm_lo_s.tga
+
+}
+
+
+models/mapobjects/strogg/core/verification_arm/probe_probearms_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_local.tga work/models/mapobjects/strogg/core/verification_arm/probe_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_local.tga, heightmap (models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_d.tga
+	specularmap		models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_s.tga
+
+}
+
+
+// core probulator booth ----------------------------------------------------  
+
+
+models/mapobjects/strogg/core/verification_unit/SVC_Booth
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/core/verification_unit/SVC_booth_local.tga work/models/mapobjects/strogg/core/verification_cabin/SVC_booth_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/core/verification_unit/SVC_booth_local.tga, heightmap (models/mapobjects/strogg/core/verification_unit/SVC_booth_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/core/verification_unit/SVC_booth_d.tga
+	specularmap		models/mapobjects/strogg/core/verification_unit/SVC_booth_s.tga
+
+}
+
+
+// core probulator booth doors----------------------------------------------------  
+
+
+models/mapobjects/strogg/core/verification_unit/SVC_doors
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/core/verification_unit/SVC_doors_local.tga work/models/mapobjects/strogg/core/verification_cabin/SVC_doors_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/core/verification_unit/SVC_doors_local.tga, heightmap (models/mapobjects/strogg/core/verification_unit/SVC_doors_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/core/verification_unit/SVC_doors_d.tga
+	specularmap		models/mapobjects/strogg/core/verification_unit/SVC_doors_s.tga
+
+}
+
+//  core cleanroom action ------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/core/cleanroom/cleanroom_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/core/cleanroom/cleanroom_lo_local.tga work/models/mapobjects/strogg/core/cleanroom/cleanroom_hi.lwo
+
+	materialImage		models/mapobjects/strogg/core/cleanroom/cleanroom_lo_hit.tga
+
+	bumpmap		addnormals (models/mapobjects/strogg/core/cleanroom/cleanroom_lo_local.tga, heightmap (models/mapobjects/strogg/core/cleanroom/cleanroom_lo_h.tga, 2))
+	diffusemap		downsize( models/mapobjects/strogg/core/cleanroom/cleanroom_lo_d.tga, 1 )
+	specularmap		downsize( models/mapobjects/strogg/core/cleanroom/cleanroom_lo_s.tga, 1 )
+
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_local.tga work/models/mapobjects/strogg/stroyent/dispersal/heartpump_hi_a.lwo
+	
+	materialImage	models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_hit.tga
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_s.tga
+
+	{
+		blend add
+		map models/mapobjects/strogg/stroyent/dispersal/heart/heartpump_lo_g.tga
+		rgb parm6
+	}		
+
+}
+
+
+//  stomach pump #1 ------------------------------------------------------------------------
+/*
+models/mapobjects/strogg/stroyent/dispersal/stomach_pump01
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 1 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_local.tga work/models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_s.tga
+}
+
+models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_noshadows
+{
+    noShadows
+    noSelfShadow
+	unSmoothedTangents
+
+	renderBump  -size 512 512 -aa 1 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_local.tga work/models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_hi.lwo
+
+
+	bumpMap addnormals (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_h.tga,1))
+	diffuseMap 		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_d.tga
+	specularMap		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01_s.tga
+}
+*/
+//  stomach pump #2 ------------------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_lo
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_lo_local.tga work/models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_lo_h.tga, 2))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/stomach_pump02/stomach_pump02_lo_s.tga
+}
+
+//injector arm
+
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_3_local.tga work/models/mapobjects/strogg/stroyent//dispersal/injector_arm/vat_3_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_3_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_3_h.tga, 4))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_3_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_3_s.tga
+}
+
+
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/vat_acid
+{
+      noselfShadow
+	unSmoothedTangents
+	translucent
+	deform	turbulent	sintable .025 time * .2 1
+
+
+	{
+		blend blend
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				0
+		shaderParm		sizeX				.25
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.35
+		shaderTexture	Image				models/mapobjects/strogg/stroyent/dispersal/injector_arm/snot_water.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+
+	{
+		blend blend
+		map		models/mapobjects/strogg/stroyent/dispersal/injector_arm/snot_water2.tga
+		scroll time* -.0125, time* -.0125
+		scale 1.25, 1.25
+	}
+
+
+
+
+
+}
+
+
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/door1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/stroyent/dispersal/injector_arm/door_1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/injector_arm/door_1_hi.lwo
+}
+
+
+
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/door2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/stroyent/dispersal/injector_arm/door_2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/injector_arm/door_2_hi.lwo
+}
+
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .1 models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_plug2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_plug2_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_h.tga, 4))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_s.tga
+}
+
+//terminal skin---------------------------------------------------------------
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_a
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_a_hit
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_a_h.tga, 4))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_a_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_a_s.tga
+}
+
+//-----------------------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_noshadows
+{
+	noShadows
+    noSelfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .1 models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_plug2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_plug2_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_h.tga, 4))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/injector_arm/injector_s.tga
+}
+
+//THIS IS ATLAS RIPPED AND WILL NEED A SMALLER BASE PAGE WHEN CORRECTLY RIPPED
+models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_arm
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_s.tga
+}
+models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_lo
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_lo_local.tga models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_s.tga
+}
+
+models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_lo_noshadows
+{
+      noselfShadow
+	unSmoothedTangents
+	noShadows
+	
+	bumpMap addnormals (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/stomach_pump01/stomach_pump01_s.tga
+}
+//new spatula---------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_hit.tga
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_local.tga work/models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_s.tga
+}
+
+models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_1_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_2_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_3_local.tga work/models/mapobjects/strogg/stroyent/dispersal/spatula_arm/spatula_3_hi.lwo
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/ambient/power_pillar/bottom
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace 0.05 -MergeHigh models/mapobjects/strogg/terminal/ambient/power_pillar/bottom_local.tga work/models/mapobjects/strogg/terminal/ambient/power_pillar/bottom_hi.lwo
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/ambient/power_pillar/bottom_local.tga, heightmap (models/mapobjects/strogg/terminal/ambient/power_pillar/bottom_h.tga,3))
+	diffusemap 		models/mapobjects/strogg/terminal/ambient/power_pillar/bottom_d.tga
+	specularmap		models/mapobjects/strogg/terminal/ambient/power_pillar/bottom_s.tga
+}
+
+models/mapobjects/strogg/terminal/ambient/power_pillar/shaft
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 512 -aa 2 -trace 0.05 -MergeHigh models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_local.tga work/models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_hi.lwo
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_local.tga, heightmap (models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_h.tga,2))
+	diffusemap 		models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_d.tga
+	specularmap		models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_s.tga
+	
+	{
+		blend add
+		map models/mapobjects/strogg/terminal/ambient/power_pillar/shaft_g.tga
+//		rgb parm6
+	}
+}
+
+
+//  wire_end for terminal------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/wire_end
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .7 models/mapobjects/strogg/terminal/wire_end_local.tga work/models/mapobjects/strogg/terminal/wire_end/wire_end_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/wire_end_local.tga, heightmap (models/mapobjects/strogg/terminal/wire_end_h.tga,2))
+	diffusemap 		models/mapobjects/strogg/terminal/wire_end_d.tga
+	specularmap		models/mapobjects/strogg/terminal/wire_end_s.tga
+}
+
+
+models/mapobjects/strogg/terminal/wire_end_a
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/wire_end_local.tga, heightmap (models/mapobjects/strogg/terminal/wire_end_a_h.tga,2))
+	diffusemap 		models/mapobjects/strogg/terminal/wire_end_a_d.tga
+	specularmap		models/mapobjects/strogg/terminal/wire_end_a_s.tga
+}
+
+
+//  PipeCap for terminal------------------------------------------------------------------------
+models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 256 -aa 2 -trace 0.05 -MergeHigh models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_local.tga work/models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_hi.lwo
+
+	bumpMap			models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_local.tga
+	diffuseMap		models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_d.tga
+	specularMap		models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_s.tga
+	
+
+	{
+		blend			add
+		map				models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_g.tga
+		red				.5 + (LaserFenceBarJump[time / 10])
+		green			.5 + (LaserFenceBarJump[time / 5])
+	}
+
+
+	{
+		blend			add
+		map				models/mapobjects/strogg/terminal/ambient/power_pillar/PipeCap_g2.tga
+		rgb				.8 + (sintable[time / 3] * .3)
+	}
+
+}
+
+//Intestinal tract_pipe
+models\mapobjects\strogg\stroyent\bio_machines\intestinal_track_lo
+{
+	noselfShadow
+	renderbump  -size 256 256  -trace .05 -aa 2 -MergeHigh models\mapobjects\strogg\stroyent\bio_machines\intestinal_track_local.tga work\models\mapobjects\strogg\stroyent\dispersal\bio_machines\intestine_pipes\LWOs\intestinal_track_high.lwo
+	unsmoothedtangents
+
+	diffusemap		models/mapobjects/strogg/stroyent\bio_machines\intestinal_track_d.tga
+	bumpmap addnormals ( models/mapobjects/strogg/stroyent\bio_machines\intestinal_track_local.tga, heightmap ( models/mapobjects/strogg/stroyent\bio_machines\intestinal_track_h.tga, 1 ) )
+	specularmap		models/mapobjects/strogg/stroyent\bio_machines\intestinal_track_s.tga
+}
+
+//----------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_hit.tga
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_local.tga work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_s.tga
+}
+
+//.skin file for the terminal thing----------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_a
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_a_hit.tga
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_a_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_a_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_a_s.tga
+}
+
+
+//----------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo_hit.tga
+	renderbump  -size 128 128 -aa 2 -trace 0.08 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo_local.tga work/models/mapobjects/strogg/stroyent/dispersal/hook/hook_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo_h.tga,3))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/hook/hook_lo_s.tga
+}
+
+
+models/mapobjects/strogg/stroyent/dispersal/hook/hook2_lo
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/hook/hook2_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/hook/hook2_lo_h.tga,3))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/hook/hook2_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/hook/hook2_lo_s.tga
+}
+
+models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo_hit.tga
+	renderbump  -size 1024 1024 -aa 2 -trace 0.08 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo_local.tga work/models/mapobjects/strogg/stroyent/dispersal/hook/hookmachinef_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo_h.tga,3))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_lo_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/stroyent/dispersal/hook/hookmachine_g.tga
+		rgb grunttable [ time * 1.3 ]
+	}    
+
+}
+
+models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo
+{
+      noselfShadow
+materialImage models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo_hit.tga
+	renderbump  -size 256 256 -aa 2 -trace 0.09 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo_local.tga work/models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo_h.tga,3))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/hook/hookextention_lo_s.tga
+}
+
+
+//----------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo
+{
+      noselfShadow
+	unsmoothedtangents
+	
+	renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo_local.tga work/models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_hi_e.lwo
+
+	materialImage	models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo_hit.tga
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo_h.tga,3))
+	diffusemap              models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_lo_s.tga
+}
+
+
+models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_glass
+{
+      noselfShadow
+	unsmoothedtangents
+	materialType plastic
+	
+	renderbump  -size 256 256 -aa 2 -trace 0.02 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_glass_local.tga work/models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_hi_b.lwo
+
+}
+
+//----------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/digestport_hit.tga
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_s.tga
+}
+
+models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_1_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_2_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_3_local.tga work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/digestport1_3_hi.lwo
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_hit.tga
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_s.tga
+}
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_1_hi.lwo
+}
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_2_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_3_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_3_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_hi.lwo
+}
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_5
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_5_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_5_hi.lwo
+}
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_6
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_6_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_6_hi.lwo
+}
+
+//barrel_clamp--------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp_hit.tga
+	renderbump  -size 256 512 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_3_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/barrel_tower/barrel_clamp_s.tga
+}
+
+// 4 armed barrel_lift for Corey -------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_hit.tga
+	renderbump  -size 512 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_ring_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_s.tga
+
+        { 
+			blend add
+		map models/mapobjects/strogg/stroyent/dispersal/barrel_crane/b_lift_4_body_glow.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+}  
+
+// dispersal elevator ----------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/elevator/d_elevator_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	bumpmap		addnormals (models/mapobjects/strogg/stroyent/dispersal/elevator/d_elevator_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/elevator/d_elevator_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroyent/dispersal/elevator/d_elevator_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/elevator/d_elevator_s.tga
+
+}
+
+// dispersal elevator GUI----------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift
+{
+      noselfShadow
+	unsmoothedtangents
+materialType hollowmetal
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_s.tga
+}
+models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_1_hi.lwo
+}
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_2_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_3_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_3_hi.lwo
+}
+
+models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_4
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_4_local.tga work/models/mapobjects/strogg/stroyent/dispersal/barrel_tower/bar_lift_4_hi.lwo
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/stroyent/dispersal/strainer/strain
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/stroyent/dispersal/strainer/strain_hit.tga
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/stroyent/dispersal/strainer/strain_local.tga work/models/mapobjects/strogg/stroyent/dispersal/strainer/strain_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/strainer/strain_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/strainer/strain_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/stroyent/dispersal/strainer/strain_d.tga
+	specularmap		models/mapobjects/strogg/stroyent/dispersal/strainer/strain_s.tga
+}
+models/mapobjects/strogg/stroyent/dispersal/strainer/strain1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/strainer/strain1_local.tga work/models/mapobjects/strogg/stroyent/dispersal/strainer/strain1_hi.lwo
+}
+models/mapobjects/strogg/stroyent/dispersal/strainer/strain2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/mapobjects/strogg/stroyent/dispersal/strainer/strain2_local.tga work/models/mapobjects/strogg/stroyent/dispersal/strainer/strain2_hi.lwo
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/tsd_battery/tsd_lo
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_hit.tga
+
+	//renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_local.tga work/models/mapobjects/strogg/terminal/tsd_battery/tsd_hi.lwo
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_local.tga, heightmap (models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_h.tga,1))
+//	diffusemap 		models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_d.tga
+	specularmap		models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_s.tga
+	{
+	blend diffusemap
+	map models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_d.tga
+	alphaTest .5
+	} 
+		
+}
+
+models/mapobjects/strogg/terminal/tsd_battery/tsd_burnaway
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_hit.tga
+
+	bumpMap addnormals (models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_local.tga, heightmap (models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_h.tga,1))
+	specularMap		models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_s.tga
+	{
+	blend diffusemap
+	map models/mapobjects/strogg/terminal/tsd_battery/tsd_lo_d.tga
+	} 
+		inlineGuide corpseBurnEffect(models/monsters/burnout.tga)		
+}
+
+
+//  core/teleport_entrance----------------------------------------------------------------------
+models/mapobjects/strogg/core/teleport_entrance/telemain
+{
+	//noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/core/teleport_entrance/telemain_hit.tga
+
+	//renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/core/teleport_entrance/telemain_local.tga work/models/mapobjects/strogg/core/teleport_entrance/telemain_hi.lwo
+
+	bumpmap addnormals (models/mapobjects/strogg/core/teleport_entrance/telemain_local.tga, heightmap (models/mapobjects/strogg/core/teleport_entrance/telemain_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/core/teleport_entrance/telemain_d.tga
+	specularmap		models/mapobjects/strogg/core/teleport_entrance/telemain_s.tga
+
+	{
+		blend add
+		map models/mapobjects/strogg/core/teleport_entrance/telemain_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+
+
+
+models/mapobjects/strogg/core/teleport_entrance/telearc
+{
+	noSelfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/core/teleport_entrance/telearc_hit.tga
+
+	//renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/core/teleport_entrance/telearc_local.tga work/models/mapobjects/strogg/core/teleport_entrance/telearc_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/core/teleport_entrance/telearc_local.tga, heightmap (models/mapobjects/strogg/core/teleport_entrance/telearc_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/core/teleport_entrance/telearc_d.tga
+	specularmap		models/mapobjects/strogg/core/teleport_entrance/telearc_s.tga
+}
+
+
+models/mapobjects/strogg/core/teleport_entrance/telepipes
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/core/teleport_entrance/telepipes_hit.tga
+
+	renderbump  -size 256 256 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/core/teleport_entrance/telepipes_local.tga work/models/mapobjects/strogg/core/teleport_entrance/telemain_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/core/teleport_entrance/telepipes_local.tga, heightmap (models/mapobjects/strogg/core/teleport_entrance/telepipes_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/core/teleport_entrance/telepipes_d.tga
+	specularmap		models/mapobjects/strogg/core/teleport_entrance/telepipes_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/laser_coupling/laser_coupling
+{
+      noselfShadow
+	unSmoothedTangents
+	materialType solidmetal
+
+	renderbump  -size 512 512 -aa 2 -trace 0.02 -MergeHigh  models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_local.tga work/models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_local.tga, heightmap (models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_d.tga
+	specularmap		models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_s.tga
+	{
+		blend add
+		map models/mapobjects/strogg/terminal/laser_coupling/laser_coupling_g.tga
+	}
+}
+
+///-------------------------------brainstalk
+
+models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo
+
+{
+    noSelfShadow
+	unsmoothedtangents
+//	materialImage models/mapobjects/strogg/terminal/brainstalk/brainstalk_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_local.tga work/models/mapobjects/strogg/terminal/brainstalk/brainstalk_hi_render_b.lwo
+
+	bumpMap addnormals (models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_local.tga, heightmap (models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_h.tga,1))
+	diffuseMap			models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_d.tga
+	specularmap			models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_s.tga
+	
+}
+
+models/mapobjects/strogg/terminal/brainstalk/brainstalk_brain
+
+{
+    noSelfShadow
+	unsmoothedtangents
+//	materialImage models/mapobjects/strogg/terminal/brainstalk/brainstalk_hit.tga
+
+	bumpMap addnormals (models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_local.tga, heightmap (models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_h.tga,1))
+	diffuseMap			models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_d.tga
+	specularmap			models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_s.tga
+
+// teleport in
+
+	{
+		if	(Parm6 == 0) 							
+		blend diffuseMap 			
+		highQuality		
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		alphaTest 1
+	}
+
+	{											
+		if	(Parm6 > 0) 							
+		blend gl_one, gl_one		
+		highQuality		
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		rgb quartersinTable_clamp [.25 * (time - Parm6)]
+	}	
+
+	{											
+		if	(Parm6 > 0) 
+		blend	gl_zero, gl_one					
+		highQuality								
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		alphaTest 0.05 + quartersinTable_clamp [.3 * (time - Parm6)]
+
+	}						
+	{											
+		if (Parm6 > 0) 					
+		privatePolygonOffset	-1				
+   		blend add								
+		blend gl_one, gl_zero					
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		alphaTest ( quartersinTable_clamp [.3 * (time - Parm6)])			
+			
+	}	
+	
+///burn out////////////////////////
+
+	{											
+		if	(Parm7 > 0) 							
+		blend gl_one, gl_one		
+		highQuality		
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+//		rgb quartersinTable_clamp [.25 * (time - Parm6)]
+		rgb sintable [1.45 * (time - parm7)]
+	}	
+
+	{											
+		if	(Parm7 > 0) 
+		blend	gl_zero, gl_one					
+		highQuality								
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+//		alphaTest 0.05 + quartersinTable_clamp [.3 * (time - Parm6)]
+		alphaTest 0.09 + 1.55 * (time - parm7)	
+
+	}						
+
+	{											
+		if (Parm7 > 0) 					
+		privatePolygonOffset	-1				
+   		blend add								
+		blend gl_one, gl_zero					
+//		highQuality								
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+//		alphaTest ( quartersinTable_clamp [.3 * (time - Parm6)])	
+		alphaTest 1.55 * (time - parm7)			
+			
+	}											
+
+	forceOverlays								
+
+}
+
+models/mapobjects/strogg/terminal/brainstalk/brainstalk_brain2
+
+{
+    noSelfShadow
+	unsmoothedtangents
+//	materialImage models/mapobjects/strogg/terminal/brainstalk/brainstalk_hit.tga
+
+	bumpMap addnormals (models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_local.tga, heightmap (models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_h.tga,1))
+	diffuseMap			models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_d.tga
+	specularmap			models/mapobjects/strogg/terminal/brainstalk/brainstalk_lo_s.tga
+///teleport in
+
+	{
+		if	(Parm5 == 0) 							
+		blend diffuseMap 			
+		highQuality		
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		alphaTest 1
+	}
+
+	{											
+		if	(Parm5 > 0) 							
+		blend gl_one, gl_one		
+		highQuality		
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		rgb quartersinTable_clamp [.25 * (time - Parm5)]
+	}	
+
+	{											
+		if	(Parm5 > 0) 
+		blend	gl_zero, gl_one					
+		highQuality								
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		alphaTest 0.05 + quartersinTable_clamp [.3 * (time - Parm5)]
+
+	}						
+
+	{											
+		if (Parm5 > 0) 					
+		privatePolygonOffset	-1				
+   		blend add								
+		blend gl_one, gl_zero					
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+		alphaTest ( quartersinTable_clamp [.3 * (time - Parm5)])			
+			
+	}			
+	
+///burn out (a little faster than usual)
+	{											
+		if	(Parm7 > 0) 							
+		blend gl_one, gl_one		
+		highQuality		
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+//		rgb quartersinTable_clamp [.25 * (time - Parm6)]
+//		rgb sintable [.25 * (time - parm7)]
+		rgb sintable [1.45 * (time - parm7)]
+	}
+
+	{											
+		if	(Parm7 > 0) 
+		blend	gl_zero, gl_one					
+		highQuality								
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+//		alphaTest 0.05 + quartersinTable_clamp [.3 * (time - Parm6)]
+		alphaTest 0.09 + 1.55 * (time - parm7)	
+
+	}						
+
+	{											
+		if (Parm7 > 0) 					
+		privatePolygonOffset	-1				
+   		blend add								
+		blend gl_one, gl_zero					
+//		highQuality								
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_tport.tga
+//		alphaTest ( quartersinTable_clamp [.3 * (time - Parm6)])	
+		alphaTest 1.55 * (time - parm7)			
+			
+	}										
+
+	forceOverlays				
+}
+
+models/mapobjects/strogg/terminal/brainstalk/brainstalk_pin
+
+{
+    noSelfShadow
+	unSmoothedTangents
+	twoSided
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/brainstalk/brainstalk_pin_local.tga, heightmap (models/mapobjects/strogg/terminal/brainstalk/brainstalk_pin_h.tga,1))
+	specularMap		models/mapobjects/strogg/terminal/brainstalk/brainstalk_pin_s.tga
+	
+	{
+		blend diffusemap
+		map models/mapobjects/strogg/terminal/brainstalk/brainstalk_pin_d.tga
+		alphatest .5
+	} 
+}
+
+
+//nodes for terminal------------------------------------------------
+
+models/mapobjects/strogg/terminal/nodes/node
+
+{
+      noselfShadow
+	unsmoothedtangents
+//	materialImage models/mapobjects/strogg/terminal/nodes/node_hit.tga
+
+	renderbump  -size 256 256 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/nodes/node_local.tga work/models/mapobjects/strogg/terminal/nodes/node_hi.lwo
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/nodes/node_local.tga, heightmap (models/mapobjects/strogg/terminal/nodes/node_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/nodes/node_d.tga
+	specularmap		models/mapobjects/strogg/terminal/nodes/node_s.tga
+}
+
+models/mapobjects/strogg/medlabs/bodytable/b_table
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/medlabs/bodytable/b_table_local.tga work/models/mapobjects/strogg/medlabs/bodytable/b_table_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/medlabs/bodytable/b_table_local.tga, heightmap ( models/mapobjects/strogg/medlabs/bodytable/b_table_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/medlabs/bodytable/b_table_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/bodytable/b_table_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/medlabs/bodytable/b_table_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+	
+	models/mapobjects/strogg/medlabs/bodytable/b_table1
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/medlabs/bodytable/b_table1_local.tga work/models/mapobjects/strogg/medlabs/bodytable/b_table1_hi.lwo
+}
+
+	models/mapobjects/strogg/medlabs/bodytable/b_table2
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/medlabs/bodytable/b_table2_local.tga work/models/mapobjects/strogg/medlabs/bodytable/b_table2_hi.lwo
+}
+	models/mapobjects/strogg/medlabs/bodytable/b_table3
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/medlabs/bodytable/b_table3_local.tga work/models/mapobjects/strogg/medlabs/bodytable/b_table3_hi.lwo
+}
+
+	models/mapobjects/strogg/medlabs/bodytable/b_table4
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/medlabs/bodytable/b_table4_local.tga work/models/mapobjects/strogg/medlabs/bodytable/b_table4_hi.lwo
+}
+	models/mapobjects/strogg/medlabs/bodytable/b_table5
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/medlabs/bodytable/b_table5_local.tga work/models/mapobjects/strogg/medlabs/bodytable/b_table5_hi.lwo
+}
+
+
+//  medlabs tube holder main------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main_hit.tga
+
+	renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main_local.tga work/models/mapobjects/strogg/medlabs/tube_holder/tube_holder_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main_local.tga, heightmap (models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/tube_holder/tube_holder_main_s.tga
+}
+
+
+//  medlabs tube holder tubes------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes_hit.tga
+
+	renderbump  -size 512 256 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes_local.tga work/models/mapobjects/strogg/medlabs/tube_holder/tube_holder_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes_local.tga, heightmap (models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/tube_holder/tube_holder_tubes_s.tga
+}
+
+
+//          human_battery_1---------------------------------------------------------------------------
+
+models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1
+
+
+{
+      	noselfShadow
+	unSmoothedTangents
+	
+	
+	materialImage models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_hit.tga
+
+	renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_local.tga work/models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_hi.lwo
+
+	{	
+		blend bumpMap
+		map addnormals (models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_local.tga, heightmap (models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_h.tga,1))		
+	}
+	diffusemap 		models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_d.tga
+	specularmap		models/mapobjects/strogg/bio_machines/human_battery_1/human_bat_1_s.tga
+}
+
+
+// human_battery_1 eyes
+
+models/mapobjects/strogg/bio_machines/human_battery_1/eye
+{
+	
+	noshadows
+//	deform	eyeBall
+
+	{
+		blend diffuseMap
+		map models/mapobjects/strogg/bio_machines/human_battery_1/eye.tga
+		centerScale	1, 1	
+	}	
+
+}
+
+
+//          human_battery_2---------------------------------------------------------------------------
+
+models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2
+
+
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_hit.tga
+
+	renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_local.tga work/models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_local.tga, heightmap (models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_d.tga
+	specularmap		models/mapobjects/strogg/bio_machines/human_battery_2/human_bat_2_s.tga
+}
+
+
+//teleportball---------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/terminal/teleporter/teleportball
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/terminal/teleporter/teleportball_hit.tga
+	
+	renderBump  -size 512 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/teleporter/teleportball_local.tga work/models/mapobjects/strogg/terminal/teleporter/teleportball_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/teleporter/teleportball_local.tga, heightmap (models/mapobjects/strogg/terminal/teleporter/teleportball_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/teleporter/teleportball_d.tga
+	specularmap		models/mapobjects/strogg/terminal/teleporter/teleportball_s.tga
+		{ 
+			blend add
+			map models/mapobjects/strogg/terminal/teleporter/teleportball_glow.tga
+			rgb grunttable [ time * 1.3 ]
+		}
+} 
+//teleport------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/terminal/teleporter/teleport
+{
+      	noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/teleporter/teleport_hit.tga
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/terminal/teleporter/teleport_local.tga work/models/mapobjects/strogg/terminal/teleporter/teleporter_body_hI.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/teleporter/teleport_local.tga, heightmap (models/mapobjects/strogg/terminal/teleporter/teleport_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/teleporter/teleport_d.tga
+	specularmap		models/mapobjects/strogg/terminal/teleporter/teleport_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/terminal/teleporter/teleport_glow.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+}
+
+///shader for multiplayer//////////////////////////////////////////////////////////////////////////////////////////////
+
+models/mapobjects/strogg/terminal/teleporter/teleport_nonsolid
+{
+      	noSelfShadow
+		nonSolid	
+		unSmoothedTangents
+	materialImage models/mapobjects/strogg/terminal/teleporter/teleport_hit.tga
+		
+	bumpmap		addnormals (models/mapobjects/strogg/terminal/teleporter/teleport_local.tga, heightmap (models/mapobjects/strogg/terminal/teleporter/teleport_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/terminal/teleporter/teleport_d.tga
+	specularmap		models/mapobjects/strogg/terminal/teleporter/teleport_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/terminal/teleporter/teleport_glow.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+}
+
+
+///////////////////////////////
+//The med labls barrel arms////
+///////////////////////////////
+
+models/mapobjects/strogg/medlabs/tube_arms/arms_base
+{
+      	noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/medlabs/tube_arms/arms_base_hit.tga
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/medlabs/tube_arms/arms_joint_2a_local.tga work/models/mapobjects/strogg/medlabs/tube_arms/arm_joint_2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/medlabs/tube_arms/arms_base_local.tga, heightmap (models/mapobjects/strogg/medlabs/tube_arms/arms_base_h.tga, 3))
+	diffusemap		downsize( models/mapobjects/strogg/medlabs/tube_arms/arms_base_d.tga, 1 )
+	specularmap		downsize( models/mapobjects/strogg/medlabs/tube_arms/arms_base_s.tga, 1 )
+		{
+		blend add
+		map models/mapobjects/strogg/medlabs/tube_arms/arms_base_g.tga
+//		rgb grunttable [ time * 1.3 ]
+		}
+}
+
+models/mapobjects/strogg/medlabs/tube_arms/clasp
+{
+      	noselfShadow
+		unSmoothedTangents
+		twoSided
+			
+	materialImage models/mapobjects/strogg/medlabs/tube_arms/clasp_hit.tga
+	renderBump  -size 256 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/medlabs/tube_arms/connect_local.tga work/models/mapobjects/strogg/medlabs/tube_arms/arm_connect.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/medlabs/tube_arms/clasp_local.tga, heightmap (models/mapobjects/strogg/medlabs/tube_arms/clasp_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/medlabs/tube_arms/clasp_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/tube_arms/clasp_s.tga
+
+		{ 
+		blend add
+		map models/mapobjects/strogg/medlabs/tube_arms/clasp_g.tga
+
+		}
+
+}
+
+
+////////////////////////////////////////////////////
+///scanner arm//////////////////////////////////////
+////////////////////////////////////////////////////
+
+models/mapobjects/strogg/medlabs/scanner_arm/scanner
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	materialImage models/mapobjects/strogg/medlabs/scanner_arm/scanner_hit.tga
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/medlabs/scanner_arm/arm_02b_local.tga work/models/mapobjects/strogg/medlabs/scanner_arm/arm_02_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/medlabs/scanner_arm/scanner_local.tga, heightmap (models/mapobjects/strogg/medlabs/scanner_arm/scanner_h.tga, 2))
+	diffusemap		downsize( models/mapobjects/strogg/medlabs/scanner_arm/scanner_d.tga, 1 )
+	specularmap		downsize( models/mapobjects/strogg/medlabs/scanner_arm/scanner_s.tga, 1 )
+
+		{ 
+		blend add
+		map models/mapobjects/strogg/medlabs/scanner_arm/scanner_g.tga
+
+		}
+
+
+}
+
+
+
+
+//retractable_body_tank------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/medlabs/retractable_body_tank/btank
+{
+      	noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/medlabs/retractable_body_tank/btank_hit.tga
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/medlabs/retractable_body_tank/btank_local.tga work/models/mapobjects/strogg/medlabs/retractable_body_tank/btank_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/medlabs/retractable_body_tank/btank_local.tga, heightmap (models/mapobjects/strogg/medlabs/retractable_body_tank/btank_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/medlabs/retractable_body_tank/btank_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/retractable_body_tank/btank_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/medlabs/retractable_body_tank/btank_glow.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+}
+
+models/mapobjects/strogg/medlabs/retractable_body_tank/btank2
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512-aa 2 -MergeHigh -trace .04  models/mapobjects/strogg/medlabs/retractable_body_tank/btank2_local.tga work/models/mapobjects/strogg/medlabs/retractable_body_tank/btank2_hi.lwo
+}
+
+
+//retractable_body_tank_housing------------------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing
+{
+      	noselfShadow
+	unsmoothedtangents
+
+materialImage models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_hit.tga
+	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_local.tga work/models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_local.tga, heightmap (models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/medlabs/retractable_body_tank/btank_housing_glow.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+} 
+//retractable_body_tank_con------------------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con
+{
+      	noselfShadow
+	unsmoothedtangents
+
+materialImage models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_hit.tga
+	
+	renderBump  -size 256 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_local.tga work/models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_local.tga, heightmap (models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_d.tga
+	specularmap		models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/medlabs/retractable_body_tank/btank_con_glow.tga
+		rgb grunttable [ time * 1.3 ]
+		}
+} 
+
+
+//tram_gate------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/tram/tramgate/tgate
+{
+      	noselfShadow
+	unsmoothedtangents
+
+materialImage models/mapobjects/strogg/tram/tramgate/tgate_hit.tga
+	
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/tram/tramgate/tgate_local.tga, heightmap (models/mapobjects/strogg/tram/tramgate/tgate_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/tram/tramgate/tgate_d.tga
+	specularmap		models/mapobjects/strogg/tram/tramgate/tgate_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/tram/tramgate/tgate_glow.tga
+		//  rgb grunttable [ time * 1.3 ]
+		}
+}
+models/mapobjects/strogg/tram/tramgate/tgate1
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate1_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate1_hi.lwo
+}
+
+
+models/mapobjects/strogg/tram/tramgate/tgate2
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate2_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate2_hi.lwo
+}
+
+
+models/mapobjects/strogg/tram/tramgate/tgate3
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate3_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate3_hi.lwo
+}
+
+models/mapobjects/strogg/tram/tramgate/tgate4
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate4_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate4_hi.lwo
+}
+models/mapobjects/strogg/tram/tramgate/tgate5
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate5_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate5_hi.lwo
+}
+models/mapobjects/strogg/tram/tramgate/tgate6
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/tram/tramgate/tgate6_local.tga work/models/mapobjects/strogg/tram/tramgate/tgate6_hi.lwo
+}
+
+//t_car------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/tram/tramcar/t_car
+{
+      	noSelfShadow 
+		unSmoothedTangents
+	
+	
+materialImage models/mapobjects/strogg/tram/tramcar/t_car_hit.tga
+	
+	renderBump -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/tram/tramcar/t_car_local.tga work/models/mapobjects/strogg/tram/tramcar/t_car_noglass_hi.lwo
+
+	bumpMap		addnormals (models/mapobjects/strogg/tram/tramcar/t_car_local.tga, heightmap (models/mapobjects/strogg/tram/tramcar/t_car_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/tram/tramcar/t_car_d.tga
+	specularmap		models/mapobjects/strogg/tram/tramcar/t_car_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/tram/tramcar/t_car_glow.tga
+		
+		}
+}
+//t_grate------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/tram/tramcar/t_grate
+{
+      	noSelfShadow 
+		unSmoothedTangents
+	
+	renderBump -size 256 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/tram/tramcar/t_grate_local.tga work/models/mapobjects/strogg/tram/tramcar/t_grate_hi.lwo
+
+	bumpMap		addnormals (models/mapobjects/strogg/tram/tramcar/t_grate_local.tga, heightmap (models/mapobjects/strogg/tram/tramcar/t_grate_h.tga, 2))
+	specularMap		models/mapobjects/strogg/tram/tramcar/t_grate_s.tga
+	{
+		blend diffuseMap
+		map models/mapobjects/strogg/tram/tramcar/t_grate_d.tga
+		alphaTest .5
+	}
+
+
+}
+
+
+
+// Data_Router platform---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/core/Data_Router/platform
+{
+      	noSelfShadow 
+		unSmoothedTangents
+	
+	materialImage models/mapobjects/strogg/core/Data_Router/platform_hit.tga
+	
+	renderBump -size 1024 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/core/Data_Router/platform_local.tga work/models/mapobjects/strogg/core/Data_Router/platform_high.lwo
+    
+    diffuseMap		downsize( models/mapobjects/strogg/core/Data_Router/platform_d.tga, 1 )
+	bumpMap		addnormals (models/mapobjects/strogg/core/Data_Router/platform_local.tga, heightmap (models/mapobjects/strogg/core/Data_Router/platform_h.tga, 2))
+	specularMap		downsize( models/mapobjects/strogg/core/Data_Router/platform_s.tga, 1 )
+	
+
+}
+
+// Data_Router arms---------------------------------------------------------------------------------------------------------------------------------------------------------
+models/mapobjects/strogg/core/Data_Router/arms
+{
+      	noSelfShadow 
+		unSmoothedTangents
+	
+	materialImage models/mapobjects/strogg/core/Data_Router/arms_hit.tga
+	
+	renderBump -size 512 1024 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/core/Data_Router/arms_local.tga work/models/mapobjects/strogg/core/Data_Router/arm_01_high.lwo
+    
+    diffuseMap		downsize( models/mapobjects/strogg/core/Data_Router/arms_d.tga, 1 )
+	bumpMap		addnormals (models/mapobjects/strogg/core/Data_Router/arms_local.tga, heightmap (models/mapobjects/strogg/core/Data_Router/arms_h.tga, 2))
+	specularMap		downsize( models/mapobjects/strogg/core/Data_Router/arms_s.tga, 1 )
+	
+
+}
+models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_hit.tga
+
+	renderbump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_local.tga work/models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_local.tga, heightmap (models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_h.tga,1))
+	specularMap		models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_s.tga
+	{
+	blend diffusemap
+	map models/mapobjects/strogg/terminal/tsd_battery/tsd_newtank_d.tga
+	alphatest .5
+	} 
+	
+}
+
+//Tetranode-------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/core/tetranode/tetranode
+
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/core/tetranode/tetranode_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/core/tetranode/tetranode_local.tga work/models/mapobjects/strogg/core/tetranode/tetranode_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/core/tetranode/tetranode_local.tga, heightmap (models/mapobjects/strogg/core/tetranode/tetranode_h.tga,1))
+	diffusemap 		downsize( models/mapobjects/strogg/core/tetranode/tetranode_d.tga, 1 )
+	specularmap		downsize( models/mapobjects/strogg/core/tetranode/tetranode_s.tga, 1 )
+	
+}
+
+//Convoy Landmine-------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/convoy/mine
+
+{
+    noSelfShadow
+	unSmoothedTangents
+	materialType solidmetal
+
+	renderbump  -size 256 256 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/convoy/mine_local.tga work/models/kevin/mine_hi.lwo
+
+	bumpMap addnormals (models/mapobjects/strogg/convoy/mine_local.tga, heightmap (models/mapobjects/strogg/convoy/mine_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/convoy/mine_d.tga
+	specularmap		models/mapobjects/strogg/convoy/mine_s.tga
+{ 
+		blend add
+		map models/mapobjects/strogg/convoy/mine_g.tga
+		rgb square [ time * 2 ]
+		}
+}
+
+//Putra Cable That Grunt Climbs Down-------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/putra/cable
+
+{
+    noSelfShadow
+	unSmoothedTangents
+	materialType solidmetal
+
+	renderBump  -size 64 256 -aa 2 -trace 0.10 -MergeHigh  models/mapobjects/strogg/putra/cable_local.tga work/models/mapobjects/strogg/putra/cable_hi.lwo
+
+	bumpMap addnormals (models/mapobjects/strogg/putra/cable_local.tga, heightmap (models/mapobjects/strogg/putra/cable_h.tga,2))
+	diffusemap 		models/mapobjects/strogg/putra/cable_d.tga
+	specularmap		models/mapobjects/strogg/putra/cable_s.tga
+
+}
+
+//Core_towers in terminal------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/towers/core_tower/tower_01
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/towers/core_tower/tower_01_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/towers/core_tower/tower_01_local.tga work/models/mapobjects/strogg/terminal/towers/core_tower/tower_01_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/towers/core_tower/tower_01_local.tga, heightmap (models/mapobjects/strogg/terminal/towers/core_tower/tower_01_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/towers/core_tower/tower_01_d.tga
+	specularmap		models/mapobjects/strogg/terminal/towers/core_tower/tower_01_s.tga
+	
+}
+
+models/mapobjects/strogg/terminal/towers/core_tower/tower_02
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/towers/core_tower/tower_02_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/towers/core_tower/tower_02_local.tga work/models/mapobjects/strogg/terminal/towers/core_tower/tower_02_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/towers/core_tower/tower_02_local.tga, heightmap (models/mapobjects/strogg/terminal/towers/core_tower/tower_02_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/towers/core_tower/tower_02_d.tga
+	specularmap		models/mapobjects/strogg/terminal/towers/core_tower/tower_02_s.tga
+	
+}
+
+models/mapobjects/strogg/terminal/towers/core_tower/antenna
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/towers/core_tower/antenna_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/towers/core_tower/antenna_local.tga work/models/mapobjects/strogg/terminal/towers/core_tower/antenna_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/towers/core_tower/antenna_local.tga, heightmap (models/mapobjects/strogg/terminal/towers/core_tower/antenna_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/towers/core_tower/antenna_d.tga
+	specularmap		models/mapobjects/strogg/terminal/towers/core_tower/antenna_s.tga
+	
+}
+
+
+models/mapobjects/strogg/terminal/towers/core_tower/antenna_base
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_local.tga work/models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_local.tga, heightmap (models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_d.tga
+	specularmap		models/mapobjects/strogg/terminal/towers/core_tower/antenna_base_s.tga
+	
+}
+
+//core_tower-----------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/terminal/towers/core_tower/core_tower
+{
+	noSelfShadow
+	unSmoothedTangents
+	
+	//renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/towers/core_tower/core_tower_local.tga work/models/mapobjects/strogg/terminal/towers/core_tower/core_tower_hi.lwo
+
+	bumpMap addnormals (models/mapobjects/strogg/terminal/towers/core_tower/core_tower_local.tga, heightmap (models/mapobjects/strogg/terminal/towers/core_tower/core_tower_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/towers/core_tower/core_tower_d.tga
+	specularmap		models/mapobjects/strogg/terminal/towers/core_tower/core_tower_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/terminal/towers/core_tower/core_tower_g.tga
+	}
+}
+
+
+//network_towers-----------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/terminal/towers/network_towers/network_towers
+{
+      noselfShadow
+	unsmoothedtangents
+materialImage models/mapobjects/strogg/terminal/towers/network_towers/network_towers_hit.tga
+
+	renderbump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh  models/mapobjects/strogg/terminal/towers/network_towers/network_towers_local.tga work/models/mapobjects/strogg/terminal/towers/network_towers/network_towers_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/strogg/terminal/towers/network_towers/network_towers_local.tga, heightmap (models/mapobjects/strogg/terminal/towers/network_towers/network_towers_h.tga,1))
+	diffusemap 		models/mapobjects/strogg/terminal/towers/network_towers/network_towers_d.tga
+	specularmap		models/mapobjects/strogg/terminal/towers/network_towers/network_towers_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/terminal/towers/network_towers/network_towers_g.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+
+////recomp cables
+
+
+models/mapobjects/strogg/recomp/cable
+{
+	noselfShadow
+
+	bumpmap  heightmap (models/mapobjects/strogg/recomp/cable_h.tga,4)
+	diffusemap 			models/mapobjects/strogg/recomp/cable_d.tga
+	specularmap			models/mapobjects/strogg/recomp/cable_s.tga
+}
+
+
+// medlabs version of the probulator pieces ----------------------------------------------------
+
+
+models/mapobjects/strogg/medlabs/verification_arm/probe_arm_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	//renderbump  -size 1024 1024 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/core/verification_arm/probe_arm_lo_local.tga work/models/mapobjects/strogg/core/verification_arm/probe_arm_hi.lwo
+
+	bumpmap			downsize( models/mapobjects/strogg/core/verification_arm/probe_arm_lo_local.tga, 2)
+	diffusemap		downsize( models/mapobjects/strogg/core/verification_arm/probe_arm_lo_d.tga, 2)
+	specularmap		downsize( models/mapobjects/strogg/core/verification_arm/probe_arm_lo_s.tga, 2)
+
+}
+
+
+models/mapobjects/strogg/medlabs/verification_arm/probe_probearms_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+
+	//renderbump  -size 512 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_local.tga work/models/mapobjects/strogg/core/verification_arm/probe_arm_hi.lwo
+
+	bumpmap			downsize( models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_local.tga, 2)
+	diffusemap		downsize( models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_d.tga, 2)
+	specularmap		downsize( models/mapobjects/strogg/core/verification_arm/probe_probearms_lo_s.tga, 2)
+
+}

@@ -1,0 +1,328 @@
+//------------------------------------------------------------------------------
+// flatbed.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export flatbed
+{
+	options -prefix FB_ -align ALL -keep eye eye2
+		  
+	mesh	work/models/vehicles/marine_hover_flatbed/idle.ma	-dest models/vehicles/marine_hover_flatbed/flatbed.md5mesh
+	anim	work/models/vehicles/marine_hover_flatbed/idle.ma	-dest models/vehicles/marine_hover_flatbed/idle.md5anim
+
+}
+
+entityDef vehicle_flatbedMover 
+{
+	"inherit"		"func_mover"
+	"attenuate" "1"
+	"maxAttenuation" "1.4"
+	"attenuationScale" "100"
+	"snd_accel" "vehicle_hovertruck_start"
+	"snd_decel" "vehicle_hovertruck_stop"
+	"snd_idle" "vehicle_hovertruck_idle"
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+entityDef vehicle_flatbed_base
+{
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Flatbed."
+	"editor_ignore"				"1"
+	"anim"						"idle_inplace"
+	
+	"spawnclass"				"rvVehicleRigid"
+
+	"model"						"model_env_hover_truck"
+	"mins"						"-220 -96 0"
+	"maxs"						"132 96 128"
+
+	"def_position_driver"		"vehicle_flatbed_driver"
+
+	"health"					"1000"
+	"mass"						"3500"
+	"team"						"0"
+	"friction_linear"			"1"
+	"friction_contact"			".75"
+	"bouncyness"				".08"
+	"nav_active"				"1"
+	
+	"shieldMins"				"-220 -96 0"
+	"shieldMaxs"				"132 96 128"
+	"shieldSides"				"10"
+	"shieldHealth"				"100"
+	"shieldRegenDelay"			"6"
+	"shieldRegenTime"			"3"
+
+	"ignore_vehicle_damage"		"1"
+	"def_crashDamage"			"damage_gev_crash"
+
+	"snd_crash_small"			"vehicle_crash_small"
+	"snd_crash_medium"			"vehicle_crash_medium"
+	"snd_crash_large"			"vehicle_crash_large"
+	"snd_cannon_kickback"		"vehicle_gev_cannon_kickback"	
+	"snd_shieldWarning"			"vehicle_walker_shield_warning"
+	"snd_shieldRecharge"		"vehicle_walker_shield_recharge"
+		
+	"fx_death"					"effects/vehicles/explosion_flatbed.fx"
+	"fx_shield"					"effects/vehicles/walker/shield.fx"	
+	"fx_crash"					"effects/vehicles/crash.fx"
+
+	"gui_hud"					"guis/hud.gui"
+
+	"combatModel"				"1"
+}
+
+entityDef vehicle_flatbed
+{
+	"editor_ignore"				"0"
+	"inherit"					"vehicle_flatbed_base"
+
+	"def_position_driver"		"vehicle_flatbed_driver"
+	"def_position_passenger"	"vehicle_flatbed_passenger"
+
+	"hideSurface1"				"models/mapobjects/marine/weapons/sb_machine_gun_lo"
+	"hideSurface2"				"models/vehicles/marine_hover_flatbed/turret"
+}
+
+entityDef vehicle_flatbed_gun
+{
+	"editor_ignore"				"0"
+	"inherit"					"vehicle_flatbed_base"
+
+	"def_position_driver"		"vehicle_flatbed_driver"
+	"def_position_gunner"		"vehicle_flatbed_gunner"	
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+entityDef vehicle_flatbed_driver
+{
+//	"def_part_hover_fl"			"vehicle_flatbed_hoverpad_fl"
+//	"def_part_hover_bl"			"vehicle_flatbed_hoverpad_bl"
+//	"def_part_hover_fr"			"vehicle_flatbed_hoverpad_fr"
+//	"def_part_hover_br"			"vehicle_flatbed_hoverpad_br"
+
+	"eyeJoint"					"eye_2"
+	"depthHack"					"0"
+	   	
+	"snd_loop"					"vehicle_hovertruck_idle"
+	"volume"					"-4 5.5"
+	"freqShift"					"0.7 1.1"
+	"maxSoundSpeed"				"600"	
+}
+
+entityDef vehicle_flatbed_gunner
+{
+	"def_part_weapon"			"vehicle_flatbed_gunner_weapon"
+	
+	"def_part_yaw"				"vehicle_flatbed_gunner_yaw"	
+	"def_part_pitch"			"vehicle_flatbed_gunner_pitch"
+	
+	"angles_offset"				"0 0 0"
+	"depthHack"					"0"
+	
+	"exitPosOffset"				"0 120 0"
+	"exitAxisOffset"			"0 0 0"
+	
+	"eyeJoint"					"eye_1"
+
+	"eyeOffset"					"3 10 0"
+	"driverOffset"				"-60 0 -35"
+
+	"driverJoint"				"yaw"
+	
+	"deltaEyeAxisScale"			"1 1 0"
+	"deltaDriverAxisScale"		"1 1 0"
+	
+	"driverVisible"				"0"
+	
+	"eyeJointAxisMap"			"0 1 2"
+	"driverJointAxisMap"		"0 1 2"
+
+	"eyeJointDirMap"			"1 1 1"
+	"driverJointDirMap"			"1 1 1"
+}
+
+entityDef vehicle_flatbed_passenger
+{
+	"def_part_yaw"				"vehicle_flatbed_passenger_yaw"
+	"def_part_pitch"			"vehicle_flatbed_passenger_pitch"
+	
+	"eyeJoint"					"eye_2"
+	"depthHack"					"0"
+	   	
+  	"driverJoint"				"origin"	
+	"driverVisible"				"0"
+}
+
+entityDef vehicle_flatbed_gunner_yaw
+{
+	"spawnclass"				"rvVehicleTurret"
+	"turnrate"					"400"
+	"joint"						"yaw"
+	"yaw"						"1"
+}
+
+entityDef vehicle_flatbed_gunner_pitch
+{
+	"spawnclass"				"rvVehicleTurret"
+	"turnrate"					"500"
+	"joint"						"pitch"
+	"pitch"						"1"
+	"minpitch"					"-36"
+	"maxpitch"					"50"
+}
+
+entityDef damage_vehicle_flatbed_bullet
+{
+	"inherit"					"damage_bullet"
+	"damage"					"65"
+}
+
+entityDef hitscan_vehicle_flatbed_gunner_weapon
+{
+	"inherit"					"hitscan_walker_bullet"
+	"def_damage"				"damage_vehicle_flatbed_bullet"
+	"tracerchance"				"1"
+	"push"						"75000"
+}
+
+entityDef debris_vehicle_flatbed_gunner_weapon
+{
+	"inherit"					"debris_brass_machinegun"
+	
+	"linear_velocity"			"-15 -75 80"
+	"linear_velocity_range"		"0.2 0.25 0.45"
+	"angular_velocity"			"0 8000 0"
+	"angular_velocity_range"	"0 1.0 0"
+	
+	"scale"						"0.6"
+}
+
+entityDef vehicle_flatbed_gunner_weapon
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"muzzle_flash"
+	"launchfromjoint"			"1"
+	
+	"firedelay"					"0.09"
+	
+	"ejectOffset"				"10 5 -10"
+	"joint_view_eject"			"pitch"
+	"def_hitscan"				"hitscan_vehicle_flatbed_gunner_weapon"	
+	
+	"fx_muzzleflash"			"effects/vehicles/flatbed/muzzleflash.fx"
+	"spread"					"2"
+	
+//	"snd_fire"					"vehicle_hovertruck_fire"
+
+	"snd_fire"					"vehicle_walker_machinegun"		// mrenner - just trying it out.
+
+	
+	"recoilTime"				"50"
+	"recoilAngles"				"-1 0 0"
+
+	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
+	"crosshairOffsetX"			"0"
+	"crosshairOffsetY"			"0"
+	
+	// Gun overheating variables	
+//	"heat_per_second"			"20"	// can shoot continuously for 10 seconds
+//	"max_heat"					"100"	// heat level when gun becomes overheated
+//	"cooldown_delay"			"1"		// if gun overheated or no shots done in this amount of time, gun starts cooldown
+//	"cooldown_rate"				"40"	// how many heat points dropped per second once cooldown has begun
+}
+
+entityDef vehicle_flatbed_passenger_yaw
+{
+	"inherit"					"vehicle_flatbed_gunner_yaw"
+
+	"joint"						"yaw_2"
+}
+
+entityDef vehicle_flatbed_passenger_pitch
+{
+	"inherit"					"vehicle_flatbed_gunner_pitch"
+
+	"joint"						"eye_2"
+	"pitch"						"0"
+}
+
+entityDef vehicle_flatbed_hoverpad
+{
+	"spawnclass"				"rvVehicleHoverpad"
+
+	"height"					"20"
+	"dampen"					"100"
+
+	"force"						"300"
+	"forceTable"				"vehicle_flatbed_hover"
+	"forceUpTime"				"2"
+	"forceDownTime"				"1"	
+	"forceRandom"				"20"
+	
+	"maxRestAngle"				"15"
+
+	"fx_dust"					"effects/vehicles/gev/dust.fx"
+	"fx_dust_concrete"			"effects/vehicles/gev/dust_concrete.fx"
+	"fx_dust_rock"				"effects/vehicles/gev/dust_rock.fx"	
+
+	"volume"					"-20 -4"
+	"freqShift"					"0.9 1.1"
+	"fadetime"					"2"	
+
+	"mins"						"0 -.5 -.5"
+	"maxs"						"1 .5 .5"
+	
+	"thrustForward"				"150"
+	"thrustLeft"				"200"
+}
+
+entityDef vehicle_flatbed_hoverpad_fl
+{
+	"inherit"					"vehicle_flatbed_hoverpad"
+	"offset"					"100 60 0"
+	"mins"						"0 -100 -60"
+	"maxs"						"1 20 20"
+}
+
+entityDef vehicle_flatbed_hoverpad_fr
+{
+	"inherit"					"vehicle_flatbed_hoverpad"
+	"offset"					"100 -60 0"
+	"mins"						"0 -100 -20"
+	"maxs"						"1 20 60"
+}
+
+entityDef vehicle_flatbed_hoverpad_bl
+{
+	"inherit"					"vehicle_flatbed_hoverpad"
+	"offset"					"-100 60 0"
+	"mins"						"0 -20 -60"
+	"maxs"						"1 100 20"
+}
+
+entityDef vehicle_flatbed_hoverpad_br
+{
+	"inherit"					"vehicle_flatbed_hoverpad"
+	"offset"					"-100 -60 0"
+	"mins"						"0 -20 -20"
+	"maxs"						"1 100 60"	
+}
+
+table vehicle_flatbed_hover
+{
+	clamp
+	{
+		0.0, 1.0, 1.5, 2.0, 3.0, 5.0, 8.0, 12.0
+	}
+}

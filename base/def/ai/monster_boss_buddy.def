@@ -1,0 +1,666 @@
+/*
+===============================================================================
+
+	Boss Buddy
+
+===============================================================================
+*/
+
+export bossbuddy  
+{		
+	options -scale .3937 -prefix BB_ -align ALL -keep BB_TURN head lightning_muzzle dmg_muzzle rocket_muzzle1 rocket_muzzle2 -sourcedir work/models/monsters/buddy_boss/animation -destdir models/monsters/bossbuddy
+	mesh	mesh.ma					-dest mesh
+	anim	af_pose.ma				-dest af_pose
+	anim	idle3.ma				-dest idle
+	anim	alert_idle2.ma				-dest alert_idle
+
+	//anim	intro_cinematic.ma			-dest intro
+
+
+	anim	walk5.ma				-range 1 9 -dest forward_start
+	anim	walk5.ma				-range 10 37 -dest forward_loop	
+	anim	walk5.ma				-range 38 62 -dest forward_end
+	anim	turn_left5.ma			-dest left_turn
+	anim	turn_right5.ma			-dest right_turn	
+	anim	walk_back5.ma			-range 7 25 -dest  back_start
+	anim	walk_back5.ma			-range 26 52 -dest back_loop	
+	anim	walk_back5.ma			-range 53 62 -dest back_end
+	anim	walk_left_start5.ma		-dest left_start
+	anim	walk_right_start5.ma		-dest right_start
+	anim	walk_left5.ma			-dest left_loop
+	anim	walk_right5.ma			-dest right_loop
+	anim	spotturn_left.ma		-dest spot_left
+	anim	spotturn_right.ma		-dest spot_right
+
+	anim	dark_matter1.ma			-dest attack_g1
+//	anim	lightning_strong.ma		-dest attack_l1
+	anim	dark_matter2.ma			-dest attack_g2
+	anim	lightning_weak.ma		-dest attack_l2
+	anim	rocket.ma		  	-dest rocket
+	anim	rocket2.ma			-range 1 25 -dest rocket2start
+	anim	rocket2.ma			-range 25 40 -dest rocket2loop	
+	anim	rocket2.ma			-range 40 63 -dest rocket2end
+	anim	rocket3.ma			-dest rocket2loop2
+	
+	
+	anim	melee1.ma				-dest attackm1
+	anim	melee2.ma				-dest attackm2
+//	anim	charge.ma				-dest attackcge
+
+	anim	plugin.ma			-range 1 67	-dest plugin
+	anim	plugin.ma			-range 68 84	-dest plugidle
+	anim	plugin.ma			-range 85 144	-dest plugout
+
+ 	anim	pain_mgun.ma			-dest pain_mgun
+	anim	pain.ma					-dest pain
+	anim	pain_big2.ma			-dest pain_big
+//	anim	heal.ma					-dest heal
+
+options -scale .3937 -prefix BB_ -keep BB_TURN head lightning_muzzle dmg_muzzle rocket_muzzle1 rocket_muzzle2 -sourcedir work/models/monsters/buddy_boss/animation -destdir models/monsters/bossbuddy
+
+	anim	cinematic_intro_redo_character.ma			-dest intro
+
+}
+
+/*
+===============================================================================
+
+	Boss Buddy Model Definition
+
+===============================================================================
+*/
+
+model model_monster_bossbuddy
+{	
+	mesh						models/monsters/bossbuddy/mesh.md5mesh
+
+	channel torso				( *waist )
+	channel legs				( *hips origin -*waist )
+
+	anim af_pose				models/monsters/bossbuddy/af_pose.md5anim
+	anim intro					models/monsters/bossbuddy/intro.md5anim
+	{ 
+		ai_no_look
+//		frame 1					disableClip
+//		frame 1					disableGravity
+		
+		frame 303,340,385,480,511,536,550,568	sound		voss_servo
+		frame 335,353,545,565,578				sound		voss_steps
+		
+		frame 106				sound_voice		snd_kain
+		frame 128				sound_voice		snd_you_have_to
+		frame 164				sound_voice		snd_dont_know_how_long
+		frame 394				sound_voice		snd_go	
+		frame 487				sound_voice		snd_cant_control_run
+
+
+
+
+		frame 450				sound			waste_voss_needle
+		
+//		frame 560				enableClip
+//		frame 560				enableGravity
+	}
+
+	anim idle					models/monsters/bossbuddy/idle.md5anim
+	{
+		rate 1.4
+	}
+	anim idle_alert				models/monsters/bossbuddy/alert_idle.md5anim	
+	{
+		rate 1.4
+	}
+
+	anim attack_lightning		models/monsters/bossbuddy/attack_l2.md5anim
+	{
+		frame 1						ai_disablePain
+		frame 22					sound_weapon		weapon_lightninggun_fire
+		frame 22					fx					fx_lightning_flash	lightning_muzzle
+		frame 22					ai_lockEnemyOrigin
+		frame 22,25,27,29,31,33,35	ai_attack		lightning	lightning_muzzle
+	}
+	
+	anim attack_rocket			models/monsters/bossbuddy/rocket.md5anim
+	{
+		rate 1.1
+		frame 1					ai_disablePain
+		frame 24				ai_attack		rocket	rocket_muzzle1		
+		frame 24				fx				fx_rocket_flash	rocket_muzzle1
+		frame 24				ai_attack		rocket	rocket_muzzle2
+		frame 24				fx				fx_rocket_flash	rocket_muzzle2
+		frame 24				sound_weapon	network_guardian_rocket_fire
+	}
+	anim attack_rocket2start	models/monsters/bossbuddy/rocket2start.md5anim
+	{
+		rate 1.15
+		frame 1					ai_disablePain
+		frame 1					sound		voss_servo		
+		frame 13				sound		voss_steps
+	}
+
+	anim attack_rocket2loop		models/monsters/bossbuddy/rocket2loop.md5anim
+	{
+		rate 1.15
+		frame 1					ai_disablePain
+		frame 4					ai_attack		rocket	rocket_muzzle1		
+		frame 4					fx				fx_rocket_flash	rocket_muzzle1
+		frame 4					ai_attack		rocket	rocket_muzzle2
+		frame 4					fx				fx_rocket_flash	rocket_muzzle2
+		frame 4					sound_weapon	network_guardian_rocket_fire
+	}
+
+	anim attack_rocket2end		models/monsters/bossbuddy/rocket2end.md5anim
+	{
+		rate 1.15
+		frame 1					ai_disablePain
+		frame 2					ai_attack		rocket	rocket_muzzle1		
+		frame 2					fx				fx_rocket_flash	rocket_muzzle1
+		frame 2					sound_weapon	network_guardian_rocket_fire
+		frame 13				sound			voss_steps
+	}
+
+	anim attack_rocket2loop2	models/monsters/bossbuddy/rocket2loop2.md5anim
+	{
+		rate 1.15
+		frame 1					ai_disablePain
+		frame 2					ai_attack		rocket	rocket_muzzle1		
+		frame 2					fx				fx_rocket_flash	rocket_muzzle1
+		frame 2					sound_weapon	network_guardian_rocket_fire
+
+		frame 16				ai_attack		rocket	rocket_muzzle2
+		frame 16				fx				fx_rocket_flash	rocket_muzzle2
+		frame 16				sound_weapon	network_guardian_rocket_fire
+	}
+
+	anim melee_move_attack		models/monsters/bossbuddy/attackm1.md5anim
+	{
+		rate  1.2
+		frame 1					ai_disablePain
+		frame 10				sound			voss_servo
+		frame 16				fx				fx_swipe				r_hand
+		frame 16,22				sound			voss_steps
+		frame 20				ai_attack_melee meleeSwipe
+	}
+	
+	anim melee_attack			models/monsters/bossbuddy/attackm2.md5anim
+	{
+		rate  1.2
+		frame 1					ai_disablePain
+		frame 8					sound				voss_servo
+		frame 8					fx					fx_swipe			r_hand
+		frame 13				ai_attack_melee 	meleePunch
+	}
+
+	anim attack_dmg1			models/monsters/bossbuddy/attack_g2.md5anim
+	{
+		rate  1.2
+		frame 1					ai_disablePain
+		frame 8					sound			voss_servo
+		frame 17,55				sound			voss_steps		
+		frame 24				ai_attack		dmg dmg_muzzle
+		frame 24				sound			weapon_darkmatter_fire
+		frame 24				fx				fx_dmg_flash	dmg_muzzle
+	}
+	
+	anim attack_dmg2			models/monsters/bossbuddy/attack_g1.md5anim
+	{
+		rate  1.5
+		frame 1					ai_disablePain
+		frame 2,40				sound			voss_servo
+		frame 17,70				sound			voss_steps		
+		frame 44				ai_attack		dmg dmg_muzzle
+		frame 44				sound			weapon_darkmatter_fire
+		frame 44				fx				fx_dmg_flash	dmg_muzzle
+	}
+
+	anim pain_mgun				models/monsters/bossbuddy/pain_mgun.md5anim
+	anim pain					models/monsters/bossbuddy/pain.md5anim
+	{
+		rate 1.3
+		frame 4					sound		voss_servo		
+	}
+	
+	anim pain_big				models/monsters/bossbuddy/pain_big.md5anim	
+	{
+		rate 1.2
+		frame 4,20				sound		voss_servo	
+		frame 9,15,26,34		sound		voss_steps
+	}
+
+	anim walk					models/monsters/bossbuddy/forward_loop.md5anim
+	{
+		rate  1.2
+		frame 1,14				sound		voss_steps
+		frame 6					sound		voss_servo
+	}
+	
+	anim walk_backwards			models/monsters/bossbuddy/back_loop.md5anim
+	{
+		rate  1.15
+		frame 1,14				sound		voss_steps
+		frame 6					sound		voss_servo
+	}
+	
+	anim walk_left				models/monsters/bossbuddy/left_loop.md5anim
+	{
+		rate  1.15
+		frame 1,14				sound		voss_steps
+		frame 6					sound		voss_servo
+	}
+	
+	anim walk_right				models/monsters/bossbuddy/right_loop.md5anim
+	{
+		rate  1.15
+		frame 1,14				sound		voss_steps
+		frame 6					sound		voss_servo
+	}
+
+	anim plugin					models/monsters/bossbuddy/plugin.md5anim
+	{
+		ai_no_look
+		frame 6					sound						voss_servo
+		frame 20				sound_weapon				waste_voss_needle
+		frame 37				sound						voss_steps
+		frame 45				fx			fx_recharge		lightning_muzzle
+	}
+	
+	anim plugidle				models/monsters/bossbuddy/plugidle.md5anim
+	{
+		ai_no_look
+		frame 1					fx			fx_recharge		lightning_muzzle		
+		frame 1					sound_weapon				waste_voss_recharge
+	}
+	
+	anim plugout				models/monsters/bossbuddy/plugout.md5anim
+	{
+		ai_no_look
+		frame 1					fx			fx_recharge		lightning_muzzle
+		frame 12				sound						voss_servo
+		frame 22,37,44			sound						voss_steps
+	}
+
+	anim turn_right				models/monsters/bossbuddy/spot_right.md5anim
+	{
+		anim_turn
+	}
+	
+	anim turn_left				models/monsters/bossbuddy/spot_left.md5anim
+	{
+		anim_turn
+	}
+
+	// UNUSED ANIMATIONS
+
+	anim walk_start				models/monsters/bossbuddy/forward_start.md5anim
+	anim forward_end			models/monsters/bossbuddy/forward_end.md5anim
+	anim back_start				models/monsters/bossbuddy/back_start.md5anim
+	anim back_end				models/monsters/bossbuddy/back_end.md5anim
+	anim left_start				models/monsters/bossbuddy/left_start.md5anim
+	anim right_start			models/monsters/bossbuddy/right_start.md5anim
+	anim orig_turn_left			models/monsters/bossbuddy/left_turn.md5anim
+	anim orig_turn_right		models/monsters/bossbuddy/right_turn.md5anim
+}
+
+/*
+===============================================================================
+
+	Boss Buddy Attacks
+
+===============================================================================
+*/
+
+entityDef damage_bossbuddy_rocket_direct
+{
+	"damage"							"30" // "20"
+	"push"								"100"
+	"mtr_splat"							""
+	"gib"								"0"
+}
+
+entityDef damage_bossbuddy_rocket_splash
+{
+	"damage"							"30" //"20"
+	"radius"							"75"
+	"knockback"							"20"
+	"push"								"0"
+	"gib"								"0"
+}
+
+entityDef projectile_bossbuddy_rocket
+{
+	"inherit"					"projectile_rocket"
+	"spawnclass"				"idGuidedProjectile"
+
+	"driftRange"				"10"
+	"driftRate"					".1"	
+	"driftRotate"				"90"
+	"driftDiversity"			"4"
+	"driftProjectRange"			"256"
+
+	"speed"						"450"
+	
+	"turn_max"					"210" //"180"
+
+	"def_damage"				"damage_bossbuddy_rocket_direct"
+	"def_splash_damage"			"damage_bossbuddy_rocket_splash"
+
+	"fx_fly"					"effects/monsters/bossbuddy/fly.fx"
+//	"fx_impact"					"effects/monsters/light_tank/impact.fx"
+}
+
+
+entityDef damage_bossbuddy_dmg_fly
+{
+	"damage"					"20" //"15"
+	"radius"					"128" //"64"
+	"knockback"					"-100"
+	"push"						"-3000"
+	"gib"						"1"
+
+	"attackerDamageScale"		"0"							// Dont hurt the player who shot it, but still do effects
+	"attackerPushScale"			"0"							// Dont push the player who shot it
+
+	// Hearing Loss
+	"hl_volumeDB"				"-25"
+	"hl_fadeOutTime"			"0"
+	"hl_time"					".5"
+	"hl_fadeInTime"				".01"
+	"snd_hl"					"player_sounds_ringing"
+}
+
+entityDef damage_bossbuddy_dmg_splash 
+{
+	"damage"					"50" // "10"
+	"radius"					"150"
+	"knockback"					"100"
+	"push"						"20000"
+	"gib"						"0"
+
+	"deathPush"					"100"
+	"deathPushMin"				"7000 9000"
+	"deathPushMax"				"10000 12000"
+}
+
+entityDef projectile_bossbuddy_dmg
+{
+	"spawnclass"				"rvDarkMatterProjectile"
+	"mins"						"-4 -4 -4"
+	"maxs"						"4 4 4"
+	"cone"						""
+	"noshadows"					"1"
+	"clipmask_largeshot"		"1"
+	
+	"no_contents"				"1"
+								
+	"def_splash_damage"			"damage_bossbuddy_dmg_splash"
+
+	"def_radius_damage"			"damage_bossbuddy_dmg_fly"
+	"damageRate"				".1"
+																											
+	"speed"						"500"
+	
+	"delay_splash"				".45"
+	
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"
+	"fuse"						"10"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"0"
+								
+	"impact_gib"				"1"								
+	"decal_size"				"75"
+
+	"flyEffectAttenuateSpeed"	"200"
+
+	"fx_fly"					"effects/monsters/bossbuddy/dmg_fly.fx"
+	"fx_detonate"				"effects/monsters/bossbuddy/impact_default.fx"
+	"fx_impact"					"effects/monsters/bossbuddy/impact_default.fx"
+	"fx_impact_water"			"effects/ambient/splash_med.fx"
+
+	"snd_ricochet"				"grenade_bounce"	
+	"snd_fly"					"weapon_darkmatter_energy_loop"
+}
+
+entityDef projectile_bossbuddy_spawner
+{
+	"inherit"					"projectile_teleportDropper_spawner"
+	"spawner"					"spawnerBossBuddy"
+
+	"mins"						"-6 -6 -6"
+	"maxs"						"6 6 6"
+	
+	"health"					"35"
+	
+	"speed"						"300"
+	"angular_velocity"				"10 -10 10"			
+	"linear_friction"				"0.99"
+	"angular_friction"				"0.4"
+	"contact_friction"				"0.99"
+	"bounce"					"0.1"
+	"gravity"					"1"		
+
+	"fx_fly"					"effects/monsters/bossbuddy/grenade_fly.fx"
+}
+
+entityDef hitscan_bossbuddy_lightninggun
+{
+	"range"						"10000"
+	"push"						"10000"
+	
+	"def_damage"				"damage_lightninggun"
+	
+	"attack_spread_horizontal"	"0"
+	"attack_spread_vertical"	"0"
+	
+	"fx_impact"					"effects/monsters/bossbuddy/lightning_impact.fx"
+//	"fx_impact_water"			"effects/ambient/splash_med.fx"
+	"fx_path"					"effects/monsters/bossbuddy/lightning_trail.fx"
+}
+
+entityDef melee_bossbuddy_swipe
+{
+	"inherit"					"melee_monster_base"
+	"damage"					"50"
+	"kickDir"					"0 1 1"
+	"push"						"10000"
+	"knockback"					"80"
+	"snd_hit"					"gunner_punch"
+}
+
+entityDef melee_bossbuddy_punch
+{
+	"inherit"					"melee_monster_base"
+	"damage"					"50"
+	"kickDir"					"1 0 1"
+	"push"						"10000"
+	"knockback"					"80"
+	"snd_hit"					"gunner_punch"
+}
+
+// boss buddy electrocution damage
+// for when you overload the charge machine
+//-------------------------------------
+entityDef damage_bb_electrocute
+{
+	"inherit"			"damage_lightninggun"
+	"damage"			"400"
+	
+	"teamScale"			"1"		// since the buddy damages himself, he'll trigger team damage, so ensure damage scale is set so we do full damage
+	"ignoreShields"		"1"		// instruct custom damage code to not execute shielding logic (not using noArmor to prevent any side-effects)
+}
+/*
+===============================================================================
+
+	Boss Buddy Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_bossbuddy
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterBossBuddy"
+
+	"editor_var requestZoneMove"			"Script function called when boss buddy wants to move to the next charge station, but not actually charge"
+	"editor_var requestRecharge"			"Script function called when boss buddy wants to recharge"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_minRange"			"10"
+	"action_meleeAttack_maxrange"			"92"
+	"action_meleeAttack_blendFrame"			"8"
+
+	"action_meleeMoveAttack"				"1"
+	"action_meleeMoveAttack_minRange"		"64"
+	"action_meleeMoveAttack_maxRange"		"128"
+	"action_meleeMoveAttack_anim"			"melee_move_attack"
+	"action_meleeMoveAttack_blendFrame"		"8"
+
+	"action_slashMoveAttack"				"1"
+	"action_slashMoveAttack_minRange"		"1"
+	"action_slashMoveAttack_maxRange"		"128"
+	"action_slashMoveAttack_anim"			"melee_move_attack"
+	"action_slashMoveAttack_state"			"Torso_SlashAttack"
+	"action_slashMoveAttack_blendFrames"	"8"
+	
+	"actionTimerRangedAttack"				"1"
+	"actionTimer_specialAttack_rate"		"2"
+
+	"action_rocketAttack"					"1"
+	"action_rocketAttack_rate"				"1"
+	"action_rocketAttack_chance"			"1.5"
+	"action_rocketAttack_diversity"			".5"
+	"action_rocketAttack_minrange"			"250"
+	"action_rocketAttack_maxrange"			"500"
+	"action_rocketAttack_blendFrames"		"8"
+	"action_rocketAttack_state"				"Torso_RocketAttack"  
+	"action_rocketAttack_anim"				"attack_rocket"
+
+	"action_dmgAttack"						"1"
+	"action_dmgAttack_rate"					".5"
+	"action_dmgAttack_diversity"			".1"
+	"action_dmgAttack_chance"				".5"
+	"action_dmgAttack_minrange"				"350"
+	"action_dmgAttack_maxrange"				"1000"
+	"action_dmgAttack_blendFrames"			"8"
+	"action_dmgAttack_anim"					"attack_dmg"
+	
+	"action_lightningAttack"				"1"
+	"action_lightningAttack_rate"			"1"
+	"action_lightningAttack_diversity"		".5"
+	"action_lightningAttack_minrange"		"100"
+	"action_lightningAttack_maxrange"		"400"
+	"action_lightningAttack_blendFrames"	"8"
+	"action_lightningAttack_anim"			"attack_lightning"
+
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_bossbuddy"
+	"ragdoll"								"monster_boss_buddy"	
+	"health"								"1500" // "1200"
+
+	"size"									"64 64 96"
+	"use_aas"								"aas96"
+
+	"painThreshold"							"10"
+	"painThresholdBig"						"30"
+	"forceWalk"								"1"
+	
+	"directionalMovement"					"1"
+
+	"def_head"								"char_marinehead_voss_strogg"
+	"joint_head"							"chest"
+	"joint_eyeOffset"						"Rt_EyeBall"
+	"joint_chestOffset"						"upper_Body"
+	"joint_orientation"						""
+	
+	"copy_joint legs_channel"				"head"
+	"head_focus_rate"						".05"
+	"chatter_rate_combat"					"140" // do it very rarely
+	
+ 	"removeDelay"							"2"
+ 	"burnaway"								"2"
+	"snd_burn_lightning"					"effects_sparks02"
+	"fx_burn_lightning"						"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"						"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"				"effects/monsters/teleport4.fx"
+ 	
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"						".5 .3 0"
+	  "look_joint upper_body"				".4 .3 0"
+        "look_joint chest"					".1 .1 0"
+	      "look_joint neckcontrol"			"1 .2 0"
+
+	// --------------------------------- Combat ----------------------------------
+
+	"tactical_rush"							"1"
+	"tactical_ranged"						"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"0"
+
+	"aggressiveRange"						"250"
+	"attackRange"							"90 350"
+	"meleerange"							"140"
+	
+	// How long shields stay up, once activated.
+	"shieldTime"							"6"
+
+	"def_attack_rocket"						"projectile_bossbuddy_rocket"
+	"attack_rocket_accuracy"				"0"
+	"attack_rocket_locktojoint"				"1"
+	
+	"def_attack_meleeSwipe"					"melee_bossbuddy_swipe"
+	"def_attack_meleePunch"					"melee_bossbuddy_punch"
+
+	"def_attack_dmg"						"projectile_bossbuddy_dmg"
+	"attack_dmg_accuracy"					"0"
+	
+	"def_attack_lightning"					"hitscan_bossbuddy_lightninggun"
+	"attack_lightning_hitscan"				"1"
+	"attack_lightning_accuracy"				"2"
+//	"attack_lightning_locktojoint"			"1"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone voss"						"*chest"
+	"damage_zone suit"						"*origin -*chest"
+	
+	"damage_scale voss"						"1"	
+	"damage_scale suit"						"0.25" // heavily armored
+
+	// --------------------------------- Sounds ----------------------------------
+//	"lipsync_vo_2_2_7_172_1_full"			"vo_2_2_7_172_1_full"
+	
+	"lipsync_vo_2_2_7_174_5"				"vo_2_2_7_174_5"
+	"lipsync_vo_2_2_7_174_6"				"vo_2_2_7_174_6"
+
+	"snd_kain"						"vo_2_2_7_174_4_cin"
+	"snd_you_have_to"					"vo_2_2_7_172_1_cin"
+	"snd_dont_know_how_long"				"vo_2_2_7_174_7_cin"
+	"snd_go"						"vo_2_2_7_172_2_cin"
+	"snd_cant_control_run"					"vo_2_2_7_172_3_cin"
+	
+	"lipsync_chatter_combat1"				"vo_2_2_7_172_1"
+	"lipsync_chatter_combat2"				"vo_2_2_7_172_2"
+	"lipsync_chatter_combat3"				"vo_2_2_7_172_3"
+	
+	"lipsync_chatter_combat4"				"vo_2_2_7_174_1"
+	"lipsync_chatter_combat5"				"vo_2_2_7_174_2"
+	"lipsync_chatter_combat6"				"vo_2_2_7_174_3"
+	"lipsync_chatter_combat7"				"vo_2_2_7_174_4"
+	"lipsync_chatter_combat8"				"vo_2_2_7_174_7"
+
+	"snd_enable_shields"					"gladiator_shield_up"
+	"snd_disable_shields"					"gladiator_shield_down"
+
+	
+	// --------------------------------- Effects ---------------------------------
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"
+	"fx_rocket_flash"						"effects/monsters/bossbuddy/r_muzzleflash.fx"
+	"fx_dmg_flash"							"effects/monsters/bossbuddy/dmg_muzzleflash.fx"
+	"fx_shieldcrawl"						"effects/monsters/bossbuddy/crawl.fx"
+	"fx_lightning_flash"					"effects/weapons/lightninggun/muzzleflash_world.fx"
+	"fx_recharge"							"effects/monsters/bossbuddy/charge2.fx"
+}

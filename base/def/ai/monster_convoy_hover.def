@@ -1,0 +1,143 @@
+/*
+===============================================================================
+
+	Convoy Hover Creature
+
+===============================================================================
+*/
+
+export convoy_hover
+{
+	options -prefix SMFL_ -rotate 90 -scale .6 -keep exhaust -keep muzzle_flash_l -keep muzzle_flash_r
+	mesh	work/models/vehicles/sm_flyer/animation/sm_flyer_idle.ma	-dest models/monsters/convoy_hover/mesh.md5mesh
+	anim	work/models/vehicles/sm_flyer/animation/sm_flyer_idle.ma	-dest models/monsters/convoy_hover/idle.md5anim
+}
+
+/*
+===============================================================================
+
+	Convoy Hover Creature Model
+
+===============================================================================
+*/
+
+model model_monster_convoy_hover
+{
+	mesh												models/monsters/convoy_hover/mesh.md5mesh	
+	anim idle											models/monsters/convoy_hover/idle.md5anim
+}
+
+/*
+===============================================================================
+
+	Strogg Fighter Attacks
+
+===============================================================================
+*/
+
+// see monster_strogg_figher.def
+
+/*
+===============================================================================
+
+	Convoy Hover Entity Definition
+
+===============================================================================
+*/
+entityDef monster_convoy_hover
+{
+	"editor_usage"							"A smaller strogg flyer. Not so big. Kinda tiny. !large, and this version hovers."
+	"editor_maxs"							"47 47 64"
+	"editor_mins"							"-47 -47 0"
+	"editor_color"							"1 .5 0"
+	"editor_showangle"						"1"
+
+	"spawnclass"							"rvMonsterConvoyHover"
+
+	// --------------------------------- Actions ------------------------------------
+	
+	"action_blasterAttack"					"1"
+	"action_blasterAttack_rate"				"3"
+	"action_blasterAttack_maxRange"			"3000"
+	"action_blasterAttack_minRange2d"		"500"
+	"action_blasterAttack_maxRange2d"		"1500"
+	"action_blasterAttack_noturn"			"0"
+	"action_blasterAttack_overrideLegs"		"0"
+
+	// --------------------------------- General ------------------------------------
+
+	"flying"								"1"
+
+	"remove_on_death"						"0"
+
+	"model"									"model_monster_convoy_hover"
+	"dodecahedron"							"1"
+
+	"maxs"									"96 72 32"
+	"mins"									"-96 -72 -64"
+	"mass"									"2000"
+	"suppress_range"						"3200"
+
+	"joint_gun_right"						"muzzle_flash_r"
+	"joint_gun_left"						"muzzle_flash_l"
+	"joint_thruster"						"exhaust"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"200"
+	"damaged_threshold"						"80"
+	"flee_threshold"						"50"
+	"painThreshold"							"10"
+	"bleed"									"0"
+	"startdamaged"							"0"
+	"flee_not_die"							"0"
+	"suppress_rate"							"0"
+	"turn_rate"								"640"
+	"fov"									"90"
+	"attackRange"							"0 3000"
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_blaster"					"projectile_strogg_flyer_blaster"
+	"attack_blaster_accuracy"				"1"
+	"attack_blaster_cone"					"90"
+	"def_attack_bomb"						"projectile_strogg_flyer_bomb"
+	"attack_bomb_accuracy"					"1"
+	"attack_bomb_cone"						"90"
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_flyloop"							"convoy_large_ship_loop3"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_muzzleflash"						"effects/monsters/strogg_flyer/blaster_burst.fx"
+//	"fx_exhaust"							"effects/monsters/strogg_flyer/smoke_trail.fx"
+	"fx_exhaust"							"effects/monsters/strogg_flyer/vertical_sm.fx"
+	"fx_exhaust_damaged"					"effects/monsters/strogg_flyer/smoke_trail_damaged.fx"
+	"fx_damaged"							"effects/monsters/strogg_flyer/smoke_ribbons.fx"
+	"fx_base_attack_flash"					"effects/monsters/turret/f_flash.fx"						// FX_REPLACE
+	"fx_damage_transition"					"effects/monsters/turret/d_death.fx"						// FX_REPLACE
+	"fx_bombflash"							""
+	"fx_death"								"effects/monsters/turret/d_death.fx"						// FX_REPLACE
+	
+	"fx_laser"								"effects/test/nathan/laserline.fx"
+
+	"dbTitle"								"Strogg Hover"
+	"dbText"								"Description Text of the Strogg Hover"
+	
+	"def_position"							"vehicle_strogg_hover_driver"
+	
+	"minDistance"							"300"
+	"maxDistance"							"2500"
+	"minHeight"								"100"
+	"maxHeight"								"600"
+	
+	"allowFlipEject"						"0"
+}
+
+//------------------------------------------------------------------------------
+//									Positions
+//------------------------------------------------------------------------------
+
+
+entityDef vehicle_strogg_hover_driver
+{
+	"spawnclass"						"rvVehiclePosition"
+}

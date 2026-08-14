@@ -1,0 +1,23 @@
+export cin_convoy1_harv_cam 
+{
+	options -scale .3937 -nomesh -sourcedir work/models/monsters/harvester/animations -destdir models/cinematics/convoy1
+	
+	camera	work/models/monsters/harvester/animations/CONVOY_2b_CINEMATIC.ma		-range 1 466 -dest cin_convoy1_harv_cam
+}	
+
+camera convoy1_harv_camera
+{
+	anim convoy1_harv_cam				"models/cinematics/convoy1/cin_convoy1_harv_cam.md5camera"
+
+}
+
+entityDef cin_convoy1_harv_cam
+{
+	"editor_color"					"1 0 .5"
+	"editor_mins"					"-16 -16 -16"
+	"editor_maxs"					"16 16 16"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+	"camera"						"convoy1_harv_camera"
+}

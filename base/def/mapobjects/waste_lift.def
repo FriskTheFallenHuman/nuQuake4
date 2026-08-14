@@ -1,0 +1,43 @@
+
+/***********************************************************************
+Waste Lift
+
+***********************************************************************/
+
+
+export waste_bb_lift 
+{
+	options -scale .3937 -align ALL
+
+	mesh	work/models/monsters/buddy_boss/animation/waste_lift.ma -dest models/monsters/bossbuddy/lift/mesh
+	
+	anim	work/models/monsters/buddy_boss/animation/waste_lift.ma	-range 151 152 -dest models/monsters/bossbuddy/lift/idle
+	anim	work/models/monsters/buddy_boss/animation/waste_lift.ma -range 1 152 -dest models/monsters/bossbuddy/lift/raise
+	
+	
+	
+}	
+
+
+entityDef env_waste_lift
+{
+
+	"model"							"model_env_waste_lift"
+	"spawnclass"					"idAnimated"
+	"editor_usage"					"animated_waste_lift"
+	"editor_mins"					"-96 -96 -32"
+	"editor_maxs"					"96 96 32"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"raise"
+}
+
+model model_env_waste_lift
+
+{
+	mesh					models/monsters/bossbuddy/lift/mesh.md5mesh
+	anim idle	 			models/monsters/bossbuddy/lift/idle.md5anim
+	anim raise 				models/monsters/bossbuddy/lift/raise.md5anim
+
+}

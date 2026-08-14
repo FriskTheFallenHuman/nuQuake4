@@ -1,0 +1,82 @@
+/***********************************************************************************************************************
+Process2
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+entityDef char_marine_npc_sledge_process2
+{
+	"inherit"										"char_marine_hyperblaster"
+	"model"										"process_model_char_marine"
+	
+	"editor_menu"										"char_npc_process2"
+	"annoyed"											"0"
+
+	//sledge should stick close by to you
+	"followRange"										"70 175"
+
+	// "Strauss, what are those devices on the ceiling?"
+	"lipsync_vo_3_1_14_110_1"							"vo_3_1_14_110_1"
+
+	// "Ah, good job. But I wonder if that unlocked the door?"
+	"lipsync_vo_3_1_14_120_1"							"vo_3_1_14_120_1"
+
+	// "You are getting good at this, Kane."
+	//"lipsync_vo_3_1_14_140_1"							"vo_3_1_14_140_1" UNUSED
+
+	//"It would appear that machine is obstructing the router path. But since you’re a Strogg, I imagine you can correct the problem."
+	//"lipsync_vo_3_1_14_150_1"							"vo_3_1_14_150_1" UNUSED
+
+	//"You Strogg can be quite intelligent when the mood suits you."
+	//"lipsync_vo_3_1_14_160_1"							"vo_3_1_14_160_1" UNUSED
+
+	//"Very good. Get up here ASAP. Slidjonovitch out."
+	//"lipsync_vo_3_1_14_190_2"							"vo_3_1_14_190_2" UNUSED
+
+	//"I’m no Strassa, but I believe that router is damaged."
+	"lipsync_vo_3_1_14_170_1"							"vo_3_1_14_170_1"
+
+	//"Understood, we will comply."
+	//"lipsync_vo_3_1_14_195_2"							"vo_3_1_14_195_2" UNUSED
+
+	//"Hmm, Strogg security must have shut down this elevator."
+	"lipsync_vo_3_1_14_198_1"							"vo_3_1_14_198_1"
+
+	//"That door is protected by a security scanner. It would fry me the instant it detected I was not a Strogg. I am sorry, Kane, but I cannot accompany you."
+	//"lipsync_vo_3_1_14_200_1"							"vo_3_1_14_200_1" UNUSED
+
+	//"It sounds as if I missed out on a lot of fun in there. Wolf Squad arrived a short time ago. They activated the elevator and several of them are already at the top of the tower. Let us go join them."
+	//"lipsync_vo_3_1_14_280_1"							"vo_3_1_14_280_1" UNUSED
+
+	//""Now we must find the security station on the roof. Lead the way."
+	"lipsync_vo_3_1_15_10_1"							"vo_3_1_15_10_1"
+
+	//"Ah, good.  That door must now be open."
+	//"lipsync_vo_3_1_15_30_1"							"vo_3_1_15_30_1"  UNUSED
+
+	//"Understood, Strauss.  I will comply."
+	"lipsync_vo_3_1_15_50_2"							"vo_3_1_15_50_2"
+
+	//"Good luck to you, Kane.  But you have a weapon."
+	"lipsync_vo_3_1_15_50_4"							"vo_3_1_15_50_4"
+
+	// Clicky Talk -- Not used until Sledge is ordered to stay behind on the roof.
+	"lipsync_talk_primary"								"vo_3_1_15_55_1"
+	"lipsync_talk_secondary"							"vo_3_1_15_55_2"
+	"lipsync_talk_loop1"								"vo_3_1_15_55_3"
+
+	// "Did you hear that Kane? It appears we will be having some help very soon."
+	"lipsync_vo_3_1_14_115_2"							"vo_3_1_14_115_2"
+	
+	// "That wasn't so bad"
+	"lipsync_vo_9_6_90_6"								"vo_9_6_90_6"
+	
+	//"Strauss, we are unable to proceed"
+	"lipsync_vo_3_1_14_175_1"							"vo_3_1_14_175_1"
+	
+	//"Very well done Kane. Let's go."
+	"lipsync_vo_3_1_14_178_1"							"vo_3_1_14_178_1"
+
+	//That must be all that remains of Cougar squad.
+	"lipsync_vo_3_1_15_40_1"							"vo_3_1_15_40_1"
+}

@@ -1,0 +1,658 @@
+/*
+===============================================================================
+
+	Gladiator
+
+===============================================================================
+*/
+
+export gladiator
+{
+	options -prefix GLA_ -scale .3937 -align ALL -keep origin lft_up_shock_3 rt_up_shock_3 shield_jt -parent pelvis origin -parent rt_eye_target head_jt -parent lft_eye_target head_jt -parent shield_jt rt_wrist_jt -sourcedir work/models/monsters/Gladiator/animation -destdir models/monsters/gladiator
+	mesh	GLA_mesh.ma		-dest gla_mesh
+
+	anim	GLA_idle.ma							-dest gla_idle
+	anim	GLA_v2_walk.ma					-dest gla_walk
+	anim	GLA_v2_walk_back.ma				-dest gla_walk_back
+	anim	GLA_v2_walk_left.ma				-range 1 34 -dest gla_walk_left
+	anim	GLA_v2_walk_right.ma			-range 1 34 -dest gla_walk_right
+	anim	GLA_v2_run_shield.ma			-dest gla_fastwalk
+	
+	anim	GLA_blaster_strafe_feetPlanted_2.ma			-dest gla_blaster
+	anim	GLA_blaster_strafe_2STEP_big_stride.ma		-dest gla_blaster_strafe
+	anim	GLA_railgun_shoot_lft_foot_planted.ma		-dest gla_railgun1
+	anim	GLA_railgun_shoot_lft_foot_planted_v02b.ma	-dest gla_railgun2
+	anim	GLA_railgun_shoot_feetplanted.ma			-dest gla_railgun3
+	anim	GLA_melee_blasterhand_1.ma				-dest gla_melee1
+	anim	GLA_melee_blasterhand_2.ma				-dest gla_melee2
+	anim	GLA_melee_grab_and_rip.ma				-dest gla_melee3
+	anim	GLA_protect_self.ma						-dest gla_dodge
+
+	anim	GLA_idle_poseA_alertedToPlayer.ma			-dest gla_alerted
+	anim	GLA_ragdoll.ma							-dest ragdoll
+	anim	GLA_jumpB.ma							-dest gla_jump
+
+	anim	GLA_charge_start.ma						-dest gla_charge_start
+	anim	GLA_charge_loop.ma						-dest gla_charge_loop
+	anim	GLA_charge_stop.ma						-dest gla_charge_stop
+	
+	anim	GLA_pain_small.ma						-dest gla_pain_small
+	anim	GLA_pain_big.ma							-dest gla_pain_big
+	
+	anim	GLA_disp2_only_gladiator.ma				-dest disp_fence_rip
+	anim	GLA_melee_grab_and_rip_failedTransfer.ma	-dest rip_apart_failedtransfer
+
+	anim	GLA_shield_start_idle_end.ma				-range 1 10 -dest shield_start
+//	anim	GLA_shield_idle_only.ma						-dest shield_idle
+	anim	GLA_shield_start_idle_end.ma				-range 10 50 -dest shield_idle
+	anim	GLA_shield_start_idle_end.ma				-range 50 60 -dest shield_end
+	anim	GLA_shield_blaster_start_loop_end.ma		-range 1 8 -dest shield_blaster_start
+	anim	GLA_shield_blaster_start_loop_end.ma		-range 8 16 -dest shield_blaster_loop
+	anim	GLA_shield_blaster_start_loop_end.ma		-range 16 24 -dest shield_blaster_end
+	anim	GLA_shield_hit_player.ma					-dest shield_melee
+	anim	GLA_shield_pain.ma							-dest shield_pain
+	anim	GLA_blaster_strafe_start_loop_end.ma		-range 12 20 -dest blaster_start
+	anim	GLA_blaster_strafe_start_loop_end.ma		-range 20 29 -dest blaster_loop
+	anim	GLA_blaster_strafe_start_loop_end.ma		-range 29 39 -dest blaster_end
+	anim	GLA_turn_right_90.ma				-range 10 46 -dest shield_turn_right
+	anim	GLA_turn_left_90.ma				-range 10 46 -dest shield_turn_left
+	anim	GLA_pain_std.ma					-range 1 27 -dest pain_std
+	anim	GLA_pain_std2.ma				-dest pain_std2
+	anim	GLA_pain_con.ma					-range 1 30 -dest pain_con
+	anim	GLA_pain_strm.ma				-range 1 4 -dest pain_strm_start
+	anim	GLA_pain_strm.ma				-range 4 12 -dest pain_strm_loop
+	anim	GLA_pain_strm.ma				-range 12 15 -dest pain_strm_end
+	
+	anim	GLA_combat_idle.ma				-range 1 48 -dest combat_idle
+	anim	GLA_walk_aim.ma					-range 1 31 -dest walk_aim
+	
+}
+
+/*
+===============================================================================
+
+	Gladiator Model
+
+===============================================================================
+*/
+
+model model_monster_gladiator
+{	
+	mesh												models/monsters/gladiator/gla_mesh.md5mesh	
+	
+	channel torso										( *waist_jt )
+	channel legs										( *pelvis origin )
+	
+	anim af_pose										models/monsters/gladiator/ragdoll.md5anim
+		
+	anim idle											models/monsters/gladiator/gla_idle.md5anim 
+	{
+		frame	18									sound			snd_clamp
+		frame	2,81									sound			snd_breathe			
+	}	
+	anim idle_alert								models/monsters/gladiator/combat_idle.md5anim 
+	{
+		frame	2									sound			snd_breathe			
+	}
+
+	anim walk											models/monsters/gladiator/gla_walk.md5anim 
+	{
+		sync_cycle
+		frame	1,25									sound	 		snd_breathe		
+		frame	9,29									sound				snd_servo
+		frame	13,28									footstep
+//		frame	16,37									fx					fx_footstomp					lft_outr_toe_jt
+	}
+	anim	walk_aim									models/monsters/gladiator/walk_aim.md5anim
+	{
+		sync_cycle
+		//frame	1,25									sound			snd_breathe		
+		frame	9,29									sound				snd_servo
+		frame	13,28									footstep
+	}
+
+	anim walk_backwards								models/monsters/gladiator/gla_walk_back.md5anim
+	{
+		frame	1,16									footstep
+		frame	6,21									sound				snd_servo
+	}
+	anim walk_right									models/monsters/gladiator/gla_walk_right.md5anim
+	{
+		frame	15,33									footstep
+		frame	4,20									sound				snd_servo
+	}
+	anim walk_left									models/monsters/gladiator/gla_walk_left.md5anim
+	{
+		frame	15,32									footstep
+		frame	4,20									sound				snd_servo
+	}
+
+	anim run											models/monsters/gladiator/gla_fastwalk.md5anim 
+	{
+		frame	1									sound				snd_breathe
+		frame	2,15									sound				snd_servo
+		frame	11,22									footstep
+//		frame	11,24									fx					fx_footstomp		lft_outr_toe_jt
+	}
+
+	anim run_backwards								models/monsters/gladiator/gla_walk_back.md5anim
+	{
+		frame	1,16									footstep
+		frame	6,21									sound				snd_servo
+	}
+	anim run_right									models/monsters/gladiator/gla_walk_right.md5anim
+	{
+		frame	15,33									footstep
+		frame	4,20									sound				snd_servo
+	}
+	anim run_left									models/monsters/gladiator/gla_walk_left.md5anim
+	{
+		frame	15,32									footstep
+		frame	4,20									sound				snd_servo
+	}
+
+	anim railgun_attack				models/monsters/gladiator/gla_railgun1.md5anim 
+	{
+		frame 1						fx					fx_railgun_charge		gun_main_jt
+		frame 9,43					footstep
+//		frame 21					ai_lockEnemyOrigin
+		frame 23					ai_attack			railgun					gun_barrel_move_jt		
+		frame 23					fx					fx_railgun_flash		gun_main_jt
+	}						
+	anim railgun_attack2			models/monsters/gladiator/gla_railgun2.md5anim 
+	{
+		frame 1						fx					fx_railgun_charge		gun_main_jt
+		frame 12,45					footstep
+//		frame 35					ai_lockEnemyOrigin
+		frame 37					ai_attack			railgun					gun_barrel_move_jt		
+		frame 37					fx					fx_railgun_flash		gun_main_jt
+	}						
+
+	anim pain						models/monsters/gladiator/gla_pain_small.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+	anim pain_big					models/monsters/gladiator/gla_pain_big.md5anim
+	{
+		frame	1					sound_voice			snd_pain
+	}
+
+	// ------------------------------------ Scripted Anims --------------------
+	anim nav_smash										models/monsters/gladiator/disp_fence_rip.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	3										sound				snd_fence_touch
+		frame	8										sound				snd_fence_tear
+		frame	14										sound				snd_fence_break
+		frame	30										footstep
+		frame	25										sound  				snd_servo
+	}		
+	anim disp_fence										models/monsters/gladiator/disp_fence_rip.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	3										sound				snd_fence_touch
+		frame	8										sound				snd_fence_tear
+		frame	14										sound				snd_fence_break
+		frame	30										footstep
+		frame	25										sound  				snd_servo
+	}
+
+	anim grap_and_rip										models/monsters/gladiator/rip_apart_failedtransfer.md5anim
+	{
+		frame	1,14,40										sound  				snd_servo
+		frame	5,21,45										footstep
+		frame	6											sound				snd_clamp
+		frame	22											sound				snd_rip
+		frame   63											sound			snd_breathe
+	}
+
+	anim shield_start				models/monsters/gladiator/shield_start.md5anim
+	{
+		frame	1								sound_weapon			snd_shield_up
+	}
+	anim shield_idle				models/monsters/gladiator/shield_idle.md5anim
+	{
+		frame	2									sound			snd_breathe			
+	}
+	anim shield_idle_alert			models/monsters/gladiator/shield_idle.md5anim
+	{
+		frame	2									sound			snd_breathe			
+	}
+	anim shield_end					models/monsters/gladiator/shield_end.md5anim
+	{
+		frame	1					sound_weapon				snd_shield_down
+	}
+	anim shield_blaster_start		models/monsters/gladiator/shield_blaster_start.md5anim
+	anim shield_blaster_loop		models/monsters/gladiator/shield_blaster_loop.md5anim
+	{
+//		rate 2
+		rate 1.5
+		frame 1						ai_attack			blaster					lft_wrist_jt
+		frame 2						fx					fx_blaster_flash		lft_wrist_jt
+	}
+
+	anim shield_blaster_end			models/monsters/gladiator/shield_blaster_end.md5anim
+	anim shield_melee_attack		models/monsters/gladiator/shield_melee.md5anim
+	{
+		frame	5					ai_attack_melee 	shieldBash
+		frame   5					sound   		snd_breathe
+	}
+	anim shield_pain				models/monsters/gladiator/shield_pain.md5anim
+	{
+		frame	1					sound			snd_pain
+	}
+	anim shield_pain_big			models/monsters/gladiator/shield_pain.md5anim
+	{
+		frame	1					sound			snd_pain
+	}
+	
+	anim shield_turn_left		models/monsters/gladiator/shield_turn_right.md5anim, models/monsters/gladiator/shield_turn_right.md5anim
+	{
+		anim_turn
+	}
+	anim shield_turn_right		models/monsters/gladiator/shield_turn_left.md5anim, models/monsters/gladiator/shield_turn_left.md5anim
+	{
+		anim_turn
+	}	
+	anim turn_left		models/monsters/gladiator/shield_turn_right.md5anim, models/monsters/gladiator/shield_turn_right.md5anim
+	{
+		anim_turn
+	}
+	anim turn_right		models/monsters/gladiator/shield_turn_left.md5anim, models/monsters/gladiator/shield_turn_left.md5anim
+	{
+		anim_turn
+	}	
+	anim pain_std				models/monsters/gladiator/pain_std.md5anim
+	anim pain_std2				models/monsters/gladiator/pain_std2.md5anim
+	anim pain_con				models/monsters/gladiator/pain_con.md5anim
+	anim pain_strm_start			models/monsters/gladiator/pain_strm_start.md5anim
+	anim pain_strm_loop			models/monsters/gladiator/pain_strm_loop.md5anim
+	anim pain_strm_end			models/monsters/gladiator/pain_strm_end.md5anim
+
+	anim melee_attack				models/monsters/gladiator/gla_melee1.md5anim 
+	{
+		frame   10,26				sound   			snd_servo
+		frame	13					fx					fx_swipe				lft_wrist_jt		
+		frame	15					ai_attack_melee		melee_left
+		frame   16,30				footstep
+		frame   20					sound	  		snd_breathe
+	}	
+	anim melee_attack1				models/monsters/gladiator/gla_melee2.md5anim 
+	{
+		frame	12					fx					fx_swipe				lft_wrist_jt		
+		frame	14					ai_attack_melee		melee
+		frame   10,25				sound   			snd_servo
+		frame   15,29				footstep
+		frame   17					sound			snd_breathe
+	}	
+
+	anim blaster_start				models/monsters/gladiator/blaster_start.md5anim
+	anim blaster_loop				models/monsters/gladiator/blaster_loop.md5anim
+	{
+//		rate 2
+		rate 1.5
+		frame 1						ai_attack			blaster					lft_wrist_jt
+		frame 2						fx					fx_blaster_flash		lft_wrist_jt
+	}
+	anim blaster_end				models/monsters/gladiator/blaster_end.md5anim
+
+	anim railgun_attack3			models/monsters/gladiator/gla_railgun3.md5anim 
+	{
+		frame 1						fx					fx_railgun_charge		gun_main_jt
+		frame 9,43					footstep
+//		frame 17					ai_lockEnemyOrigin
+		frame 19					ai_attack			railgun 				gun_barrel_move_jt		
+		frame 19					fx					fx_railgun_flash		gun_main_jt
+	}
+
+/* ----------------------------------------------------------------------------------------------------------------
+										NOT BEING USED AT THE MOMENT	
+   ----------------------------------------------------------------------------------------------------------------
+
+	anim range_attack									models/monsters/gladiator/gla_blaster.md5anim
+	{	
+		frame 4,8,12,16,20,30,34,38,42,46				ai_attack			blaster				lft_wrist_jt
+		frame 4,8,12,16,20,30,34,38,42,46				fx					fx_blaster_flash	lft_wrist_jt
+	}	
+	anim range_attack_advance							models/monsters/gladiator/gla_blaster_strafe.md5anim 
+	{	
+		frame 6,21										footstep
+		frame 1,25 										sound			snd_breathe
+		frame 4,25 										sound				snd_servo
+	
+		frame 10,14,19,36,40,44							ai_attack			blaster				lft_wrist_jt
+		frame 10,14,19,36,40,44							fx					fx_blaster_flash		lft_wrist_jt
+	}	
+	   									
+	anim dodge											models/monsters/gladiator/gla_dodge.md5anim 
+
+	anim charge_start									models/monsters/gladiator/gla_charge_start.md5anim
+	{
+		frame	4										sound_weapon			snd_shield_up
+	} 
+	anim charge_loop									models/monsters/gladiator/gla_charge_loop.md5anim 
+	anim charge_stop									models/monsters/gladiator/gla_charge_stop.md5anim 
+	{
+		frame	10										sound_weapon				snd_shield_down
+	}		
+	anim melee_attack_pickup							models/monsters/gladiator/gla_melee3.md5anim 
+	{
+		frame   1,33									sound			snd_breathe
+		frame   3,17,40									sound   			snd_servo
+		frame   5,21,45									footstep
+		frame   11										sound				snd_clamp
+		frame   20										sound				snd_rip
+		frame	41										ai_attack_melee		melee
+	}	
+
+	// This used to be sight, but it's just way too long.  Use this for scripted stuff?
+	anim not_sight										models/monsters/gladiator/gla_alerted.md5anim 
+	{							
+		frame	2										sound			snd_breathe
+		frame	50										sound				snd_clamp
+	}
+
+	anim nav_leap					models/monsters/gladiator/gla_jump.md5anim 
+	{
+		frame	1					ai_disablePain
+		frame	2					sound				snd_start
+		frame 	46					sound				snd_land
+	}
+*/
+
+}
+
+/*
+===============================================================================
+
+	Gladiator Attacks
+
+===============================================================================
+*/
+
+entityDef damage_gladiator_blaster
+{
+	"inherit"							"damage_monster_base"
+	"damage"							"5"
+}
+
+entityDef projectile_gladiator_blaster
+{
+	"inherit"							"projectile_blaster_base"
+	"def_damage"						"damage_gladiator_blaster"
+
+	"mins"								"-10 -2 -2"				// BBox Mins
+	"maxs"								"10 2 2"					// BBox Maxs
+	"cone"								"0"						// Default physics shape.
+
+	"speed"								"1100"
+	"fx_impact"							"effects/monsters/gladiator/blaster_burst.fx"
+	"fx_fly"							"effects/monsters/gladiator/blaster_fly.fx"
+	"snd_fly"							"weapon_energy_projectile_loop"
+}
+
+entityDef damage_gladiator_railgun
+{
+	"inherit"							"damage_railgun_base"
+//	"damage"							"50"
+	"damage"							"40"
+	"kickdir"							"1 0 0"
+}
+
+entityDef hitscan_gladiator_railgun
+{
+	"inherit"							"hitscan_base"
+	"push"								"40000"
+	"def_damage"						"damage_gladiator_railgun"
+	
+	"fx_impact"							"effects/monsters/gladiator/railgun_burst.fx"
+	"fx_path"							"effects/monsters/gladiator/railgun_trail.fx"
+}
+
+entityDef melee_gladiator_new
+{
+	"damage"						"25"
+	"knockback"						"50"
+
+	"kickDir"						".5 0 0.3"
+	"kick_time"						"300"
+	"kick_amplitude"				"1"
+	
+	"blob_time"						"500"
+	"mtr_blob"						"textures/decals/genericdamage"
+	"blob_x"						"0"
+	"blob_y"						"-125"
+	"blob_width"					"400"
+	"blob_height"					"400"
+	
+	"dv_time"						"500"
+	"dv_scale"						".1"
+	
+	"tv_time"						"500"
+	
+	"fx_wound"						""
+	"snd_flesh"						"bullet_impact_flesh"	
+
+	"deathPush"					"100"
+	"deathPushMin"				"3000 350"
+	"deathPushMax"				"5000 500"	
+
+//	"fx_impact"					"effects/impact/melee_impact_body.fx"
+//	"fx_impact_flesh"			"effects/impact/melee_impact_flesh_big.fx"						
+
+//	"bleed"						"1"
+//	"mtr_wound"					"textures/decals/bruise"
+//	"mtr_wound2"					"textures/decals/bruise2"
+//	"mtr_wound3"					"textures/decals/bruise3"
+//	"mtr_wound4"					"textures/decals/bruise4"
+//	"wound_size"					"5"
+
+//	"timescaleStart"				"0.15"
+//	"timescaleRampTimeMin"			"600"
+//	"timescaleRampTimeMax"			"1400"
+}
+
+entityDef melee_gladiator 
+{
+//	"inherit"							"melee_monster_base"
+	"inherit"							"melee_gladiator_new"
+//	"damage"							"50"
+	"damage"							"35"
+	"kickDir"							".5 -0.2 0.3"
+	"knockback"							"80"
+	"snd_hit"							"gladiator_punch"
+	"snd_miss"							"gladiator_swing"
+}
+
+entityDef melee_gladiator_left
+{
+	"inherit"							"melee_gladiator"
+	"kickDir"							".5 0.4 0.3"
+}
+
+entityDef melee_gladiator_shield
+{
+//	"inherit"							"melee_monster_base"
+	"inherit"							"melee_gladiator_new"
+//	"damage"							"25"
+	"damage"							"15"
+	"kickDir"							".7 -0.1 .7"
+	"knockback"							"100"
+	"snd_hit"							"gladiator_shield_hit"
+	"snd_miss"							"gladiator_shield_swing"
+}
+
+/*
+===============================================================================
+
+	Gladiator Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_gladiator 
+{
+	"inherit"							"actor_default"
+	"editor_var script_postWeaponDestroyed"				"Script executed when railgun is destroyed."
+
+	// ------------------------------- Actions ------------------------------------
+	"action_rangedAttack"				"1"
+	"action_rangedAttack_state"			"Torso_BlasterAttack"
+	"action_rangedAttack_anim"			"blaster_loop"
+	"action_rangedAttack_minRange"		"100"
+	"action_rangedAttack_maxRange"		"800"
+//	"action_rangedAttack_rate"			"1.2"
+	"action_rangedAttack_rate"			"1.8"
+	"action_rangedAttack_chance"		"0.35"
+
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_minRange"		"0"
+	"action_meleeAttack_maxRange"		"100"
+//	"action_meleeAttack_chance"			"0.25"
+	"action_meleeAttack_chance"			"1"
+	"action_meleeAttack_rate"			"0.1"
+	"action_meleeAttack_failrate"		"0.1"
+	
+	"action_railgunAttack"				"1"
+	"action_railgunAttack_minRange"		"200"
+	"action_railgunAttack_maxRange"		"1500"
+	"action_railgunAttack_anim"			"railgun_attack"
+//	"action_railgunAttack_rate"			"2"
+	"action_railgunAttack_rate"			"2.5"
+	"action_railgunAttack_failrate"		"0.5"
+	"action_railgunAttack_chance"		"1"
+	"action_railgunAttack_nopain"		"1"
+	
+	"actionTimer_rangedAttack_rate"		"1.2"				
+	"actionTimer_specialAttack_rate"	"2"
+
+	// --------------------------------- Body ------------------------------------
+	"spawnclass"						"rvMonsterGladiator"
+	"model"								"model_monster_gladiator"
+	"model2"							"models/monsters/gladiator/shield.lwo"
+	"ragdoll"							"gladiator"	
+	"mass"								"230"
+	"size"								"48 48 88"
+	"use_aas"							"aas48"
+	"joint_chestOffset"					"chest_jt"
+	"joint_eyeOffset"					"rt_up_lid_jt"
+
+	"hidesurface"						"models/monsters/gladiator/shield"
+	
+	"directionalMovement"				"1"	
+
+	// --------------------------------- Combat ----------------------------------
+//	"health"							"700"
+	"health"							"550"
+	"railgunHealth"						"200"
+	"painThreshold"						"10"
+	"painThresholdBig"					"90"
+	"melee_range"						"100"
+	"shieldDelay"						".25"
+//	"fov"								"50"
+	"fov"								"150"
+	"awareRange"						"200"
+
+	"tactical_rush"						"1"
+	"tactical_ranged"					"1"
+	"tactical_cover"					"0"
+	"tactical_hide"						"1"
+
+	"def_attack_melee"					"melee_gladiator"
+	"def_attack_melee_left"				"melee_gladiator_left"
+	"def_attack_shieldBash"				"melee_gladiator_shield"
+
+	"def_attack_blaster"				"projectile_gladiator_blaster"	
+//	"attack_blaster_accuracy"			"1"
+	"attack_blaster_accuracy"			"2"
+	"minShots"							"3"
+	"maxShots"							"5"
+
+	"def_attack_railgun"				"hitscan_gladiator_railgun"
+	"attack_railgun_hitscan"			"1"
+	"attack_railgun_accuracy"			"2"
+	"attack_railgun_missFirstShot"		"1"
+	"attack_railgun_predict"			"1"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"					"*head_jt"
+	"damage_zone legs"					"*pelvis origin"
+	"damage_zone gun"					"*gun_mount_area_adjust_jt *gun_main_jt"
+	"damage_zone shield"				"*shield_jt"
+	"damage_scale head"					"2"	
+	"damage_scale legs"					".75"	
+	"damage_scale gun"					"1"	
+	"damage_scale shield"				"1"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist_jt"				"0.3 0.3 0"
+	"look_joint chest_jt"				"0.3 0.3 0"
+	"look_joint shoulders_jt"			"0.3 0.3 0"
+	"look_joint head_jt"				"0.2 0.2 0"
+	"look_joint lft_elbo_jt"			"0.4 0.4 0"
+	"look_joint gun_barrel_move_jt"		"0.4 0.4 0"
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_shield"						"monster_gladiator_shield"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_blaster_flash"					"effects/monsters/gladiator/blaster_mflash.fx"
+	"fx_railgun_flash"					"effects/monsters/gladiator/railgun_mflash.fx"
+	"fx_railgun_charge"					"effects/monsters/gladiator/railgun_charge.fx"
+	"fx_block_effect"					"effects/monsters/gladiator/energyshield.fx"
+	"fx_shield"							"effects/monsters/gladiator/shield2.fx"
+	"fx_footstomp"						"effects/monsters/gladiator/footstomp.fx"
+	"fx_railglow"						"effects/monsters/gladiator/railglow.fx"
+	"fx_gunglow"						"effects/monsters/gladiator/gunglow.fx"
+	"fx_swipe"							"effects/monsters/grunt/swipe_attack.fx"		// FX_REPLACE
+	"fx_railgun_explode"				"effects/monsters/light_tank/destroy_arm.fx"
+	"fx_railgun_burn"					"effects/monsters/gladiator/destroy_arm_trail.fx"
+	
+	//burn away----------------------------------------------------------------------
+	
+		"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"						"gladiator_alert"
+	
+	"snd_shield_up"						"gladiator_shield_up"
+	"snd_shield_down"					"gladiator_shield_down"
+	"snd_shield_loop"					"gladiator_shield_loop"
+	
+	"snd_footstep"						"gladiator_footsteps"
+	"snd_footstep_sand"					"gladiator_footsteps_dirt"
+	"snd_footstep_dirt"					"gladiator_footsteps_dirt"
+	"snd_footstep_hollowmetal"			"gladiator_footsteps_hollow_metal"
+	"snd_footstep_rock"					"gladiator_footsteps"
+	
+	"snd_bounce"						"generic_creature_fall_metal"
+	
+	"snd_punch"							"gladiator_punch"
+	"snd_swing"							"gladiator_swing"
+	"snd_land"							"gladiator_jump_land"
+	"snd_start"							"gladiator_jump_start"
+	"snd_death"							"gladiator_die"
+	"snd_servo"							"gladiator_servo"
+	"snd_breathe"						"gladiator_breathe"
+	"snd_clamp"							"gladiator_clamp"
+	"snd_rip"							"gladiator_rip"
+	"snd_pain"							"gladiator_pain"
+	"snd_fence_tear"					"grunt_fence_land"
+	"snd_fence_touch"					"grunt_fence_climb"
+	"snd_fence_break"					"grunt_fence_break"
+	"snd_flesh"							"bullet_impact_flesh"
+	"snd_shield_flicker"				"gladiator_shield_flicker"
+	
+	"sound_bone"						"waist_jt"
+}
+
+entityDef monster_gladiator_shield 
+{
+	"spawnclass"						"idAFAttachment"
+	"joint"								"shield_jt"
+	"model"								"models/monsters/gladiator/shield.lwo"
+	"takeBounceDamage"					"1"
+}

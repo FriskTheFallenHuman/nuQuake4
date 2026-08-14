@@ -1,0 +1,141 @@
+// OOH COLORS!
+// for multiplayer maps in a stroyent theme
+
+textures/stroyent/mp/stroy_pillar1_orange
+{
+	bumpmap		textures/stroyent/stroy_pillar1_local
+	diffusemap	textures/stroyent/mp/stroy_pillar1_d_orange
+	specularmap	textures/stroyent/stroy_pillar1_s
+	qer_editorimage	textures/stroyent/mp/stroy_pillar1_d_orange
+}
+
+textures/stroyent/mp/stroy_pillar1_green
+{
+	bumpmap		textures/stroyent/stroy_pillar1_local
+	diffusemap	textures/stroyent/mp/stroy_pillar1_d_green
+	specularmap	textures/stroyent/stroy_pillar1_s
+	qer_editorimage	textures/stroyent/mp/stroy_pillar1_d_green
+}
+
+textures/stroyent/mp/tun6_green
+{
+	bumpmap		textures/stroyent/stroy_tun6_local
+	diffusemap	textures/stroyent/mp/stroy_tun6_d_green
+	specularmap	textures/stroyent/stroy_tun6_s
+	qer_editorimage	textures/stroyent/mp/stroy_tun6_d_green
+}
+
+textures/stroyent/mp/tun6small_green
+{
+	bumpmap		textures/stroyent/tun6small_local
+	diffusemap	textures/stroyent/mp/tun6small_d_green
+	specularmap	textures/stroyent/tun6small_s
+	qer_editorimage	textures/stroyent/mp/tun6small_d_green
+}
+
+textures/stroyent/mp/tunbump_green
+{
+	bumpmap		textures/stroyent/tunbump_local
+	diffusemap	textures/stroyent/mp/tunbump_d_green
+	specularmap	textures/stroyent/tunbump_s
+	qer_editorimage	textures/stroyent/mp/tunbump_d_green
+}
+
+textures/stroyent/mp/tunpipe_green
+{
+	bumpmap		textures/stroyent/tunpipe_local
+	diffusemap	textures/stroyent/mp/tunpipe_d_green
+	specularmap	textures/stroyent/tunpipe_s
+	qer_editorimage	textures/stroyent/mp/tunpipe_d_green
+}
+
+textures/stroyent/mp/tunpipe_orange
+{
+	bumpmap		textures/stroyent/tunpipe_local
+	diffusemap	textures/stroyent/mp/tunpipe_d_orange
+	specularmap	textures/stroyent/tunpipe_s
+	qer_editorimage	textures/stroyent/mp/tunpipe_d_orange
+}
+
+textures/stroyent/mp/tunpipe2_orange
+{
+	bumpmap		textures/stroyent/tunpipe2_local
+	diffusemap	textures/stroyent/mp/tunpipe2_d_orange
+	specularmap	textures/stroyent/tunpipe2_s
+	qer_editorimage	textures/stroyent/mp/tunpipe2_d_orange
+}
+
+textures/stroyent/mp/tunpipe2_green
+{
+	bumpmap		textures/stroyent/tunpipe2_local
+	diffusemap	textures/stroyent/mp/tunpipe2_d_green
+	specularmap	textures/stroyent/tunpipe2_s
+	qer_editorimage	textures/stroyent/mp/tunpipe2_d_green
+}
+
+/*
+textures/stroyent/mp/tunwall11_orange
+{
+	bumpmap		textures/stroyent/tunwall11_local
+	diffusemap	textures/stroyent/mp/tunwall11_d_orange
+	specularmap	textures/stroyent/tunwall11_s
+	qer_editorimage	textures/stroyent/mp/tunwall11_d_orange
+}
+*/
+
+textures/stroyent/mp/tunwall12_orange
+{
+	bumpmap		textures/stroyent/tunwall12_local
+	diffusemap	textures/stroyent/mp/tunwall12_d_strogg
+	specularmap	textures/stroyent/tunwall12_s
+	qer_editorimage	textures/stroyent/mp/tunwall12_d_strogg
+}
+
+textures/stroyent/mp/tunwall12_green
+{
+	bumpmap		textures/stroyent/tunwall12_local
+	diffusemap	textures/stroyent/mp/tunwall12_d_marine
+	specularmap	textures/stroyent/tunwall12_s
+	qer_editorimage	textures/stroyent/mp/tunwall12_d_marine
+}
+
+textures/stroyent/mp/tunwall15_orange
+{
+	bumpmap		textures/stroyent/tunwall15_local
+	diffusemap	textures/stroyent/mp/tunwall15_d_strogg
+	specularmap	textures/stroyent/tunwall15_s
+	qer_editorimage	textures/stroyent/mp/tunwall15_d_strogg
+}
+
+textures/stroyent/mp/tunwall15_green
+{
+	bumpmap		textures/stroyent/tunwall15_local
+	diffusemap	textures/stroyent/mp/tunwall15_d_marine
+	specularmap	textures/stroyent/tunwall15_s
+	qer_editorimage	textures/stroyent/mp/tunwall15_d_marine
+}
+
+/*
+
+{
+	bumpmap		textures/stroyent/_local
+	diffusemap	textures/stroyent/mp/_d_orange
+	specularmap	textures/stroyent/_s
+	qer_editorimage	textures/stroyent/mp/_d_orange
+}
+
+{
+	bumpmap		textures/stroyent/_local
+	diffusemap	textures/stroyent/mp/_d_green
+	specularmap	textures/stroyent/_s
+	qer_editorimage	textures/stroyent/mp/_d_green
+}
+
+*/
+
+
+
+// and also smoother concrete, cuz
+guide textures/stroyent/mp/concrete09asmooth generic_nonormal_height_type ("common_misc/concrete09a","2", "concrete")
+guide textures/stroyent/mp/concrete09smooth generic_nonormal_height_type ("common_misc/concrete09","2", "concrete")
+guide textures/stroyent/mp/concrete04smooth generic_nonormal_height_type ("common_misc/concrete04","2", "concrete")

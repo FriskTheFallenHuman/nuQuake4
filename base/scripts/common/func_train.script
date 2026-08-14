@@ -1,0 +1,120 @@
+
+object func_train
+{
+	void	init ( );
+	
+	void	train_stop ( );
+	void	train_go ( );
+	void	train_path ( );
+	void	train_spline ( );
+	void	train_spline_no_angles ( );
+
+	float	loopDelay;
+	boolean	useSplineAngles;
+};
+
+void func_train::init ( ) {		
+//nothing to see here, move along...
+	loopDelay = getFloatKey( "loopDelay" );
+	useSplineAngles = getFloatKey( "useSplineAngles" );
+}
+
+void func_train::train_stop ( ) {
+	stopMoving();
+}
+
+void func_train::train_go ( ) {		
+//move along your linked target_null/func_splinemover path and remove yourself when you get to a dead end
+//OR: move along your linked target_null/func_splinemover path and go back to the beginning after loopDelay when you get to a dead end
+	boolean splineMover = false;
+	while ( 1 )
+	{
+		entity nextNode = getTarget(0);
+		if ( nextNode )
+		{
+			if ( nextNode.getKey( "classname" ) == "func_splinemover" )
+			{
+				splineMover = true;
+			}
+			if ( !splineMover )
+			{
+                setOrigin( nextNode.getOrigin() );
+			}
+		}
+		while ( nextNode )
+		{
+			float moveTime = nextNode.getFloatKey( "time" );
+			if ( moveTime <= 0 )
+			{
+				moveTime = getFloatKey( "move_time" );
+				if ( moveTime <= 0 )
+				{
+					moveTime = 2;
+				}
+			}
+			time( moveTime );
+			if ( splineMover )
+			{
+				if ( useSplineAngles )
+				{
+					enableSplineAngles();
+				}
+				else
+				{
+					disableSplineAngles();
+				}
+				startSpline( nextNode );
+			}
+			else
+			{
+				moveTo( nextNode );
+				//FIXME: option to not use angles?
+				//FIXME: target_nulls always return '0 0 0' to getAngles?
+				rotateTo( nextNode.getAngles() );
+			}
+			wait( moveTime );
+			//wtf, when I stop, I end up back where I started!
+			setOrigin( getOrigin() );
+			if ( splineMover )
+			{
+				stopSpline();
+			}
+			else
+			{
+				stopMoving();
+				//FIXME: option to not use angles?
+				stopRotating();
+			}
+			float waitTime = nextNode.getFloatKey( "wait" );
+			if ( waitTime > 0 )
+			{
+				wait( waitTime );
+			}
+			nextNode = nextNode.getTarget(0);
+		}
+		if ( loopDelay )
+		{
+			wait( loopDelay );
+		}
+		else
+		{
+			break;
+		}
+	}
+	remove();
+}
+
+void func_train::train_spline ( ) {
+	train_go ();
+}
+
+void func_train::train_spline_no_angles ( ) {
+	disableSplineAngles();
+	train_go ();
+}
+
+
+void func_train::train_path ( ) {
+	//FIXME: option to not use angles?
+	train_go ();
+}

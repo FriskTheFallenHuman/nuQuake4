@@ -1,0 +1,888 @@
+/// for the skybox
+
+gfx/effects/lightson
+{
+	qer_editorimage gfx/effects/lightson.tga
+
+	{
+		blend blend
+		map gfx/effects/lightson.tga
+		vertexColor 
+	}
+}
+
+
+//-----------------------------------------------------------------------
+
+gfx/effects/particles_shapes/waveline1
+{
+	qer_editorimage gfx/effects/particles_shapes/waveline1.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/waveline1.tga
+		vertexColor
+		scroll time * 2, 0 
+	}
+}
+
+gfx/effects/particles_shapes/waveline1b
+{
+	qer_editorimage gfx/effects/particles_shapes/waveline1.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/waveline1.tga
+		vertexColor
+		scroll time * 1.23, 0 
+	}
+}
+
+gfx/effects/particles_shapes/debris_cloud
+{
+	qer_editorimage gfx/effects/particles_shapes/debris_cloud.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/debris_cloud
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/warm_blend2
+{
+	qer_editorimage gfx/effects/particles_shapes/warm_blend2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/warm_blend2.tga
+		vertexColor
+		rgb		guitable_random1 [time * 1.1]
+	}
+}
+
+gfx/effects/particles_shapes/ripple
+{
+	qer_editorimage gfx/effects/particles_shapes/ripple.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/ripple.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/hex_add
+{
+	qer_editorimage gfx/effects/particles_shapes/hex.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/hex.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/hex_alpha
+{
+	{
+		blend blend
+		map makeAlpha(gfx/effects/particles_shapes/hex.tga)
+		vertexColor
+		colored
+	}
+}
+
+gfx/effects/particles_shapes/blob
+{
+	{
+		blend blend
+		map makeAlpha(gfx/effects/particles_shapes/blob.tga)
+		vertexColor
+		colored
+	}
+}
+
+gfx/effects/particles_shapes/add_sphere
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	add
+		clamp
+		map		gfx/effects/particles_shapes/add_sphere.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/add_sphere2
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	add
+		clamp
+		map		gfx/effects/particles_shapes/add_sphere2.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/blend_sphere2.tga
+{
+	{
+		blend blend
+		map makeAlpha(gfx/effects/particles_shapes/add_sphere2.tga)
+		vertexColor
+		colored
+	}
+}
+
+gfx/effects/particles_shapes/add_line
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	add
+		clamp
+		map		gfx/effects/particles_shapes/add_line.tga
+		vertexColor
+	}	
+}
+
+
+gfx/effects/particles_shapes/add_line_last
+{
+	translucent
+	noShadows
+	twoSided
+	sort far
+	{
+		blend	add
+		clamp
+		map		gfx/effects/particles_shapes/add_line.tga
+		vertexColor
+		
+	}	
+}
+
+gfx/effects/particles_shapes/motionblur
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	add
+		clamp
+		map		gfx/effects/particles_shapes/motionblur.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/motionblur_nail
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	add
+		clamp
+		map		gfx/effects/particles_shapes/motionblur_nail.tga
+		vertexColor
+	}	
+}
+gfx/effects/particles_shapes/motionblur2
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	blend
+		clamp
+		map		gfx/effects/particles_shapes/motionblur2
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/lightbeam
+{
+	qer_editorimage	gfx/effects/particles_shapes/lightbeam.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend blend
+		map gfx/effects/particles_shapes/lightbeam.tga
+	//	red 		Parm0
+	//	green 		Parm1
+	//	blue 		Parm2
+	//	alpha 		sound * Parm3
+		vertexColor
+	}	
+}
+
+//------------------------------------shapes ----------------------------------
+
+gfx/effects/particles_shapes/blank
+{
+	qer_editorimage gfx/effects/particles_shapes/blank.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/particles_shapes/blank.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/particles_shapes/chunk_black
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/chunk.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/chunk_grey
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/chunk_grey.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/glass_chunks
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/glass_chunks.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particels_shapes/glass_chunks2
+{
+	
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+//	materialType glass
+	forceoverlays
+//	sort decal
+	
+/*	{
+		blend  blend
+		map    gfx/effects/particles_shapes/glass_chunks.tga
+		vertexColor
+	}
+*/
+	{	
+		maskcolor				
+	    map	makealpha(gfx/effects/particles_shapes/glass_chunks2.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+//      cubeMap		gfx/env/gen2
+		cubeMap		gfx/env/medic
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+
+
+
+
+gfx/effects/particles_shapes/concrete_chunks
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/concrete_chunks.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/duststreak_alpha
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/duststreak_alpha.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/warm_blend
+{
+	qer_editorimage gfx/effects/particles_shapes/warm_blend.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/warm_blend.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/warm_blend_last
+{
+	qer_editorimage gfx/effects/particles_shapes/warm_blend.tga
+	translucent
+	twoSided
+	noShadows
+	sort far
+	{
+		blend add
+		map gfx/effects/particles_shapes/warm_blend.tga
+		vertexColor
+
+	}
+}
+
+gfx/effects/particles_shapes/hot_blend
+{
+	qer_editorimage gfx/effects/particles_shapes/hot_blend.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/hot_blend.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/generic_pill
+{
+	qer_editorimage gfx/effects/pill.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/pill.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/blue_pill
+{
+	qer_editorimage gfx/effects/particles_shapes/blue_pill.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/blue_pill.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/pill_hot
+{
+	qer_editorimage gfx/effects/particles_shapes/pill_hot.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/pill_hot.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/generic_pill2
+{
+	qer_editorimage gfx/effects/particles_shapes/pill2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/pill2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/spike
+{
+	qer_editorimage gfx/effects/particles_shapes/spike.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/spike.tga
+		clamp
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/specs
+{
+	qer_editorimage gfx/effects/particles_shapes/specs.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/specs.tga
+		vertexColor
+	}
+}
+
+
+
+gfx/effects/particles_shapes/generic_splat
+{
+	{
+		blend blend
+		map makeAlpha(gfx/effects/particles_shapes/splat.tga)
+		vertexColor
+		colored
+	}
+}
+
+gfx/effects/particles_shapes/specs_alpha
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/specs_alpha.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/dirt2
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/dirt2.tga
+		vertexColor
+	}
+
+}
+
+
+gfx/effects/particles_shapes/dirt3
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/dirt3.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/dirt
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/dirt.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/sand
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/sand.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/chunk_glass
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/chunk_glass.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/chunk_single
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/chunk.tga
+		vertexColor
+	}
+
+}
+
+
+gfx/effects/particles_shapes/debri_1
+{
+	noshadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/debri_1.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/debri_2
+{
+	noshadows
+	twoSided
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/debri_2.tga
+		vertexColor
+	}
+
+}
+
+
+
+
+gfx/effects/particles_shapes/shockwave
+{
+	qer_editorimage gfx/effects/particles_shapes/shockwave.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+                map gfx/effects/particles_shapes/shockwave.tga
+		clamp
+		vertexColor
+             
+        }
+}
+
+gfx/effects/particles_shapes/soundwave
+{
+	qer_editorimage gfx/effects/particles_shapes/soundwave.tga
+	noshadows
+	twosided
+
+	{                
+		blend	add
+		map		gfx/effects/particles_shapes/soundwave.tga
+		clamp
+		vertexColor             
+	}
+}
+
+gfx/effects/particles_shapes/Flying_dirt
+{
+	noshadows
+	translucent
+	{
+		blend  blend
+		map    gfx/effects/particles_shapes/dirt.tga
+		vertexColor
+	}
+
+}
+
+gfx/effects/particles_shapes/shockwave_alpha
+{
+	qer_editorimage gfx/effects/particles_shapes/shockwave_alpha.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend	blend
+		map gfx/effects/particles_shapes/shockwave_alpha.tga
+		vertexColor
+	}
+}
+
+gfx/effects/rock_alpha
+{
+	qer_editorimage gfx/effects/particles_shapes/rock_alpha.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/rock_alpha
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/dust
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	blend
+		clamp
+		map makeAlpha(gfx/effects/particles_shapes/dust.tga)
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/dustadd
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	add
+		clamp
+		map gfx/effects/particles_shapes/dust.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/add_sphere_alpha
+{
+	{
+		blend blend
+		map makeAlpha(gfx/effects/particles_shapes/add_sphere)
+		vertexColor
+		colored
+	}
+}
+
+//------------------------------------specific images ----------------------------------
+
+gfx/effects/particles_shapes/flies
+{
+	qer_editorimage gfx/effects/particles_shapes/flies.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/flies
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/repairbot_sm
+{
+	qer_editorimage gfx/effects/particles_shapes/repairbot_sm.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/repairbot_sm
+		vertexColor
+	}
+}
+
+gfx/effects/particles_shapes/repairbot_med
+{
+	qer_editorimage gfx/effects/particles_shapes/repairbot_med.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/repairbot_med
+		vertexColor
+	}
+	{
+		blend add
+		map	gfx/effects/particles_shapes/repairbot_med_add
+		vertexColor
+	}	
+}
+
+gfx/effects/particles_shapes/repairbot_sm_flipped
+{
+	qer_editorimage gfx/effects/particles_shapes/repairbot_sm.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/repairbot_sm
+		vertexColor
+		scale -1,1
+	}
+}
+
+gfx/effects/particles_shapes/repairbot_med_flipped
+{
+	qer_editorimage gfx/effects/particles_shapes/repairbot_med.tga
+
+	noshadows
+	{
+		blend blend
+		map	gfx/effects/particles_shapes/repairbot_med
+		vertexColor
+		scale -1,1
+	}
+	{
+		blend add
+		map	gfx/effects/particles_shapes/repairbot_med_add
+		vertexColor
+		scale -1,1
+	}	
+}
+
+
+gfx/effects/particles_shapes/p_warm_blend2
+{
+	qer_editorimage gfx/effects/particles_shapes/p_warm_blend2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/particles_shapes/p_warm_blend2.tga
+		vertexColor
+		rgb		guitable_random1 [time * 1.1]
+	}
+}
+
+
+gfx/effects/particles_shapes/debris1
+{
+	qer_editorimage gfx/effects/particles_shapes/debris1.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris1.tga
+		vertexColor
+//		alphaTest .5
+	}
+}
+
+
+gfx/effects/particles_shapes/debris2
+{
+	qer_editorimage gfx/effects/particles_shapes/debris2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris2.tga
+		vertexColor
+//		alphaTest .5
+	}
+}
+
+
+gfx/effects/particles_shapes/debris3
+{
+	qer_editorimage gfx/effects/particles_shapes/debris3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris3.tga
+		vertexColor
+//		alphaTest .5
+	}
+}
+
+
+gfx/effects/particles_shapes/debris4
+{
+	qer_editorimage gfx/effects/particles_shapes/debris4.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris4.tga
+		vertexColor
+//		alphaTest .5
+	}
+}
+
+
+gfx/effects/particles_shapes/debris5
+{
+	qer_editorimage gfx/effects/particles_shapes/debris5.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris5.tga
+		vertexColor
+//		alphaTest .5
+	}
+}
+
+
+gfx/effects/particles_shapes/debris6
+{
+	qer_editorimage gfx/effects/particles_shapes/debris6.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris6.tga
+		vertexColor
+//		alphaTest .5
+	}
+}
+
+
+gfx/effects/particles_shapes/debris7
+{
+	qer_editorimage gfx/effects/particles_shapes/debris7.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/particles_shapes/debris7.tga
+		vertexColor
+//		alphaTest .5
+	}
+}

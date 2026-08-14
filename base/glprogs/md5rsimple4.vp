@@ -1,0 +1,83 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_SIMPLE_4_BONE
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+# attrib[1]		blend (transform) index
+# attrib[5]		blend weight
+#
+# program.env[0]-program.env[2]		Blend-space (skin space) to model transform 0
+# program.env[3]-program.env[6]		Blend-space (skin space) to model transform 1
+# program.env[7]-program.env[9]		Blend-space (skin space) to model transform 2
+# program.env[10]-program.env[11]	Blend-space (skin space) to model transform 3
+# ...
+# program.env[72]-program.env[74]	Blend-space (skin space) to model transform 24
+# program.env[75]-program.env[78]	Model-view-projection transform
+# 
+# output:
+# 
+
+ADDRESS A0;
+
+TEMP	R0, R1, R2, R3, R4, R11;
+
+PARAM	c94 = { 1., 1., 1., 765.005859 };
+PARAM	transformPalette[75] = { program.env[0..74] };
+
+#
+# load the first matrix, scale by first weight
+#
+MAX R4, -vertex.attrib[5], vertex.attrib[5];		# the first blend weight can be negative to signify a reverse tangent space polarity
+MUL R11, vertex.attrib[1].xyzw, c94.w;
+ARL A0.x, R11.x;
+MUL R1, transformPalette[A0.x], R4.x;
+MUL R2, transformPalette[A0.x+1], R4.x;
+MUL R3, transformPalette[A0.x+2], R4.x;
+
+#
+# load the second matrix, scale by second weight
+#
+ARL A0.x, R11.y; 
+MAD R1, transformPalette[A0.x], R4.y, R1;
+MAD R2, transformPalette[A0.x+1], R4.y, R2;
+MAD R3, transformPalette[A0.x+2], R4.y, R3;
+
+#
+# load the third matrix, scale by third weight
+#
+ARL A0.x, R11.z;
+MAD R1, transformPalette[A0.x], R4.z, R1;
+MAD R2, transformPalette[A0.x+1], R4.z, R2;
+MAD R3, transformPalette[A0.x+2], R4.z, R3;
+
+#
+# calculate the fourth weight
+#
+DP3 R4.w, R4, c94;
+SUB R4.w, c94.x, R4.w;
+
+ARL A0.x, R11.w;
+MAD R1, transformPalette[A0.x], R4.w, R1;
+MAD R2, transformPalette[A0.x+1], R4.w, R2;
+MAD R3, transformPalette[A0.x+2], R4.w, R3;
+
+#
+# Transform the vertex position from skin-space to model-space, store model position in R0
+#
+DP4 R0.x, R1, vertex.position;
+DP4 R0.y, R2, vertex.position;
+DP4 R0.z, R3, vertex.position;
+MOV R0.w, c94.x;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], R0;
+DP4 result.position.y, program.env[76], R0;
+DP4 result.position.z, program.env[77], R0;
+DP4 result.position.w, program.env[78], R0;
+
+END
+

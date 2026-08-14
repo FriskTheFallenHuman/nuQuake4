@@ -1,0 +1,1351 @@
+//----------------------------------
+//  mptextures texture mptextures
+//----------------------------------
+
+guide textures/mptextures/ceiling1 generic_full_noheight("mptextures/ceiling1")
+guide textures/mptextures/floor1 generic_full_noheight("mptextures/floor1")
+guide textures/mptextures/floor2 generic_full_noheight("mptextures/floor2")
+guide textures/mptextures/trim_h1 generic_full_noheight("mptextures/trim_h1")
+guide textures/mptextures/trim_h2 generic_full_noheight("mptextures/trim_h2")
+//guide textures/mptextures/trim_h3 generic_full_noheight("mptextures/trim_h3")
+
+
+textures/mptextures/trim_h1_char
+{
+	qer_editorimage textures/mptextures/trim_h1_char_d.tga
+	bumpMap addnormals ( textures/mptextures/trim_h1_local.tga, heightmap ( textures/mptextures/trim_h1_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h1_char_d.tga
+	specularmap	textures/mptextures/trim_h1_ba_s.tga
+
+}
+
+textures/mptextures/trim_h1_ba
+{
+	qer_editorimage textures/mptextures/trim_h1_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/trim_h1_local.tga, heightmap ( textures/mptextures/trim_h1_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h1_ba_d.tga
+	specularmap	textures/mptextures/trim_h1_ba_s.tga
+
+}
+
+textures/mptextures/trim_h1_stroy
+{
+	qer_editorimage textures/mptextures/trim_h1_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/trim_h1_local.tga, heightmap ( textures/mptextures/trim_h1_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h1_stroy_d.tga
+	specularmap	textures/mptextures/trim_h1_ba_s.tga
+
+}
+textures/mptextures/floor2_char
+{
+	qer_editorimage textures/mptextures/floor2_char_d.tga
+	bumpMap addnormals ( textures/mptextures/floor2_char_local.tga, heightmap ( textures/mptextures/floor2_char_h.tga, 3 ) )
+	diffusemap	textures/mptextures/floor2_char_d.tga
+	specularmap	textures/mptextures/floor2_char_s.tga
+
+}
+textures/mptextures/floor2_new
+{
+	qer_editorimage textures/mptextures/floor2_new_d.tga
+	bumpMap addnormals ( textures/mptextures/floor2_char_local.tga, heightmap ( textures/mptextures/floor2_new_h.tga, 3 ) )
+	diffusemap	textures/mptextures/floor2_new_d.tga
+	specularmap	textures/mptextures/floor2_new_s.tga
+
+}
+textures/mptextures/wall1_stroy
+{
+	qer_editorimage textures/mptextures/wall1_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/wall1_stroy_local.tga, heightmap ( textures/mptextures/wall1_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/wall1_stroy_d.tga
+	specularmap	textures/mptextures/wall1_stroy_s.tga
+
+}  
+textures/mptextures/wall6_stroy
+{
+	qer_editorimage textures/mptextures/wall6_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/wall6_stroy_local.tga, heightmap ( textures/mptextures/wall6_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/wall6_stroy_d.tga
+	specularmap	textures/mptextures/wall6_stroy_s.tga
+
+}
+textures/mptextures/trim_h3
+{
+	qer_editorimage textures/mptextures/trim_h3_d
+
+	bumpMap 	textures/mptextures/trim_h3_local
+	diffusemap	textures/mptextures/trim_h3_d
+	specularmap	textures/mptextures/trim_h3_s
+
+	{
+		blend		add
+		map			textures/mptextures/trim_h3_g
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+textures/mptextures/trim_h2_char_g
+{
+	qer_editorimage textures/mptextures/trim_h2_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h2_char_local.tga, heightmap ( textures/mptextures/trim_h2_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h2_char_d
+	specularmap	textures/mptextures/trim_h2_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h2_char_g
+	}
+}
+textures/mptextures/trim_h6_char_g
+{
+	qer_editorimage textures/mptextures/trim_h6_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h6_char_local.tga, heightmap ( textures/mptextures/trim_h6_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h6_char_d
+	specularmap	textures/mptextures/trim_h6_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_char_g
+	}
+}
+
+textures/mptextures/trim_h6_blue_pulse
+{
+	qer_editorimage textures/mptextures/trim_h6_char_pulseref
+
+	bumpMap addnormals ( textures/mptextures/trim_h6_char_local.tga, heightmap ( textures/mptextures/trim_h6_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h6_char_d
+	specularmap	textures/mptextures/trim_h6_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_char_g_blue
+		//rgb 0.75
+	}
+	{
+		blend GL_DST_COLOR, GL_ONE
+		map textures/mptextures/trim_h6_char_g_pulse_1
+		scroll time*-1, 0
+		scale 0.0625, 1
+	}
+}
+textures/mptextures/trim_h9_char_g
+{
+	qer_editorimage textures/mptextures/trim_h9_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h9_char_local.tga, heightmap ( textures/mptextures/trim_h9_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h9_char_d
+	specularmap	textures/mptextures/trim_h9_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h9_g
+	}
+}
+textures/mptextures/trim_h9_char_marine
+{
+	qer_editorimage textures/mptextures/trim_h9_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h9_char_local.tga, heightmap ( textures/mptextures/trim_h9_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h9_char_d
+	specularmap	textures/mptextures/trim_h9_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h9_g_marine
+	}
+}
+textures/mptextures/trim_h9_char_strogg
+{
+	qer_editorimage textures/mptextures/trim_h9_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h9_char_local.tga, heightmap ( textures/mptextures/trim_h9_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h9_char_d
+	specularmap	textures/mptextures/trim_h9_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h9_g_strogg
+	}
+}
+textures/mptextures/trim_h6_char_marine
+{
+	qer_editorimage textures/mptextures/trim_h6_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h6_char_local.tga, heightmap ( textures/mptextures/trim_h6_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h6_char_d
+	specularmap	textures/mptextures/trim_h6_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_char_marine
+
+	}
+}
+textures/mptextures/trim_h6_char_strogg
+{
+	qer_editorimage textures/mptextures/trim_h6_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h6_char_local.tga, heightmap ( textures/mptextures/trim_h6_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h6_char_d
+	specularmap	textures/mptextures/trim_h6_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_char_strogg
+
+	}
+}
+textures/mptextures/trim_h2_char_marine
+{
+	qer_editorimage textures/mptextures/trim_h2_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h2_char_local.tga, heightmap ( textures/mptextures/trim_h2_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h2_char_d
+	specularmap	textures/mptextures/trim_h2_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h2_char_marine
+	}
+} 
+textures/mptextures/trim_h2_char_strogg
+{
+	qer_editorimage textures/mptextures/trim_h2_char_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h2_char_local.tga, heightmap ( textures/mptextures/trim_h2_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/trim_h2_char_d
+	specularmap	textures/mptextures/trim_h2_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h2_char_strogg
+	}
+}
+textures/mptextures/vertical_1_stroy
+{
+	qer_editorimage textures/mptextures/vertical_1_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_1_stroy_local.tga, heightmap ( textures/mptextures/vertical_1_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/vertical_1_stroy_d.tga
+	specularmap	textures/mptextures/vertical_1_stroy_s.tga
+
+}
+textures/mptextures/vertical_5_stroy
+{
+	qer_editorimage textures/mptextures/vertical_5_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_5_stroy_local.tga, heightmap ( textures/mptextures/vertical_5_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/vertical_5_stroy_d.tga
+	specularmap	textures/mptextures/vertical_5_stroy_s.tga
+
+}
+textures/mptextures/mp_a
+{
+	qer_editorimage textures/mptextures/mp_a_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_a_local.tga, heightmap ( textures/mptextures/mp_a_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_a_d.tga
+	specularmap	textures/mptextures/mp_a_s.tga
+
+}
+
+textures/mptextures/mp_b_g
+{
+	qer_editorimage textures/mptextures/mp_b_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_b_local.tga, heightmap ( textures/mptextures/mp_b_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_b_d.tga
+	specularmap	textures/mptextures/mp_b_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_b_g.tga
+	}
+}
+textures/mptextures/mp_b_g_marine
+{
+	qer_editorimage textures/mptextures/mp_b_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_b_local.tga, heightmap ( textures/mptextures/mp_b_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_b_d.tga
+	specularmap	textures/mptextures/mp_b_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_b_g_marine.tga
+	}
+}
+textures/mptextures/mp_b_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_b_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_b_local.tga, heightmap ( textures/mptextures/mp_b_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_b_d.tga
+	specularmap	textures/mptextures/mp_b_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_b_g_strogg.tga
+	}
+}
+textures/mptextures/mp_b
+{
+	qer_editorimage textures/mptextures/mp_b_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_b_local.tga, heightmap ( textures/mptextures/mp_b_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_b_d.tga
+	specularmap	textures/mptextures/mp_b_s.tga
+
+}
+textures/mptextures/mp_c
+{
+	qer_editorimage textures/mptextures/mp_c_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_c_local.tga, heightmap ( textures/mptextures/mp_c_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_c_d.tga
+	specularmap	textures/mptextures/mp_c_s.tga
+
+}
+textures/mptextures/mp_c_g
+{
+	qer_editorimage textures/mptextures/mp_c_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_c_local.tga, heightmap ( textures/mptextures/mp_c_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_c_d.tga
+	specularmap	textures/mptextures/mp_c_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_c_g.tga
+	}
+}
+textures/mptextures/mp_c_g_marine
+{
+	qer_editorimage textures/mptextures/mp_c_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_c_local.tga, heightmap ( textures/mptextures/mp_c_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_c_d.tga
+	specularmap	textures/mptextures/mp_c_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_c_g_marine.tga
+	}
+}
+textures/mptextures/mp_c_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_c_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_c_local.tga, heightmap ( textures/mptextures/mp_c_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_c_d.tga
+	specularmap	textures/mptextures/mp_c_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_c_g_strogg.tga
+	}
+}
+textures/mptextures/mp_d_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_d_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_d_local.tga, heightmap ( textures/mptextures/mp_d_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_d_d.tga
+	specularmap	textures/mptextures/mp_d_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_d_g_strogg.tga
+	}
+}
+textures/mptextures/mp_d_g_marine
+{
+	qer_editorimage textures/mptextures/mp_d_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_d_local.tga, heightmap ( textures/mptextures/mp_d_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_d_d.tga
+	specularmap	textures/mptextures/mp_d_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_d_g_marine.tga
+	}
+}
+textures/mptextures/mp_d_g
+{
+	qer_editorimage textures/mptextures/mp_d_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_d_local.tga, heightmap ( textures/mptextures/mp_d_h.tga, 3) )
+	diffusemap	textures/mptextures/mp_d_d.tga
+	specularmap	textures/mptextures/mp_d_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_d_g.tga
+	}
+}
+textures/mptextures/mp_d_stroy
+{
+	qer_editorimage textures/mptextures/mp_d_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_d_stroy_local.tga, heightmap ( textures/mptextures/mp_d_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_d_stroy_d.tga
+	specularmap	textures/mptextures/mp_d_stroy_s.tga
+
+}
+textures/mptextures/mp_d
+{
+	qer_editorimage textures/mptextures/mp_d_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_d_local.tga, heightmap ( textures/mptextures/mp_d_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_d_d.tga
+	specularmap	textures/mptextures/mp_d_s.tga
+
+}
+textures/mptextures/mp_e_g
+{
+	qer_editorimage textures/mptextures/mp_e_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_e_local.tga, heightmap ( textures/mptextures/mp_e_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_e_d.tga
+	specularmap	textures/mptextures/mp_e_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_e_g.tga
+	}
+}
+textures/mptextures/mp_e_g_marine
+{
+	qer_editorimage textures/mptextures/mp_e_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_e_local.tga, heightmap ( textures/mptextures/mp_e_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_e_d.tga
+	specularmap	textures/mptextures/mp_e_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_e_g_marine.tga
+	}
+}
+textures/mptextures/mp_e_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_e_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_e_local.tga, heightmap ( textures/mptextures/mp_e_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_e_d.tga
+	specularmap	textures/mptextures/mp_e_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_e_g_strogg.tga
+	}
+}
+textures/mptextures/mp_e
+{
+	qer_editorimage textures/mptextures/mp_e_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_e_local.tga, heightmap ( textures/mptextures/mp_e_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_e_d.tga
+	specularmap	textures/mptextures/mp_e_s.tga
+
+}
+textures/mptextures/mp_f_g
+{
+	qer_editorimage textures/mptextures/mp_f_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_f_d.tga
+	specularmap	textures/mptextures/mp_f_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_f_g.tga
+	}
+}
+textures/mptextures/mp_f_g_red
+{
+	qer_editorimage textures/mptextures/mp_f_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_f_d.tga
+	specularmap	textures/mptextures/mp_f_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_f_g_red.tga
+	}
+}
+textures/mptextures/mp_f_g_marine
+{
+	qer_editorimage textures/mptextures/mp_f_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_f_d.tga
+	specularmap	textures/mptextures/mp_f_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_f_g_marine.tga
+	}
+}textures/mptextures/mp_f_ba_g
+{
+	qer_editorimage textures/mptextures/mp_f_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_f_ba_d.tga
+	specularmap	textures/mptextures/mp_f_ba_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_f_ba_g.tga
+	}
+}
+textures/mptextures/mp_f_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_f_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_f_d.tga
+	specularmap	textures/mptextures/mp_f_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_f_g_strogg.tga
+	}
+}
+textures/mptextures/mp_f
+{
+	qer_editorimage textures/mptextures/mp_f_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_f_d.tga
+	specularmap	textures/mptextures/mp_f_s.tga
+
+}
+textures/mptextures/mp_f_ba
+{
+	qer_editorimage textures/mptextures/mp_f_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_f_local.tga, heightmap ( textures/mptextures/mp_f_ba.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_f_ba_d.tga
+	specularmap	textures/mptextures/mp_f_ba_s.tga
+
+}
+textures/mptextures/mp_g
+{
+	qer_editorimage textures/mptextures/mp_g_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_g_local.tga, heightmap ( textures/mptextures/mp_g_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_g_d.tga
+	specularmap	textures/mptextures/mp_g_s.tga
+
+}
+textures/mptextures/mp_g_ba
+{
+	qer_editorimage textures/mptextures/mp_g_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_g_ba_local.tga, heightmap ( textures/mptextures/mp_g_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_g_ba_d.tga
+	specularmap	textures/mptextures/mp_g_ba_s.tga
+
+}
+textures/mptextures/mp_g_new
+{
+	qer_editorimage textures/mptextures/mp_g_new_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_g_ba_local.tga, heightmap ( textures/mptextures/mp_g_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_g_new_d.tga
+	specularmap	textures/mptextures/mp_g_ba_s.tga
+
+}
+textures/mptextures/mp_h
+{
+	qer_editorimage textures/mptextures/mp_h_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_h_local.tga, heightmap ( textures/mptextures/mp_h_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_h_d.tga
+	specularmap	textures/mptextures/mp_h_s.tga
+
+}
+textures/mptextures/mp_h_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_h_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_h_local.tga, heightmap ( textures/mptextures/mp_h_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_h_d.tga
+	specularmap	textures/mptextures/mp_h_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_h_g_strogg.tga
+	}
+}
+textures/mptextures/mp_h_g_marine
+{
+	qer_editorimage textures/mptextures/mp_h_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_h_local.tga, heightmap ( textures/mptextures/mp_h_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_h_d.tga
+	specularmap	textures/mptextures/mp_h_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_h_g_marine.tga
+	}
+}
+textures/mptextures/mp_h_g
+{
+	qer_editorimage textures/mptextures/mp_h_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_h_local.tga, heightmap ( textures/mptextures/mp_h_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_h_d.tga
+	specularmap	textures/mptextures/mp_h_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_h_g.tga
+	}
+}
+textures/mptextures/mp_i_g
+{
+	qer_editorimage textures/mptextures/mp_i_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_i_local.tga, heightmap ( textures/mptextures/mp_i_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_i_d.tga
+	specularmap	textures/mptextures/mp_i_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_i_g.tga
+	}
+}
+textures/mptextures/mp_i_g_marine
+{
+	qer_editorimage textures/mptextures/mp_i_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_i_local.tga, heightmap ( textures/mptextures/mp_i_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_i_d.tga
+	specularmap	textures/mptextures/mp_i_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_i_g_marine.tga
+	}
+}
+textures/mptextures/mp_i_g_strogg
+{
+	qer_editorimage textures/mptextures/mp_i_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_i_local.tga, heightmap ( textures/mptextures/mp_i_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_i_d.tga
+	specularmap	textures/mptextures/mp_i_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mp_i_g_strogg.tga
+	}
+}
+textures/mptextures/mp_i
+{
+	qer_editorimage textures/mptextures/mp_i_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_i_local.tga, heightmap ( textures/mptextures/mp_i_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_i_d.tga
+	specularmap	textures/mptextures/mp_i_s.tga
+
+}
+textures/mptextures/mp_i_ba
+{
+	qer_editorimage textures/mptextures/mp_i_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_i_local.tga, heightmap ( textures/mptextures/mp_i_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_i_ba_d.tga
+	specularmap	textures/mptextures/mp_i_ba_s.tga
+
+}
+textures/mptextures/mp_i_stroy
+{
+	qer_editorimage textures/mptextures/mp_i_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_i_local.tga, heightmap ( textures/mptextures/mp_i_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mp_i_stroy_d.tga
+	specularmap	textures/mptextures/mp_i_ba_s.tga
+
+}
+textures/mptextures/mp_j
+{
+	qer_editorimage textures/mptextures/mp_j_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_j_local.tga, heightmap ( textures/mptextures/mp_j_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_j_d.tga
+	specularmap	textures/mptextures/mp_j_s.tga
+
+}
+textures/mptextures/mp_k
+{
+	qer_editorimage textures/mptextures/mp_k_d.tga
+	bumpMap addnormals ( textures/mptextures/mp_k_local.tga, heightmap ( textures/mptextures/mp_k_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mp_k_d.tga
+	specularmap	textures/mptextures/mp_k_s.tga
+
+}
+
+textures/mptextures/trim_h3_strogg
+{
+	qer_editorimage textures/mptextures/trim_h3_d
+
+	bumpMap 	textures/mptextures/trim_h3_local
+	diffusemap	textures/mptextures/trim_h3_d
+	specularmap	textures/mptextures/trim_h3_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h3_g_strogg
+	}
+}
+
+textures/mptextures/trim_h3_ba
+{
+	qer_editorimage textures/mptextures/trim_h3_ba_d
+	bumpMap addnormals ( textures/mptextures/trim_h3_local.tga, heightmap ( textures/mptextures/trim_h3_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h3_ba_d
+	specularmap	textures/mptextures/trim_h3_ba_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h3_g
+	}
+}
+
+textures/mptextures/trim_h3_ba_2
+{
+	qer_editorimage textures/mptextures/trim_h3_ba_d
+	bumpMap addnormals ( textures/mptextures/trim_h3_local.tga, heightmap ( textures/mptextures/trim_h3_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h3_ba_d
+	specularmap	textures/mptextures/trim_h3_ba_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h3_g
+		red		0.6235
+		green		0.8588
+		blue		0.3137
+	}
+}
+
+textures/mptextures/trim_h3_marine
+{
+	qer_editorimage textures/mptextures/trim_h3_d
+
+	bumpMap 	textures/mptextures/trim_h3_local
+	diffusemap	textures/mptextures/trim_h3_d
+	specularmap	textures/mptextures/trim_h3_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h3_g_marine
+	}
+}
+
+guide textures/mptextures/trim_h4 generic_full_noheight("mptextures/trim_h4")
+guide textures/mptextures/trim_h5 generic_full_noheight("mptextures/trim_h5")
+
+textures/mptextures/trim_h6_glow
+{
+	qer_editorimage textures/mptextures/trim_h6_d
+
+	bumpMap 	textures/mptextures/trim_h6_local
+	diffusemap	textures/mptextures/trim_h6_d
+	specularmap	textures/mptextures/trim_h6_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_g
+	}
+}
+
+textures/mptextures/trim_h6_strogg
+{
+	qer_editorimage textures/mptextures/trim_h6_d
+
+	bumpMap 	textures/mptextures/trim_h6_local
+	diffusemap	textures/mptextures/trim_h6_d
+	specularmap	textures/mptextures/trim_h6_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_g_strogg
+	}
+}
+
+textures/mptextures/trim_h6_marine
+{
+	qer_editorimage textures/mptextures/trim_h6_d
+
+	bumpMap 	textures/mptextures/trim_h6_local
+	diffusemap	textures/mptextures/trim_h6_d
+	specularmap	textures/mptextures/trim_h6_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h6_g_marine
+	}
+}
+
+guide textures/mptextures/trim_h7 generic_full_noheight("mptextures/trim_h7")
+
+guide textures/mptextures/trim_h8 generic_full_noheight("mptextures/trim_h8")
+
+textures/mptextures/trim_h9_strogg
+{
+	qer_editorimage textures/mptextures/trim_h9_d
+
+	bumpMap 	textures/mptextures/trim_h9_local
+	diffusemap	textures/mptextures/trim_h9_d
+	specularmap	textures/mptextures/trim_h9_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h9_g_strogg
+	}
+}
+textures/mptextures/trim_h7_ba
+{
+	qer_editorimage textures/mptextures/trim_h7_ba_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h7_ba_local.tga, heightmap ( textures/mptextures/trim_h7_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h7_ba_d
+	specularmap	textures/mptextures/trim_h7_ba_s
+	
+}
+textures/mptextures/trim_h7_stroy
+{
+	qer_editorimage textures/mptextures/trim_h7_stroy_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h7_ba_local.tga, heightmap ( textures/mptextures/trim_h7_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h7_stroy_d
+	specularmap	textures/mptextures/trim_h7_stroy_s
+	
+}
+textures/mptextures/trim_h8_ba
+{
+	qer_editorimage textures/mptextures/trim_h8_ba_d
+
+	bumpMap addnormals ( textures/mptextures/trim_h8_ba_local.tga, heightmap ( textures/mptextures/trim_h8_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/trim_h8_ba_d
+	specularmap	textures/mptextures/trim_h8_ba_s
+	
+}
+textures/mptextures/trim_h9_marine
+{
+	qer_editorimage textures/mptextures/trim_h9_d
+
+	bumpMap 	textures/mptextures/trim_h9_local
+	diffusemap	textures/mptextures/trim_h9_d
+	specularmap	textures/mptextures/trim_h9_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_h9_g_marine
+	}
+}
+
+
+//guide textures/mptextures/trim_v1 generic_full_noheight("mptextures/trim_v1")
+
+textures/mptextures/trim_v2_char
+{
+	qer_editorimage textures/mptextures/trim_v2_char_d
+
+        bumpMap addnormals ( textures/mptextures/trim_v2_char_local.tga, heightmap ( textures/mptextures/trim_v2_char_h.tga, 2 ) )
+	diffusemap	textures/mptextures/trim_v2_char_d
+	specularmap	textures/mptextures/trim_v2_char_s
+
+}
+textures/mptextures/trim_v1_char
+{
+	qer_editorimage textures/mptextures/trim_v1_char_d
+
+        bumpMap addnormals ( textures/mptextures/trim_v1_local.tga, heightmap ( textures/mptextures/trim_v1_char_h.tga, 2 ) )
+	diffusemap	textures/mptextures/trim_v1_char_d
+	specularmap	textures/mptextures/trim_v1_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_v1_g
+	}
+}
+textures/mptextures/trim_v1
+{
+	qer_editorimage textures/mptextures/trim_v1_d
+
+	bumpMap 	textures/mptextures/trim_v1_local
+	diffusemap	textures/mptextures/trim_v1_d
+	specularmap	textures/mptextures/trim_v1_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_v1_g
+	}
+}
+textures/mptextures/trim_v1_strogg
+{
+	qer_editorimage textures/mptextures/trim_v1_d
+
+	bumpMap 	textures/mptextures/trim_v1_local
+	diffusemap	textures/mptextures/trim_v1_d
+	specularmap	textures/mptextures/trim_v1_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_v1_g_strogg
+	}
+}
+textures/mptextures/trim_v1_char_strogg
+{
+	qer_editorimage textures/mptextures/trim_v1_char_d
+
+        bumpMap addnormals ( textures/mptextures/trim_v1_local.tga, heightmap ( textures/mptextures/trim_v1_char_h.tga, 2 ) )
+	diffusemap	textures/mptextures/trim_v1_char_d
+	specularmap	textures/mptextures/trim_v1_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_v1_g_strogg
+	}
+}
+
+textures/mptextures/trim_v1_marine
+{
+	qer_editorimage textures/mptextures/trim_v1_d
+
+	bumpMap 	textures/mptextures/trim_v1_local
+	diffusemap	textures/mptextures/trim_v1_d
+	specularmap	textures/mptextures/trim_v1_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_v1_g_marine
+	}
+}
+textures/mptextures/trim_v1_char_marine
+{
+	qer_editorimage textures/mptextures/trim_v1_char_d
+
+	
+        bumpMap addnormals ( textures/mptextures/trim_v1_local.tga, heightmap ( textures/mptextures/trim_v1_char_h.tga, 2 ) )
+	diffusemap	textures/mptextures/trim_v1_char_d
+	specularmap	textures/mptextures/trim_v1_char_s
+	
+	{
+		blend add
+		map textures/mptextures/trim_v1_g_marine
+	}
+}
+
+
+guide textures/mptextures/trim_v2 generic_full_noheight("mptextures/trim_v2")
+guide textures/mptextures/wall1 generic_full_noheight("mptextures/wall1")
+guide textures/mptextures/wall2 generic_full_noheight("mptextures/wall2")
+guide textures/mptextures/wall3 generic_full_noheight("mptextures/wall3")
+guide textures/mptextures/wall4 generic_full_noheight("mptextures/wall4")
+guide textures/mptextures/wall5 generic_full_noheight("mptextures/wall5")
+guide textures/mptextures/wall6 generic_full_noheight("mptextures/wall6")
+
+// vertical stuff 
+guide textures/mptextures/vertical_1 generic_full_noheight("mptextures/vertical_1")
+guide textures/mptextures/vertical_2 generic_full_noheight("mptextures/vertical_2")
+guide textures/mptextures/vertical_3 generic_full_noheight("mptextures/vertical_3")
+guide textures/mptextures/vertical_4 generic_full_noheight("mptextures/vertical_4")
+guide textures/mptextures/vertical_5 generic_full_noheight("mptextures/vertical_5")
+guide textures/mptextures/vertical_6 generic_full_noheight("mptextures/vertical_6")
+guide textures/mptextures/vertical_7 generic_full_noheight("mptextures/vertical_7")
+guide textures/mptextures/vertical_8 generic_full_noheight("mptextures/vertical_8")
+guide textures/mptextures/vertical_9 generic_full_noheight("mptextures/vertical_9")
+
+textures/mptextures/vertical_5_new
+{
+	qer_editorimage textures/mptextures/vertical_5_new_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_5_ba_local.tga, heightmap ( textures/mptextures/vertical_5_new_h.tga, 3 ) )
+	diffusemap	textures/mptextures/vertical_5_new_d.tga
+	specularmap	textures/mptextures/vertical_5_new_s.tga
+
+}
+
+textures/mptextures/vertical_5_new_grn
+{
+	qer_editorimage textures/mptextures/vertical_5_new_grn_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_5_ba_local.tga, heightmap ( textures/mptextures/vertical_5_new_h.tga, 3 ) )
+	diffusemap	textures/mptextures/vertical_5_new_grn_d.tga
+	specularmap	textures/mptextures/vertical_5_new_s.tga
+
+}
+textures/mptextures/vertical_5_ba
+{
+	qer_editorimage textures/mptextures/vertical_5_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_5_ba_local.tga, heightmap ( textures/mptextures/vertical_5_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/vertical_5_ba_d.tga
+	specularmap	textures/mptextures/vertical_5_ba_s.tga
+
+}
+textures/mptextures/vertical_5_char
+{
+	qer_editorimage textures/mptextures/vertical_5_char_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_5_char_local.tga, heightmap ( textures/mptextures/vertical_5_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/vertical_5_char_d.tga
+	specularmap	textures/mptextures/vertical_5_char_s.tga
+
+}
+textures/mptextures/vertical_6_char
+{
+	qer_editorimage textures/mptextures/vertical_6_char_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_6_char_local.tga, heightmap ( textures/mptextures/vertical_6_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/vertical_6_char_d.tga
+	specularmap	textures/mptextures/vertical_6_char_s.tga
+
+}
+textures/mptextures/vertical_7_char
+{
+	qer_editorimage textures/mptextures/vertical_7_char_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_7_char_local.tga, heightmap ( textures/mptextures/vertical_7_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/vertical_7_char_d.tga
+	specularmap	textures/mptextures/vertical_7_char_s.tga
+
+}
+textures/mptextures/wall6_stroy_char
+{
+	qer_editorimage textures/mptextures/wall6_stroy_char_d.tga
+	bumpMap addnormals ( textures/mptextures/wall6_stroy_char_local.tga, heightmap ( textures/mptextures/wall6_stroy_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/wall6_stroy_char_d.tga
+	specularmap	textures/mptextures/wall6_stroy_char_s.tga
+
+}
+textures/mptextures/wall1_7_char
+{
+	qer_editorimage textures/mptextures/wall1_7_char_d.tga
+	bumpMap addnormals ( textures/mptextures/wall1_7_char_local.tga, heightmap ( textures/mptextures/wall1_7_char_h.tga, 1 ) )
+	diffusemap	textures/mptextures/wall1_7_char_d.tga
+	specularmap	textures/mptextures/wall1_7_char_s.tga
+
+}
+textures/mptextures/vertical_1_ba
+{
+	qer_editorimage textures/mptextures/vertical_1_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/vertical_1_ba_local.tga, heightmap ( textures/mptextures/vertical_1_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/vertical_1_ba_d.tga
+	specularmap	textures/mptextures/vertical_1_ba_s.tga
+
+}
+textures/mptextures/mptexture_a2
+{
+	qer_editorimage textures/mptextures/mptexture_a2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_a2_local.tga, heightmap ( textures/mptextures/mptexture_a2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_a2_d.tga
+	specularmap	textures/mptextures/mptexture_a2_s.tga
+
+}
+
+textures/mptextures/mptexture_b2
+{
+	qer_editorimage textures/mptextures/mptexture_b2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_b2_local.tga, heightmap ( textures/mptextures/mptexture_b2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_b2_d.tga
+	specularmap	textures/mptextures/mptexture_b2_s.tga
+
+}
+
+textures/mptextures/mptexture_c2
+{
+	qer_editorimage textures/mptextures/mptexture_c2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_c2_local.tga, heightmap ( textures/mptextures/mptexture_c2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_c2_d.tga
+	specularmap	textures/mptextures/mptexture_c2_s.tga
+
+}
+textures/mptextures/mptexture_c2_ba
+{
+	qer_editorimage textures/mptextures/mptexture_c2_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_c2_local.tga, heightmap ( textures/mptextures/mptexture_c2_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mptexture_c2_ba_d.tga
+	specularmap	textures/mptextures/mptexture_c2_ba_s.tga
+
+}
+
+textures/mptextures/mptexture_d2
+{
+	qer_editorimage textures/mptextures/mptexture_d2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_d2_local.tga, heightmap ( textures/mptextures/mptexture_d2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_d2_d.tga
+	specularmap	textures/mptextures/mptexture_d2_s.tga
+
+}
+
+
+textures/mptextures/mptexture_e2
+{
+	qer_editorimage textures/mptextures/mptexture_e2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_e2_local.tga, heightmap ( textures/mptextures/mptexture_e2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_e2_d.tga
+	specularmap	textures/mptextures/mptexture_e2_s.tga
+
+}
+
+
+textures/mptextures/mptexture_f2
+{
+	qer_editorimage textures/mptextures/mptexture_f2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_f2_local.tga, heightmap ( textures/mptextures/mptexture_f2_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mptexture_f2_d.tga
+	specularmap	textures/mptextures/mptexture_f2_s.tga
+
+}
+textures/mptextures/mptexture_f2_stroy
+{
+	qer_editorimage textures/mptextures/mptexture_f2_stroy_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_f2_local.tga, heightmap ( textures/mptextures/mptexture_f2_stroy_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mptexture_f2_stroy_d.tga
+	specularmap	textures/mptextures/mptexture_f2_stroy_s.tga
+
+}
+textures/mptextures/mptexture_f2_ba
+{
+	qer_editorimage textures/mptextures/mptexture_f2_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_f2_local.tga, heightmap ( textures/mptextures/mptexture_f2_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mptexture_f2_ba_d.tga
+	specularmap	textures/mptextures/mptexture_f2_ba_s.tga
+
+}
+
+
+textures/mptextures/mptexture_g2
+{
+	qer_editorimage textures/mptextures/mptexture_g2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_g2_local.tga, heightmap ( textures/mptextures/mptexture_g2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_g2_d.tga
+	specularmap	textures/mptextures/mptexture_g2_s.tga
+
+}
+
+
+textures/mptextures/mptexture_h2
+{
+	qer_editorimage textures/mptextures/mptexture_h2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_h2_local.tga, heightmap ( textures/mptextures/mptexture_h2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_h2_d.tga
+	specularmap	textures/mptextures/mptexture_h2_s.tga
+
+}
+
+
+textures/mptextures/mptexture_h2_g_strogg
+{
+	qer_editorimage textures/mptextures/mptexture_h2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_h2_local.tga, heightmap ( textures/mptextures/mptexture_h2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_h2_d.tga
+	specularmap	textures/mptextures/mptexture_h2_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mptexture_h2_g_strogg
+	}
+}
+textures/mptextures/mptexture_h2_g_marine
+{
+	qer_editorimage textures/mptextures/mptexture_h2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_h2_local.tga, heightmap ( textures/mptextures/mptexture_h2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_h2_d.tga
+	specularmap	textures/mptextures/mptexture_h2_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mptexture_h2_g_marine
+	}
+}
+textures/mptextures/mptexture_h2_g
+{
+	qer_editorimage textures/mptextures/mptexture_h2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_h2_local.tga, heightmap ( textures/mptextures/mptexture_h2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_h2_d.tga
+	specularmap	textures/mptextures/mptexture_h2_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mptexture_h2_g
+	}
+}
+
+textures/mptextures/mptexture_i2
+{
+	qer_editorimage textures/mptextures/mptexture_i2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_i2_local.tga, heightmap ( textures/mptextures/mptexture_i2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_i2_d.tga
+	specularmap	textures/mptextures/mptexture_i2_s.tga
+
+}
+
+
+textures/mptextures/mptexture_j2
+{
+	qer_editorimage textures/mptextures/mptexture_j2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_j2_local.tga, heightmap ( textures/mptextures/mptexture_j2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_j2_d.tga
+	specularmap	textures/mptextures/mptexture_j2_s.tga
+
+}
+
+
+textures/mptextures/mptexture_k2
+{
+	qer_editorimage textures/mptextures/mptexture_k2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_k2_local.tga, heightmap ( textures/mptextures/mptexture_k2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_k2_d.tga
+	specularmap	textures/mptextures/mptexture_k2_s.tga
+
+}
+
+textures/mptextures/mptexture_k2_ba
+{
+	qer_editorimage textures/mptextures/mptexture_k2_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_k2_local.tga, heightmap ( textures/mptextures/mptexture_k2_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mptexture_k2_ba_d.tga
+	specularmap	textures/mptextures/mptexture_k2_ba_s.tga
+
+}
+
+textures/mptextures/mptexture_k2_g
+{
+	qer_editorimage textures/mptextures/mptexture_k2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_k2_local.tga, heightmap ( textures/mptextures/mptexture_k2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_k2_d.tga
+	specularmap	textures/mptextures/mptexture_k2_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mptexture_k2_g
+	}
+}
+textures/mptextures/mptexture_k2_g_strogg
+{
+	qer_editorimage textures/mptextures/mptexture_k2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_k2_local.tga, heightmap ( textures/mptextures/mptexture_k2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_k2_d.tga
+	specularmap	textures/mptextures/mptexture_k2_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mptexture_k2_g_strogg
+	}
+}
+textures/mptextures/mptexture_k2_g_marine
+{
+	qer_editorimage textures/mptextures/mptexture_k2_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_k2_local.tga, heightmap ( textures/mptextures/mptexture_k2_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_k2_d.tga
+	specularmap	textures/mptextures/mptexture_k2_s.tga
+
+	{
+		blend add
+		map textures/mptextures/mptexture_k2_g_marine
+	}
+}
+
+textures/mptextures/mptexture_a3
+{
+	qer_editorimage textures/mptextures/mptexture_a3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_a3_local.tga, heightmap ( textures/mptextures/mptexture_a3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_a3_d.tga
+	specularmap	textures/mptextures/mptexture_a3_s.tga
+
+}
+
+textures/mptextures/mptexture_b3
+{
+	qer_editorimage textures/mptextures/mptexture_b3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_b3_local.tga, heightmap ( textures/mptextures/mptexture_b3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_b3_d.tga
+	specularmap	textures/mptextures/mptexture_b3_s.tga
+
+}
+
+textures/mptextures/mptexture_c3
+{
+	qer_editorimage textures/mptextures/mptexture_c3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_c3_local.tga, heightmap ( textures/mptextures/mptexture_c3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_c3_d.tga
+	specularmap	textures/mptextures/mptexture_c3_s.tga
+
+}
+
+
+textures/mptextures/mptexture_d3
+{
+	qer_editorimage textures/mptextures/mptexture_d3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_d3_local.tga, heightmap ( textures/mptextures/mptexture_d3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_d3_d.tga
+	specularmap	textures/mptextures/mptexture_d3_s.tga
+
+}
+
+
+textures/mptextures/mptexture_e3
+{
+	qer_editorimage textures/mptextures/mptexture_e3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_e3_local.tga, heightmap ( textures/mptextures/mptexture_e3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_e3_d.tga
+	specularmap	textures/mptextures/mptexture_e3_s.tga
+
+}
+
+
+textures/mptextures/mptexture_f3
+{
+	qer_editorimage textures/mptextures/mptexture_f3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_f3_local.tga, heightmap ( textures/mptextures/mptexture_f3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_f3_d.tga
+	specularmap	textures/mptextures/mptexture_f3_s.tga
+
+}
+
+
+textures/mptextures/mptexture_g3
+{
+	qer_editorimage textures/mptextures/mptexture_g3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_g3_local.tga, heightmap ( textures/mptextures/mptexture_g3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_g3_d.tga
+	specularmap	textures/mptextures/mptexture_g3_s.tga
+
+}
+textures/mptextures/mptexture_g3_new
+{
+	qer_editorimage textures/mptextures/mptexture_g3_new_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_g3_local.tga, heightmap ( textures/mptextures/mptexture_g3_new_h.tga, 2 ) )
+	diffusemap	textures/mptextures/mptexture_g3_new_d.tga
+	specularmap	textures/mptextures/mptexture_g3_new_s.tga
+
+}
+textures/mptextures/mptexture_g3_ba
+{
+	qer_editorimage textures/mptextures/mptexture_g3_ba_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_g3_local.tga, heightmap ( textures/mptextures/mptexture_g3_ba_h.tga, 3 ) )
+	diffusemap	textures/mptextures/mptexture_g3_ba_d.tga
+	specularmap	textures/mptextures/mptexture_g3_ba_s.tga
+
+}
+textures/mptextures/mptexture_h3
+{
+	qer_editorimage textures/mptextures/mptexture_h3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_h3_local.tga, heightmap ( textures/mptextures/mptexture_h3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_h3_d.tga
+	specularmap	textures/mptextures/mptexture_h3_s.tga
+
+}
+
+
+textures/mptextures/mptexture_i3
+{
+	qer_editorimage textures/mptextures/mptexture_i3_d.tga
+	bumpMap addnormals ( textures/mptextures/mptexture_i3_local.tga, heightmap ( textures/mptextures/mptexture_i3_h.tga, 1 ) )
+	diffusemap	textures/mptextures/mptexture_i3_d.tga
+	specularmap	textures/mptextures/mptexture_i3_s.tga
+
+}
+
+textures/mptextures/ctf5_crusher
+{	
+	noShadows
+	translucent
+	noimpact
+	nonsolid	
+	deform		sprite
+	
+	{
+		blend blend
+		Map   gfx/mp/ctf5_crusher.tga
+		colored
+	}
+}
+
+textures/mptextures/mp_linepulse
+{
+	qer_editorimage textures/mptextures/mp_linepulse1.tga
+	translucent
+	noShadows
+	nonSolid	
+	
+	{	//Beam layer (single)
+		blend		add
+		map 		textures/mptextures/mp_linepulse1.tga
+		colored
+	}
+
+	{	//Travelling wave
+
+		blend		add
+		map		textures/mptextures/mp_linepulse2.tga
+		translate	time * Parm4, 0
+		colored
+	}
+}

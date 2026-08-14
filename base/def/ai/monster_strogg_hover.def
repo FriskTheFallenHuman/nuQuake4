@@ -1,0 +1,467 @@
+/*
+===============================================================================
+
+	Strogg Hover
+
+===============================================================================
+*/
+
+
+export strogg_hover
+{
+	options -prefix SH_ -scale .2 -rotate 90 -keep rear flashlight muzzle_flash missle gun_base gun_1 gun_2 gun_3 gun_4 -parent flashlight gun -parent missle gun_pivot -parent gun_1 gun_pivot -parent gun_2 gun_pivot -parent gun_3 gun_pivot -parent gun_4 gun_pivot -parent gun_pivot gun_base -parent gun_base body -parent rear body -sourcedir work/models/vehicles/strogg_hornet/animations -destdir models/monsters/strogg_hover
+	mesh	idle.ma									-dest	mesh
+	anim	idle.ma									-dest	idle
+	anim	idle_on_ground.ma						-dest idle_on_ground
+	anim	take_off_idle_land.ma		-range 1 41 		-dest take_off
+	anim	take_off_idle_land.ma		-range 41 89		-dest flying_idle
+	anim	take_off_idle_land.ma		-range 89 129		-dest land
+}
+
+model model_monster_strogg_hover
+{
+	mesh						models/monsters/strogg_hover/mesh.md5mesh	
+	anim idle					models/monsters/strogg_hover/idle.md5anim
+	anim pain					models/monsters/strogg_hover/idle.md5anim
+	anim evade_left				models/monsters/strogg_hover/idle.md5anim
+	anim evade_right			models/monsters/strogg_hover/idle.md5anim
+
+	anim	idle_on_ground		models/monsters/strogg_hover/idle_on_ground.md5anim
+	anim	take_off			models/monsters/strogg_hover/take_off.md5anim
+	anim	idle_flying			models/monsters/strogg_hover/flying_idle.md5anim
+	anim	land				models/monsters/strogg_hover/land.md5anim
+}
+
+
+/*
+===============================================================================
+
+	Heavy Hover Tank BLASTER ATTACK
+
+===============================================================================
+*/
+
+entityDef damage_sg_hov_rocket_direct
+{
+	"damage"							"30"
+	"push"								"300"
+	"mtr_splat"							""
+	"gib"								"1"
+}
+
+entityDef damage_sg_hov_rocket_splash
+{
+	"damage"							"20"
+	"radius"							"50"
+	"knockback"							"200"
+	"push"								"20"
+	"gib"								"1"
+}
+
+entityDef projectile_sg_hov_rocket
+{
+	"inherit"					"projectile_base"
+	"model"						"models/monsters/heavyhovertank/rocket.lwo"
+//	"spawnclass"				"idGuidedProjectile"
+	"spawnclass"				"idProjectile"
+
+//	"speed"						"700"
+	"speed"						"850"
+	"detonate_on_fuse"			"1"
+	
+	//"turn_max"				"180"
+
+	"def_damage"				"damage_sg_hov_rocket_direct"
+	"def_splash_damage"			"damage_sg_hov_rocket_splash"
+
+	"snd_fly"					"weapon_energy_projectile_loop"
+	"fx_fly"					"effects/monsters/hornet/fly.fx"
+	"fx_impact"					"effects/monsters/hornet/detonate.fx"
+	"fx_detonate"					"effects/monsters/hornet/impact.fx"
+}
+
+entityDef projectile_sg_hov_rocket_weak
+{
+	"inherit"					"projectile_sg_hov_rocket"
+	"fuse"						"10"
+}
+
+
+
+
+entityDef damage_sg_hov_bullet
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"5"
+}
+
+entityDef hitscan_sg_hov_bullet
+{
+	"inherit"						"hitscan_bullet_base"
+	"def_damage"						"damage_sg_hov_bullet"
+	"tracerchance"						".5"
+	"fx_tracer"						"effects/monsters/hornet/tracer.fx"
+}
+
+entityDef damage_sg_hov_bomb
+{
+	"inherit"											"damage_monster_base"
+	"damage"											"250"	//	-mrenner
+//	"damage"											"50"
+	"gib"												"1"
+	"push"												"300"
+}
+
+entityDef damage_sg_hov_bomb_splash
+{
+	"inherit"											"damage_monster_base"
+//	"damage"											"25"
+	"damage"											"100"	//	-mrenner
+	"radius"											"500"
+	"gib"												"1"
+	"push"												"300"
+}
+
+entityDef projectile_sg_hov_bomb
+{
+	"inherit"											"projectile_blaster_base"
+	"fuse"												"5"
+
+	"snd_fly"											"weapon_energy_projectile_loop"
+//	"fx_fly"											"effects/monsters/strogg_flyer/bomb_fly.fx"
+	"fx_fly"											"effects/monsters/hornet/bomb_fly.fx"
+//	"fx_impact"											"effects/monsters/strogg_flyer/bomb_burst.fx"
+	"fx_impact"											"effects/monsters/hornet/napalm.fx"
+	
+	"mins"												"-16 -16 -16"
+	"maxs"												"16 16 16"
+
+	"detonate_on_death"									"1"
+
+	"def_damage"										"damage_sg_hov_bomb"
+	"def_splash_damage"									"damage_sg_hov_bomb_splash"
+
+	"speed"												"1"
+	"mass"												"4"
+	"gravity"											".5"
+}
+
+/*
+===============================================================================
+
+	Strogg Hover Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_strogg_hover
+{
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterStroggHover"
+
+	"bleed"								"0"
+	
+	// --------------------------------- Actions ------------------------------------
+	"visRange"							"10000"
+	"attackRange"						"400 2000"
+	"actionTimer_rangedAttack_rate"		"0.75"				
+	"actionTimer_specialAttack_rate"	"2"				
+
+	"action_rangedAttack"				"0"
+
+	"action_mGunAttack"					"1"
+	"action_mGunAttack_rate"			"0"
+	"action_mGunAttack_minRange"		"100"
+	"action_mGunAttack_maxRange"		"2000"
+	"action_mGunAttack_noturn"			"0"
+	"action_mGunAttack_overrideLegs"	"0"
+//	"action_mGunAttack_nopain"			"1"
+
+	"action_missileAttack"				"1"
+	"action_missileAttack_rate"			"2"
+	"action_missileAttack_minRange"		"350"
+	"action_missileAttack_maxRange"		"5000"
+	"action_missileAttack_noturn"		"0"
+	"action_missileAttack_overrideLegs"	"0"
+//	"action_missileAttack_nopain"		"1"
+
+	"action_bombAttack"					"1"
+	"action_bombAttack_rate"			"3"
+	"action_bombAttack_minRange"		"0"
+	"action_bombAttack_maxRange"		"2500"
+	"action_bombAttack_noturn"			"0"
+	"action_bombAttack_overrideLegs"	"0"
+//	"action_bombAttack_nopain"			"1"
+	"action_bombAttack_failrate"		"0"
+
+	"shotAtReactionRange"				"200"
+	
+	"action_meleeAttack"				"0"
+	"melee_range"						"400"
+
+	"action_strafe"						"1"
+//	"action_strafe_anim"				"evade_left1"
+//	"action_strafe_anim2"				"evade_right1"
+	"action_strafe_state"				"Torso_Strafe"
+	"action_strafe_minRange"			"200"
+	"action_strafe_maxRange"			"5000"
+	"action_strafe_rate"				"3"
+	"action_strafe_chance"				"0.5"
+	"action_strafe_noturn"				"0"
+	"action_strafe_overrideLegs"		"0"
+
+	"action_circleStrafe"				"1"
+	"action_circleStrafe_state"			"Torso_CircleStrafe"
+	"action_circleStrafe_minRange"		"150"
+	"action_circleStrafe_maxRange"		"1000"
+	"action_circleStrafe_rate"			"8"
+	"action_circleStrafe_noturn"		"0"
+	"action_circleStrafe_overrideLegs"	"0"
+
+	"painThreshold"						"50"
+	"ignore_vehicle_damage"				"1"
+//	"ignore_vehicle_push"				"1"
+
+	// --------------------------------- Body ------------------------------------
+	"model"								"model_monster_strogg_hover"
+//	"size"								"94 94 96"
+//	"mins"								"-150 -150 -180"
+//	"maxs"								"150 150 120"
+	"mins"								"-64 -64 -96"
+	"maxs"								"64 64 40"
+//	"use_aas"							"aas300"
+	"use_aas"							"aas128"
+//	"ragdoll"							"monster_heavy_hovertank"
+//	"articulatedFigure"					"monster_heavy_hovertank"
+	
+	"directionalMovement"				"1"
+
+	"flying"							"1"
+	"flyTurning"						"1"
+	"fly_speed"							"500"
+	"fly_bob_strength"					"128"
+	"fly_bob_horz"						"5"
+//	"fly_pitch_scale"					"-50"
+//	"fly_roll_scale"					"5"
+//	"fly_offset"						"32"
+//	"fly_offset"						"150"
+//	"fly_offset"						"200"
+//	"fly_offset"						"400"
+//	"fly_offset"						"250"
+	"fly_offset"						"350"
+
+	"evade_rate"						"0"
+	"evade_chance"						"0.6"
+	"evade_speed"						"400"
+	"strafe_speed"						"500"
+	"circle_strafe_speed"				"200"
+
+	"walkRange"							"100"
+	"turn_rate"							"90"
+
+	"tactical_ranged"					"1"
+	"tactical_rush"						"1"
+//	"tactical_rush"						"0"
+	"tactical_cover"					"0"
+	"tactical_hide"						"0"
+	
+	"joint_eyeOffset"					"gun_base"//"neck"
+	"joint_chestOffset"					"body"
+	
+	"joint_mgun"						"missle"
+	"num_missile_joints"				"4"
+	"joint_missile1"					"gun_1"
+	"joint_missile2"					"gun_2"
+	"joint_missile3"					"gun_3"
+	"joint_missile4"					"gun_4"
+	"joint_bomb"						"rear"
+
+	"joint_dust"						"body"
+
+	"num_hover_joints"					"4"
+	"joint_hover1"						"rt_rear_thruster_2"
+	"joint_hover2"						"rt_frnt_thruster_2"
+	"joint_hover3"						"lft_rear_thruster_2"
+	"joint_hover4"						"lft_frnt_thruster_2"
+
+	"joint_light_control"				"gun"
+	"joint_light"						"flashlight"
+//	"mtr_light"							"lights/walker"
+	"mtr_light"							""	//	-mrenner
+//	"light_color"						"1 1 .9"
+	"light_color"						"0 0 0"		//	-mrenner
+	"light_radius"						"800"
+	"light_angle"						"15.0"
+	"light_target"						"2000 0 0"
+	"light_up"							"0 900 0"
+	"light_right"						"0 0 -1300"
+	"light_pointLight"					"0"
+//	"light_offset"						"5 0 0"
+//	"snd_light_on"						"big_metal_open"
+//	"snd_light_off"						"big_metal_close"
+//	"light_start_on"					"0"
+	"light_flaresurface"				"models/vehicles/flare"
+
+	"chatter_idle_rate"					"8"
+	"chatter_combat_rate"				"8"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"fov"								"120"
+
+	"look_joint gun"					"0.5 1 0"
+	"look_joint neck"					"0.5 0 0"
+
+	"look_joint gun_base"				"0 1 0"
+	"look_joint gun_pivot"				"1 0 0"
+
+	"look_min"							"-60 -45 0"
+	"look_max"							"100 45 0"
+
+	// --------------------------------- Sound --------------------------------------
+	"lipsync_sight"						"strogg_hover_alert"
+	"snd_fly"							"strogg_hover_loop"
+	"snd_crash"							"strogg_hover_crash_loop"
+
+	"snd_mgun_fire"						"smarine_machinegun"
+	"snd_missile_fire"					"network_guardian_rocket_fire"
+	"snd_bomb_fire"						"gunner_grenade_launch"
+
+	// --------------------------------- Combat ----------------------------------
+//	"health"							"2000"
+	"health"							"1000"
+	"burnaway"							"0"
+	"removeDelay"						"10"
+
+	"def_attack_mgun"					"hitscan_sg_hov_bullet"
+	"attack_mgun_hitscan"				"1"
+
+	"attack_mgun_locktojoint"			"1"
+	"attack_mgun_accuracy"				"3"
+
+//	"attack_mgun_cone"					"3"
+//	"attack_mgun_accuracy"				"1"
+
+	"mgun_fire_rate"					"0.1"
+	"mgun_minShots"						"20"
+	"mgun_maxShots"						"40"
+
+	"def_attack_missile"				"projectile_sg_hov_rocket"
+
+	"attack_missile_locktojoint"		"1"
+	"attack_missile_accuracy"			"3"
+	"attack_missile_spread"				"1"
+
+//	"attack_missile_cone"				"3"
+//	"attack_missile_accuracy"			"1"
+//	"attack_missile_spread"				"1"
+	
+	"missile_fire_rate"					"0.25"
+	"missile_minShots"					"4"
+	"missile_maxShots"					"12"
+
+	"def_attack_bomb"					"projectile_sg_hov_bomb"
+
+	"bomb_fire_rate"					"0.5"
+	"bomb_minShots"						"5"
+	"bomb_maxShots"						"20"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"					"*neck"
+//	"damage_scale head"					"2"	
+	
+	// --------------------------------- FX --------------------------------------
+
+	"fx_mgun_flash"						"effects/monsters/gunner/bullet_mflash.fx"
+	"fx_missile_flash"					"effects/monsters/heavy_tank/muzzleflash.fx"
+	"fx_bomb_flash"						"effects/monsters/strogg_marine/blaster_mflash.fx"
+
+	"fx_dust"							"effects/vehicles/gev/dust.fx"
+
+	"fx_hover"							"effects/monsters/hornet/jetwash.fx"
+
+//	"fx_headlight"						"effects/monsters/hornet/lightbeam.fx"
+
+	"fx_headlight"						""	//	-mrenner
+
+	"fx_hurt"							"effects/monsters/hornet/explosion_nobits.fx"
+	"fx_crash"							"effects/monsters/harvester/part_trail.fx"
+
+	"fx_death"							"effects/monsters/hornet/explosion.fx"
+
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"							"Strogg Horner"
+	"dbText"							"Description Text of the Strogg Hornet"
+	"sg_name"							"Strogg Horner"
+	"sg_category"						"MiniBosses"
+}
+
+entityDef monster_strogg_hover_weak
+{
+	"inherit"							"monster_strogg_hover"
+
+	"health"						"750"
+
+	"mgun_fire_rate"					"0.1"
+	"mgun_minShots"						"10"
+	"mgun_maxShots"						"20"
+
+	"action_mGunAttack_minRange"		"100"
+	"action_mGunAttack_maxRange"		"1000"
+
+	"def_attack_missile"				"projectile_sg_hov_rocket_weak"
+
+	"missile_fire_rate"					"0.5"
+	"missile_minShots"					"1"
+	"missile_maxShots"					"6"
+
+	"action_missileAttack_minRange"		"1000"
+	"action_missileAttack_maxRange"		"5000"
+
+	"bomb_fire_rate"					"1"
+	"bomb_minShots"						"1"
+	"bomb_maxShots"						"5"
+	
+	"action_bombAttack_minRange"		"0"
+	"action_bombAttack_maxRange"		"1500"
+	
+}
+
+// Specific hornet tweaked for combat vs. the walker
+entityDef walker_monster_strogg_hover
+{
+	"inherit"							"monster_strogg_hover_weak"
+	"editor_menu"							"level"
+
+	"health"						"900"	
+	
+	"action_missileAttack_minRange"		"2000"
+	"action_missileAttack_maxRange"		"4000"
+	"action_strafe_maxRange"			"5000"
+	
+	"action_strafe_rate"				"5"
+	"action_strafe_chance"				"0.75"
+	
+	"action_bombAttack_minRange"		"300"
+	"action_bombAttack_maxRange"		"500"
+	
+	"action_mGunAttack_minRange"		"800"
+	"action_mGunAttack_maxRange"		"2500"
+	
+	"fly_speed"							"400"
+	
+	"shotAtReactionRange"				"50"
+	
+	// Keep them a bit more stationary
+	"evade_rate"						"1.5" //defaults to 0 on base hover dude
+	"evade_chance"						"0.5" //defaults to .6 on base hover dude
+	"evade_speed"						"100"
+	"strafe_speed"						"300"
+	"circle_strafe_speed"					"200"
+	
+	// Get rid of the light
+	"fx_headlight"						""
+	
+	"mtr_light"						""
+	"light_color"						"0 0 0"
+}

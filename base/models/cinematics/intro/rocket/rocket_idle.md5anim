@@ -1,0 +1,50 @@
+MD5Version 10
+commandline "anim work/models/cinematics/rocket_cin/animation/idle.ma -dest models/cinematics/intro/rocket/rocket_idle.md5anim -game Quake4 -prefix ROCKET_ -scale .3937 -align ALL -keep fx1 fx2 fx3 fx4 fx5 fx6"
+
+numFrames 2
+numJoints 13
+frameRate 24
+numAnimatedComponents 0
+
+hierarchy {
+	"origin"	-1 0 0	//
+	"rocket01"	0 0 0	// origin
+	"fx1"	1 0 0	// rocket01
+	"rocket02"	0 0 0	// origin
+	"fx2"	3 0 0	// rocket02
+	"rocket03"	0 0 0	// origin
+	"fx3"	5 0 0	// rocket03
+	"rocket04"	0 0 0	// origin
+	"fx4"	7 0 0	// rocket04
+	"rocket05"	0 0 0	// origin
+	"fx5"	9 0 0	// rocket05
+	"rocket06"	0 0 0	// origin
+	"fx6"	11 0 0	// rocket06
+}
+
+bounds {
+	( -2.1087117195 -0.3880524039 -0.3880524039 ) ( 2.1087117195 15.3880224228 0.3880524039 )
+	( -2.1087117195 -0.3880524039 -0.3880524039 ) ( 2.1087117195 15.3880224228 0.3880524039 )
+}
+
+baseframe {
+	( 0 0 0 ) ( 0 0 0 )
+	( 0 0 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 0 -1.9999959469 ) ( 0 -0.7071067691 0 )
+	( 0 2.9999940395 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 0 -1.9999959469 ) ( 0 -0.7071067691 0 )
+	( 0 5.9999880791 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 0 -1.9999959469 ) ( 0 -0.7071067691 0 )
+	( 0 8.9999818802 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 0 -1.9999959469 ) ( 0 -0.7071067691 0 )
+	( 0 11.9999761581 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 0 -1.9999959469 ) ( 0 -0.7071067691 0 )
+	( 0 14.9999694824 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 0 -1.9999959469 ) ( 0 -0.7071067691 0 )
+}
+
+frame 0 {
+}
+
+frame 1 {
+}

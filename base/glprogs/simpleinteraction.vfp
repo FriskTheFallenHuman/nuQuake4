@@ -1,0 +1,126 @@
+!!ARBvp1.0 OPTION ARB_position_invariant ;
+
+# VPROG_INTERACTION
+# 
+# input:
+# 
+# attrib[8] TEX0	texture coordinates
+# attrib[9] TEX1	normal
+# attrib[10] TEX2	tangent[0]
+# attrib[11] TEX3	tangent[1]
+# COL			vertex color
+#
+# c[4]	localLightOrigin
+# c[5]	localViewOrigin
+# c[6]	lightProjection S
+# c[7]	lightProjection T
+# c[8]	lightProjection Q
+# c[9]	lightFalloff S
+# c[10]	bumpMatrix S
+# c[11]	bumpMatrix T
+# c[12]	diffuseMatrix S
+# c[13]	diffuseMatrix T
+# c[14]	specularMatrix S
+# c[15]	specularMatrix T
+# c[16]	vertex color modulate
+# c[17]	vertex color add
+# 
+# output:
+# 
+# texture 0 is the cube map
+# texture 1 is the per-surface bump map
+# texture 2 is the light falloff texture
+# texture 3 is the light projection texture
+# texture 4 is the per-surface diffuse map
+# texture 5 is the per-surface specular map
+# texture 6 is the specular lookup table
+
+TEMP	R0, R1, R2;
+
+# PARAM	defaultTexCoord = { 0, 0.5, 0, 1 };
+PARAM  scaleAdd = { 2.0, 1.0, .5, 0. };
+
+# calculate vector to light in R0
+SUB		R0, program.env[4], vertex.position;
+
+# put into texture space for TEX0
+DP3		result.texcoord[0].x, vertex.attrib[9], R0;
+DP3		result.texcoord[0].y, vertex.attrib[10], R0;
+DP3		result.texcoord[0].z, vertex.attrib[11], R0;
+
+# textures 1 takes the base coordinates by the texture matrix
+MOV		result.texcoord[1], vertex.attrib[8];
+
+# texture 2 has one texgen
+#MOV		result.texcoord[2], defaultTexCoord;
+#DP4		result.texcoord[2].x, vertex.position, program.env[9];
+
+DP4		R2.x, vertex.position, program.env[9];
+MAD		R2.x, R2.x, scaleAdd.x, -scaleAdd.y;
+MUL		R2.x, R2.x, R2.x;
+MAD		result.texcoord[2].x, R2.x, -R2.x, scaleAdd.y;
+
+# texture 3 has three texgens
+DP4		result.texcoord[3].x, vertex.position, program.env[6];
+DP4		result.texcoord[3].y, vertex.position, program.env[7];
+DP4		result.texcoord[3].w, vertex.position, program.env[8];
+
+# generate the vertex color, which can be 1.0, color, or 1.0 - color
+# for 1.0 : env[16] = 0, env[17] = 1
+# for color : env[16] = 1, env[17] = 0
+# for 1.0-color : env[16] = -1, env[17] = 1
+#MAD		result.color, vertex.color, program.env[16], program.env[17];
+MAD		result.color, vertex.color, program.env[16].x, program.env[16].y;
+
+END
+
+
+#======================================================================
+
+!!ARBfp1.0 
+OPTION ARB_precision_hint_fastest;
+
+# texture 1 is the per-surface bump map
+# texture 2 is the light falloff texture
+# texture 3 is the light projection texture
+# texture 4 is the per-surface diffuse map
+
+# env[0] is the diffuse modifier
+
+TEMP	light, color, R1, localNormal;
+
+# normalize the light vector
+DP3		light.w, fragment.texcoord[0], fragment.texcoord[0];
+RSQ		light.w, light.w;
+MUL		light.xyz, light.w, fragment.texcoord[0];
+
+# sample the normal
+TEX	localNormal, fragment.texcoord[1], texture[1], 2D;
+MOV	localNormal.x, localNormal.a;
+MAD	localNormal.xyz, localNormal, 2.0, -1.0;
+
+DP3	light.w, light, localNormal;
+
+# modulate by the light falloff
+#TXP	R1, fragment.texcoord[2], texture[2], 2D;
+#MUL	light.xyz, light.w, R1;
+MUL	light.xyz, light.w, fragment.texcoord[2].x;
+
+# modulate by the light projection
+TXP	R1, fragment.texcoord[3], texture[3], 2D;
+MUL	light.xyz, light, R1;
+
+#
+# the light will be modulated by the diffuse
+#
+# modulate by the diffuse map and constant diffuse factor
+TEX	R1, fragment.texcoord[1], texture[4], 2D;
+MUL	color.xyz, R1, program.env[0];
+
+# modulate the lighting by the color
+MUL	color.xyz, light, color;
+
+# modify by the vertex color
+MUL result.color.xyz, color, fragment.color;
+
+END

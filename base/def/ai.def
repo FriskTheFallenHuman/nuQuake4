@@ -1,0 +1,148 @@
+/*
+===============================================================================
+
+	Ai related entities
+
+===============================================================================
+*/
+
+
+entityDef ai_avoid {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	
+	"editor_usage"			"Instruct AI to avoid pathing within the given radius"
+	"editor_var radius"		"Radius of the area for ai to avoid"
+	"editor_var teamFilter"	"Set to the team that this avoid area is limited to (default -1, both teams, 0 = marine, 1 = strogg)"
+	
+	"spawnclass"			"rvAIAvoid"
+	"radius"				"128"
+}
+
+entityDef ai_tether_radius {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+
+	"editor_usage"					"Instruct AI to remain within the given radius of the tether entity"
+	"editor_var radius"				"Radius from the tethers origin to remain within"
+	"editor_var location"			"Set to 1 to also limit movement to the location the tether was placed in (Defaults to 1)"
+	"editor_var allowBreak"			"Set to 1 to to allow the tether to be temporarily broken when an enemy is within the tether (Defaults  to 1)"
+	"editor_var autoBreak"			"Set to 1 to automatically break the tether when the ai is within (Defaults to 0)"
+	"editor_var forceRun"			"Set to 1 to force the AI to run when moving to the tether (Defaults to 0)"
+	"editor_var forceWalk"			"Set to 1 to force the AI to walk when moving to the tether (Defaults to 0)"
+	"editor_var becomeAggressive"	"Set to 1 to switch the AI to aggressive state when tethered (Defaults to 0)"
+	"editor_var becomePassive"		"Set to 1 to switch the AI to passive state when tethered (Defaults to 0). Note, ai will still actively scan for new enemies."
+
+	"spawnclass"			"rvAITetherRadius"
+}
+
+entityDef ai_tether_behind {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+
+	"editor_usage"					"Instruct AI to remain behind the given tether entity.  All positions in front of"
+	"editor_usage2"					"a plane created by the direction of the tether and its origin will be excluded from ai pathing."
+
+	"editor_var location"			"Set to 1 to also limit movement to the location the tether was placed in (Defaults to 1)"
+	"editor_var allowBreak"			"Set to 1 to to allow the tether to be temporarily broken when an enemy is within the tether (Defaults  to 1)"
+	"editor_var autoBreak"			"Set to 1 to automatically break the tether when the ai is within (Defaults to 0)"
+	"editor_var range"				"Limits how var behind the tether the ai will move.  (Defaults to zero, which is as far back as they want)"
+	"editor_var forceRun"			"Set to 1 to force the AI to run when moving to the tether (Defaults to 0)"
+	"editor_var forceWalk"			"Set to 1 to force the AI to walk when moving to the tether (Defaults to 0)"
+	"editor_var becomeAggressive"	"Set to 1 to switch the AI to aggressive state when tethered (Defaults to 0)"
+	"editor_var becomePassive"		"Set to 1 to switch the AI to passive state when tethered (Defaults to 0). Note, ai will still actively scan for new enemies."
+
+	"spawnclass"			"rvAITetherBehind"
+}
+
+entityDef ai_tether_location {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+	"spawnclass"			"rvAITether"
+	"location"				"1"
+	"allowBreak"			"0"
+
+	"editor_usage"					"Instruct AI to remain in the same location as the tether entity"
+	
+	"editor_var allowBreak"			"Set to 1 to to allow the tether to be temporarily broken when an enemy is within the tether (Defaults  to 1)"
+	"editor_var autoBreak"			"Set to 1 to automatically break the tether when the ai is within (Defaults to 0)"
+	"editor_var forceRun"			"Set to 1 to force the AI to run when moving to the tether (Defaults to 0)"
+	"editor_var forceWalk"			"Set to 1 to force the AI to walk when moving to the tether (Defaults to 0)"
+	"editor_var becomeAggressive"	"Set to 1 to switch the AI to aggressive state when tethered (Defaults to 0)"
+	"editor_var becomePassive"		"Set to 1 to switch the AI to passive state when tethered (Defaults to 0). Note, ai will still actively scan for new enemies."
+}
+
+entityDef ai_tether_none {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+	"spawnclass"			"rvAITetherClear"	
+	"location"				"0"
+
+	"editor_usage"					"Instruct AI to remove any current tethers they may have"
+	"editor_var becomeAggressive"	"Set to 1 to switch the AI to aggressive state when tethered (Defaults to 0)"
+	"editor_var becomePassive"		"Set to 1 to switch the AI to passive state when tethered (Defaults to 0). Note, ai will still actively scan for new enemies."
+}
+
+entityDef ai_trigger_once {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"	
+	"editor_targetonsel"	"1"
+	"spawnclass"			"rvAITrigger"	
+
+	"editor_usage"					""
+	"editor_var condition_dead"		"Set to 1 to test whether the attached ai entities are all dead"
+	"editor_var condition_tether"	"Set to 1 to test whether the attached ai entities are all within tether range"
+	"editor_var condition_stop"		"Set to 1 to test whether the attached ai entities are all stopped"
+	"editor_var percent"			"Percentage of targeted ai entities that have to meet condition for trigger to fire (defaults to 1 which is 100%)"
+	
+	"wait"					"-1"
+}
+
+entityDef ai_trigger_multiple {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+	"spawnclass"			"rvAITrigger"	
+
+	"editor_usage"					""
+	"editor_var condition_dead"		"Set to 1 to test whether the attached ai entities are all dead"
+	"editor_var condition_tether"	"Set to 1 to test whether the attached ai entities are all within tether range"
+	"editor_var condition_stop"		"Set to 1 to test whether the attached ai entities are all stopped"
+	"editor_var percent"			"Percentage of targeted ai entities that have to meet condition for trigger to fire (defaults to 1 which is 100%)"
+	
+	"wait"					".5"
+}
+
+entityDef ai_become_Aggressive {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+	"spawnclass"			"rvAIBecomeAggressive"	
+	"location"				"0"
+
+	"editor_usage"			"Set AI into a combat ready state."
+}
+
+entityDef ai_become_Passive {
+ 	"editor_color"			".7 .3 1"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+	"editor_targetonsel"	"1"
+	"spawnclass"			"rvAIBecomePassive"	
+	"location"				"0"
+
+	"editor_usage"				"Set AI into a passive/relaxed state"
+	"editor_var ignoreEnemies"	"Set to 1 to prevent the AI from finding enemies while in passive state (Defaults to 1)"
+}

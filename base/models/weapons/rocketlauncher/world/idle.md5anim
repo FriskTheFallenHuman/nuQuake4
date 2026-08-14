@@ -1,0 +1,34 @@
+MD5Version 10
+commandline "anim work/models/characters/marine/animation_mocap_cinematics/newMarine_oneframe_idle.ma -dest models/weapons/rocketlauncher/world/idle.md5anim -game Quake4 -prefix PLAYER_RKT_ -scale .4 -keep muzzle_flash ATTACHER -rename ATTACHER origin -clearorigin"
+
+numFrames 2
+numJoints 5
+frameRate 24
+numAnimatedComponents 0
+
+hierarchy {
+	"origin"	-1 0 0	//
+	"body"	0 0 0	// origin
+	"muzzle_flash"	1 0 0	// body
+	"reload_rack"	1 0 0	// body
+	"rocket"	3 0 0	// reload_rack
+}
+
+bounds {
+	( -3.2914426327 -4.5813612938 -10.2610044479 ) ( 4.0853128433 8.4793338776 19.0937194824 )
+	( -3.2914426327 -4.5813612938 -10.2610044479 ) ( 4.0853128433 8.4793338776 19.0937194824 )
+}
+
+baseframe {
+	( 0 0 0 ) ( 0 0 0 )
+	( 0.3969351947 1.5893446207 5.7355079651 ) ( 0 0 0 )
+	( 0.0000002613 4.5422239304 13.7121887207 ) ( 0.0000000001 0.7071067691 0.0000000029 )
+	( -0.0000015121 2.580640316 -3.8710596561 ) ( 0 0 0 )
+	( 0.0000017828 1.9534420967 -2.5805392265 ) ( 0 0 0 )
+}
+
+frame 0 {
+}
+
+frame 1 {
+}

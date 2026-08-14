@@ -1,0 +1,406 @@
+textures/decals/blood_drip1
+{
+	qer_editorimage		textures/decals/blood_drip1
+	translucent
+	decal_macro
+	{
+		blend			filter
+		map				textures/decals/blood_drip1
+		translate		1,time*-0.1
+	}
+	{
+		blend			filter
+		map				textures/decals/blood_drip1a
+		translate		1,time*-0.02
+	}
+}
+
+textures/decals/dsplat11
+{
+	qer_editorimage	textures/decals/dsplat11.tga
+
+	nonsolid
+	noimpact
+	blood
+	polygonoffset
+	DECAL_MACRO
+	{       
+      	blend		gl_zero, gl_one_minus_src_color
+		map			textures/decals/dsplat11.tga
+		clamp		// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor	// oblique projections will be slightly faded down
+	}	
+}
+
+
+textures/decals/dsplat2
+{
+	qer_editorimage	textures/decals/dsplat2.tga
+
+	nonsolid
+	noimpact
+	blood
+	DECAL_MACRO
+	{       
+      	blend		gl_zero, gl_one_minus_src_color
+		map			textures/decals/dsplat2.tga
+		clamp		// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor	// oblique projections will be slightly faded down
+	}	
+}
+
+textures/decals/dsplat5
+{
+	qer_editorimage	textures/decals/dsplat5.tga
+
+	nonsolid
+	noimpact
+	blood
+	DECAL_MACRO
+	{       
+      	blend		gl_zero, gl_one_minus_src_color
+		map			textures/decals/dsplat5.tga
+		clamp		// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor	// oblique projections will be slightly faded down
+	}	
+}
+
+textures/decals/dsplat7
+{
+	qer_editorimage	textures/decals/dsplat7.tga
+
+	nonsolid
+	noimpact
+	blood
+	DECAL_MACRO
+	{       
+      	blend		gl_zero, gl_one_minus_src_color
+		map			textures/decals/dsplat7.tga
+		clamp		// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor	// oblique projections will be slightly faded down
+	}	
+}
+
+textures/decals/genericdamage
+{
+	noshadows
+	translucent
+	{
+		blend gl_dst_color,gl_zero
+		map    textures/decals/genericdamage.tga
+		colored
+	}
+
+}
+
+
+
+textures/decals/hurt02
+{
+
+	qer_editorimage textures/decals/hurt02.tga
+	DECAL_MACRO
+
+	{
+		if ( parm7 == 0 )
+		blend gl_dst_color,gl_zero
+		map	textures/decals/hurt02.tga
+		clamp
+	}
+}
+textures/decals/splat10
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat10.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat10.tga
+		colored
+	}	
+}
+
+textures/decals/splat11
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat11.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat11.tga
+		colored
+	}	
+}
+textures/decals/splat12
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat12.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat12.tga
+		colored
+	}	
+}
+
+
+textures/decals/splat13
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat13.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat13.tga
+		colored
+	}	
+}
+
+
+
+textures/decals/splat14
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat14.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat14.tga
+		colored
+	}	
+}
+
+
+textures/decals/splat14_far
+{
+	DECAL_MACRO
+	blood
+	sort far
+	nonSolid
+	qer_editorimage	textures/decals/splat14.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat14.tga
+		colored
+	}	
+}
+
+
+textures/decals/splat15
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat15.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat15.tga
+		colored
+	}	
+}
+
+textures/decals/splat16
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat16.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat16.tga
+		colored
+	}	
+}
+		
+textures/decals/splat2
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat2.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat2.tga
+		colored
+	}	
+}
+
+textures/decals/splat2_far
+{
+	DECAL_MACRO
+	blood
+	sort far
+	nonSolid
+	qer_editorimage	textures/decals/splat2.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat2.tga
+		colored
+	}	
+}
+
+textures/decals/splat3
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat3.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat3.tga
+		colored
+	}	
+}
+
+textures/decals/splat4
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat4.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat4.tga
+		colored
+	}	
+}
+
+textures/decals/splat5
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat5.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat5.tga
+		colored
+	}	
+}
+
+textures/decals/splat6
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat6.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat6.tga
+		colored
+	}	
+}
+
+
+textures/decals/splat6_far
+{
+	DECAL_MACRO
+	blood
+	sort far
+	nonSolid
+	qer_editorimage	textures/decals/splat6.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat6.tga
+		colored
+	}	
+}
+
+textures/decals/splat7
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat7.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat7.tga
+		colored
+	}	
+}
+textures/decals/splat8
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat8.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map textures/decals/splat8.tga
+		colored
+	}	
+}
+
+
+textures/decals/splat9
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat9.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map textures/decals/splat9.tga
+		colored
+	}	
+}
+textures/decals/splat2_fade
+{
+	DECAL_MACRO
+	blood
+	noShadows
+	noimpact
+	translucent
+	nonSolid
+	decalinfo	10, 0.5
+
+	qer_editorimage	textures/decals/splat2.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat2.tga
+		vertexColor	
+		rgb		decalFade[ DecalLife ]
+	}	
+}
+
+textures/decals/splat2_fadelong
+{
+	DECAL_MACRO
+	blood
+	noShadows
+	noimpact
+	translucent
+	nonSolid
+	decalinfo	20, 0.5
+
+	qer_editorimage	textures/decals/splat2.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat2.tga
+		vertexColor	
+		rgb		decalFade[ DecalLife * .2]
+	}	
+}
+
+
+textures/decals/splat1
+{
+	DECAL_MACRO
+	blood
+	nonSolid
+	qer_editorimage	textures/decals/splat1.tga
+	{
+		blend 	gl_zero,gl_one_minus_src_color
+		map 	textures/decals/splat1.tga
+		colored
+	}	
+}

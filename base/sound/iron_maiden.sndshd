@@ -1,0 +1,131 @@
+
+
+sound iron_maiden_breath
+{
+	description	"breathing"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	-12
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/iron_maiden/breath1
+	shakeData 0 abcdehgjjmmmnllnlnlponqpnssqqoroqrnrqpqnsplmmqjmjlknolhkkimijigihkjhjjiffkklihikjhhkgkhgigjeegdddefcbcddcbbbaaaaaaaa
+	sound/strogg/iron_maiden/breath2
+	shakeData 1 accdehjjklppsrpsqrropmpnpmnrvtrtrrqmrorupqnqsnmlkqmklilhifeeefhhjihkkmijkilhiigkhgfhhfefgeedddccbbbbaaaaaaa
+	sound/strogg/iron_maiden/breath3
+	shakeData 2 abbcddeefgggghgiikikjlpomlpomnpnqmmqmollrllnlromklkklkmkhiikiihhihhfffiffeefehggefhihgiiiihiiighiijhfghifeedfecccccbbbaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+}
+
+
+sound iron_maiden_alert
+{
+	description	"must...kill..."
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/iron_maiden/alert1
+	shakeData 0 acefkmozzzzzzzzzzzzzyzzzzzzzzzzyzzzzzyzzzyzzyzzxzzzzzzwyzzzzxzzzxxzzyvwzzysyzwihyzulnqruooxrnmoojefhhedbccba
+	sound/strogg/iron_maiden/alert2
+	shakeData 1 begmmoqsuurvwwzzzzyyzzyzxyzyzxyzzyxzzzxzzzzxzzyzyzzzzzzzzyyzzyzzzyxyzzzxzyzvqzzztxyzyozzzyvwtwzqqtvyqmqknnmpohkjmnefghhddcddaaaaaaa
+}
+
+
+sound iron_maiden_attack
+{
+	description	"I don't like you."
+
+	minDistance	393
+	maxDistance	787
+	volumeDb	0
+
+	sound/strogg/iron_maiden/attack1
+	shakeData 0 bflovwzzzzzzzzyzzzzzxyzzzzzzzzzzzzzzwwzxtnkgffddcbbbbbaaaaaaaaaaaaaaa
+	sound/strogg/iron_maiden/attack2
+	shakeData 1 cjwzzxzzzzzzzzzzzzzzxyzzzwyzyzzxzzzzxzzxzzwzqqnpmkiffeeddcbcbaaaaaaa
+}
+
+
+sound iron_maiden_swing
+{
+	description	"claw!  maim!  dismember!"
+
+	minDistance	196
+	maxDistance	787
+	volumeDb	0
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+	sound/strogg/iron_maiden/attack1
+	shakeData 4 bflovwzzzzzzzzyzzzzzxyzzzzzzzzzzzzzzwwzxtnkgffddcbbbbbaaaaaaaaaaaaaaa
+	sound/strogg/iron_maiden/attack2
+	shakeData 5 cjwzzxzzzzzzzzzzzzzzxyzzzwyzyzzxzzzzxzzxzzwzqqnpmkiffeeddcbcbaaaaaaa
+}
+
+
+sound iron_maiden_death
+{
+	description	"She dies."
+
+	minDistance	393
+	maxDistance	1377
+	volumeDb	0
+
+	sound/strogg/iron_maiden/die1
+	shakeData 0 accegmrxyyxmpuuvtvwxutswxutwuwxxxwuuttuutvwuxzuusxsstwrstusrmqrtmmhjijhgfihededddbcbbbbbaaaaaaaaaaaaaa
+	sound/strogg/iron_maiden/die2
+	shakeData 1 aabdinorxysutxxwywuvwxwvvvxyuvxutwwtvyxwxuvuvwxxtxuvtwyuvpuouqtvsspopqrqkkqoiijfgjfeddccccaaaaaaaaaaaaaaaaa
+}
+
+
+sound iron_maiden_hover
+{
+	description	"floating around all creepy like."
+
+	minDistance	39
+	maxDistance	780
+	volumeDb	-4
+	frequentlyUsed
+	looping
+
+	sound/strogg/iron_maiden/hover
+	shakeData 0 pontnmmjumjnlmrkqnomomnnmooqpnpqonrlqmoqqlnlmlkonljlmnqnlqqqplqkmlkknlpoonqnk
+}
+
+
+sound iron_maiden_button
+{
+	description	"pressing button on her armplate"
+
+	minDistance	196
+	maxDistance	787
+	volumeDb	0
+
+	sound/strogg/iron_maiden/button
+	shakeData 0 gklhgiiffffccccbbbaa
+}
+
+
+sound iron_maiden_casket
+{
+	minDistance	196
+	maxDistance	980
+	volumeDb	0
+
+	sound/objects/casket/open
+	shakeData 0 aaaaaafxxyzyyxyyzyyyvssyzxzyuywussrnpmlnnlnljkjljknjkljstzyzzyywxyxvwtrtpspoqnmkjjjiijiiiikllijjkihhgiihgfffeeddedcdccbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+

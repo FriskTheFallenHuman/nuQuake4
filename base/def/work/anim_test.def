@@ -1,0 +1,36 @@
+/***********************************************************************
+
+anim_test_gun
+
+***********************************************************************/
+
+export anim_Test {
+	options -prefix animtest
+	mesh	models/mapobjects/anim_test/room_test.ma -dest models/mapobjects/md5/mesh/anim_test
+	anim	models/mapobjects/anim_test/room_test.ma -dest models/mapobjects/md5/anim/gunmove
+	anim	models/mapobjects/anim_test/room_test_looper.ma -dest models/mapobjects/md5/anim/gunmove_looper
+
+}
+
+entityDef test_anim_all {
+
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+
+
+
+	"spawnclass"					"idAnimated"
+	"start_anim"					"idle"
+	"anim"							"active"
+
+
+
+
+	"model"					"models/mapobjects/md5/mesh/anim_test.md5mesh"
+	"anim looper"					"models/mapobjects/md5/anim/gunmove_looper.md5anim"
+	"anim trigme"					"models/mapobjects/md5/anim/gunmove.md5anim"			
+
+
+
+}

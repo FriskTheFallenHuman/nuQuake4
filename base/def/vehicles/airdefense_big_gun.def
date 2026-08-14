@@ -1,0 +1,188 @@
+//------------------------------------------------------------------------------
+// airdefense_big_gun.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_airdefense_big_gun {
+	
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-64 -64 0"
+	"editor_maxs"				"64 64 360"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Air Defense Mounted Gun."
+
+	"spawnclass"				"rvVehicleStatic"
+
+	"model"						"model_airdefense_big_gun2"
+	"mins"						"-96 -116 0"
+	"maxs"						"96 122 360"
+
+	"def_position_driver"		"vehicle_airdefense_driver"
+
+	"gui_hud"					"guis/vehicles/airdef_cannon.gui"
+	
+	"health"					"0"
+	"mass"						"100"	
+	
+	"notPushable"				"1"
+	"focusLength_enter"			"0" //Make the icon for entering not show up
+	
+	"exit_script"				"map_mcc_landing::gunChairDone"
+	"exit_vehicle_delay"		"1000"
+}
+
+//------------------------------------------------------------------------------
+//								Model
+//------------------------------------------------------------------------------
+
+model model_airdefense_big_gun2 
+{
+	mesh						models/monsters/air_defense_cannon/mesh.md5mesh
+
+	anim idle					models/monsters/air_defense_cannon/idle.md5anim
+	anim fire					models/monsters/air_defense_cannon/fire.md5anim 
+	{
+		frame 2					eventArgs launchProjectiles 0
+		frame 6					eventArgs launchProjectiles 0
+	}
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_airdefense_driver 
+{
+	"def_part_yaw"				"vehicle_airdefense_big_gun_yaw"
+	"def_part_pitch"			"vehicle_airdefense_big_gun_pitch"
+	"def_part_weapon"			"vehicle_airdefense_weapon"
+	"def_part_scriptcb"			"vehicle_airdefense_scriptcb"
+	
+	"driverJoint"				"base"
+	"driverVisible"				"1"
+	"bindDriver"				"1"
+
+	"eyeJoint"					"eye"
+	//"eyeOffset"					"20 65 100"
+
+	"depthHack"					"1"
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_airdefense_weapon 
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"top_cannon_end"
+	"joint2"					"lower_cannon_end"
+	
+	"anim"						"fire"
+	
+	"launchOnFrameCommand"		"1"
+	"launchfromjoint"			"1"
+	
+	"def_projectile"			"projectile_airdefense_big_gun"
+	
+	"spread"					"2"
+	"firedelay"					"3"
+	
+	"fx_muzzleflash"			"effects/mapobjects/big_gunmuzzleflash.fx"
+	"snd_fire"					"airdefense_cannon_fire"
+	
+	"shakeTime"					"400"
+	"shakeMagnitude"			"4"	
+}
+
+entityDef vehicle_airdefense_big_gun_yaw 
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"base"
+	
+	"yaw"						"1"
+	
+	// Changed these to 46 to accomodate the possible max rotation of 45 on the gun prior to use.
+	"minyaw"					"-46" 
+	"maxyaw"					"46"
+	"turnrate"					"45"
+
+	"snd_loop"					"airdefense_cannon_move"	
+}
+
+entityDef vehicle_airdefense_big_gun_pitch 
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"arm"
+
+	"pitch"						"0"
+	"minpitch"					"-35"
+	"maxpitch"					"30"
+	"turnrate"					"45"
+
+	"snd_loop"					"airdefense_cannon_move"
+}
+
+entityDef vehicle_airdefense_scriptcb
+{
+	"spawnclass"				"rvVehicleUserAnimated"
+	
+	"attack_script"				"map_mcc_landing::fireGun"
+}
+
+//------------------------------------------------------------------------------
+//									Projectile
+//------------------------------------------------------------------------------
+
+entityDef projectile_airdefense_big_gun 
+{
+	"spawnclass"				"idProjectile"
+	"size"						"9 9 9"
+	"cone"						"2"
+	"noshadows"					"1"
+	"clipmask_largeshot"		"1"
+								
+	//"model"					"models/weapons/rocketlauncher/rocket.lwo"
+	"def_damage"				"damage_big_gun_direct"									// needs to be changed
+	"def_splash_damage"			"damage_big_gun_splash"									// needs to be changed
+																											
+	"speed"						"1000"
+	"fuse"						"6"
+	"gravity"					"0"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"1"
+								
+	"impact_gib"				"1"								
+	"decal_size"				"128"
+
+	"fx_fly"					"effects/mapobjects/big_gunfly.fx"
+	"fx_detonate"				"effects/explosions/surface/dropship_exp.fx"
+	"fx_impact"					"effects/explosions/surface/dropship_exp.fx"
+	"fx_impact_water"			"effects/ambient/splash_med.fx"							// needs to be changed
+	
+	"snd_fly"					"player_rocketlauncher_fly"								// needs to be changed
+}
+
+// Custom damage entries for damage filters on mcc_landing door
+entityDef damage_big_gun_direct
+{
+	"inherit"					"damage_rocketDirect"	
+	"filter_biggun"				"1"
+}
+
+entityDef damage_big_gun_splash
+{
+	"inherit"					"damage_rocketSplash"	
+	"filter_biggun"				"1"
+}

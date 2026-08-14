@@ -1,0 +1,259 @@
+//-----------------------------------------------------------------------------------------
+//	Shaders for the outdoor canyon areas
+//-----------------------------------------------------------------------------------------
+
+guide textures/canyon/can_plate_01brown generic_Localvariant("canyon/can_plate_01" , "canyon/can_plate_01brown")
+
+
+//----------------------------------------------------------------------------------
+textures/canyon/can_Dirt_02
+{	//New, less-tiling dirt
+
+	qer_editorimage	textures/canyon/can_Dirt_02_d.tga
+
+	materialtype	rock
+
+	{
+	blend		bumpmap
+	map		heightmap(textures/canyon/can_Dirt_02_h.tga, 8)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/canyon/can_Dirt_02_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/canyon/can_Dirt_02_s.tga
+	}
+}
+
+//----------------------------------------------------------------------------------
+
+textures/canyon/can_Antennalight_01
+{	//light for the antennas
+
+	qer_editorimage	textures/canyon/can_Antennalight_01.tga
+	noShadows
+	noSelfShadow
+	nonsolid
+	noimpact
+	deform		sprite
+	
+	{
+	blend		add
+	map		textures/canyon/can_Antennalight_01.tga
+	}
+}
+//----------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------
+textures/canyon/can_blinklight_01
+{	//light for the antennas that blink
+
+	qer_editorimage	textures/canyon/can_Antennalight_01.tga
+	noShadows
+	noSelfShadow
+	nonsolid
+	noimpact
+	deform		sprite
+	
+	{
+	blend		add
+	map		textures/canyon/can_Antennalight_01.tga
+	rgb		canyon_blinky01[time / 3]
+	}
+}
+//----------------------------------------------------------------------------------
+
+textures/canyon/can_pipe_01
+{	//texture for the sides of the canyon pipes
+
+	qer_editorimage	textures/canyon/can_pipe_01_d.tga
+	
+	{
+	blend		bumpmap
+	map		textures/canyon/can_pipe_01_local.tga
+	}
+
+	{
+	blend		diffusemap
+	map		textures/canyon/can_pipe_01_d.tga
+	}
+
+//	{
+//	blend		specularmap
+//	map		textures/canyon/can_pipe_01_s.tga
+//	}
+
+
+}
+//----------------------------------------------------------------------------------
+
+
+
+guide textures/canyon/can_gatehalf_01 generic_materialimageshader("canyon/can_gatehalf_01")
+guide textures/canyon/can_ledge_lower_01 generic_materialimageshader("canyon/can_ledge_lower_01")
+guide textures/canyon/can_ledge_Upper_01 generic_materialimageshader("canyon/can_ledge_Upper_01")
+guide textures/canyon/can_midwall_02 generic_materialimageshader("canyon/can_midwall_02")
+guide textures/canyon/can_topwall_02 generic_materialimageshader("canyon/can_topwall_02")
+guide textures/canyon/can_plate_01 generic_materialimageshader("canyon/can_plate_01")
+guide textures/canyon/can_plate_02 generic_materialimageshader("canyon/can_plate_02")
+guide textures/canyon/can_techtrench_01 generic_materialimageshader("canyon/can_techtrench_01")
+guide textures/canyon/can_Window_01 generic_materialimageshader("canyon/can_Window_01")
+guide textures/canyon/can_buttress_front_bot generic_shader("canyon/can_buttress_front_bot")
+guide textures/canyon/can_buttress_front_top generic_shader("canyon/can_buttress_front_top")
+guide textures/canyon/can_buttress_side generic_materialimageshader("canyon/can_buttress_side")
+guide textures/canyon/crate_a_front generic_shader("canyon/crate_a_front")
+guide textures/canyon/crate_a_top generic_shader("canyon/crate_a_top")
+guide textures/canyon/crate_b_side generic_shader("canyon/crate_b_side")
+guide textures/canyon/crate_b_top generic_shader("canyon/crate_b_top")
+guide textures/canyon/support_1 generic_shader("canyon/support_1")
+guide textures/canyon/pipe_wall1 generic_shader("canyon/pipe_wall1")
+guide textures/canyon/door_rim_plain generic_shader("canyon/door_rim_plain")
+guide textures/canyon/door_rim_male generic_shader("canyon/door_rim_male")
+guide textures/canyon/door_rim_female generic_shader("canyon/door_rim_female")
+guide textures/canyon/can_gate_door generic_shader("canyon/can_gate_door")
+guide textures/canyon/can_fakegate_door generic_materialimageshader("canyon/can_fakegate_door")
+guide textures/canyon/can_gatehalf_01brown generic_Localvariant("canyon/can_gatehalf_01" , "canyon/can_gatehalf_01brown")
+
+textures/canyon/gate_door_small
+{
+	qer_EditorImage		textures/canyon/gate_door_local.tga
+	bumpmap addnormals	( textures/canyon/gate_door_local.tga, heightmap ( textures/canyon/gate_doorbrown_h.tga, 1 ) )
+	diffusemap			textures/canyon/gate_doorbrown_d.tga
+	specularmap			textures/canyon/gate_doorbrown_s.tga
+}
+
+textures/canyon/gate_door_downsize
+{
+	bumpmap addnormals	( textures/canyon/can_gate_door_local.tga, heightmap ( textures/canyon/can_gate_door_h.tga, 1 ) )
+	diffusemap		downsize( textures/canyon/can_gate_door_d.tga , 1 )
+	specularmap		downsize( textures/canyon/can_gate_door_s.tga, 1 )
+}
+
+guide textures/canyon/can_ledge_lower_01brown generic_Localvariant("canyon/can_ledge_lower_01" , "canyon/can_ledge_lower_01brown")
+guide textures/canyon/can_ledge_Upper_01brown generic_Localvariant("canyon/can_ledge_Upper_01" , "canyon/can_ledge_Upper_01brown")
+guide textures/canyon/can_topwall_01brown generic_Localvariant_mi("canyon/can_topwall_01" , "canyon/can_topwall_01brown")
+guide textures/canyon/can_topwall_03brown generic_Localvariant("canyon/can_topwall_03" , "canyon/can_topwall_03brown")
+guide textures/canyon/can_plate_02brown generic_Localvariant_mi("canyon/can_plate_02" , "canyon/can_plate_02brown")
+
+guide textures/canyon/can_buttress_front_topbrown generic_Localvariant("canyon/can_buttress_front_top" , "canyon/can_buttress_front_topbrown")
+guide textures/canyon/can_buttress_sidebrown generic_Localvariant("canyon/can_buttress_side" , "canyon/can_buttress_sidebrown")
+guide textures/canyon/support_1brown generic_Localvariant("canyon/support_1" , "canyon/support_1brown")
+guide textures/canyon/grate_01 generic_shader2sidedalpha_type("canyon/grate_01","hollowmetal")
+
+
+//----------------------------------------------------------------------------------
+
+textures/canyon/antenna_sprite
+
+{
+	
+	DEcAl_mAcrO
+	
+	qer_editorimage textures/canyon/antenna_sprite.tga
+
+	{       
+      		 nopicmip
+      		 blend	diffusemap
+			 map	textures/canyon/antenna_sprite.tga
+	   		 alphatest 0.5
+	}
+
+	
+	
+
+       
+}
+
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+
+textures/canyon/antenna_sprite_twosided
+
+{	
+
+	//twosided Antenna shader for tram1b
+
+      DEcAl_mAcrO
+	
+	qer_editorimage textures/canyon/antenna_sprite.tga
+	noShadows
+	noSelfShadow
+	twosided
+     
+     {       
+      		 nopicmip
+      		 blend	diffusemap
+			 map	textures/canyon/antenna_sprite.tga
+	   		 alphatest 0.5
+	}
+       
+}
+
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+
+textures/canyon/door_2_smolder
+
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_editorimage textures/canyon/can_gate_door_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/canyon/can_gate_door_local.tga, heightmap ( textures/canyon/can_gate_door_h.tga, 1 ) )
+		//Vertexcolor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/canyon/can_gate_door_d.tga
+		Vertexcolor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/canyon/can_gate_door_s.tga
+		Vertexcolor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexcolor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexcolor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexcolor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexcolor
+		//AlphaZeroclamp
+	}
+	{
+		blend	gl_DSt_AlpHA, gl_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexcolor
+	}
+
+}

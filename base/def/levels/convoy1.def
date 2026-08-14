@@ -1,0 +1,484 @@
+/***********************************************************************************************************************
+Convoy
+
+Unique entities created for the convoy level
+************************************************************************************************************************/
+
+model model_convoy_char_marine
+{
+	inherit												model_char_marine
+/*
+	// Roadblock anims	-----------------------------------------------------------------------------------------
+	anim roadblock_01				models/characters/marine/roadblock_01.md5anim
+	{
+		ai_look_head_only
+	}
+	anim roadblock_02				models/characters/marine/roadblock_02.md5anim
+	{
+		ai_no_look
+	}
+	
+	// Injury anims	-----------------------------------------------------------------------------------------
+	anim convoy_eye_injury				models/characters/marine/conv_eye_injury.md5anim
+	{
+		frame 1						ai_disablePain
+		frame 1						event				disableClip
+	}
+	anim convoy_dr_treating_burn			models/characters/marine/conv_dr_treating_burn.md5anim
+	{
+		frame 1						ai_disablePain
+		frame 1						event				disableClip
+	}
+	
+	// Point	-----------------------------------------------------------------------------------------
+	anim convoy_point_cave				models/characters/marine/conv_point_cave.md5anim
+	{
+		frame 1						ai_disablePain
+	}
+
+	// Briefings	-----------------------------------------------------------------------------------------
+	anim sarge_briefing_1				models/characters/marine/sarge_briefing_1.md5anim
+	{
+		ai_look_head_only
+		frame 	1					event disableClip
+	}
+	anim sarge_briefing_2				models/characters/marine/sarge_briefing_2.md5anim
+	{
+		ai_look_head_only
+		frame 	1					event disableClip
+	}
+	anim sarge_briefing_3				models/characters/marine/sarge_briefing_3.md5anim
+	{
+		ai_look_head_only
+		frame 	1					event disableClip
+	}
+	anim sarge_briefing_4				models/characters/marine/sarge_briefing_4.md5anim
+	{
+		ai_no_look
+		frame 	1					event disableClip
+	}
+
+	anim sarge_briefing_5				models/characters/marine/sarge_briefing_5.md5anim
+	{
+		ai_look_head_only
+		frame 	1					event disableClip
+	}
+	anim sarge_briefing_6				models/characters/marine/sarge_briefing_6.md5anim
+	{
+		ai_no_look
+		frame 	1					event disableClip
+	}
+*/
+	anim sarge_briefing_7				models/characters/marine/sarge_briefing_7.md5anim
+	{
+		ai_look_head_only
+		frame 	1					event disableClip
+	}
+/*
+	// Taking Cover anims	-----------------------------------------------------------------------------------------
+	anim take_cover1_start				models/characters/marine/take_cover1_start.md5anim
+	anim take_cover1_mid				models/characters/marine/take_cover1_mid.md5anim
+	anim take_cover1_end				models/characters/marine/take_cover1_end.md5anim
+
+	anim take_cover2_start				models/characters/marine/take_cover2_start.md5anim
+	anim take_cover2_mid				models/characters/marine/take_cover2_mid.md5anim
+	anim take_cover2_end				models/characters/marine/take_cover2_end.md5anim	
+	
+	// Drawing in dirt	-----------------------------------------------------------------------------------------
+
+	anim	plan_on_ground_1			models/characters/marine/plan_on_ground_1.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	plan_on_ground_2			models/characters/marine/plan_on_ground_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	plan_on_ground_3			models/characters/marine/plan_on_ground_3.md5anim
+	{
+		ai_look_head_only
+	}
+*/
+	
+	// Weapon idles		-----------------------------------------------------------------------------------------
+	anim	idle_weapon_1_start			models/characters/marine/idle_weapon_1_start.md5anim
+	anim	idle_weapon_1_loop			models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1				models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1_end			models/characters/marine/idle_weapon_1_end.md5anim
+	anim	idle_weapon_2_start			models/characters/marine/idle_weapon_2_start.md5anim
+	anim	idle_weapon_2_loop			models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2				models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2_end			models/characters/marine/idle_weapon_2_end.md5anim
+	anim	idle_weapon_3_start			models/characters/marine/idle_weapon_3_start.md5anim
+	anim	idle_weapon_3_loop			models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3				models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3_end			models/characters/marine/idle_weapon_3_end.md5anim
+	anim	idle_weapon_4				models/characters/marine/idle_weapon_4.md5anim
+	
+	// Sitting		-----------------------------------------------------------------------------------------
+	anim idle_sitting_1				models/characters/marine/idle_sitting_1.md5anim
+	{
+		ai_no_look
+	}
+	
+	// Working @ console	-----------------------------------------------------------------------------------------
+	anim console_idle				models/characters/marine/console_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	// Kneeling/Working	-----------------------------------------------------------------------------------------
+	anim working_wall_panel				models/characters/marine/working_wall_panel.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim working_wall_panel_2			models/characters/marine/working_wall_panel_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim working_wall_panel_3			models/characters/marine/working_wall_panel_3.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	// Snappy Aims		-----------------------------------------------------------------------------------------
+	anim aim_snappy_2				models/characters/marine/m_stand_aim_snappy_2.md5anim
+	
+	// Weapon Checks	-----------------------------------------------------------------------------------------
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_gear
+		frame	42						sound	snd_gun_ready 
+	}
+	
+	anim weapon_check_3					models/characters/marine/weapon_check_3.md5anim
+	{
+		ai_no_look	
+		frame	14,78					sound	snd_gear
+	}
+	
+	// Rhodes defusing stuff	-------------------------------------------------------------------------------
+	anim medic_treating					models/characters/marine/medic_treating.md5anim
+	{
+		ai_look_head_only
+	}
+	
+}
+
+
+entityDef convoy_char_marine
+{
+	"inherit"											"char_marine"
+	"model"												"model_convoy_char_marine"
+	"editor_menu"										"level"
+
+	"crouch_time"										"200000"
+
+	"sg_category"										"None"
+
+//	"snd_convoy_intro"									"convoy_intro"
+	
+	///////////////////////////////////////////////////////////////////
+	//							CONVOY VO							 //
+	///////////////////////////////////////////////////////////////////
+
+	// Voss Radio
+	"snd_vo_1_2_0_10_1"									"vo_1_2_0_10_1"
+	"snd_vo_1_2_1_120_1"								"vo_1_2_1_120_1"
+	"snd_vo_1_2_1_130_1"								"vo_1_2_1_130_1"
+	"snd_vo_1_2_1_140_1"								"vo_1_2_1_140_1"
+	"snd_vo_1_2_1_200_1"								"vo_1_2_1_200_1"
+	"snd_vo_1_2_0_90_1"									"vo_1_2_0_90_1"
+
+	// CAPT. Stratton (Pilot) Radio
+	"snd_vo_1_2_0_11_1"									"vo_1_2_0_11_1"
+
+	// CPL. Pitman
+	"lipsync_vo_1_2_0_12_1"								"vo_1_2_0_12_1"
+	"lipsync_vo_1_2_0_14_1"								"vo_1_2_0_14_1"
+	"lipsync_vo_1_2_0_14_2"								"vo_1_2_0_14_2"
+	"lipsync_vo_1_2_0_14_3"								"vo_1_2_0_14_3"
+
+	// CAPT. Brown (Walker Pilot) Radio
+	"snd_vo_1_2_0_16_1"									"vo_1_2_0_16_1"
+
+	// CAPT. Warren (Walker Pilot) Radio
+	"snd_vo_1_2_0_65_1"									"vo_1_2_0_65_1"
+	"snd_vo_1_2_0_67_1"									"vo_1_2_0_67_1"
+
+	// CAPT. Glass (Walker Pilot) Radio
+	"snd_vo_1_2_0_66_1"									"vo_1_2_0_66_1"
+
+	// Spencer
+	"lipsync_vo_1_2_0_20_1"								"vo_1_2_0_20_1"
+	"lipsync_vo_1_2_0_30_1"								"vo_1_2_0_30_1"
+	"lipsync_vo_1_2_0_40_1"								"vo_1_2_0_40_1"
+	"lipsync_vo_1_2_0_42_1"								"vo_1_2_0_42_1"
+	"lipsync_vo_1_2_0_42_3"								"vo_1_2_0_42_3"
+	"lipsync_vo_1_2_0_43_2"								"vo_1_2_0_43_2"
+	"lipsync_vo_1_2_0_44_1"								"vo_1_2_0_44_1"
+	"lipsync_vo_1_2_0_44_3"								"vo_1_2_0_44_3"
+	"lipsync_vo_1_2_0_46_2"								"vo_1_2_0_46_2"
+	"lipsync_vo_1_2_0_46_4"								"vo_1_2_0_46_4"
+	"lipsync_vo_1_2_0_50_1"								"vo_1_2_0_50_1"
+	"lipsync_vo_1_2_0_60_1"								"vo_1_2_0_60_1"
+	"lipsync_vo_1_2_0_60_2"								"vo_1_2_0_60_2"
+	"lipsync_vo_1_2_0_60_3"								"vo_1_2_0_60_3"
+	"lipsync_vo_1_2_0_60_4"								"vo_1_2_0_60_4"
+	"lipsync_vo_1_2_0_60_5"								"vo_1_2_0_60_5"
+	"lipsync_vo_1_2_0_60_6"								"vo_1_2_0_60_6"
+	"lipsync_vo_1_2_0_60_7"								"vo_1_2_0_60_7"
+	"lipsync_vo_1_2_0_60_8"								"vo_1_2_0_60_8"
+	"lipsync_vo_1_2_0_60_9"								"vo_1_2_0_60_9"
+	"lipsync_vo_1_2_0_60_10"							"vo_1_2_0_60_10"
+	"lipsync_vo_1_2_0_62_1"								"vo_1_2_0_62_1"
+	"lipsync_vo_1_2_0_64_1"								"vo_1_2_0_64_1"
+	"lipsync_vo_1_2_0_70_10"							"vo_1_2_0_70_10"
+	"lipsync_vo_1_2_0_80_10"							"vo_1_2_0_80_10"
+	"lipsync_vo_1_2_0_48_2"								"vo_1_2_0_48_2"
+	"lipsync_vo_1_2_0_49_1"								"vo_1_2_0_49_1"
+	"lipsync_vo_1_2_0_52_1"								"vo_1_2_0_52_1"
+	"lipsync_vo_1_2_0_54_1"								"vo_1_2_0_54_1"
+	"lipsync_vo_1_2_0_54_2"								"vo_1_2_0_54_2"
+	"lipsync_vo_1_2_0_54_3"								"vo_1_2_0_54_3"
+	"lipsync_vo_1_2_0_56_1"								"vo_1_2_0_56_1"
+	"lipsync_vo_1_2_0_58_1"								"vo_1_2_0_58_1"
+	"lipsync_vo_1_2_0_100_1"							"vo_1_2_0_100_1"
+
+	// Doyle
+	"lipsync_vo_1_2_0_40_2"								"vo_1_2_0_40_2"
+	"lipsync_vo_1_2_0_45_1"								"vo_1_2_0_45_1"
+	
+	// Hawkins
+	"lipsync_vo_1_2_0_42_2"								"vo_1_2_0_42_2"
+	"lipsync_vo_1_2_0_42_4"								"vo_1_2_0_42_4"
+	"lipsync_vo_1_2_0_43_1"								"vo_1_2_0_43_1"
+	"lipsync_vo_1_2_0_44_2"								"vo_1_2_0_44_2"
+	"lipsync_vo_1_2_0_46_1"								"vo_1_2_0_46_1"
+	"lipsync_vo_1_2_0_46_3"								"vo_1_2_0_46_3"
+	"lipsync_vo_1_2_0_62_2"								"vo_1_2_0_62_2"
+
+	// CPL. Cortez
+	"lipsync_vo_1_2_1_10_1"								"vo_1_2_1_10_1"
+	"lipsync_vo_1_2_1_12_1"								"vo_1_2_1_12_1"
+	"lipsync_vo_1_2_1_12_2"								"vo_1_2_1_12_2"
+	"lipsync_vo_1_2_1_10_3"								"vo_1_2_1_10_3"
+
+	// Pilot #1 Radio (Hannibal)
+	"snd_vo_1_2_1_40_2"									"vo_1_2_1_40_2"
+
+	// Bidwell
+	"lipsync_vo_1_2_1_60_1"								"vo_1_2_1_60_1"
+	"lipsync_vo_1_2_1_70_1"								"vo_1_2_1_70_1"
+	"lipsync_vo_1_2_1_70_2"								"vo_1_2_1_70_2"
+	"lipsync_vo_1_2_1_70_3"								"vo_1_2_1_70_3"
+
+	// Cassidy (Radio)
+	"snd_vo_1_2_1_80_1"									"vo_1_2_1_80_1"
+	"snd_vo_1_2_1_90_1"									"vo_1_2_1_90_1"
+	"snd_vo_1_2_1_90_2"									"vo_1_2_1_90_2"
+	"snd_vo_1_2_1_90_3"									"vo_1_2_1_90_3"
+	"snd_vo_1_2_1_90_4"									"vo_1_2_1_90_4"
+	"snd_vo_1_2_1_90_5"									"vo_1_2_1_90_5"
+	"snd_vo_1_2_1_92_1"									"vo_1_2_1_92_1"
+	"snd_vo_1_2_1_92_2"									"vo_1_2_1_92_2"
+	"snd_vo_1_2_1_92_3"									"vo_1_2_1_92_3"
+	"snd_vo_1_2_1_92_4"									"vo_1_2_1_92_4"
+	"snd_vo_1_2_1_92_5"									"vo_1_2_1_92_5"
+	"snd_vo_1_2_1_94_1"									"vo_1_2_1_94_1"
+	"snd_vo_1_2_1_94_2"									"vo_1_2_1_94_2"
+	"snd_vo_1_2_1_94_3"									"vo_1_2_1_94_3"
+	"snd_vo_1_2_1_94_4"									"vo_1_2_1_94_4"
+	"snd_vo_1_2_1_94_5"									"vo_1_2_1_94_5"
+	"snd_vo_1_2_1_100_1"								"vo_1_2_1_100_1"
+	"snd_vo_1_2_1_102_1"								"vo_1_2_1_102_1"
+	"snd_vo_1_2_1_180_1"								"vo_1_2_1_180_1"
+	"snd_vo_1_2_1_190_1"								"vo_1_2_1_190_1"
+	"snd_vo_1_2_0_94_1"								"vo_1_2_0_94_1"
+	"snd_vo_1_2_0_94_2"								"vo_1_2_0_94_2"
+	"snd_vo_1_2_0_94_3"								"vo_1_2_0_94_3"
+	"snd_vo_1_2_0_94_4"								"vo_1_2_0_94_4"
+	"snd_vo_1_2_0_94_5"								"vo_1_2_0_94_5"
+	"snd_vo_1_2_0_94_6"								"vo_1_2_0_94_6"
+	"snd_vo_1_2_0_94_7"								"vo_1_2_0_94_7"
+	"snd_vo_1_2_0_96_1"								"vo_1_2_0_96_1"
+
+	// Radio VO
+	"snd_vo_1_2_1_105_1"								"vo_1_2_1_105_1"
+	"snd_vo_1_2_1_105_2"								"vo_1_2_1_105_2"
+	"snd_vo_1_2_1_115_1"								"vo_1_2_1_115_1"
+	"snd_vo_1_2_1_115_2"								"vo_1_2_1_115_2"
+	"snd_vo_1_2_1_115_3"								"vo_1_2_1_115_3"
+	"snd_vo_1_2_1_125_1"								"vo_1_2_1_125_1"
+	"snd_vo_1_2_1_145_1"								"vo_1_2_1_145_1"
+	"snd_vo_1_2_1_145_2"								"vo_1_2_1_145_2"
+	"snd_vo_1_2_1_147_1"								"vo_1_2_1_147_1"
+	"snd_vo_1_2_1_147_2"								"vo_1_2_1_147_2"
+	"snd_vo_1_2_1_147_3"								"vo_1_2_1_147_3"
+	"snd_vo_1_2_1_147_4"								"vo_1_2_1_147_4"
+	"snd_vo_1_2_1_150_1"								"vo_1_2_1_150_1"
+	"snd_vo_1_2_1_170_1"								"vo_1_2_1_170_1"
+	"snd_vo_1_2_1_170_2"								"vo_1_2_1_170_2"
+	"snd_vo_1_2_1_170_3"								"vo_1_2_1_170_3"
+	"snd_vo_1_2_1_200_2"								"vo_1_2_1_200_2"
+	"snd_vo_1_2_1_200_3"								"vo_1_2_1_200_3"
+	"snd_vo_1_2_1_200_4"								"vo_1_2_1_200_4"
+	"snd_vo_1_2_1_200_5"								"vo_1_2_1_200_5"
+	"snd_vo_1_2_3_22_1"									"vo_1_2_3_22_1"
+	"snd_vo_1_2_3_30_1"									"vo_1_2_3_30_1"
+	"snd_vo_1_2_0_56_2"									"vo_1_2_0_56_2"
+	"snd_vo_1_2_0_56_3"									"vo_1_2_0_56_3"
+//	"snd_vo_1_2_0_90_2"									"vo_1_2_0_90_2"
+//	"snd_vo_1_2_0_90_3"									"vo_1_2_0_90_3"
+	"snd_vo_1_2_1_108_1"								"vo_1_2_1_108_1"
+	"snd_vo_1_2_1_109_1"								"vo_1_2_1_109_1"
+
+}
+
+entityDef convoy_char_marine_unarmed
+{
+	"inherit"											"char_marine_unarmed"
+	"model"												"model_convoy_char_marine_unarmed"
+	"editor_menu"										"level"
+
+	"crouch_time"										"200000"
+	"sg_category"										"None"
+//	"snd_convoy_intro"									"convoy_intro"
+
+	// Ness
+	"lipsync_vo_1_2_1_20_1"								"vo_1_2_1_20_1"
+	"lipsync_vo_1_2_1_20_3"								"vo_1_2_1_20_3"
+
+	// De Groff
+	"lipsync_vo_1_2_1_20_2"								"vo_1_2_1_20_2"
+	"lipsync_vo_1_2_1_22_1"								"vo_1_2_1_22_1"
+	"lipsync_vo_1_2_1_22_2"								"vo_1_2_1_22_2"
+	"lipsync_vo_1_2_1_22_3"								"vo_1_2_1_22_3"
+
+	// Rodeman
+	"lipsync_vo_1_2_1_30_1"								"vo_1_2_1_30_1"
+	"lipsync_vo_1_2_1_30_4"								"vo_1_2_1_30_4"
+	"lipsync_vo_1_2_1_32_1"								"vo_1_2_1_32_1"
+	"lipsync_vo_1_2_1_32_2"								"vo_1_2_1_32_2"
+	"lipsync_vo_1_2_1_32_3"								"vo_1_2_1_32_3"
+
+	// Kovak
+	"lipsync_vo_1_2_1_30_2"								"vo_1_2_1_30_2"
+	"lipsync_vo_1_2_1_30_5"								"vo_1_2_1_30_5"
+
+	// Morris
+	"lipsync_vo_1_2_1_40_1"								"vo_1_2_1_40_1"
+	"lipsync_vo_1_2_1_40_3"								"vo_1_2_1_40_3"
+	"lipsync_vo_1_2_1_50_1"								"vo_1_2_1_50_1"
+	"lipsync_vo_1_2_1_50_2"								"vo_1_2_1_50_2"
+	"lipsync_vo_1_2_1_50_3"								"vo_1_2_1_50_3"
+	"snd_vo_1_2_1_135_1"								"vo_1_2_1_135_1"
+	"snd_vo_1_2_3_20_1"									"vo_1_2_3_20_1"
+
+	// Rhodes
+	"lipsync_vo_1_2_1_55_1"								"vo_1_2_1_55_1"
+	"lipsync_vo_1_2_1_55_2"								"vo_1_2_1_55_2"
+	"lipsync_vo_1_2_1_55_3"								"vo_1_2_1_55_3"
+
+	"lipsync_vo_1_2_1_108_2"								"vo_1_2_1_108_2"
+	"lipsync_vo_1_2_1_109_2"								"vo_1_2_1_109_2"
+	"lipsync_vo_1_2_1_110_1"								"vo_1_2_1_110_1"
+	"lipsync_vo_1_2_1_111_1"								"vo_1_2_1_111_1"
+	"lipsync_vo_1_2_1_111_2"								"vo_1_2_1_111_2"
+	"lipsync_vo_1_2_1_111_3"								"vo_1_2_1_111_3"
+	"lipsync_vo_1_2_1_111_4"								"vo_1_2_1_111_4"
+	"lipsync_vo_1_2_1_112_1"								"vo_1_2_1_112_1"
+	"lipsync_vo_1_2_1_113_1"								"vo_1_2_1_113_1"
+
+	// LCPL. Sledge
+	"lipsync_vo_1_2_1_05_1"								"vo_1_2_1_05_1"
+	"lipsync_vo_1_2_1_06_1"								"vo_1_2_1_06_1"
+	"lipsync_vo_1_2_1_06_2"								"vo_1_2_1_06_2"
+	"lipsync_vo_1_2_1_06_3"								"vo_1_2_1_06_3"
+}
+
+model model_convoy_char_marine_unarmed
+{
+	inherit model_convoy_char_marine
+	anim repairman_on_knees								models/characters/marine/repairman_on_knees.md5anim
+	anim lugging_crate_front							models/characters/marine/lugging_crate_front.md5anim
+	anim lugging_crate_rear								models/characters/marine/lugging_crate_rear.md5anim
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+entityDef convoy_vehicle_flatbed
+{
+	"editor_ignore"				"0"
+	"editor_menu"				"level"
+	"inherit"					"vehicle_flatbed_base"
+	"def_crashDamage"			"damage_gib"
+
+	"health"					"750"
+	"shieldHealth"				"1"
+
+	"def_position_gunner"		"vehicle_flatbed_gunner"	
+	"def_position_driver"		"vehicle_flatbed_driver"
+
+	"fx_shield"					""	
+
+}
+
+entityDef convoy_landmine 
+{
+	"inherit"					"moveable_explodingbarrel"
+	
+	"editor_mins"				"-8 -8 0"
+	"editor_maxs"				"8 8 8"
+	"editor_menu"				"level"
+	"mins"						"-16 -16 0"
+	"maxs"						"16 16 16"
+
+	"model"						"models/mapobjects/strogg/convoy/mine.lwo"
+	"health"					"1"
+	"burn"						"0"
+
+	"density"					"5"
+	"friction"					"5"
+	"bouncyness"				"0.0"
+}
+
+entityDef convoy_vehicle_walker
+{
+	"inherit"					"vehicle_walker"
+	"editor_menu"				"level"
+	"def_position_driver"		"convoy_vehicle_walker_driver"
+}
+
+entityDef convoy_vehicle_walker_driver
+{
+	"inherit"					"vehicle_walker_driver"
+	"def_part_weapon_rocket"	"convoy_vehicle_walker_weapon_rocket"
+	"def_part_light"			""
+}
+
+entityDef convoy_vehicle_walker_weapon_rocket
+{
+	"inherit"					"vehicle_walker_weapon_rocket"
+	"def_projectile"			"projectile_strafe_rocket"
+}
+
+entityDef convoy_projectile_strogg_flyer_bomb
+{
+	"inherit"					"projectile_strogg_flyer_bomb"
+	"speed"						"2000"
+}
+
+entityDef marine_fighter_projectile
+{
+	"inherit"					"projectile_nail"
+	"speed"						"4000"
+}
+
+entityDef strogg_fighter_projectile
+{
+	"inherit"					"projectile_strogg_fighter_blaster"
+	"velocity"					"4200 0 0"
+}

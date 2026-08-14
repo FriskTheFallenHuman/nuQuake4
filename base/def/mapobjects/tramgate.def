@@ -1,0 +1,59 @@
+
+/***********************************************************************
+TRAMGATE
+
+***********************************************************************/
+export tramgate {		
+	options -prefix tmgt_ -align ALL 
+         
+	mesh	work/models/mapobjects/strogg/tram/tramgate/animation/tramgate_idle.ma		-dest models/mapobjects/strogg/tram/tramgate/mesh
+	anim	work/models/mapobjects/strogg/tram/tramgate/animation/tramgate_idle.ma		-dest models/mapobjects/strogg/tram/tramgate/idle_close
+	anim	work/models/mapobjects/strogg/tram/tramgate/animation/tramgate_idle_open.ma	-dest models/mapobjects/strogg/tram/tramgate/idle_open		
+	anim	work/models/mapobjects/strogg/tram/tramgate/animation/tramgate_open.ma		-dest models/mapobjects/strogg/tram/tramgate/open
+	anim	work/models/mapobjects/strogg/tram/tramgate/animation/tramgate_close.ma		-dest models/mapobjects/strogg/tram/tramgate/close
+}
+
+entityDef func_tramGateDoor {
+	"inherit"				"func_door"
+	"editor_ignore"			"1"
+	
+	"triggerSize"			"350"
+	"lip"					"92"
+}
+
+entityDef func_tramGateDoor1 {
+	"inherit"				"func_tramGateDoor"
+	
+	"model"					"models\mapobjects\strogg\tram\tramgate\door1.lwo"
+}
+
+entityDef func_tramGateDoor2 {
+	"inherit"				"func_tramGateDoor"
+	
+	"model"					"models\mapobjects\strogg\tram\tramgate\door2.lwo"
+}
+
+entityDef env_tramGate {
+	"editor_usage"			"animated_tramgate"
+	"editor_mins"			"-125 -125 -250"
+	"editor_maxs"			"125 125 160"
+	
+	"model"					"model_env_tramgate"
+	
+	"spawnclass"			"rvTramGate"
+	
+	"def_door1"				"func_tramGateDoor1"
+	"def_door2"				"func_tramGateDoor2"
+	
+	"openFrameRateScale"	"2.2"
+	"closeFrameRateScale"	"2"
+}
+
+model model_env_tramgate {
+	mesh					models/mapobjects/strogg/tram/tramgate/mesh.md5mesh
+	anim idle	 			models/mapobjects/strogg/tram/tramgate/idle_close.md5anim
+	anim idle_close 		models/mapobjects/strogg/tram/tramgate/idle_close.md5anim
+	anim idle_open 			models/mapobjects/strogg/tram/tramgate/idle_open.md5anim
+	anim open				models/mapobjects/strogg/tram/tramgate/open.md5anim
+	anim close 				models/mapobjects/strogg/tram/tramgate/close.md5anim
+}

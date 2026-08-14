@@ -1,0 +1,363 @@
+
+/***********************************************************************
+TramCar
+
+***********************************************************************/
+export tram_car {
+	options -prefix TRAM_ -align ALL
+
+	mesh	work/models/vehicles/tram/tram_anim.ma 		-dest models/mapobjects/strogg/tram/tramcar/mesh
+	
+	anim	work/models/vehicles/tram/tram_anim.ma		-range 1 2     -dest models/mapobjects/strogg/tram/tramcar/idle
+	anim	work/models/vehicles/tram/tram_anim.ma		-range 31 32   -dest models/mapobjects/strogg/tram/tramcar/idleopen
+	anim	work/models/vehicles/tram/tram_anim.ma 		-range 5 30    -dest models/mapobjects/strogg/tram/tramcar/open
+	anim	work/models/vehicles/tram/tram_anim.ma 		-range 35 60   -dest models/mapobjects/strogg/tram/tramcar/close
+}	
+
+model model_vehicle_tram_car {
+	mesh				models/mapobjects/strogg/tram/tramcar/mesh.md5mesh
+	
+	anim idle	 		models/mapobjects/strogg/tram/tramcar/idle.md5anim
+	anim idleopen	 	models/mapobjects/strogg/tram/tramcar/idleopen.md5anim	
+	
+	anim open			models/mapobjects/strogg/tram/tramcar/open.md5anim {
+		frame 1				sound_body	snd_open
+		frame 24			sound		snd_opened
+	}
+	
+	anim close			models/mapobjects/strogg/tram/tramcar/close.md5anim {
+		frame 1				sound_body	snd_close
+		frame 24			sound		snd_closed
+	}
+}
+
+entityDef damage_tramcar_explode {
+	"damage"				"200"
+	
+	"knockback"				""
+	"push"					""
+}
+
+model model_char_marine_tramCar {
+	"inherit"				"model_char_marine"
+	
+	anim idle				models/characters/marine/tram_driving_idle.md5anim
+	anim point_left			models/characters/marine/tram_drive_pointLeft.md5anim
+	anim point_right		models/characters/marine/tram_drive_pointRight.md5anim
+}
+
+entityDef char_marine_tramCar {
+	"inherit"				"char_marine"
+	
+	"editor_ignore"			"1"
+	
+	"model"					"model_char_marine_tramCar"
+
+	"passive"				"1"
+	
+	"talk"					"1"
+	
+	"noDamage"				"1"
+}
+
+entityDef occupant_tramCar_driver {
+	"def_occupant"			"char_marine_tramCar"
+	
+	"spawn_offset"			"51 0 -141"
+	"spawn_facing_offset"	"0"
+}
+
+entityDef weapon_tramCar_right {
+	"def_weapon"			"vehicle_tram_doorgun"
+	
+	"spawn_offset"			"45 -73 -110"
+	"spawn_facing_offset"	"0"
+}
+
+entityDef weapon_tramCar_left {
+	"inherit"				"weapon_tramCar_right"
+	
+	"spawn_offset"			"-110 70 -110"
+	"spawn_facing_offset"	"180"
+}
+
+entityDef weapon_tramCar_rear {
+	"def_weapon"			"vehicle_tram_reargun"
+	
+	"spawn_offset"			"-110 0 -145"
+	"spawn_facing_offset"	"0"
+}
+
+entityDef tramCar_door_left_collision {
+	"offset"				"-33 -45 -155"
+	
+	"clipModel"				"models/vehicles/tramcar/door_01.lwo"
+	"speed"					""
+	"open_rotation"			"0 0 60"
+	"close_rotation"		"0 0 -60"
+	
+	"clipModelExt"			"models/vehicles/tramcar/door_ext_01.lwo"
+	"speedExt"				""
+	"open_dir"				"0 -1.0 2.5"
+	"close_dir"				"0 1.0 -2.5"
+	"distExt"				"47"
+}
+
+entityDef tramCar_door_right_collision {
+	"offset"				"-33 40 -155"
+
+	"clipModel"				"models/vehicles/tramcar/door_02.lwo"
+	"speed"					""
+	"open_rotation"			"0 0 -60"
+	"close_rotation"		"0 0 60"
+	
+	"clipModelExt"			"models/vehicles/tramcar/door_ext_02.lwo"
+	"speedExt"				""
+	"open_dir"				"0 1.0 2.5"
+	"close_dir"				"0 -1.0 -2.5"
+	"distExt"				"47"
+}
+
+entityDef vehicle_tramCar {
+	"inherit"				"func_mover_spline"
+	
+	"editor_ignore"			"1"
+
+	"editor_var health"		""
+	
+	"model"					"model_vehicle_tram_car"
+	"clipmodel"				"models/vehicles/tramcar/base.lwo"
+	
+	"clipModel_doorLeft"	"tramCar_door_left_collision"
+	"clipModel_doorRight"	"tramCar_door_right_collision"
+	
+	"health"				"550"
+	
+	"accel"					"80"
+	"decel"					"500"
+	
+	"normalSpeed"			"650"
+	"speed"					"650"
+	
+	"useSimpleTriggerClip"	"1"
+	
+	"collisionFov"			"30 1500 750 150"
+	
+	"noisePeriodRange"		"4 6"
+	
+	"def_damage_explode"	"damage_tramcar_explode"
+	
+	"fx_damage_external"	"effects/explosions/surface/tram_ext.fx"
+	"fx_damage_internal"	""
+	
+	"fx_explode"			"effects/explosions/surface/tramcar_exp.fx"
+	
+	"snd_speed_normal_track"	"vehicle_tram_track_slow"
+	"snd_speed_excessive_track"	"vehicle_tram_track_fast"
+	
+	"snd_speed_normal_tram"		"vehicle_tram_main"
+	"snd_speed_excessive_tram"	"vehicle_tram_malfunction"
+	
+	"snd_noise"				"vehicle_tram_track_noise"
+	"snd_accel"				"vehicle_tram_track_start"
+	"snd_decel"				"vehicle_tram_track_brake"
+	
+	"snd_open"				"hangar_bay_door_open"
+	"snd_opened"			"hangar_bay_door_opened"
+	"snd_close"				"hangar_bay_door_close"
+	"snd_closed"			"hangar_bay_door_closed"
+}
+
+entityDef vehicle_tramCar_marine {
+	"inherit"				"vehicle_tramCar"
+	"editor_ignore"			"0"
+	
+	"editor_usage"			""
+	
+	"spawnclass"			"rvTramCar_Marine"
+	
+	//"def_weapon"			"weapon_tramCar_rear"
+	//"def_weapon1"			"weapon_tramCar_right"
+	//"def_weapon2"			"weapon_tramCar_left"
+
+	// wait 6 seconds after taking damage before starting recharge
+	"healthRegenDelay"		"6"
+	// regain 20 health per second
+	"healthRegenRate"		"20"
+	
+	"triggerMins"			"-40 -40 -130"
+	"triggerMaxs"			"40 40 -50"
+	
+	"damageWarningFreq"		"0.4"
+	"enemyWarningFreq"		"0.8"
+	
+	"heal_delay"			"-1"
+}
+
+entityDef monster_strogg_tramCar_driver {
+	"inherit"				"monster_strogg_marine"
+	
+	"editor_ignore"			"1"
+	
+	"tactical_rush"			"0"
+	"tactical_ranged"		"0"
+	"tactical_cover"		"0"
+	"passive"				"1"
+	
+	"noDamage"				"1"
+}
+
+entityDef monster_strogg_tramCar_gunner {
+	"inherit"				"monster_tactical_railgun"
+	
+	"editor_ignore"			"1"
+	
+	"actionTimer_rangedAttack_rate"			"1"
+	
+	"attack_base_predict"	"1"
+	"attack_base_accuracy"	"1"
+	"attack_base_spread"	"0"
+	
+	"tactical_cover"		"0"
+	"tactical_hide"			"0"
+	"tactical_rush"			"0"
+	"tactical_ranged"		"1"
+}
+
+entityDef monster_strogg_tramCar_blaster {
+	"inherit"				"monster_tactical_blaster"
+	
+	"editor_ignore"			"1"
+	
+	"actionTimer_rangedAttack_rate"			"1"
+
+	"attackRange"							"0 3000"
+	
+	"attack_base_predict"	"1"
+	"attack_base_accuracy"	"1"
+	"attack_base_spread"	"0"
+	
+	"tactical_cover"		"0"
+	"tactical_hide"			"0"
+	"tactical_rush"			"0"
+	"tactical_ranged"		"1"
+}
+
+entityDef monster_strogg_tramCar_mgun {
+	"inherit"				"monster_tactical_mgun"
+	
+	"editor_ignore"			"1"
+	
+	"actionTimer_rangedAttack_rate"			"1"
+
+	"attackRange"							"0 3000"
+	
+	"attack_base_predict"	"1"
+	"attack_base_accuracy"	"1"
+	"attack_base_spread"	"0"
+	
+	"tactical_cover"		"0"
+	"tactical_hide"			"0"
+	"tactical_rush"			"0"
+	"tactical_ranged"		"1"
+}
+
+
+entityDef occupant_tramCar_driver_strogg {
+	"inherit"				"occupant_tramCar_driver"
+	
+	"def_occupant"			"monster_strogg_tramCar_driver"
+}
+
+entityDef occupant_tramCar_gunner_strogg {
+	"def_occupant"			"monster_strogg_tramCar_gunner"
+	
+	"spawn_offset"			"-100 0 -150"
+	"spawn_facing_offset"	"90"
+}
+
+entityDef occupant_tramCar_blaster_strogg {
+	"def_occupant"			"monster_strogg_tramCar_blaster"
+	
+	"spawn_offset"			"-100 0 -150"
+	"spawn_facing_offset"	"90"
+}
+
+entityDef occupant_tramCar_mgun_strogg {
+	"def_occupant"			"monster_strogg_tramCar_mgun"
+	
+	"spawn_offset"			"-100 0 -150"
+	"spawn_facing_offset"	"90"
+}
+
+entityDef vehicle_tramCar_strogg {
+	"inherit"				"vehicle_tramCar"
+	"editor_ignore"			"0"
+
+	"editor_usage"			""
+	"editor_var enemy"		"Name of tram car that is supposed to be followed"
+	
+	"spawnclass"			"rvTramCar_Strogg"
+	
+	"health"				"800"
+	
+	"speed"					"1500"
+	"decel"					"1000"
+	
+	"enemy"					"player_tram" // Specific to tram1b
+	
+//	"def_driver"			"occupant_tramCar_driver_strogg"
+	
+	"def_driver"			""
+	"def_occupant"			"occupant_tramCar_gunner_strogg"
+	
+	"snd_horn"				"vehicle_tram_horn"
+}
+
+entityDef vehicle_tramCar_strogg_blaster {
+	"inherit"				"vehicle_tramCar"
+	"editor_ignore"			"0"
+
+	"editor_usage"			""
+	"editor_var enemy"		"Name of tram car that is supposed to be followed"
+	
+	"spawnclass"			"rvTramCar_Strogg"
+	
+	"health"				"800"
+	
+	"speed"					"1500"
+	"decel"					"1000"
+	
+	"enemy"					"player_tram" // Specific to tram1b
+	
+//	"def_driver"			"occupant_tramCar_driver_strogg"
+
+	"def_driver"			""
+	"def_occupant"			"occupant_tramCar_blaster_strogg"
+	
+	"snd_horn"				"vehicle_tram_horn"
+}
+
+entityDef vehicle_tramCar_strogg_mgun {
+	"inherit"				"vehicle_tramCar"
+	"editor_ignore"			"0"
+
+	"editor_usage"			""
+	"editor_var enemy"		"Name of tram car that is supposed to be followed"
+	
+	"spawnclass"			"rvTramCar_Strogg"
+	
+	"health"				"800"
+	
+	"speed"					"1500"
+	"decel"					"1000"
+	
+	"enemy"					"player_tram" // Specific to tram1b
+	
+//	"def_driver"			"occupant_tramCar_driver_strogg"
+	
+	"def_driver"			""
+	"def_occupant"			"occupant_tramCar_mgun_strogg"
+	
+	"snd_horn"				"vehicle_tram_horn"
+}

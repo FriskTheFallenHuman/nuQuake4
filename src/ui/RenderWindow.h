@@ -1,0 +1,71 @@
+/*
+===========================================================================
+
+Quake 4 Reconstructed GPL Source Code
+Copyright (C) 2026 Justin Marshall(IceColdDuke).
+
+This file is part of the Quake 4 Reconstructed GPL Source Code (?Quake 4 Reconstructed Source Code?).
+
+Quake 4 Reconstructed Source Code is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Quake 4 Reconstructed Source Code is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/licenses/>.
+
+===========================================================================
+*/
+#ifndef __RENDERWINDOW_H
+#define __RENDERWINDOW_H
+
+class idUserInterfaceLocal;
+class idRenderWindow : public idWindow {
+public:
+	idRenderWindow(idUserInterfaceLocal *gui);
+	idRenderWindow(idDeviceContext *d, idUserInterfaceLocal *gui);
+	virtual ~idRenderWindow();
+
+	virtual void PostParse();
+	virtual void Draw(int time, float x, float y);
+	virtual size_t Allocated(){return idWindow::Allocated();};
+// 
+//  
+	virtual idWinVar *GetWinVarByName(const char *_name, bool winLookup = false, drawWin_t** owner = NULL);
+// 
+	
+private:
+	void CommonInit();
+	virtual bool ParseInternalVar(const char *name, idParser *src);
+	void Render(int time);
+	void PreRender();
+	void BuildAnimation(int time);
+	renderView_t refdef;
+	idRenderWorld *world;
+	renderEntity_t worldEntity;
+	renderLight_t rLight;
+	const idMD5Anim *modelAnim;
+
+	qhandle_t	worldModelDef;
+	qhandle_t	lightDef;
+	qhandle_t   modelDef;
+	idWinStr modelName;
+	idWinStr animName;
+	idStr	 animClass;
+	idWinVec4 lightOrigin;
+	idWinVec4 lightColor;
+	idWinVec4 modelOrigin;
+	idWinVec4 modelRotate;
+	idWinVec4 viewOffset;
+	idWinBool needsRender;
+	int animLength;
+	int animEndTime;
+	bool updateAnimation;
+};
+
+#endif // __RENDERWINDOW_H

@@ -1,0 +1,58 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_SHADOW_1_BONE
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+# attrib[1]		blend (transform) index
+#
+# program.env[0]-program.env[2]		Blend-space (skin space) to model transform 0
+# program.env[3]-program.env[6]		Blend-space (skin space) to model transform 1
+# program.env[7]-program.env[9]		Blend-space (skin space) to model transform 2
+# program.env[10]-program.env[11]	Blend-space (skin space) to model transform 3
+# ...
+# program.env[72]-program.env[74]	Blend-space (skin space) to model transform 24
+# program.env[75]-program.env[78]	Model-view-projection transform
+# program.env[79]					localLightOrigin (local to the model)
+# 
+# output:
+# 
+
+ADDRESS A0;
+
+TEMP	R0, R11;
+
+PARAM	c94 = { 1., 1., 1., 765.005859 };
+PARAM	transformPalette[75] = { program.env[0..74] };
+
+#
+# load the first matrix
+#
+MUL R11.x, vertex.attrib[1].x, c94.w;
+ARL A0.x, R11.x;
+
+#
+# Transform the vertex position from skin-space to model-space, store model position in R0
+#
+DP4 R0.x, transformPalette[A0.x], vertex.position;
+DP4 R0.y, transformPalette[A0.x+1], vertex.position;
+DP4 R0.z, transformPalette[A0.x+2], vertex.position;
+MOV R0.w, vertex.attrib[1].w;	# w can be 0 or 1 for shadow volumes
+
+# RO = OPOS - light, assumes light.w = 0
+SUB	R0, R0, program.env[79];
+
+# RO -= OPOS.w * light
+MAD	R0, R0.wwww, program.env[79], R0;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], R0;
+DP4 result.position.y, program.env[76], R0;
+DP4 result.position.z, program.env[77], R0;
+DP4 result.position.w, program.env[78], R0;
+
+END
+

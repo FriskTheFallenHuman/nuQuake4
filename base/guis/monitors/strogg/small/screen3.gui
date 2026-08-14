@@ -1,0 +1,72 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	windowDef scrollbg
+	{
+		rect	39,29,559,124
+		visible	1
+		backcolor	0,0,0,1
+	}
+	windowDef scroll
+	{
+		rect	39,24,559,129
+		visible	1
+		background	"gfx/guis/common/scroll_img4"
+		matcolor	1,1,1,1
+	}
+	windowDef screen3
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/small/screen3"
+		matcolor	0.878,0.423,0.121,1
+	}
+	windowDef title
+	{
+		rect	81,15,188,29
+		visible	1
+		forecolor	0.627,0.623,0.505,1
+		text	"23749-34895"
+		textscale	.7
+		font	"fonts/strogg"
+	}
+	windowDef screen4
+	{
+		rect	33,258,305,226
+		visible	1
+		background	"gfx/guis/monitors/strogg/small/screen3_img"
+		matcolor	1,1,1,1
+	}
+	windowDef p_scrolltext
+	{
+		visible	1
+		rect	337,277,242,183
+		windowDef scrolltext
+		{
+			visible	1
+			rect	0,0,242,416
+			background	"gfx/guis/common/strogg/scrolltext1"
+			matcolor	0.627,0.623,0.505,1
+		}
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-197,640,820
+			background	"gfx/guis/common/monitor_line7"
+			matcolor	0.749,0.596,0.235,.06
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/gradient"
+			matcolor	0.501,1,1,0.24*guitable_random1[time*.001]
+		}
+	}
+}

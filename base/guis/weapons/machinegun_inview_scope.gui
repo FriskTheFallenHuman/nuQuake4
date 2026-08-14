@@ -1,0 +1,44 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	windowDef xhair
+	{
+		rect	120,40,400,400
+		visible	1
+		background	"gfx/guis/crosshairs/crosshair_machinegun"
+		matcolor	0.894,0.980,0.745,0.6*guitable_8_10[time*0.001]
+	}
+	windowDef outer
+	{
+		rect	170,90,300,300
+		visible	1
+		background	"gfx/guis/common/circle6"
+		matcolor	0.729,0.945,0.329,0.24*guitable_8_10[time*0.001]
+		rotate	.08*time
+	}
+	windowDef tri
+	{
+		rect	168,314,50,50
+		visible	1
+		background	"gfx/guis/common/arrow6"
+		matcolor	0.886,0.615,0.211,0.4
+		rotate	315
+	}
+	windowDef num
+	{
+		rect	178,348,101,45
+		visible	1
+		forecolor	1,1,1,0.4
+		text	"50m"
+		textscale	0.8
+		font	"fonts/lowpixel"
+	}
+	windowDef right
+	{
+		rect	387,305,100,100
+		visible	1
+		background	"gfx/guis/common/circle5"
+		matcolor	0.729,0.945,0.329,0.4
+		rotate	.08*time
+	}
+}

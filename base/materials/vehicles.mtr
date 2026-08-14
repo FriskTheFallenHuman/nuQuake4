@@ -1,0 +1,1700 @@
+
+models/vehicles/marine_buggy/marinebuggy_lopoly_full
+{      
+	  noSelfShadow
+	  unSmoothedTangents
+	renderbump  -size 1024 1024 -trace 0.09 -aa 2  models/vehicles/marine_buggy/marinebuggy_lopoly_full_local.tga work/models/vehicles/marine_buggy/separated/wheel_hi.lwo
+
+		diffusemap	models/vehicles/marine_buggy/marinebuggy_lopoly_full_d.tga
+		bumpmap	addnormals ( models/vehicles/marine_buggy/marinebuggy_lopoly_full_local.tga, heightmap ( models/vehicles/marine_buggy/marinebuggy_lopoly_full_h.tga, 2 ))
+		specularmap	models/vehicles/marine_buggy/marinebuggy_lopoly_full_s.tga
+	
+}
+
+//strogg_flier-----------------------------------------------------------------------------------------------------------
+
+models/vehicles/strogg_flyer/strogg_flyer_lo
+{      
+	  noSelfShadow
+	  unSmoothedTangents
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/strogg_flyer/strogg_flyer_lo_local.tga work/models/vehicles/strogg_flyer/strogg_flyer_body_high.lwo
+
+		diffusemap	models/vehicles/strogg_flyer/strogg_flyer_lo_d.tga
+		bumpmap	addnormals ( models/vehicles/strogg_flyer/strogg_flyer_lo_local.tga, heightmap ( models/vehicles/strogg_flyer/strogg_flyer_lo_h.tga, 1 ))
+		specularmap	models/vehicles/strogg_flyer/strogg_flyer_lo_s.tga
+		
+		{ 
+			if (Parm4) == 0
+			blend add
+			map models/vehicles/strogg_flyer/strogg_flyer_lo_g.tga
+			rgb grunttable [ time * 1.3 ]
+		}
+		{ 
+			if (Parm4) == 0 
+			blend add
+			map models/vehicles/strogg_flyer/strogg_flyer_lo_g2.tga
+		}
+		{
+			if (Parm4) == 1
+			blend add
+			map _black
+		}
+
+
+			
+}
+
+models/vehicles/strogg_flyer/strogg_flyer_lo_collision
+{
+	qer_EditorImage models/vehicles/strogg_flyer/strogg_flyer_lo_hit.tga
+	noShadows
+	collision
+	materialImage	models/vehicles/strogg_flyer/strogg_flyer_lo_hit.tga
+}
+
+//strogg_flier_crashed-----------------------------------------------------------------------------------------------------------
+
+models/vehicles/strogg_flyer/strogg_flyer_crashed
+{      
+	  noSelfShadow
+	  unSmoothedTangents
+		materialImage	models/vehicles/strogg_flyer/strogg_flyer_lo_hit.tga
+
+		diffusemap	models/vehicles/strogg_flyer/strogg_flyer_crashed_d.tga
+		bumpmap	addnormals ( models/vehicles/strogg_flyer/strogg_flyer_lo_local.tga, heightmap ( models/vehicles/strogg_flyer/strogg_flyer_crashed_h.tga, 4 ))
+		specularmap	models/vehicles/strogg_flyer/strogg_flyer_crashed_s.tga
+inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+	
+//marine_buggy-----------------------------------------------------------------------------------------------------------
+	
+//------------------------------------------------------------------------------	
+//								 Buggy
+//------------------------------------------------------------------------------	
+
+models/vehicles/buggy/cockpit
+{    	
+	bumpmap			models/test/maya_texture/mtexture_local.tga
+	diffusemap		models/test/maya_texture/mtexture_d.tga
+	specularmap		models/test/maya_texture/mtexture_s.tga
+}
+
+// Hovertank ------------------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/hovertank/nht
+{      
+	noSelfShadow
+	unSmoothedTangents
+	materialtype armor
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/hovertank/nht_local.tga work/models/vehicles/marine_hovertank_v2/nht_15.lwo
+
+	diffusemap	models/vehicles/hovertank/nht_d.tga
+	bumpmap	addnormals ( models/vehicles/hovertank/nht_local.tga, heightmap ( models/vehicles/hovertank/nht_h.tga, 2 ))
+	specularmap	models/vehicles/hovertank/nht_s.tga
+		
+	{ 
+		blend add
+		map models/vehicles/hovertank/nht_g.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+
+
+}
+
+models/vehicles/hovertank/nht_damaged
+{      
+	noSelfShadow
+	unSmoothedTangents
+	materialtype armor
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/hovertank/nht_local.tga work/models/vehicles/marine_hovertank_v2/nht_15.lwo
+
+	diffusemap	models/vehicles/hovertank/nht_damaged_d.tga
+	bumpmap	addnormals ( models/vehicles/hovertank/nht_local.tga, heightmap ( models/vehicles/hovertank/nht_damaged_h.tga, 6 ))
+	specularmap	models/vehicles/hovertank/nht_damaged_s.tga
+
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+				
+}
+
+models/vehicles/hovertank/nht_dirty
+{      
+	noSelfShadow
+	unSmoothedTangents
+	materialtype armor
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/hovertank/nht_local.tga work/models/vehicles/marine_hovertank_v2/nht_15.lwo
+
+	diffusemap	models/vehicles/hovertank/nht_dirty_d.tga
+	bumpmap	addnormals ( models/vehicles/hovertank/nht_local.tga, heightmap ( models/vehicles/hovertank/nht_h.tga, 2 ))
+	specularmap	models/vehicles/hovertank/nht_dirty_s.tga
+		
+	{ 
+		blend add
+		map models/vehicles/hovertank/nht_g.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+
+}
+
+models/vehicles/hovertank/nht_decal1
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal1.tga
+	}
+}
+
+models/vehicles/hovertank/nht_decal2
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal2.tga
+	}
+}
+
+models/vehicles/hovertank/nht_decal3
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal3.tga
+	}
+}
+
+models/vehicles/hovertank/nht_decal4
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal4.tga
+	}
+}
+
+models/vehicles/hovertank/nht_decal5
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal5.tga
+	}
+}
+
+models/vehicles/hovertank/nht_decal6
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal6.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal6.tga
+	}
+}
+
+
+models/vehicles/hovertank/nht_decal7
+{
+	qer_editorimage models/vehicles/hovertank/nht_decal7.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/hovertank/nht_decal7.tga
+	}
+}
+
+models/vehicles/hovertank/ht_body_low
+{      
+	noSelfShadow
+	unSmoothedTangents
+	materialtype armor
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/hovertank/ht_body_low_local.tga work/models/vehicles/marine_hovertank/ht_hi_a.lwo
+
+	diffusemap	models/vehicles/hovertank/ht_body_low_d.tga
+	bumpmap	addnormals ( models/vehicles/hovertank/ht_body_low_local.tga, heightmap ( models/vehicles/hovertank/ht_body_low_h.tga, 2 ))
+	specularmap	models/vehicles/hovertank/ht_body_low_s.tga
+		
+	{ 
+		blend add
+		map models/vehicles/hovertank/ht_body_low_glow.tga
+		rgb grunttable [ time * 1.3 ] * parm7
+	}
+}
+
+models/vehicles/hovertank/ht_damaged
+{      
+	noSelfShadow
+	unSmoothedTangents
+	materialtype armor
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/hovertank/ht_damaged_local.tga work/models/vehicles/marine_hovertank/ht_hi_a.lwo
+
+	diffusemap	models/vehicles/hovertank/ht_damaged_d.tga
+	bumpmap	addnormals ( models/vehicles/hovertank/ht_body_low_local.tga, heightmap ( models/vehicles/hovertank/ht_damaged_h.tga, 2 ))
+	specularmap	models/vehicles/hovertank/ht_damaged_s.tga
+	
+	{ 
+		blend add
+		map models/vehicles/hovertank/ht_damaged_glow.tga
+		rgb grunttable [ time * 1.3 ] * Parm7
+	}	
+	
+
+}
+
+//damaged_trojan----------------------------------------------------------------------------------------
+
+models/vehicles/trojan/trojan_damaged
+{      
+	noSelfShadow
+	unSmoothedTangents
+	materialtype armor
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 2  models/vehicles/trojan/trojan_local.tga work/models/vehicles/trojan/trojan_damaged.lwo
+
+	diffusemap	models/vehicles/trojan/trojan_d.tga
+	bumpmap	addnormals ( models/vehicles/trojan/trojan_local.tga, heightmap ( models/vehicles/trojan/trojan_h.tga, 2 ))
+	specularmap	models/vehicles/trojan/trojan_s.tga
+		
+}
+
+
+models/vehicles/trojan/trojan_glass
+{      
+	noSelfShadow
+	unSmoothedTangents
+	twosided
+
+
+//	diffusemap	models/vehicles/trojan/trojan_glass_d.tga
+	bumpmap	addnormals ( models/vehicles/trojan/trojan_glass_local.tga, heightmap ( models/vehicles/trojan/trojan_glass_h.tga, 2 ))
+	specularmap	models/vehicles/trojan/trojan_glass_s.tga
+	
+	{
+		blend diffusemap
+		map	downsize ( models/vehicles/trojan/trojan_glass_d.tga, 0 )
+		alphatest .5
+	}	
+}
+
+// mothership ------------------------------------------------------------------------------------------
+
+models/vehicles/mothership/mothership_lo
+{      
+	qer_editorimage	models/vehicles/mothership/mothership_d.tga
+	{
+	blend diffuseMap
+	map models/vehicles/mothership/mothership_d.tga
+	}
+	{
+	blend add
+	map models/vehicles/mothership/mothership_g1.tga	
+	}
+	{
+	blend add
+	map models/vehicles/mothership/mothership_g2.tga
+	rgb sinTable [ time * .5 ] 
+	}
+/*	{
+	blend add
+	map models/vehicles/mothership/mothership_g3.tga
+	rgb randomflick [ time * 3 ] 
+	}
+*/
+}
+
+//------------------------------------------------------------------------------
+//							Walker
+//------------------------------------------------------------------------------
+
+
+
+
+models/vehicles/walker/body
+{      
+	noSelfShadow
+	unSmoothedTangents
+
+	bumpmap		addnormals (models/vehicles/walker/body_local.tga, heightmap (models/vehicles/walker/body_h.tga, 2))
+	diffusemap		models/vehicles/walker/body_d.tga
+	specularmap		models/vehicles/walker/body_s.tga
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/vehicles/walker/body_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen3
+        texgen		reflect
+	}
+	
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+
+
+}
+
+models/vehicles/walker/console
+{      
+	noSelfShadow
+	unSmoothedTangents
+
+	bumpmap		addnormals (models/vehicles/walker/int_local.tga, heightmap (models/vehicles/walker/int_h.tga, 2))
+	diffusemap		models/vehicles/walker/int_d.tga
+	specularmap		models/vehicles/walker/int_s.tga
+}
+
+models/vehicles/walker/maingun
+{      
+	noSelfShadow
+	unSmoothedTangents
+
+	bumpmap		addnormals (models/vehicles/walker/gun_local.tga, heightmap (models/vehicles/walker/gun_h.tga, 2))
+	diffusemap		models/vehicles/walker/gun_d.tga
+	specularmap		models/vehicles/walker/gun_s.tga
+}
+
+
+gfx/lights/vehicle
+{
+	lightFalloffImage	makeIntensity( gfx/lights/flashoff.tga )
+	{
+		map	gfx/lights/rav_spot_02.tga
+		highQuality
+		zeroClamp
+	}
+}
+
+models/vehicles/flare
+{
+	translucent
+	deform sprite
+	{
+		blend			add
+		map				models/weapons/blaster/flare.tga
+		highquality
+	}
+}
+
+
+models/vehicles/walker/glass
+{      
+	translucent
+	materialType glass
+
+	renderbump  -size 512 512 -trace 0.07 -aa 2  models/vehicles/walker/glass_local.tga work/models/vehicles/gunbot/gunbot_hi_glass.lwo
+
+	{
+	blend GL_DST_COLOR, GL_SRC_COLOR
+	map _white
+	red 	.38	
+	green	.38
+	blue	.35
+	}
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass8.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen3
+        texgen		reflect
+	}
+
+}
+
+models/vehicles/walker/walker_decal1
+{
+	qer_editorimage models/vehicles/walker/walker_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/walker/walker_decal1.tga
+	}
+}
+
+
+models/vehicles/walker/walker_decal2
+{
+	qer_editorimage models/vehicles/walker/walker_decal2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/walker/walker_decal2.tga
+	}
+}
+
+models/vehicles/walker/walker_decal3
+{
+	qer_editorimage models/vehicles/walker/walker_decal3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/walker/walker_decal3.tga
+	}
+}
+//flatbedtruck-----------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/marine_hover_flatbed/flatbed
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/vehicles/marine_hover_flatbed/flatbed_hit.tga
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_hover_flatbed/flatbed_local.tga work/models/vehicles/marine_hover_flatbed/flatbed_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_hover_flatbed/flatbed_local.tga, heightmap (models/vehicles/marine_hover_flatbed/flatbed_h.tga, 2))
+	diffusemap		models/vehicles/marine_hover_flatbed/flatbed_d.tga
+	specularmap		models/vehicles/marine_hover_flatbed/flatbed_s.tga
+
+	{ 
+		if (Parm4 == 0)
+        blend add
+		map models/vehicles/marine_hover_flatbed/flatbed_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+		inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+ 
+models/vehicles/marine_hover_flatbed/flatbed_collision
+{
+	noShadows
+	collision
+	materialImage models/vehicles/marine_hover_flatbed/flatbed_hit.tga
+}
+ 
+models/vehicles/marine_hover_flatbed/flatbed1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/vehicles/marine_hover_flatbed/flatbed1_local.tga work/models/vehicles/marine_hover_flatbed/flatbed1_hi.lwo
+}
+
+models/vehicles/marine_hover_flatbed/flatbed2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/vehicles/marine_hover_flatbed/flatbed2_local.tga work/models/vehicles/marine_hover_flatbed/flatbed2_hi.lwo
+}
+models/vehicles/marine_hover_flatbed/flatbed3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -MergeHigh models/vehicles/marine_hover_flatbed/flatbed3_local.tga work/models/vehicles/marine_hover_flatbed/flatbed_hi.lwo
+}
+
+//new flatbedtruck with a totally flat bed-----------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/marine_hover_flatbed/flatbed3_lo
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/vehicles/marine_hover_flatbed/flatbed3_lo_hit.tga
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_hover_flatbed/flatbed3_lo_local.tga work/models/vehicles/marine_hover_flatbed/flatbed3_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_hover_flatbed/flatbed3_lo_local.tga, heightmap (models/vehicles/marine_hover_flatbed/flatbed3_lo_h.tga, 2))
+	diffusemap		models/vehicles/marine_hover_flatbed/flatbed3_lo_d.tga
+	specularmap		models/vehicles/marine_hover_flatbed/flatbed3_lo_s.tga
+
+	{ 
+		if (Parm4 == 0)
+        blend add
+		map models/vehicles/marine_hover_flatbed/flatbed3_lo_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+
+//flatbedturret-----------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/marine_hover_flatbed/turret
+{
+      noSelfShadow
+      unSmoothedTangents
+	  materialType solidmetal
+      
+      renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05 models/vehicles/marine_hover_flatbed/turret_local.tga work/models/vehicles/marine_hover_flatbed/turret_hi.lwo
+	
+
+		diffusemap		models/vehicles/marine_hover_flatbed/turret_d.tga
+		bumpmap addnormals ( models/vehicles/marine_hover_flatbed/turret_local.tga, heightmap ( models/vehicles/marine_hover_flatbed/turret_h.tga, 4 ) )
+		specularmap		models/vehicles/marine_hover_flatbed/turret_s.tga
+	
+}   
+
+
+
+
+//flatbedtopcab------------------------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/marine_hover_flatbed/cab
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/vehicles/marine_hover_flatbed/cab_hit.tga
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_hover_flatbed/cab_local.tga work/models/vehicles/marine_hover_flatbed/cab_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_hover_flatbed/cab_local.tga, heightmap (models/vehicles/marine_hover_flatbed/cab_h.tga, 2))
+	diffusemap		models/vehicles/marine_hover_flatbed/cab_d.tga
+	specularmap		models/vehicles/marine_hover_flatbed/cab_s.tga
+
+	{ 
+		blend add
+		map models/vehicles/marine_hover_flatbed/cab_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+
+//small strogg flier-----------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/sm_flyer/flyer
+{      
+	noSelfShadow
+	unSmoothedTangents
+	  
+	renderbump  -size 512 512 -trace 0.09 -aa 2  models/vehicles/sm_flyer/flyer_local.tga work/models/vehicles/sm_flyer/flyer_hi.lwo
+
+	diffusemap	models/vehicles/sm_flyer/flyer_d.tga
+	bumpmap	addnormals ( models/vehicles/sm_flyer/flyer_local.tga, heightmap ( models/vehicles/sm_flyer/flyer_h.tga, 2 ))
+	specularmap	models/vehicles/sm_flyer/flyer_s.tga
+	{
+		blend add
+		map models/vehicles/sm_flyer/flyer_g.tga
+	}
+	{
+		blend add
+		map models/vehicles/sm_flyer/flyer_g2.tga
+		rgb grunttable [ time * 1.3 ]
+	}		
+}
+
+
+//Marine Drop pod Interior------------------------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/marine_drop_pod/droppod_interior
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/vehicles/marine_drop_pod/droppod_interior_hit.tga
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_drop_pod/droppod_interior_local.tga work/models/vehicles/marine_drop_pod/droppod_interior_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_drop_pod/droppod_interior_local.tga, heightmap (models/vehicles/marine_drop_pod/droppod_interior_h.tga, 2))
+	diffusemap		models/vehicles/marine_drop_pod/droppod_interior_d.tga
+	specularmap		models/vehicles/marine_drop_pod/droppod_interior_s.tga
+
+//	{ 
+//		blend add
+//		map models/vehicles/marine_drop_pod/droppod_interior_glow.tga
+//		rgb grunttable [ time * 1.3 ]
+//	}
+
+}
+
+
+//Marine Drop pod Exterior------------------------------------------------------------------------------------------------------------------------------------------
+
+models/vehicles/marine_drop_pod/droppod_exterior
+{
+	noselfShadow
+	unsmoothedtangents
+	materialImage models/vehicles/marine_drop_pod/droppod_exterior_hit.tga
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_drop_pod/droppod_exterior_local.tga work/models/vehicles/marine_drop_pod/droppod_exterior_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_drop_pod/droppod_exterior_local.tga, heightmap (models/vehicles/marine_drop_pod/droppod_exterior_h.tga, 2))
+	diffusemap		models/vehicles/marine_drop_pod/droppod_exterior_d.tga
+	specularmap		models/vehicles/marine_drop_pod/droppod_exterior_s.tga
+
+//	{ 
+//		blend add
+//		map models/vehicles/marine_drop_pod/droppod_exterior_glow.tga
+//		rgb grunttable [ time * 1.3 ]
+//	}
+
+}
+
+models/vehicles/marine_drop_pod/reentry
+{
+	twoSided
+	{
+	blend add
+	map models/vehicles/marine_drop_pod/reentry
+	}
+}
+
+models/vehicles/marine_drop_pod/glass
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_EditorImage textures/glass/marineglass6
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass6.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .55 
+		green .43 
+		blue  .43 
+	}
+		{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass5_dirt.tga
+	}
+}
+
+models/vehicles/marine_drop_pod/droppod_exterior_decal1
+{
+	qer_editorimage models/vehicles/marine_drop_pod/droppod_exterior_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_drop_pod/droppod_exterior_decal1.tga
+	}
+}
+
+models/vehicles/marine_drop_pod/droppod_exterior_decal2
+{
+	qer_editorimage models/vehicles/marine_drop_pod/droppod_exterior_decal2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_drop_pod/droppod_exterior_decal2.tga
+	}
+}
+
+models/vehicles/marine_drop_pod/droppod_exterior_decal1b
+{
+	qer_editorimage models/vehicles/marine_drop_pod/droppod_exterior_decal1b.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_drop_pod/droppod_exterior_decal1b.tga
+	}
+}
+
+models/vehicles/marine_drop_pod/droppod_exterior_decal2b
+{
+	qer_editorimage models/vehicles/marine_drop_pod/droppod_exterior_decal2b.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_drop_pod/droppod_exterior_decal2b.tga
+	}
+}
+
+models/vehicles/marine_drop_pod/droppod_exterior_decal1c
+{
+	qer_editorimage models/vehicles/marine_drop_pod/droppod_exterior_decal1c.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_drop_pod/droppod_exterior_decal1c.tga
+	}
+}
+
+models/vehicles/marine_drop_pod/droppod_exterior_decal2c
+{
+	qer_editorimage models/vehicles/marine_drop_pod/droppod_exterior_decal2c.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_drop_pod/droppod_exterior_decal2c.tga
+	}
+}
+
+//Marine Fighter---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/marine_fighter/marine_fighter
+{
+	noselfShadow
+	unsmoothedtangents
+	
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_fighter/marine_fighter_local.tga work/models/vehicles/marine_fighter/marine_fighter_hi.lwo
+
+	bumpmap		downsize( addnormals (models/vehicles/marine_fighter/marine_fighter_local.tga, heightmap (models/vehicles/marine_fighter/marine_fighter_h.tga, 2)), 1 )
+	diffusemap	downsize( models/vehicles/marine_fighter/marine_fighter_d.tga, 1 )
+	specularmap	downsize( models/vehicles/marine_fighter/marine_fighter_s.tga, 1 )
+	
+inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+
+//	{ 
+//		blend add
+//		map models/vehicles/marine_fighter/marine_fighter_glow.tga
+//		rgb grunttable [ time * 1.3 ]
+//	}
+
+}
+
+
+//Marine Fighter Gear---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/marine_fighter/marine_fighter_gear
+{
+	noselfShadow
+	unsmoothedtangents
+	
+
+	renderBump  -size 256 256 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_fighter/marine_fighter_gear_local.tga work/models/vehicles/marine_fighter/marine_fighter_gear_hi.lwo
+
+	bumpmap		downsize( addnormals (models/vehicles/marine_fighter/marine_fighter_gear_local.tga, heightmap (models/vehicles/marine_fighter/marine_fighter_gear_h.tga, 2)), 1 )
+	diffusemap	downsize( models/vehicles/marine_fighter/marine_fighter_gear_d.tga, 1 )
+	specularmap	 downsize( models/vehicles/marine_fighter/marine_fighter_gear_s.tga, 1 )
+
+
+}
+
+//MCC---------------------------------------------------------------------------------------------------------
+
+//MCC ship top---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/MCC_ship/MCC_ship_top
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/MCC_ship/MCC_ship_top_local.tga work/models/vehicles/MCC_ship/MCC_ship_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/MCC_ship/MCC_ship_top_local.tga, heightmap (models/vehicles/MCC_ship/MCC_ship_top_h.tga, 2))
+	diffusemap		models/vehicles/MCC_ship/MCC_ship_top_d.tga
+	specularmap		models/vehicles/MCC_ship/MCC_ship_top_s.tga
+
+	{
+		blend add
+		map downsize( models/vehicles/MCC_ship/MCC_ship_top_g.tga, 1 )
+	}
+	{
+		blend add
+		map models/vehicles/MCC_ship/MCC_ship_top_g.tga
+		rgb grunttable [ time * 1.3 ]
+	}	
+}
+
+
+//MCC ship bottom---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/MCC_ship/MCC_ship_bottom
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/MCC_ship/MCC_ship_bottom_local.tga work/models/vehicles/MCC_ship/MCC_ship_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/MCC_ship/MCC_ship_bottom_local.tga, heightmap (models/vehicles/MCC_ship/MCC_ship_bottom_h.tga, 2))
+	diffusemap		models/vehicles/MCC_ship/MCC_ship_bottom_d.tga
+	specularmap		models/vehicles/MCC_ship/MCC_ship_bottom_s.tga
+
+	{
+		blend add
+		map downsize( models/vehicles/MCC_ship/MCC_ship_bottom_g.tga, 1 )
+	}
+}
+
+
+models/vehicles/MCC_ship/MCC_ship_bottom_decal1
+{
+	qer_editorimage models/vehicles/MCC_ship/MCC_ship_bottom_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/MCC_ship/MCC_ship_bottom_decal1.tga
+	}
+}
+
+//MCC shiplegs---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/MCC_ship/MCC_shiplegs
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh models/vehicles/MCC_ship/MCC_shiplegs_local.tga work/models/vehicles/MCC_ship/MCC_shiplegs_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/MCC_ship/MCC_shiplegs_local.tga, heightmap (models/vehicles/MCC_ship/MCC_shiplegs_h.tga, 2))
+	diffusemap		models/vehicles/MCC_ship/MCC_shiplegs_d.tga
+	specularmap		models/vehicles/MCC_ship/MCC_shiplegs_s.tga
+}
+
+
+//MCC shiptopturret---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/MCC_ship/MCC_shiptopturret
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh models/vehicles/MCC_ship/MCC_shiptopturret_local.tga work/models/vehicles/MCC_ship/_shiptopturret_hi.lwo
+
+}
+
+//dropship_exterior---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/dropship_exterior/dropship
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/dropship_exterior/dropship_local.tga work/models/vehicles/dropship_exterior/dropship_hi_render.lwo
+	materialImage	models/vehicles/dropship_exterior/dropship_hit
+	
+	bumpmap		addnormals (models/vehicles/dropship_exterior/dropship_local.tga, heightmap (models/vehicles/dropship_exterior/dropship_h.tga, 2))
+	diffusemap		models/vehicles/dropship_exterior/dropship_d.tga
+	specularmap		models/vehicles/dropship_exterior/dropship_s.tga
+	
+	{
+		blend add
+		map models/vehicles/dropship_exterior/dropship_glow.tga
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/vehicles/dropship_exterior/dropship_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+models/vehicles/dropship_exterior/dropship_decal1
+{
+	qer_editorimage models/vehicles/dropship_exterior/dropship_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/dropship_exterior/dropship_decal1.tga
+	}
+}
+
+models/vehicles/dropship_exterior/dropship_decal2
+{
+	qer_editorimage models/vehicles/dropship_exterior/dropship_decal2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/dropship_exterior/dropship_decal2.tga
+	}
+}
+
+models/vehicles/dropship_exterior/dropship_decal3
+{
+	qer_editorimage models/vehicles/dropship_exterior/dropship_decal3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/dropship_exterior/dropship_decal3.tga
+	}
+}
+
+models/vehicles/dropship_exterior/dropship_decal4
+{
+	qer_editorimage models/vehicles/dropship_exterior/dropship_decal4.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/dropship_exterior/dropship_decal4.tga
+	}
+}
+
+
+//dropship_interior---------------------------------------------------------------------------------------------------------
+
+models/vehicles/dropship_interior/interior
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/dropship_interior/interior_local.tga work/models/vehicles/dropship_interior/dropship_interior_hi_render.lwo
+	materialImage	models/vehicles/dropship_interior/interior_hit
+	
+	bumpmap		addnormals (models/vehicles/dropship_interior/interior_local.tga, heightmap (models/vehicles/dropship_interior/interior_h.tga, 2))
+	diffusemap		models/vehicles/dropship_interior/interior_d.tga
+	specularmap		models/vehicles/dropship_interior/interior_s.tga
+
+// lights
+	
+	{
+		if		(Parm4 == 0)						// normal light
+		blend add
+		map models/vehicles/dropship_interior/interior_glow.tga
+		red		parm0
+		green	parm1
+		blue	parm2		
+		zeroClamp
+	}
+	{
+		if		(Parm4 > 0)						// dim and then get back normal
+		blend add
+		map models/vehicles/dropship_interior/interior_glow.tga
+		red		airdefense_global_dim_a[(time-Parm4)*0.4]*parm0
+		green	airdefense_global_dim_a[(time-Parm4)*0.4]*parm1
+		blue		airdefense_global_dim_a[(time-Parm4)*0.4]*parm2
+		zeroClamp
+	}
+	
+//runner lights
+
+	{
+		if (Parm5 == 0)
+		blend add
+		map models/vehicles/dropship_interior/interior_glow2.tga
+	}
+	{
+		if (Parm5 == 1)
+		blend add
+		map models/vehicles/dropship_interior/interior_glow2.tga
+		rgb flicker [time * 3]
+	}
+
+//color change
+
+	{
+		if ( Parm7 == 0 )
+		blend 	add
+		map models/vehicles/dropship_interior/interior_glow3.tga
+		red		1
+		green	0.1
+		blue	0.1
+
+	}
+	{
+		if ( Parm7 == 1 )
+		blend 	add
+		map models/vehicles/dropship_interior/interior_glow3.tga
+		red		0.6
+		green	1
+		blue	0.23
+	}
+	//red light
+	{
+		blend add
+		map models/vehicles/dropship_interior/interior_glow4.tga
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/vehicles/dropship_interior/interior_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+}		
+
+models/vehicles/dropship_interior/nameplate_anderson
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_anderson.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_bidwell
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_bidwell.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_cortez
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_cortez.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_kane
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_kane.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_morris
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_morris.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_rhodes
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_rhodes.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_sledge
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_sledge.tga
+	}
+}
+
+models/vehicles/dropship_interior/nameplate_strauss
+{
+
+	{
+		blend blend
+		map models/vehicles/dropship_interior/nameplate_strauss.tga
+	}
+}
+
+//dropship_crashed_exterior---------------------------------------------------------------------------------------------------------
+
+models/vehicles/dropship_crashed_exterior/crashed_exterior
+{
+	noselfShadow
+	//unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/dropship_crashed_exterior/crashed_exterior_local.tga work/models/vehicles/dropship_crashed_exterior/dropship_crashed_exterior_hi_render.lwo
+	materialImage	models/vehicles/dropship_crashed_exterior/crashed_exterior_hit
+	
+	bumpmap		addnormals (models/vehicles/dropship_crashed_exterior/crashed_exterior_local.tga, heightmap (models/vehicles/dropship_crashed_exterior/crashed_exterior_h.tga, 2))
+	diffusemap		models/vehicles/dropship_crashed_exterior/crashed_exterior_d.tga
+	specularmap		models/vehicles/dropship_crashed_exterior/crashed_exterior_s.tga
+	
+	{
+		blend add
+		map models/vehicles/dropship_crashed_exterior/crashed_exterior_glow.tga
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/vehicles/dropship_crashed_exterior/crashed_exterior_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}	
+}		
+
+//dropship_crashed_interior---------------------------------------------------------------------------------------------------------
+
+models/vehicles/dropship_crashed_interior/crashed_interior
+{
+	noselfShadow
+	//unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/dropship_crashed_interior/crashed_interior_local.tga work/models/vehicles/dropship_crashed_interior/ds_crashed_interior_color_high_dc.lwo
+	materialImage	models/vehicles/dropship_crashed_interior/crashed_interior_hit
+	
+	bumpmap		addnormals (models/vehicles/dropship_crashed_interior/crashed_interior_local.tga, heightmap (models/vehicles/dropship_crashed_interior/crashed_interior_h.tga, 2))
+	diffusemap		models/vehicles/dropship_crashed_interior/crashed_interior_d.tga
+	specularmap		models/vehicles/dropship_crashed_interior/crashed_interior_s.tga
+	
+	{
+		blend add
+		map models/vehicles/dropship_crashed_interior/crashed_interior_glow.tga
+	}
+	
+	{	
+		maskcolor				
+	    map	makealpha(models/vehicles/dropship_crashed_interior/crashed_interior_mask.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/marhelmet
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+//    {       
+//      	blend		diffusemap 
+//		map		models/vehicles/dropship_crashed_interior/crashed_interior_d.tga
+//		alphaTest	.5
+//	}	
+}
+
+//New Tram---------------------------------------------------------------------------------------------------------
+
+
+models/vehicles/tramcar/tram
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/tramcar/tram_local.tga work/models/mapobjects/strogg/tram/t_11.lwo
+
+	bumpmap		addnormals (models/vehicles/tramcar/tram_local.tga, heightmap (models/vehicles/tramcar/tram_h.tga, 4))
+	diffusemap		models/vehicles/tramcar/tram_d.tga
+	specularmap		models/vehicles/tramcar/tram_s.tga
+
+	{
+		blend add
+		map models/vehicles/tramcar/tram_glow.tga
+	}
+	
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+//Marine_Destroyer_LOD0--------------------------------------------------------------------------------------------
+
+
+models/vehicles/marine_destroyer/md_lod0_main1
+{
+	noShadows
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_destroyer/md_lod0_main1_local.tga work/models/vehicles/marine_destroyer/RENDER/marine_destroyer_lod0_hi_render.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_destroyer/md_lod0_main1_local.tga, heightmap (models/vehicles/marine_destroyer/md_lod0_main1_h.tga, 2))
+	diffusemap		models/vehicles/marine_destroyer/md_lod0_main1_d.tga
+	specularmap		models/vehicles/marine_destroyer/md_lod0_main1_s.tga
+
+	{
+		blend add
+		map models/vehicles/marine_destroyer/md_lod0_main1_g.tga
+	}
+	
+//	{ 
+//		blend add
+//		map models/vehicles/marine_destroyer/md_lod0_main1_g2.tga
+//		rgb grunttable [ time * 1.3 ]
+//	}
+}
+
+
+models/vehicles/marine_destroyer/md_lod0_main2
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_destroyer/md_lod0_main2_local.tga work/models/vehicles/marine_destroyer/RENDER/marine_destroyer_lod0_hi_render.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_destroyer/md_lod0_main2_local.tga, heightmap (models/vehicles/marine_destroyer/md_lod0_main2_h.tga, 2))
+	diffusemap		models/vehicles/marine_destroyer/md_lod0_main2_d.tga
+	specularmap		models/vehicles/marine_destroyer/md_lod0_main2_s.tga
+
+	{
+		blend add
+		map models/vehicles/marine_destroyer/md_lod0_main2_g.tga
+	}
+}
+
+models/vehicles/marine_destroyer/md_lod0_panels
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace 0.05 -MergeHigh models/vehicles/marine_destroyer/md_lod0_panels_local.tga work/models/vehicles/marine_destroyer/RENDER/marine_destroyer_lod0_hi_render.lwo
+
+	bumpmap		addnormals (models/vehicles/marine_destroyer/md_lod0_panels_local.tga, heightmap (models/vehicles/marine_destroyer/md_lod0_panels_h.tga, 2))
+	diffusemap		models/vehicles/marine_destroyer/md_lod0_panels_d.tga
+	specularmap		models/vehicles/marine_destroyer/md_lod0_panels_s.tga
+
+
+}
+
+models/vehicles/marine_destroyer/md_lod0_decal1
+{
+	qer_editorimage models/vehicles/marine_destroyer/md_lod0_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_destroyer/md_lod0_decal1.tga
+	}
+}
+
+models/vehicles/marine_destroyer/md_lod0_decal2
+{
+	qer_editorimage models/vehicles/marine_destroyer/md_lod0_decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/marine_destroyer/md_lod0_decal1.tga
+	}
+}
+
+models/vehicles/marine_destroyer/md_lod2
+{
+	noSelfShadow
+	noShadows
+	unsmoothedtangents
+
+//	bumpmap		addnormals (models/vehicles/marine_destroyer/md_lod2_local.tga, heightmap (models/vehicles/marine_destroyer/md_lod2_h.tga, 2))
+//	specularMap		models/vehicles/marine_destroyer/md_lod2_s.tga
+
+	{
+		blend GL_ONE, GL_ZERO
+		map models/vehicles/marine_destroyer/md_lod2_all.tga
+		alphaTest 0.5
+	}	
+	{
+		blend add
+		map models/vehicles/marine_destroyer/md_lod2_g.tga
+	}
+
+}
+
+
+//Strogg_troopcarrier--------------------------------------------------------------------------------------------
+
+
+models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_local.tga work/models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_HI_render.lwo
+
+	bumpmap		addnormals (models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_local.tga, heightmap (models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_h.tga, 2))
+	diffusemap	downsize	(models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_d.tga,1)
+	specularmap	downsize	(models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_s.tga,1)
+
+	{
+		blend add
+		map downsize	(models/vehicles/Strogg_troopcarrier/Strogg_troopcarrier_g.tga,1)
+	}
+}
+
+
+//Strogg_hornet-----------------------------------------------------------------------------------------------
+
+models/vehicles/strogg_hornet/hornet_lo
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/strogg_hornet/hornet_lo_local.tga work/models/vehicles/strogg_hornet/hornet_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/strogg_hornet/hornet_lo_local.tga, heightmap (models/vehicles/strogg_hornet/hornet_lo_h.tga, 2))
+	diffusemap	downsize   (models/vehicles/strogg_hornet/hornet_lo_d.tga,1)
+	specularmap	downsize   (models/vehicles/strogg_hornet/hornet_lo_s.tga,1)
+
+	{
+		blend add
+		map downsize (models/vehicles/strogg_hornet/hornet_lo_g.tga, 1)
+	}
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+models/vehicles/strogg_hornet/hornet_lo_collision
+{
+	noShadows
+	collision
+}	
+
+
+models/vehicles/strogg_hornet/hornet_noshadows
+{
+	noSelfShadow
+	unSmoothedTangents
+	noShadows
+
+
+	renderBump  -size 1024 1024 -aa 2 -trace 0.05 -MergeHigh models/vehicles/strogg_hornet/hornet_lo_local.tga work/models/vehicles/strogg_hornet/hornet_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/strogg_hornet/hornet_lo_local.tga, heightmap (models/vehicles/strogg_hornet/hornet_lo_h.tga, 2))
+	diffusemap		models/vehicles/strogg_hornet/hornet_lo_d.tga
+	specularmap		models/vehicles/strogg_hornet/hornet_lo_s.tga
+
+	{
+		blend add
+		map models/vehicles/strogg_hornet/hornet_lo_g.tga
+	}
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+models/vehicles/strogg_hornet/gun/gun
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	renderBump  -size 256 256 -aa 2 -trace 0.05 -MergeHigh models/vehicles/strogg_hornet/gun/gun_local.tga work/models/vehicles/strogg_hornet/gun/gun_hi.lwo
+
+	bumpmap		addnormals (models/vehicles/strogg_hornet/gun/gun_local.tga, heightmap (models/vehicles/strogg_hornet/gun/gun_h.tga, 2))
+	diffusemap	downsize	(models/vehicles/strogg_hornet/gun/gun_d.tga,2)
+	specularmap	downsize	(models/vehicles/strogg_hornet/gun/gun_s.tga,2)
+
+	{
+		blend add
+		map downsize	(models/vehicles/strogg_hornet/gun/gun_g.tga,2)
+	}
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+
+
+models/vehicles/strogg_hornet/lightcone
+{
+	noSelfShadow
+	noShadows
+	nonSolid
+
+	{
+		blend add
+		map downsize (models/vehicles/strogg_hornet/lightcone.tga,1)
+	}
+
+}
+
+/////////////begin splashdamage damaged vehicles////////////////////////////////
+
+models/splashdamage/edf_anansi_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/anansi_local.tga, heightmap (models/splashdamage/anansi_h.tga, 2))
+	diffusemap		models/splashdamage/anansi_d.tga
+	specularmap		models/splashdamage/anansi_s.tga
+
+
+}
+
+models/splashdamage/anansi_blade
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/blade_local.tga, heightmap (models/splashdamage/blade_h.tga, 2))
+//	diffusemap		models/splashdamage/blade_d.tga
+	specularmap		models/splashdamage/blade_s.tga
+
+	{
+		blend blend
+		map models/splashdamage/blade_d.tga
+	}	
+
+}
+
+models/splashdamage/edf_badger_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/badger_local.tga, heightmap (models/splashdamage/badger_h.tga, 2))
+	diffusemap		models/splashdamage/badger_d.tga
+	specularmap		models/splashdamage/badger_s.tga
+
+
+}
+
+models/splashdamage/cockpit
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/cockpit_local.tga, heightmap (models/splashdamage/cockpit_h.tga, 2))
+	diffusemap		models/splashdamage/cockpit_d.tga
+	specularmap		models/splashdamage/cockpit_s.tga
+
+
+}
+
+models/splashdamage/cockpit2
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/cockpit2_local.tga, heightmap (models/splashdamage/cockpit2_h.tga, 2))
+	diffusemap		models/splashdamage/cockpit2_d.tga
+	specularmap		models/splashdamage/cockpit2_s.tga
+
+
+}
+
+models/splashdamage/edf_magog_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/magog_local.tga, heightmap (models/splashdamage/magog_h.tga, 2))
+	diffusemap		models/splashdamage/magog_d.tga
+	specularmap		models/splashdamage/magog_s.tga
+
+
+}
+
+models/splashdamage/edf_mcp_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/mcp_local.tga, heightmap (models/splashdamage/mcp_h.tga, 2))
+	diffusemap		models/splashdamage/mcp_d.tga
+	specularmap		models/splashdamage/mcp_s.tga
+
+
+}
+
+models/splashdamage/edf_titan_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/titan_local.tga, heightmap (models/splashdamage/titan_h.tga, 2))
+	diffusemap		models/splashdamage/titan_d.tga
+	specularmap		models/splashdamage/titan_s.tga
+
+
+}
+
+models/splashdamage/edf_trojan_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/trojan_local.tga, heightmap (models/splashdamage/trojan_h.tga, 2))
+	diffusemap		models/splashdamage/trojan_d.tga
+	specularmap		models/splashdamage/trojan_s.tga
+
+
+}
+
+models/splashdamage/strogg_desecrator_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/desecrator_local.tga, heightmap (models/splashdamage/desecrator_h.tga, 2))
+	diffusemap		models/splashdamage/desecrator_d.tga
+	specularmap		models/splashdamage/desecrator_s.tga
+
+
+}
+
+models/splashdamage/strogg_goliath_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/goliath_local.tga, heightmap (models/splashdamage/goliath_h.tga, 2))
+	diffusemap		models/splashdamage/goliath_d.tga
+	specularmap		models/splashdamage/goliath_s.tga
+
+
+}
+
+models/splashdamage/strogg_hog_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/hog_local.tga, heightmap (models/splashdamage/hog_h.tga, 2))
+	diffusemap		models/splashdamage/hog_d.tga
+	specularmap		models/splashdamage/hog_s.tga
+
+
+}
+
+models/splashdamage/strogg_hornet_damaged
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/splashdamage/hornet_local.tga, heightmap (models/splashdamage/hornet_h.tga, 2))
+	diffusemap		models/splashdamage/hornet_d.tga
+	specularmap		models/splashdamage/hornet_s.tga
+
+
+}
+
+
+models/vehicles/badjer/badjer_dam
+{
+	noselfShadow
+	unsmoothedtangents
+
+
+	bumpmap		addnormals (models/vehicles/badjer/badjer_dam_local.tga, heightmap (models/vehicles/badjer/badjer_dam_h.tga, 4))
+	diffusemap		models/vehicles/badjer/badjer_dam_d.tga
+	specularmap		models/vehicles/badjer/badjer_dam_s.tga
+
+
+}
+
+models/vehicles/badjer/badjer_dam_decal
+{
+	qer_editorimage models/vehicles/badjer/badjer_dam_decal.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map models/vehicles/badjer/badjer_dam_decal.tga
+	}
+}

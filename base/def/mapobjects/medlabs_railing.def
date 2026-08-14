@@ -1,0 +1,38 @@
+/***********************************************************************
+VOSS KIDNAPPING RAILING 
+***********************************************************************/
+export env_medlabs_railing
+{
+	options -prefix RAILING_ -scale .3937 -sourcedir work/models/cinematics/voss_kidnapping/animations -destdir models/mapobjects/strogg/medlabs/railing
+	mesh	vossKidnap_vs20.ma							-dest railing
+	anim	vossKidnap_vs20.ma			-range 75 76 	-dest railing_idle
+	anim	vossKidnap_vs20.ma							-dest railing_breaking
+	anim	vossKidnap_vs20.ma			-range 550 551	-dest railing_broken_idle
+
+}
+model model_env_medlabs_railing
+{
+	mesh						models/mapobjects/strogg/medlabs/railing/railing.md5mesh
+	anim idle					models/mapobjects/strogg/medlabs/railing/railing_idle.md5anim
+	anim breaking				models/mapobjects/strogg/medlabs/railing/railing_breaking.md5anim
+	{
+		frame 452				fx fx_sparks joint32
+		frame 452				fx fx_sparks joint57
+		frame 452				fx fx_sparks joint68
+		frame 452				fx fx_sparks joint69
+	}
+	anim broken_idle			models/mapobjects/strogg/medlabs/railing/railing_broken_idle.md5anim
+
+}
+entityDef	env_medlabs_railing
+{
+	"spawnClass"					"idAnimated"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"Railing for Medlabs Cinematic"
+	"model"							"model_env_medlabs_railing"
+	"anim"							"idle"
+	
+	"fx_sparks"						"effects/sparks/sparkshower4.fx"
+}

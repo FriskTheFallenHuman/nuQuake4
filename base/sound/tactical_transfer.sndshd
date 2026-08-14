@@ -1,0 +1,537 @@
+
+
+sound tacticaltransfer_chatter
+{
+	description	"Chattering"
+
+	minDistance	40
+	maxDistance	700
+	volumeDb	-6
+	no_dups
+
+	sound/strogg/tactical_transfer/chatter1
+	shakeData 0 smffbexxjhqjefaptyxzzrgetyzwdcgebabbpnba
+	sound/strogg/tactical_transfer/chatter2
+	shakeData 1 smffdcwtjbjhfdajwzzxijedvxpbbaaaaahkbzfaa
+	sound/strogg/tactical_transfer/chatter3
+	shakeData 2 smffrprcvpgltyxxxrfbvzjecyyb
+	sound/strogg/tactical_transfer/chatter4
+	shakeData 3 smffegzyidgkjienuukcffedllgdbdnhahbaa
+	sound/strogg/tactical_transfer/chatter7
+	shakeData 4 smffxwyfkqvrmehkxvaa
+	sound/strogg/tactical_transfer/chatter8
+	shakeData 5 smffizxdkrurnbdhj
+	sound/strogg/tactical_transfer/chatter9
+	shakeData 6 smffjkhhivvzyudhimywylbwzjdhmzzwebflghdeaasbvc
+	sound/strogg/tactical_transfer/chatter10
+	shakeData 7 smffqoopyzxxudebxhcb
+	sound/strogg/tactical_transfer/chatter11
+	shakeData 8 smffffdeswwibvnwlcdafcbaegedbaaaaadihhodcikbbddaxyzchrnhdbhjab
+	sound/strogg/tactical_transfer/chatter12
+	shakeData 9 smffmohguzumdxxyzzpdaabbbhbbbbqnbwjhbuqpdbsyuuseuxdcaxzxjcbxbctccria
+	sound/strogg/tactical_transfer/chatter13
+	shakeData 10 smffhebqpjcjzzyxhhhigixzikkaefbolba
+	sound/strogg/tactical_transfer/chatter14
+	shakeData 11 smffjyzwtweghnheeccxwweayzyvjmmccbfamaa
+	sound/strogg/tactical_transfer/chatter15
+	shakeData 12 smffozwrwcunohbcdyyiavzzysgnqddgqbca
+}
+
+
+sound tacticaltransfer_sight
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/sight3
+	shakeData 0 smffmzzuwtdfhgivhcedattlyzyvbmmkicaaciba
+	sound/strogg/tactical_transfer/sight4
+	shakeData 1 smffgknyzywgchfbddkjhdkggccjmghchxopfafie
+	sound/strogg/tactical_transfer/sight6
+	shakeData 2 smffdcpyzwkspjqwzyyevwvnicada
+	sound/strogg/tactical_transfer/sight8
+	shakeData 3 smffbfuwvgaizzycpyzlbefdcegzztngaeaa
+	sound/strogg/tactical_transfer/sight11
+	shakeData 4 smffcflzznmzzzwzzyebjba
+	sound/strogg/tactical_transfer/sight12
+	shakeData 5 smffoxefxyzwuzzljebga
+	sound/strogg/tactical_transfer/sight13
+	shakeData 6 smffxzyqbxzzcovvulmgywdaagaaa
+}
+
+
+sound tacticaltransfer_rush
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/sight1
+	shakeData 0 smffuvtthzzzxyzzzzueptjdzyolcaecagia
+	sound/strogg/tactical_transfer/sight2
+	shakeData 1 smffcfqvfibzzkbbhzzyycgtwbtxoobaga
+	sound/strogg/tactical_transfer/sight5
+	shakeData 2 smffesxferyyhxzyjbbbmbanb
+	sound/strogg/tactical_transfer/sight7
+	shakeData 3 smffbtzxxuzyyeyyzoxyzufdaiab
+	sound/strogg/tactical_transfer/sight9
+	shakeData 4 smffbqytgzypgvxfbhdcfqywpeeeaa
+	sound/strogg/tactical_transfer/sight10
+	shakeData 5 smffbmyyvyzztcgokfajuyxywyyobeaa
+	sound/strogg/tactical_transfer/sight11
+	shakeData 6 smffcflzznmzzzwzzyebjba
+	sound/strogg/tactical_transfer/sight12
+	shakeData 7 smffoxefxyzwuzzljebga
+	sound/strogg/tactical_transfer/sight13
+	shakeData 8 smffxzyqbxzzcovvulmgywdaagaaa
+}
+
+
+sound tacticaltransfer_cover
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/underfire1
+	shakeData 0 smfffbkzzrwvqkcageghgvzyhbaajdfqxxd
+	sound/strogg/tactical_transfer/underfire2
+	shakeData 1 smffkkaozxybjuikaaibmzzykgohgbahaa
+	sound/strogg/tactical_transfer/underfire3
+	shakeData 2 smffdjtzxwgzzxrddddri
+}
+
+
+sound tacticaltransfer_flank
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/chatter11
+	shakeData 0 smffffdeswwibvnwlcdafcbaegedbaaaaadihhodcikbbddaxyzchrnhdbhjab
+	sound/strogg/tactical_transfer/chatter12
+	shakeData 1 smffmohguzumdxxyzzpdaabbbhbbbbqnbwjhbuqpdbsyuuseuxdcaxzxjcbxbctccria
+	sound/strogg/tactical_transfer/chatter13
+	shakeData 2 smffhebqpjcjzzyxhhhigixzikkaefbolba
+	sound/strogg/tactical_transfer/chatter14
+	shakeData 3 smffjyzwtweghnheeccxwweayzyvjmmccbfamaa
+}
+
+
+sound tacticaltransfer_moveup
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/chatter5
+	shakeData 0 smffhkyuebnwycltwqcihffgmkccdaabnaa
+	sound/strogg/tactical_transfer/chatter6
+	shakeData 1 smffizphwyzxmpjpkb
+	sound/strogg/tactical_transfer/sight5
+	shakeData 2 smffesxferyyhxzyjbbbmbanb
+}
+
+
+sound tacticaltransfer_checkfire
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/underfire1
+	shakeData 0 smfffbkzzrwvqkcageghgvzyhbaajdfqxxd
+	sound/strogg/tactical_transfer/underfire2
+	shakeData 1 smffkkaozxybjuikaaibmzzykgohgbahaa
+	sound/strogg/tactical_transfer/underfire3
+	shakeData 2 smffdjtzxwgzzxrddddri
+}
+
+
+sound tacticaltransfer_mandown
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/underfire1
+	shakeData 0 smfffbkzzrwvqkcageghgvzyhbaajdfqxxd
+	sound/strogg/tactical_transfer/underfire2
+	shakeData 1 smffkkaozxybjuikaaibmzzykgohgbahaa
+	sound/strogg/tactical_transfer/underfire3
+	shakeData 2 smffdjtzxwgzzxrddddri
+}
+
+
+sound tacticaltransfer_victory
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/chatter1
+	shakeData 0 smffbexxjhqjefaptyxzzrgetyzwdcgebabbpnba
+	sound/strogg/tactical_transfer/chatter3
+	shakeData 1 smffrprcvpgltyxxxrfbvzjecyyb
+	sound/strogg/tactical_transfer/chatter4
+	shakeData 2 smffegzyidgkjienuukcffedllgdbdnhahbaa
+}
+
+
+sound tacticaltransfer_watchit
+{
+	description	"They see you!"
+
+	minDistance	40
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/underfire1
+	shakeData 0 smfffbkzzrwvqkcageghgvzyhbaajdfqxxd
+	sound/strogg/tactical_transfer/underfire2
+	shakeData 1 smffkkaozxybjuikaaibmzzykgohgbahaa
+	sound/strogg/tactical_transfer/underfire3
+	shakeData 2 smffdjtzxwgzzxrddddri
+}
+
+
+sound tacticaltransfer_death
+{
+	description	"dead"
+
+	minDistance	400
+	maxDistance	2000
+	volumeDb	0
+	no_dups
+
+	sound/strogg/tactical_transfer/die1
+	shakeData 0 wyyyyzyyyyyyzyyvvgfffhghhhifeefffcagcrfljcbbaa
+	sound/strogg/tactical_transfer/die2
+	shakeData 1 nuwwxwvwwxwyzxpgffeededdcbgfrcljbbaa
+	sound/strogg/tactical_transfer/die3
+	shakeData 2 vvwuvwvwyywwigqbkjbbbaaaa
+}
+
+
+sound tacticaltransfer_pain
+{
+	description	"Ouch"
+
+	minDistance	40
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/pain1
+	shakeData 0 xzywrnbkjhgecdlrlibfba
+	sound/strogg/tactical_transfer/pain2
+	shakeData 1 zzzxxyxyzwsmgdaacfa
+	sound/strogg/tactical_transfer/pain3
+	shakeData 2 zzzzxvwxvmpsrejdb
+	sound/strogg/tactical_transfer/pain4
+	shakeData 3 yyzzyyozzstndlca
+	sound/strogg/tactical_transfer/pain5
+	shakeData 4 crzzzzzyzzvkbbbga
+}
+
+
+sound tacticaltransfer_steps
+{
+	description	"running"
+
+	minDistance	40
+	maxDistance	702
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/small/default1
+	shakeData 0 pbfaaaaaaaa
+	sound/strogg/footsteps/small/default2
+	shakeData 1 qccaaaabbaa
+	sound/strogg/footsteps/small/default3
+	shakeData 2 pbhaaaabbaa
+	sound/strogg/footsteps/small/default4
+	shakeData 3 ndfaaaabbaa
+}
+
+
+sound tacticaltransfer_steps_flesh
+{
+	description	"running"
+
+	minDistance	40
+	maxDistance	702
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/small/flesh1
+	shakeData 0 hfdbabaaaaaaaaaaaaaa
+	sound/strogg/footsteps/small/flesh2
+	shakeData 1 hfdbaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/small/flesh3
+	shakeData 2 ffbacaaaabaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/small/flesh4
+	shakeData 3 dccdaaadbcdaaaaa
+}
+
+
+sound tacticaltransfer_steps_dirt
+{
+	description	"running"
+
+	minDistance	40
+	maxDistance	702
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/small/dirt1
+	shakeData 0 gdbabaagbaaa
+	sound/strogg/footsteps/small/dirt2
+	shakeData 1 kibedacadaaa
+	sound/strogg/footsteps/small/dirt3
+	shakeData 2 jcbaaabbbaa
+	sound/strogg/footsteps/small/dirt4
+	shakeData 3 ibiaabaacaaa
+}
+
+
+sound tacticaltransfer_steps_hollow_metal
+{
+	description	"running"
+
+	minDistance	40
+	maxDistance	702
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/small/h_metal1
+	shakeData 0 immnnjhhddcbaaaaaa
+	sound/strogg/footsteps/small/h_metal2
+	shakeData 1 ijomjlghgccbbaaaaaaaa
+	sound/strogg/footsteps/small/h_metal3
+	shakeData 2 jjnihedcbbaaaaaaa
+	sound/strogg/footsteps/small/h_metal4
+	shakeData 3 ikkjigddccbbbbaaaaaaaaa
+}
+
+
+sound tacticaltransfer_steps_water
+{
+	description	"running"
+
+	minDistance	40
+	maxDistance	702
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	no_dups
+
+	sound/strogg/footsteps/small/water1
+	shakeData 0 keeaeaaacbaa
+	sound/strogg/footsteps/small/water2
+	shakeData 1 kjcaaaaabaaa
+	sound/strogg/footsteps/small/water3
+	shakeData 2 kjbaaaaabaa
+	sound/strogg/footsteps/small/water4
+	shakeData 3 rhaabaabeba
+}
+
+
+sound tacticaltransfer_shotgun_pump
+{
+	description	"readying the weapon"
+
+	minDistance	40
+	maxDistance	787
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/shotgun_pump
+	shakeData 0 rhrvfknogebbaaaaaaaaaaaaaaaaa
+}
+
+
+sound tacticaltransfer_machinegun_ready
+{
+	description	"preparing gun"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/stroggmarine/ready_weapon
+	shakeData 0 fappsqbobcotrpjgbbbcaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound tacticaltransfer_machinegun_clipin
+{
+	description	"preparing gun"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/mgun_clipin
+	shakeData 0 eqwzokidaacaa
+}
+
+
+sound tacticaltransfer_machinegun_clipout
+{
+	description	"preparing gun"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/mgun_clipout
+	shakeData 0 nxtqifcbc
+}
+
+
+sound tacticaltransfer_shotgun_clipin
+{
+	description	"preparing gun"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/shotgun_clipin
+	shakeData 0 coxqhbaaa
+}
+
+
+sound tacticaltransfer_shotgun_clipout
+{
+	description	"preparing gun"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/shotgun_clipout
+	shakeData 0 qvwrhcqiaa
+}
+
+
+sound tacticaltransfer_growl
+{
+	description	"Wiff!"
+
+	minDistance	40
+	maxDistance	787
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/growl1
+	shakeData 0 huyzwxzzyzubdecifa
+	sound/strogg/tactical_transfer/growl2
+	shakeData 1 dhwzyzyighiieiba
+	sound/strogg/tactical_transfer/growl3
+	shakeData 2 uzzzzzzzwurpkbjb
+	sound/strogg/tactical_transfer/growl4
+	shakeData 3 nwuyzzzxtrmkdebbaa
+}
+
+
+sound tacticaltransfer_swing
+{
+	description	"Wiff!"
+
+	minDistance	40
+	maxDistance	787
+	volumeDb	0
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+}
+
+
+sound tacticaltransfer_machinegun
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/tactical_transfer/m_gun1
+	shakeData 0 zzzxpkrgfeccbbdcccaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/tactical_transfer/m_gun2
+	shakeData 1 zzxrskomhecdbabbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound tacticaltransfer_sbotgun_fire
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/tactical_transfer/shotgun_fire
+	shakeData 0 zyyxsvuosyxwuuslnnkeeeccccbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound tacticaltransfer_rappel
+{
+	minDistance	80
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/tactical_transfer/rappel1
+	shakeData 0 hxzzqzzvnwhfgkpuxmrvwrzxrtwjrhrmmqqrphhtzlmkjpfhmfwrcccccdbbbbaa
+	sound/strogg/tactical_transfer/rappel2
+	shakeData 1 hezxosuuootuqzvwsxjnwjginpswzoouzrkmvjhjigtwcbcbbcbbbbaa
+	sound/strogg/tactical_transfer/rappel3
+	shakeData 2 hjzzmkkzilsilrkpsutowyszvvzxkqoszmmypkjiioyiiecccccbcbbbbaa
+	sound/strogg/tactical_transfer/rappel4
+	shakeData 3 glzwixcdjgokgkkouwpsswqyxwtxklluztorwjkhifyhcbbcbbcbbbbaa
+}
+
+
+
+
+
+

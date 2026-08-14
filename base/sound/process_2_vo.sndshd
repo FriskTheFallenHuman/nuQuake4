@@ -1,0 +1,360 @@
+
+
+sound vo_3_1_14_110_1
+{
+	description	"Strauss, what are those devices on the ceiling?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_110_1
+}
+
+
+sound vo_3_1_14_110_2
+{
+	description	"They are information routers... but they appear to be out of alignment. Kane should be able use the consoles to correct this problem."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_2/3_1_14_110_2
+}
+
+
+sound vo_3_1_14_110_3
+{
+	description	"That data stream you see will act as a guide. Once it’s path is corrected, the stream will lead you to the top floors of the processing tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_2/3_1_14_110_3
+}
+
+sound vo_3_1_14_115_1
+{
+	description	"Rhino Squad, be aware that Cougar squad is incoming. They will be landing at the processing tower shortly."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_115_1
+}
+
+sound vo_3_1_14_115_2
+{
+	description	"Did you hear that Kane? It appears we will be having some help very soon."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_115_2
+}
+
+sound vo_3_1_14_120_1
+{
+	description	"Ah, good job. But I wonder if that unlocked the door?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_120_1
+}
+
+
+sound vo_3_1_14_135_1
+{
+	description	"HQ! HQ! This is Cougar squad. We’ve got trouble!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_135_1
+}
+
+sound vo_3_1_14_135_2
+{
+	description	"What’s your situation?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_135_2
+}
+
+sound vo_3_1_14_135_3
+{
+	description	"We’re almost to the Processing Tower but we’ve been intercepted by a squadron of fliers!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_135_3
+}
+
+sound vo_3_1_14_140_1
+{
+	description	"Maybe, mayday! My pod’s been hit! I’m going down! I’m going down!!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_1
+}
+
+sound vo_3_1_14_140_2
+{
+	description	"They’re all over us! We need air support!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_2
+}
+
+sound vo_3_1_14_140_3
+{
+	description	"Shit! I’m comin’ in too fast! "
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_3
+}
+
+sound vo_3_1_14_140_4
+{
+	description	"Don’t bunch up! You’re all too close!!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_4
+}
+
+sound vo_3_1_14_140_5
+{
+	description	"Damn it! There’s a flier on my six!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_5
+}
+
+sound vo_3_1_14_140_6
+{
+	description	"Navigation’s out . . . . propulsion’s damaged. I’m coming in like a rock!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_6
+}
+
+sound vo_3_1_14_140_7
+{
+	description	"We’re screwed! We’re totally fubar!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_140_7
+}
+
+sound vo_3_1_14_170_1
+{
+	description	"I'm no Strauss, but I believe that router is also damaged."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_170_1
+}
+
+
+sound vo_3_1_14_175_1
+{
+	description	"Strauss, we are unable to proceed. "
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_175_1
+}
+
+sound vo_3_1_14_175_2
+{
+	description	"There is nothing I can do for you in that section. Kane will have to find a solution."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_2/3_1_14_175_2
+}
+
+sound vo_3_1_14_178_1
+{
+	description	"Very well done, Kane. Let’s go."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	global
+	onDemand
+
+	sound/vo/process_2/3_1_14_178_1
+}
+
+sound vo_3_1_14_180_1
+{
+	description	"Why have you not completed your task, gentlemen? Please, hurry up."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/process_2/3_1_14_180_1
+}
+
+
+sound vo_3_1_14_198_1
+{
+	description	"Hmm, Strogg security must have shut down this elevator."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_14_198_1
+}
+
+sound vo_3_1_15_40_1
+{
+	description	"That must be all that remains of Cougar squad."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/3_1_15_40_1
+}
+
+
+sound vo_pa_process2_10
+{
+	description	"Multiple hull breaches on floor 60."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/pa_process2_10
+}
+
+sound vo_pa_process2_20
+{
+	description	"Process terminal connection established to core facility."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/pa_process2_20
+}
+
+sound vo_pa_process2_30
+{
+	description	"Initiating teleportation interface."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/pa_process2_30
+}
+
+sound vo_pa_process2_40
+{
+	description	"Teleportation interchange established."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/pa_process2_40
+}
+
+sound vo_pa_process2_50
+{
+	description	"Unable to process data due to node alignment error."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/pa_process2_50
+}
+
+sound vo_pa_process2_60
+{
+	description	"Node alignment error corrected."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/process_2/pa_process2_60
+}

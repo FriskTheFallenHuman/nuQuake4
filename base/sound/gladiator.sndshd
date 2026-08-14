@@ -1,0 +1,420 @@
+
+
+sound gladiator_breathe
+{
+	description	"gladiator huffin and puffin"
+
+	minDistance	393
+	maxDistance	787
+	volumeDb	0
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/gladiator/breath01
+	shakeData 0 abejmmpqtusvnqtupnmimjjffeeddccccdcdccbbcbbbbbbbccbbccdeddddcbbaaaaa
+	sound/strogg/gladiator/breath02
+	shakeData 1 bkouprrutomfgdfgegfhihiegggfeeecdbbbcbccedeefdddddbcbcbbbbbaaaaaaaaaaa
+	sound/strogg/gladiator/breath03
+	shakeData 2 abdkputqvqqtnhgdeeddcccdcdcbbaaaaa
+	sound/strogg/gladiator/breath04
+	shakeData 3 cirxtwtwupmkgfffffeeeeedecbbbbbabbdeeifhhiighifhefiggddcbbaaaaaaaaaa
+}
+
+
+sound gladiator_ready_weapon
+{
+	description	"preparing gun"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/ready_weapon
+	shakeData 0 vwrezzwzmccdkcbbbaaaaaaaaaaaaaaaaaa
+}
+
+
+sound gladiator_footsteps
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+	frequencyshift	0.9,1.1
+	shakes		0.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/large/default1
+	shakeData 0 xxxuvtuuuqmjghedddccbbaaaaaa
+	sound/strogg/footsteps/large/default2
+	shakeData 1 vvtuxrpuqokmjdcbbaaaaaa
+	sound/strogg/footsteps/large/default3
+	shakeData 2 wvxvuvwuvsnhkiccbaaaaaa
+	sound/strogg/footsteps/large/default4
+	shakeData 3 yzwwuuuxtrmmokgefdddcbbaaaaaa
+}
+
+
+sound gladiator_footsteps_dirt
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+	frequencyshift	0.9,1.1
+	shakes		0.2
+	no_dups
+
+	sound/strogg/footsteps/large/dirt1
+	shakeData 0 xsoxspkjlihfgdbbbbaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/large/dirt2
+	shakeData 1 ryqqiolkjhhfdbbadaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/large/dirt3
+	shakeData 2 hwrvlmmkjjidecbaaaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/large/dirt4
+	shakeData 3 lxqvrpnmjhjffdcbbbbbaaaaaaaaaaaa
+}
+
+
+sound gladiator_footsteps_hollow_metal
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+	frequencyshift	0.9,1.1
+	shakes		0.2
+	no_dups
+
+	sound/strogg/footsteps/large/h_metal1
+	shakeData 0 qyvrvmppnihfdddccbbbbaaaaaaaaaaaaaa
+	sound/strogg/footsteps/large/h_metal2
+	shakeData 1 xystrljjjkhgfdcbbaaaaaaaaaa
+	sound/strogg/footsteps/large/h_metal3
+	shakeData 2 ywyxwvsspojghgddcaaaaaaaaaaa
+	sound/strogg/footsteps/large/h_metal4
+	shakeData 3 xywtxuxxwtonolgffdecbbaaaaaaaaaaaaa
+}
+
+
+sound gladiator_footsteps_water
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+	frequencyshift	0.9,1.1
+	shakes		0.2
+	no_dups
+
+	sound/strogg/footsteps/large/water1
+	shakeData 0 nnmjkkunkihgeecccdcdeeeecdddccbaaaaaa
+	sound/strogg/footsteps/large/water2
+	shakeData 1 zljijhwpjhfjieeeeeecccdccbcbaaaaa
+	sound/strogg/footsteps/large/water3
+	shakeData 2 ijijjspkioiefecdecccbaaaaaaaa
+	sound/strogg/footsteps/large/water4
+	shakeData 3 skjkjooilsghhfeeededcdcccccbbbbbbaaaaaa
+}
+
+
+sound gladiator_servo
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	905
+	volumeDb	-12
+	frequentlyUsed
+
+	sound/strogg/gladiator/servo_01
+	shakeData 0 adhklonna
+	sound/strogg/gladiator/servo_02
+	shakeData 1 abfrggghia
+	sound/strogg/gladiator/servo_03
+	shakeData 2 ghhggfggghhlicaa
+	sound/strogg/gladiator/servo_04
+	shakeData 3 aadoifffffffgghfhhc
+}
+
+
+sound gladiator_pain
+{
+	description	"random choice of pain gladiators"
+
+	minDistance	787
+	maxDistance	984
+	volumeDb	5
+	no_dups
+
+	sound/strogg/gladiator/pain
+	shakeData 0 fksruvuvwuvywvwvyyuxwxwstuutvwruoqqnfeeeebcbbbbaaaaaaaa
+}
+
+
+sound gladiator_punch
+{
+	description	"test sound for gladiator punch"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+	frequencyshift	0.8,1.1
+
+	sound/weapons/impact/whooshes_melee/melee_hit1
+	shakeData 0 ahrzzzzzuxmhedcbbaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit2
+	shakeData 1 ewzzzzzpnjlhfedcaaaaaaa
+	sound/weapons/impact/whooshes_melee/melee_hit3
+	shakeData 2 zzzzzzxkfbaaaaaaa
+}
+
+
+sound gladiator_swing
+{
+	description	"Big Whiffer!"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/weapons/impact/whooshes_melee/whoosh1
+	shakeData 0 cmyzzxqoeaa
+	sound/weapons/impact/whooshes_melee/whoosh2
+	shakeData 1 cntxzpofdbaaaa
+	sound/weapons/impact/whooshes_melee/whoosh3
+	shakeData 2 bfvvyzzzrhcaaa
+	sound/weapons/impact/whooshes_melee/whoosh4
+	shakeData 3 nttzztzzzzvfcbbaaaaa
+}
+
+
+sound gladiator_alert
+{
+	description	"test sound for gladiator alert voice"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+	shakes		0.3
+
+	sound/strogg/gladiator/alert
+	shakeData 0 yzzzzzzzyzzyzzzzzzzzzzzzzzxzzzzzzzzzzzzzzzzzzzzzzyyxxyuzyxsqlljfedbbaa
+}
+
+
+sound gladiator_jump_land
+{
+	description	"test sound for gladiator jump landing"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	shakes		0.3
+
+	sound/strogg/gladiator/jumpland
+	shakeData 0 xyzyzwxyyyxxxyuqtwnnltmjilljihjhedcccbcbaaaaaaaaaaaa
+}
+
+
+sound gladiator_jump_start
+{
+	description	"test sound for gladiator jump start"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/gladiator/jump
+	shakeData 0 dhihmozwzyyzzyzzzzzuzzzzyzzzzzzzxwyyyzxxsphngcaaaa
+}
+
+
+sound gladiator_chargerailgun
+{
+	description	"test gun sound for gladiator charging railgun"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/railgun_charge
+	shakeData 0 aaaaacdgilmnsruuoqqqnqpnnnlkolmkjkkjkjjlkkkhcbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound gladiator_shield_up
+{
+	description	"the looping of the gladiator's shield.  weeeowwwooeee"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/shield_up
+	shakeData 0 fhgjqvyyxzzzxqqmkogdecccbbbaaaaaaa
+}
+
+
+sound gladiator_shield_down
+{
+	description	"the looping of the gladiator's shield.  weeeowwwooeee"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/shield_down
+	shakeData 0 fgggpvxzyyvwvhifggfedccbbbbaaaaaaaaa
+}
+
+
+sound gladiator_shield_loop
+{
+	description	"the looping of the gladiator's shield.  weeeowwwooeee"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-12
+	looping
+
+	sound/strogg/gladiator/shield_loop
+	shakeData 0 eeefeeghijijkjiigffe
+}
+
+
+sound gladiator_shield_swing
+{
+	description	"swinging the shield at you"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/shield_swing
+	shakeData 0 bcehmrsyvruqmkifgfebbbaaaaa
+}
+
+
+sound gladiator_shield_hit
+{
+	description	"hitting you with shield"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/shield_hit
+	shakeData 0 wvxyxvxvspmmnjkjeefehigddcdeddcc
+}
+
+
+sound gladiator_shield_flicker
+{
+	description	"flickers"
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/gladiator/shield_flicker1
+	shakeData 0 nsorqrotqqvtusqsvsuvvogedhihfdddcfdbcbeeeedbdcba
+	sound/strogg/gladiator/shield_flicker2
+	shakeData 1 gloyspyxstlnjhjeghfefehfffdeedeegefeedfd
+	sound/strogg/gladiator/shield_flicker3
+	shakeData 2 eloqspnsxomfihghfdddecbcdecicccccddedccddbccccedc
+}
+
+
+sound gladiator_blaster
+{
+	description	"test gun sound for gladiator blaster"
+
+	minDistance	393
+	maxDistance	984
+	volumeDb	4
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+
+	sound/strogg/gladiator/rapidfire_01
+	shakeData 0 zzzzxuwsrnmnljjihfeddccccbbbaaaaaaaaaaaaaaaa
+	sound/strogg/gladiator/rapidfire_02
+	shakeData 1 zzyyxutqoomokjihgffddccccbbbaaaaaaaaaaaaaaaa
+}
+
+
+sound gladiator_railgun
+{
+	description	"test gun sound for gladiator gatling"
+
+	minDistance	1574
+	maxDistance	3149
+	volumeDb	5
+	frequentlyUsed
+	no_occlusion
+
+	sound/strogg/gladiator/railgun_blast
+	shakeData 0 zzzzzzzzzzssywvssuqsproplmmlijkgkiggeffddcccbbbbaaaaaaaaaa
+}
+
+
+sound gladiator_railgun_impact
+{
+	description	"test gun sound for gladiator railgun impact"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+
+	sound/weapons/railgun/impact
+	shakeData 0 vwwspnkihedbaaaaaa
+}
+
+
+sound gladiator_clamp
+{
+	description	"gladiator clamp a-clampin'"
+
+	minDistance	39
+	maxDistance	866
+	volumeDb	-8
+
+	sound/strogg/gladiator/clawgrip
+	shakeData 0 yxhcghijjiyywhca
+}
+
+
+sound gladiator_rip
+{
+	description	"ripping some shmoe to pieces"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/gladiator/ripapart
+	shakeData 0 bdjjjklnnmpqqoonollqqpsspruvrpkhinfjmhinnqqlohgedecdbbbbaaaaaaaaaa
+}
+
+
+sound gladiator_die
+{
+	description	"gladiator dying'"
+
+	minDistance	393
+	maxDistance	1377
+	volumeDb	0
+
+	sound/strogg/gladiator/death
+	shakeData 0 qrxzyyyxxwxwzwwrxuuvvprsqmmotwtltuttstqprrwwtttpqhjgeedddbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+
+

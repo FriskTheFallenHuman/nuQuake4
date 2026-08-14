@@ -1,0 +1,48 @@
+/*
+===============================================================================
+	Slimy Transfer Mocap Test
+===============================================================================
+*/
+export test_slimy_transfer
+ {
+	options -prefix PLAYER_ -scale .3937 -align ALL -sourcedir work/models/monsters/Slimy_Transfer/animations  -destdir models/test/slimy_transfer_mocap
+
+
+	mesh	SlimyTransfer_DefaultPose_2.ma					-dest mesh
+	anim	SlimyTransfer_DefaultPose_2.ma					-dest idle
+	anim	SlimyTransfer_WakeUp_2.ma						-dest wakeup
+	anim	SlimyTransfer_Pain_Big_1.ma						-dest pain	
+	anim	SlimyTransfer_Pain_Big_2.ma						-dest pain_faster
+	anim	SlimyTransfer_Range_Attack01_1.ma				-dest puke_1
+	anim	SlimyTransfer_Range_Attack02_2.ma				-dest puke_2
+	anim	SlimyTransfer_Attack_Melee_1.ma					-dest melee_right_arm
+	anim	SlimyTransfer_Attack_Melee_2.ma					-dest melee_left_arm
+	anim	SlimyTransfer_UpWalkFaster02_4.ma				-dest walk
+}
+
+model model_test_slimy_transfer
+{
+	mesh								models/test/slimy_transfer_mocap/mesh.md5mesh
+	channel torso										( *waist )
+	channel legs										( *origin *hips -*waist )
+
+	anim	idle							models/test/slimy_transfer_mocap/idle.md5anim
+	anim	wakeup						models/test/slimy_transfer_mocap/wakeup.md5anim
+	anim	pain							models/test/slimy_transfer_mocap/pain.md5anim
+	anim	pain_faster					models/test/slimy_transfer_mocap/pain_faster.md5anim
+	anim	range_attack					models/test/slimy_transfer_mocap/puke_2.md5anim
+	anim	range_attack_big				models/test/slimy_transfer_mocap/puke_1.md5anim
+	anim	melee_right_arm				models/test/slimy_transfer_mocap/melee_right_arm.md5anim
+	anim	melee_left_arm				models/test/slimy_transfer_mocap/melee_left_arm.md5anim
+	anim	walk							models/test/slimy_transfer_mocap/walk.md5anim
+
+}
+
+entityDef test_slimy_transfer
+{
+	"inherit"											"actor_default"
+	"model"												"model_test_slimy_transfer"
+	"size"												"24 24 80"
+	"use_aas"											"aas32"
+	"aiparm_pain_threshold"								"1"
+}

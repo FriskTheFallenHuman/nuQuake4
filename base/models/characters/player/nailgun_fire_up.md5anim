@@ -1,0 +1,206 @@
+MD5Version 10
+commandline "anim work/models/characters/marine/multiplayer/nailgun_fire_up.ma -dest models/characters/player/nailgun_fire_up.md5anim -game Quake4 -scale .4 -prefix PLAYER_ -align ALL -keep l_forarm_mp r_forarm_mp l_index_02 l_index_03 l_ring_01 l_ring_02 l_ring_03 r_index_02 r_index_03 r_ring_01 r_ring_02 r_ring_03 l_elbo_tweak r_elbo_tweak body neckcontrol SPINNER legs_channel head_channel PST_ATTACHER SG_ATTACHER MG_ATTACHER NG_ATTACHER HB_ATTACHER RKT_ATTACHER GN_ATTACHER LG_ATTACHER RG_ATTACHER DMG_ATTACHER GNT_ATTACHER -parent PST_ATTACHER r_wrist -parent SG_ATTACHER r_wrist -parent MG_ATTACHER r_wrist -parent NG_ATTACHER r_wrist -parent HB_ATTACHER r_wrist -parent RKT_ATTACHER r_wrist -parent GN_ATTACHER r_wrist -parent LG_ATTACHER r_wrist -parent RG_ATTACHER r_wrist -parent DMG_ATTACHER r_wrist -parent GNT_ATTACHER r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -skipmesh dummy_head -skipmesh dummyHair1 -skipmesh dummyHair2 -skipmesh dummyHair3 -skipmesh dummyEyeR -skipmesh dummyEyeL -skipmesh PST_pistol_mesh -skipmesh SG_stock_mesh -skipmesh SG_clip_mesh -skipmesh SG_pump_mesh -skipmesh MG_stock_mesh -skipmesh MG_clip_mesh -skipmesh MG_flare_mesh -skipmesh NG_stock_mesh -skipmesh NG_handle_mesh -skipmesh NG_handlebase_mesh -skipmesh NG_drum_mesh -skipmesh NG_clip_mesh -skipmesh NG_clip_left_mesh -skipmesh NG_clip_right_mesh -skipmesh NG_scope_mesh -skipmesh NG_a1_mesh -skipmesh NG_a2_mesh -skipmesh NG_b1_mesh -skipmesh NG_b2_mesh -skipmesh NG_c1_mesh -skipmesh NG_c2_mesh -skipmesh NG_d1_mesh -skipmesh NG_d2_mesh -skipmesh NG_e1_mesh -skipmesh NG_e2_mesh -skipmesh NG_f1_mesh -skipmesh NG_f2_mesh -skipmesh HB_battery_mesh -skipmesh HB_barrel_mesh -skipmesh HB_stock_mesh -skipmesh HB_pump_mesh -skipmesh RKT_stock_mesh -skipmesh RKT_trigger_lft_mesh -skipmesh RKT_trigger_rt_mesh -skipmesh RKT_laser_sight_front_mesh -skipmesh RKT_laser_sight_back_mesh -skipmesh RKT_rack_mesh -skipmesh RKT_clasp_front_lft_mesh -skipmesh RKT_clasp_back_lft_mesh -skipmesh RKT_clasp_front_rt_mesh -skipmesh RKT_clasp_back_rt_mesh -skipmesh RKT_rocket_mesh -skipmesh RKT_fin_top_mesh -skipmesh RKT_fin_left_mesh -skipmesh RKT_fin_right_mesh -skipmesh GN_stock_mesh -skipmesh GN_ammo_mesh -skipmesh LG_stock_mesh -skipmesh LG_center_rod_mesh -skipmesh LG_spire_1_mesh -skipmesh LG_spire_2_mesh -skipmesh LG_spire_3_mesh -skipmesh LG_spire_4_mesh -skipmesh LG_flap_top_1 -skipmesh LG_flap_top_2 -skipmesh LG_flap_left_1 -skipmesh LG_flap_left_2 -skipmesh LG_flap_right_1 -skipmesh LG_flap_right_2 -skipmesh RG_stock_mesh -skipmesh DMG_body_mesh -skipmesh DMG_l_magnet_mesh -skipmesh DMG_r_magnet_mesh -skipmesh DMG_outer_ring_mesh -skipmesh DMG_middle_ring_mesh -skipmesh DMG_inner_ring_mesh -skipmesh GNT_gauntlet_body_mesh -skipmesh GNT_blade_1_mesh -skipmesh GNT_blade_2_mesh -skipmesh GNT_blade_3_mesh -skipmesh GNT_blade_4_mesh -skipmesh GNT_blade_5_mesh -skipmesh GNT_blade_6_mesh -skipmesh GNT_blade_7_mesh -skipmesh GNT_blade_8_mesh -skipmesh GNT_blade_hub_top_mesh -skipmesh GNT_blade_hub_bottom_mesh -skipmesh GNT_fins_mesh1 -skipmesh r_fatigue_arm -skipmesh l_fatigue_arm -skipmesh KANE_strogg_mesh -skipmesh CORPSE_mesh -skipmesh TT_tactical_transfer_mesh -skipmesh HURTBODY_marine_body_mesh -skipmesh OFFICER_body_mesh -skipmesh OFFICER_sidearm_mesh -skipmesh FATIGUE_marine_l_arm_mesh -skipmesh FATIGUE_marine_body_mesh -skipmesh FATIGUE_marine_r_arm_mesh -skipmesh FT_gut_1_mesh -skipmesh FT_gut_2_mesh -skipmesh FT_gut_3_mesh -skipmesh FT_up_teeth_mesh -skipmesh FT_lo_teeth_mesh -skipmesh FT_torso_mesh -skipmesh FT_legs_mesh -skipmesh ST_gut1_mesh -skipmesh ST_gut2_mesh -skipmesh ST_gut3_mesh -skipmesh ST_legs_mesh -skipmesh ST_torso_mesh -skipmesh r_eye_mesh1 -skipmesh l_eye_mesh1 -skipmesh HURTBODY_marine_r_eye_mesh -skipmesh HURTBODY_marine_l_eye_mesh -skipmesh FT_l_eye_mesh -skipmesh FT_r_eye_mesh -skipmesh ST_left_eye_mesh -skipmesh ST_right_eye_mesh"
+
+numFrames 4
+numJoints 65
+frameRate 24
+numAnimatedComponents 35
+
+hierarchy {
+	"origin"	-1 0 0	//
+	"body"	0 0 0	// origin
+	"SPINNER"	1 0 0	// body
+	"waist"	2 56 0	// SPINNER ( Qx Qy Qz )
+	"chest"	3 56 3	// waist ( Qx Qy Qz )
+	"shoulders"	4 0 0	// chest
+	"l_clavicle"	5 0 0	// shoulders
+	"l_up_arm"	6 56 6	// l_clavicle ( Qx Qy Qz )
+	"l_elbo"	7 56 9	// l_up_arm ( Qx Qy Qz )
+	"l_elbo_tweak"	8 0 0	// l_elbo
+	"l_forarm"	8 0 0	// l_elbo
+	"l_wrist"	10 56 12	// l_forarm ( Qx Qy Qz )
+	"l_index_01"	11 0 0	// l_wrist
+	"l_index_02"	12 0 0	// l_index_01
+	"l_index_03"	13 0 0	// l_index_02
+	"l_ring_01"	11 0 0	// l_wrist
+	"l_ring_02"	15 0 0	// l_ring_01
+	"l_ring_03"	16 0 0	// l_ring_02
+	"l_thumb_00"	11 0 0	// l_wrist
+	"l_thumb_01"	18 0 0	// l_thumb_00
+	"l_thumb_02"	19 0 0	// l_thumb_01
+	"l_thumb_03"	20 0 0	// l_thumb_02
+	"l_forarm_mp"	8 0 0	// l_elbo
+	"neckcontrol"	5 0 0	// shoulders
+	"legs_channel"	23 56 15	// neckcontrol ( Qx Qy Qz )
+	"head_channel"	24 24 18	// legs_channel ( Qx Qy )
+	"r_clavicle"	5 0 0	// shoulders
+	"r_up_arm"	26 56 20	// r_clavicle ( Qx Qy Qz )
+	"r_elbo"	27 56 23	// r_up_arm ( Qx Qy Qz )
+	"r_elbo_tweak"	28 0 0	// r_elbo
+	"r_forarm"	28 0 0	// r_elbo
+	"r_wrist"	30 56 26	// r_forarm ( Qx Qy Qz )
+	"DMG_ATTACHER"	31 0 0	// r_wrist
+	"GNT_ATTACHER"	31 63 29	// r_wrist ( Tx Ty Tz Qx Qy Qz )
+	"GN_ATTACHER"	31 0 0	// r_wrist
+	"HB_ATTACHER"	31 0 0	// r_wrist
+	"LG_ATTACHER"	31 0 0	// r_wrist
+	"MG_ATTACHER"	31 0 0	// r_wrist
+	"NG_ATTACHER"	31 0 0	// r_wrist
+	"PST_ATTACHER"	31 0 0	// r_wrist
+	"RG_ATTACHER"	31 0 0	// r_wrist
+	"RKT_ATTACHER"	31 0 0	// r_wrist
+	"SG_ATTACHER"	31 0 0	// r_wrist
+	"r_index_01"	31 0 0	// r_wrist
+	"r_index_02"	43 0 0	// r_index_01
+	"r_index_03"	44 0 0	// r_index_02
+	"r_ring_01"	31 0 0	// r_wrist
+	"r_ring_02"	46 0 0	// r_ring_01
+	"r_ring_03"	47 0 0	// r_ring_02
+	"r_thumb_00"	31 0 0	// r_wrist
+	"r_thumb_01"	49 0 0	// r_thumb_00
+	"r_thumb_02"	50 0 0	// r_thumb_01
+	"r_thumb_03"	51 0 0	// r_thumb_02
+	"r_forarm_mp"	28 0 0	// r_elbo
+	"hips"	1 0 0	// body
+	"l_upleg"	54 0 0	// hips
+	"l_loleg"	55 0 0	// l_upleg
+	"l_ankle"	56 0 0	// l_loleg
+	"l_ball"	57 0 0	// l_ankle
+	"l_toe"	58 0 0	// l_ball
+	"r_upleg"	54 0 0	// hips
+	"r_loleg"	60 0 0	// r_upleg
+	"r_ankle"	61 0 0	// r_loleg
+	"r_ball"	62 0 0	// r_ankle
+	"r_toe"	63 0 0	// r_ball
+}
+
+bounds {
+	( -14.7007427216 -15.4094772339 -0.0000027136 ) ( 19.7430686951 11.5738754272 72.8442077637 )
+	( -14.7007427216 -15.3520393372 -0.0000027136 ) ( 19.7430686951 11.460515976 72.314201355 )
+	( -14.7007427216 -15.3639526367 -0.0000027136 ) ( 19.7430686951 11.5305089951 72.4472808838 )
+	( -14.7007427216 -15.4094772339 -0.0000027136 ) ( 19.7430686951 11.5738754272 72.8442077637 )
+}
+
+baseframe {
+	( 0 0 0 ) ( -0.5 -0.5 -0.5 )
+	( 0 46.0463180542 0 ) ( 0.006171192 0.3240383267 0.018013414 )
+	( 0.1213251129 -47.7202072144 -2.9121494293 ) ( -0.006171192 -0.3240383267 -0.018013414 )
+	( 0 47.9987792969 2.1563959122 ) ( 0.6884663105 0.5761808753 -0.3689288795 )
+	( 6.3442101479 0.0000002455 0.0000002991 ) ( -0.0214706175 0.0500445701 -0.1024963781 )
+	( 6.7773427963 -0.0000002872 -0.00000018 ) ( 0.9876403213 -0.1562934667 -0.0031292343 )
+	( 3.0899424553 3.9430041313 1.1739045382 ) ( -0.6618235111 0.6773371696 -0.2007974237 )
+	( 7.7415342331 -0.0000021632 -0.0000007047 ) ( 0.3553369343 -0.6274800301 -0.5030648708 )
+	( 14.3909225464 -0.0000012106 -0.0000011572 ) ( 0.2460039556 -0.354755044 -0.7412340641 )
+	( 0 0 0 ) ( 0 0 0 )
+	( 6.5638642311 0.0000010274 0.0000009315 ) ( 0.531065762 -0.0000000247 -0.0000000148 )
+	( 3.1393060684 -0.0000012408 0.0000020508 ) ( 0.1338374764 -0.5037385225 -0.1384036839 )
+	( 2.8677830696 -4.0143485069 2.1309609413 ) ( 0.5309324265 -0.8149116039 0.1675983369 )
+	( 1.0003818274 0.0000005682 0.0000000773 ) ( 0.0000000283 0.0000000286 -0.5951918364 )
+	( 0.983319819 -0.0000019791 -0.000000423 ) ( -0.0000000171 0.0000000239 -0.8807953 )
+	( 3.7982802391 -4.0868239403 0.0741726533 ) ( 0.4106216133 -0.8972319365 -0.0220994242 )
+	( 1.0003800392 -0.0000005548 0.0000001745 ) ( 0.0000000147 -0.0000000021 -0.6329306364 )
+	( 0.9833167195 0.0000004479 0.0000000421 ) ( -0 -0.0000000174 -0.5646919608 )
+	( 0.0809561536 -1.3490319252 1.123185277 ) ( 0.6893439293 -0.3678408861 0.5366672277 )
+	( 1.3046991825 0.0000011169 -0.0000016631 ) ( -0.0217088405 0.0209167656 -0.1785386801 )
+	( 0.960359633 -0.000001206 0.0000022231 ) ( -0.0712965056 0.0966810286 -0.2053294331 )
+	( 1.0256878138 -0.0000003467 0.0000024097 ) ( -0.4899539948 0.3801672757 -0.7814574242 )
+	( 6.5638642311 0.0000010274 0.0000009315 ) ( 0.69563061 -0.0000000333 -0.0000000329 )
+	( 4.3393192291 0.8836025 -0.0000004445 ) ( 0.0000000012 0.0000000019 -0.0185367335 )
+	( 5.7930245399 -0.0000007847 -0.0000003832 ) ( 0.9520332813 -0.1716237515 -0.0271963272 )
+	( 2.6642570496 0.0000008312 -0.0000000019 ) ( -0.8984697461 0.4390353858 0.0000000093 )
+	( 3.0899424553 3.9430041313 -1.1739040613 ) ( 0.6212717295 -0.6286076903 -0.3038937449 )
+	( 7.7415356636 -0.0000001153 0.0000002721 ) ( -0.055748038 0.3805180192 -0.5737507343 )
+	( 14.3909225464 -0.000000546 -0.0000004363 ) ( -0.2437445968 0.3563111126 -0.7444854975 )
+	( 0 0 0 ) ( 0 0 0 )
+	( 6.5638656616 0.0000002764 -0.000000453 ) ( 0.9158203602 0.0000000063 -0.0000000018 )
+	( 3.1393074989 -0.0000002359 0.0000006295 ) ( -0.0767678991 0.4349376857 -0.5764622092 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( 0.4168405235 8.3388061523 4.9438958168 ) ( -0.892246902 -0.0531263798 -0.1091089919 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -0.0000029885 -0.00000253 0.0000003599 ) ( -0.6263577938 0.2014887333 0.2300131172 )
+	( -3.3350262642 -4.2050447464 2.1309614182 ) ( 0.2186034173 -0.0790078491 0.816388309 )
+	( 1.0003800392 0.0000001552 0.0000001951 ) ( 0.0000000179 -0.0000000091 -0.3008472025 )
+	( 0.9833166599 0.0000005152 0.0000001804 ) ( 0.0000000064 -0.0000000106 -0.261102438 )
+	( -3.9035351276 -4.1298184395 0.0741726235 ) ( -0.0096181696 -0.1620866954 0.4786457121 )
+	( 1.0003812313 -0.0000007385 -0.0000001508 ) ( 0.0000000014 -0.0000000188 -0.5921625495 )
+	( 0.9833157063 -0.0000012568 0.0000005985 ) ( -0.000000008 -0.0000000124 -0.523594141 )
+	( -0.0809546411 -1.3490345478 1.1231851578 ) ( 0.5987966061 -0.2553216219 0.6762117743 )
+	( 1.3046988249 0.0000000526 0.0000002904 ) ( 0.0000000022 0.0000000074 -0.0867661089 )
+	( 0.9603602886 0.0000001455 0.0000004249 ) ( 0.0000000078 0.0000000023 -0.1527985483 )
+	( 1.0256878138 -0.0000004302 0.0000003932 ) ( 0.00000001 -0.0000000089 -0.261102438 )
+	( 6.5638656616 0.0000002764 -0.000000453 ) ( 0.7183995247 -0.0000000077 0.0000000237 )
+	( -0.0000000675 -0.0495468862 0.0000000525 ) ( 0 0 0 )
+	( 5.0413608551 -6.2820067406 -0.0843976811 ) ( 0.7766752839 -0.4520921707 0.3338148594 )
+	( 18.2893657684 -0.0000000364 0.000000069 ) ( -0.000000001 0.0000000005 -0.2418164611 )
+	( 18.3538684845 -0.0000000147 -0.0000001307 ) ( -0.9290345907 0.3638119698 0.0151999015 )
+	( 5.7819948196 0.0000004125 0.0000000215 ) ( -0.0000708088 0.0000326471 -0.4185614586 )
+	( 4.2600135803 0.0000002496 -0.0000001121 ) ( 0.7177910805 -0.0000000221 -0.0000000245 )
+	( -5.0413613319 -6.2820081711 -0.0843973383 ) ( 0.5212551951 -0.5612466335 0.502050519 )
+	( 18.2893657684 -0.0000002014 -0.0000001104 ) ( 0.0000000009 -0.0000000016 -0.2049074471 )
+	( 18.3538684845 0.000000652 -0.0000006849 ) ( 0.8619459867 -0.4974257052 0.0612143129 )
+	( 5.7819948196 -0.0000004602 0.000000384 ) ( 0.0000708247 -0.0000326358 -0.4185614586 )
+	( 4.2600131035 0.0000001045 0.0000005982 ) ( 0.6962585449 0.0000000004 -0.0000000202 )
+}
+
+frame 0 {
+	 0.6884663105 0.5761808753 -0.3689288795
+	 -0.0214706175 0.0500445701 -0.1024963781
+	 0.3553369343 -0.6274800301 -0.5030648708
+	 0.2460039556 -0.354755044 -0.7412340641
+	 0.1338374764 -0.5037385225 -0.1384036839
+	 0.9520332813 -0.1716237515 -0.0271963272
+	 -0.8984697461 0.4390353858
+	 -0.055748038 0.3805180192 -0.5737507343
+	 -0.2437445968 0.3563111126 -0.7444854975
+	 -0.0767678991 0.4349376857 -0.5764622092
+	 0.4168405235 8.3388061523 4.9438958168 -0.892246902 -0.0531263798 -0.1091089919
+}
+
+frame 1 {
+	 0.6913594007 0.5806515813 -0.3618516922
+	 -0.0045978152 0.0570102967 -0.108345896
+	 0.3534269035 -0.6305877566 -0.4864008725
+	 0.2289751023 -0.3659774363 -0.7646824718
+	 0.1277061105 -0.5603616834 -0.1336508542
+	 0.9513779879 -0.1467156112 0.0087084221
+	 0.8984697461 -0.4390353262
+	 -0.0377921127 0.3804381788 -0.5494753122
+	 -0.2327663898 0.3635779023 -0.7596687675
+	 -0.092648305 0.4362618625 -0.5733323693
+	 0.3693870604 8.4314823151 4.788025856 -0.8889614344 -0.0664962307 -0.1032138765
+}
+
+frame 2 {
+	 0.6899257302 0.5784270763 -0.3653971255
+	 -0.0130214924 0.0535005219 -0.1054495722
+	 0.3616148233 -0.6231761575 -0.4993295372
+	 0.2165118158 -0.3734858632 -0.7803707123
+	 0.0896046534 -0.5766214132 -0.1252641827
+	 0.9484825134 -0.1747215986 -0.0146486228
+	 -0.8984697461 0.439035356
+	 -0.0453005061 0.3749799728 -0.560855329
+	 -0.2358170748 0.3616065979 -0.7555499077
+	 -0.0606976897 0.4485455453 -0.5748857856
+	 0.614923358 8.1329851151 5.2562274933 -0.9012013674 -0.0430176407 -0.1031550243
+}
+
+frame 3 {
+	 0.6884663105 0.5761808753 -0.3689288795
+	 -0.0214706175 0.0500445701 -0.1024963781
+	 0.3553369343 -0.6274800301 -0.5030648708
+	 0.2460039556 -0.354755044 -0.7412340641
+	 0.1338374764 -0.5037385225 -0.1384036839
+	 0.9520332813 -0.1716237515 -0.0271963272
+	 -0.8984697461 0.4390353858
+	 -0.055748038 0.3805180192 -0.5737507343
+	 -0.2437445968 0.3563111126 -0.7444854975
+	 -0.0767678991 0.4349376857 -0.5764622092
+	 0.4168405235 8.3388061523 4.9438958168 -0.892246902 -0.0531263798 -0.1091089919
+}

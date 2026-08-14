@@ -1,0 +1,34 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_ENV_NORMAL
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+# attrib[2]		normal
+# attrib[3]		vertex.color (diffuse)
+#
+# program.env[75]-program.env[78]	Model-view-projection transform
+# program.env[91]					Color modulate
+# program.env[92]					Color add
+# 
+# output:
+# 
+TEMP R0;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], vertex.position;
+DP4 result.position.y, program.env[76], vertex.position;
+DP4 result.position.z, program.env[77], vertex.position;
+DP4 result.position.w, program.env[78], vertex.position;
+
+# texture 0 takes the normal
+MOV result.texcoord[0].xyz, vertex.normal;
+
+# modulate and add to the vertex color 
+MAD result.color, vertex.color, program.env[91], program.env[92];
+
+END
+

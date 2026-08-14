@@ -1,0 +1,217 @@
+/***********************************************************************************************************************
+Hangar2
+
+Unique entities created for the Hangar2 level
+************************************************************************************************************************/
+
+//Custom Rhodes entry for scripts on bomb plant frame commands
+model hangar2_model_char_marine_rhodes
+{
+	inherit						hangar2_model_char_marine
+
+	// Bombing run anims 	-----------------------------------------------------------------------------------------
+	
+	//anim plant_tnt_low					models/characters/marine/plant_tnt_low.md5anim
+
+	anim plant_tnt_high					models/characters/marine/plant_tnt_high.md5anim
+	{
+		ai_look_head_only
+	}
+
+
+	anim plant_tnt_low_start				models/characters/marine/plant_tnt_low_start.md5anim
+	{
+		frame 1,12				sound	snd_gear
+		frame 32				call	map_hangar2::showCharge	
+		frame 32				sound	hangar_bomb_plant
+	}
+	anim plant_tnt_low_loop					models/characters/marine/plant_tnt_low_loop.md5anim
+	anim plant_tnt_low_end					models/characters/marine/plant_tnt_low_end.md5anim
+
+}
+
+entityDef hangar2_char_marine_rhodes
+{
+	"inherit"					"char_marine"
+	
+	"model"						"hangar2_model_char_marine_rhodes"
+	"editor_usage"					"Custom Rhodes for hangar2."
+	
+	"editor_menu"					"level"
+}
+
+// Custom Rhodes persona with some more friendly VO
+
+entityDef hangar2_persona_rhino_rhodes_cpl
+{
+	"inherit1"					"persona_rhino"
+	"inherit2"					"hangar2_lipsync_rhodes_1"
+
+	"npc_name"					"#str_107516"
+		
+	"def_head"					"char_marinehead_rhodes"
+}
+
+entityDef hangar2_lipsync_rhodes_1
+{
+	"inherit"					"lipsync_rhodes_1"
+	
+	"lipsync_busy_1"				"vo_9_5_250_1"
+	"lipsync_busy_2"				"vo_9_5_30_1"
+	"lipsync_busy_3"				"vo_9_5_250_2"
+	"lipsync_busy_4"				""
+
+	"lipsync_canihelpyou1"				"vo_9_5_250_1"
+	"lipsync_canihelpyou2"				"vo_9_5_30_1"
+	"lipsync_canihelpyou3"				"vo_9_5_250_2"
+}
+
+// Scripted animations
+model hangar2_model_char_marine
+{
+	inherit						model_char_marine
+	
+	// Snappy aim anims	-----------------------------------------------------------------------------------------
+	anim aim_snappy_1					models/characters/marine/m_stand_aim_snappy_1.md5anim
+	anim aim_snappy_2					models/characters/marine/m_stand_aim_snappy_2.md5anim
+	
+	// Scanning anims	-----------------------------------------------------------------------------------------
+	anim idle_scan_1					models/characters/marine/idle_scan_1.md5anim
+	anim idle_scan_2					models/characters/marine/idle_scan_2.md5anim
+	anim idle_scan_3					models/characters/marine/idle_scan_3.md5anim
+	
+	// Weapon Check anims	-----------------------------------------------------------------------------------------
+	anim weapon_check_1					models/characters/marine/weapon_check_1.md5anim
+	{
+		frame	37,53						sound	snd_gear
+	}
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_gear
+		frame	42						sound	snd_gun_ready 
+	}
+	anim weapon_check_3					models/characters/marine/weapon_check_3.md5anim
+	{
+		ai_no_look	
+		frame	14,78					sound	snd_gear
+	}
+	
+	// Scripted Stands/Crouches	---------------------------------------------------------------------------------		
+	anim crouch_to_stand_scripted						models/characters/marine/knee_to_idle.md5anim
+	anim stand_to_crouch_scripted						models/characters/marine/drop_to_knee.md5anim
+
+	// Using a console	-----------------------------------------------------------------------------------------	
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	//anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+	
+	// Wrist Comm	-------------------------------------------------------------------------------------------------
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+	
+	// Weapon idles	-------------------------------------------------------------------------------------------------
+	anim	idle_weapon_1_start				models/characters/marine/idle_weapon_1_start.md5anim
+	anim	idle_weapon_1_loop				models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1					models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1_end				models/characters/marine/idle_weapon_1_end.md5anim
+	
+	anim	idle_weapon_2_start				models/characters/marine/idle_weapon_2_start.md5anim
+	anim	idle_weapon_2_loop				models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2					models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2_end				models/characters/marine/idle_weapon_2_end.md5anim
+	
+	anim	idle_weapon_3_start				models/characters/marine/idle_weapon_3_start.md5anim
+	anim	idle_weapon_3_loop				models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3					models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3_end				models/characters/marine/idle_weapon_3_end.md5anim
+}
+
+// modelDef for hangar2 medic
+model hangar2_model_char_marine_medic
+{
+	inherit							hangar2_model_char_marine
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+}
+
+// ModelDef for hangar2 tech
+model hangar2_model_char_marine_tech
+{
+	inherit							hangar2_model_char_marine
+	mesh							models/characters/marine_tech/marine_tech.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+// Custom marine for hangar2
+entityDef hangar2_char_marine
+{
+	"inherit"					"char_marine"
+	
+	"model"						"hangar2_model_char_marine"
+	"editor_usage"					"Custom marine for hangar2."
+	
+	"editor_menu"					"level"
+}
+
+// Custom medic for hangar2
+entityDef hangar2_char_marine_medic
+{
+	"inherit"					"char_marine_medic_armed"
+	
+	"model"						"hangar2_model_char_marine_medic"
+	"editor_usage"					"Custom medic for hangar2."
+	
+	"editor_menu"					"level"
+}
+
+// Custom tech for hangar2
+entityDef hangar2_char_marine_tech
+{
+	"inherit"					"char_marine_tech_armed"
+	
+	"model"						"hangar2_model_char_marine_tech"
+	"editor_usage"					"Custom tech for hangar2."
+	
+	"editor_menu"					"level"
+}

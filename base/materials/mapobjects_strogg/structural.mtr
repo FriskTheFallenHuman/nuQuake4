@@ -1,0 +1,594 @@
+
+//ATLAS RIPPED SUPPORT FOR TESTING - created for Building_b MAKE SURE TO RESIZE THE TEXTURE (256 x 256)WHEN RIPPED FOR REAL
+models/mapobjects/strogg/structural/supports/support_02
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -mergeHigh -trace .05 models/mapobjects/strogg/structural/supports/support_02_local.tga  work/models/mapobjects/strogg/structural/supports_and_pillars/support_02_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/supports/support_02_local.tga, heightmap
+(models/mapobjects/strogg/structural/supports/support_02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/supports/support_02_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/support_02_s.tga
+}
+
+//ATLAS RIPPED PILLAR FOR TESTING - created for Dispersal area MAKE SURE TO MAKE THIS A 256 x 256 TEXTURE WHEN RIPPED FOR REAL
+models/mapobjects/strogg/structural/pillars/pillar_03
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -mergeHigh -trace .05 models/mapobjects/strogg/structural/pillars/pillar_03_local.tga  work/models/mapobjects/strogg/structural/supports_and_pillars/pillar_03_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_03_local.tga, heightmap
+(models/mapobjects/strogg/structural/pillars/pillar_03_h.tga, 4))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_03_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_03_s.tga
+}
+
+//originally used in the proto level----------------------------------------------------------------
+
+
+models/mapobjects/strogg/structural/backpiece/piece1
+{
+      noselfShadow
+	renderbump  -size 256 256 -trace .2 -aa 2  models/mapobjects/strogg/structural/backpiece/backpiece1_low_local.tga work/models/mapobjects/strogg/supports_and_pillars/backpiece/backpiece1_high.lwo
+
+		diffusemap		models/mapobjects/strogg/structural/backpiece/piece1_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/structural/backpiece/piece1_local.tga, heightmap ( models/mapobjects/strogg/structural/backpiece/piece1_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/structural/backpiece/piece1_s.tga
+
+}
+
+
+
+//pillar_stack1_lo----------------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack1
+{
+//	noselfShadow
+	unsmoothedtangents
+
+	materialImage models/mapobjects/strogg/structural/pillars/stack1_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/pillar_stack1_lo_local.tga work/models/mapobjects/strogg/supports_and_pillars/pillar_stack1_hi.lwo
+
+	bumpmap			addnormals (models/mapobjects/strogg/structural/pillars/stack1_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack1_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack1_s.tga
+
+}
+
+
+//pillar_stack2_lo----------------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack2
+{
+//	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/pillar_stack2_lo_local.tga work/models/mapobjects/strogg/supports_and_pillars/pillar_stack2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack2_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack2_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack2_s.tga
+
+}
+
+models/mapobjects/strogg/structural/pillars/stack2a
+{
+//	noselfShadow
+	unsmoothedtangents
+	
+	materialImage models/mapobjects/strogg/structural/pillars/stack2a_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack2_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack2a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack2a_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack2a_s.tga
+
+}
+
+
+
+
+//pillar_stack2_lo-ON GRID64------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack2grid
+{
+//	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/pillar_stack2_lo_local.tga work/models/mapobjects/strogg/supports_and_pillars/pillar_stack2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack2_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack2_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack2_s.tga
+
+}
+
+//pillar_stack3_lo----------------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack3
+{
+//	noselfShadow
+	unSmoothedTangents
+
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/structural/pillars/stack3_local.tga work/models/mapobjects/strogg/structural/pillars/stack3_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack3_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack3_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack3_s.tga
+
+}
+
+
+models/mapobjects/strogg/structural/pillars/stack3_noshadows
+{
+	noSelfShadow
+	noShadows
+	unSmoothedTangents
+
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/structural/pillars/stack3_local.tga work/models/mapobjects/strogg/structural/pillars/stack3_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack3_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack3_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack3_s.tga
+
+}
+
+
+models/mapobjects/strogg/structural/pillars/stack3a
+{
+//	noselfShadow
+	unSmoothedTangents
+	materialImage models\mapobjects\strogg\structural\pillars\stack3a_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack3_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack3a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack3a_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack3a_s.tga
+
+}
+//pillar_stack3_lo--ON GRID!!!----------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack3grid
+{
+//	noselfShadow
+	unSmoothedTangents
+
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/structural/pillars/stack3_local.tga work/models/mapobjects/strogg/structural/pillars/stack3_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack3_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack3_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack3_s.tga
+
+}
+
+
+//pillar_stack1_lo--ON GRID 80x64-------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack1grid
+{
+//	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/pillar_stack1_lo_local.tga work/models/mapobjects/strogg/supports_and_pillars/pillar_stack1_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack1_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack1_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack1_s.tga
+
+}
+
+//pillar_stack1_lo--ON GRID 64x64--------------------------------------
+
+models/mapobjects/strogg/structural/pillars/stack1grid64
+{
+//	noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/pillar_stack1_lo_local.tga work/models/mapobjects/strogg/supports_and_pillars/pillar_stack1_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/stack1_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/stack1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/stack1_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/stack1_s.tga
+
+}
+
+/// Support pillar for Strogg levels.  Can be butted into walls or placed free standing--------------------
+
+models/mapobjects/strogg/structural/pillars/pillar_01
+{
+      noselfShadow
+	unSmoothedTangents
+
+
+	renderbump  -size 512 512 -aa 2 -mergeHigh -trace .07 models/mapobjects/strogg/structural/pillars/pillar_01_local.tga work/models/mapobjects/strogg/structural/pillars/pillar_01_high.lwo
+// When ripped for real, this model can be mirrored down the center.  You can make the base page 512 tall and 256 wide at this point
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_01_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_01_s.tga
+
+}
+
+models/mapobjects/strogg/structural/pillars/pillar_01_core
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/structural/pillars/pillar_01_core2_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_01_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_01_core_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_01_core_s.tga
+
+}
+
+models/mapobjects/strogg/structural/pillars/pillar_01_core2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_01_core2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_01_core2_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_01_core2_s.tga
+
+}
+
+//pillar 1 plus one skin-------------------------------------------------------------------------------------
+
+// support for core ----------------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/pillar_02
+{
+      noselfShadow
+	unsmoothedtangents
+	
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/supports_and_pillars/pillar_02_local.tga WORK/models/mapobjects/strogg/supports_and_pillars/pillar_02_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_02_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_02_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_02_s.tga
+
+		{
+		blend add 
+		map models/mapobjects/strogg/structural/pillars/pillar_02_g.tga
+		}
+
+}
+
+models/mapobjects/strogg/structural/pillars/pillar_02b
+{
+      noselfShadow
+	unsmoothedtangents
+	
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/supports_and_pillars/pillar_02b_local.tga WORK/models/mapobjects/strogg/supports_and_pillars/pillar_02b_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_02b_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_02b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_02b_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_02b_s.tga
+
+		{
+		blend add 
+		map models/mapobjects/strogg/structural/pillars/pillar_02b_g.tga
+		}
+
+}
+
+models/mapobjects/strogg/structural/pillars/pillar_02extra
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_02_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_02extra_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_02extra_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_02extra_s.tga
+
+}
+
+
+
+// standing pillar back piece ----------------------------------------------------
+// used to attach to monitor_02 to make it free standing
+
+models/mapobjects/strogg/structural/pillars/back_01
+{
+      noselfShadow
+	unsmoothedtangents
+	
+
+//check path	renderbump  -size 128 256 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/supports_and_pillars/pillar_back_01_local.tga models/mapobjects/strogg/supports_and_pillars/pillar_back_01_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/back_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/back_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/back_01_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/back_01_s.tga
+
+}
+
+models/mapobjects/strogg/structural/pillars/back_01_core
+{
+      noselfShadow
+	unsmoothedtangents
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/back_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/back_01_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/back_01_core_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/back_01_core_s.tga
+
+}
+models/mapobjects/strogg/structural/pillars/back_01_extra
+{
+      noselfShadow
+	unsmoothedtangents
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/back_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/back_01_extra_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/back_01_extra_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/back_01_extra_s.tga
+
+}
+
+
+
+// small standing pillar back piece----------------------------------------------------
+// used to attach to monitor_small_02 to make it free standing
+
+models/mapobjects/strogg/stuctural/pillars/small_back_01
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/small_back_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/small_back_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/small_back_01_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/small_back_01_s.tga
+
+}
+models/mapobjects/strogg/structural/pillars/smallbackextra_01
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/small_back_01_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/smallbackextra_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/smallbackextra_01_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/smallbackextra_01_s.tga
+
+}
+
+
+// pillar for prison
+
+models/mapobjects/strogg/structural/pillars/prison1
+{
+      noselfShadow
+//	unSmoothedTangents
+	materialImage models/mapobjects/strogg/structural/pillars/prison1_hit
+	renderBump  -size 256 256  -aa 2 -mergehigh  models/mapobjects/strogg/structural/pillars/prison_pillar1_local.tga work/models/mapobjects/strogg/structural/pillars/prison_pillar1_hi.lwo
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/prison1_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/prison1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/prison1_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/prison1_s.tga
+
+}
+
+
+models/mapobjects/strogg/structural/pillars/prison1_a
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/structural/pillars/prison1_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/prison1_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/prison1_a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/prison1_a_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/prison1_a_s.tga
+
+}
+
+
+models/mapobjects/strogg/structural/pillars/prison1extra
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/structural/pillars/prison1extra_hit
+	
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/prison1_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/prison1extra_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/prison1extra_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/prison1extra_s.tga
+
+}
+
+
+// Span support for across ceiling, can be used as standing piece, etc. ----------------------------------------------------
+// Can be used with support_01 to make an arch
+
+models/mapobjects/strogg/structural/spans/ceiling_01
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/structural/spans/ceiling_01_hit
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/ceiling_span_01_local.tga work/models/mapobjects/strogg/supports_and_pillars/ceiling_span_01_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/spans/ceiling_01_local.tga, heightmap (models/mapobjects/strogg/structural/spans/ceiling_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/spans/ceiling_01_d.tga
+	specularmap		models/mapobjects/strogg/structural/spans/ceiling_01_s.tga
+
+}
+
+// support for span pieces, can be used as standing piece, etc. ----------------------------------------------------
+// Can be used with ceiling_span_01 to make an arch
+
+models/mapobjects/strogg/structural/supports/column_01
+{
+      noselfShadow
+	unsmoothedtangents
+	
+//check paths	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/supports_and_pillars/support_01_local.tga work/models/mapobjects/strogg/supports_and_pillars/support_01_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/supports/column_01_local.tga, heightmap (models/mapobjects/strogg/structural/supports/column_01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/supports/column_01_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/column_01_s.tga
+
+}
+
+//links----------------------------------------------------
+
+models/mapobjects/strogg/structural/chain/links
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 64 64 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/structural/chain/links_low_local.tga work/models/mapobjects/strogg/structural/chain/links_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/chain/links_local.tga, heightmap (models/mapobjects/strogg/structural/chain/links_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/chain/links_d.tga
+	specularmap		models/mapobjects/strogg/structural/chain/links_s.tga
+
+}
+
+//links_2c----------------------------------------------------
+
+models/mapobjects/strogg/structural/chain/links_2c
+{
+	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 64 64 -aa 2 -MergeHigh -trace .05 models/mapobjects/strogg/structural/chain/links_2c_low_local.tga work/models/mapobjects/strogg/structural/chain/links_2c_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/chain/links_2c_local.tga, heightmap (models/mapobjects/strogg/structural/chain/links_2c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/chain/links_2c_d.tga
+	specularmap		models/mapobjects/strogg/structural/chain/links_2c_s.tga
+
+}
+
+//gear_support_03_lo--------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/structural/supports/gear_support_03_lo
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .02 models/mapobjects/strogg/structural/supports/gear_support_03_local.tga  work/models/mapobjects/strogg/structural/supports_and_pillars/gear_support_03_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/supports/gear_support_03_local.tga, heightmap
+(models/mapobjects/strogg/structural/supports/gear_support_03_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/supports/gear_support_03_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/gear_support_03_s.tga
+}
+
+models/mapobjects/strogg/structural/supports/gear_support_03_lo_noshadows
+{
+    noShadows
+    noSelfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .02 models/mapobjects/strogg/structural/supports/gear_support_03_local.tga  work/models/mapobjects/strogg/structural/supports_and_pillars/gear_support_03_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/supports/gear_support_03_local.tga, heightmap
+(models/mapobjects/strogg/structural/supports/gear_support_03_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/supports/gear_support_03_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/gear_support_03_s.tga
+}
+
+//gear_support_02_lo--------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/structural/supports/gear_support_02_lo
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .02 models/mapobjects/strogg/structural/supports/gear_support_02_lo_local.tga  work/models/mapobjects/strogg/structural/supports_and_pillars/gear_support_02_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/supports/gear_support_02_local.tga, heightmap
+(models/mapobjects/strogg/structural/supports/gear_support_02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/supports/gear_support_02_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/gear_support_02_s.tga
+}
+
+// pillar base01 for terminal---------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/pillar_base01_lo
+{
+      noselfShadow
+//	unSmoothedTangents
+
+	renderBump -size 512 256 -aa 2 -mergehigh -trace .07 models/mapobjects/strogg/structural/pillars/pillar_base01_local.tga work/models/mapobjects/strogg/structural/pillars/pillar_base01_hi.lwo
+
+
+	bumpmap			models/mapobjects/strogg/structural/pillars/pillar_base01_local.tga
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_base01_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_base01_s.tga
+
+}
+
+// pillar base02 for terminal---------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/structural/pillars/pillar_base02_lo
+{
+      noselfShadow
+//	unSmoothedTangents
+
+	renderBump -size 512 256 -aa 2 -mergehigh -trace .07 models/mapobjects/strogg/structural/pillars/pillar_base02_local.tga work/models/mapobjects/strogg/structural/pillars/pillar_base02_hi.lwo
+
+
+	bumpmap		addnormals (models/mapobjects/strogg/structural/pillars/pillar_base02_local.tga, heightmap (models/mapobjects/strogg/structural/pillars/pillar_base02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/structural/pillars/pillar_base02_d.tga
+	specularmap		models/mapobjects/strogg/structural/pillars/pillar_base02_s.tga
+
+}
+
+
+// pillar building b support 2---------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/structural/supports/bb_support2
+{
+	renderBump -size 256 512 -aa 2 -mergehigh -trace .07 models/mapobjects/strogg/structural/supports/bb_support2_local.tga work/models/mapobjects/strogg/structural/supports/bb_support2_hi.lwo
+
+
+	bumpMap			addnormals (models/mapobjects/strogg/structural/supports/bb_support2_local.tga, heightmap (models/mapobjects/strogg/structural/supports/bb_support2_h.tga, 4))
+	diffusemap		models/mapobjects/strogg/structural/supports/bb_support2_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/bb_support2_s.tga
+
+	{
+		blend add 
+		map models/mapobjects/strogg/structural/supports/bb_support2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+// pillar building b support 2 rusty---------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/structural/supports/bb_support2_rusty
+{
+	renderBump -size 256 512 -aa 2 -mergehigh -trace .07 models/mapobjects/strogg/structural/supports/bb_support2_rusty_local.tga work/models/mapobjects/strogg/structural/supports/bb_support2_hi.lwo
+
+
+	bumpMap			addnormals (models/mapobjects/strogg/structural/supports/bb_support2_rusty_local.tga, heightmap (models/mapobjects/strogg/structural/supports/bb_support2_rusty_h.tga, 4))
+	diffusemap		models/mapobjects/strogg/structural/supports/bb_support2_rusty_d.tga
+	specularmap		models/mapobjects/strogg/structural/supports/bb_support2_rusty_s.tga
+
+	{
+		blend add 
+		map models/mapobjects/strogg/structural/supports/bb_support2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+//def_panel----------------------------------------------------
+
+models/mapobjects/strogg/process/guardian_door/def_panel
+{
+	noselfShadow
+	unsmoothedtangents
+
+//	materialImage models/mapobjects/strogg/process/guardian_door/def_panel_hit
+	
+	bumpmap			addnormals (models/mapobjects/strogg/process/guardian_door/def_panel_local.tga, heightmap (models/mapobjects/strogg/process/guardian_door/def_panel_h.tga, 4))
+	diffusemap		models/mapobjects/strogg/process/guardian_door/def_panel_d.tga
+	specularmap		models/mapobjects/strogg/process/guardian_door/def_panel_s.tga
+
+}

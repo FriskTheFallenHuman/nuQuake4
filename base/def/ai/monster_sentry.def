@@ -1,0 +1,226 @@
+/*
+===============================================================================
+
+	Sentry
+
+===============================================================================
+*/
+
+export sentry 
+{
+	options -prefix SEN_ -align ALL -scale .3937 -keep muzzleflash_l muzzleflash_r	
+	mesh	work/models/monsters/Sentry/nick/mesh.ma			-dest models/monsters/sentry/sentry
+	anim	work/models/monsters/Sentry/nick/idle1.ma			-dest models/monsters/sentry/idle
+	anim	work/models/monsters/Sentry/nick/forward.ma			-dest models/monsters/sentry/run
+	anim	work/models/monsters/Sentry/nick/backward.ma		-dest models/monsters/sentry/backward
+	anim	work/models/monsters/Sentry/nick/right.ma			-dest models/monsters/sentry/right
+	anim	work/models/monsters/Sentry/nick/left.ma			-dest models/monsters/sentry/left
+	anim	work/models/monsters/Sentry/nick/fire01.ma			-dest models/monsters/sentry/fire
+}
+
+/*
+===============================================================================
+
+	Sentry Model
+
+===============================================================================
+*/
+
+model monster_sentry
+{
+	mesh								models/monsters/sentry/sentry.md5mesh
+	
+	offset								( 0 0 0 )
+
+	channel torso						( neck arm_right arm_left )
+	channel legs						( *body origin -neck -arm_right -arm_left )
+
+	anim af_pose						models/monsters/sentry/idle.md5anim
+	
+	anim idle							models/monsters/sentry/idle.md5anim
+	anim walk							models/monsters/sentry/idle.md5anim
+	anim run							models/monsters/sentry/idle.md5anim
+	anim range_attack					models/monsters/sentry/fire.md5anim
+	{
+		frame 1							ai_attack		blaster				muzzleflash_r
+		frame 1							fx				fx_blaster_flash	muzzleflash_r
+		frame 1							sound_weapon			snd_fire
+		frame 3							ai_attack		blaster				muzzleflash_l
+		frame 3							fx				fx_blaster_flash	muzzleflash_l
+		frame 3							sound_weapon			snd_fire
+	}
+}
+
+/*
+===============================================================================
+
+	Sentry Entity Definition
+
+===============================================================================
+*/
+
+entityDef damage_sentry_bullet
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"2"
+}
+
+entityDef hitscan_sentry_bullet
+{
+	"inherit"							"hitscan_strogg_marine_bullet"
+	"def_damage"						"damage_sentry_bullet"
+	"tracerchance"						"1"
+}
+
+entityDef monster_sentry
+{
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterSentry"
+
+	// --------------------------------- Body ------------------------------------
+	"model"								"monster_sentry"
+	"size"								"48 48 80"
+	"use_aas"							"aas48"
+	"flying"							"1"
+	"ragdoll"							"monster_sentry"		
+	"painThreshold"						"0"
+	"painThresholdBig"					"0"
+	"remove_on_death"					"1"
+
+	"joint_eyeOffset"					"r_eyebrow"
+	"joint_chestOffset"					"body"
+
+	"chatter_idle_rate"					"8"
+	"chatter_combat_rate"				"8"	
+
+	// --------------------------------- Actions ------------------------------------
+	"actionTimer_rangedAttack_rate"		"1"				
+
+	"action_blasterAttack"				"1"
+	"action_blasterAttack_blendFrames"	"1"
+	"action_blasterAttack_maxRange"		"2000"
+	"action_blasterAttack_rate"			"1"
+	"action_blasterAttack_noturn"		"0"
+	"action_blasterAttack_overridelegs"	"0"
+	
+	"action_kamakaziAttack"				"0"
+	"action_kamakaziAttack_maxRange"	"80"
+	"action_kamakaziAttack_minRange"	"0"
+	"action_kamakaziAttack_rate"		"0"
+
+	"action_circleStrafe"				"1"
+	"action_circleStrafe_state"			"State_Action_CircleStrafe"
+	"action_circleStrafe_minRange"		"100"
+	"action_circleStrafe_maxRange"		"600"
+	"action_circleStrafe_rate"			"4"
+	"action_circleStrafe_noturn"		"0"
+	"action_circleStrafe_overrideLegs"	"0"
+
+	"actionTimer_evade_rate"			"2"
+	"action_evadeLeft"					"1"
+	"action_evadeLeft_maxRange"			"2000"
+	"action_evadeLeft_state"			"Torso_EvadeLeft"
+	"action_evadeLeft_anim"				""
+	"action_evadeRight"					"1"
+	"action_evadeRight_maxRange"		"2000"
+	"action_evadeRight_anim"			""
+	"action_evadeRight_state"			"Torso_EvadeRight"
+
+//	"def_attack_blaster"				"projectile_strogg_marine_blaster"
+//	"def_attack_blaster"				"hitscan_strogg_marine_bullet"
+	"def_attack_blaster"				"hitscan_sentry_bullet"
+	"attack_blaster_accuracy"			"1"
+	"attack_blaster_cone"				"3"
+	"attack_blaster_hitscan"			"1"
+//	"attack_blaster_locktojoint"		"1"
+
+	// --------------------------------- Combat ----------------------------------
+//	"health"							"250"
+//	"health"							"150"
+	"health"							"100"
+	"melee_range"						"64"
+	"bleed"								"0"
+	"minShots"							"4"
+	"maxShots"							"16"
+
+//	"attackRange"						"0 164"
+	"attackRange"						"0 750"
+	
+	"def_kamakazi_damage"				"damage_gunner_grenade"
+
+	"tactical_ranged"					"1"
+	"tactical_rush"						"1"
+	"tactical_cover"					"0"
+//	"tactical_hide"						"1"
+	"tactical_hide"						"0"
+
+	// --------------------------------- Movement --------------------------------
+	"fly_speed"							"80"	
+	"fly_roll_scale"					"70"
+	"fly_roll_max"						"3"
+	"fly_bob_strength"					"25"
+	"fly_offset"						"32"
+	"fly_pitch_max"						"20"
+	"fly_pitch_scale"					"-100"
+
+	"directionalMovement"				"1"
+
+	"kamakazi_health"					"-1"
+	"kamakazi_fly_speed"				"400"
+	"kamakazi_turn_rate"				"50"
+	"kamakazi_fly_pitch_max"			"70"
+	"kamakazi_fly_pitch_scale"			"-400"
+	
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint arm_left"				"1.0 0.0 0"
+    "look_joint arm_right"				"1.0 0.0 0"
+//	    "look_joint neck"								"0.2 0.2 0"
+//	      "look_joint head"								"0.4 0.4 0"
+	
+	// --------------------------------- Sounds --------------------------------
+	"lipsync_sight"						"sentry_sight"	
+	"lipsync_chatter_idle"				"sentry_chatter"
+	"chatter_rate_idle"					"3"
+	"lipsync_chatter_combat"			"sentry_chatter_combat"
+	"chatter_rate_combat"				"4"
+	
+	"snd_fly"							"sentry_hover"
+	"snd_fire"							"sentry_fire"
+	"snd_bounce"						"generic_creature_fall_metal"
+	"snd_death"							"sentry_die"
+	"snd_pain"							"sentry_pain"
+//	"snd_growl"							"sentry_growl"
+
+	// --------------------------------- Damage Zones --------------------------------
+	"damage_zone head"						"*head"
+	"damage_zone body"						"*body -*glass -*head"
+	"damage_zone tank"						"*origin -*body *glass"
+	"damage_scale head"						"1.25"	
+	"damage_scale body"						".75"
+	"damage_scale tank"						"2"	
+		
+	// --------------------------------- Effects --------------------------------
+	"fx_blaster_flash"					"effects/monsters/strogg_marine/blaster_mflash.fx"
+
+	// ---------------------------------- Gibs -----------------------------------
+	"gib"								"1"
+	"fx_gib"							"Effects/monsters/sentry/explosion.fx"
+
+/*
+	"def_dropGibItem1"					"moveable_gib_torso_pork"
+	"dropGibItem1Joint"					"waterJoint7"
+
+	"def_dropGibItem2"					"moveable_gib_torso_pork"
+	"dropGibItem2Joint"					"waterJoint3"
+
+	"def_dropGibItem3"					"moveable_gib_head_pork"
+	"dropGibItem3Joint"					"neck"
+
+	"def_dropGibItem4"					"debris_barrel_top"
+	"dropGibItem4Joint"					"arm_left"
+
+	"def_dropGibItem5"					"debris_barrel_top"
+	"dropGibItem5Joint"					"arm_right"
+*/
+}
+

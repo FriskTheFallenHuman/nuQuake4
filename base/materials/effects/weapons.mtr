@@ -1,0 +1,947 @@
+//-----------------------------------------------------------------------
+
+gfx/effects/weapons/lgun_smallbolt
+{
+	qer_editorimage gfx/effects/weapons/lgun_smallbolt.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/lgun_smallbolt.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/lgun
+{
+	qer_editorimage gfx/effects/weapons/lgun.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/lgun.tga
+		linear		// no mip maps
+		vertexColor
+		rgb 1
+		scroll -5 * time, 0
+		scale	1,1
+	}
+	
+	
+	{
+		blend add
+		map gfx/effects/weapons/lgun.tga
+		linear		// no mip maps
+		vertexColor
+		rgb 1
+		scroll -7.2 * time, 0
+		scale -1,1
+	}
+	
+}
+
+
+gfx/effects/weapons/darkmatter_dot
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	blend
+		clamp
+		map		gfx/effects/weapons/darkmatter_dot
+		vertexColor
+	}	
+}
+
+gfx/effects/weapons/darkmatter_haze
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	blend
+		clamp
+		map		gfx/effects/weapons/darkmatter_haze.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/weapons/darkmatter_exp1
+{
+	qer_editorimage gfx/effects/weapons/darkmatter_blend.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/weapons/darkmatter_blend.tga
+		vertexColor
+		rotate -.6 * time
+		clamp
+	}
+}
+
+gfx/effects/weapons/darkmatter_exp2
+{
+	qer_editorimage gfx/effects/weapons/darkmatteradd.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/darkmatteradd.tga
+		vertexColor
+		rotate .6 * time
+		clamp
+	}
+}
+
+gfx/effects/weapons/darkmatter
+{
+	qer_editorimage gfx/effects/weapons/darkmatteradd.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/darkmatteradd.tga
+		vertexColor
+		rotate .6 * time
+		clamp
+	}
+	{
+		blend filter
+		map gfx/effects/weapons/darkmatterfilter.tga
+		//vertexColor
+		rotate -.6 * time
+		clamp
+	}
+}
+
+gfx/effects/weapons/darkmatter_ring
+{
+	qer_editorimage gfx/effects/weapons/darkmatter_ring.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/darkmatter_ring.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/darkmatterbolt
+{
+	qer_editorimage gfx/effects/weapons/darkmatterbolt.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/darkmatterbolt.tga
+		vertexColor
+	}
+}
+	
+
+gfx/effects/weapons/nail_shard
+{
+	translucent
+	noShadows
+	twoSided
+	{
+		blend	blend
+		clamp
+		map		gfx/effects/weapons/nail_shard
+		vertexColor
+	}	
+}
+
+gfx/effects/weapons/lgun_bolt
+{
+	qer_editorimage gfx/effects/weapons/lgun_bolt.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/lgun_bolt2.tga
+		vertexColor
+		scroll -5 * time, 0
+		scale	1,1
+	}
+	{
+		blend add
+		map gfx/effects/weapons/lgun_bolt2.tga
+		vertexColor
+		scroll -7.2 * time, 0
+		scale -1,1
+	}
+}
+
+gfx/effects/weapons/shotgun_mflash
+{
+	qer_editorimage gfx/effects/weapons/shotgun_mflash.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/shotgun_mflash.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/rail_trail
+{
+	qer_editorimage gfx/effects/weapons/rail_trail.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_trail.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/rail_trail2
+{
+	qer_editorimage gfx/effects/weapons/rail_trail2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_trail2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/rail_trail3
+{
+	qer_editorimage gfx/effects/weapons/rail_trail3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_trail3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/rail_trail_mp
+{
+	qer_editorimage gfx/effects/weapons/rail_trail_mp.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_trail_mp.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+gfx/effects/weapons/rail_spiral
+{
+	qer_editorimage gfx/effects/weapons/rail_spiral.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_spiral.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/rail_flash
+{
+	qer_editorimage gfx/effects/weapons/rail_flash.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_flash.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_green
+{
+	qer_editorimage gfx/effects/weapons/flash_green.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+		map gfx/effects/weapons/flash_green.tga
+		clamp
+		vertexColor         
+        }
+}
+
+gfx/effects/weapons/rail_flash_mp
+{
+	qer_editorimage gfx/effects/weapons/rail_flash_mp.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_flash_mp.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+gfx/effects/weapons/flash_white
+{
+	qer_editorimage gfx/effects/weapons/flash_white.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+		map gfx/effects/weapons/flash_white.tga
+		clamp
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2         
+        }
+}
+
+gfx/effects/weapons/blaster_fly
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/blaster_flyflipped
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly.tga
+		vertexColor
+		scale -1,1
+	}
+}
+
+gfx/effects/weapons/blaster_fly2
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/blaster_fly_colored
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly_c.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly_c.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/blaster_fly2_colored
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly2_c.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly2_c.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/weapons/blaster_fly_red
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly_red.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly_red.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/blaster_fly_redflipped
+{
+	qer_editorimage gfx/effects/weapons/blaster_fly_red.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/blaster_fly_red.tga
+		vertexColor
+		scale -1,1
+	}
+}
+
+
+gfx/effects/weapons/flash
+{
+	qer_editorimage gfx/effects/weapons/flash.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+		map gfx/effects/weapons/flash.tga
+		clamp
+		vertexColor
+             
+        }
+}
+
+gfx/effects/weapons/flash_hot
+{
+	qer_editorimage gfx/effects/weapons/flash_hot.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+		map gfx/effects/weapons/flash_hot.tga
+		clamp
+		vertexColor
+             
+        }
+}
+
+gfx/effects/weapons/flash_blue
+{
+	qer_editorimage gfx/effects/weapons/flash_blue.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+		map gfx/effects/weapons/flash_blue.tga
+		clamp
+		vertexColor
+  
+        }
+}
+
+gfx/effects/weapons/mflash2_machinegun
+{
+	qer_editorimage gfx/effects/weapons/mflash2_machinegun.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+		map gfx/effects/weapons/mflash2_machinegun.tga
+		clamp
+		vertexColor
+  
+        }
+}
+
+gfx/effects/weapons/flash_broke_up
+{
+	qer_editorimage gfx/effects/weapons/flash_broke_up.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_broke_up.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half
+{
+	qer_editorimage gfx/effects/weapons/flash_half.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half3
+{
+	qer_editorimage gfx/effects/weapons/flash_half3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half_blue3
+{
+	qer_editorimage gfx/effects/weapons/flash_half_blue3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half_blue3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half4
+{
+	qer_editorimage gfx/effects/weapons/flash_half4.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half4.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half_hot
+{
+	qer_editorimage gfx/effects/weapons/flash_half_hot.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half_hot.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half_flipped
+{
+	qer_editorimage gfx/effects/weapons/flash_half_flipped.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half_flipped.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half2
+{
+	qer_editorimage gfx/effects/weapons/flash_half2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/flash_half_blue
+{
+	qer_editorimage gfx/effects/weapons/flash_half_blue.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_half_blue.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/blue_spark
+{
+	polygonoffset
+	noShadows
+
+	qer_editorimage gfx/effects/weapons/blue_spark.tga
+
+	{
+      	blend	add  
+		map		gfx/effects/weapons/blue_spark.tga
+		clamp
+		vertexColor
+	}
+}
+
+
+gfx/effects/weapons/g_rail_flash
+{
+	qer_editorimage gfx/effects/weapons/g_rail_flash.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/g_rail_flash.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/railgun_ring
+{
+	qer_editorimage gfx/effects/weapons/railgun_ring.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+                map gfx/effects/weapons/railgun_ring.tga
+		clamp
+		vertexColor
+             
+        }
+}
+gfx/effects/weapons/railgun_ring2
+{
+	qer_editorimage gfx/effects/weapons/railgun_ring2.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+                map gfx/effects/weapons/railgun_ring2.tga
+		clamp
+		vertexColor
+             
+        }
+}
+
+gfx/effects/weapons/railgun_ring_end
+{
+	qer_editorimage gfx/effects/weapons/railgun_ring_end.tga
+	noshadows
+	twosided
+        {
+                
+		blend	add
+                map gfx/effects/weapons/railgun_ring_end.tga
+		clamp
+		vertexColor
+             
+        }
+}
+
+gfx/effects/weapons/rail_smoke
+{
+	qer_editorimage gfx/effects/weapons/rail_smoke.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_smoke.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/rail_smoke2
+{
+	qer_editorimage gfx/effects/weapons/rail_smoke2.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_smoke2.tga
+		vertexColor
+	}
+}
+gfx/effects/weapons/rail_smoke3
+{
+	qer_editorimage gfx/effects/weapons/rail_smoke3.tga
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/rail_smoke3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/mgun_muzzleflash
+{
+	qer_editorimage gfx/effects/weapons/mgun_muzzleflash.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/weapons/mgun_muzzleflash.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/weapons/flash_mgun
+{
+	qer_editorimage gfx/effects/weapons/flash_mgun.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/flash_mgun.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/nailgun_flash
+{
+	qer_editorimage gfx/effects/weapons/nailgun_flash.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/nailgun_flash.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/blaster
+{
+	twosided
+	noshadows
+	translucent
+	
+	{
+		blend blend
+		map gfx/effects/weapons/blaster.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/weapons/blaster_impact3
+{
+	twosided
+	noshadows
+	translucent
+	
+	{
+		blend add
+		map gfx/effects/weapons/blaster_impact3.tga
+		vertexColor
+		red parm0
+		green parm1
+		blue parm2
+	}
+}
+
+
+gfx/effects/weapons/embers_blue
+{
+	twosided
+	noshadows
+	translucent
+	
+	{
+		blend add
+		map gfx/effects/weapons/embers_blue.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/nailgun_flash2
+{
+	qer_editorimage gfx/effects/weapons/nailgun_flash2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/nailgun_flash2.tga
+		vertexColor
+	}
+}
+gfx/effects/weapons/nailgun_flash2a
+{
+	qer_editorimage gfx/effects/weapons/nailgun_flash2a.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/nailgun_flash2a.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/nailgun_flash3
+{
+	qer_editorimage gfx/effects/weapons/nailgun_flash3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/nailgun_flash3.tga
+		vertexColor
+	}
+}
+
+
+//was textures/sfx/muzzleflash
+gfx/effects/weapons/muzzleflash
+
+{
+	translucent
+	noShadows
+	{
+	      	blend GL_ONE, GL_ONE
+		map gfx/effects/weapons/mflash_machinegun
+		vertexcolor
+	}
+}
+
+// was textures/sfx/muzzleflash2
+gfx/effects/weapons/muzzleflash2
+
+{
+	translucent
+	noShadows
+	{
+	      	blend GL_ONE, GL_ONE
+		map gfx/effects/weapons/mflash2_machinegun
+		vertexcolor
+	}
+}
+
+gfx/effects/weapons/tracer
+{
+	qer_editorimage gfx/effects/weapons/tracer.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/tracer.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/weapons/tracerflipped
+{
+	qer_editorimage gfx/effects/weapons/tracer.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/tracer.tga
+		vertexColor
+		scale -1, 1
+	}
+}
+
+gfx/effects/weapons/tracerblue
+{
+	qer_editorimage gfx/effects/weapons/tracerblue.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/tracerblue.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/weapons/tracerlarge
+{
+	qer_editorimage gfx/effects/weapons/tracerlarge.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/weapons/tracerlarge.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/plasma1
+{
+	twosided
+	noshadows
+	translucent
+	
+	{
+		blend add
+		map gfx/effects/weapons/plasma1.tga
+		vertexColor
+	}
+}
+
+gfx/effects/weapons/plasma1_last
+{
+	twosided
+	noshadows
+	translucent
+	sort far
+	
+	{
+		blend add
+		map gfx/effects/weapons/plasma1.tga
+		vertexColor
+
+	}
+}
+
+
+gfx/effects/weapons/plasma2
+{
+	twosided
+	noshadows
+	translucent
+	
+	{
+		blend add
+		map gfx/effects/weapons/plasma2.tga
+		vertexColor
+	}
+}

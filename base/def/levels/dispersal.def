@@ -1,0 +1,701 @@
+/***********************************************************************************************************************
+Dispersal
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+
+entityDef dispersal_spawnOverrides
+{
+	"def_monster_grunt"									"dispersal_monster_grunt"
+	"def_monster_grunt_mgun"							"dispersal_monster_grunt"
+	"def_monster_grunt_melee"							"dispersal_monster_grunt"
+
+	"def_monster_strogg_marine"							"dispersal_monster_strogg_marine"
+	"def_monster_strogg_marine_sgun"					"dispersal_monster_strogg_marine"
+	"def_monster_strogg_marine_mgun"					"dispersal_monster_strogg_marine"
+}
+
+// -- Specialty Grunt ------------------------------------------------------------------------------------
+
+model model_dispersal_monster_grunt
+{
+	inherit												"model_monster_grunt"
+	
+	anim chainlink_idle									models/monsters/grunt/chainlink_idle.md5anim
+	{
+		ai_no_look
+		frame	1										ai_disablePain
+	}
+	// jshepard September 04:  is this busted? It just might be.
+	anim nav_leap										models/monsters/grunt/stair_jump.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	1										event				disableClip
+//		frame	1										object_call			frame_setfly
+	//	frame	25										sound				snd_fall_special
+	//	frame	30										sound				snd_breathe
+		frame	6										sound				snd_alert
+//		frame	50										event				stopNavJump
+	//	frame	43										event				enableClip
+	}
+	anim body_digging									models/monsters/grunt/body_digging.md5anim
+	{
+	
+		rate 1.4
+		frame	1										ai_disablePain
+		frame	1										event				show
+		frame	10										fx					fx_bloodburst					rt_wrist
+		frame	40										fx					fx_bloodburst					jaw
+		frame	2,11									sound				snd_feeding
+		frame	23										sound				snd_breathe
+	}
+	anim nav_short_leap									models/monsters/grunt/jump_attack.md5anim
+	{	// same as jump, above.
+		frame	1										ai_disablePain
+//		frame	1										object_call			frame_setfly
+		frame	8										sound				snd_alert
+		frame	29										sound				snd_growl
+//		frame	60										event				stopNavJump
+	}
+	
+	anim nav_down_leap									models/monsters/grunt/jumps_through.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	1										event				disableClip
+//		frame	1										object_call			frame_setfly		
+		frame	15										event				enableClip
+	}
+	anim stair_idle										models/monsters/grunt/stair_idle.md5anim
+	anim stair_jump										models/monsters/grunt/stair_jump.md5anim
+
+	anim stair_land										models/monsters/grunt/stair_land.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	3										sound				snd_fall_special
+		frame	9										sound				snd_breathe
+	}
+//	anim stair_jump2									models/monsters/grunt/stair_jump02.md5anim
+//	{
+//		frame	1										ai_disablePain
+//		frame	22										sound				snd_fall_special
+//		frame	1										sound				snd_breathe
+//		frame	6										sound				snd_alert
+//	}
+	anim jumps_through									models/monsters/grunt/jumps_through.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	19										sound				snd_fall_special
+		frame	1										sound				snd_breathe
+		frame	11										sound				snd_alert
+	}
+	anim chainlink										models/monsters/grunt/chainlink.md5anim
+	{
+		ai_no_look
+		frame	1										ai_disablePain
+		frame	7										event				show
+		frame	1										event				disableClip
+		frame	1										sound				snd_music_chainlink
+		frame	3										trigger				chasmdoor1
+		frame	29										sound				snd_growl
+		frame	38										sound				snd_fence_land
+		frame	41										trigger 			env_dispersal_fence_1
+		frame	77,84,89,93,116							sound				snd_fence_climb
+		frame	117										sound				snd_jump
+		frame	63										sound				snd_alert
+		frame	97										sound				snd_fence_break
+//		frame	97										trigger 			env_dispersal_ceiling_panel_1
+		frame	97										call				gruntFunctions::StartCeilingAnim
+		frame	12,22									sound				snd_footstep
+		frame	136										event				enableClip
+		frame	139										sound				snd_fall_special
+		frame	149										fx					fx_camerashake
+	}	
+}
+
+entityDef dispersal_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"editor_menu"										"level"
+
+	"model"												"model_dispersal_monster_grunt"
+	
+	"snd_music_chainlink"								"grunt_chainlink_stinger"
+	"snd_fence_land"									"grunt_fence_land"
+	"snd_fence_climb"									"grunt_fence_climb"
+	"snd_fence_break"									"grunt_fence_break"
+
+	"sg_category"										"None"
+}
+
+// -- Specialty Strogg_Marine  -------------------------------------------------------------------------------
+
+model model_dispersal_monster_strogg_marine
+{
+	inherit												model_monster_strogg_marine
+}
+
+entityDef dispersal_monster_strogg_marine
+{
+	"inherit"											"monster_strogg_marine"
+	"editor_menu"										"level"
+	"model"												"model_dispersal_monster_strogg_marine"
+
+	"sg_category"										"None"
+}
+
+// -- Specialty Dispersal_Marine  -------------------------------------------------------------------------------
+
+model model_dispersal_char_marine
+{
+	inherit												model_char_marine
+
+	anim	dispersal_acid_torture						models/characters/marine/dispersal_acid_torture.md5anim
+	
+	
+}
+
+entityDef dispersal_char_marine
+{
+	"inherit"											"char_marine"
+	"editor_menu"										"level"
+	"model"												"model_dispersal_char_marine"
+	"def_head"											"char_marinehead_default"
+	//"skin"												"skins/characters/tube_marine/tm_base_bruised"
+	"skin"												"skins/characters/marine/noweapon"
+	"sg_category"										"None"
+}
+
+// -- Specialty Harvester  -------------------------------------------------------------------------------
+
+/*
+===============================================================================
+	Harvester
+===============================================================================
+*/
+
+model model_dispersal_monster_harvester
+{
+	mesh										models/monsters/harvester/mesh.md5mesh
+	
+	channel torso								( *origin -*waist )
+	channel legs								( *waist )
+	
+	anim	idle								models/monsters/harvester/idle.md5anim
+	{
+		frame	1,50								sound		snd_flesh
+	}
+	anim	walk								models/monsters/harvester/walk_01.md5anim
+	{
+		frame	1,14,36,44							sound		snd_flesh
+//		frame	15,25,43,54							footstep
+		frame	15									fx fx_step r_toe_front
+		frame	25									fx fx_step l_toe_back
+		frame	43									fx fx_step l_toe_front
+		frame	54									fx fx_step r_toe_back
+		rate 1.5
+	}
+	
+/*
+	anim	turn_90_rt			models/monsters/harvester/turn_90_rt.md5anim, models/monsters/harvester/turn_90_rt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step l_toe_front
+		frame	14							fx fx_step l_toe_back
+		frame	21							fx fx_step r_toe_back
+		frame	27							fx fx_step r_toe_front
+		rate 0.5
+	}
+	anim	turn_90_lt			models/monsters/harvester/turn_90_lt.md5anim, models/monsters/harvester/turn_90_lt.md5anim
+	{
+		anim_turn
+		frame	5,20							sound		snd_flesh
+		frame	7							fx fx_step r_toe_front
+		frame	14							fx fx_step l_toe_front
+		frame	21							fx fx_step l_toe_back
+		frame	27							fx fx_step r_toe_back
+		rate 0.5
+	}
+*/
+	anim	fire_forward			models/monsters/harvester/disp_fire_forward.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	fire_left		models/monsters/harvester/disp_fire_forward_left.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+	anim	fire_right		models/monsters/harvester/disp_fire_forward_right.md5anim
+	{
+		frame 1						fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1						ai_attack			nail					lft_muzzle_flash
+		frame 1						fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 1						ai_attack			nail					rt_muzzle_flash
+	}
+
+	anim	fire_forward_spray_start	models/monsters/harvester/disp_fire_spray_start.md5anim
+	anim	fire_forward_spray_loop		models/monsters/harvester/disp_fire_spray_loop.md5anim
+	{
+		//1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80
+		frame 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79	fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79	ai_attack			nail_spray				lft_muzzle_flash
+		frame 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80	fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80	ai_attack			nail_spray				rt_muzzle_flash
+	}
+	anim	fire_forward_spray_end		models/monsters/harvester/disp_fire_spray_end.md5anim
+
+	anim	pain			models/monsters/harvester/disp_pain_light.md5anim
+	{
+		frame 1							sound_voice	snd_pain
+		rate 0.5
+	}
+	anim	pain2			models/monsters/harvester/disp_pain_light2.md5anim
+	{
+		frame 1							sound_voice	snd_pain
+		rate 0.5
+	}
+
+	anim	dispersal_idle_short				models/monsters/harvester/dispersal_idle_short.md5anim
+	{
+		frame	1							sound	snd_flesh
+	}
+	anim	dispersal_idle						models/monsters/harvester/dispersal_idle_long.md5anim
+	{
+		frame	1,61						sound	snd_flesh
+	}
+	anim	dispersal_attack					models/monsters/harvester/dispersal_attack.md5anim
+	{
+		frame	2,8,10						sound	snd_tendrils					
+		frame	1							sound	snd_roar
+	}
+	anim	dispersal_vent					models/monsters/harvester/dispersal_vent1.md5anim
+	{
+		frame 1							sound_voice	snd_pain
+		rate 0.75
+	}
+	anim	dispersal_vent2					models/monsters/harvester/dispersal_vent2.md5anim
+	{
+		frame 1							sound_voice	snd_pain
+		rate 0.75
+	}
+	
+	anim	dispersal_intro						models/monsters/harvester/dispersal_intro.md5anim
+	{
+		frame	1										sound		harvester_steps2
+		frame	2										sound		snd_roar
+		frame	11										sound		harvester_steps2
+		frame	19										trigger		fxHarvesterBridgeStomp
+		frame	23										sound		harvester_steps2
+
+		// um, would be cool to have him to take a couple of shots at the player right away, this isn't right though.
+		frame	29,35,39								fx			fx_muzzle				rt_muzzle_flash
+		frame	29,35,39								sound		snd_fire
+		frame	29,35,39								ai_attack	nail					rt_muzzle_flash
+		
+		frame	32,37									fx			fx_muzzle				lft_muzzle_flash
+		frame	32,37									sound		snd_fire
+		frame	32,37									ai_attack	nail					lft_muzzle_flash
+		
+	}
+
+	anim	dispersal_range_attack				models/monsters/harvester/dispersal_gun_attack.md5anim
+	{
+		frame	25,31,36,40								fx			fx_muzzle				rt_muzzle_flash
+		frame	25,31,36,40								sound		snd_fire
+		frame	25,31,36,40								ai_attack	nail					rt_muzzle_flash
+		
+		frame	29,34,40,46,52							fx			fx_muzzle				lft_muzzle_flash
+		frame	29,34,40,46,52							sound		snd_fire
+		frame	29,34,40,46,52							ai_attack	nail					lft_muzzle_flash
+	}
+	anim 	dispersal_exit						models/monsters/harvester/dispersal_exit.md5anim
+	{	
+		frame	1,130					sound		snd_roar
+		frame	23						sound		harvester_steps2
+		frame	36						sound		harvester_steps2
+		frame	42						sound		harvester_steps2
+		frame	51						sound		harvester_steps2
+		frame	58						sound		harvester_steps2
+		frame	83						sound		harvester_steps2
+		frame	94						sound		harvester_steps2
+		frame	109						sound		harvester_steps2
+		frame	129						sound		harvester_steps2
+		frame	145						sound		harvester_steps2
+		frame	159						sound		harvester_steps2
+		frame	174						sound		harvester_steps2
+	}
+}
+
+entityDef dispersal_monster_harvester
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterHarvesterDispersal"
+	"editor_menu"							"level"
+	"sg_category"							"None"
+	
+	"action_rangedAttack"					"1"
+	"action_rangedAttack_rate"				"1"
+	"action_rangedAttack_minRange"			"0"
+	"action_rangedAttack_maxRange"			"4000"
+	"action_rangedAttack_anim"				"fire_forward"
+	"action_rangedAttack_state"				"Torso_RangedAttack"
+	"action_rangedAttack_overrideLegs"		"0"
+	
+	"minShots"								"5"
+	"maxShots"								"20"
+
+	"action_sprayScream"					"1"
+	"action_sprayScream_state"				"State_SprayScream"
+	"action_sprayScream_minRange"			"0"
+	"action_sprayScream_maxRange"			"4000"
+	"action_sprayScream_rate"				"2"
+
+//	"action_pain"							"1" - obsolete
+	"actionTimer_pain_rate"					"5"
+	"painThreshold"							"100"
+	"death_damage_threshold"				"100"
+	"ignore_vehicle_damage"					"1"
+	"ignore_vehicle_push"					"1"
+	
+	"attackRange"							"0 4000"
+	"maxLostVisTime"						"2"
+	
+	"model"									"model_dispersal_monster_harvester"
+	"mass"									"2500"
+//	"size"									"248 248 250"
+//	"use_aas"								"aas250"
+	"size"									"24 24 80"
+	"use_aas"								"aas32"
+		
+	"turn_rate"								"45"
+	
+	"health"								"2000"
+	"removeDelay"							"-1"
+	"burnaway"								"0"
+	"undying"								"1"
+	
+	"tactical_ranged"						"0"
+	"tactical_rush"							"0"
+	
+	"joint_eyeOffset"						"head"
+	"joint_orientation"						"body"
+	"joint_whip_left"						"left_tentacles_18"
+	"joint_whip_right"						"right_tentacles_18"
+	"joint_whip_center"						"front_tentacles_18"
+	
+	"look_joint waist"						".25 1 0"
+	"look_joint r_uparm"					"0 1 0"
+	"look_joint l_uparm"					"0 1 0"
+	
+	"fov"									"150"
+	
+	"look_min"								"-45 -60 0"
+	"look_max"								"75 60 0"
+
+	"lipsync_sight"							"harvester_alert"
+	"lipsync_rush"							"harvester_alert"
+	"snd_roar"								"harvester_alert"
+	
+	"snd_pain"								"harvester_pain"
+	
+	//FIXME: I need these played at the bones, on the guy's origin won't be audible and won't spatialize right
+	// we don't have diff sounds for diff materials anyway
+	"snd_footstep"							"harvester_steps"
+	"snd_footstep_sand"						"harvester_steps"
+	"snd_footstep_dirt"						"harvester_steps"
+	"snd_footstep_hollowmetal"				"harvester_steps"
+	"snd_footstep_rock"						"harvester_steps"
+	
+	"snd_tendrils"							"harvester_tendrils"
+	"snd_flesh"								"harvester_flesh"	
+
+	"fx_step"								"effects/monsters/harvester/claw_step.fx"
+
+	"fx_muzzleflash"						"effects/monsters/harvester/nail_mflash.fx"
+
+	//-----------------------------------burn out--------------------------------------------------
+	
+//	"snd_burn_lightning"					"effects_sparks02"
+//	"fx_burn_lightning"						"effects/monsters/lightning_death.fx"	
+//	"fx_burn_particles"						"effects/monsters/teleport3.fx"
+//	"fx_burn_particles_chest"				"effects/monsters/teleport4.fx"
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_nail"						"projectile_dharvester_nail"
+	"attack_nail_accuracy"					"1"
+	"attack_nail_spread"					"1"
+	"attack_nail_predict"					"1"
+
+	"def_attack_nail_spray"					"projectile_dharvester_nail"
+	"attack_nail_spray_accuracy"			"1"
+	"attack_nail_spray_spread"				"1"
+	"attack_nail_spray_locktojoint"			"1"
+}
+
+entityDef damage_dharv_nail
+{
+	"inherit"					"damage_nailDirect"
+	"push"						"25"
+	"knockback"					"25"
+	"damage"					"10"
+}
+
+entityDef projectile_dharvester_nail
+{
+	"spawnclass"				"idProjectile"
+	"mins"						"-1 -1 -1"
+	"maxs"						"1 1 1"
+	"noshadows"					"1"
+	"clipmask_largeshot"		"1"
+								
+	"model"						"models/weapons/nailgun/nail.ase"
+																											
+	"health"					"0"
+	"gravity"					"0"
+	"fuse"						"4"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"1"
+	"detonate_on_bounce"		"1"
+																
+	"decal_size"				"8"
+
+	"mass"						"200"
+	"def_damage"				"damage_dharv_nail"
+	"speed"						"800"
+
+	"fx_fly"					"effects/monsters/strogg_marine/blaster_fly.fx"
+	"fx_impact"					"effects/monsters/harvester/blaster_burst.fx"
+	"snd_fly"					"weapon_energy_projectile_loop"
+}
+
+/*************************************************************************
+ 		KANE_Tactical_transfer_intro
+*************************************************************************/
+
+model model_dispersal_stroggified_kane
+{
+	"inherit"						"model_char_kane_strogg"
+
+	anim	dispersal_kane_enters		models/characters/marine/dispersal_kane_enters.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	dispersal_kane_end			models/characters/marine/dispersal_kane_end.md5anim
+	{	
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+}
+
+entityDef dispersal_stroggified_kane
+{
+	"inherit"									"char_kane_strogg"
+
+	"model"										"model_dispersal_stroggified_kane"
+	"editor_menu"								"level"
+}
+
+/*************************************************************************
+ 		Tactical_transfer_intro
+*************************************************************************/
+
+model model_dispersal_tactical_transfer
+{
+	"inherit"						"model_monster_tactical"
+
+	anim	dispersal_tact1				models/characters/marine/dispersal_tact1.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	dispersal_tact2			models/characters/marine/dispersal_tact2.md5anim
+	{	
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	dispersal_tact3			models/characters/marine/dispersal_tact3.md5anim
+	{	
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity	
+	}
+	anim	dispersal_tact3_move			models/characters/marine/dispersal_tact3_move.md5anim
+	{	
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity	
+	}
+	anim	dispersal_tact2_move			models/characters/marine/dispersal_tact2_move.md5anim
+	{	
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	anim	dispersal_cam_guy			models/characters/marine/dispersal_cam_guy.md5anim
+	{	
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 5							trigger cinematicMusic	
+		frame 5							trigger cinematicFx
+		frame 45						trigger intro_door
+		frame 100						trigger intro_door
+		frame 240						call 	map_dispersal::tacticalTransferAnim2Start
+		frame 303						call	map_dispersal::tacticalTransferAnim2Remove
+		frame 305						call 	map_dispersal::tacticalTransferAnim2
+		frame 363						call 	map_dispersal::tacticalTransferAnim3Start
+		frame 399						call 	map_dispersal::tacticalTransferAnim3Remove
+		frame 400						call 	map_dispersal::tacticalTransferAnim3
+		frame 445						call 	map_dispersal::kaneEndAnim
+		frame 495						call 	map_dispersal::kaneFadeOut
+		frame 505						call 	map_dispersal::removeKane
+	}
+}
+
+entityDef dispersal_tactical_transfer
+{
+	"inherit"									"monster_tactical"
+
+	"model"										"model_dispersal_tactical_transfer"
+	"editor_menu"								"level"
+}
+
+model model_dispersal_tactical_transfer_rail
+{
+	"inherit"						"model_monster_tactical_railgun"
+
+	anim	dispersal_tact1				models/characters/marine/dispersal_tact1.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+}
+
+entityDef dispersal_tactical_transfer_rail
+{
+	"inherit"									"monster_tactical_railgun"
+
+	"model"										"model_dispersal_tactical_transfer"
+	"editor_menu"								"level"
+}
+
+//------------------------------------------------------------------------------
+//
+//			Magnetic Barrel Arm
+//
+//------------------------------------------------------------------------------
+
+export barrel_arm
+{
+	options  -prefix BARM_ -align ALL -scale .3937 -keep base
+	mesh work\models\mapobjects\strogg\stroyent\dispersal\barrel_arm\animations\idle.ma  -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\barm_mesh
+	anim work\models\mapobjects\strogg\stroyent\dispersal\barrel_arm\animations\idle.ma  -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\barm_idle
+	anim work\models\mapobjects\strogg\stroyent\dispersal\barrel_arm\animations\bgrab.ma  -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\barm_grab_a
+}
+
+entityDef env_barrel_arm
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"magnetic barrel arm"
+
+	"spawnclass"										"idAnimated"
+	
+
+
+	"model"												"model_env_barrel_arm"
+	"anim"												"open"
+	"start_anim"										"barm_idle"
+	
+	"snd_servo"											"generic_mechanical_servo"
+	"snd_lock"											"generic_mechanical_lock"
+	"snd_rotate"										"generic_mechanical_arm_rotate"
+	
+}
+
+model model_env_barrel_arm
+{
+	mesh								models\mapobjects\strogg\stroyent\dispersal\barrel_arm\barm_mesh.md5mesh
+	anim barm_idle						models\mapobjects\strogg\stroyent\dispersal\barrel_arm\barm_idle.md5anim
+	anim barm_grab_a						models\mapobjects\strogg\stroyent\dispersal\barrel_arm\barm_grab_a.md5anim
+	{
+		frame	1,66,96,176,214							sound	snd_servo
+		frame	49,211									sound	snd_lock
+		frame	82,117,220								sound	snd_rotate
+	}
+}
+
+//------------------------------------------------------------------------------
+//
+//			Barrel Clamp Arm
+//
+//------------------------------------------------------------------------------
+
+export barrel_clamp
+{
+	options  -prefix CLAMP_ -align ALL -scale .3937 -keep base
+	mesh work\models\mapobjects\strogg\stroyent\dispersal\barrel_clamp\animations\idle.ma  -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\bclamp_mesh
+	anim work\models\mapobjects\strogg\stroyent\dispersal\barrel_clamp\animations\clamp.ma  -range 1 2 -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\grip_open_idle
+	anim work\models\mapobjects\strogg\stroyent\dispersal\barrel_clamp\animations\clamp.ma  -range 2 14 -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\grip
+	anim work\models\mapobjects\strogg\stroyent\dispersal\barrel_clamp\animations\clamp.ma  -range 14 15 -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\grip_close_idle
+	anim work\models\mapobjects\strogg\stroyent\dispersal\barrel_clamp\animations\clamp_extend.ma  -dest models\mapobjects\strogg\stroyent\dispersal\barrel_arm\clamp_extend
+}
+
+entityDef env_barrel_clamp
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Barrel Clamp Arm"
+
+	"spawnclass"										"idAnimated"
+	
+
+
+	"model"												"model_env_barrel_clamp"
+	"anim"												"open"
+	"start_anim"										"grip_open_idle"
+	
+	"snd_servo"											"generic_mechanical_servo"
+	"snd_lock"											"generic_mechanical_lock"
+	"snd_unlock"											"generic_mechanical_unlock"
+	"snd_rotate"										"generic_mechanical_arm_rotate"
+	
+}
+
+model model_env_barrel_clamp
+{
+	mesh									models\mapobjects\strogg\stroyent\dispersal\barrel_arm\bclamp_mesh.md5mesh
+	anim grip_open_idle						models\mapobjects\strogg\stroyent\dispersal\barrel_arm\grip_open_idle.md5anim
+	anim grip_close_idle					models\mapobjects\strogg\stroyent\dispersal\barrel_arm\grip_close_idle.md5anim
+	anim grip								models\mapobjects\strogg\stroyent\dispersal\barrel_arm\grip.md5anim
+	{
+		frame	1								sound	snd_unlock
+		frame	2								sound	snd_servo
+		frame	12								sound	snd_lock
+	}
+	anim clamp_extend						models\mapobjects\strogg\stroyent\dispersal\barrel_arm\clamp_extend.md5anim
+	{
+		frame	1,71							sound	snd_rotate
+	}
+}

@@ -1,0 +1,344 @@
+
+
+sound berserker_range_attack
+{
+	minDistance	40
+	maxDistance	1200
+	volumeDb	0
+
+	sound/strogg/berserker/fire
+	shakeData 0 zzzzzzzzzzwurpqnkjkijnmkkimpjhhgfbcbbaaaaaaaa
+}
+
+
+sound berserker_alert
+{
+	description	"aha, prepare to die"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	0
+
+	sound/strogg/berserker/sight1
+	shakeData 0 ilqrurqsrrmmnlmmkolkjfecbbbbaaaaa
+	sound/strogg/berserker/sight2
+	shakeData 1 agmmqoorplmnqqrppqjecchkoopmiknnolmlmlmjkhgddcbbababbaaaaaa
+	sound/strogg/berserker/sight3
+	shakeData 2 aaabbccdegefhiiihgijkkhilllifhiikheeffghhiggffeedcbbaaaaaaaaaaaa
+}
+
+
+sound berserker_rush
+{
+	description	"aha, prepare to die"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	0
+
+	sound/strogg/berserker/rush1
+	shakeData 0 aenlortrokhfdkosttsjpqqstspqjigcaa
+	sound/strogg/berserker/rush2
+	shakeData 1 joprqhmkolgpwwwzxxzyvpiedccccbbaaaaaaaa
+}
+
+
+sound berserker_watchit
+{
+	description	"aha, prepare to die"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	0
+
+	sound/strogg/berserker/watchit1
+	shakeData 0 djkpnnimrqspropljhgdccbbabaaaaaa
+	sound/strogg/berserker/watchit2
+	shakeData 1 clrqrsqrrmfgknopihecbbbaaaa
+}
+
+
+sound berserker_victory
+{
+	description	"aha, prepare to die"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	4
+
+	sound/strogg/berserker/victory1
+	shakeData 0 ggorqtqrsnlihefggdhcfdeghjlnhnnheddcccccbbaaaaaaaaa
+}
+
+
+sound berserker_moveup
+{
+	description	"aha, prepare to die"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	4
+
+	sound/strogg/berserker/moveup1
+	shakeData 0 llppoppmlfcdllmpmedcimnoooqoonhfdcbaaaaaaaa
+	sound/strogg/berserker/moveup2
+	shakeData 1 dnmrmkjioqrplfdjnssttrtpokhfdcbbaaaaaa
+}
+
+
+sound berserker_mandown
+{
+	description	"aha, prepare to die"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	4
+
+	sound/strogg/berserker/mandown1
+	shakeData 0 egjllkkmkmnnmmomkmmljkkmmlonmmnniieeccbaaaaaaa
+	sound/strogg/berserker/mandown2
+	shakeData 1 fkmqmjimnssssrnihdcbbbaaaa
+}
+
+
+sound berserker_grunt
+{
+	description	"grunt"
+
+	minDistance	40
+	maxDistance	1800
+	volumeDb	0
+
+	sound/strogg/berserker/grunt
+	shakeData 0 eggjkkvyyyzzyzxvryyztrpnqjhkljjhegdccbaaaaaa
+}
+
+
+sound berserker_breathe
+{
+	description	"the berserker has whooping cough"
+
+	minDistance	40
+	maxDistance	787
+	volumeDb	-9
+	no_dups
+
+	sound/strogg/berserker/breath01
+	shakeData 0 aabdgmkpoomonnoplnomknkmgigihjjhhhfgffddcccbbbaaaaaaaa
+	sound/strogg/berserker/breath02
+	shakeData 1 aaaaacegjnmpononnmqmmkmkjjkmihfffeedccccbaaaa
+	sound/strogg/berserker/breath03
+	shakeData 2 abcgmlooonppprprppoomlmojjjkihgefefcccccbbbaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+}
+
+
+sound berserker_growl
+{
+	description	"i would like to eat your guts, please"
+
+	minDistance	40
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/berserker/growl1
+	shakeData 0 cfjjlnmqtrpttqsrrqmqkjgfeedccbbbbaaaaaaaa
+	sound/strogg/berserker/growl2
+	shakeData 1 dfkkllpsmprsttustqqqngffeeeddcdccbbaaaaaa
+}
+
+
+sound berserker_blade_clang
+{
+	description	"sound of the blade going into the ground."
+
+	minDistance	118
+	maxDistance	708
+	volumeDb	0
+
+	sound/strogg/berserker/pike_stab1
+	shakeData 0 aezzzzzzzzzppnniifebbbaaaaaaa
+}
+
+
+sound berserker_blade_pull
+{
+	description	"sound of the blade being pulled out of the ground."
+
+	minDistance	118
+	maxDistance	708
+	volumeDb	0
+
+	sound/strogg/berserker/pike_extract
+	shakeData 0 aeqxzwwtrplhdfgfecbaa
+}
+
+
+sound berserker_swing_blade
+{
+	description	"big whiffer"
+
+	minDistance	118
+	maxDistance	708
+	volumeDb	0
+
+	sound/strogg/berserker/blade_swing1
+	shakeData 0 bdlwzyyrhcbbaaaaaaaaaaa
+	sound/strogg/berserker/blade_swing2
+	shakeData 1 ddelpyzzohdbbbaaaaaaaaaaaa
+	sound/strogg/berserker/blade_swing3
+	shakeData 2 abgtyyzrhfcbbaaaaaaaaa
+}
+
+
+sound berserker_swing_mace
+{
+	description	"big whiffer"
+
+	minDistance	118
+	maxDistance	708
+	volumeDb	0
+
+	sound/strogg/berserker/mace_swing_1
+	shakeData 0 addeguvwzzzoiddbbaaa
+	sound/strogg/berserker/mace_swing_2
+	shakeData 1 addefvrzzyvjgcdabbaa
+	sound/strogg/berserker/mace_swing_3
+	shakeData 2 cdddftqxzyylgccabaaa
+}
+
+
+sound berserker_stomps
+{
+	description	"you can tell by the way i walk that i am a woman's man"
+
+	minDistance	40
+	maxDistance	984
+	volumeDb	-6
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/berserker/run01
+	shakeData 0 zvystsjieaaa
+	sound/strogg/berserker/run02
+	shakeData 1 yzxxtttngcaaa
+	sound/strogg/berserker/run03
+	shakeData 2 zzsxyvrrqkfdbaaa
+	sound/strogg/berserker/run04
+	shakeData 3 yzyyyxtnkgbaaa
+}
+
+
+sound berserker_servo
+{
+	description	"whirr, whirr"
+
+	minDistance	40
+	maxDistance	708
+	volumeDb	-9
+	frequentlyUsed
+
+	sound/strogg/berserker/servo_01
+	shakeData 0 ceddcdcddddfdfgcbbabaaaa
+	sound/strogg/berserker/servo_02
+	shakeData 1 dfeeedfddddcbdbbaaaaaa
+	sound/strogg/berserker/servo_03
+	shakeData 2 deefefegddcbcbaaa
+	sound/strogg/berserker/servo_04
+	shakeData 3 cdejgdhhfddfdcbaaaaa
+}
+
+
+sound berserker_pain
+{
+	description	"ow, quit it"
+
+	minDistance	40
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/berserker/pain1
+	shakeData 0 jrwuuttwuurrwuuspsqnlmikkjhfeeccbbaaaaaaaaaaaa
+	sound/strogg/berserker/pain2
+	shakeData 1 eopvtvututuwqtsnlmojihffgffffgedddcbbbaaaaaaaaaaaaaa
+	sound/strogg/berserker/pain3
+	shakeData 2 mpvvuvourrqnppoppjjjggggeffefeededdcccbaaaaaaaaaaaaaa
+}
+
+
+sound berserker_death
+{
+	description	"eternal sleep"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/berserker/die1
+	shakeData 0 gpvxwrxtvwvwuuvvwuvvupurtyrttomjlkkjhkjigggeeedcdbbbaa
+	sound/strogg/berserker/die2
+	shakeData 1 glkqprstrxwwwsssvwyxxvuvrpxqqolnrvrtutulmlmhhiggfeddccbbbbaaaa
+}
+
+
+sound berserker_charge
+{
+	description	"charging his electricity weapon"
+
+	minDistance	40
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/berserker/charge
+	shakeData 0 ghnmloppostqpssppsnnnppotrrnppopqppqononnpoppjljllkhhfda
+}
+
+
+sound berserker_charge_release
+{
+	description	"boom!  zap!"
+
+	minDistance	40
+	maxDistance	1377
+	volumeDb	0
+
+	sound/strogg/berserker/charge_release
+	shakeData 0 ppousvvxzuwyywtyxtvxqutupppqpwosnrqkilqkmkiglifjhffhfedddbbbaaaaaaaaaaaaaaa
+}
+
+
+sound berserker_blade_slice
+{
+	description	"slicing of blade"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+
+	sound/weapons/impact/whooshes_melee/blade_slice1
+	shakeData 0 fjzzzsurqwkkcbaaabbabaa
+	sound/weapons/impact/whooshes_melee/blade_slice2
+	shakeData 1 gjyzzuqpkxpmeeeabaaaaaaaaaaaa
+}
+
+
+sound berserker_mace_impact
+{
+	description	"mace bonking"
+
+	minDistance	600
+	maxDistance	800
+	volumeDb	6
+
+	sound/strogg/berserker/mace_hit_1
+	shakeData 0 zzzzzzsrqhhedcbaaaaa
+	sound/strogg/berserker/mace_hit_2
+	shakeData 1 zzzzyxsrnihdbaaaaa
+}
+
+
+
+
+
+

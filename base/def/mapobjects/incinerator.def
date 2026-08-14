@@ -1,0 +1,46 @@
+
+/***********************************************************************
+INCINERATOR
+
+***********************************************************************/
+
+export incinerator
+{		
+	options -prefix in_ -align ALL -scale .843 -keep muzzle_flash
+         
+	mesh	work/models/mapobjects/strogg/machines/incinerator/animation/idledown.ma		-dest models/mapobjects/strogg/machines/incinerator/mesh
+	anim	work/models/mapobjects/strogg/machines/incinerator/animation/idledown.ma		-dest models/mapobjects/strogg/machines/incinerator/idle
+	anim	work/models/mapobjects/strogg/machines/incinerator/animation/idledown.ma		-dest models/mapobjects/strogg/machines/incinerator/idledown
+	anim	work/models/mapobjects/strogg/machines/incinerator/animation/idleup.ma			-dest models/mapobjects/strogg/machines/incinerator/idleup
+	anim	work/models/mapobjects/strogg/machines/incinerator/animation/armup.ma			-dest models/mapobjects/strogg/machines/incinerator/moveup
+	anim	work/models/mapobjects/strogg/machines/incinerator/animation/armdown.ma			-dest models/mapobjects/strogg/machines/incinerator/movedown
+	anim	work/models/mapobjects/strogg/machines/incinerator/animation/incinerate.ma		-dest models/mapobjects/strogg/machines/incinerator/burn
+}
+
+entityDef Putra_Incinerator
+{
+	"editor_menu"										"level"
+	"editor_mins"										"-8 -8 -8"
+	"editor_maxs"										"8 8 8"	
+	"spawnclass"										"idAnimated"
+	"model"												"model_Putra_Incinerator"
+	"start_anim"										"idledown"
+	"anim"												"idledown"
+	"editor_rotatable"									"1"
+
+	"fx_flame"											"effects/fire/incinerator.fx"
+}
+
+model model_Putra_Incinerator
+{
+	mesh					"models/mapobjects/strogg/machines/incinerator/mesh.md5mesh"
+	anim idle				"models/mapobjects/strogg/machines/incinerator/idledown.md5anim"
+	anim idledown			"models/mapobjects/strogg/machines/incinerator/idledown.md5anim"
+	anim idleup				"models/mapobjects/strogg/machines/incinerator/idleup.md5anim"
+	anim movedown			"models/mapobjects/strogg/machines/incinerator/movedown.md5anim"
+	anim moveup				"models/mapobjects/strogg/machines/incinerator/moveup.md5anim"
+	{
+		frame 25		fx		fx_flame 	muzzle_flash
+	}
+	anim burn				"models/mapobjects/strogg/machines/incinerator/burn.md5anim"
+}

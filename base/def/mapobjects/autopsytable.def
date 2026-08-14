@@ -1,0 +1,49 @@
+
+/***********************************************************************
+AUTOPSYTABLE
+
+***********************************************************************/
+
+export autopsytable
+{		
+	options -prefix ATBL_ -align ALL 
+         
+	mesh	work/models/mapobjects/marine/equipment/autopsytable/Animation/idle.ma		-dest models/mapobjects/marine/equipment/table/mesh
+	anim	work/models/mapobjects/marine/equipment/autopsytable/Animation/idle.ma		-dest models/mapobjects/marine/equipment/table/idle
+	anim	work/models/mapobjects/marine/equipment/autopsytable/Animation/up.ma		-dest models/mapobjects/marine/equipment/table/up
+	anim	work/models/mapobjects/marine/equipment/autopsytable/Animation/moveup.ma		-dest models/mapobjects/marine/equipment/table/moveup
+	anim	work/models/mapobjects/marine/equipment/autopsytable/Animation/movedown.ma		-dest models/mapobjects/marine/equipment/table/movedown
+	
+
+	
+
+
+
+}
+
+entityDef env_autopsytable
+{
+	"model"							"model_env_autopsytable"
+	"spawnclass"					"idAnimated"
+
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"animated_autopsytable"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"						"idle"	
+}
+
+model model_env_autopsytable
+
+{
+	mesh					models/mapobjects/marine/equipment/table/mesh.md5mesh
+	anim idle				models/mapobjects/marine/equipment/table/idle.md5anim
+	anim up					models/mapobjects/marine/equipment/table/up.md5anim
+	anim moveup				models/mapobjects/marine/equipment/table/moveup.md5anim
+	anim movedown				models/mapobjects/marine/equipment/table/movedown.md5anim			
+
+}

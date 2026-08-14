@@ -1,0 +1,323 @@
+/*
+===============================================================================
+
+	Choppable Marine (char_marine_choppable)
+
+===============================================================================
+*/
+export choppable_marine
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -keep body neckcontrol SPINNER legs_channel head_channel -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/marine_choppable/animations -destdir models/characters/choppable_marine
+
+	addoptions -skipmesh armL_chopped 
+	addoptions -skipmesh l_arm_cap_mesh 
+	addoptions -skipmesh armR_chopped 
+	addoptions -skipmesh r_arm_cap_mesh 
+	addoptions -skipmesh LegL_chopped 
+	addoptions -skipmesh l_leg_cap_mesh 
+	addoptions -skipmesh LegR_chopped 
+	addoptions -skipmesh r_leg_cap_mesh 
+
+	mesh	idle.ma							-dest choppable_marine
+	anim	idle.ma 						-dest idle
+	anim	table_idle.ma 					-dest table_idle
+	anim	surgery_squirm_long.ma				-dest surgery_squirm
+	anim	surgery_squirm_short.ma				-dest surgery_squirm_short
+	anim	needle_impact2.ma				-dest needle_impact
+//	anim	af_pose.ma						-dest af_pose
+}
+
+/*
+===============================================================================
+
+	choppable Marine Model
+
+===============================================================================
+*/
+
+model model_char_marine_choppable
+{
+	offset							( 0 0 1 )
+
+	//this would be nice.
+	//inherit						model_char_marine
+
+	mesh							models/characters/choppable_marine/choppable_marine.md5mesh
+
+	channel torso					( *waist -*legs_channel )
+	channel legs					( *origin *hips -*waist )
+	channel head					( legs_channel )
+	anim idle						models/characters/choppable_marine/idle.md5anim
+	anim table_idle					models/characters/choppable_marine/table_idle.md5anim
+	anim surgery_squirm				models/characters/choppable_marine/surgery_squirm.md5anim
+	anim surgery_squirm_short			models/characters/choppable_marine/surgery_squirm_short.md5anim
+	anim needle_impact				models/characters/choppable_marine/needle_impact.md5anim
+	{
+	}
+}
+
+/*
+===============================================================================
+
+	Naked Marine Entity Definition
+
+===============================================================================
+*/
+
+entityDef char_marine_choppable
+{
+	"model"										"model_char_marine_choppable"
+//	"spawnclass"								"idAnimated"
+	"inherit"								"actor_default"
+	"undying"									"1"
+	"health"									"1000" // don't ask
+	"anim"										"idle"
+	"editor_usage"								"choppable"
+	"editor_mins"								"-32 -32 0"
+	"editor_maxs"								"32 32 32"
+
+	// --------------------------------- Body ------------------------------------
+	
+	"size"										"32 32 32"
+	"mtr_wound"									"textures/decals/hurt02"
+	"mtr_splat"									"textures/decals/dsplat2"
+	"mtr_splat2"								"textures/decals/dsplat5"
+	"mtr_splat3"								"textures/decals/dsplat7"
+	"mtr_splat4"								"textures/decals/dsplat11"
+
+	"bleed"										"1"
+	"combatModel"								"1"
+
+	/*
+	"articulatedFigure"							"marine3"
+	"ragdoll"									"marine3"
+	"health"									"150"
+	"joint_head"								"chest"
+	"joint_eyeOffset"							"Rt_EyeBall"
+
+	"copy_joint neckcontrol"					"neckcontrol"
+	"copy_joint shoulders"						"shoulders"
+	"copy_joint legs_channel"					"legs_channel"
+		
+	"combatmodel"								"1"
+	//"skin"										"skins/models/characters/marine/hurtbody2_lo"
+	
+	
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"							"0.2 0.3 0"
+	  "look_joint chest"						"0.3 0.4 0"
+	    "look_joint shoulders"					"0.2 0.2 0"
+	      "look_joint legs_channel"				"0.2 0.2 0"	
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"									"Naked Marine"
+	"dbText"									"Description Text of the Naked Marine"
+	*/
+}
+
+
+
+/******************************************************************************
+	Choppable marine left arm
+******************************************************************************/
+export char_marine_arm_left
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -sourcedir work/models/characters/marine_choppable/animations -destdir models/characters/choppable_marine
+
+	addoptions -skipmesh teethUpper 
+	addoptions -skipmesh teethLower 
+	addoptions -skipmesh body_intact_mesh 
+	addoptions -skipmesh eye_L 
+	addoptions -skipmesh eye_R 
+//	addoptions -skipmesh armL_chopped 
+//	addoptions -skipmesh l_arm_cap_mesh 
+	addoptions -skipmesh armR_chopped 
+	addoptions -skipmesh r_arm_cap_mesh 
+	addoptions -skipmesh LegL_chopped 
+	addoptions -skipmesh l_leg_cap_mesh 
+	addoptions -skipmesh LegR_chopped 
+	addoptions -skipmesh r_leg_cap_mesh 
+
+	mesh	idle.ma							-dest left_arm
+	anim	idle.ma 						-dest left_arm_idle
+//	anim	af_pose.ma						-dest af_pose
+}
+
+model model_char_marine_arm_left
+{
+	offset							( 0 0 1 )
+	mesh							models/characters/choppable_marine/left_arm.md5mesh
+	anim idle						models/characters/choppable_marine/left_arm_idle.md5anim
+//	anim af_pose					models/characters/choppable_marine/af_pose.md5anim
+}
+
+entityDef char_marine_arm_left
+{
+	"inherit"									"actor_default"
+	"spawnclass"								"rvAITactical"
+	"model"										"model_char_marine_arm_left"
+	"size"										"32 32 72"
+	"use_aas"									"aas32"
+//	"articulatedFigure"							"marine3"
+//	"ragdoll"									"marine3"
+}
+
+
+
+/******************************************************************************
+	Choppable marine right arm
+******************************************************************************/
+export char_marine_arm_right
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -sourcedir work/models/characters/marine_choppable/animations -destdir models/characters/choppable_marine
+
+	addoptions -skipmesh teethUpper 
+	addoptions -skipmesh teethLower 
+	addoptions -skipmesh body_intact_mesh 
+	addoptions -skipmesh eye_L 
+	addoptions -skipmesh eye_R 
+	addoptions -skipmesh armL_chopped 
+	addoptions -skipmesh l_arm_cap_mesh 
+//	addoptions -skipmesh armR_chopped 
+//	addoptions -skipmesh r_arm_cap_mesh 
+	addoptions -skipmesh LegL_chopped 
+	addoptions -skipmesh l_leg_cap_mesh 
+	addoptions -skipmesh LegR_chopped 
+	addoptions -skipmesh r_leg_cap_mesh 
+
+	mesh	idle.ma							-dest right_arm
+	anim	idle.ma 						-dest right_arm_idle
+//	anim	af_pose.ma						-dest af_pose
+}
+
+model model_char_marine_arm_right
+{
+	offset							( 0 0 1 )
+	mesh							models/characters/choppable_marine/right_arm.md5mesh
+	anim idle						models/characters/choppable_marine/right_arm_idle.md5anim
+}
+
+entityDef char_marine_arm_right
+{
+	"inherit"									"actor_default"
+	"spawnclass"								"rvAITactical"
+	"model"										"model_char_marine_arm_right"
+	"size"										"32 32 72"
+	"use_aas"									"aas32"
+//	"articulatedFigure"							"marine3"
+//	"ragdoll"									"marine3"
+}
+
+
+
+/******************************************************************************
+	Choppable marine left leg
+******************************************************************************/
+export char_marine_leg_left
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -sourcedir work/models/characters/marine_choppable/animations -destdir models/characters/choppable_marine
+
+	addoptions -skipmesh teethUpper 
+	addoptions -skipmesh teethLower 
+	addoptions -skipmesh body_intact_mesh 
+	addoptions -skipmesh eye_L 
+	addoptions -skipmesh eye_R 
+	addoptions -skipmesh armL_chopped 
+	addoptions -skipmesh l_arm_cap_mesh 
+	addoptions -skipmesh armR_chopped 
+	addoptions -skipmesh r_arm_cap_mesh 
+//	addoptions -skipmesh LegL_chopped 
+//	addoptions -skipmesh l_leg_cap_mesh 
+	addoptions -skipmesh LegR_chopped 
+	addoptions -skipmesh r_leg_cap_mesh 
+
+	mesh	idle.ma							-dest left_leg
+	anim	idle.ma 						-dest left_leg_idle
+//	anim	af_pose.ma						-dest af_pose
+}
+
+model model_char_marine_leg_left
+{
+	offset							( 0 0 1 )
+	mesh							models/characters/choppable_marine/left_leg.md5mesh
+	anim idle						models/characters/choppable_marine/left_leg_idle.md5anim
+	anim af_pose					models/characters/choppable_marine/left_leg_idle.md5anim
+}
+/*
+entityDef char_marine_leg_left
+{
+	"spawnclass"								"idAnimated"
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_rotatable"				"1"
+	"editor_usage"					"scripted ceiling panel for medlabs"
+	//"inherit"									"actor_default"
+	//"spawnclass"								"rvAITactical"
+	
+	"model"										"model_char_marine_leg_left"
+	"size"										"32 32 72"
+	//"use_aas"									"aas32"
+//	"articulatedFigure"							"marine3"
+//	"ragdoll"									"marine3"
+}
+*/
+entityDef	char_marine_leg_left
+{
+	"spawnclass"					"idAFEntity_Generic"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"ragdoll body part for great justice"
+	"editor_rotatable"				"1"
+	"model"							"model_char_marine_leg_right"
+	"articulatedFigure"				"env_dead_d_leg_clean"
+	"anim"							"idle"
+}
+
+
+
+/******************************************************************************
+	Choppable marine right leg
+******************************************************************************/
+export char_marine_leg_right
+{
+	options -scale .3937 -prefix CHOP_ -parent upLeg loLeg -parent loLeg ankle -parent ankle joint4 -sourcedir work/models/characters/marine_choppable/marine_leg -destdir models/characters/choppable_marine
+
+	
+	mesh	idle.ma							-dest right_leg
+	anim	idle.ma 						-dest right_leg_idle
+//	anim	af_pose.ma						-dest af_pose
+}
+
+model model_char_marine_leg_right
+{
+	offset							( 0 0 1 )
+	mesh							models/characters/choppable_marine/right_leg.md5mesh
+	anim idle						models/characters/choppable_marine/right_leg_idle.md5anim
+	anim af_pose					models/characters/choppable_marine/right_leg_idle.md5anim
+}
+
+entityDef char_marine_leg_right
+{
+	"spawnclass"								"idAnimated"
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_rotatable"				"1"
+	"editor_usage"					"scripted ceiling panel for medlabs"
+	//"inherit"									"actor_default"
+	//"spawnclass"								"rvAITactical"
+	
+	"model"										"model_char_marine_leg_right"
+	"size"										"32 32 72"
+	/*
+	"inherit"									"actor_default"
+	"spawnclass"								"rvAITactical"
+	"model"										"model_char_marine_leg_right"
+	"size"										"32 32 72"
+	"use_aas"									"aas32"
+//	"articulatedFigure"							"marine3"
+//	"ragdoll"									"marine3"
+*/
+}

@@ -1,0 +1,240 @@
+
+// ---------------------------------------------------------------------------------------
+//	Waste
+// ---------------------------------------------------------------------------------------
+
+entityDef waste_sizzle_barrel_burn {
+	"fx_impact"					"effects/moveables/barrel/burn2.fx"		// Plays effect at impact
+	"end_time"					"2"
+}
+
+entityDef waste_sizzle_barrel_ignite {
+	"fx_loop"					"effects/moveables/barrel/ignite2.fx"
+	"dir_fx_loop"				"0 0 -1"
+	"end_health"				"1"
+	"end_time"					"2"									// Duration the stage is active for
+}
+
+// waste sizzle barrels
+entityDef waste_sizzle_barrel
+{
+	"inherit"					"moveable_base_barrel"
+	"editor_menu"				"level"
+
+	"model"						"models/mapobjects/strogg/barrels/stroyent_barrel_clip.lwo"
+	"skin"						"skins/mapobjects/strogg/barrels/stroyent_c"
+
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	"axis_fx_loop"				"-2"
+
+	"explode"					"1"
+	"fx_burn"					"effects/moveables/barrel/burn2.fx"
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"def_splash_Damage"			"damage_explosion"
+
+	"sizzle"					"1"	
+	"burn"						"6"
+	"health"					"50"
+
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.15"
+
+	"def_stage1"				"waste_sizzle_barrel_burn"
+	"def_stage2"				"waste_sizzle_barrel_ignite"
+	"def_stage3"				"moveable_stage_explode"			
+}
+
+// ---------------------------------------------------------------------------------------
+// Waste Marine
+// ---------------------------------------------------------------------------------------
+model waste_model_char_marine
+{
+	inherit										model_char_marine
+
+	anim waste_over_here						models/characters/marine/bld_b_over_here.md5anim
+	anim waste_talking							models/characters/marine/waste_talking.md5anim
+
+	// Um, maybe swap guys out for cinematics...that's when I'd mostly want to use this anim..
+	anim idle									models/characters/marine/relax_idle.md5anim
+
+	anim	com_link_start				models/characters/marine/com_link_start.md5anim
+	{
+		frame	27							sound	snd_comm
+	}
+	anim	com_link_loop				models/characters/marine/com_link_loop.md5anim
+	anim	com_link_end				models/characters/marine/com_link_end.md5anim
+}
+
+// ---------------------------------------------------------------------------------------
+entityDef waste_char_marine
+{
+	"inherit"											"char_marine"
+	"model"												"waste_model_char_marine"
+	"editor_menu"										"level"
+
+	"followRange"										"60 90"
+
+	// meet lanier at level start
+	"lipsync_vo_2_2_7_10_1"								"vo_2_2_7_10_1"
+
+	// reached rendezvous point
+	"lipsync_vo_2_2_7_220_1"							"vo_2_2_7_220_1"						
+	"lipsync_vo_2_2_7_230_1"							"vo_2_2_7_230_1"						
+	"lipsync_vo_2_2_7_220_2"							"vo_2_2_7_220_2"
+}
+
+
+//----------------------------------------------------------------------------------------
+entityDef waste_char_marine_wong
+{
+	"inherit"											"char_marine_medic_armed"
+	"model"												"waste_model_char_marine_medic"
+	"editor_menu"										"level"
+
+	"followRange"										"70 100"
+
+	"def_head"											"char_marinehead_gen_asian_2"
+
+	// set up the scanner situation
+	"lipsync_vo_2_2_7_170_2"							"vo_2_2_7_170_2"
+	"lipsync_vo_2_2_7_170_4"							"vo_2_2_7_170_4"
+	"lipsync_vo_2_2_7_170_6"							"vo_2_2_7_170_6"
+}
+
+//----------------------------------------------------------------------------------------
+entityDef waste_char_marine_ruck
+{
+	"inherit"											"char_marine_tech_armed"
+	"model"												"waste_model_char_marine_tech"
+	"editor_menu"										"level"
+
+	"followRange"										"70 100"
+
+//	"def_head"											"char_marinehead_gen_white_2"
+
+	// set up the scanner situation
+	"lipsync_vo_2_2_7_170_1"							"vo_2_2_7_170_1"
+	"lipsync_vo_2_2_7_170_3"							"vo_2_2_7_170_3"
+	"lipsync_vo_2_2_7_170_5"							"vo_2_2_7_170_5"
+	"lipsync_vo_2_2_7_170_7"							"vo_2_2_7_170_7"
+
+	// drop a hint about shutting down the scanner
+	"lipsync_vo_2_2_7_180_1"							"vo_2_2_7_180_1"
+
+	// give weapon mod
+	"lipsync_vo_2_2_7_171_1"							"vo_2_2_7_171_1"
+
+	// Wow, he was your LT?
+	"lipsync_vo_2_2_7_190_1"							"vo_2_2_7_190_1"
+	
+	//"looks like it's you and me corporal"
+	"lipsync_vo_9_14_10_2"								"vo_9_14_10_2"
+}
+
+// ModelDef for waste tech
+model waste_model_char_marine_tech
+{
+	inherit					waste_model_char_marine
+	mesh					models/characters/marine_tech/marine_tech.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	anim	recomp_mod_hyper						models/characters/marine/recomp_mod_hyper.md5anim
+	// Re-define Heal anims	-----------------------------------------------------------------------------------------		
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate 1.3
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+// modelDef for waste medic
+model waste_model_char_marine_medic
+{
+	inherit							waste_model_char_marine
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate 1.3
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+}
+
+//----------------------------------------------------------------------------------------
+entityDef waste_char_marine_buddy
+{
+	"inherit"											"char_marine"
+	"model"												"waste_model_char_marine"
+	"editor_menu"										"level"
+
+	"followRange"										"60 90"
+
+	"def_head"											"char_marinehead_gen_white"
+
+	// meet up with marine buddy
+	"lipsync_vo_2_2_7_75_1"								"vo_2_2_7_75_1"
+}
+
+//--------------------------------
+model model_waste_berserker
+{
+	inherit							model_monster_berserker
+
+	anim waste_jump					models/monsters/berserker/waste_jump.md5anim
+	{
+		frame	1										disableClip
+		frame	1										disableGravity
+		
+		frame	7										sound				snd_growl
+		frame	28										sound				generic_creature_fall_small
+		frame	34										sound				snd_gear
+
+		frame	41										enableClip
+		frame	41										enableGravity
+	}
+}
+
+//-------------------------------------
+// For boss buddy battle only
+//-------------------------------------
+entityDef waste_monster_berserker
+{
+	"inherit"							"monster_berserker"
+	
+	"model"								"model_waste_berserker"
+	"editor_menu"						"level"
+	
+	"health"							"100"
+}
+

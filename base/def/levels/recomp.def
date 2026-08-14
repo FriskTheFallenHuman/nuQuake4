@@ -1,0 +1,309 @@
+/***********************************************************************************************************************
+Recomp
+
+Unique entities created for recomp
+************************************************************************************************************************/
+
+// -- Specialty Grunt ------------------------------------------------------------------------------------
+
+model model_recomp_monster_grunt
+{
+	inherit												"model_monster_grunt"
+
+	anim recomp_jump									models/monsters/grunt/recomp_pipe.md5anim
+	{
+		//leaping
+		frame	1										event				disableGravity
+		frame	1										event				disableClip
+		frame	1										ai_disablePain
+		frame	1										sound_voice			snd_alert
+
+		//hitting the pipe (har har har)
+		frame	19										sound				snd_pipebend
+
+		//the ground	
+		frame	43										sound				snd_fall_special	
+		//all done
+		frame	43										enableGravity
+		frame	43										enableClip
+	}
+
+	anim ad_grunt_drags									models/monsters/grunt/ad_grunt_drags.md5anim
+	{
+		frame	13,26,38,47,58,69						footstep
+		frame	3,35,56									sound				snd_breathe
+	}
+
+}
+	
+entityDef recomp_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"editor_menu"										"level"
+
+	"model"												"model_recomp_monster_grunt"
+	"snd_pipebend"										"grunt_fence_break"
+	
+	"sg_category"										"None"
+}
+
+// -- Specialty Naked Marine ------------------------------------------------------------------------------------
+
+model model_recomp_sasaki
+{
+	inherit												"model_char_marine_tech"
+
+	anim ad_marine_dragged								models/characters/marine/ad_marine_dragged.md5anim
+	{	
+		frame 1											disableClip
+//		frame 4,6,10,12,18,20,22						ai_attack			fromJoint			MG_muzzle_flash
+//		frame 4,6,10,12,18,20,22						sound_weapon		npc_machinegun_fire
+//		frame 4,6,10,12,18,20,22						fx					fx_base_flash		MG_muzzle_flash
+
+		frame 2											sound				snd_grunt_drag_1
+		frame 60										sound				snd_grunt_drag_2
+
+	}
+
+//	anim recomp_prison_release							models/characters/naked_marine/recomp_prison_release.md5anim
+//	{
+//		frame 220										speak "lipsync_vo_2_2_4_40_1"
+//	}
+	
+	anim weaponless_point_front			models/characters/marine/weaponless_point_front.md5anim
+	anim weaponless_point_up			models/characters/marine/weaponless_point_up.md5anim
+	
+	anim weaponless_idle5_start			models/characters/marine/weaponless_idle5_start.md5anim
+	anim weaponless_idle5_loop			models/characters/marine/weaponless_idle5_loop.md5anim
+	anim weaponless_idle5				models/characters/marine/weaponless_idle5_loop.md5anim
+	anim weaponless_idle5_end			models/characters/marine/weaponless_idle5_end.md5anim
+	
+	anim	recomp_mod_hyper			models/characters/marine/recomp_mod_hyper.md5anim
+	
+	anim console_idle					models/characters/marine/console_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	anim console_exit					models/characters/marine/console_exit.md5anim
+	{
+		ai_look_head_only
+	}
+}
+
+entityDef char_marine_npc_sasaki_recomp
+{
+	"inherit"											"char_marine_tech"
+	"editor_menu"										"char_npc_recomp"
+	"model"												"model_recomp_sasaki"
+
+	"annoyed"											"1"
+
+	"lipsync_vo_2_2_4_30_1"								"vo_2_2_4_30_1"			// "You bastards! Let us go!"
+	"lipsync_vo_2_2_4_30_2"								"vo_2_2_4_30_2"			// "Do you hear me?"
+	"lipsync_vo_2_2_4_30_3"   							"vo_2_2_4_30_3"			// "torch"
+	
+	"lipsync_vo_2_2_4_40_1"								"vo_2_2_4_40_1"			// intro, scared of Kane
+
+//	"lipsync_vo_2_2_4_45_1"								"vo_2_2_4_45_1"			// asking for hyperblaster
+	"lipsync_vo_2_2_4_75_1"								"vo_2_2_4_75_1"			// "Here, let me adjust your nailgun"
+	"lipsync_vo_2_2_4_75_2"								"vo_2_2_4_75_2"			// "Now you can use the sight to zoom in on your targets and the nails will track them."
+
+//	"lipsync_vo_2_2_4_45_2"								"vo_2_2_4_45_2"			// done with modification for hyperblaster
+
+	"lipsync_vo_2_2_4_50_1"								"vo_2_2_4_50_1"			// console intro
+	"lipsync_vo_2_2_4_50_2"								"vo_2_2_4_50_2"			// console part 2
+
+	"lipsync_vo_2_2_4_60_1"								"vo_2_2_4_60_1"			// click once
+	"lipsync_vo_2_2_4_60_2"								"vo_2_2_4_60_2"			// click twice
+	"lipsync_vo_2_2_4_60_3"								"vo_2_2_4_60_3"			// click thrice
+
+	"lipsync_canihelpyou1"								"vo_2_2_4_70_1"			// too close once
+	"lipsync_canihelpyou2"								"vo_2_2_4_70_2"			// too close twice
+	"lipsync_canihelpyou3"								"vo_2_2_4_70_3"			// too close thrice
+}
+
+//---------------------------------------------------
+// recomp_BoomBox
+//
+// Holds a collection of sounds we will play throughout the level
+// This is used to hold sounds we would otherwise have to create brand 
+// new entities for, which is unnecessary
+//
+//---------------------------------------------------
+entityDef recomp_BoomBox
+{
+	"inherit"				"target_null"
+	
+	//here comes the science
+	"editor_usage"			"This holds sounds in the level that only play at specific occasions and aren't worth creating new entities for. We really only need one per level."
+	"editor_menu"			"level"
+	
+	//warning sound that plays at all light alarms
+	"snd_warning"			"recomp_general_alarm"
+	
+	//electric sound of the prison forcefield shutting off
+	"snd_drop_forcefield"	"recomp_prison_open"
+
+	//lights activating in central control room
+	"snd_lights_on"			"recomp_lights_on"
+
+	//light flickery sounds
+	"snd_lights_powerup01"	"recomp_lights_powerup01"
+	"snd_lights_flicker"	"recomp_lights_flicker"
+	"snd_lights_powerup02"	"recomp_lights_powerup02"
+}
+
+//grunt pipe jump
+export smashing_pipe
+{
+	options -prefix RCMP_ -align ALL -scale .3937 -sourcedir work/models/monsters/Grunt/animations/ 	-destdir models/levels/recomposition
+
+
+	mesh gnt_recomp_level.ma					-dest grunt_jumping
+	anim gnt_recomp_level_one_frame_idle.ma		-dest grunt_jumping_idle
+	anim gnt_recomp_level.ma					-dest grunt_jumping_smash
+}
+
+entityDef env_smashing_pipe
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"bending pipe for smashing in Recomp"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"model_smashing_pipe"
+	"anim"							"idle"
+	
+	"combatModel"					"1"
+}
+
+model model_smashing_pipe
+{
+	mesh					models/levels/recomposition/grunt_jumping.md5mesh
+	anim idle				models/levels/recomposition/grunt_jumping_idle.md5anim
+	anim smash				models/levels/recomposition/grunt_jumping_smash.md5anim
+}
+
+//tactical transfer chain to rappel down.
+export recomp
+{
+	options -prefix CHAIN_  -scale 1.33	
+	mesh	work/models/monsters/Tactical_Transfer/nick_animations/RECOMP_TEST.ma			-dest models/levels/recomposition/recomp_chain_mesh
+	anim	work/models/monsters/Tactical_Transfer/nick_animations/RECOMP_chain_idle.ma			-dest models/levels/recomposition/recomp_chain_idle
+	anim	work/models/monsters/Tactical_Transfer/nick_animations/RECOMP_chain_rappel.ma	-dest models/levels/recomposition/recomp_chain_rappel
+}
+
+//chain model def
+model model_recomp_chain
+
+{
+	mesh							models/levels/recomposition/recomp_chain_mesh.md5mesh
+	anim idle					models/levels/recomposition/recomp_chain_idle.md5anim
+	anim chain_rappel				models/levels/recomposition/recomp_chain_rappel.md5anim
+}
+
+//chain entity def
+entityDef recomp_chain
+{
+	"editor_menu"										"level"
+
+	"editor_mins"			"-4 -4 0"
+	"editor_maxs"			"4 4 960"
+
+	"editor_usage"										"Chain"
+	"spawnclass"										"idAnimated"
+	"model"												"model_recomp_chain"
+	"start_anim"										"idle"
+	"anim"												"down"
+}
+
+//lt tank cinematic - lt tank def
+model model_recomp_monster_lt_tank
+{
+	inherit												"model_monster_lt_tank"
+	anim cinematic_lttank								models/monsters/lt_tank/recomp_lttank_cinematic.md5anim
+	{
+		frame	67										sound	snd_victory
+		frame	117,155									sound	snd_growl
+		frame	119,152									sound	snd_mace_swing
+		frame	122,154										sound	lt_tank_mace_impact
+		frame	121,155										sound	generic_barrel_impact
+		
+	}
+}
+entityDef recomp_monster_lt_tank
+{
+	"inherit"											"monster_lt_tank"
+	"editor_menu"										"level"
+
+	"model"												"model_recomp_monster_lt_tank"
+	"sg_category"										"None"
+	
+	"lipsync_sight"					"lt_tank_alert"	
+	"lipsync_rush"					"lt_tank_rush"
+	"lipsync_victory"				"lt_tank_victory"
+	
+	"snd_breathe"					"lt_tank_breath"					
+	"snd_growl"						"lt_tank_growl"						
+	"snd_gear"						"lt_tank_gear"
+	"snd_victory"					"lt_tank_victory"
+	
+	"snd_footstep"					"lt_tank_stomp"	
+	"snd_footstep_sand"				"lt_tank_stomp"
+	"snd_footstep_dirt"				"lt_tank_stomp"
+	"snd_footstep_hollowmetal"		"lt_tank_stomp"
+	"snd_footstep_rock"				"lt_tank_stomp"
+	"snd_beep"						"lt_tank_beeps"
+					
+	"snd_pain"						"lt_tank_pain"
+	"snd_death"						"lt_tank_die"							
+	"snd_mace_swing"				"lt_tank_mace_swing"
+	"snd_flame_start"				"lt_tank_flame_start"
+	"snd_flame_whoosh"				"lt_tank_flame_whoosh"
+	"snd_powerup_start"				"lt_tank_powerup_start"
+	"snd_powerup_loop"				"lt_tank_powerup_loop"
+	"snd_powerup_end"				"lt_tank_powerup_end"
+	"snd_blaster_fire"				"smarine_gun"
+}
+
+//lt tank cinematic - kane def
+model model_recomp_character_kane
+{
+	inherit												"model_char_kane_strogg"
+	anim cinematic_kane									models/characters/marine/recomp_kane.md5anim
+	{
+	frame 1											disableClip
+	}
+}
+entityDef recomp_character_kane
+{
+	"inherit"											"char_kane_strogg"
+	"editor_menu"										"level"
+	"model"												"model_recomp_character_kane"
+	"sg_category"										"None"
+}
+
+//lt tank cinematic - strogg marine
+model model_recomp_monster_strogg_marine
+{
+	inherit												"model_monster_strogg_marine"
+	anim cinematic_strogg_marine						models/monsters/strogg_marine/recomp_strogg_cinematic.md5anim
+	{
+		frame 1											disableClip
+		frame 124										fx	fx_blood	forhead
+	}
+}
+
+entityDef recomp_monster_strogg_marine
+{
+	"inherit"											"monster_strogg_marine"
+	"editor_menu"										"level"
+
+	"model"												"model_recomp_monster_strogg_marine"
+	"sg_category"										"None"
+	
+	"fx_blood"											"effects/monsters/gib.fx"
+}

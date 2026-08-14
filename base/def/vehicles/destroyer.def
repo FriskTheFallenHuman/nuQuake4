@@ -1,0 +1,62 @@
+/***********************************************************************
+DESTROYER
+***********************************************************************/
+
+export destroyer
+{
+	options -scale .3937 -prefix DESTROYER_ -align ALL -sourcedir work/models/vehicles/destroyer   -destdir models/vehicles/destroyer
+	
+	mesh idle.ma			-dest destroyer
+	anim idle.ma			-dest idle
+	anim test.ma			-dest test
+	
+	options -scale .3937 -prefix DESTROYER: -align ALL -sourcedir work/models/cinematics/GAME_INTRO   -destdir models/vehicles/destroyer
+	
+	anim intro_level_ships.ma		-range 1097 1570 -dest intro
+	
+	
+	options -scale .3937 -prefix DESTROYER_ -align ALL -sourcedir work/models/cinematics/GAME_INTRO   -destdir models/vehicles/destroyer
+	anim outro_space_level.ma		-dest outro_space_destroyers
+	
+}
+
+model model_destroyer
+{
+	mesh					models/vehicles/destroyer/destroyer.md5mesh
+	
+	anim idle				models/vehicles/destroyer/idle.md5anim
+	anim test				models/vehicles/destroyer/test.md5anim
+	anim intro				models/vehicles/destroyer/intro.md5anim
+	{
+		frame 1				fx		fx_thruster_l		joint41		
+		frame 1				fx		fx_thruster_s		joint41		
+		frame 38			fx		fx_ship_warp		joint36
+		
+		frame 1				fx		fx_thruster_l		joint30		
+		frame 1				fx		fx_thruster_s		joint30		
+		frame 11			fx		fx_ship_warp		joint62
+		
+		frame 1				fx		fx_thruster_l		joint11		
+		frame 1				fx		fx_thruster_s		joint11		
+		frame 23			fx		fx_ship_warp		joint5
+	}
+}
+	
+entityDef env_destroyer
+{
+	"editor_usage"				"animated_destroyer"
+	"editor_color"				"0 .75 .25"
+	"editor_mins"				"-32 -32 0"
+	"editor_maxs"				"32 32 16"
+
+	"spawnclass"				"idAnimated"
+
+	"model"						"model_destroyer"
+	"anim"						"idle"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_thruster_l"				"effects/cinematics/intro/ship_thruster.fx"
+	"fx_thruster_s"				"effects/cinematics/intro/ship_thruster_sm.fx"
+	
+	"fx_ship_warp"				"effects/cinematics/intro/ship_warp.fx"
+}

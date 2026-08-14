@@ -1,0 +1,400 @@
+/***********************************************************************************************************************
+MCC Landing
+
+Unique entities created for the mcc_landing level
+************************************************************************************************************************/
+
+// Strogg marine getting up from the chair
+model mcclanding_model_monster_strogg_marine
+{
+//	inherit				model_monster_strogg_marine
+	// um, you need to inherit from the one that has the anims we need. ;)
+	// curses, so I do! -aw
+	inherit				monster_strogg_marine_blaster
+
+	anim big_gun_chair_getup	models/monsters/strogg_marine/big_gun_chair_getup.md5anim
+	{
+		frame 1				disableGravity
+		frame 1				disableClip
+		frame 23			enableGravity
+		frame 23			enableClip
+		
+	}
+	anim big_gun_chair_idle		models/monsters/strogg_marine/big_gun_chair_idle.md5anim
+	{
+		frame 1				disableGravity
+		frame 1				disableClip
+	}
+	
+}
+
+entityDef mcclanding_monster_strogg_marine
+{
+	"inherit"						"monster_strogg_marine"
+	"editor_menu"						"level"
+	
+	"model"							"mcclanding_model_monster_strogg_marine"
+}
+
+// Custom mcc_landing marine
+
+model mcclanding_model_char_marine	
+{
+	inherit								model_char_marine
+	/*
+	anim 	ad_sgt_holding_wounded					models/characters/marine/ad_sgt_holding_wounded.md5anim
+	{
+		ai_look_head_only
+		frame 1						disableEyeFocus
+		frame 60					enableEyeFocus
+	}
+	*/
+	
+	// Forcing these anims onto this entity
+	anim 	idle_wrist_gui_start					models/characters/marine/idle_wrist_gui_start.md5anim
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end					models/characters/marine/idle_wrist_gui_end.md5anim
+	
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+	
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_gear
+		frame	42						sound	snd_gun_ready 
+	}
+	
+	anim working_wall_panel				models/characters/marine/working_wall_panel.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim idle_scan_2					models/characters/marine/idle_scan_2.md5anim
+	
+	anim	player_gift_start					models/characters/marine/player_gift_start.md5anim					
+	anim	player_gift_loop					models/characters/marine/player_gift_loop.md5anim			
+	anim	player_gift_end						models/characters/marine/player_gift_end.md5anim
+	
+	anim	player_gift2_start					models/characters/marine/player_gift2_start.md5anim					
+	anim	player_gift2_loop					models/characters/marine/player_gift2_loop.md5anim			
+	anim	player_gift2_end					models/characters/marine/player_gift2_end.md5anim	
+		
+	/*
+	anim ad_wounded_on_knee				models/characters/marine/ad_wounded_on_knee.md5anim
+	{
+		ai_look_head_only
+	}
+	*/
+	anim ad_wounded_on_knee_loop		models/characters/marine/ad_wounded_on_knee_loop.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim idle_stretching_3				models/characters/marine/idle_stretching_3.md5anim
+	
+	anim waving_down_tram				models/characters/marine/waving_down_tram.md5anim
+	
+	anim	cowering_start				models/characters/marine/cowering_start.md5anim
+	anim	cowering_idle				models/characters/marine/cowering_idle.md5anim
+	anim	cowering_end				models/characters/marine/cowering_end.md5anim
+	
+	anim	use_gui_standing_start			models/characters/marine/standing_gui_start.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_loop			models/characters/marine/standing_gui_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_end			models/characters/marine/standing_gui_end.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+	
+	anim	mcc_rail_vault				models/characters/marine/mcc_rail_vault.md5anim
+	{
+		ai_no_look
+		frame 1						disableClip
+		frame 1						disableGravity
+		frame 48					enableGravity
+		frame 48					enableClip
+	}
+	
+	anim thinking					models/characters/doctor/thinking.md5anim	
+	
+	anim roadblock_02						models/characters/marine/roadblock_02.md5anim			
+	
+	anim	looking_down_gui_1						models/characters/marine/looking_down_gui_1.md5anim
+	{
+		frame	1,10,18,29,37							sound	npc_gui_button
+	}
+	
+	anim crouch_to_stand_scripted						models/characters/marine/knee_to_idle.md5anim
+	
+	anim weapon_check_1					models/characters/marine/weapon_check_1.md5anim
+	{
+		frame	37,53						sound	snd_gear
+	}
+}
+
+model mcclanding_model_char_marine_hyperblaster
+{
+	inherit							mcclanding_model_char_marine
+}
+
+// modelDef for mcc_landing medic
+model mcclanding_model_char_marine_medic
+{
+	inherit							mcclanding_model_char_marine
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+}
+
+// ModelDef for mcc_landing tech
+model mcclanding_model_char_marine_tech
+{
+	inherit							mcclanding_model_char_marine
+	mesh							models/characters/marine_tech/marine_tech.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+// Custom marine for mcc_landing
+entityDef mcclanding_char_marine
+{
+	"inherit"					"char_marine"
+	
+	"model"						"mcclanding_model_char_marine"
+	"editor_usage"					"Custom marine for mcc_landing."
+	
+	"editor_menu"					"level"
+}
+
+// Custom medic for mcc_landing
+entityDef mcclanding_char_marine_medic
+{
+	"inherit"					"char_marine_medic_armed"
+	
+	"model"						"mcclanding_model_char_marine_medic"
+	"editor_usage"					"Custom medic for mcc_landing."
+	
+	"editor_menu"					"level"
+}
+
+// Custom tech for mcc_landing
+entityDef mcclanding_char_marine_tech
+{
+	"inherit"					"char_marine_tech_armed"
+	
+	"model"						"mcclanding_model_char_marine_tech"
+	"editor_usage"					"Custom tech for mcc_landing."
+	
+	"editor_menu"					"level"
+}
+
+// Custom tech for mcc_landing
+entityDef mcclanding_char_marine_tech_unarmed
+{
+	"inherit"					"char_marine_tech"
+	
+	"model"						"mcclanding_model_char_marine_tech"
+	"editor_usage"					"Custom tech for mcc_landing."
+	
+	"editor_menu"					"level"
+}
+
+
+entityDef mcclanding_char_marine_voss
+{
+	"inherit"											"char_marine_hyperblaster"
+	"model"												"mcclanding_model_char_marine_hyperblaster"
+
+	"editor_menu"											"level"
+	"def_head"											"char_marinehead_voss"
+
+	// 	description	"...enjoying your first day"
+	"lipsync_vo_1_2_9_10_1"								"vo_1_2_9_10_1"
+	"lipsync_vo_1_2_9_10_2"								"vo_1_2_9_10_2"
+	"lipsync_vo_1_2_9_10_3"								"vo_1_2_9_10_3"
+
+	// use Voss	"Find a way to open this door."
+	"lipsync_talk_primary"								"vo_1_2_9_12_1"
+	"lipsync_talk_secondary"							"vo_1_2_9_12_2"
+	"lipsync_talk_loop1"								"vo_1_2_9_12_3"
+
+	// Door opens.	"Good job."
+	"lipsync_vo_1_2_9_14_1"								"vo_1_2_9_14_1"
+
+	// "Let's blow it to hell"
+	"lipsync_vo_1_2_9_25_1"								"vo_1_2_9_25_1"
+	"lipsync_vo_1_2_9_25_2"								"vo_1_2_9_25_1"
+
+	// Destroy the door with air defense cannon
+	"lipsync_vo_1_2_9_30_1"								"vo_1_2_9_30_1"
+	"lipsync_vo_1_2_9_30_2"								"vo_1_2_9_30_2"
+	"lipsync_vo_1_2_9_30_3"								"vo_1_2_9_30_3"
+
+	// "Nice shootin'"
+	"lipsync_vo_1_2_9_40_1"								"vo_1_2_9_40_1"
+	"lipsync_vo_1_2_9_40_2"								"vo_1_2_9_40_2"
+	"lipsync_vo_1_2_9_40_4"								"vo_1_2_9_40_4"
+
+	//too close, for locked door
+	"lipsync_canihelpyou1"								"vo_1_2_9_12_1"
+	"lipsync_canihelpyou2"								"vo_1_2_9_12_2"
+	"lipsync_canihelpyou3"								"vo_1_2_9_12_3"
+
+	//too close, for landing zone
+	"lipsync_canihelpyou4"								"vo_1_2_9_50_1"
+	"lipsync_canihelpyou5"								"vo_1_2_9_50_2"
+	"lipsync_canihelpyou6"								"vo_1_2_9_50_3"
+
+}
+
+
+// Projectiles for the MCC
+entityDef projectile_mcc_ship_rocket
+{
+	"spawnclass"				"idProjectile"
+	"mins"						"-2 -2 -2"
+	"maxs"						"2 2 2"
+	"cone"						"1"
+	"noshadows"					"1"
+
+	"model"						"models/weapons/nailgun/nail.ase"
+
+	"def_damage"				"damage_walker_rocket"
+	"def_splash_damage"			"damage_walker_rocket_splash"
+											
+	"decal_scale"				"8"											
+																
+	"velocity"					"5000 0 0"
+	"mass"						"6"
+	"gravity"					"0"
+	"fuse"						"6"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"1"
+								
+	"impact_gib"				"1"
+								
+	"decal_bounce"				""
+	"decal_size"				"8"
+
+	"fx_trail"					"effects/vehicles/walker/rocket/trail.fx"
+	"fx_fly"					"effects/vehicles/walker/rocket/fly.fx"
+	"fx_detonate"				"effects/vehicles/walker/rocket/detonate.fx"
+
+	"fx_impact"					"effects/vehicles/walker/rocket/impact.fx"
+	"fx_impact_rock"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_dirt"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_sand"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_gravel"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_concrete"		"effects/vehicles/walker/rocket/impact_rock.fx"
+
+	"light_shader"				""
+	"light_color"				"0 0 0"
+	"light_radius"				"0"
+	"light_offset"				"0 0 0"
+
+	"detonate_light_shader"		""
+	"detonate_light_color"		"0 0 0"
+	"detonate_light_radius"		"0"
+	"detonate_light_removetime"	"0"	
+}
+
+// New entityDef for new ship blast in mcc_landing
+entityDef projectile_mcc_ship_blast
+{
+	"spawnclass"				"idProjectile"
+	"mins"						"-32 -32 -32"
+	"maxs"						"32 32 32"
+	"cone"						"1"
+	"noshadows"					"1"
+
+	//"model"						"models/weapons/nailgun/nail.ase"
+
+	"def_damage"				"damage_mcc_ship_blast"
+												
+	"decal_scale"				"8"											
+																
+	"velocity"					"5000 0 0"
+	"mass"						"6"
+	"gravity"					"0"
+	"fuse"						"6"
+								
+	"detonate_on_fuse"			"0"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"1"
+								
+	"impact_gib"				"1"
+
+	"fx_fly"				"effects/levels/convoy/bolt.fx"
+	"fx_detonate"				"effects/levels/convoy/explosion.fx"
+
+	"fx_impact"				"effects/levels/convoy/explosion.fx"
+	
+	"light_shader"				""
+	"light_color"				"0 0 0"
+	"light_radius"				"0"
+	"light_offset"				"0 0 0"
+
+	"detonate_light_shader"		""
+	"detonate_light_color"		"0 0 0"
+	"detonate_light_radius"		"0"
+	"detonate_light_removetime"	"0"	
+}
+
+entityDef damage_mcc_ship_blast
+{
+	"inherit"			"damage_bullet"
+	"damage"			"2"
+	"filter_mcc"			"1"
+	
+}

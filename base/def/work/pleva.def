@@ -1,0 +1,75 @@
+/***********************************************************************
+
+char_gunner
+
+***********************************************************************/
+
+/*
+export pleva {
+	options -prefix GUN_ -align ALL
+	mesh	final/models/monsters/gunner/animations/sceneAnimTest4.ma -dest models/monsters/gunner/gunnermedlab
+	anim	final/models/monsters/gunner/animations/sceneAnimTest4.ma -dest models/monsters/gunner/medlab
+//      anim	models/gunner/punch.ma -dest models/monsters/gunner/gunner/punch
+
+}
+
+entityDef char_gunner_medlab {
+	"inherit"						"char_default"
+	"size"							"40 40 90"
+	"use_aas"						"aas96"
+	"team"							"1"
+	"rank"							"4"
+	"health"						"40"
+	"melee_damage" 					"20"
+	"melee_range"					"64"
+	"projectile"					"projectile_bullet"
+	"leap_range"					"480"
+	"leap_rate"					"8"
+	"missile_range_min"				"64"
+	"missile_range_max"				"1024"
+	"run_range"					"320"
+	"head_look"					"0"
+	"anim_states"					"def/monster.state"
+
+	"model"					"models/monsters/gunner/gunnermedlab.md5mesh"
+
+//	"channel torso"					"*origin"
+//	"channel legs"					"*hip_joint"
+
+	"anim medlab"			    "models/monsters/gunner/medlab.md5anim"
+	
+	"snd_footstep"			"gunner_steps"	
+	"snd_closegun"			"armgun_close"
+	"snd_guilong"				"gui_sounds"      // plays random longer sound
+	"snd_guishort"			"guisound_beep2"  //plays random shorter sound	
+}
+
+
+entityDef env_gunner_medlab
+{
+	"spawnclass"					"idMover"								
+
+	"model"					"models/monsters/gunner/gunnermedlab.md5mesh"
+	"anim medlab"			        "models/monsters/gunner/gunner/medlab.md5anim"
+}
+
+export pleva
+{
+	options -keep camera1 camera2 camera3 -nomesh 
+	mesh	final/models/misc/cameras/cameratest4.ma -dest models/misc/cameras/cameratest
+	anim	final/models/misc/cameras/cameratest4.ma -dest models/misc/cameras/cin_pleva1
+}
+
+entityDef cin_pleva1_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"			"idCameraAnim"
+
+	"model"						"models/misc/cameras/cameratest.md5mesh"
+	"anim borscht"				"models/misc/cameras/cin_pleva1.md5anim"
+	
+}
+*/

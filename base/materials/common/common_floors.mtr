@@ -1,0 +1,178 @@
+//Common floor shaders
+
+guide textures/common_floors/c_floor_4a generic_shader("common_floors/c_floor_4a")
+
+guide textures/common_floors/mp_floor_6 generic_shader("common_floors/mp_floor_6")
+
+guide textures/common_floors/floor1_1 generic_shader("common_floors/floor1_1")
+guide textures/common_floors/floor1_1a generic_shader("common_floors/floor1_1a")
+guide textures/common_floors/floor1_2 generic_shader("common_floors/floor1_2")
+guide textures/common_floors/floor1_2a generic_shader("common_floors/floor1_2a")
+textures/common_floors/floor1_3
+{
+	qer_editorimage textures/common_floors/floor1_3_d.tga
+	bumpMap addnormals ( textures/common_floors/floor1_1_local.tga, heightmap ( textures/common_floors/floor1_3_h.tga, 1 ) )
+	diffusemap	textures/common_floors/floor1_3_d.tga
+	specularmap	textures/common_floors/floor1_3_s.tga
+}
+
+guide textures/common_floors/floor3_1 generic_shader2sidedalpha("common_floors/floor3_1")
+
+// Adding a one-sided version of floor3_1 as seen in Core. Please fix guide
+// (or lack thereof) if necessary - AW
+
+textures/common_floors/floor3_1_onesided
+{	
+
+	qer_editorimage textures/common_floors/floor3_1_d
+	noshadows
+	
+	bumpmap addnormals (textures/common_floors/floor3_1_local, heightmap (textures/common_floors/floor3_1_h, 1 ) )
+	specularmap	textures/common_floors/floor3_1_s
+
+	{       
+     	blend		diffusemap 
+		map			textures/common_floors/floor3_1_d.tga
+		alphaTest	.5
+	}
+
+}
+
+guide textures/common_floors/floor4_1 generic_shader("common_floors/floor4_1")
+guide textures/common_floors/floor4_2 generic_shader("common_floors/floor4_2")
+guide textures/common_floors/floor5_1 generic_shader("common_floors/floor5_1")
+guide textures/common_floors/floor5_2 generic_shader("common_floors/floor5_2")
+guide textures/common_floors/floor5_3 generic_shader("common_floors/floor5_3")
+guide textures/common_floors/floortrench1_1 generic_shader("common_floors/floortrench1_1")
+guide textures/common_floors/floortrim2_1 generic_shader("common_floors/floortrim2_1")
+
+
+textures/common_floors/c_floor_1b
+{
+	qer_editorimage textures/common_floors/c_floor_1b_d.tga
+	bumpMap addnormals ( textures/common_floors/c_floor_1_local.tga, heightmap ( textures/common_floors/c_floor_1_h.tga, 1 ) )
+	diffusemap	textures/common_floors/c_floor_1b_d.tga
+	specularmap	textures/common_floors/c_floor_1_s.tga
+
+}
+
+guide textures/common_floors/steptop16 generic_shader("common_floors/steptop16")
+guide textures/common_floors/steptop16a generic_shader("common_floors/steptop16a")
+guide textures/common_floors/steptop16b generic_glow("common_floors/steptop16b","common_floors/steptop16b_g")
+guide textures/common_floors/steptop16c generic_glow("common_floors/steptop16c","common_floors/steptop16c_g")
+guide textures/common_floors/c_steptop16 generic_shader("common_floors/c_steptop16")
+
+guide textures/common_floors/floor_06a generic_alpha_mi("common_floors/floor_06a")
+guide textures/common_floors/c2_ceiling_2 generic_shader("common_floors/c2_ceiling_2")
+
+
+guide textures/common_floors/c_ceiling_1 generic_materialimageshader("common_floors/c_ceiling_1")
+guide textures/common_floors/c_ceiling_2 generic_shader("common_floors/c_ceiling_2")
+guide textures/common_floors/c_floor_1 generic_shader("common_floors/c_floor_1")
+guide textures/common_floors/c_floor_1a generic_alphaNoShadow2S("common_floors/c_floor_1a")
+guide textures/common_floors/c_floor_3 generic_shader("common_floors/c_floor_3")
+guide textures/common_floors/c_floor_grid1 generic_shader("common_floors/c_floor_grid1")
+guide textures/common_floors/c_floor_4b generic_shader("common_floors/c_floor_4b")
+guide textures/common_floors/c_floor_4c generic_shader("common_floors/c_floor_4c")
+guide textures/common_floors/c_p4_ceiling_1 generic_materialimageshader("common_floors/c_p4_ceiling_1")
+guide textures/common_floors/c_p4_floor_1 generic_materialimageshader("common_floors/c_p4_floor_1")
+guide textures/common_floors/c_4floor_1 generic_materialimageshader("common_floors/c_4floor_1")
+guide textures/common_floors/c_4floor_1b generic_materialimageshader("common_floors/c_4floor_1b")
+guide textures/common_floors/c_warningstrip32t generic_materialimageshader("common_floors/c_warningstrip32t")
+guide textures/common_floors/c_ceiling_3 generic_shader("common_floors/c_ceiling_3")
+
+// took this out of a generic template so I could change the editor image to something easier to align in the editor - Jersey
+
+
+textures/common_floors/c_beam
+
+{
+	qer_editorimage textures/common_floors/c_beam_local.tga
+
+
+	bumpmap addnormals ( textures/common_floors/c_beam_local.tga, heightmap ( textures/common_floors/c_beam_h.tga, 1 ) )
+	diffusemap	textures/common_floors/c_beam_d.tga
+	specularmap	textures/common_floors/c_beam_s.tga
+
+}
+
+
+textures/common_floors/c_floor_1a_onesided
+{
+	qer_EditorImage		textures/common_floors/c_floor_1a_d.tga
+	materialImage textures/common_floors/c_floor_1a_hit
+	noShadows
+	bumpMap			addnormals (textures/common_floors/c_floor_1a_local.tga, heightmap (textures/common_floors/c_floor_1a_h.tga, 1))
+	specularMap		textures/common_floors/c_floor_1a_s.tga
+	
+	{
+	blend diffuseMap
+	map		textures/common_floors/c_floor_1a_d.tga
+	alphaTest .5
+	}
+}
+
+textures/common_floors/floor_06a_shoot_through
+{
+	nonsolid
+	playerclip
+	translucent
+	noshadows
+	twosided
+	qer_editorimage	textures/common_floors/floor_06a_d.tga
+	materialimage	textures/common_floors/floor_06a_hit.tga
+	
+	bumpmap		addnormals ( textures/common_floors/floor_06a_local.tga, heightmap ( textures/common_floors/floor_06a_h.tga, 1 ) )
+	specularmap	textures/common_floors/floor_06a_s.tga
+
+	{       
+      		blend		diffusemap 
+		map		textures/common_floors/floor_06a_d.tga
+		alphaTest	.5
+	}
+}
+
+
+textures/common_floors/floor_06a_ut
+{
+	nonSolid
+	noShadows
+	twoSided
+	unSmoothedTangents
+	qer_editorimage	textures/common_floors/floor_06a_d.tga
+	
+	materialImage	textures/common_floors/floor_06a_hit.tga
+	
+	bumpmap		addnormals ( textures/common_floors/floor_06a_local.tga, heightmap ( textures/common_floors/floor_06a_h.tga, 1 ) )
+	specularmap	textures/common_floors/floor_06a_s.tga
+
+	{       
+      	blend		diffusemap 
+		map		textures/common_floors/floor_06a_d.tga
+		alphaTest	.5
+	}
+}
+textures/common_floors/floor4_2_ut
+
+{
+	qer_editorimage textures/common_floors/floor4_2_d.tga
+	unSmoothedTangents
+
+
+	bumpmap addnormals ( textures/common_floors/floor4_2_local.tga, heightmap ( textures/common_floors/floor4_2_h.tga, 1 ) )
+	diffusemap	textures/common_floors/floor4_2_d.tga
+	specularmap	textures/common_floors/floor4_2_s.tga
+
+}
+
+textures/common_floors/floortrench1_1_ut
+
+{
+	qer_editorimage textures/common_floors/floortrench1_1_d.tga
+	unSmoothedTangents
+
+	bumpmap addnormals ( textures/common_floors/floortrench1_1_local.tga, heightmap ( textures/common_floors/floortrench1_1_h.tga, 1 ) )
+	diffusemap	textures/common_floors/floortrench1_1_d.tga
+	specularmap	textures/common_floors/floortrench1_1_s.tga
+
+}

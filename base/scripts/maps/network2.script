@@ -1,0 +1,955 @@
+#include "scripts/maps/network/boss_networkguardian.script"
+
+//-------------------------------------------------------------------------------
+// Network2
+//-------------------------------------------------------------------------------
+namespace map_network2
+{
+float fenceState = 1;
+
+void	entityColorChange(entity e, vector v);
+//-------------------------------------------------------------------------------
+// void entityColorChange()
+//
+// Changes the color of an entity list.
+//
+// mekberg | Nov 2004	grabbed from building_b.script (mrenner)
+//-------------------------------------------------------------------------------
+void entityColorChange(entity e, vector v)
+{
+	float i;
+
+	// Go through all targets.
+	for(i = 0; i < e.numTargets(); i++)
+	{
+		e.getTarget(i).setColor(v_x, v_y, v_z);
+	}
+
+} //-------------- End void entityColorChange ---------------
+
+void killFence()
+{
+	if (fenceState = 1) {
+		$stc_guardian_fence.remove();
+		$ng_laserlight.remove();
+		fenceState = 0;
+	}
+}
+
+void mainBeam()
+{
+	while(1)
+	{
+		sys.trigger($beamWhite);
+		sys.trigger($beamBlastInf);
+		sys.trigger($beamBlastLight);
+		sys.trigger($distortTop);
+		$beamBlastFlare.show();
+		setNewTimes( $beamBlast, 5 , 1 , 0 );
+		$beamBlast.moveTo( $target_null_80 );
+		sys.wait(3);
+		sys.trigger($beamBlue);
+		sys.waitFor($beamBlast);
+		sys.trigger($beamBlastFx);	// off		
+		
+		$beamBlastFlare.hide();		
+		sys.trigger($beamBlastLight);
+		setNewTimes( $beamBlast, .1 , 0 , 0 );
+		$beamBlast.moveTo( $func_static_53945 );
+		sys.waitFor($beamBlast);
+		sys.wait(.4);
+		sys.trigger($beamBlastFx);	// on
+	}
+}
+
+void beamFlare(entity mover, entity light, entity flare)
+{
+	setNewTimes( mover, .1 , 0 , 0 );
+	mover.moveTo( $func_static_53945 );
+	sys.waitFor(mover);
+	
+	while(1)
+	{
+		sys.trigger( light );
+		sys.trigger($distortTop);
+		sys.trigger($kafoomTop);
+		flare.show();
+		setNewTimes( mover, 2 , 1 , 0 );
+		mover.moveTo( $target_null_80 );
+		sys.waitFor(mover);
+		
+		flare.hide();		
+		sys.trigger(light);
+		setNewTimes( mover, .1 , 0 , 0 );
+		mover.moveTo( $func_static_53945 );
+		sys.waitFor(mover);
+	}
+}
+
+void mainBeamFull()
+{
+//	sys.trigger($beamFullPower);
+
+//	now with more func_fx
+	sys.trigger($bigThinBeam); // off
+	sys.trigger($bigFatBeam); // on
+
+	sys.trigger($light_7726);
+	sys.trigger($light_7736);
+	sys.trigger($light_7725);
+	sys.trigger($light_7734);
+	sys.trigger($light_7728);
+	sys.trigger($light_7729);
+	sys.trigger($light_7733);
+	sys.trigger($light_7737);
+	sys.trigger($light_8184);
+
+	sys.trigger($beamBlastLight_11);
+	sys.trigger($beamBlastLight_12);
+
+	entityColorChange($light_7724, '1 1 1');	// fog
+	entityColorChange($func_fx_81, '1 1 1');
+
+//	$whiteBeam.show();
+
+	$level_lasercoupling_1.playCycle(ANIMCHANNEL_ALL, "spin_loop");
+	
+	thread beamFlare($beamBlast_1, $beamBlastLight_1, $beamBlastFlare_1);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_2, $beamBlastLight_2, $beamBlastFlare_2);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_3, $beamBlastLight_3, $beamBlastFlare_3);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_4, $beamBlastLight_4, $beamBlastFlare_4);
+/*
+
+	sys.wait(.5);
+	thread beamFlare($beamBlast_5, $beamBlastLight_5, $beamBlastFlare_5);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_6, $beamBlastLight_6, $beamBlastFlare_6);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_7, $beamBlastLight_7, $beamBlastFlare_7);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_8, $beamBlastLight_8, $beamBlastFlare_8);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_9, $beamBlastLight_9, $beamBlastFlare_9);
+	sys.wait(.5);
+	thread beamFlare($beamBlast_10, $beamBlastLight_10, $beamBlastFlare_10);
+	sys.wait(.5);
+*/
+}
+
+void bustedDoorGreen()
+{
+	$func_static_14844.setShaderParm(7, 1);
+	$func_static_14843.setShaderParm(7, 1);
+	$upper_busted_door.setShaderParm(7, 1);
+}
+void bustedDoorRed()
+{
+	$func_static_14844.setShaderParm(7, 0);
+	$func_static_14843.setShaderParm(7, 0);
+	$upper_busted_door.setShaderParm(7, 0);
+}
+void busted_door()
+{
+	float bustedAvg = 1;
+	float bustedMove;
+	$upper_busted_door.speed(30);
+
+	while(1)
+	{
+		bustedMove = sys.random(12);
+		if (bustedAvg > 0) {
+			$upper_busted_door.move(UP, bustedMove);
+			bustedDoorGreen();
+			bustedAvg = bustedAvg - bustedMove; 
+		} else {
+			$upper_busted_door.move(DOWN, bustedMove);
+			bustedDoorRed();
+			bustedAvg = bustedAvg + bustedMove; 
+		}
+		sys.waitFor($upper_busted_door);
+		sys.wait(sys.random(3));
+	}
+}
+
+void roofBattleSetup()
+{
+	sys.killthread("map_network2::randomPodCrash");
+
+	// lock the door behind the player
+	$func_static_11558.setShaderParm(7, 0);
+	$func_static_11557.setShaderParm(7, 0);
+	$func_door_2.setShaderParm(7, 0);
+	$func_door_2.lock(1);
+	
+	// hide the main shaft beam.
+	$func_static_53939.hide();
+	$func_static_53940.hide();
+	$func_static_53945.hide();
+}
+
+void endLevel()
+{
+	////sys.println("He's dead!");
+	thread networkGuardian_cleanup();
+	$func_static_11558.setShaderParm(7, 1);
+	$func_static_11557.setShaderParm(7, 1);
+	$func_door_2.setShaderParm(7, 1);
+	$func_door_2.lock(0);
+
+	//remove the wall stopping the player from turning the beam on
+	thread killFence();
+	
+	$tgr_roof_touch.remove();
+	
+	$guardianMusic.fadeSound(SND_CHANNEL_ANY, -80, 5);
+	sys.wait(6);
+	$guardianMusic.remove();
+}
+
+void straussTeleporter()
+{
+	// "I won't ask what took so long."
+	radioChatterPlayWait ($straussRadio_1, "");
+	
+	sys.trigger($item_objective_2);	
+}
+
+// -------------------
+// This is the most evil hack ever perpetrated upon modern game design:
+//
+// The beam doesn't fire far enough to still appear to hit the top of the core tower,
+// because the beam is locked in place but the skybox moves with the player.
+//
+// This loop gets the player's position and moves the target point of the beam effect
+// to compensate, so that the end point is always over the apparent top of the core tower.
+// mbreit | aug 05
+// -------------------
+void beamParallax() {
+	vector pOrg;
+	vector cOrg = '-1 0.0234375 0.56875';	// vector to core tower top, x-normalized
+	vector nOrg;
+	float a;
+	while (1) {
+		pOrg = $player1.getWorldOrigin() + '0 0 68';	// eye height (standing)
+		a = (pOrg_x + 19700); 	// beam fx stop drawing at ~19700 x, so measure x distance
+					// from player. without sky caulk this would be the exact 
+					// x coordinate of the wall instead (where the beam clips off)
+		nOrg = cOrg * a + pOrg;		// multiply core vector to full distance so we're at the end of the beam
+		$null_beamTarget.setWorldOrigin( nOrg );	// point the emitter here
+	//	//sys.println("Origin set to" + nOrg_x + " " + nOrg_y + " " + nOrg_z + ".");
+		sys.waitFrame();	// rinse, repeat
+	}
+}
+
+void beamSetup()
+{
+	$beam_rail_north.time(.1);
+	$beam_rail_south.time(.1);
+	$beam_rail_north.move( DOWN,992 );
+	$beam_rail_south.move( DOWN,992 );
+
+	$beam_satellite.time(.1);
+	$beam_satellite.move( EAST,96 );
+	sys.waitFor($beam_satellite);
+	$beam_satellite.rotateOnce( '90 0 0' );	
+}
+
+void beamCoupler()
+{	
+	// brief warm-up
+	$coupler_axis.time(1.5);
+	$coupler_axis.accelTime(1.5);
+	
+	sys.trigger($coupling_spin_sound);
+	$coupler_axis.rotateOnce( '0 0 360' );
+	sys.waitFor($coupler_axis);
+
+	// now start effect and just rotate forever (could use a func_rotate?)
+	thread beamParallax();
+	sys.trigger( $fx_roofCoreConnection );
+//	sys.trigger( $spkr_roof_core_speaker );
+
+	$coupler_axis.time(.25);
+	$coupler_axis.accelTime(0);
+	
+	while(1)
+	{
+		$coupler_axis.rotateOnce( '0 0 90' );
+		sys.waitFor($coupler_axis);
+	}
+}
+
+void buckleFloor()
+{
+	$roofFloorClip.remove();
+	sys.trigger($guardianLands);
+	playAnimWait($env_roof_floor_1, ANIMCHANNEL_ALL, "buckle");
+}
+void supportLights()
+{
+	$light_blinky_19.show();
+	$light_blinky_20.show();
+	$light_blinky_21.show();
+	$light_blinky_22.show();
+	$light_blinky_23.show();
+	$light_blinky_24.show();
+	$light_blinky_25.show();
+	$light_blinky_26.show();
+	$light_blinky_27.show();
+	$light_blinky_28.show();
+	$light_blinky_29.show();
+	$light_blinky_30.show();
+}
+void activateBeam()
+{
+	thread killFence();
+	
+		
+	//sys.println("Rotate Floor");
+	// rotate the thing you're standing on
+	$mvr_dishMachines_pivot.time(3);
+	$mvr_dishMachines_pivot.rotateDownTo(1, 180);
+	sys.wait(2);
+
+	//sys.waitFor($mvr_dishMachines_pivot);
+
+	// now activate the beam
+
+	sys.trigger($disc_sound);
+	$disc_north.rotateOnce( '0 -24 0' );
+	$disc_south.rotateOnce( '0 24 0' );
+	sys.wait(0.5);
+	//sys.waitFor($disc_south);
+
+	sys.trigger($disc_sm_sound);
+	$disc_north_sm.rotateOnce( '0 -45 0' );
+	$disc_south_sm.rotateOnce( '0 45 0' );
+
+	
+	// turn on the lights
+	sys.trigger($beamLightsRelay);
+	thread supportLights();
+
+	// show the statics next to the rails
+	$func_static_53947.show();
+	$func_static_53948.show();
+	$func_static_53949.show();
+	$func_static_53950.show();
+
+	$beam_rail_north.show();
+	$beam_rail_south.show();
+	$beam_satellite.show();
+	$beam_coupler.show();
+		
+	sys.waitFor($disc_south_sm);
+	
+	$beam_rail_north.time(3);
+	$beam_rail_south.time(3);
+	
+	$beam_satellite.time(3);
+
+	sys.trigger($rail_sound);
+	
+	$beam_rail_north.move( UP,992 );
+	$beam_rail_south.move( UP,992 );
+	sys.waitFor($beam_rail_south);
+	
+	sys.trigger($coupling_rise_sound);
+	$beam_satellite.move( UP,464 );	
+	sys.waitFor($beam_satellite);
+	sys.wait(1);
+	sys.trigger($coupling_aim_sound);
+	$beam_satellite.move( DOWN,64 );
+	$beam_satellite.rotateOnce( '-119.1 0 0' );	// was 90, reaimed for arnie-tastic skybox
+	sys.waitFor($beam_satellite);
+
+	thread beamCoupler();
+	sys.trigger($item_objectivecomplete_1);	
+	
+	sys.wait(3);
+	thread straussTeleporter();
+	
+}
+
+//-------------------------------------------------------------------------------
+// Helper function for busted bridge
+//
+//
+// jdischler | mrenner | Jun 2005
+//-------------------------------------------------------------------------------
+void move_shaft(entity shaft, entity pos1, entity pos2, entity fx, entity snd)
+{
+	vector originalAngs;
+	
+	originalAngs = shaft.getAngles();
+	
+	shaft.accelTime(.2);
+	shaft.decelTime(1);
+	shaft.time(.5);
+
+	// just do it forever
+	while(1)
+	{
+		sys.trigger(fx); // turn on the requested spark effect
+		sys.trigger(snd);
+				
+		// move to a random position
+		if ( sys.random(1) > 0.5)
+		{
+			shaft.moveTo(pos1);
+		}
+		else
+		{
+			shaft.moveTo(pos2);
+		}
+	
+		// every now and then, rotate to a random position
+		if ( sys.random(1) > 0.25)
+		{
+			if ( sys.random(1) > 0.5)
+			{
+				shaft.rotateUpTo(0, originalAngs_x);
+			}
+			else
+			{
+				shaft.rotateUpTo(0, originalAngs_x + 15 + sys.random(30));
+			}
+		}
+	
+		sys.waitFor(shaft);
+		sys.trigger(fx); // turn off
+		
+		sys.wait(sys.random(2.5) + .5);
+	}
+}
+
+//-------------------------------------------------------------------------------
+// Bridge that does some random movements
+// TODO: this is kind of lame.  I wonder if it would just look better to have
+//	an animator do it?
+//
+// jdischler | Jan 2005
+//-------------------------------------------------------------------------------
+void busted_bridge()
+{
+	// thread these so they can run independently
+	thread  move_shaft( $bridgeSlideShaft1, $bridgeShaft1_pos1, $bridgeShaft1_pos2, $bridgeShaftFx1, $bridgeSlideShaft1snd);
+	thread  move_shaft( $bridgeSlideShaft2, $bridgeShaft2_pos1, $bridgeShaft2_pos2, $bridgeShaftFx2, $bridgeSlideShaft2snd);
+
+	vector originalAngs1, originalAngs2;
+	float switch = 1;
+	
+	originalAngs1 = $movingBridgePlat.getAngles();
+	
+	$movingBridgePlat.accelTime(.1);
+	$movingBridgePlat.decelTime(2);
+	
+	originalAngs2 = $damagedShaft.getAngles();
+	
+	// prep this guy
+	$damagedShaft.rotateDownTo(0, originalAngs2_x);
+	
+	// other misc moving bits
+	while(1)
+	{
+		// lamo, just alternate directions..blah
+		if (switch)	
+		{
+			$movingBridgePlat.rotateDownTo(2, originalAngs1_x - 8);
+			switch = 0;
+		}
+		else
+		{
+			$movingBridgePlat.rotateUpTo(2, originalAngs1_x);
+			switch = 1;
+		}
+		
+		// start the sparking effect
+		sys.trigger( $bridgeShaftFx3 ); // on
+		
+		sys.waitFor($movingBridgePlat);
+
+		// jiggle another piece		
+		{
+			sys.trigger($stuckBridgeShaftFx);
+			$damagedShaft.rotateUpTo(0, originalAngs2_x+2);
+			
+			sys.wait(.3);			
+			sys.trigger($stuckBridgeShaftFx);
+			$damagedShaft.rotateDownTo(0, originalAngs2_x);
+		}
+		sys.trigger( $bridgeShaftFx3 ); // turn the effect off
+		
+		sys.wait(sys.random(6));
+	}
+}
+void swapPods()
+{
+	$deadMarinePod.hide();	
+	$deadMarinePod_1.show();	
+}
+
+/*---------------------------------------------------------------------------------------------------------
+ 	very temp.  Guardian is supposed to attack and rip at the pod that has crashed intot he terminal.  
+	The guardain will rip the marine out of the pod, then fly away.
+	mrenner		4-2-05
+-------------------------------------------------------------------------------------------------------*/
+void spawnPodGuardian()
+{
+	$guardianPod.show();
+	aiScriptedAnim( $introGuardian, "pod_wreckage_idle", 4, 0 );	
+	$guardianPod.bindToJoint($introGuardian, "r_middle_1", 1);	
+	aiScriptedAnimLoop($introGuardian, "pod_wreckage_idle", 4);
+}
+void hitGlass()
+{
+	$guardianGlass.show();
+}
+void flyPodGuardian()
+{
+	aiScriptedAnimWait( $introGuardian, "pod_wreckage", 4, 0 );	
+
+	$introGuardian.hide();
+	$guardianPod.hide();
+	$guardianPodFx.remove();
+	// spawn in sentry
+	//	sys.trigger($introSentrySpawner);	// cut
+	
+	sys.wait(1);
+	sys.trigger($func_fx_545);
+}
+
+//-------------------------------------------------------------------------------
+// Attaching jet pack effects to the network guardians so that they can be turned
+// off and on in the guardian's def file.
+//
+// gcarlson | March 2005
+//-------------------------------------------------------------------------------
+
+void initGuardians()
+{
+	$fx_guardian1_jet_pack_right.bindToJoint($introGuardian, "r_jet", 1);
+	$fx_guardian1_jet_pack_left.bindToJoint($introGuardian, "l_jet", 1);
+	$fx_guardian2_jet_pack_right.bindToJoint($monster_network_guardian_2, "r_jet", 1);
+	$fx_guardian2_jet_pack_left.bindToJoint($monster_network_guardian_2, "l_jet", 1);
+	$fx_guardian3_jet_pack_right.bindToJoint($monster_network_guardian_3, "r_jet", 1);
+	$fx_guardian3_jet_pack_left.bindToJoint($monster_network_guardian_3, "l_jet", 1);
+}
+
+void guardianJetsOff()
+{
+	$fx_guardian1_jet_pack_left.stop();
+	$fx_guardian1_jet_pack_right.stop();
+//	$fx_guardian2_jet_pack_left.stop();
+//	$fx_guardian2_jet_pack_right.stop();
+	$fx_guardian3_jet_pack_left.stop();
+	$fx_guardian3_jet_pack_right.stop();
+}
+
+void guardianJetsOn()
+{
+	$fx_guardian1_jet_pack_left.start();
+	$fx_guardian1_jet_pack_right.start();
+//	$fx_guardian2_jet_pack_left.start();
+//	$fx_guardian2_jet_pack_right.start();
+	$fx_guardian3_jet_pack_left.start();
+	$fx_guardian3_jet_pack_right.start();
+}
+
+void platArmsSetup()
+{
+	setNewTimes( $leftPlatArm, .1 , 0 , 0 );
+	setNewTimes( $rightPlatArm, .1 , 0 , 0 );
+	
+//	$leftPlatLight.hide();
+//	$rightPlatLight.hide();
+	$leftPlatArm.rotateOnce( '180 0 0' );
+	$rightPlatArm.rotateOnce( '180 0 0' );
+	sys.waitFor($leftPlatArm);
+}
+void movingTeleporterBits()
+{
+	setNewTimes( $leftPlatArm , 1 , .10 , .10 );
+	setNewTimes( $rightPlatArm , 1 , .10 , .10 );
+//	$leftPlatLight.show();
+//	$rightPlatLight.show();
+	$leftPlatArm.rotateOnce( '-180 0 0' );
+	$rightPlatArm.rotateOnce( '-180 0 0' );
+	sys.waitFor($leftPlatArm);
+
+	while(1)
+	{
+		$leftPlatArm.startSpline( $rightPlatform );
+		$rightPlatArm.startSpline( $leftPlatform );
+		sys.waitFor($leftPlatArm);
+	}
+
+}
+void teleporterSetup()
+{
+	thread movingTeleporterBits();
+	
+//	$teleporterScreen.show();
+	
+	$func_static_12419.setShaderParm(7, 0);
+	$door_typical_126.setShaderParm(7, 0);
+	$door_typical_126.lock(1);
+	
+	// send the elevator down to the first floor
+	$func_elevator_46.gotoFloor(1);
+
+	// send the elevator up to the second floor
+	$func_elevator_33.gotoFloor(2);
+	
+	// the main teleporter room is now fully active
+	
+	while(1)
+	{
+		$teleporterCenter.rotateOnce( '0 360 0' );
+		sys.waitFor($teleporterCenter);
+	}
+}
+void waiting()
+{
+	while(1)
+	{
+		// "why do you hesitate"
+		radioChatterPlayWait ($straussHurry_1, "");
+		sys.wait(10 + sys.random(5));	
+		// "enter the core"
+		radioChatterPlayWait ($straussHurry_2, "");
+		sys.wait(10 + sys.random(5));
+		// "nexus must be destroyed"
+		radioChatterPlayWait ($straussHurry_3, "");
+		sys.wait(10 + sys.random(5));	
+	}	
+}
+
+void giveWeapon()
+{
+	$player1.enableWeapon();
+}
+void teleport()
+{
+	//sys.println("teleport");
+
+	sys.trigger($item_objectivecomplete_2);	
+
+	$player1.bind($coreHole);
+	$player1.disableWeapon();
+
+	// trigger target_setinfluence with the fov changes
+	sys.trigger($teleportBack);
+	sys.fadeOut( '1 1 1', 1);		
+	sys.wait(1);
+	sys.fadeOut( '0 0 0', 1);		
+	sys.wait(1);
+	
+	sys.waitFrame();
+	// trigger level trans
+	//sys.println("End Level");
+	sys.trigger($target_endlevel_1);
+}
+
+void teleportIn()
+{
+	$player1.disableWeapon();
+	sys.trigger($teleport_in_fluence);
+//	sys.trigger($fx_teleporter_4);
+	sys.trigger($speaker_teleport_in);
+	sys.fadeIn('1 1 1', 1);
+	sys.wait(1.5);
+	$player1.enableWeapon();
+}
+
+void lockTeleporterRoom()
+{
+	// lock the door behind the player
+	$func_static_12414.setShaderParm(7, 0);
+	$func_static_12415.setShaderParm(7, 0);
+	$door_typical_124.setShaderParm(7, 0);
+	$door_typical_124.lock(1);
+
+	sys.trigger($door_typical_124);
+}
+
+void showCoreGoodies()
+{
+	$item_core_health01.show();
+	$item_core_health02.show();
+	$item_core_health03.show();
+	$item_core_health04.show();
+	$item_core_health05.show();
+	$item_core_health06.show();
+	$item_core_health07.show();
+	$item_core_health08.show();
+	$item_core_health09.show();
+	$item_core_health10.show();
+	sys.waitFrame();	// so the health doesn't get boinked out of the world
+	$core_healthcrate.show();
+}
+
+void failedMarine()
+{
+	thread showCoreGoodies();
+	
+	sys.killthread("map_network2::mainBeam");
+	sys.waitFrame();
+	thread mainBeamFull();
+
+	// show the main shaft beam.
+//	$func_static_53939.show();
+//	$func_static_53940.show();
+	$func_static_53945.show();
+
+	thread teleporterSetup();
+	sys.trigger($coreHole);
+	
+	sys.trigger($LIPSHIZ);
+	sys.trigger($QUANTINE);
+
+	$LIPSHIZ.setTalkState ( TALK_WAIT );
+	$QUANTINE.setTalkState ( TALK_WAIT );
+
+	// a marine tried to go through the teleporter, but dies.
+	// Play the yell sound off Lipshiz
+	$failedMarine.show();
+	$failedMarineStain.show();
+	$QUANTINE.lookAt($failedMarine);
+	$LIPSHIZ.lookAt($null_entity);
+	
+	//flinging him out of the teleporter usually resulted in him propped up in strange ways
+	//$failedMarine.applyImpulse($failedMarine,$failedMarine.getWorldOrigin(),'200000 0 15000');
+	//$failedMarine.applyImpulse($failedMarine,$failedMarine.getWorldOrigin(),'50000 0 15000');
+	aiSpeak( $LIPSHIZ, "lipsync_3" );
+	
+	aiScriptedAnimWait($LIPSHIZ, "hub1_voss_mourn_start", 8, 0);
+	aiScriptedAnimLoop($LIPSHIZ, "hub1_voss_mourn_loop", 16);
+	
+	aiSpeakWait( $LIPSHIZ, "lipsync_1" );
+	aiSpeakWait( $QUANTINE, "lipsync_1" );
+
+	// into his mic.
+	aiScriptedAnimWait($QUANTINE, "idle_wrist_gui_start_fast", 4, 1);
+	sys.trigger($marineTeleporter_2);
+	aiSpeak( $QUANTINE, "lipsync_2" );
+	aiScriptedAnimLoop($QUANTINE, "idle_wrist_gui_loop", 4);
+	aiSpeakDone( $QUANTINE );	
+	aiScriptedAnimWait($QUANTINE, "idle_wrist_gui_end_fast", 4, 1);
+	
+	// "he should have listened to me."
+	radioChatterPlayWait ($straussTeleporter_1, "");
+
+//	aiScriptedAnimWait($LIPSHIZ, "idle_wrist_gui_start", 4, 1);
+	sys.trigger($marineTeleporter_1);
+//	aiScriptedAnimLoop($LIPSHIZ, "idle_wrist_gui_loop", 4);
+	aiSpeakWait( $LIPSHIZ, "lipsync_2" );
+//	aiScriptedAnimWait($LIPSHIZ, "idle_wrist_gui_end", 4, 1);
+	
+	sys.trigger($passiveTeleporter);
+	
+//	$LIPSHIZ.enableHeal();
+	$QUANTINE.lookAt($player1);
+	sys.wait(0.25);
+	// "That was a mistake."
+	radioChatterPlayWait ($straussTeleporter_2, "");
+
+	// "ingnore the unfortunate soul laying dead"
+	radioChatterPlayWait ($straussTeleporter_3, "");
+	
+	// activates the endlevel trigger
+	sys.trigger($transfer_trig);
+	sys.trigger($exitAlertTrig);
+	
+	sys.wait(10 + sys.random(5));	
+	thread waiting();
+}
+void flyby()
+{
+	sys.trigger($monster_network_guardian_3);
+	aiScriptedAnimWait($monster_network_guardian_3, "window_flyby", 4, 1);
+	$monster_network_guardian_3.hide();
+}
+
+void onRight()
+{
+	radioChatterPlayWait($chatter, "vo_1_2_1_92_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_0_65_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_0_66_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_3_1_2_35_1");
+}
+
+void ravenHangar()
+{
+	radioChatterPlayWait($chatter, "vo_1_1_7_10_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_1_2_8_20_2");
+
+	sys.wait(1);
+	sys.trigger($guardianPound);
+	sys.wait(1.5);
+	
+	radioChatterPlayWait($chatter, "vo_2_2_10_261_1");
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_2_2_10_261_2");
+}
+
+
+void randomPodCrash()
+{
+	radioChatterPlay($chatter, "vo_3_1_0_50_1");
+	sys.trigger($pod2TowerSnd);
+	sys.wait(7);
+	sys.trigger($pod2TowerImpactSnd);
+	sys.wait(25 + sys.random(5));	
+
+	radioChatterPlay($chatter, "vo_2_2_4_150_2");
+	sys.trigger($pod2TowerSnd);
+	sys.wait(7);
+	sys.trigger($pod2TowerImpactSnd);
+	sys.wait(25 + sys.random(5));	
+		
+	radioChatterPlay($chatter, "vo_3_1_0_80_1");
+	sys.trigger($pod2TowerSnd);
+	sys.wait(7);
+	sys.trigger($pod2TowerImpactSnd);
+	sys.wait(25 + sys.random(5));	
+		
+	radioChatterPlay($chatter, "vo_2_2_7_160_2");
+	sys.trigger($pod2TowerSnd);
+	sys.wait(7);
+	sys.trigger($pod2TowerImpactSnd);
+	sys.wait(25 + sys.random(5));	
+
+	radioChatterPlay($chatter, "vo_3_1_1_30_1");
+	sys.trigger($pod2TowerSnd);
+	sys.wait(7);
+	sys.trigger($pod2TowerImpactSnd);
+	sys.wait(25 + sys.random(5));	
+
+	while(1)
+	{
+		sys.trigger($pod2TowerSnd);
+		sys.wait(7);
+		sys.trigger($pod2TowerImpactSnd);
+		sys.wait(25 + sys.random(5));	
+	}
+}
+
+void ngWindows1()
+{
+	entity ng = $monster_network_guardian_4;
+
+	sys.trigger(ng);
+	sys.waitFrame();
+
+	//make him fly
+	ng.forceTakeoff();
+
+	//tether him
+	sys.trigger( $ai_tether_radius_7);
+
+/*	//set his health
+	ng.setHealth(2000);
+
+	//put your condition here. It could be a set amount of health, or it could be a time limit
+	while( ng.getHealth() > 1500 )	{
+		sys.waitFrame();
+	}
+
+	//don't let him die, that would be embarassing...
+	ng.setUndying(1);
+
+	//move him away
+	sys.trigger( $ai_tether_radius_8);
+	sys.trigger( $ai_trigger_once_3);*/
+}
+
+void ngWindows1b() {
+	//move him away
+	sys.trigger( $ai_tether_radius_8);
+	sys.trigger( $ai_trigger_once_3);
+	sys.wait(4);
+	
+	// he won't reach his tether properly to get removed so just nuke him from orbit
+	$monster_network_guardian_4.remove();
+	// (it's the only way to be sure)
+}
+
+void ngWindows2()
+{
+	thread ngWindows1b();
+	entity ng = $monster_network_guardian_5;
+
+	sys.trigger(ng);
+	sys.waitFrame();
+
+	//make him fly
+	ng.forceTakeoff();
+
+	//tether him
+	sys.trigger( $ai_tether_radius_9);
+
+	//set his health
+	ng.setHealth(2000);
+
+	//put your condition here. It could be a set amount of health, or it could be a time limit
+	while( ng.getHealth() > 1500 )	{
+		sys.waitFrame();
+	}
+
+	//don't let him die, that would be embarassing...
+	ng.setUndying(1);
+
+	//move him away
+	sys.trigger( $ai_tether_radius_10);
+	sys.trigger( $ai_trigger_once_4);
+}
+
+void ngWindows3()
+{
+	entity ng = $monster_network_guardian_6;
+
+	sys.trigger(ng);
+	sys.waitFrame();
+
+	//make him fly
+	ng.forceTakeoff();
+
+	//tether him
+	sys.trigger( $ai_tether_radius_11);
+
+	//don't let him die, that would be embarassing...
+	ng.setUndying(1);
+}
+
+
+//-------------------------------------------------------------------------------
+void main()
+{
+	$level_lasercoupling_1.playCycle(ANIMCHANNEL_ALL, "spin_loop_slow");
+
+	thread teleportIn();
+	thread initGuardians();
+	thread busted_door();
+	thread busted_bridge();
+	thread beamSetup();
+	
+	thread platArmsSetup();
+	
+	sys.trigger($item_objective_1);
+	
+	thread mainBeam();
+
+	sys.wait(5);
+	thread randomPodCrash();
+}
+
+
+} // end namespace network2

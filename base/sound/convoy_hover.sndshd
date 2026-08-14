@@ -1,0 +1,33 @@
+
+
+sound hover_fly
+{
+	description	"I see you!"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+	looping
+
+	sound/strogg/convoy_hover/fly
+	shakeData 0 towtronuuoqspqmpunlnpqqlonmnqtlnqqpipqppnkpmplplmkrolpnnpkplnmltmjmjppoonoilpkjlmjnjosnonkomqslrmlmrprmmjononrlqnjrumnorolrrplnoomnonolnorlnotonppolmpsmnnrlttpootvnqnstpkotrltumrvpuon
+}
+
+
+sound hover_gun
+{
+	description	"guns"
+
+	minDistance	40
+	maxDistance	1500
+	volumeDb	0
+
+	sound/strogg/turrets/network_turretfire01
+	shakeData 0 zzzxtrljhfeeddccbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/turrets/network_turretfire02
+	shakeData 1 zzzystlmghfedeedcbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+

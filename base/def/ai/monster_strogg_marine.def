@@ -1,0 +1,1400 @@
+/*
+===============================================================================
+
+	Strogg Marine
+
+===============================================================================
+*/
+
+export strogg_marine {
+	options -prefix SMAR_ -align ALL -scale .3937 -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_1 -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall -keep rWrist muzzle -parent waist hips -sourcedir work/models/monsters/Stroggified_Marine/animations -destdir models/monsters/strogg_marine
+	mesh	walk.ma						-dest strogg_marine
+
+	anim	walk.ma						-dest walk
+	anim	run.ma						-dest run
+	anim	jog.ma						-dest jog
+	anim	idle.ma						-dest idle
+	anim	idle_alert.ma				-dest idle_alert
+	anim	idle_cover.ma				-dest idle_cover
+  	anim	idle_attack.ma				-dest idle_attack
+	anim	attack.ma					-dest attack
+	anim	attack_01_fixed.ma			-dest attack_01_fixed
+//	anim	attack_start.ma				-dest attack_start
+//	anim	attack_loop.ma				-dest attack_loop
+//	anim	attack_end.ma				-dest attack_end
+	anim	attack_2.ma					-dest attack_2
+	anim	attack_3_1.ma				-dest attack_3
+	anim	attack_4_1.ma				-dest attack_4
+//	anim	attack_2_start.ma			-dest attack_2_start
+//	anim	attack_2_loop.ma			-dest attack_2_loop
+//	anim	attack_2_end.ma				-dest attack_2_end
+	anim	melee01.ma					-dest melee01	
+	anim	melee02.ma					-dest melee02
+	anim	melee03.ma					-dest melee03
+	anim	melee04.ma					-dest melee04
+	anim	sidestep_right.ma			-dest sidestep_right
+	anim	sidestep_left.ma			-dest sidestep_left
+//	anim	strafe.ma					-dest strafe
+	anim	pain_gut.ma					-dest pain_gut
+	anim	pain_head.ma				-dest pain_head
+	anim	pain_head.ma				-dest pain_crouch
+	anim	pain2.ma					-dest pain3
+	anim	pain3.ma					-dest pain4
+	anim	ragdoll.ma					-dest ragdoll
+//	anim	crouch_attack_start.ma		-dest crouch_attack_start
+	anim	crouch_attack.ma			-dest crouch_attack
+//	anim	crouch_attack_end.ma		-dest crouch_attack_end
+	anim	dive_roll.ma				-dest dive_roll	
+//	anim	crouch_start.ma				-dest crouch_start
+//	anim	crouch_loop.ma				-dest crouch_loop
+//	anim	crouch_end.ma				-dest crouch_end
+	anim	lean_right.ma				-dest lean_right
+	anim	attackPoint_left.ma			-dest attackPoint_left
+	anim	attackPoint_long_left.ma	-dest attackPoint_long_left
+	anim	attackPoint_right.ma		-dest attackPoint_right
+	anim	attackPoint_long_right.ma	-dest attackPoint_long_right
+	anim	lean_left.ma				-dest lean_left
+	anim	leap.ma						-dest leap
+	anim	step_back.ma				-dest step_back
+	anim	attack_shotgun.ma			-dest attack_shotgun
+	anim	crouch_shotgun.ma			-dest crouch_shotgun
+	anim	eye_test.ma					-dest eye_test
+	anim	jump_trench4.ma					-dest jump_trench
+
+	anim	digestport_script.ma		-dest digestport_script
+	anim	catwalk_jump02.ma			-dest putra_catwalk_jump
+	anim	openhatch_below03.ma		-range 35 76 -dest putra_openhatch_below
+	anim	openhatch_below03.ma		-range 47 76 -dest climb_out
+	anim	openhatch_above.ma			-dest drop_down
+	anim	elevator_jump05.ma			-dest core_elevator_jump
+	anim	sm_exam_table.ma			-dest exam_table
+	
+	anim	teleport_2.ma				-dest teleport
+	
+//	anim	lean_right_loop.ma			-dest models/monsters/strogg_marine/lean_right_loop
+//	anim	lean_right_end.ma			-dest models/monsters/strogg_marine/lean_right_end	
+//	anim	evade_right.ma				-dest models/monsters/strogg_marine/evade_right
+//	anim	evade_left.ma				-dest models/monsters/strogg_marine/evade_left
+
+
+
+//  BELOW ARE THE NEW ANIMS
+
+	anim    pain_con.ma			-dest models/monsters/strogg_marine/pain_con
+	anim    pain_std.ma			-dest models/monsters/strogg_marine/pain_std
+	anim    pain_std2.ma			-dest models/monsters/strogg_marine/pain_std2
+	anim    pain_strm.ma		-range 1 6 -dest models/monsters/strogg_marine/pain_strm_start
+	anim    pain_strm.ma		-range 6 14 -dest models/monsters/strogg_marine/pain_strm_loop
+	anim    pain_strm.ma		-range 14 21 -dest models/monsters/strogg_marine/pain_strm_stop
+
+//	anim    knockdown.ma			-dest models/monsters/strogg_marine/knockdown
+	
+	anim    angry5.ma			-dest models/monsters/strogg_marine/scream
+	anim    angry5.ma			-dest models/monsters/strogg_marine/angry1
+	anim    angry2.ma			-dest models/monsters/strogg_marine/gunjam
+	
+	anim    dodge_right.ma			-dest models/monsters/strogg_marine/dodge_left
+	anim    dodge_left.ma			-dest models/monsters/strogg_marine/dodge_right
+	anim    sidestep_right2.ma		-dest models/monsters/strogg_marine/dodge_right2
+	anim    sidestep_left2.ma		-dest models/monsters/strogg_marine/dodge_left2
+
+	
+	anim sprayleft.ma		-range 1 10 -dest models/monsters/strogg_marine/sprayleft_start
+	anim sprayleft.ma		-range 10 24 -dest models/monsters/strogg_marine/sprayleft_sweep
+	anim sprayleft.ma		-range 24 30 -dest models/monsters/strogg_marine/sprayleft_end
+
+	anim sprayright.ma		-range 1 8 -dest models/monsters/strogg_marine/sprayright_start
+	anim sprayright.ma		-range 8 21 -dest models/monsters/strogg_marine/sprayright_sweep
+	anim sprayright.ma		-range 21 30 -dest models/monsters/strogg_marine/sprayright_end
+
+	anim attack_shotgun_new.ma		-dest models/monsters/strogg_marine/attack_shotgun_new
+
+	anim fire1.ma			-range 5 19 -dest models/monsters/strogg_marine/fire1_start
+	anim fire1.ma			-range 19 23 -dest models/monsters/strogg_marine/fire1_loop
+	anim fire1.ma			-range 39 46 -dest models/monsters/strogg_marine/fire1_end
+
+	anim fire3.ma			-range 1 10 -dest models/monsters/strogg_marine/fire3_start
+	anim fire3.ma			-range 10 14 -dest models/monsters/strogg_marine/fire3_loop
+	anim fire3.ma			-range 22 30 -dest models/monsters/strogg_marine/fire3_end
+
+	anim fire4.ma			-range 1 8 -dest models/monsters/strogg_marine/fire4_start
+	anim fire4.ma			-range 8 13-dest models/monsters/strogg_marine/fire4_loop
+	anim fire4.ma			-range 13 21 -dest models/monsters/strogg_marine/fire4_end
+	
+//	anim runfire_torso.ma		-dest models/monsters/strogg_marine/runfire_torso
+	anim run_attack_upper.ma	-dest models/monsters/strogg_marine/runfire_torso
+	anim runback_attack_upper.ma	-dest models/monsters/strogg_marine/runbackfire_torso
+	anim runfire_torso_tpose.ma	-dest models/monsters/strogg_marine/runfire_torso2
+
+	anim runfire.ma			-dest models/monsters/strogg_marine/runfire
+	anim walkfire.ma		-dest models/monsters/strogg_marine/walkfire
+	anim walkfire_backwards.ma	-dest models/monsters/strogg_marine/back_walk	
+	anim walk_left.ma		-dest models/monsters/strogg_marine/left_walk
+	anim walk_right.ma		-dest models/monsters/strogg_marine/right_walk
+	anim run_backward.ma	-dest models/monsters/strogg_marine/back_run
+	anim run_left2.ma		-dest models/monsters/strogg_marine/left_run
+	anim run_right2.ma		-dest models/monsters/strogg_marine/right_run
+	
+	anim climbing_out2.ma		-dest models/monsters/strogg_marine/climbing_out2
+	
+	anim jumpdown.ma		-range 1 14 -dest models/monsters/strogg_marine/jumpdown_start
+	anim jumpdown2.ma		-range 16 17 -dest models/monsters/strogg_marine/jumpdown_loop
+	anim jumpdown2.ma		-range 19 45 -dest models/monsters/strogg_marine/jumpdown_end
+	anim teleport_fail.ma		-dest models/monsters/strogg_marine/teleport_fail
+	
+
+	anim run_right_attack_upper.ma		-dest models/monsters/strogg_marine/run_right_attack_upper
+	anim run_left_attack_upper.ma		-dest models/monsters/strogg_marine/run_left_attack_upper
+
+	anim recomp_strogg_marine.ma -sourcedir work/models/cinematics/recomp_lt_tank/animations -dest models/monsters/strogg_marine/recomp_strogg_cinematic
+
+	addoptions -sourcedir work/models/mapobjects/strogg/machines/biggun_chair/big_gun_chair/animation 
+
+	anim big_gun_chair_idle.ma	-range 100 123 -dest models/monsters/strogg_marine/big_gun_chair_getup
+	anim big_gun_chair_idle.ma	-range 1 40 -dest models/monsters/strogg_marine/big_gun_chair_idle
+}
+
+/*
+===============================================================================
+
+	Strogg Marine Model
+
+===============================================================================
+*/
+
+model model_monster_strogg_marine
+{
+	mesh												models/monsters/strogg_marine/strogg_marine.md5mesh
+
+	channel torso										( *waist )
+	channel legs										( *hips origin -*waist )
+
+	anim af_pose										models/monsters/strogg_marine/ragdoll.md5anim
+//	anim ik_pose										models/monsters/strogg_marine/ragdoll.md5anim
+	anim eye_test										models/monsters/strogg_marine/eye_test.md5anim
+	offset												( -8 0 0 )
+
+//	anim knockdown			models/monsters/strogg_marine/knockdown.md5anim
+	
+	anim jumpdown_start		models/monsters/strogg_marine/jumpdown_start.md5anim
+	{
+		frame 7				sound	snd_grunt
+		frame 10			sound	snd_gear
+	}
+	anim jumpdown_loop		models/monsters/strogg_marine/jumpdown_loop.md5anim
+	anim jumpdown_end		models/monsters/strogg_marine/jumpdown_end.md5anim
+	{
+		frame	1			sound_item				generic_creature_fall_small
+		frame	1,2,6		footstep
+		frame	23			sound		snd_ready_weapon
+	}
+
+
+
+//	anim big_gun_chair_getup	models/monsters/strogg_marine/big_gun_chair_getup.md5anim
+//	anim big_gun_chair_idle		models/monsters/strogg_marine/big_gun_chair_idle.md5anim	
+
+	anim walk											models/monsters/strogg_marine/walk.md5anim
+	{
+		sync_cycle
+		frame 1,11										footstep
+		frame 6,16										sound				snd_gear
+	}
+	anim walk_backwards			models/monsters/strogg_marine/back_walk.md5anim
+	{
+		sync_cycle
+		frame 1,11										footstep
+		frame 6,16										sound				snd_gear
+	}
+	anim walk_left			models/monsters/strogg_marine/left_walk.md5anim
+	{
+		sync_cycle
+		frame 1,8										footstep
+		frame 4,10										sound				snd_gear
+	}
+	anim walk_right			models/monsters/strogg_marine/right_walk.md5anim
+	{
+		sync_cycle
+		frame 1,8										footstep
+		frame 4,10										sound				snd_gear
+	}
+
+	anim run											models/monsters/strogg_marine/run.md5anim
+	{
+		sync_cycle
+		frame 4,14										footstep
+		frame 6,16										sound				snd_gear
+	}
+	anim run_backwards			models/monsters/strogg_marine/back_run.md5anim
+	{
+		sync_cycle
+		frame 1,8										footstep
+		frame 4,10										sound				snd_gear
+	}
+	anim run_left			models/monsters/strogg_marine/left_run.md5anim
+	{
+		sync_cycle
+		frame 1,8										footstep
+		frame 4,10										sound				snd_gear
+	}
+	anim run_right			models/monsters/strogg_marine/right_run.md5anim
+	{
+		sync_cycle
+		frame 1,8										footstep
+		frame 4,10										sound				snd_gear
+	}
+
+	anim idle					models/monsters/strogg_marine/idle_attack.md5anim
+	{
+		frame 1					sound				snd_breathe
+	}
+	anim idle_alert				models/monsters/strogg_marine/idle_alert.md5anim
+	{
+		frame 1					sound				snd_breathe
+	}
+
+	anim pain1							models/monsters/strogg_marine/pain_std.md5anim			
+	{
+		frame 3							sound_voice			snd_pain
+	}	
+	anim pain2							models/monsters/strogg_marine/pain_std2.md5anim			
+	{
+		frame 3							sound_voice			snd_pain
+	}	
+	anim pain_head						models/monsters/strogg_marine/pain_head.md5anim
+	{
+		frame 3							sound_voice			snd_pain
+	}	
+	anim pain_guts						models/monsters/strogg_marine/pain_gut.md5anim
+	{
+		frame 3							sound_voice			snd_pain
+	}	
+	anim pain_concussive						models/monsters/strogg_marine/pain_con.md5anim
+	{
+		frame 3							sound_voice			snd_pain
+	}	
+	anim pain_stream_start				models/monsters/strogg_marine/pain_strm_start.md5anim
+	{
+		frame 3							sound_voice			snd_pain
+	}	
+	anim pain_stream					models/monsters/strogg_marine/pain_strm_loop.md5anim
+	anim pain_stream_end				models/monsters/strogg_marine/pain_strm_stop.md5anim
+
+	anim teleport						models/monsters/strogg_marine/teleport.md5anim
+	
+	// ----------------------------------- Melee Attacks ----------------------
+	anim melee_attack									models/monsters/strogg_marine/melee01.md5anim
+	{
+		frame 8											fx					fx_swipe						l_wrist
+		frame 8											sound_weapon				smarine_swing
+		frame 12										ai_attack_melee		melee_right
+	}
+	anim melee_attack2									models/monsters/strogg_marine/melee03.md5anim
+	{
+		frame 8											fx					fx_swipe						l_wrist		
+		frame 8											sound_weapon				smarine_swing
+		frame 12										ai_attack_melee		melee_right
+	}
+	anim melee_attack3								models/monsters/strogg_marine/melee02.md5anim
+	{
+		frame 7											ai_attack_melee		melee_left
+		frame 7											sound_weapon				smarine_swing
+		frame 8											fx					fx_swipe						muzzle
+	}
+	anim melee_attack4									models/monsters/strogg_marine/melee04.md5anim
+	{
+		frame 8											fx					fx_swipe						l_wrist
+		frame 8											sound_weapon				smarine_swing
+		frame 12										ai_attack_melee		melee_right						
+		frame 23										fx					fx_swipe						muzzle				
+		frame 24										ai_attack_melee		melee_left				
+	}
+
+//=====================================================================================================
+// AI ANIMS NO LONGER USED (as of 4/11/05)
+//=====================================================================================================
+
+/*
+	anim reload			models/monsters/strogg_marine/gunjam.md5anim
+	{
+		frame	2			sound		snd_grunt
+		frame	11			sound		snd_weapon_slap
+		frame	19			sound		snd_weapon_slap
+		frame	23			sound		snd_ready_weapon
+		frame	28			sound		snd_weapon_slap
+	}
+*/
+/*
+	anim cover_idle				models/monsters/strogg_marine/idle_alert.md5anim
+	{
+		frame 1					sound				snd_breathe
+	}
+*/
+/*
+	anim range_move_attack		models/monsters/strogg_marine/attack_2.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 7					footstep
+		frame 13				sound				snd_gear
+		frame 10,12,17,15		ai_attack			base					muzzle
+		frame 10,12,17,15		fx					fx_blaster_muzzleflash	muzzle
+		frame 10,12,17,15		sound_weapon		snd_weapon_fire
+	}	
+	anim range_move_attack2		models/monsters/strogg_marine/crouch_attack.md5anim
+   	{
+		frame 1					sound				snd_ready_weapon
+		frame 2					sound				snd_gear
+		frame 7					footstep
+   		frame 10,12,17,22		ai_attack			base					muzzle
+   		frame 10,12,17,22		fx					fx_blaster_muzzleflash	muzzle
+   		frame 10,12,17,22		sound_weapon		snd_weapon_fire
+   	}
+	anim range_move_attack3		models/monsters/strogg_marine/attack.md5anim
+	{
+		frame 6					sound				snd_gear
+		frame 11				sound				snd_ready_weapon
+		frame 20,23,25,30,32,37	ai_attack			base					muzzle
+		frame 20,23,25,30,32,37	fx					fx_blaster_muzzleflash	muzzle	
+		frame 20,23,25,30,32,37	sound_weapon		snd_weapon_fire	
+	}
+*/
+
+/*
+	anim attackPoint_long_right							models/monsters/strogg_marine/attackPoint_long_right.md5anim
+	{
+		frame 22										ai_attack			base						muzzle
+		frame 22										fx					fx_blaster_muzzleflash		muzzle
+		frame 22										sound_weapon		snd_weapon_fire
+		frame 25,28,30									ai_attack			base						muzzle
+		frame 25,28,30									fx					fx_second_attack_flash		muzzle
+		frame 25,28,30									sound_weapon		snd_weapon_fire
+	}
+	anim attackPoint_long_left							models/monsters/strogg_marine/attackPoint_long_left.md5anim
+	{
+		frame 22										ai_attack			base						muzzle
+		frame 22										fx					fx_blaster_muzzleflash		muzzle
+		frame 22										sound_weapon		snd_weapon_fire
+		frame 25,28,30									ai_attack			base						muzzle
+		frame 25,28,30									fx					fx_second_attack_flash		muzzle
+		frame 25,28,30									sound_weapon		snd_weapon_fire
+	}
+*/
+/*
+	anim idle_long										models/monsters/strogg_marine/idle.md5anim
+	{
+		frame 1											sound				snd_breathe
+	}	
+*/
+/*
+	anim jog											models/monsters/strogg_marine/jog.md5anim
+	{
+		frame 1,11										footstep
+		frame 3											sound				snd_breathe
+		frame 6,16										sound				snd_gear
+	}
+*/
+/*
+	anim walkfire			models/monsters/strogg_marine/walkfire.md5anim
+	anim runfire			models/monsters/strogg_marine/runfire.md5anim
+*/
+/*
+	anim range_attack			models/monsters/strogg_marine/attack_3.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 5					footstep
+		frame 13				sound_body			snd_gear
+		frame 13,17,21			ai_attack			base					muzzle
+		frame 13,17,21			fx					fx_blaster_muzzleflash	muzzle
+		frame 13,17,21			sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack2			models/monsters/strogg_marine/attack_4.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 4					footstep
+		frame 5,10,14			ai_attack			base					muzzle
+		frame 5,10,14			fx					fx_blaster_muzzleflash	muzzle
+		frame 5,10,14			sound_weapon		snd_weapon_fire
+	}	
+*/
+
+//=====================================================================================================
+// REFERENCED BY SOME SCRIPTS OR MAPS (as of 4/11/05) - SHOULDN'T BE IN BASE AI MARINE!!!
+//=====================================================================================================
+
+	anim dive											models/monsters/strogg_marine/dive_roll.md5anim
+	{
+		ai_no_turn
+		frame 1											ai_disablePain
+		frame 2											sound			snd_grunt
+		frame 4,8,17,22									sound				snd_gear
+		frame 10,20,22									footstep
+	}
+
+	anim jump_trench									models/monsters/strogg_marine/jump_trench.md5anim
+	{
+		frame	1										disableClip
+		frame	1										disableGravity
+		
+		frame	7										sound			snd_growl
+		frame	21										sound_weapon				generic_creature_fall_small
+		frame	26										sound				snd_gear
+
+		frame	30										enableClip
+		frame	30										enableGravity
+
+	}
+
+	anim elevator_jump									models/monsters/strogg_marine/core_elevator_jump.md5anim
+	{
+		frame	5										sound				snd_growl
+		frame	16										sound_item				generic_creature_fall_small
+		frame	1										disableGravity
+		frame	23										enableGravity
+	}
+
+	anim catwalk_jump									models/monsters/strogg_marine/putra_catwalk_jump.md5anim
+	{
+		frame	1										disableGravity
+		frame	1										disableClip
+		frame	9										footstep
+		frame	30										sound_item				generic_creature_fall_small
+		frame	38										enableClip
+		frame	38									    enableGravity
+		frame	42										sound				snd_gear
+		frame	44										sound				snd_breathe	
+	}
+	anim climb_out										models/monsters/strogg_marine/climb_out.md5anim	
+	{
+		frame	1										disableGravity
+		frame	1										disableClip
+		frame	23										footstep
+		frame	23										enableGravity
+		frame	23										enableClip
+	}
+
+	anim openhatch_below								models/monsters/strogg_marine/putra_openhatch_below.md5anim
+	{
+		frame	1										disableGravity
+		frame 	1										disableClip
+		frame	25										sound_item				generic_creature_fall_small
+		frame	30,35									footstep
+		frame	41										enableGravity
+		frame	41										enableClip
+	}
+
+	anim digestport_script								models/monsters/strogg_marine/digestport_script.md5anim
+	{
+		frame 1											ai_disablePain
+		frame	1										event				show
+		frame	21										sound_voice			snd_pain
+	}
+
+	anim drop_down										models/monsters/strogg_marine/drop_down.md5anim
+	{
+		frame	1										disableGravity
+		frame 	1										disableClip
+		frame	3										sound				snd_growl
+		frame	11										sound_item				generic_creature_fall_small
+		frame	23										sound				snd_breathe
+		frame	34										enableGravity
+		frame 	34										enableClip
+	}
+
+	anim nav_leap				models/monsters/strogg_marine/leap.md5anim
+	{
+  		frame 1											ai_disablePain
+  		frame 	1										disableClip
+  		frame 	2										sound				snd_gear
+  		frame 	5										sound			snd_grunt
+  		frame 	11										enableClip
+  		frame   11										enableGravity
+  		frame 	11,14									footstep
+  	}
+
+//=====================================================================================================
+// NOT REFERENCED BY ANY SCRIPT OR MAP (as of 4/11/05)
+//=====================================================================================================
+
+//	anim climbing_out2		models/monsters/strogg_marine/climbing_out2.md5anim
+
+	anim teleport_fail							models/monsters/strogg_marine/teleport_fail.md5anim
+	{
+		frame 6									fx	fx_lcrawl	chest
+		frame 6									fx	fx_lcrawl	r_clavicle
+		frame 6									fx	fx_lcrawl	shoulders
+		frame 6									fx	fx_lcrawl 	hips
+		frame 6									fx	fx_lcrawl	waist
+		frame 6									fx	fx_lcrawl	rt_eyeball
+		frame 6									fx	fx_lcrawl	lft_eyeball
+		frame 6									fx	fx_lcrawl	r_femur
+		frame 6									fx	fx_lcrawl	r_knee
+		frame 6									fx	fx_lcrawl	r_ankle
+		frame 6									fx	fx_lcrawl	l_femur
+		frame 6									fx	fx_lcrawl	l_knee
+		frame 6									fx	fx_lcrawl	l_ankle	
+		frame 6									fx	fx_fleshhit	chest 
+		frame 10								fx	fx_fleshhit	shoulders
+		frame 6									fx	fx_fleshhit	rt_eyeball
+		frame 6									fx	fx_fleshhit	waist
+		frame 6									fx	fx_fleshhit	r_clavicle
+		frame 23								fx	fx_fleshhit	lelbo
+		frame 23								fx	fx_fleshhit	l_wrist
+		frame 23								fx	fx_fleshhit	relbo	
+		frame 23								fx	fx_fleshhit	r_wrist
+		frame 23								fx	fx_lcrawl	lelbo
+		frame 23								fx	fx_lcrawl	l_wrist
+		frame 23								fx	fx_lcrawl	relbo
+		frame 23								fx	fx_lcrawl	r_wrist
+		frame 93								fx	fx_tpsteam	chest
+		frame 93								fx	fx_tpsteam	head
+		frame 94								fx	fx_tpsteam	waist
+		frame 47								fx	fx_lcrawl	chest
+		frame 47								fx	fx_lcrawl	shoulders
+		frame 47								fx	fx_lcrawl 	hips
+		frame 47								fx	fx_lcrawl	rt_eyeball
+		frame 47								fx	fx_lcrawl	lft_eyeball
+		frame 47								fx	fx_lcrawl	r_femur
+		frame 47								fx	fx_lcrawl	r_knee
+		frame 47								fx	fx_lcrawl	r_ankle
+		frame 47								fx	fx_lcrawl	l_femur
+		frame 47								fx	fx_lcrawl	l_knee
+		frame 47								fx	fx_lcrawl	l_ankle	
+		frame 47								fx	fx_fleshhit	chest 
+		frame 47								fx	fx_fleshhit	shoulders
+		frame 47								fx	fx_fleshhit	lft_eyeball
+		frame 47								fx	fx_fleshhit	waist
+		frame 47								fx	fx_fleshhit	l_clavicle
+
+	}
+}
+
+model monster_strogg_marine_blaster
+{
+	inherit										model_monster_strogg_marine
+
+	anim jump_back										models/monsters/strogg_marine/step_back.md5anim
+	{
+		frame	3										sound				snd_jump
+		frame	8										sound				snd_gear
+		frame   11,14									footstep
+		frame	21,23									ai_attack			base					muzzle
+		frame 	21,23									fx					fx_blaster_muzzleflash	muzzle
+		frame	21,23									sound_weapon		snd_weapon_fire
+	}	
+
+	anim range_attack1_start		models/monsters/strogg_marine/fire3_start.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 4				footstep
+	}
+	anim range_attack1_loop			models/monsters/strogg_marine/fire3_loop.md5anim
+	{
+		frame 1				ai_attack			base					muzzle
+		frame 1				fx					fx_blaster_muzzleflash	muzzle
+		frame 1				sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack1_end			models/monsters/strogg_marine/fire3_end.md5anim
+	
+	anim range_attack2_start		models/monsters/strogg_marine/fire4_start.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 4				footstep
+	}
+	anim range_attack2_loop			models/monsters/strogg_marine/fire4_loop.md5anim
+	{
+		frame 1				ai_attack			base					muzzle
+		frame 1				fx					fx_blaster_muzzleflash	muzzle
+		frame 1				sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack2_end			models/monsters/strogg_marine/fire4_end.md5anim
+
+//	anim range_attack_torso			models/monsters/strogg_marine/runfire_torso2.md5anim
+	anim range_attack_torso			models/monsters/strogg_marine/runfire_torso.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}	
+
+	anim range_attack_torso_back		models/monsters/strogg_marine/runbackfire_torso.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}
+
+	anim range_attack_torso_right		models/monsters/strogg_marine/run_right_attack_upper.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack_torso_left		models/monsters/strogg_marine/run_left_attack_upper.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}	
+
+//FIXME: only here due to scripting/trigger_anim usage!
+	anim shuffle_right		models/monsters/strogg_marine/dodge_right2.md5anim
+
+
+// UNIQUE TO BLASTER
+	anim angry2			models/monsters/strogg_marine/scream.md5anim
+	{
+		frame	5			sound		snd_growl
+	}
+	anim angry			models/monsters/strogg_marine/angry1.md5anim
+	{
+		frame	5			sound		snd_growl
+	}
+
+
+	anim evade_right									models/monsters/strogg_marine/sidestep_right.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	3										sound				snd_jump
+		frame	8										sound				snd_gear
+		frame   11,14									footstep
+	}
+	anim evade_left										models/monsters/strogg_marine/sidestep_left.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	3										sound				snd_gear
+		frame	8,13									footstep
+	}
+
+	anim evade_right_long								models/monsters/strogg_marine/attackPoint_right.md5anim
+	{	// This isn't an evade.
+	//	frame 22,25,28,30								ai_attack			base						muzzle
+	//	frame 22,25,28,30								fx					fx_blaster_muzzleflash		muzzle
+	//	frame 22,25,28,30								sound_weapon		snd_weapon_fire
+	}
+	anim evade_left_long								models/monsters/strogg_marine/attackPoint_left.md5anim
+	{	// This isn't an evade.
+	//	frame 22,25,28,30								ai_attack			base						muzzle
+	//	frame 22,25,28,30								fx					fx_blaster_muzzleflash		muzzle
+	//	frame 22,25,28,30								sound_weapon		snd_weapon_fire
+	}
+}
+
+model monster_strogg_marine_mgun
+{
+	inherit										model_monster_strogg_marine
+
+	anim jump_back										models/monsters/strogg_marine/step_back.md5anim
+	{
+		frame	3										sound				snd_jump
+		frame	8										sound				snd_gear
+		frame   11,14									footstep
+		frame	21,23									ai_attack			base					muzzle
+		frame 	21,23									fx					fx_blaster_muzzleflash	muzzle
+		frame	21,23									sound_weapon		snd_weapon_fire
+	}	
+
+	anim range_attack1_start		models/monsters/strogg_marine/fire1_start.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 4				footstep
+	}
+	anim range_attack1_loop			models/monsters/strogg_marine/fire1_loop.md5anim
+	{
+		rate 2.0
+		frame 1				ai_attack			base					muzzle
+		frame 1				fx					fx_blaster_muzzleflash	muzzle
+		frame 1				sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack1_end			models/monsters/strogg_marine/fire1_end.md5anim
+
+	anim range_attack2_start		models/monsters/strogg_marine/fire1_start.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 4				footstep
+	}
+	anim range_attack2_loop			models/monsters/strogg_marine/fire1_loop.md5anim
+	{
+		rate 2.0
+		frame 1				ai_attack			base					muzzle
+		frame 1				fx					fx_blaster_muzzleflash	muzzle
+		frame 1				sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack2_end			models/monsters/strogg_marine/fire1_end.md5anim
+
+/*
+//	anim range_attack_torso			models/monsters/strogg_marine/runfire_torso2.md5anim
+	anim range_attack_torso			models/monsters/strogg_marine/runfire_torso.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}	
+
+	anim range_attack_torso_back		models/monsters/strogg_marine/runbackfire_torso.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}
+
+	anim range_attack_torso_right		models/monsters/strogg_marine/run_right_attack_upper.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}	
+	anim range_attack_torso_left		models/monsters/strogg_marine/run_left_attack_upper.md5anim
+	{
+		frame 1						ai_attack			base					muzzle
+		frame 1						fx					fx_blaster_muzzleflash	muzzle
+		frame 1						sound_weapon		snd_weapon_fire
+	}	
+*/
+
+// UNIQUE TO MGUN
+
+	anim sprayleft_start		models/monsters/strogg_marine/sprayleft_start.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 5					footstep
+	}
+	anim sprayleft_sweep		models/monsters/strogg_marine/sprayleft_sweep.md5anim
+	{
+		frame 1,3,5,7,9,11,13	ai_attack			jointDir				muzzle
+		frame 1,3,5,7,9,11,13	fx					fx_blaster_muzzleflash	muzzle
+		frame 1,3,5,7,9,11,13	sound_weapon		snd_weapon_fire
+	}	
+	anim sprayleft_end		models/monsters/strogg_marine/sprayleft_end.md5anim
+	{
+		frame 5					footstep
+	}
+	
+	anim sprayright_start		models/monsters/strogg_marine/sprayright_start.md5anim
+	{
+		frame 1					sound				snd_ready_weapon
+		frame 4					footstep
+	}
+	anim sprayright_sweep		models/monsters/strogg_marine/sprayright_sweep.md5anim
+	{
+		frame 1,3,5,7,9,11,13	ai_attack			jointDir				muzzle
+		frame 1,3,5,7,9,11,13	fx					fx_blaster_muzzleflash	muzzle
+		frame 1,3,5,7,9,11,13	sound_weapon		snd_weapon_fire
+	}	
+	anim sprayright_end		models/monsters/strogg_marine/sprayright_end.md5anim
+	{
+		frame 8					footstep
+	}
+
+	//anim dodge_right		models/monsters/strogg_marine/dodge_right.md5anim
+	//anim dodge_left			models/monsters/strogg_marine/dodge_left.md5anim
+}
+
+
+model monster_strogg_marine_sgun
+{
+	inherit										model_monster_strogg_marine
+
+//UNIQUE TO SGUN
+	anim shuffle_right		models/monsters/strogg_marine/dodge_right2.md5anim
+	anim shuffle_left		models/monsters/strogg_marine/dodge_left2.md5anim
+
+/*
+	anim shotgun_jump_back				models/monsters/strogg_marine/step_back.md5anim
+	{
+		frame	3									sound				snd_jump
+		frame	8									sound				snd_gear
+		frame   11,14								footstep
+		frame	21									ai_attack			base					muzzle
+		frame 	21									fx					fx_blaster_muzzleflash	muzzle
+		frame	21									sound_weapon		snd_weapon_fire
+		frame	25									sound				snd_ready_weapon
+	}	
+*/
+	anim shotgun_range_attack		models/monsters/strogg_marine/attack_shotgun_new.md5anim
+	{
+		frame 8					footstep
+		frame 18				ai_attack			base				muzzle
+		frame 18				fx					fx_blaster_muzzleflash	muzzle
+		frame 18				sound_weapon		snd_weapon_fire
+		frame 30				sound				snd_ready_weapon
+	}	
+
+	anim shotgun_crouch_range_attack			models/monsters/strogg_marine/crouch_shotgun.md5anim
+	{
+		frame 4					footstep
+		frame 8					sound				snd_gear
+		frame 10				ai_attack			base					muzzle
+		frame 10				fx					fx_blaster_muzzleflash	muzzle
+		frame 10				sound_weapon		snd_weapon_fire
+		frame 16				sound				snd_ready_weapon
+	}	
+
+	anim ai_leap				models/monsters/strogg_marine/leap.md5anim
+	{
+		frame 1					ai_disablePain
+		frame 2					sound				snd_gear
+		frame 5					sound			snd_grunt
+		frame 11,14				footstep
+	}
+
+	anim dive_turn											models/monsters/strogg_marine/dive_roll.md5anim
+	{
+		frame 1											ai_disablePain
+		frame 2											sound			snd_grunt
+		frame 4,8,17,22									sound				snd_gear
+		frame 10,20,22									footstep
+	}
+}
+
+/*
+===============================================================================
+
+	Strogg Marine Attacks
+
+===============================================================================
+*/
+
+entityDef damage_strogg_marine_blaster
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"6"
+}
+
+entityDef projectile_strogg_marine_blaster
+{
+	"inherit"							"projectile_blaster_base"
+	"def_damage"						"damage_strogg_marine_blaster"
+	"velocity"							"650 0 0"
+	"fx_fly"							"effects/monsters/strogg_marine/blaster_fly.fx"
+	"fx_impact"							"effects/monsters/strogg_marine/blaster_burst.fx"
+	"snd_fly"							"weapon_energy_projectile_loop"
+}
+
+entityDef melee_strogg_marine_left
+{
+	"inherit"							"melee_monster_base"
+	"damage"							"10"
+	"kickDir"							"0 -1 0.5"
+	"kick_time"							"350"
+	"kick_amplitude"					"4"
+	"knockback"							"20"
+	"snd_hit"							"smarine_punch"
+	"snd_miss"							"smarine_swing"
+}
+
+entityDef melee_strogg_marine_right
+{
+	"inherit"							"melee_strogg_marine_left"
+	"kickDir"							"0 1 0.5"
+}
+
+/*
+===============================================================================
+
+	Strogg Marine Model Definition
+
+===============================================================================
+*/
+
+entityDef monster_strogg_marine_base
+{
+	"editor_usage"						"DO NOT USE - FOR INHERITANCE ONLY"
+	"editor_ignore"						"1"
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterStroggMarine"
+
+	"fov"								"90"
+
+	// --------------------------------- Actions ------------------------------------
+
+	"painThreshold" "15"
+	"pain_threshold" "15"
+
+	// --------------------------------- Body ------------------------------------
+	"model"								"model_monster_strogg_marine"
+	"ragdoll"							"monster_strogg_marine"
+	"use_aas"							"aas32"
+
+	"directionalMovement"				"1"
+	"walkRange"							"50"
+
+	"joint_eyeOffset"					"Rt_EyeBall"
+	"joint_chestOffset"					"chest"
+
+	"chatter_idle_rate"					"8"
+	"chatter_combat_rate"				"8"	
+
+	// --------------------------------- Combat ----------------------------------
+	"health"							"80"
+	"attackRange"						"300 600"
+	"melee_range"						"72"
+	"maxLostVisTime"					"5"
+
+	"tactical_ranged"					"1"
+	"tactical_rush"						"1"
+	"tactical_cover"					"0"
+	"tactical_hide"						"0"
+
+	"def_attack_base"					"projectile_strogg_marine_blaster"
+	"attack_base_accuracy"				"1"
+
+	"def_attack_jointDir"				"projectile_strogg_marine_blaster"
+	"attack_jointDir_locktojoint"		"1"
+	"attack_jointDir_accuracy"			"0"
+
+	"def_attack_melee_left"				"melee_strogg_marine_left"	
+	"def_attack_melee_right"			"melee_strogg_marine_right"	
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"					"*head_1"
+	"damage_zone guts"					"*waist -*shoulders"
+	"damage_scale head"					"2"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"					"0.2 0.2 0"
+	  "look_joint chest"				"0.2 0.2 0"
+	    "look_joint shoulders"			"0.2 0.2 0"
+		  "look_joint rElbo"			"0.4 0.4 0"
+	      "look_joint neck_1"			"0.2 0.2 0"
+	        "look_joint head_1"			"0.2 0.2 0"
+
+	// --------------------------------- IK --------------------------------------
+/*	"ik_numLegs"						"2"
+	"ik_footSize"						"4"
+	"ik_waist"							"hips"
+	"ik_hip1"							"R_femur"
+	"ik_hip2"							"L_femur"
+	"ik_knee1"							"R_knee"
+	"ik_knee2"							"L_knee"
+	"ik_ankle1"							"R_ankle"
+	"ik_ankle2"							"L_ankle"
+	"ik_foot1"							"R_ball"
+	"ik_foot2"							"L_ball"
+*/
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_slash"							"smarine_slash"
+	"snd_punch"							"smarine_punch"
+	"snd_swing"							"smarine_swing"
+	"snd_gun"							"smarine_gun"
+	"snd_ready_weapon"					"smarine_ready_weapon"
+	"snd_weapon_fire"					"smarine_gun"
+	
+	"lipsync_chatter_idle"				"smarine_chatter"
+	"lipsync_chatter_combat"			"smarine_chatter_combat"
+	
+	"snd_footstep"						"smarine_steps"
+	"snd_footstep_sand"					"smarine_steps_dirt"
+	"snd_footstep_dirt"					"smarine_steps_dirt"
+	"snd_footstep_hollowmetal"			"smarine_steps_hollow_metal"
+	"snd_footstep_rock"					"smarine_steps_dirt"
+	
+	"snd_pain"							"smarine_pain"
+	"snd_death"							"smarine_die"
+	"lipsync_sight"						"smarine_alert"
+	"snd_charge"						"smarine_charge"
+	"snd_breathe"						"smarine_breathe"
+	"snd_growl"							"smarine_growl"
+	"snd_grunt"							"smarine_grunt"
+	"snd_gear"							"smarine_gear"
+	"snd_weapon_slap"					"smarine_weapon_slap"
+	"snd_flesh"							"bullet_impact_flesh"
+	
+	"sound_bone"						"chest"
+	
+	// --------------------------------- Effects ---------------------------------
+	"fx_blaster_muzzleflash"			"effects/monsters/strogg_marine/blaster_mflash.fx"
+	"fx_swipe"							"effects/monsters/grunt/swipe_attack.fx"
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+	//--------------------------------FX for tport fail----------------------------------
+	
+	"fx_lcrawl"							"effects/weapons/lightninggun/crawl.fx"
+	"fx_fleshhit"						"effects/weapons/machinegun/impact_flesh.fx"
+	"fx_tpspark"						"effects/levels/convoy/weld_sparks.fx"
+	"fx_tpsteam"						"effects/steam/steam_32_slow10.fx"
+
+	// ---------------------------- Gibs ----------------------------------------------
+	"gib"								"1"
+	"fx_gib"							"effects/monsters/gib.fx"
+
+	"def_dropGibItem1"					"moveable_gib_head_pork"
+	"dropGibItem1Joint"					"head_1"
+
+	"def_dropGibItem2"					"moveable_gib_torso_pork"
+	"dropGibItem2Joint"					"chest"
+
+	"def_dropGibItem3"					"moveable_gib_rup_arm_pork"
+	"dropGibItem3Joint"					"rUpArm"
+
+	"def_dropGibItem4"					"moveable_gib_left_waist_pork"
+	"dropGibItem4Joint"					"waist"
+
+	"def_dropGibItem5"					"moveable_gib_lup_leg_pork"
+	"dropGibItem5Joint"					"l_femur"
+
+	"def_dropGibItem6"					"moveable_gib_rup_leg_pork"
+	"dropGibItem6Joint"					"r_femur"
+
+	"def_dropGibItem7"					"moveable_gib_rup2_leg_pork"
+	"dropGibItem7Joint"					"r_knee"
+
+	"def_dropGibItem8"					"moveable_gib_pelvis_pork"
+	"dropGibItem8Joint"					"Hips"
+	
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"							"Strogg Marine"
+	"dbText"							"Strogg marines are human marines that have been stroggified."
+	"sg_name"							"Strogg Marine (Blaster)"
+	
+
+}
+
+entityDef monster_strogg_marine
+{
+	"inherit"							"monster_strogg_marine_base"
+	"editor_usage"						"Blaster Strogg Marine"
+	"editor_ignore"						"0"
+
+	"model"								"monster_strogg_marine_blaster"
+
+	// --------------------------------- Actions ------------------------------------
+	"minShots"							"3"
+	"maxShots"							"8"
+	"aggressiveRange"					"300"
+
+	"actionTimer_evade_rate"			"0.75"
+	"actionTimer_rangedAttack_rate"		".5"
+
+	"action_rangedAttack"				"1"
+	"action_rangedAttack_anim"			"range_attack1_loop"
+	"action_rangedAttack_minRange"		"64"
+	"action_rangedAttack_maxRange"		"800"
+	"action_rangedAttack_blendFrames"	"1"
+//	"action_rangedAttack_noturn"		"0"
+	"action_rangedAttack_state"			"Torso_RangedAttack"
+	"action_rangedAttack_overrideLegs"	"0"
+
+	"action_evadeLeft"					"1"
+	"action_evadeLeft_anim2"			"evade_left_long"
+	"action_evadeLeft_minRange"			"120"
+	"action_evadeLeft_noturn"			"0"
+
+	"action_evadeRight"					"1"
+	"action_evadeRight_anim2"			"evade_right_long"
+	"action_evadeRight_minRange"		"120"
+	"action_evadeRight_noturn"			"0"
+
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_maxRange"		"72"
+	
+	"action_jumpBack"					"1"
+	"action_jumpBack_maxRange"			"300"
+	"action_jumpBack_noturn"			"0"
+	
+//	"action_pain_blendframes"			"1" - obsolete
+
+	"action_strafe"						"1"
+	"action_strafe_anim"				"evade_left"
+	"action_strafe_anim2"				"evade_right"
+	"action_strafe_minRange"			"200"
+	"action_strafe_maxRange"			"800"
+	"action_strafe_rate"				"0.75"
+	"action_strafe_chance"				"0.5"
+	"action_strafe_noturn"				"0"
+
+	"action_angry"						"1"
+	"action_angry_anim"					"angry"
+	"action_angry_minRange"				"200"
+	"action_angry_maxRange"				"800"
+	"action_angry_rate"					"1"
+
+	"snd_ready_weapon"					"smarine_ready_blaster"
+	
+
+}
+
+/*
+===============================================================================
+
+	Machinegun Strogg Marine
+
+===============================================================================
+*/
+
+entityDef damage_strogg_marine_bullet
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"3"
+}
+
+entityDef hitscan_strogg_marine_bullet
+{
+	"inherit"							"hitscan_bullet_base"
+	"def_damage"						"damage_strogg_marine_bullet"
+	"tracerchance"						"1"
+}
+
+entityDef monster_strogg_marine_mgun 
+{
+	"inherit"							"monster_strogg_marine_base"
+	"editor_usage"						"Machine Gunner Strogg Marine"
+	"editor_ignore"						"0"
+	"model"								"monster_strogg_marine_mgun"
+	"skin"								"skins/monsters/strogg_marine/smv_machinegun"
+
+	// --------------------------------- Combat ----------------------------------
+	"minShots"							"5"
+	"maxShots"							"25"
+
+	"attackRange"						"400 1000"
+	"aggressiveRange"					"400"
+	"rangeAttackChance"					"1"
+
+	"actionTimer_evade_rate"			"1"
+	"actionTimer_rangedAttack_rate"		"0.25"
+
+	"action_rangedAttack"				"1"
+	"action_rangedAttack_anim"			"range_attack1_loop"
+	"action_rangedAttack_minRange"		"64"
+	"action_rangedAttack_maxRange"		"1000"
+	"action_rangedAttack_blendFrames"	"1"
+//	"action_rangedAttack_noturn"		"0"
+	"action_rangedAttack_state"			"Torso_RangedAttack"
+//	"action_rangedAttack_overrideLegs"	"0"
+
+	"action_evadeLeft"					"1"
+//	"action_evadeLeft_anim"				"dodge_left"
+	"action_evadeLeft_anim"				"walk_left"
+	"action_evadeLeft_minRange"			"120"
+	"action_evadeLeft_noturn"			"0"
+
+	"action_evadeRight"					"1"
+//	"action_evadeRight_anim"			"dodge_right"
+	"action_evadeRight_anim"			"walk_right"
+	"action_evadeRight_minRange"		"120"
+	"action_evadeRight_noturn"			"0"
+
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_maxRange"		"72"
+	"action_meleeAttack_chance"			".5"
+	
+	"action_jumpBack"					"1"
+	"action_jumpBack_minRange"			"0"
+	"action_jumpBack_maxRange"			"400"
+	"action_jumpBack_anim"				"jump_back"
+	"action_jumpBack_noturn"			"0"
+	
+	"action_strafe"						"1"
+//	"action_strafe_anim"				"dodge_left"
+//	"action_strafe_anim2"				"dodge_right"
+	"action_strafe_anim"				"run_left"
+	"action_strafe_anim2"				"run_right"
+	"action_strafe_minRange"			"200"
+	"action_strafe_maxRange"			"800"
+	"action_strafe_rate"				"1"
+	"action_strafe_chance"				"0.25"
+	"action_strafe_noturn"				"0"
+
+	"action_sprayAttack"				"1"
+	"action_sprayAttack_state"			"Torso_SprayAttack"
+	"action_sprayAttack_minRange"		"200"
+	"action_sprayAttack_maxRange"		"800"
+	"action_sprayAttack_rate"			"2"
+//	"action_sprayAttack_chance"			"1"
+//	"action_sprayAttack_noturn"			"0"
+
+//	"action_reload"						"1"
+	"action_reload"						"0"
+	"action_reload_anim"				"reload"
+	"action_reload_minRange"			"200"
+	"action_reload_maxRange"			"800"
+	"action_reload_rate"				"4"
+	"action_reload_chance"				"0.2"
+
+//	"action_pain_blendframes"			"1" - obsolete
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_base"					"hitscan_strogg_marine_bullet"
+	"attack_base_hitscan"				"1"
+	"attack_base_accuracy"				"2"
+
+	"def_attack_jointDir"				"hitscan_strogg_marine_bullet"
+	"attack_jointDir_locktojoint"		"1"
+	"attack_jointDir_hitscan"			"1"
+	"attack_jointDir_accuracy"			"0"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_blaster_muzzleflash"			"effects/monsters/gunner/bullet_mflash.fx"			// FX_REPLACE
+	"snd_weapon_fire"					"smarine_machinegun"
+	"snd_ready_weapon"					"smarine_ready_mgun"
+}
+
+/*
+===============================================================================
+
+	Shotgun Strogg Marine
+
+===============================================================================
+*/
+
+entityDef damage_strogg_marine_shotgun
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"3"
+}
+
+entityDef hitscan_strogg_marine_shotgun
+{
+	"inherit"							"hitscan_shotgun_base"
+	"def_damage"						"damage_strogg_marine_shotgun"
+}
+
+entityDef monster_strogg_marine_sgun
+{
+	"inherit"							"monster_strogg_marine_base"
+	"editor_usage"						"Shotgun Strogg Marine"
+	"editor_ignore"						"0"
+	"model"								"monster_strogg_marine_sgun"
+	"skin"								"skins/monsters/strogg_marine/smv_shotgun"
+
+	// --------------------------------- Defs   ----------------------------------
+	"minShots"							"1"
+	"maxShots"							"1"
+	
+	"actionTimer_rangedAttack_rate"		"0.25"
+
+	"attackRange"						"0 400"
+//	"aggressiveRange"					"400"
+	"rangeAttackChanceInverse"			"1"
+
+	"action_rangedAttack"				"1"
+	"action_rangedAttack_anim"			"shotgun_range_attack"
+	"action_rangedAttack_minRange"		"0"
+	"action_rangedAttack_maxRange"		"400"
+	"action_rangedAttack_failrate"		"0.5"
+//	"action_rangedAttack_noturn"		"0"
+
+	"action_crouchRangedAttack"				"1"
+	"action_crouchRangedAttack_minRange"	"200"
+	"action_crouchRangedAttack_maxRange"	"400"
+	"action_crouchRangedAttack_anim"		"shotgun_crouch_range_attack"
+	"action_crouchRangedAttack_blendFrames"	"1"
+	"action_crouchRangedAttack_failRate"	".25"
+//	"action_crouchRangedAttack_noturn"		"0"
+
+	"action_strafe"						"1"
+	"action_strafe_anim"				"shuffle_left"
+	"action_strafe_anim2"				"shuffle_right"
+	"action_strafe_minRange"			"0"
+	"action_strafe_maxRange"			"600"
+	"action_strafe_rate"				"0.35"
+	"action_strafe_failrate"			"2"
+	"action_strafe_noturn"				"0"
+
+	"action_evadeLeft"					"1"
+	"action_evadeLeft_minRange"			"120"
+	"action_evadeLeft_anim"				"shuffle_left"
+	"action_evadeLeft_noturn"			"0"
+
+	"action_evadeRight"					"1"
+	"action_evadeRight_minRange"		"120"
+	"action_evadeRight_anim"			"shuffle_right"
+	"action_evadeRight_noturn"			"0"
+
+	"action_leapAttack"					"1"
+	"action_leapAttack_rate"			"0.5"
+	"action_leapAttack_minRange"		"100"
+	"action_leapAttack_maxRange"		"300"
+	"action_leapAttack_anim"			"ai_leap"
+//	"action_leapAttack_anim2"			"dive"
+	"action_leapAttack_chance"			"0.5"
+
+	"action_rollAttack"					"1"
+	"action_rollAttack_rate"			"0.25"
+	"action_rollAttack_minRange"		"150"
+	"action_rollAttack_maxRange"		"400"
+	"action_rollAttack_anim"			"dive_turn"
+	"action_rollAttack_state"			"Torso_RollAttack"
+	"action_rollAttack_failRate"		".25"
+	"action_rollAttack_noturn"			"0"
+	"action_rollAttack_nopain"			"1"
+
+	"action_jumpBack"					"0"
+//	"action_jumpBack_maxRange"			"200"
+//	"action_jumpBack_anim"				"shotgun_jump_back"
+
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_maxRange"		"72"
+	"action_meleeAttack_chance"			"0.25"
+
+	"def_attack_base"					"hitscan_strogg_marine_shotgun"
+	"attack_base_count"					"12"
+	"attack_base_spread"				"10"
+	"attack_base_hitscan"				"1"
+	"attack_base_accuracy"				"0"
+	"attack_base_pullback"				"8"
+
+	"def_attack_jointDir"				"hitscan_strogg_marine_shotgun"
+	"attack_jointDir_locktojoint"		"1"
+	"attack_jointDir_count"				"12"
+	"attack_jointDir_spread"			"10"
+	"attack_jointDir_hitscan"			"1"
+	"attack_jointDir_accuracy"			"0"
+	"attack_jointDir_pullback"			"8"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_blaster_muzzleflash"			"effects/monsters/strogg_marine/shotgun_mflash.fx"
+	"snd_weapon_fire"					"smarine_shotgun_fire"
+}
+
+entityDef monster_strogg_marine_convoy
+{
+	"inherit"							"monster_strogg_marine"
+	"gib"								"0"
+	"bleed"								"0"
+	"burnaway"							"2"
+}
+
+entityDef monster_strogg_marine_mgun_convoy
+{
+	"inherit"							"monster_strogg_marine_mgun"
+	"gib"								"0"
+	"bleed"								"0"
+	"burnaway"							"2"
+}
+
+entityDef monster_strogg_marine_sgun_convoy
+{
+	"inherit"							"monster_strogg_marine_sgun"
+	"gib"								"0"
+	"bleed"								"0"
+	"burnaway"							"2"
+}
+
+entityDef monster_strogg_marine_long_distance
+{
+	
+	"inherit"					"monster_strogg_marine"
+	
+	"action_rangedAttack_maxRange"		"1800"
+}
+
+entityDef monster_strogg_marine_mgun_long_distance
+{
+	
+	"inherit"					"monster_strogg_marine_mgun"
+	
+	"action_rangedAttack_maxRange"		"2400"
+}
+
+entityDef monster_strogg_marine_sgun_long_distance
+{
+	
+	"inherit"					"monster_strogg_marine_sgun"
+	
+	"action_rangedAttack_maxRange"		"800"
+}

@@ -1,0 +1,770 @@
+textures/core/techpipe1_1
+{
+	qer_EditorImage	textures/core/techpipe1_1_d.tga
+	bumpMap			textures/core/techpipe1_1_local.tga
+	diffuseMap		textures/core/techpipe1_1_d.tga
+	specularMap		textures/core/techpipe1_1_s.tga
+	{
+		blend		add
+		map			textures/core/techpipe1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/core/techpipe1_1_red
+{
+	qer_EditorImage		textures/core/techpipe1_1_red_d.tga
+	bumpMap addnormals 	( textures/core/techpipe1_1_local.tga, heightmap ( textures/core/techpipe1_1_red_h.tga, 2 ) )
+	diffuseMap			textures/core/techpipe1_1_red_d.tga
+	specularMap			textures/core/techpipe1_1_red_s.tga
+        {
+		blend		add
+		map			textures/core/techpipe1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+textures/core/techpipe1_1_blue
+{
+	qer_EditorImage		textures/core/techpipe1_1_blue_d.tga
+	bumpMap addnormals 	( textures/core/techpipe1_1_local.tga, heightmap ( textures/core/techpipe1_1_red_h.tga, 2 ) )
+	diffuseMap			textures/core/techpipe1_1_blue_d.tga
+	specularMap			textures/core/techpipe1_1_red_s.tga
+       {
+		blend		add
+		map			textures/core/techpipe1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+textures/core/techpipe1_2
+{
+	qer_EditorImage	textures/core/techpipe1_2_d.tga
+	bumpMap			textures/core/techpipe1_2_local.tga
+	diffuseMap		textures/core/techpipe1_2_d.tga
+	specularMap		textures/core/techpipe1_2_s.tga
+}
+
+textures/core/cpu1_1
+{
+	qer_EditorImage	textures/core/cpu1_1_d.tga
+	bumpMap			textures/core/cpu1_1_local.tga
+	diffuseMap		textures/core/cpu1_1_d.tga
+	specularMap		textures/core/cpu1_1_s.tga
+	{
+		blend		add
+		map			textures/core/cpu1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/core/floor1_1 generic_shader("core/floor1_1")
+guide textures/core/floor1_2 generic_shader("core/floor1_2")
+guide textures/core/floor2_1 generic_shader("core/floor2_1")
+guide textures/core/floor2_2 generic_shader("core/floor2_2")
+guide textures/core/floor2_3 generic_shader("core/floor2_3")
+
+textures/core/floor3_1_onesided
+{	//This shader is 2-sided, uses an alphatest, but does not cast shadows
+
+	qer_editorimage textures/core/floor3_1_d
+	noshadows
+	
+	bumpmap addnormals (textures/core/floor3_1_local, heightmap (textures/core/floor3_1_h, 1 ) )
+	specularmap	textures/core/floor3_1_s
+
+	{       
+     	blend		diffusemap 
+		map			textures/core/floor3_1_d.tga
+		alphaTest	.5
+	}
+
+}
+
+textures/core/floor3_1_twosided
+{	//This shader is 2-sided, uses an alphatest, but does not cast shadows
+
+	qer_editorimage textures/core/floor3_1_d
+	noshadows
+	twosided
+
+	bumpmap addnormals (textures/core/floor3_1_local, heightmap (textures/core/floor3_1_h, 1 ) )
+	specularmap	textures/core/floor3_1_s
+
+	{       
+     	blend		diffusemap 
+		map			textures/core/floor3_1_d.tga
+		alphaTest	.5
+	}
+
+}
+
+textures/core/techfloor1_1
+{
+	qer_EditorImage	textures/core/techfloor1_1_d.tga
+	bumpMap			textures/core/techfloor1_1_local.tga
+	diffuseMap		textures/core/techfloor1_1_d.tga
+	specularMap		textures/core/techfloor1_1_s.tga
+}
+
+
+
+
+guide textures/core/trim1_1 generic_shader("core/trim1_1")
+guide textures/core/trim1_2 generic_shader("core/trim1_2")
+guide textures/core/trim1_2a generic_shader("core/trim1_2a")
+guide textures/core/trim1_3 generic_shader("core/trim1_3")
+
+guide textures/core/trim2_1 generic_shader("core/trim2_1")
+guide textures/core/trim2_2 generic_shader("core/trim2_2")
+
+textures/core/step1_1
+{
+	qer_EditorImage	textures/core/step1_1_d.tga
+	bumpMap			textures/core/step1_1_local.tga
+	diffuseMap		textures/core/step1_1_d.tga
+	specularMap		textures/core/step1_1_s.tga
+	{
+		blend		add
+		map			textures/core/step1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/core/step1_2 generic_shader("core/step1_2")
+
+
+//lights
+guide textures/core/sc_light1 generic_glow("core/sc_light1", "core/sc_light1_g.tga")
+textures/core/sc_light3
+{
+	qer_editorimage textures/core/sc_light3_d
+	noShadows
+	nonSolid
+	bumpMap 		addnormals ( textures/core/sc_light3_local, heightmap ( textures/core/sc_light3_h, 1 ) )
+	specularmap		textures/core/sc_light3_s
+
+	{
+		blend		add
+		map			textures/core/sc_light3_g.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+
+//normal wall textures
+guide textures/core/sc_wall1 generic_shader("core/sc_wall1")
+guide textures/core/sc_wall2 generic_shader("core/sc_wall2")
+guide textures/core/sc_wall3 generic_shader("core/sc_wall3")
+guide textures/core/sc_wall4 generic_shader("core/sc_wall4")
+guide textures/core/sc_wall5 generic_shader("core/sc_wall5")
+guide textures/core/sc_wallpanel1 generic_shader("core/sc_wallpanel1")
+guide textures/core/sc_wallpanel2 generic_shader("core/sc_wallpanel2")
+guide textures/core/sc_wallpanel3 generic_shader("core/sc_wallpanel3")
+guide textures/core/sc_basepanel1 generic_shader("core/sc_basepanel1")
+guide textures/core/sc_basepanel2 generic_shader("core/sc_basepanel2")
+guide textures/core/sc_basepanel2b generic_shader("core/sc_basepanel2b")
+guide textures/core/sc_basepanel2c generic_shader("core/sc_basepanel2c")
+guide textures/core/sc_basepanel4 generic_shader("core/sc_basepanel4")
+guide textures/core/sc_basepanel5 generic_shader("core/sc_basepanel5")
+guide textures/core/sc_basepanel8 generic_shader("core/sc_basepanel8")
+guide textures/core/sc_basepanel9 generic_shader("core/sc_basepanel9")
+guide textures/core/sc_squarepanel1 generic_shader("core/sc_squarepanel1")
+guide textures/core/sc_squarepanel2 generic_shader("core/sc_squarepanel2")
+guide textures/core/sc_vertpanel1 generic_shader("core/sc_vertpanel1")
+guide textures/core/sc_vertpanel5 generic_shader("core/sc_vertpanel5")
+guide textures/core/sc_vertpanel6 generic_shader("core/sc_vertpanel6")
+guide textures/core/sc_vertpanel6plain generic_shader("core/sc_vertpanel6plain")
+guide textures/core/sc_vertpanel9 generic_shader("core/sc_vertpanel9")
+guide textures/core/sc_vertpanel10 generic_shader("core/sc_vertpanel10")
+guide textures/core/sc_wallsection_01 generic_shader("core/sc_wallsection_01")
+guide textures/core/sc_wallsection_01a generic_shader("core/sc_wallsection_01a")
+guide textures/core/sc_wallsection_02 generic_shader("core/sc_wallsection_02")
+guide textures/core/sc_wallsection_04 generic_shader("core/sc_wallsection_04")
+guide textures/core/sc_wallsection_07 generic_shader("core/sc_wallsection_07")
+
+textures/core/sc_longtrim
+{
+	qer_editorimage textures/core/sc_longtrim_qer.tga
+
+	bumpmap addnormals ( textures/core/sc_longtrim_local.tga, heightmap ( textures/core/sc_longtrim_h.tga, 1 ) )
+	diffusemap	textures/core/sc_longtrim_d.tga
+	specularmap	textures/core/sc_longtrim_s.tga
+
+}
+
+textures/core/sc_longtrim_white
+{
+	qer_editorimage textures/core/sc_longtrim_white_qer.tga
+
+	bumpmap addnormals ( textures/core/sc_longtrim_local.tga, heightmap ( textures/core/sc_longtrim_white_h.tga, 1 ) )
+	diffusemap	textures/core/sc_longtrim_white_d.tga
+	specularmap	textures/core/sc_longtrim_white_s.tga
+
+}
+
+guide textures/core/sc_trim1 generic_shader("core/sc_trim1")
+
+guide textures/core/sc_railgrey generic_shader("core/sc_railgrey")
+
+textures/core/sc_railgrey_nonsolid //nonsolid black railing with moveable clip for ragdoll/physics
+{
+	qer_editorimage textures/core/sc_railgrey_d.tga
+	nonSolid
+	moveableClip
+	bumpmap addnormals ( textures/core/sc_railgrey_local.tga, heightmap ( textures/core/sc_railgrey_h.tga, 1 ) )
+	diffusemap	textures/core/sc_railgrey_d.tga
+	specularmap	textures/core/sc_railgrey_s.tga
+}
+
+guide textures/core/sc_warning generic_shader("core/sc_warning")
+guide textures/core/sc_squarepanel1a generic_shader("core/sc_squarepanel1a")
+guide textures/core/sc_wallpanel1b generic_shader("core/sc_wallpanel1b")
+guide textures/core/sc_wallsection_08closed generic_shader("core/sc_wallsection_08closed")
+guide textures/core/sc_step1 generic_shader("core/sc_step1")
+guide textures/core/sc_bigtube_00 generic_shader("core/sc_bigtube_00")
+
+textures/core/sc_bigtube_00a
+{
+	qer_editorimage textures/core/sc_bigtube_00a_d
+
+	bumpmap addnormals ( textures/core/sc_bigtube_00_local.tga, heightmap ( textures/core/sc_bigtube_00_h.tga, 1 ) )
+	diffusemap	textures/core/sc_bigtube_00a_d.tga
+	specularmap	textures/core/sc_bigtube_00_s.tga
+
+}
+
+
+guide textures/core/sc_bigtube_02 generic_shader("core/sc_bigtube_02")
+
+
+
+textures/core/sc_eggshell128
+{
+	qer_editorimage textures/core/sc_eggshell128_d
+
+	bumpmap addnormals ( textures/core/sc_128_local.tga, heightmap ( textures/core/sc_eggshell128_h.tga, 1 ) )
+	diffusemap	textures/core/sc_eggshell128_d.tga
+	specularmap	textures/core/sc_eggshell128_s.tga
+
+}
+
+textures/core/sc_grey
+{
+	qer_editorimage textures/core/sc_grey_d
+
+	bumpmap addnormals ( textures/core/sc_128_local.tga, heightmap ( textures/core/sc_grey_h.tga, 1 ) )
+	diffusemap	textures/core/sc_grey_d.tga
+	specularmap	textures/core/sc_grey_s.tga
+
+}
+
+
+guide textures/core/sc2_panel1a generic_shader("core/sc2_panel1a")
+guide textures/core/sc2_panel1b generic_shader("core/sc2_panel1b")
+guide textures/core/sc2_panel1c generic_shader("core/sc2_panel1c")
+
+//-----------------------------
+// floors
+//-----------------------------
+
+guide textures/core/sc2_floorrun1 generic_shader("core/sc2_floorrun1")
+guide textures/core/sc_floor1 generic_shader("core/sc_floor1")
+guide textures/core/floortrim1_1 generic_shader("core/floortrim1_1")
+
+textures/core/floortrim1_2
+{
+	qer_EditorImage	textures/core/floortrim1_2_d.tga
+	bumpMap			textures/core/floortrim1_2_local.tga
+	diffuseMap		textures/core/floortrim1_2_d.tga
+	specularMap		textures/core/floortrim1_2_s.tga
+	{
+		blend		add
+		map			textures/core/floortrim1_2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+
+//-----------------------------
+// floor plate borders
+//-----------------------------
+
+guide textures/core/sc2_floorplate1a generic_shader("core/sc2_floorplate1a")
+guide textures/core/sc2_floorplate1c generic_shader("core/sc2_floorplate1c")
+
+//-----------------------------
+// pipes/wires oh my!
+//-----------------------------
+
+guide textures/core/sc_vertpipe1 generic_shader("core/sc_vertpipe1")
+
+textures/core/sc_vertpipe2
+{
+	qer_editorimage textures/core/sc_vertpipe2_d
+
+	bumpmap addnormals ( textures/core/sc_vertpipe1_local.tga, heightmap ( textures/core/sc_vertpipe2_h.tga, 1 ) )
+	diffusemap	textures/core/sc_vertpipe2_d.tga
+	specularmap	textures/core/sc_vertpipe2_s.tga
+}
+
+guide textures/core/sc_vertpipe1a generic_shader("core/sc_vertpipe1a")
+
+textures/core/sc_vertpipe1b
+{
+	qer_editorimage textures/core/sc_vertpipe1b_d
+
+	bumpmap addnormals ( textures/core/sc_vertpipe1a_local.tga, heightmap ( textures/core/sc_vertpipe1a_h.tga, 1 ) )
+	diffusemap	textures/core/sc_vertpipe1b_d.tga
+	specularmap	textures/core/sc_vertpipe1a_s.tga
+}
+
+//-----------------------------
+// misc
+//-----------------------------
+
+guide textures/core/sc2_girder1 generic_shader2sidedalpha("core/sc2_girder1")
+guide textures/core/sc2_girder2 generic_shader2sidedalpha("core/sc2_girder2")
+
+
+
+//-----------------------------
+// outside textures for building
+//-----------------------------
+
+guide textures/core/sc_outerwalltop_1 generic_full_noheight("core/sc_outerwalltop_1")
+guide textures/core/sc_outerwallbottom_1 generic_full_noheight("core/sc_outerwallbottom_1")
+guide textures/core/sc_outerwallverticalstack_1 generic_full_noheight("core/sc_outerwallverticalstack_1")
+guide textures/core/sc_outerwalltrim_1 generic_full_noheight("core/sc_outerwalltrim_1")
+guide textures/core/sc_outerwalltrim_2 generic_full_noheight("core/sc_outerwalltrim_2")
+guide textures/core/sc_outerwalltrim_3 generic_shader("core/sc_outerwalltrim_3")
+guide textures/core/sc_outerwalltrim_4 generic_full_noheight("core/sc_outerwalltrim_4")
+
+textures/core/towerglass //solid for outside core tower
+{
+	materialType glass
+	qer_editorimage		textures/core/towerglass_qer.tga
+	specularMap		textures/core/towerglass_s.tga
+
+
+
+	{
+	 	uncompressed
+		blend add
+		map textures/core/towerglass_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/core/towerglass
+		texGen		reflect
+	}	
+
+}
+
+//-----------------------------
+// flares
+//-----------------------------
+
+
+
+// standard flares (combine for colour/blinky lights)
+textures/core/flare_4
+{
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	4
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/core/flare_8
+{
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	8
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/core/flare_16
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	16
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+
+// core blue flare
+textures/core/flareblue_8
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		8
+	qer_EditorImage	textures/editor/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.65
+		green		.8
+		blue		.96
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+// core blue flare
+textures/core/flareblue_16
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		16
+	qer_EditorImage	textures/editor/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.65
+		green		.8
+		blue		.96
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+// core orange flare
+textures/core/flareorange_4
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		4
+	qer_EditorImage	textures/editor/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.9
+		green		.42
+		blue		0
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+
+// core orange flare
+textures/core/flareorange_16
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		16
+	qer_EditorImage	textures/editor/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		red 		.9
+		green		.42
+		blue		0
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+
+
+// -- Start Stream Hub Flares
+
+
+
+
+textures/core/fluid_core
+
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+		
+	{
+		if ( glslPrograms )== 1
+		blend add
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * 1.5
+		shaderParm		sizeX				sintable[time * .0005]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/core/fluid_bubble5.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+		red 	Parm0
+		green 	Parm1
+		blue 	Parm2
+//		vertexColor
+	}
+	
+	{ 
+		if ( glslPrograms )== 1
+		blend add
+		map textures/core/fluid_bubble2.tga
+		scroll	0, time * .5
+		red Parm0
+		green Parm1
+		blue Parm2
+//		vertexColor
+	}
+	
+	{
+		if ( glslPrograms )== 1
+		blend add
+		map textures/core/fluid_bubble3.tga
+		scroll 0, time * .3
+		red Parm0
+		green Parm1
+		blue Parm2
+//		vertexColor
+	}
+	
+///noglsl-------------------------------------------------------	
+		
+	{
+		if ( glslPrograms )== 0
+		blend diffuseMap	
+		map textures/core/fluid_bubble1.tga
+		scroll 0, time * .1
+		red Parm0
+		green Parm1
+		blue Parm2
+//		vertexColor
+	}
+
+	{ 
+		if ( glslPrograms )== 0
+		blend add
+		map textures/core/fluid_bubble2.tga
+		scroll	0, time * .5
+		red Parm0
+		green Parm1
+		blue Parm2
+//		vertexColor
+	}
+	
+	{
+		if ( glslPrograms )== 0
+		blend add
+		map textures/core/fluid_bubble3.tga
+		scroll 0, time * .3
+		red Parm0
+		green Parm1
+		blue Parm2
+//		vertexColor
+	}
+
+}	
+
+/*
+//stream spectrum test----------------------------------------------
+
+textures/stream/brainroom_spectrum
+{
+	qer_editorimage textures/stream/Stream_Patchwork_lines.tga
+	spectrum 7
+	{
+		blend	Diffusemap
+		map	textures/stream/Stream_Patchwork_lines.tga
+	}
+	//{
+	//	blend	ADD
+	//	map	textures/stream/Stream_Patchwork_lines.tga
+	//}
+}
+
+//------------------------------------------------------------------
+
+textures/Stream/roger_brain_panel
+{
+	qer_editorimage	textures/medlabs/chad_panel_2_d.tga
+	translucent
+	noshadows
+	spectrum 8
+
+	{		//Original diffuse 
+	blend		diffusemap
+	map 		textures/medlabs/chad_panel_2_d.tga
+	}
+
+	{		//Original specular map
+	blend		specularmap
+	map		textures/medlabs/chad_panel_2_s.tga
+	}
+
+	{		//Original normalmap with height
+	blend		bumpmap
+	map		addnormals(textures/medlabs/chad_panel_2_local.tga, heightmap(textures/medlabs/chad_panel_2_h.tga,1))
+	}
+
+}
+*/
+
+textures/core/cpu1_1_spectrum_8
+{
+	qer_EditorImage	textures/core/cpu1_1_d.tga
+	spectrum 8
+	translucent
+	noshadows
+	bumpMap			textures/core/cpu1_1_local.tga
+	diffuseMap		textures/core/cpu1_1_d.tga
+	specularMap		textures/core/cpu1_1_s.tga
+	{
+		blend		add
+		map			textures/core/cpu1_1_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/core/core_hex_spectrum_7
+{
+	qer_editorimage textures/core/core_hex.tga
+	spectrum 7
+	{
+		blend		Diffusemap
+		map		textures/core/core_gridlines.tga
+		scroll		0, time*0.125
+		rgb		grunttable[time*3]
+	}
+	{
+		blend		Specularmap
+		map		textures/core/core_gridlines_s.tga
+		scroll		time*0.03, time*0.1
+		rgb		grunttable[time*3]
+	}
+	{
+		blend		Diffusemap
+		map		textures/core/core_hex.tga
+		alphatest	0.5
+		rgb		grunttable[time*3]
+	}
+}
+
+textures/core/core_hex_streamer
+{
+	translucent
+	twosided
+	nonsolid
+	qer_editorimage		textures/core/core_hex.tga
+	
+	{
+		maskcolor
+		map		makealpha (textures/core/core_hex_a.tga)
+		scale		1, 128
+	}
+	{
+		blend		GL_DST_ALPHA, GL_ONE
+		map		textures/core/core_pulse.tga
+		scroll		0, parm4
+		red		1
+		green		0.3
+		blue		0
+	}
+	{
+		blend		add
+		map		textures/core/core_pulse.tga
+		scroll		0, parm4
+		red		0.3
+		green		0.05
+		blue		0
+	}
+	{
+		blend		add
+		map		textures/core/core_pulse2.tga
+		scroll		0, parm4
+		red		1.0
+		green		0.3
+		blue		0.3
+	}
+}
+
+textures/core/core_hexfx
+{
+	translucent
+	twosided
+	nonsolid
+	qer_editorimage		gfx/redhex.tga
+	
+	{
+		blend		add
+		map		gfx/redhex.tga
+		vertexcolor
+	}
+	/*{
+		maskcolor
+		map		makealpha(gfx/redhex.tga)
+	}
+	{
+		blend		GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA
+		map		gfx/clouds.tga
+		scroll		cosine[time*0.1], cosine[time*0.13]
+		rotate		cosine[time*0.03]
+	}*/
+	//textures/core/core_hexfx
+}

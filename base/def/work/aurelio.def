@@ -1,0 +1,173 @@
+
+/***********************************************************************
+
+ func_fluid
+
+***********************************************************************/
+/*
+entityDef test_aurelio_func_fluid {
+	"editor_color"				"0 .5 1.0"
+	"editor_mins"				"?"
+	"editor_maxs"				"?"
+
+	"editor_usage"				"A brush model that simulates a fluid."
+	"editor_usage1"				"NOTE: If you ever change pipeLength or pipeArea, remember to adjust damping factor!"
+
+	"editor_bool solid"			"whether the object should be solid or not."
+	"editor_bool hide"			"whether the object should be visible when spawned."
+		
+	"editor_var density"		"The density of the fluid. (default: 1.0)"
+	"editor_var gridsize_x"		"The size/resolution of the grid on the x-axis. (default: 32)"
+	"editor_var gridsize_y"		"The size/resolution of the grid on the y-axis. (default: 32)"
+	"editor_var damping"		"How much to dampen the fluid movement. (1.0 is none, 0.0 is completely dampend)"
+	"editor_var pipeLength"		"Override for the length of the pipes that connect water across grid units."
+	"editor_var pipeArea"		"Override for the cross-sectional area of the pipes that connect water across grid units."
+	"editor_var gravity"		"The gravity acting on this fluid. (default: quake standard - 1066)"	
+	"editor_var fluidType"		"The type of simulation to run on the fluid height field."
+	
+	"spawnclass"				"rvFluid"
+	
+	"solid"						"0"
+	"noclipmodel"				"1"
+
+	"density"					"1.0"
+	"gridsize_x"				"32"
+	"gridsize_y"				"32"
+	"damping"					"0.97"
+	"pipeLength"				"-1"
+	"pipeArea"					"-1"
+	"gravity"					"1066"
+	"fluidType"			"nspipes"
+	
+	// Default splash effects
+	"fx_splash_large"			"effects/ambient/splash_lrg.fx"
+	"fx_splash_medium"			"effects/ambient/splash_med.fx"
+	"fx_splash_small"			"effects/ambient/splash_smll.fx"
+	
+	"mtr_foam"			"textures/fluids/foam1"
+	"noFoam"			"0"	
+}
+*/
+
+
+
+
+
+
+/***********************************************************************
+
+monster_strogg_marine
+
+***********************************************************************/
+
+export aurelio {
+	options -prefix SMAR_ -align ALL -scale .45 -parent Rteye_Focus head_1 -parent Lfteye_Focus head_1 -parent eye_joint_ctrls_noweights head_1 -keep rWrist muzzle
+	mesh	work/models/monsters/Stroggified_Marine/animations/walk.ma	-dest models/monsters/strogg_marine/strogg_marine
+	anim	work/models/monsters/Stroggified_Marine/animations/walk.ma	-dest models/monsters/strogg_marine/walk
+	anim	work/models/monsters/Stroggified_Marine/animations/run.ma	-dest models/monsters/strogg_marine/run
+	anim	work/models/monsters/Stroggified_Marine/animations/run.ma	-dest models/monsters/strogg_marine/jog
+	anim	work/models/monsters/Stroggified_Marine/animations/idle.ma	-dest models/monsters/strogg_marine/idle
+  	anim	work/models/monsters/Stroggified_Marine/animations/idle_attack.ma	-dest models/monsters/strogg_marine/idle_attack
+	anim	work/models/monsters/Stroggified_Marine/animations/attack.ma	-dest models/monsters/strogg_marine/attack
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_start.ma	-dest models/monsters/strogg_marine/attack_start
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_loop.ma	-dest models/monsters/strogg_marine/attack_loop
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_end.ma	-dest models/monsters/strogg_marine/attack_end
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_2.ma	-dest models/monsters/strogg_marine/attack_2
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_2_start.ma-dest models/monsters/strogg_marine/attack_2_start
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_2_loop.ma	-dest models/monsters/strogg_marine/attack_2_loop
+	anim	work/models/monsters/Stroggified_Marine/animations/attack_2_end.ma	-dest models/monsters/strogg_marine/attack_2_end
+	anim	work/models/monsters/Stroggified_Marine/animations/melee01.ma	-dest models/monsters/strogg_marine/melee01	
+	anim	work/models/monsters/Stroggified_Marine/animations/melee02.ma	-dest models/monsters/strogg_marine/melee02
+	anim	work/models/monsters/Stroggified_Marine/animations/melee3.ma		-dest models/monsters/strogg_marine/melee03
+	anim	work/models/monsters/Stroggified_Marine/animations/sidestep_right.ma	-dest models/monsters/strogg_marine/sidestep_right
+	anim	work/models/monsters/Stroggified_Marine/animations/sidestep_left.ma	-dest models/monsters/strogg_marine/sidestep_left
+	anim	work/models/monsters/Stroggified_Marine/animations/strafe.ma		-dest models/monsters/strogg_marine/strafe
+	anim	work/models/monsters/Stroggified_Marine/animations/pain_gut.ma	-dest models/monsters/strogg_marine/pain_gut
+	anim	work/models/monsters/Stroggified_Marine/animations/pain_head.ma	-dest models/monsters/strogg_marine/pain_head
+	anim	work/models/monsters/Stroggified_Marine/animations/ragdoll.ma	-dest models/monsters/strogg_marine/ragdoll
+	anim	work/models/monsters/Stroggified_Marine/animations/crouch_attack_start.ma	-dest models/monsters/strogg_marine/crouch_attack_start
+	anim	work/models/monsters/Stroggified_Marine/animations/crouch_attack_loop.ma	-dest models/monsters/strogg_marine/crouch_attack_loop
+	anim	work/models/monsters/Stroggified_Marine/animations/crouch_attack_end.ma	-dest models/monsters/strogg_marine/crouch_attack_end
+	anim	work/models/monsters/Stroggified_Marine/animations/dive_roll.ma	-dest models/monsters/strogg_marine/dive_roll	
+	anim	work/models/monsters/Stroggified_Marine/animations/crouch_start.ma	-dest models/monsters/strogg_marine/crouch_start
+	anim	work/models/monsters/Stroggified_Marine/animations/crouch_loop.ma	-dest models/monsters/strogg_marine/crouch_loop
+	anim	work/models/monsters/Stroggified_Marine/animations/crouch_end.ma	-dest models/monsters/strogg_marine/crouch_end
+	anim	work/models/monsters/Stroggified_Marine/animations/lean_right.ma	-dest models/monsters/strogg_marine/lean_right
+	anim	work/models/monsters/Stroggified_Marine/animations/evade_right.ma	-dest models/monsters/strogg_marine/evade_right
+	anim	work/models/monsters/Stroggified_Marine/animations/evade_left.ma	-dest models/monsters/strogg_marine/evade_left
+	anim	work/models/monsters/Stroggified_Marine/animations/attackPoint_left.ma	-dest models/monsters/strogg_marine/attackPoint_left
+	anim	work/models/monsters/Stroggified_Marine/animations/attackPoint_long_left.ma	-dest models/monsters/strogg_marine/attackPoint_long_left
+	anim	work/models/monsters/Stroggified_Marine/animations/attackPoint_right.ma	-dest models/monsters/strogg_marine/attackPoint_right
+	anim	work/models/monsters/Stroggified_Marine/animations/attackPoint_long_right.ma	-dest models/monsters/strogg_marine/attackPoint_long_right
+//	anim	work/models/monsters/Stroggified_Marine/animations/lean_right_loop.ma	-dest models/monsters/strogg_marine/lean_right_loop
+//	anim	work/models/monsters/Stroggified_Marine/animations/lean_right_end.ma	-dest models/monsters/strogg_marine/lean_right_end
+	anim	work/models/monsters/Stroggified_Marine/animations/lean_left.ma	-dest models/monsters/strogg_marine/lean_left
+	anim	work/models/monsters/Stroggified_Marine/animations/leap.ma	-dest models/monsters/strogg_marine/leap
+	anim	work/models/monsters/Stroggified_Marine/animations/eye_test.ma	-dest models/monsters/strogg_marine/eye_test
+
+}
+
+//-----------------------------------------------------------------------------
+//
+//								MONSTER DEFINITIONS
+//
+//-----------------------------------------------------------------------------
+
+entityDef test_aurelio_strogg_marine_refracty {
+	"inherit"						"monster_strogg_marine"
+	"spawnclass"					"idAI"
+	"size"							"25 25 76"
+	"use_aas"						"aas48"
+	"team"							"1"
+	"rank"							"4"
+	"health"						"100"
+	"leap_range"					"480"
+	"leap_rate"						"8"	
+	"run_range"						"160"	
+	"head_look"						"0"	
+	"target_update"					"100"	//every 100 MS
+	"target_find"					"1000"	//every second
+	"attack_accuracy"				"1"
+	// fixme - adjust these later as weapon damage values become more obvious
+	"missile_range_min"				"100"
+	"missile_range_max"				"500"
+	"pain_threshold"				"10"
+	"melee_damage" 					"70"
+	"melee_range"					"64"
+	"attack_rate"					".1"	
+	//"skin_phase"					"skins/monsters/stroggmarine/skin_refracty"					
+	"skin"							"skins/monsters/stroggmarine/skin_refracty"
+
+	"model"							"model_monster_strogg_marine"
+	"ragdoll"						"strogg_marine"
+
+	"nav_system"					"1"
+	"pain_debounce"					".8"
+	
+	"snd_punch"						"smarine_punch"
+	"snd_swing"						"smarine_swing"
+	"snd_gun"						"smarine_gun"
+	"snd_footstep"					"smarine_walk"
+	"snd_run"						"smarine_run"
+	"snd_pain"						"smarine_pain"
+	"snd_flank"						"smarine_flank"
+	"snd_death"						"smarine_die"
+	"snd_sight"						"smarine_alert"
+	"snd_lean"						"smarine_lean"
+	"snd_charge"					"smarine_charge"
+	"snd_breathe"					"smarine_breathe"
+	"snd_growl"						"smarine_growl"
+	"snd_grunt"						"smarine_grunt"
+	"snd_gear"						"smarine_gear"
+	"snd_weapon_slap"				"smarine_weapon_slap"
+	
+	"def_base_attack"				"projectile_blaster_strogg_marine"
+	
+	"fx_base_attack_flash"			"effects/monsters/strogg_marine/blaster_mflash.fx"
+	"fx_phase"						"effects/test/ben/phase.fx"
+	"fx_swipe"						"effects/monsters/grunt/swipe_attack.fx"
+
+	"def_melee_left"				"melee_strogg_marine"	
+	"can_phase"						"1"		
+	"crossing1"						"combat_jump"
+}

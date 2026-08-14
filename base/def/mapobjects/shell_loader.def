@@ -1,0 +1,48 @@
+
+/***********************************************************************
+shell_loader
+
+***********************************************************************/
+
+export shell_loader
+{		
+	options -prefix SL_ -align ALL 
+		  
+	mesh	work/models/mapobjects/strogg/machines/shell_loader/shell_loader_anim.ma	-dest models/mapobjects/strogg/machines/shell_loader/mesh
+	anim	work/models/mapobjects/strogg/machines/shell_loader/shell_loader_anim.ma	-dest models/mapobjects/strogg/machines/shell_loader/idle
+	anim	work/models/mapobjects/strogg/machines/shell_loader/shell_loader_anim.ma	-range 33 34 -dest models/mapobjects/strogg/machines/shell_loader/idleoff
+}
+
+entityDef env_shell_loader
+{
+	"model"							"model_env_shell_loader"
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"animated_shell_loader"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idleoff"
+	"start_anim"					"idleoff"	
+	
+	"snd_load"						"generic_shell_loader"
+	
+	"combatModel"					"1"
+
+}
+
+model model_env_shell_loader
+{						
+	mesh					models/mapobjects/strogg/machines/shell_loader/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/machines/shell_loader/idle.md5anim
+	{
+		frame	1						sound	snd_load
+	}
+	anim idleoff 				models/mapobjects/strogg/machines/shell_loader/idleoff.md5anim
+	
+}
+
+

@@ -1,0 +1,714 @@
+/*
+===============================================================================
+
+	Heavy Hover Tank
+
+===============================================================================
+*/
+
+export hh_tank 
+{
+	options -prefix HHT_ -scale .3937 -align ALL -parent rt_eyeBall head -parent lft_eyeBall head -keep muzzle_flash machine_gun_barrel fx
+	mesh	work/models/monsters/Heavy_hover_tank/animations/HHT_mesh.ma				-dest models/monsters/heavyhovertank/mesh
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_idle.ma				-dest models/monsters/heavyhovertank/idle
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_idle2.ma				-dest models/monsters/heavyhovertank/idle2
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_fire.ma				-dest models/monsters/heavyhovertank/big_gun
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_melee.ma				-dest models/monsters/heavyhovertank/melee
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_machinegun.ma			-range 1 24 -dest models/monsters/heavyhovertank/preshoot
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_machinegun.ma			-range 25 28 -dest models/monsters/heavyhovertank/machine_gun
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_machinegun.ma			-range 29 44 -dest models/monsters/heavyhovertank/postshoot
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_machinegun_2.ma		-range 1 24 -dest models/monsters/heavyhovertank/preshoot_2
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_machinegun_2.ma		-range 25 28 -dest models/monsters/heavyhovertank/machine_gun_2
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_machinegun_2.ma		-range 29 44 -dest models/monsters/heavyhovertank/postshoot_2
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_1.ma				-dest models/monsters/heavyhovertank/pain1
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_2.ma				-dest models/monsters/heavyhovertank/pain2
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_melee_2.ma				-dest models/monsters/heavyhovertank/melee2
+	anim	work/models/monsters/Heavy_hover_tank/animations/idle1_to_idle2.ma			-dest models/monsters/heavyhovertank/idle1_to_idle2
+	anim	work/models/monsters/Heavy_hover_tank/animations/idle2_to_idle1.ma			-dest models/monsters/heavyhovertank/idle2_to_idle1
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_evade_left1.ma			-dest models/monsters/heavyhovertank/evade_left1
+ 	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_evade_right1.ma			-dest models/monsters/heavyhovertank/evade_right1
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_af_pose.ma				-dest models/monsters/heavyhovertank/af_pose
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_std.ma			-dest models/monsters/heavyhovertank/pain_std
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_std2.ma			-dest models/monsters/heavyhovertank/pain_std2
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_con.ma			-dest models/monsters/heavyhovertank/pain_con
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_strm.ma			-range 1 4 -dest models/monsters/heavyhovertank/pain_strm_start
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_strm.ma			-range 4 12 -dest models/monsters/heavyhovertank/pain_strm_loop
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_pain_strm.ma			-range 12 15 -dest models/monsters/heavyhovertank/pain_strm_end
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_wake.ma				-dest models/monsters/heavyhovertank/wake
+	anim	work/models/monsters/Heavy_hover_tank/animations/HHT_wake2.ma				-dest models/monsters/heavyhovertank/wake2
+
+}
+
+export big_hh_tank 
+{
+	options -prefix HHT_ -scale .3937 -align ALL -parent rt_eyeBall head -parent lft_eyeBall head -keep muzzle_flash machine_gun_barrel fx
+	mesh	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_mesh.ma				-dest models/monsters/bigheavyhovertank/mesh
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_idle.ma				-dest models/monsters/bigheavyhovertank/idle
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_idle2.ma				-dest models/monsters/bigheavyhovertank/idle2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_fire.ma				-dest models/monsters/bigheavyhovertank/big_gun
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_melee.ma				-dest models/monsters/bigheavyhovertank/melee
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_machinegun.ma			-range 1 24 -dest models/monsters/bigheavyhovertank/preshoot
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_machinegun.ma			-range 25 28 -dest models/monsters/bigheavyhovertank/machine_gun
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_machinegun.ma			-range 29 44 -dest models/monsters/bigheavyhovertank/postshoot
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_machinegun_2.ma		-range 1 24 -dest models/monsters/bigheavyhovertank/preshoot_2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_machinegun_2.ma		-range 25 28 -dest models/monsters/bigheavyhovertank/machine_gun_2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_machinegun_2.ma		-range 29 44 -dest models/monsters/bigheavyhovertank/postshoot_2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_1.ma				-dest models/monsters/bigheavyhovertank/pain1
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_2.ma				-dest models/monsters/bigheavyhovertank/pain2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_melee_2.ma				-dest models/monsters/bigheavyhovertank/melee2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_idle1_to_idle2.ma			-dest models/monsters/bigheavyhovertank/idle1_to_idle2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_idle2_to_idle1.ma			-dest models/monsters/bigheavyhovertank/idle2_to_idle1
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_evade_left1.ma			-dest models/monsters/bigheavyhovertank/evade_left1
+ 	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_evade_right1.ma			-dest models/monsters/bigheavyhovertank/evade_right1
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_af_pose.ma				-dest models/monsters/bigheavyhovertank/af_pose
+
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_1.ma			-dest models/monsters/bigheavyhovertank/pain_std
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_2.ma			-dest models/monsters/bigheavyhovertank/pain_std2
+		
+//	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_std.ma			-dest models/monsters/bigheavyhovertank/pain_std
+//	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_std2.ma			-dest models/monsters/bigheavyhovertank/pain_std2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_con.ma			-dest models/monsters/bigheavyhovertank/pain_con
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_strm.ma			-range 1 4 -dest models/monsters/bigheavyhovertank/pain_strm_start
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_strm.ma			-range 4 12 -dest models/monsters/bigheavyhovertank/pain_strm_loop
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_pain_strm.ma			-range 12 15 -dest models/monsters/bigheavyhovertank/pain_strm_end
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_wake.ma				-dest models/monsters/bigheavyhovertank/wake
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_wake2.ma				-dest models/monsters/bigheavyhovertank/wake2
+
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_death_ver1.ma			-dest models/monsters/bigheavyhovertank/death1
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_death_ver2.ma			-dest models/monsters/bigheavyhovertank/death2
+	anim	work/models/monsters/Heavy_hover_tank/animations/Big_HHT_death_ver3.ma			-dest models/monsters/bigheavyhovertank/death3
+}
+
+/*
+===============================================================================
+
+	Heavy Hover Tank Models
+
+===============================================================================
+*/
+
+model model_monster_heavy_hovertank
+{
+	mesh							models/monsters/heavyhovertank/mesh.md5mesh
+
+	channel	torso					( *waist )
+	channel	legs					( *tank_base origin )
+
+//	offset							( 0 0 -24 )
+
+	anim idle						models/monsters/heavyhovertank/idle.md5anim
+	anim af_pose					models/monsters/heavyhovertank/af_pose.md5anim
+
+	anim blaster_to_rocket			models/monsters/heavyhovertank/idle1_to_idle2.md5anim
+	{
+		frame 1						sound_weapon		snd_rocket_ready
+		rate 2.0
+	}
+	anim rocket_to_blaster			models/monsters/heavyhovertank/idle2_to_idle1.md5anim
+	{
+		frame 1						sound_weapon		snd_rocket_stow
+		rate 2.0
+	}
+
+	anim run						models/monsters/heavyhovertank/idle.md5anim
+
+	anim pain1						models/monsters/heavyhovertank/pain_std.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain2						models/monsters/heavyhovertank/pain_std2.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain_concussive			models/monsters/heavyhovertank/pain_con.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain_stream_start			models/monsters/heavyhovertank/pain_strm_start.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain_stream				models/monsters/heavyhovertank/pain_strm_loop.md5anim
+	anim pain_stream_end			models/monsters/heavyhovertank/pain_strm_end.md5anim
+
+	anim melee_attack				models/monsters/heavyhovertank/melee.md5anim
+	{
+		frame 1						sound_weapon				snd_melee_swing
+		frame 17					fx					fx_swipe			lft_wrst
+		frame 20					ai_attack_melee 	melee
+		frame 15					sound_voice			snd_grunt
+	}
+	anim melee_attack2				models/monsters/heavyhovertank/melee2.md5anim
+	{
+		frame 1						sound_weapon				snd_melee_swing
+		frame 12					fx					fx_swipe			lft_wrst
+		frame 18					ai_attack_melee 	melee_right
+		frame 11					sound_voice			snd_grunt
+	}
+	anim blaster_1_preshoot			models/monsters/heavyhovertank/preshoot.md5anim
+	{
+		rate 2.0
+	}
+	anim blaster_1_postshoot		models/monsters/heavyhovertank/postshoot.md5anim
+	{
+		rate 2.0
+	}
+	anim blaster_1_fire				models/monsters/heavyhovertank/machine_gun.md5anim
+	{
+		rate 3
+   		frame 1						ai_attack			blaster				machine_gun_barrel
+   		frame 1						fx					fx_blaster_flash	machine_gun_barrel
+   		frame 1						sound_weapon				snd_weapon_fire
+	}
+	anim blaster_2_preshoot			models/monsters/heavyhovertank/preshoot_2.md5anim
+	{
+		rate 2.0
+	}
+	anim blaster_2_postshoot		models/monsters/heavyhovertank/postshoot_2.md5anim
+	{
+		rate 2.0
+	}
+	anim blaster_2_fire				models/monsters/heavyhovertank/machine_gun_2.md5anim
+	{
+		rate 3
+   		frame 1						ai_attack			blaster				machine_gun_barrel
+   		frame 1						fx					fx_blaster_flash	machine_gun_barrel
+   		frame 1						sound_weapon				snd_weapon_fire
+	}
+
+	anim rocket_idle				models/monsters/heavyhovertank/idle2.md5anim
+	anim rocket_run					models/monsters/heavyhovertank/idle2.md5anim
+	anim rocket_range_attack		models/monsters/heavyhovertank/big_gun.md5anim
+	{
+		rate 2.0
+		frame 57					ai_attack			rocket				muzzle_flash
+		frame 57					fx					fx_rocket_flash		muzzle_flash
+	}
+	
+	anim wake						models/monsters/heavyhovertank/wake.md5anim
+	{
+		frame 1						speak			lipsync_sight
+	}
+	anim wake2						models/monsters/heavyhovertank/wake2.md5anim
+	{
+		frame 1						speak			lipsync_sight
+	}
+
+	anim evade_left1				models/monsters/heavyhovertank/evade_left1.md5anim
+	{
+		frame 1						sound_weapon				snd_strafe
+	}
+	anim evade_right1				models/monsters/heavyhovertank/evade_right1.md5anim
+	{
+		frame 1						sound_weapon				snd_strafe
+	}
+}
+
+model model_monster_big_heavy_hovertank
+{
+	mesh							models/monsters/bigheavyhovertank/mesh.md5mesh
+
+	channel	torso					( *waist )
+	channel	legs					( *tank_base origin )
+
+//	offset							( 0 0 -24 )
+
+	anim idle						models/monsters/bigheavyhovertank/idle.md5anim
+	anim af_pose					models/monsters/bigheavyhovertank/af_pose.md5anim
+
+	anim blaster_to_rocket			models/monsters/bigheavyhovertank/idle1_to_idle2.md5anim
+	{
+		frame 1						sound_weapon		snd_rocket_ready
+		rate 2.5
+	}
+	anim rocket_to_blaster			models/monsters/bigheavyhovertank/idle2_to_idle1.md5anim
+	{
+		frame 1						sound_weapon		snd_rocket_stow
+		rate 2.5
+	}
+
+	anim run						models/monsters/bigheavyhovertank/idle.md5anim
+
+	anim pain1						models/monsters/bigheavyhovertank/pain_std.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain2						models/monsters/bigheavyhovertank/pain_std2.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain_concussive			models/monsters/bigheavyhovertank/pain_con.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain_stream_start			models/monsters/bigheavyhovertank/pain_strm_start.md5anim
+	{
+		frame 1						sound_voice		snd_pain
+	}
+	anim pain_stream				models/monsters/bigheavyhovertank/pain_strm_loop.md5anim
+	anim pain_stream_end			models/monsters/bigheavyhovertank/pain_strm_end.md5anim
+
+	anim melee_attack				models/monsters/bigheavyhovertank/melee.md5anim
+	{
+		frame 1						sound				snd_melee_swing
+		frame 17					fx					fx_swipe			lft_wrst
+		frame 20					ai_attack_melee 	melee
+		frame 15					sound_voice			snd_grunt
+	}
+	anim melee_attack2				models/monsters/bigheavyhovertank/melee2.md5anim
+	{
+		frame 1						sound				snd_melee_swing
+		frame 12					fx					fx_swipe			lft_wrst
+		frame 18					ai_attack_melee 	melee_right
+		frame 11					sound_voice			snd_grunt
+	}
+	anim blaster_1_preshoot			models/monsters/bigheavyhovertank/preshoot.md5anim
+	{
+		rate 2.5
+	}
+	anim blaster_1_postshoot		models/monsters/bigheavyhovertank/postshoot.md5anim
+	{
+		rate 1.5
+	}
+	anim blaster_1_fire				models/monsters/bigheavyhovertank/machine_gun.md5anim
+	{
+		rate 3
+   		frame 1						ai_attack			blaster				machine_gun_barrel
+   		frame 1						fx					fx_blaster_flash	machine_gun_barrel
+   		frame 1						sound				snd_weapon_fire
+	}
+	anim blaster_2_preshoot			models/monsters/bigheavyhovertank/preshoot_2.md5anim
+	{
+		rate 2.5
+	}
+	anim blaster_2_postshoot		models/monsters/bigheavyhovertank/postshoot_2.md5anim
+	{
+		rate 1.5
+	}
+	anim blaster_2_fire				models/monsters/bigheavyhovertank/machine_gun_2.md5anim
+	{
+		rate 3
+   		frame 1						ai_attack			blaster				machine_gun_barrel
+   		frame 1						fx					fx_blaster_flash	machine_gun_barrel
+   		frame 1						sound				snd_weapon_fire
+	}
+
+	anim rocket_idle				models/monsters/bigheavyhovertank/idle2.md5anim
+	anim rocket_run					models/monsters/bigheavyhovertank/idle2.md5anim
+	anim rocket_range_attack		models/monsters/bigheavyhovertank/big_gun.md5anim
+	{
+		rate 2.5
+		frame 57					ai_attack			rocket				muzzle_flash
+		frame 57					fx					fx_rocket_flash		muzzle_flash
+	}
+	
+	anim wake						models/monsters/bigheavyhovertank/wake.md5anim
+	{
+		frame 1						speak			lipsync_sight
+	}
+	anim wake2						models/monsters/bigheavyhovertank/wake2.md5anim
+	{
+		frame 1						speak			lipsync_sight
+	}
+
+	anim evade_left1				models/monsters/bigheavyhovertank/evade_left1.md5anim
+	{
+		frame 1						sound				snd_strafe
+	}
+	anim evade_right1				models/monsters/bigheavyhovertank/evade_right1.md5anim
+	{
+		frame 1						sound				snd_strafe
+	}
+
+	anim death1						models/monsters/bigheavyhovertank/death1.md5anim
+	anim death2						models/monsters/bigheavyhovertank/death2.md5anim
+	anim death3						models/monsters/bigheavyhovertank/death3.md5anim
+
+}
+
+
+/*
+===============================================================================
+
+	Heavy Hover Tank ROCKET ATTACK
+
+===============================================================================
+*/
+
+entityDef damage_htank_direct
+{
+	"damage"							"50"
+	"push"								"400"
+	"knockback"							"400"
+	"mtr_splat"							""
+	"gib"								"1"
+}
+
+entityDef damage_htank_splash
+{
+//	"damage"							"50"
+	"damage"							"25"
+	"radius"							"300"
+	"knockback"							"400"
+	"push"								"400"
+	"gib"								"0"
+}
+
+entityDef projectile_htank_rocket
+{
+	"inherit"							"projectile_base"
+
+	"spawnclass"						"idGuidedProjectile"
+
+	"mins"								"-8 -8 -8"
+	"maxs"								"8 8 8"
+	"cone"								"2"
+	"noshadows"							"0"
+	"clipmask_largeshot"				"1"
+	"no_contents"						"0"
+
+	"model"								"models/monsters/heavyhovertank/rocket.lwo"
+
+	"health"							"15"
+	"fuse"								"10"
+
+	"angular_velocity"					"0 0 5"
+
+	"def_damage"						"damage_htank_direct"
+	"def_splash_damage"					"damage_htank_splash"
+	"speed"								"280"
+
+	"fx_fly"							"effects/monsters/heavy_tank/fly.fx"
+	"fx_impact"							"effects/monsters/heavy_tank/impact.fx"
+	"fx_detonate"						"effects/monsters/heavy_tank/impact.fx"
+	"fx_fuse"							"effects/monsters/heavy_tank/impact.fx"
+//	"fx_death"							"effects/monsters/heavy_tank/impact.fx"
+
+	"snd_fly"							"weapon_energy_projectile_loop"
+}
+
+entityDef damage_big_htank_direct
+{
+	"inherit"							"damage_htank_direct"
+//	"damage"							"200" 
+	"damage"							"100" 
+	"push"								"500"
+	"knockback"							"500"
+}
+
+entityDef damage_big_htank_splash
+{
+	"inherit"							"damage_htank_splash"
+//	"damage"							"100"
+	"damage"							"50"
+	"radius"							"400"
+	"knockback"							"500"
+	"push"								"500"
+}
+
+entityDef projectile_big_htank_rocket
+{
+	"inherit"							"projectile_htank_rocket"
+
+	"health"							"50"
+	"speed"								"450"
+	"scale"								"2"
+
+	"mins"								"-12 -12 -12"
+	"maxs"								"12 12 12"
+
+	"def_damage"						"damage_big_htank_direct"
+	"def_splash_damage"					"damage_big_htank_splash"
+}
+
+/*
+===============================================================================
+
+	Heavy Hover Tank BLASTER ATTACK
+
+===============================================================================
+*/
+
+entityDef damage_htank_blaster
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"10"
+}
+
+entityDef projectile_htank_blaster
+{
+	"inherit"							"projectile_strogg_marine_blaster"
+	"def_damage"						"damage_htank_blaster"
+}
+
+entityDef damage_big_htank_blaster
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"25"
+}
+
+entityDef projectile_big_htank_blaster
+{
+	"inherit"							"projectile_strogg_marine_blaster"
+	"def_damage"						"damage_big_htank_blaster"
+}
+
+/*
+===============================================================================
+
+	Heavy Hover Tank MELEE ATTACK
+
+===============================================================================
+*/
+
+entityDef melee_htank
+{
+	"inherit"						"melee_monster_base"
+	"damage"						"20"
+	"knockback"						"50"
+	"snd_miss"						"lt_tank_mace_swing"
+	"snd_hit"						"lt_tank_mace_impact"
+
+	"kickDir"						".4 0 .6"
+	"kick_time"						"300"
+	"kick_amplitude"				"1"
+	
+	"blob_time"						"500"
+	"mtr_blob"						"textures/decals/genericdamage"
+	"blob_x"						"0"
+	"blob_y"						"-125"
+	"blob_width"					"400"
+	"blob_height"					"400"
+	
+	"dv_time"						"500"
+	"dv_scale"						".1"
+	
+	"tv_time"						"500"
+	
+	"fx_wound"						""
+	"snd_flesh"						"bullet_impact_flesh"	
+
+	"deathPush"					"100"
+	"deathPushMin"				"3000 350"
+	"deathPushMax"				"5000 500"	
+}
+
+entityDef melee_htank_right
+{
+	"inherit"						"melee_htank"
+	"knockback"						"100"
+	"kickDir"						".6 -0.2 .8"
+	"damage"						"35"
+}
+
+entityDef melee_big_htank
+{
+	"inherit"						"melee_htank"
+	"damage"						"35"
+	"knockback"						"100"
+}
+
+entityDef melee_big_htank_right
+{
+	"inherit"						"melee_big_htank"
+	"knockback"						"300"
+	"damage"						"65"
+}
+
+/*
+===============================================================================
+
+	Heavy Hover Tank Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_hh_tank
+{
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterHeavyHoverTank"
+
+	// --------------------------------- Actions ------------------------------------
+	"attackRange"						"400 2000"
+	"actionTimer_rangedAttack_rate"		"0.25"				
+	"actionTimer_specialAttack_rate"	"1"				
+
+	"action_blasterAttack"				"1"
+	"action_blasterAttack_rate"			"0"
+	"action_blasterAttack_minRange"		"150"
+	"action_blasterAttack_maxRange"		"2500"
+	"action_blasterAttack_noturn"		"0"
+	"action_blasterAttack_overrideLegs"	"0"
+	"action_blasterAttack_nopain"		"1"
+
+	"action_rocketAttack"				"1"
+	"action_rocketAttack_rate"			"0"
+	"action_rocketAttack_minRange"		"400"
+	"action_rocketAttack_maxRange"		"5000"
+	"action_rocketAttack_nopain"		"1"
+
+	"actionTimer_evade_rate"			"2"
+	"action_evadeLeft"					"1"
+	"action_evadeLeft_maxRange"			"5000"
+	"action_evadeLeft_state"			"Torso_EvadeLeft"
+	"action_evadeRight"					"1"
+	"action_evadeRight_maxRange"		"5000"
+	"action_evadeRight_state"			"Torso_EvadeRight"
+
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_maxRange"		"150"
+	"melee_range"						"150"
+
+	"action_strafe"						"1"
+//	"action_strafe_anim"				"evade_left1"
+//	"action_strafe_anim2"				"evade_right1"
+	"action_strafe_state"				"Torso_Strafe"
+	"action_strafe_minRange"			"200"
+	"action_strafe_maxRange"			"5000"
+	"action_strafe_rate"				"1"
+	"action_strafe_chance"				"0.5"
+	"action_strafe_noturn"				"0"
+
+	"painThreshold"						"25"
+
+	// --------------------------------- Body ------------------------------------
+	"model"								"model_monster_heavy_hovertank"
+	"size"								"48 48 76"
+	"use_aas"							"aas48"
+	"flying"							"1"
+	"ragdoll"							"monster_heavy_hovertank"
+	"articulatedFigure"					"monster_heavy_hovertank"
+	"directionalMovement"				"1"
+
+	"alwaysBob"							"1"
+	"fly_bob_strength"					"128"
+	"fly_bob_horz"						"2"
+	"fly_bob_vert"						"1"
+	"fly_pitch_scale"					"-50"
+	"fly_roll_scale"					"5"
+	"fly_offset"						"32"
+	"walkRange"							"32"
+	
+	"strafeSpeed"						"300"
+
+	"vehicle_damage_scale"				"0.01"
+	
+	"tactical_ranged"					"1"
+	"tactical_rush"						"0"
+	"tactical_cover"					"0"
+	"tactical_hide"						"0"
+	
+	"joint_eyeOffset"					"forhead"
+	"joint_chestOffset"					"chest"
+	"joint_hover"						"fx"
+
+	"chatter_idle_rate"					"8"
+	"chatter_combat_rate"				"8"	
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"					"0.2 0.2 0"
+	  "look_joint chest"				"0.2 0.2 0"
+	    "look_joint shoulders"			"0.2 0.2 0"
+		  "look_joint gunCtrl"			"0.4 0.4 0"
+	      "look_joint neck"				"0.2 0.2 0"
+	        "look_joint head"			"0.2 0.2 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"							"800"
+
+	"def_attack_rocket"					"projectile_htank_rocket"
+	"def_attack_blaster"				"projectile_htank_blaster"
+	"attack_blaster_accuracy"			"1"
+	"attack_blaster_spread"				"1"
+	
+	"def_attack_melee"					"melee_htank"
+	"def_attack_melee_right"			"melee_htank_right"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"					"*neck"
+	"damage_scale head"					"2"	
+	
+	// --------------------------------- FX --------------------------------------
+	"fx_rocket_flash"					"effects/monsters/heavy_tank/muzzleflash.fx"
+	"fx_blaster_flash"					"effects/monsters/strogg_marine/blaster_mflash.fx"
+	"fx_dust"							"effects/vehicles/gev/dust.fx"
+	"fx_hover"							"effects/monsters/heavy_tank/jetwash.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+	"fx_swipe"							"effects/monsters/grunt/swipe_attack.fx"
+
+	// --------------------------------- Sound --------------------------------------
+	"lipsync_sight"						"htank_alert"
+	"lipsync_chatter_idle"				"htank_chatter"
+	"lipsync_chatter_combat"			"htank_chatter_combat"
+	"snd_pain"							"htank_pain"
+	"snd_fly"							"htank_hover"
+	"snd_weapon_fire"					"smarine_gun"
+	"snd_melee_swing"					"htank_wiff"
+	
+	//ZACK: new sound slots below here
+	"snd_grunt"							"htank_grunt"
+	"snd_rocket_ready"					"htank_rocket_ready"
+	"snd_rocket_stow"					"htank_rocket_stow"
+	"snd_strafe"						"htank_strafe"
+	
+	"sound_bone"						"chest"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"							"Heavy Tank"
+	"dbText"							"Description Text of the Heavy Tank"
+	"sg_name"							"Heavy Hover Tank"
+	"sg_category"						"MiniBosses"
+}
+
+entityDef monster_big_hh_tank
+{
+	"inherit"							"monster_hh_tank"
+	"health"							"1200"
+
+	"model"								"model_monster_big_heavy_hovertank"
+	"ragdoll"							"monster_big_heavy_hovertank"
+	"articulatedFigure"					"monster_big_heavy_hovertank"
+	"size"								"94 94 96"
+	"use_aas"							"aas96"
+
+	"painThreshold"						"50"
+
+	"fly_bob_strength"					"128"
+
+	"def_attack_rocket"					"projectile_big_htank_rocket"
+	"def_attack_blaster"				"projectile_big_htank_blaster"
+	
+	"def_attack_melee"					"melee_big_htank"
+	"def_attack_melee_right"			"melee_big_htank_right"
+}
+
+entityDef monster_big_hh_tank_convoy
+{
+	"inherit"							"monster_big_hh_tank"
+
+	"strafeSpeed"						"100"
+
+	"joint_hover"						""
+	"fx_dust"							""
+	"fx_hover"							""
+}
+
+entityDef monster_big_hh_tank_convoy2
+{
+	"inherit"							"monster_big_hh_tank"
+
+	"strafeSpeed"						"100"
+
+	"action_blasterAttack_maxRange"		"2500"
+	"action_rocketAttack_maxRange"		"8500"
+
+	"joint_hover"						""
+	"fx_dust"							""
+	"fx_hover"							""
+}

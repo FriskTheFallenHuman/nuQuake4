@@ -1,0 +1,55 @@
+/***********************************************************************
+TACTICAL STATION
+***********************************************************************/
+
+export tactical_station
+{
+	options -prefix TS_ -align ALL -sourcedir work/models/mapobjects/marine/tactical_station/animation   -destdir models/mapobjects/marine/tactical_station
+
+	mesh idle.ma			-dest tactical_station  
+	anim idle.ma			-dest idle
+	anim off.ma			-dest off
+	anim powerup.ma			-dest powerup
+	anim powerdown.ma		-dest powerdown
+	
+	
+}
+
+entityDef env_tactical_station
+{
+	"editor_usage"					"animated_tactical_station"
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_tactical_station"
+	"anim"						"idle"
+	
+	"gui"						"guis/maps/mcc/briefing1.gui"
+	
+	"snd_on"					"mcc_tactical_station_on"
+	"snd_off"					"mcc_tactical_station_off"
+	"snd_powerup"				"mcc_makron_hologram_up"
+	"snd_powerdwn"				"mcc_makron_hologram_down"
+
+	
+	
+}
+
+model model_tactical_station
+{
+	mesh					models/mapobjects/marine/tactical_station/tactical_station.md5mesh
+	anim idle				models/mapobjects/marine/tactical_station/idle.md5anim
+	anim off				models/mapobjects/marine/tactical_station/off.md5anim
+	anim powerup				models/mapobjects/marine/tactical_station/powerup.md5anim
+	{
+		frame	1					sound		snd_on
+		frame	56					sound		snd_powerup
+	}
+	anim powerdown				models/mapobjects/marine/tactical_station/powerdown.md5anim
+	{
+		frame	8,21				sound		snd_off
+		frame	1					sound		snd_powerdwn
+	}

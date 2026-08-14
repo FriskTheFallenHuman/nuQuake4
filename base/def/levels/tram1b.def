@@ -1,0 +1,141 @@
+entityDef char_marine_tramCar_cortez {
+	"inherit"						"char_marine_tramCar"
+
+	"hide"							"1"
+	
+	"npc_name"						"PFC Cortez"
+	"npc_description"				"Rhino squad"
+	
+	//"lipsync_notFullSpeed"			"vo_3_1_7_05_1" UNUSED 5/17/05 gc
+	
+	"lipsync_warningRight"			"vo_3_1_7_10_1"
+	"lipsync_warningRight1"			"vo_3_1_7_10_2"
+	"lipsync_warningRight2"			"vo_3_1_7_10_3"
+	"lipsync_warningRight3"			"vo_3_1_7_10_4"
+	"lipsync_warningRight4"			"vo_3_1_7_10_5"
+	"lipsync_warningRight5"			"vo_3_1_7_10_6"
+	
+	"lipsync_warningLeft"			"vo_3_1_7_20_1"
+	"lipsync_warningLeft1"			"vo_3_1_7_20_2"
+	"lipsync_warningLeft2"			"vo_3_1_7_20_3"
+	"lipsync_warningLeft3"			"vo_3_1_7_20_4"
+	"lipsync_warningLeft4"			"vo_3_1_7_20_5"
+	"lipsync_warningLeft5"			"vo_3_1_7_20_6"
+	
+	//"lipsync_missedSwitch"			"vo_3_1_7_50_1" UNUSED 5/17/05 gc
+	
+	"lipsync_fliersGoingToCrash"	"vo_3_1_7_80_1"
+	"lipsync_cantContinue"			"vo_3_1_7_80_2"
+	"lipsync_nextStop"				"vo_3_1_7_100_1"
+	
+	"lipsync_damageWarning1"		"vo_3_1_7_30_1"
+	"lipsync_damageWarning2"		"vo_3_1_7_30_2"
+	"lipsync_damageWarning3"		"vo_3_1_7_30_3"
+	"lipsync_damageWarning4"		"vo_3_1_7_30_4"
+	"lipsync_damageWarning5"		"vo_3_1_7_40_1"
+	"lipsync_damageWarning6"		"vo_3_1_7_40_2"
+	"lipsync_damageWarning7"		"vo_3_1_7_40_4"
+}
+
+entityDef occupant_tramCar_driver_cortez {
+	"inherit"						"occupant_tramCar_driver"
+	
+	"def_occupant"					"char_marine_tramCar_cortez"
+}
+
+entityDef moveable_gib_marine_fighter_wing {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/marine_fighter/debris/wing.lwo"
+}
+
+entityDef moveable_gib_marine_fighter_gun {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/marine_fighter/debris/gun.lwo"
+}
+
+entityDef moveable_gib_marine_fighter_door {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/marine_fighter/debris/door.lwo"
+}
+
+entityDef moveable_gib_marine_fighter_bit1 {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/marine_fighter/debris/bit1.lwo"
+}
+
+
+///the strogg flyer debris--------------------------------
+entityDef moveable_gib_stroggflyer_wing1 {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/strogg_flyer/debris/sf_wing.lwo"
+	"fx_trail"					"effects/fire/spot_32_trail_ns.fx"
+}
+
+entityDef moveable_gib_stroggflyer_wing2 {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/strogg_flyer/debris/sf_wing2.lwo"
+	"fx_trail"					"effects/fire/spot_32_trail_ns.fx"
+}
+
+
+entityDef moveable_gib_stroggflyer_bit {
+	"inherit"					"moveable_base"
+	"model"						"models/vehicles/strogg_flyer/debris/sf_bit.lwo"
+	"fx_trail"					"effects/fire/spot_32_trail_ns.fx"
+}
+
+//exploding tram-----------------------------------------------
+entityDef moveable_gib_tram_bar1 {
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/tram/tramcar/debris/tcar_bar1.lwo"
+}
+
+
+entityDef moveable_gib_tram_bar2 {
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/tram/tramcar/debris/tcar_bar2.lwo"
+}
+
+
+entityDef moveable_gib_tram_floor {
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/tram/tramcar/debris/tcar_floor.lwo"
+}
+
+entityDef moveable_gib_tram_frame {
+	"inherit"					"moveable_base"
+	"model"						"models/mapobjects/strogg/tram/tramcar/debris/tcar_frame.lwo"
+}
+
+entityDef projectile_strogg_arialmine {
+	"inherit"					"projectile_turret_rocket"
+	
+	"def_damage"				""
+	"def_splash_damage"			"damage_strogg_flyer_bomb"
+	
+	"turn_accel"				"0.2"
+	
+	"speed"						"500"
+}
+
+entityDef monster_strogg_flyer_tram1b {
+	"inherit"								"monster_strogg_flyer"
+/*	
+	"action_blasterAttack"					"0"
+	"action_blasterAttack_rate"				"0"
+	"action_blasterAttack_maxRange"			"0"
+	"action_blasterAttack_minRange2d"		"0"
+	"action_blasterAttack_maxRange2d"		"0"
+	"action_blasterAttack_noturn"			"0"
+	"action_blasterAttack_overrideLegs"		"0"
+*/
+	"action_bombAttack"						"1"
+	"action_bombAttack_rate"				"6"
+	"action_bombAttack_maxRange2d"			"4000"
+	"action_bombAttack_minRange2d"			"0"
+	"action_bombAttack_maxRange"			"5000"
+	"action_bombAttack_noturn"				"0"
+	"action_bombAttack_overrideLegs"		"0"
+	
+//	"def_attack_bomb"						"projectile_strogg_arialmine"
+}

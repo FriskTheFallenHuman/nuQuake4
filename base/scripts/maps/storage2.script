@@ -1,0 +1,1498 @@
+//------------------------------------------------------------------------
+//	Storage.script
+//	
+//	Scripted events for the Storage2 level.
+//	Last major modifications done Nov. 3
+//
+//  FIXME: The fire doors need to be their own func_firedoor, not this current style.
+//
+//	mrenner, jshepard, jdischler, aweldon
+//	Nov 3
+//------------------------------------------------------------------------
+
+namespace map_storage2
+{
+
+// Storage2 globals
+float gAlarmPass = 1;
+
+
+//-------------------------------------------------------------
+// void openFireDoor(entity doorLeft, entity doorRight, entity hinge)
+//
+// Opens a fire door. Make sure you have the left and right doors named correctly!
+// NOTE: the sound shader must be cached in main()
+//
+// JShepard, jdischler | May 04
+// aweldon (additions/tweaks) | Feb 05
+// 
+//-------------------------------------------------------------
+void openFireDoor( entity doorLeft, entity doorRight, entity fade, entity flareList, entity effect1, entity effect2 )
+{
+	// Set the time and accelerations
+	doorLeft.time(3);
+	doorRight.time(3);
+	doorLeft.accelTime(2);
+	doorRight.accelTime(2);
+	doorLeft.decelTime(1);
+	doorRight.decelTime(1);
+	
+	sys.trigger( fade );
+	sys.wait(.25);
+//	sys.wait(4);
+
+	entity flare;
+	qListForEach( flareList , flare )	{
+		flare.fadeInLight( 1 );
+	}
+
+	// Rotate both the left and right doors
+	doorLeft.startSoundShader( "storage_firedoor_open", SND_CHANNEL_ANY );
+	doorLeft.rotateOnce('0 0 -90');
+	doorRight.rotateOnce('0 0 90');
+	
+	// Trigger pressure effect
+	sys.trigger( effect1 );
+	sys.trigger( effect2 );
+
+	sys.waitFor(doorLeft);
+
+	doorLeft.startSoundShader( "storage_firedoor_close", SND_CHANNEL_ANY );
+}
+
+void openFireDoorNoFlare( entity doorLeft, entity doorRight, entity fade, entity effect1, entity effect2 )
+{
+	// Set the time and accelerations
+	doorLeft.time(3);
+	doorRight.time(3);
+	doorLeft.accelTime(2);
+	doorRight.accelTime(2);
+	doorLeft.decelTime(1);
+	doorRight.decelTime(1);
+	
+	sys.trigger( fade );
+	sys.wait(.25);
+
+	// Rotate both the left and right doors
+	doorLeft.startSoundShader( "storage_firedoor_open", SND_CHANNEL_ANY );
+	doorLeft.rotateOnce('0 0 -90');
+	doorRight.rotateOnce('0 0 90');
+	
+	// Trigger pressure effect
+	sys.trigger( effect1 );
+	sys.trigger( effect2 );
+
+	sys.waitFor(doorLeft);
+
+	doorLeft.startSoundShader( "storage_firedoor_close", SND_CHANNEL_ANY );
+}
+
+
+//-------------------------------------------------------------
+// void closeFireDoor(entity doorLeft, entity doorRight, entity hinge)
+//
+// Closes a fire door. Make sure you have the left and right doors named correctly!
+// The hinge should be a target null that is at the top of and inbetween the two doors.
+// NOTE: the sound shader must be cached in main()
+//
+// JShepard, jdischler | May 04
+// aweldon (additions/tweaks) | Feb 05
+//-------------------------------------------------------------
+void closeFireDoor(entity doorLeft, entity doorRight, entity fade, entity flareList, entity effect1, entity effect2 )
+{
+	// Set the time and accelerations
+	doorLeft.time(3);
+	doorRight.time(3);
+	doorLeft.accelTime(2);
+	doorRight.accelTime(2);
+	doorLeft.decelTime(1);
+	doorRight.decelTime(1);
+	
+	//rotate both the left and right doors
+	doorLeft.startSoundShader( "storage_firedoor_open", SND_CHANNEL_ANY );
+	doorLeft.rotateOnce('0 0 90');
+	doorRight.rotateOnce('0 0 -90');
+
+	entity flare;
+	qListForEach( flareList , flare )	{
+		flare.fadeOutLight( 1 );
+	}
+	
+	sys.waitFor(doorLeft);
+
+	doorLeft.startSoundShader( "storage_firedoor_close", SND_CHANNEL_ANY );
+
+	//	sys.wait( 1 );
+	sys.trigger( fade );
+}
+
+//--
+// Pistons in elevator shaft - aweldon Feb 05
+//--
+void startTSDPistons()	{
+
+	//Trigger in TSD batteries
+	sys.trigger( $shaft_static_tsd_1 );
+	sys.trigger( $shaft_static_tsd_2 );
+
+	// Move to initial position
+	$elecPiston_1.move( DOWN , 32 );
+	$elecPiston_2.move( DOWN , 96 );
+	$elecPiston_3.move( DOWN , 32 );
+	$elecPiston_4.move( DOWN , 96 );
+	
+	// Wait for all pistons to arrive
+	sys.waitFor( $elecPiston_4 );
+	
+	// Start effects
+	sys.trigger( $elecArc_1 );
+	sys.trigger( $elecArc_2 );
+	sys.trigger( $elecArc_3 );
+	sys.trigger( $elecArc_4 );
+	
+	while( 1 )	{
+		
+		// Make first move
+		$elecPiston_1.move( DOWN , 64 );
+		$elecPiston_3.move( DOWN , 64 );
+		$elecPiston_2.move( UP , 64 );
+		$elecPiston_4.move( UP , 64 );
+		
+		// Make fun rotations whilst moving
+		$elecPiston_1.rotateOnce( '0 -360 0' );
+		$elecPiston_2.rotateOnce( '0 -360 0' );
+		$elecPiston_3.rotateOnce( '0 360 0' );
+		$elecPiston_4.rotateOnce( '0 360 0' );
+				
+		// Pause
+		sys.waitFor( $elecPiston_4 );
+		sys.wait( 1 );
+		
+		
+		// Make returning move
+		$elecPiston_1.move( UP , 64 );
+		$elecPiston_3.move( UP , 64 );
+		$elecPiston_2.move( DOWN , 64 );
+		$elecPiston_4.move( DOWN , 64 );
+		
+		// Make fun rotations whilst moving
+		$elecPiston_1.rotateOnce( '0 360 0' );
+		$elecPiston_2.rotateOnce( '0 360 0' );
+		$elecPiston_3.rotateOnce( '0 -360 0' );
+		$elecPiston_4.rotateOnce( '0 -360 0' );
+		
+		// Pause
+		sys.waitFor( $elecPiston_4 );
+		sys.wait( 1 );
+	}
+	
+}
+//--
+// End pistons in elevator shaft
+//--		
+		
+
+//--
+// Spinny alarm lights - aweldon Feb 05
+//--
+
+void alarmSpin360( entity alarm )	{
+
+	entity alarmLight = alarm.getEntityKey( "boundLight" );
+	entity alarmFX = alarm.getEntityKey( "fx" );
+	alarm.time( 2 );
+
+	while( gAlarmPass == 1 )	{
+	
+		alarm.rotateOnce( '0 360 0' );
+		sys.waitFor( alarm );
+		
+	}
+	
+	alarm.decelTime( 1 );
+	alarm.rotateOnce( '0 360 0' );
+	sys.waitFor( alarm );
+	alarmLight.fadeOutLight( 1 );
+	sys.wait( 1 );
+	sys.trigger( alarmFX );
+}		
+
+void alarmSpin90( entity alarm )	{
+
+	entity alarmLight = alarm.getEntityKey( "boundLight" );
+	entity alarmFX = alarm.getEntityKey( "fx" );
+	alarm.time(1);
+	alarm.rotateOnce( '0 -45 0' );
+	sys.waitFor( alarm );
+	alarm.time( 2 );
+	alarm.accelTime( .5 );
+	alarm.decelTime( .5 );
+
+	while( gAlarmPass == 1 )	{
+			
+		alarm.rotateOnce( '0 90 0' );
+		sys.waitFor( alarm );
+		alarm.rotateOnce( '0 -90 0' );
+		sys.waitFor( alarm );
+	}
+	
+	alarm.decelTime( 2 );
+	alarm.rotateOnce( '0 90 0' );
+	sys.waitFor( alarm );
+	alarmLight.fadeOutLight( 1 );
+	sys.wait( 1 );
+	sys.trigger( alarmFX );
+	
+}
+
+void startLights()	
+{
+	entity alarmList360 = $alarmList_1;
+	entity alarmList90 = $alarmList_2;
+	entity spinLight360;
+	entity spinLight90;
+
+	qListForEach( alarmList360 , spinLight360 )	{
+		thread alarmSpin360( spinLight360 );
+	}
+	
+	qListForEach( alarmList90 , spinLight90 )	{
+		thread alarmSpin90( spinLight90 );
+	}
+}
+
+void alarmStatus()	
+{
+	//sys.println( "Changing alarm Status!" );
+	gAlarmPass = 0;
+	//sys.println( gAlarmPass );
+}
+
+//--
+// End spinny alarm lights
+//--
+
+//----------------------------------------------------------
+// Start the whole slew of torso speakers
+// jdischler | Jan 2005
+//----------------------------------------------------------
+void startTorsoSpeakers(float startID, float endID)
+{
+	float i;
+	entity wrk;
+	for ( i = startID; i <= endID; i += 1 )
+	{
+		wrk = sys.getEntity("speaker_torsoSound_"+i);
+		sys.trigger(wrk);
+	}
+}
+
+//------------------------------------------------------------------------
+//	Toggle fire doors with a gui
+//	trigger_relay has to trigger the doors and hinge in correct order.
+//		target	leftdoor
+//		target1	rightdoor
+//		target2	hinge
+//
+//	mrenner with the help of Mr. Shepard
+//	aweldon - additional parms
+//------------------------------------------------------------------------
+void toggleFireDoor(entity relay)
+{
+	entity leftDoor = relay.getTarget(0);
+	entity rightDoor = relay.getTarget(1);
+	entity hinge = relay.getTarget(2);
+	entity fade2 = relay.getEntityKey( "fadeOut" );
+	entity fade1 = relay.getEntityKey( "fadeIn" );
+	entity flares = relay.getEntityKey( "flares" );
+	entity effect1 = relay.getEntityKey( "effect1" );
+	entity effect2 = relay.getEntityKey( "effect2" );
+	
+	float doorState = relay.getFloatKey( "doorOpen" );
+
+	if(doorState == 1)
+	{
+		closeFireDoor(leftDoor, rightDoor, fade1, flares, effect1, effect2 );
+		relay.setKey("doorOpen", 0);
+	}
+	else
+	{
+		openFireDoor(leftDoor, rightDoor, fade2, flares, effect1, effect2 );
+		relay.setKey("doorOpen", 1);
+	}
+}
+void neverCloseFireDoor(entity relay)
+{
+	entity leftDoor = relay.getTarget(0);
+	entity rightDoor = relay.getTarget(1);
+	entity hinge = relay.getTarget(2);
+	entity fade1 = relay.getEntityKey( "fadeOut" );
+	entity fade2 = relay.getEntityKey( "fadeIn" );
+//	entity flares = relay.getEntityKey( "flares" );
+	entity effect1 = relay.getEntityKey( "effect1" );
+	entity effect2 = relay.getEntityKey( "effect2" );
+
+//	openFireDoor(leftDoor, rightDoor, fade2, flares, effect1, effect2 );
+		
+	openFireDoorNoFlare(leftDoor, rightDoor, fade2, effect1, effect2 );
+	
+}
+void setupFireDoors()
+{
+	// Fire doors close.
+	sys.trigger($fireDoor_trigToggle);
+
+	// trigger fire door monitors to show
+	sys.trigger($show_open_monitors);
+	
+	// trigger that removes broken monitors
+	sys.trigger($remove_static_monitors);
+	
+	// trigger that removes the red lights
+	sys.trigger($remove_red_lights);
+}
+
+//--
+// Massively painful light changeover! - aweldon Feb 05
+// With assistance from rcordes and bdube
+//--
+
+#define PULSE_DURATION		2
+#define PULSE_OFFSET		1
+
+float redOrigin = 0.52;
+float greenOrigin = 0.22;
+float blueOrigin = 0;
+
+void changeGlobalParm()	{
+	
+	//sys.println("this is working"); 
+	sys.wait( PULSE_DURATION - ((((sys.getTime ( ) + PULSE_OFFSET ) * 100) % (PULSE_DURATION*100)) / 100) );
+	sys.setShaderParm(1, sys.getTime());
+
+	float fadeDuration = 2;
+	float fadeTime = sys.getTime() + fadeDuration;
+	float oldTime = sys.getTime();
+	float nowTime = sys.getTime();
+	float deltaTime = 0;
+	
+	float redDest = 0.58;
+	float greenDest = 0.82;
+	float blueDest = 1;
+	
+	float fRed = redOrigin;
+	float fGreen = greenOrigin;
+	float fBlue = blueOrigin;
+	
+	float fRedScale = (redDest - redOrigin)/fadeDuration;
+	float fGreenScale = (greenDest - greenOrigin)/fadeDuration;
+	float fBlueScale = (blueDest - blueOrigin)/fadeDuration;
+	
+	while (nowTime < fadeTime) {
+		nowTime = sys.getTime();
+		deltaTime = nowTime - oldTime;
+		oldTime = nowTime;
+		
+		fRed += deltaTime * fRedScale;
+		fGreen += deltaTime * fGreenScale;
+		fBlue += deltaTime * fBlueScale;
+		
+		sys.print(fRedScale);
+		sys.print(" ");
+		sys.print(fGreenScale);
+		sys.print(" ");
+		//sys.println(fBlueScale);
+		sys.print(fRed);
+		sys.print(" ");
+		sys.print(fGreen);
+		sys.print(" ");
+		//sys.println(fBlue);
+		
+		// Set new light parms
+		$groundFog.setLightParm(0, fRed);
+		$groundFog.setLightParm(1, fGreen);
+		$groundFog.setLightParm(2, fBlue);
+
+		/*	
+		$shaftFog.setLightParm(0, fRed);
+		$shaftFog.setLightParm(1, fGreen);
+		$shaftFog.setLightParm(2, fBlue);
+		*/
+		sys.waitFrame();
+	}
+}
+
+void initFog() 
+{
+	//sys.println("#############################");
+	//sys.println("#                           #");
+	//sys.println("#  initializing fog orange  #");
+	//sys.println("#                           #");
+	//sys.println("#############################");
+	$groundFog.setLightParms(redOrigin, greenOrigin, blueOrigin, 1);
+
+//	$shaftFog.setLightParms(redOrigin, greenOrigin, blueOrigin, 1);
+}
+
+void changeLighting()	
+{
+	thread alarmStatus();
+	
+	// Fade current lights
+	entity lightFade;
+	entity fadeOutList = $fadeOutList;
+	qListForEach( fadeOutList , lightFade )	{
+		lightFade.fadeOutLight( 2 );
+	}	
+	
+	sys.wait( 2 );
+	
+	thread changeGlobalParm();
+	
+	// Bring on the new lights.
+	entity fadeInList = $fadeInList;
+	qListForEach( fadeInList , lightFade )	{
+		lightFade.fadeInLight( 2 );
+	}
+
+	// Fade Glass and Flares
+	sys.trigger( $swapGlass );
+	sys.trigger( $swapMaidenFlares );
+	sys.trigger( $swapElevFlares );
+	sys.trigger( $swapShaftFlares );
+	
+	// Close the fire doors and activate the gui monitors.
+	thread setupFireDoors();
+	
+	// Set off the moving objects in the elevator shaft.
+	// thread startTSDPistons();
+	
+	// If the guys are still alive, turn the flashlights off!
+	if( isValidEntity( $npc_rutger ) )	{
+		$npc_rutger.flashlight(0);
+	}
+	sys.wait( .5 );
+	if( isValidEntity( $npc_mills ) )	{
+		$npc_mills.flashlight(0);
+	}
+}
+
+//---------------------------------------------------------
+void moveTsdTall(entity tsd, float units)
+{
+	float fTargets = tsd.numTargets();
+	float fI;
+
+	//sys.println("doing TSD group");
+
+	while(1)
+	{
+		sys.wait( .1 + sys.random(.2) );		
+		// set move time and show
+		tsd.time(1.5);	
+		for ( fI = 0; fI < fTargets; fI = fI + 1 )
+		{
+			tsd.getTarget(fI).show();
+		}
+				
+		//move to end
+		tsd.move( UP, units );	
+		sys.wait(1.5);
+		
+		// hide and move to start
+		for ( fI = 0; fI < fTargets; fI = fI + 1 )
+		{
+			tsd.getTarget(fI).hide();
+		}
+		tsd.time(.1);
+		tsd.move( DOWN, units );	
+		sys.wait(.1);	
+	}
+}
+
+//---------------------------------------------------------
+void doTsdGroup()
+{
+	thread moveTsdTall($ren_tsdSet_3, 1104);
+	thread moveTsdTall($ren_tsdSet_4, 668);
+	thread moveTsdTall($ren_tsdSet_5, 1104);
+	thread moveTsdTall($ren_tsdSet_6, 668);
+	thread moveTsdTall($ren_tsdSet_7, 1104);
+	thread moveTsdTall($ren_tsdSet_8, 668);
+	thread moveTsdTall($ren_tsdSet_9, 1104);
+	thread moveTsdTall($ren_tsdSet_10, 668);
+}
+
+//-----------------------------------------------------
+// rough 1st pass of TSD Distribution machine
+//		used when there is a chain of tsd's being moved.
+// mrenner
+//-----------------------------------------------------
+void moveTsd(entity tsd, entity begin, entity end)
+{
+	//tsd.becomeNonSolid();
+
+	while(1)
+	{
+		// set move time and show
+		tsd.time(2);	
+		tsd.accelTime(2);
+		tsd.show();
+				
+		//move to end
+		tsd.moveTo(end);	
+		sys.waitFor(tsd);
+		
+		// hide and move to start
+		tsd.hide();
+		tsd.time(.1);
+		tsd.moveTo(begin);	
+		sys.waitFor(tsd);	
+	}
+}
+
+//-----------------------------------------------------
+// to be used with only one tsd at a time.
+//
+// mrenner
+//-----------------------------------------------------
+void moveTsdFast(entity tsd, entity begin, entity end)
+{
+	//tsd.becomeNonSolid();
+	
+	while(1)
+	{
+		sys.wait( .1 + sys.random(.2) );		
+		// set move time and show
+		tsd.time(.5);	
+		tsd.accelTime(.05);
+		tsd.show();
+				
+		//move to end
+		tsd.moveTo(end);	
+		sys.waitFor(tsd);
+		
+		// hide and move to start
+		tsd.hide();
+		tsd.time(.1);
+		tsd.accelTime(0);
+		tsd.moveTo(begin);	
+		sys.waitFor(tsd);	
+	}
+}
+
+//-----------------------------------------------------
+// verticle movement up 
+//
+// mrenner
+//-----------------------------------------------------
+void upTsd(entity tsd, float units)
+{
+	//tsd.becomeNonSolid();
+	
+	while(1)
+	{
+		sys.wait( .1 + sys.random(.2) );		
+		// set move time and show
+		tsd.time(.5);	
+		tsd.accelTime(.05);
+		tsd.show();
+				
+		//move up 
+		tsd.move( UP, units);	
+		sys.waitFor(tsd);
+		
+		// hide and move to start
+		tsd.hide();
+		tsd.time(.1);
+		tsd.accelTime(0);
+		tsd.move( DOWN, units);	
+		sys.waitFor(tsd);	
+	}
+}
+
+//-----------------------------------------------------
+// counding areas starting at the tsd machine
+//
+// mrenner
+//-----------------------------------------------------
+void area1()
+{
+	thread moveTsdFast($tsd_62, $tsd_start_23, $tsd_end_23);
+	thread moveTsdFast($tsd_63, $tsd_start_24, $tsd_end_24);
+	thread moveTsdFast($tsd_64, $tsd_start_25, $tsd_end_25);
+	thread moveTsdFast($tsd_65, $tsd_start_26, $tsd_end_26);
+
+	thread upTsd($tsd_160, 296);
+	thread upTsd($tsd_161, 296);
+	thread upTsd($tsd_162, 296);
+	thread upTsd($tsd_163, 296);
+	thread upTsd($tsd_164, 296);
+	
+	sys.trigger($area1_tsd);
+	sys.waitFrame();
+	$area1_tsd.playCycle(ANIMCHANNEL_ALL, "shockloop");
+}
+
+void area2()
+{
+	thread moveTsdFast($tsd_66, $tsd_start_27, $tsd_end_27);
+	thread moveTsdFast($tsd_67, $tsd_start_28, $tsd_end_28);
+	thread upTsd($tsd_68, 296);
+	thread upTsd($tsd_69, 296);
+	thread upTsd($tsd_70, 296);
+	thread upTsd($tsd_71, 296);
+	thread upTsd($tsd_72, 296);
+	
+	sys.trigger($area2_tsd);
+	sys.waitFrame();
+	$area2_tsd.playCycle(ANIMCHANNEL_ALL, "shockloop");
+}
+
+void area3()
+{
+	thread upTsd($tsd_73, 296);
+	thread upTsd($tsd_74, 296);
+	thread moveTsdFast($tsd_75, $tsd_start_36, $tsd_end_36);
+	thread moveTsdFast($tsd_76, $tsd_start_37, $tsd_end_37);
+	thread moveTsdFast($tsd_77, $tsd_start_38, $tsd_end_38);
+	thread moveTsdFast($tsd_78, $tsd_start_39, $tsd_end_39);
+}
+
+void area4()
+{
+	thread moveTsdFast($tsd_79, $tsd_start_40, $tsd_end_40);
+	thread moveTsdFast($tsd_80, $tsd_start_41, $tsd_end_41);
+	thread moveTsdFast($tsd_81, $tsd_start_42, $tsd_end_42);
+	thread moveTsdFast($tsd_82, $tsd_start_43, $tsd_end_43);
+}
+
+void area5()
+{
+	thread moveTsdFast($tsd_83, $tsd_start_44, $tsd_end_44);
+	thread moveTsdFast($tsd_84, $tsd_start_45, $tsd_end_45);
+	thread upTsd($tsd_85, 296);
+	thread upTsd($tsd_86, 296);
+	thread upTsd($tsd_87, 296);
+	thread upTsd($tsd_88, 296);
+}
+
+void area6()
+{
+	thread moveTsdFast($tsd_89, $tsd_start_50, $tsd_end_50);
+	thread moveTsdFast($tsd_90, $tsd_start_51, $tsd_end_51);
+	thread moveTsdFast($tsd_91, $tsd_start_52, $tsd_end_52);
+	thread moveTsdFast($tsd_92, $tsd_start_53, $tsd_end_53);
+	thread moveTsdFast($tsd_93, $tsd_start_54, $tsd_end_54);
+	thread moveTsdFast($tsd_94, $tsd_start_55, $tsd_end_55);
+	thread moveTsdFast($tsd_95, $tsd_start_56, $tsd_end_56);
+	thread moveTsdFast($tsd_96, $tsd_start_57, $tsd_end_57);
+	thread moveTsdFast($tsd_97, $tsd_start_58, $tsd_end_58);
+	thread upTsd($tsd_98, 296);
+
+	thread upTsd($tsd_156, 296);
+	thread upTsd($tsd_157, 296);
+	thread upTsd($tsd_158, 296);
+	thread upTsd($tsd_159, 296);
+
+	sys.trigger($area6_tsd);
+	sys.waitFrame();
+	$area6_tsd.playCycle(ANIMCHANNEL_ALL, "shockloop");
+}
+
+void area7()
+{
+	thread upTsd($tsd_99, 296);
+	thread upTsd($tsd_100, 296);
+	thread upTsd($tsd_101, 296);
+	
+	sys.trigger($area7_tsd_1);
+	sys.trigger($area7_tsd_2);
+	sys.waitFrame();
+	$area7_tsd_1.playCycle(ANIMCHANNEL_ALL, "shockloop");
+	$area7_tsd_2.playCycle(ANIMCHANNEL_ALL, "shockloop");
+}
+
+void area8()
+{
+	thread upTsd($tsd_102, 296);
+	thread upTsd($tsd_103, 296);
+	thread moveTsdFast($tsd_104, $tsd_start_65, $tsd_end_65);
+	thread moveTsdFast($tsd_105, $tsd_start_66, $tsd_end_66);
+	thread moveTsdFast($tsd_106, $tsd_start_67, $tsd_end_67);
+	thread moveTsdFast($tsd_107, $tsd_start_68, $tsd_end_68);
+}
+
+void area9_low()
+{
+	// the elevator shaft.
+	thread upTsd($tsd_108, 248);	
+	thread upTsd($tsd_109, 248);	
+	thread upTsd($tsd_110, 248);	
+	thread upTsd($tsd_111, 248);	
+	thread upTsd($tsd_112, 248);	
+	thread upTsd($tsd_113, 248);	
+	thread upTsd($tsd_114, 248);	
+	thread upTsd($tsd_115, 248);	
+	thread upTsd($tsd_116, 248);	
+	thread upTsd($tsd_117, 248);	
+	thread upTsd($tsd_118, 248);	
+	thread upTsd($tsd_119, 248);	
+	thread upTsd($tsd_120, 248);	
+	thread upTsd($tsd_121, 248);	
+	thread upTsd($tsd_122, 248);	
+	thread upTsd($tsd_123, 248);	
+}
+
+void area9_middle()
+{
+	// the elevator shaft.
+	thread upTsd($tsd_140, 248);
+	thread upTsd($tsd_141, 248);
+	thread upTsd($tsd_142, 248);
+	thread upTsd($tsd_143, 248);
+	thread upTsd($tsd_144, 248);
+	thread upTsd($tsd_145, 248);
+	thread upTsd($tsd_146, 248);
+	thread upTsd($tsd_147, 248);
+	thread upTsd($tsd_148, 248);
+	thread upTsd($tsd_149, 248);
+	thread upTsd($tsd_150, 248);
+	thread upTsd($tsd_151, 248);
+	thread upTsd($tsd_152, 248);
+	thread upTsd($tsd_153, 248);
+	thread upTsd($tsd_154, 248);
+	thread upTsd($tsd_155, 248);
+}
+
+void area9_high()
+{
+	// the elevator shaft.
+	thread upTsd($tsd_124, 248);	
+	thread upTsd($tsd_125, 248);	
+	thread upTsd($tsd_126, 248);	
+	thread upTsd($tsd_127, 248);	
+	thread upTsd($tsd_128, 248);	
+	thread upTsd($tsd_129, 248);	
+	thread upTsd($tsd_130, 248);	
+	thread upTsd($tsd_131, 248);	
+	thread upTsd($tsd_132, 248);	
+	thread upTsd($tsd_133, 248);	
+	thread upTsd($tsd_134, 248);	
+	thread upTsd($tsd_135, 248);	
+	thread upTsd($tsd_136, 248);	
+	thread upTsd($tsd_137, 248);	
+	thread upTsd($tsd_138, 248);	
+	thread upTsd($tsd_139, 248);	
+}
+
+void tsdRow1()
+{
+	thread moveTsd($tsd_1, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);
+	thread moveTsd($tsd_2, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);
+	thread moveTsd($tsd_3, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);
+	thread moveTsd($tsd_4, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);	
+	thread moveTsd($tsd_5, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);	
+	thread moveTsd($tsd_6, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);	
+	thread moveTsd($tsd_7, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);	
+	thread moveTsd($tsd_8, $tsd_start_1, $tsd_end_1);
+	sys.wait(.21);	
+	thread moveTsd($tsd_9, $tsd_start_1, $tsd_end_1);
+}
+
+void tsdRow2()
+{
+	thread moveTsd($tsd_10, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);
+	thread moveTsd($tsd_11, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);
+	thread moveTsd($tsd_12, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);
+	thread moveTsd($tsd_13, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);	
+	thread moveTsd($tsd_14, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);	
+	thread moveTsd($tsd_15, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);	
+	thread moveTsd($tsd_16, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);	
+	thread moveTsd($tsd_17, $tsd_start_2, $tsd_end_2);
+	sys.wait(.21);	
+	thread moveTsd($tsd_18, $tsd_start_2, $tsd_end_2);
+}
+
+void tsdRow3()
+{
+	thread moveTsd($tsd_19, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);
+	thread moveTsd($tsd_20, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);
+	thread moveTsd($tsd_21, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);
+	thread moveTsd($tsd_22, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);	
+	thread moveTsd($tsd_23, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);	
+	thread moveTsd($tsd_24, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);	
+	thread moveTsd($tsd_25, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);	
+	thread moveTsd($tsd_26, $tsd_start_3, $tsd_end_3);
+	sys.wait(.21);	
+	thread moveTsd($tsd_27, $tsd_start_3, $tsd_end_3);
+}
+
+void tsdRow4()
+{
+	thread moveTsd($tsd_28, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);
+	thread moveTsd($tsd_29, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);
+	thread moveTsd($tsd_30, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);
+	thread moveTsd($tsd_31, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);	
+	thread moveTsd($tsd_32, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);	
+	thread moveTsd($tsd_33, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);	
+	thread moveTsd($tsd_34, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);	
+	thread moveTsd($tsd_35, $tsd_start_4, $tsd_end_4);
+	sys.wait(.21);	
+	thread moveTsd($tsd_36, $tsd_start_4, $tsd_end_4);
+}
+
+void tsdRow5()
+{
+	thread moveTsd($tsd_37, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);
+	thread moveTsd($tsd_38, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);
+	thread moveTsd($tsd_39, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);
+	thread moveTsd($tsd_40, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);	
+	thread moveTsd($tsd_41, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);
+	thread moveTsd($tsd_42, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);	
+	thread moveTsd($tsd_43, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);	
+	thread moveTsd($tsd_44, $tsd_start_5, $tsd_end_5);
+	sys.wait(.21);	
+	thread moveTsd($tsd_45, $tsd_start_5, $tsd_end_5);
+}
+
+//---------------------------------------------------------
+void spreadTSD()
+{
+	thread moveTsdFast($tsd_46, $tsd_start_7, $tsd_end_7);
+	thread moveTsdFast($tsd_47, $tsd_start_8, $tsd_end_8);	
+	thread moveTsdFast($tsd_48, $tsd_start_9, $tsd_end_9);	
+	thread moveTsdFast($tsd_49, $tsd_start_10, $tsd_end_10);	
+	thread moveTsdFast($tsd_50, $tsd_start_11, $tsd_end_11);	
+	thread moveTsdFast($tsd_51, $tsd_start_12, $tsd_end_12);
+	
+	thread upTsd($tsd_52, 288);
+	thread upTsd($tsd_53, 288);
+	thread upTsd($tsd_54, 288);
+	thread upTsd($tsd_55, 288);
+	thread upTsd($tsd_56, 288);
+	thread upTsd($tsd_57, 288);
+
+	thread upTsd($tsd_165, 288);
+	thread upTsd($tsd_166, 288);
+
+	sys.wait(1);
+	thread moveTsdFast($tsd_58, $tsd_start_19, $tsd_end_19);
+	thread moveTsdFast($tsd_59, $tsd_start_20, $tsd_end_20);
+	thread moveTsdFast($tsd_60, $tsd_start_21, $tsd_end_21);
+	thread moveTsdFast($tsd_61, $tsd_start_22, $tsd_end_22);
+
+	// do the ones in the rotating section of the elevator
+//	thread doTsdGroup();
+}
+
+// Use a list of entities
+//	entName, something like "speaker_machinery_" ....start,end, numbers to append onto
+//	the entName string, inclusive
+//---------------------------------------------------------
+void triggerEntityList( string entName, float fStart, float fEnd )
+{
+	float idx;
+	entity ent;
+
+	for ( idx=fStart; idx<=fEnd; idx=idx+1 )
+	{
+		ent = sys.getEntity( entName + idx );
+		if ( isValidEntity(ent) )
+		{
+			sys.trigger(ent);
+		}
+	}
+}
+
+//---------------------------------------------------------
+void movePlayer()
+{
+   	sys.fadeOut('0 0 0', 0 );
+
+   	$player1.setWorldOrigin( $tgt_null_kane_post_cinematic_2.getWorldOrigin());
+   	$player1.setViewAngles( $tgt_null_kane_post_cinematic_2.getAngles());
+   	sys.fadeIn('0 0 0', .5 );
+
+	sys.wait(.5);
+   	// save game
+//   	sys.trigger($func_savegame_1);
+}
+void nowPresentingTheMaiden(entity who)
+{
+	//sys.println( who.getName());
+   	
+	thread movePlayer();
+   
+   	// We'll use this faded out opportunity to move Kane to the right spot
+//   	sys.waitFrame();
+   	sys.trigger($cin_camera_iron_maiden_1);
+   	sys.trigger($spkr_iron_maiden_sfx);
+   	sys.trigger($spkr_iron_maiden_music);
+   	aiScriptedAnim($tsd_maiden,"storage_intro",0,1);
+   	$env_storage_casket_cin_1.playAnim(ANIMCHANNEL_ALL, "casket_open" );
+   	aiScriptedAnim( $storage_stroggified_kane_1, "storage_iron_intro1", 0, 0 );
+   
+   	// use ai_become_passive
+   	sys.trigger($ai_become_passive_1);
+   
+   	// move the marines out of the way.
+   	if ( isValidEntity($npc_rutger) && $npc_rutger.getHealth() > 0 )
+   	{
+   		$npc_rutger.hide();
+   		$npc_rutger.setWorldOrigin( $rutgerStop.getWorldOrigin());
+   		//$npc_rutger.setViewAngles( $rutgerStop.getAngles());
+   	}
+   	if ( isValidEntity($npc_mills) && $npc_mills.getHealth() > 0 )
+   	{
+   		$npc_mills.hide();
+   		$npc_mills.setWorldOrigin( $millsStop.getWorldOrigin());
+   		//$npc_mills.setViewAngles( $millsStop.getAngles());
+   	}
+
+}
+
+//---------------------------------------------------------
+void kaneInvestigates()
+{
+	aiScriptedAnim( $storage_stroggified_kane_1, "storage_iron_intro2", 0, 0 );
+	
+	//sys.println("Intro2");
+}
+
+//---------------------------------------------------------
+void kaneGetsUp()
+{
+	//sys.println("Intro3");
+
+	aiScriptedAnim( $storage_stroggified_kane_1, "storage_iron_intro3", 0, 0 );
+}
+
+//---------------------------------------------------------
+void cinematicDone()
+{
+	//sys.println("Cinematic Done");
+
+	sys.waitFrame();
+	sys.wait(.1);
+
+  	$tsd_entrance.lock(1);
+  	$tsd_entrance.setShaderParm(7,0);
+  	$tsd_maiden.remove();
+  	sys.trigger($tsd_maiden_2);
+  	$player1.setWorldOrigin( $tgt_null_kane_post_cinematic.getWorldOrigin());
+  	$player1.setViewAngles( $tgt_null_kane_post_cinematic.getAngles());
+	
+	sys.trigger($iron_maiden_breath11);
+
+	$tsd_maiden.becomeAggressive();
+	sys.wait(.1);
+
+	sys.trigger($marinesTetherNone);
+
+	// use ai_become_aggressive
+	sys.trigger($ai_become_aggressive_1);
+
+	// bust her chops
+	if ( isValidEntity($npc_rutger) && $npc_rutger.getHealth() > 0 )
+	{
+		$npc_rutger.show();
+	}
+	if ( isValidEntity($npc_mills) && $npc_mills.getHealth() > 0 )
+	{
+		$npc_mills.show();
+	}
+
+	$storage_stroggified_kane_1.remove();
+	
+	// tethers that get the marines out of the way.
+	sys.trigger($marinesMaiden);
+}
+
+// mark the objective completed, congratulate the player, then
+//	reward them with an Iron Maiden
+//---------------------------------------------------------
+void objectiveCompleted()
+{
+	// switch over the level sounds
+	//	trigger ents speaker_machinery_1 thru speaker_machinery_19 to turn 'em on
+	thread triggerEntityList( "speaker_machinery_", 1, 19 );
+	//	trigger ents speaker_bass_1 thru speaker_bass_11 to turn 'em off
+	thread triggerEntityList( "speaker_bass_", 1, 11 );
+
+	sys.trigger($levelObjective1Complete);
+	sys.wait(2);
+
+//	sys.trigger( $spkr_rc_3 ); // 3_1_2_180_1 - congrats
+	
+	sys.trigger($hollenRadio);
+	
+	sys.wait(3);
+	sys.trigger($item_objective_1);
+}
+void followPlayer()
+{
+	aiScriptedStop( $npc_rutger );
+	aiScriptedStop( $npc_mills );
+	sys.waitFrame();
+
+	sys.trigger($ai_tether_none_2);
+	
+   	// save game
+   	sys.trigger($func_savegame_1);
+}
+
+void unlockDoor()
+{
+	sys.trigger($followPlayerTrig);
+
+	// !! moved to when the 2 maidens at the begining of the level are killed		mrenner
+	// swap the elevators... broken with working
+	//	thread changeElevator();
+
+	//  activate the triggers to spawn in the maidens
+	sys.trigger($activate_maiden_trigs);
+
+	// call all the other rooms to start moving tsd's 	
+	thread area1();
+	thread area2();
+	thread area3();
+	thread area4();
+	thread area5();
+	thread area6();
+	thread area7();
+	thread area8();
+//	thread area9_low();
+//	thread area9_middle();
+//	thread area9_high();
+
+	sys.wait(1);
+	$tsd_entrance.lock(0);
+	$tsd_entrance.setShaderParm(7,1);
+}
+
+//---------------------------------------------------------
+void tsdDistribution()
+{
+	$tsd_arm_01.playAnim(ANIMCHANNEL_ALL, "start");
+	$tsd_arm_02.playAnim(ANIMCHANNEL_ALL, "start");
+	while ( !$tsd_arm_02.animDone ( ANIMCHANNEL_ALL, 0 ) ) 
+	{
+		sys.waitFrame ( );
+	}
+	$armClip.show();
+	
+	thread objectiveCompleted();
+	sys.wait(1);
+
+	//sys.trigger($tsdDistributionLight_1);
+
+	// need a sound of the tsd machine sending the tsd off
+	// something to amp up the effect of thousands of tsd's being moved very quickly.
+	// sys.trigger($tsd_move_quake);
+//	startTorsoSpeakers(1, 32);
+
+	thread tsdRow1();
+	thread tsdRow5();	
+	sys.wait( .1 + sys.random(.25) );		
+	thread tsdRow3();
+	thread tsdRow4();	
+	sys.wait( .1 + sys.random(.25) );		
+	thread tsdRow2();
+
+	sys.wait(.5);
+	thread spreadTSD();
+	
+	// Fire light change-over!
+	thread changeLighting();
+	
+	sys.wait(2);
+
+	// tsd's throughout the level and unlock the door.
+	thread unlockDoor();
+
+	sys.trigger($lightsUpSnd);
+}
+
+//---------------------------------------------------------
+void changeElevator()
+{
+	// unbind everything from broken elevator.
+	$func_mover_11942.unbind();
+	$func_mover_11943.unbind();	
+	$light_7241.unbind();
+
+	sys.trigger($trigger_multiple_1);
+
+	// replace with elevator that does work.
+	$func_elevator_35.show();
+	
+/*
+	elevator doesn't move now anyway.
+
+	// bind to elevator that works.
+	$func_mover_11942.bind($func_elevator_35);
+	$func_mover_11943.bind($func_elevator_35);	
+	$light_7241.bind($func_elevator_35);
+*/	
+	sys.waitFrame();
+
+	// hide elevator that doesn't work.
+	$func_elevator_34.hide();
+
+}
+void testprint()
+{
+	//sys.println("test test test... level trans");
+}
+//---------------------------------------------------------
+
+//---------------------------------------------------------
+void spawnMarines()
+{
+	aiScriptedAnimLoop($npc_mills, "cover_idle", 0 );	
+	$npc_mills.flashlight(1);
+	$npc_mills.lookAt($npc_rutger);
+	sys.wait(4);
+	$npc_mills.lookAt($null_entity);
+	aiScriptedAnimLoop($npc_mills, "aim_snappy_2", 0 );	
+}
+
+void whiteFlash()
+{
+	sys.fadeOut( '1 1 1', .1);
+	sys.wait(.1);
+	sys.fadeIn( '1 1 1', .1);
+}
+void fakeMakron()
+{
+	$fakeMakron.show();
+	$fakeMakron.setAnimRate(8);
+	sys.trigger($MakronSnd);
+	sys.trigger($makronLight);
+	aiScriptedAnimWait($fakeMakron, "idle", 0, true);	
+
+	sys.waitFrame();
+	sys.trigger($makronLight);	
+	$fakeMakron.hide();
+}
+
+
+// Marine examines the casket and says it gives him a creepy feeling
+//-------------------------------------------------------------
+void creepyRutger()
+{
+	$npc_rutger.lookAt( $env_wall_casket_3 );
+	aiScriptedFaceWait( $npc_rutger, $env_wall_casket_3, 0 );
+	aiScriptedAnimLoop($npc_rutger, "idle_scan_2", 0 );		
+}
+void creepyMills()
+{
+	$npc_mills.lookAt( $env_wall_casket_3 );
+	aiScriptedFaceWait( $npc_mills, $env_wall_casket_3, 1 );
+	aiScriptedAnimLoop($npc_mills, "idle", 0 );		
+
+	// then scans the area with his light (if I'm lucky)
+	// then speaks his mind of the thing
+	aiSpeakWait( $npc_mills, "lipsync_vo_3_1_2_160_2" );
+	$npc_rutger.lookAt( $null_entity );
+	$npc_mills.lookAt( $null_entity );
+	
+	$npc_mills.setTalkState(TALK_OK);	
+	$npc_rutger.setTalkState(TALK_OK);	
+	
+	$npc_rutger.enableHeal();
+
+	aiScriptedStop( $npc_rutger );
+	aiScriptedStop( $npc_mills );
+	sys.waitFrame();
+
+	sys.trigger($ai_tether_none_2);
+}
+void examineCasket()
+{
+	thread creepyRutger();
+	thread creepyMills();
+}
+void afterCasket()
+{
+	//sys.println("moved to void creepyMills()");
+}
+
+//---------------------------------------------------------
+void loopRutger()
+{
+	$npc_rutger.lookAt( $player1 );
+	aiScriptedFaceWait( $npc_rutger, $player1, 1 );	
+	aiSpeak( $npc_rutger, "lipsync_vo_3_1_2_85_1" );
+	
+	sys.wait(2);
+	$player1.selectWeapon("weapon_railgun");
+//	$npc_rutger.setAnimRate(1.5);
+//	aiScriptedAnimWait($npc_rutger, "console_idle", 8, true);	
+	aiScriptedAnimWait($npc_rutger, "recomp_mod_hyper", 8, true);
+
+//	$npc_rutger.setAnimRate(1);
+
+	sys.trigger($giveBounce);
+//	sys.trigger($weaponmod_railgun_penetrate_1);
+	sys.trigger($railModSnd);
+	
+	aiSpeakWait( $npc_rutger, "lipsync_vo_3_1_2_85_2" );
+
+	sys.wait(.5);
+	$npc_rutger.lookAt( $null_entity );
+	aiScriptedFaceWait( $npc_rutger, $func_static_10535, 1 );	
+	$npc_rutger.flashlight(1);
+
+	aiScriptedAnimLoop($npc_rutger, "idle_scan_2", 0 );		
+}
+void rideElevatorDown()
+{
+	$func_elevator_34.setGuiParm("noninteractive", "1"); // the gui can't be clicked until this is set back to 0
+
+	$npc_rutger.bind($func_mover_11942);
+	$npc_mills.bind($func_mover_11942);
+
+	// figure out when we'd get to the bottom, starting from now..the ride is currently 45 seconds
+	float endTime = sys.getTime() + 50;
+
+	sys.wait(5);
+	
+	loopRutger();
+
+	sys.wait(10.5);
+	aiSpeakWait( $npc_rutger, "lipsync_vo_3_1_2_100_1" );
+	sys.wait(2);
+	aiSpeakWait( $npc_mills, "lipsync_vo_3_1_2_110_1" );
+//	sys.wait(2);
+//	aiSpeakWait( $npc_rutger, "lipsync_vo_3_1_2_120_1" );
+
+	sys.wait(4);
+
+//	sys.trigger( $spkr_rc_1 ); // 3_1_2_125_1
+	
+//	sys.trigger($cobraRadio);
+
+	// Not counting on the VO being a certain length, so..
+	//	how much time have we burned?  do we need to wait a bit more?
+	endTime = endTime - sys.getTime();
+	if ( endTime > 0 )
+	{
+		//sys.println( "needed to wait a bit longer" );
+		sys.wait( endTime);
+		sys.waitFrame();
+		$npc_rutger.unbind();
+		$npc_mills.unbind();
+		
+		//$func_elevator_34.guiEvent ( "disable" );
+
+		aiScriptedStop($npc_mills);	
+		aiScriptedStop($npc_rutger);	
+		sys.waitFrame();
+
+		sys.trigger($elevatorStopRelay);
+		
+		aiSpeak( $npc_rutger, "lipsync_vo_3_1_2_120_1" );
+		
+		sys.trigger($musicIn);
+	}
+	else
+	{
+		//sys.println( "no extra waiting required" );
+		sys.wait(.1);
+	}
+}
+
+//---------------------------------------------------------
+void rideElevatorUp()
+{
+	sys.trigger( $spkr_rc_4 ); // 3_1_2_200_1
+	sys.wait(6);
+
+	// VO not in yet
+//	sys.trigger( $spkr_rc_5 ); // 3_1_2_210_1
+//	sys.wait(6); //??
+
+	// VO not in yet
+//	sys.trigger( $spkr_rc_6 ); // 3_1_2_220_1
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////Added by Chad//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void walkSteps_1()
+{
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+	sys.wait(.4);
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+	sys.wait(.4);
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+	sys.wait(.4);
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+	sys.wait(.4);
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+	sys.wait(.4);
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+	sys.wait(.4);
+	sys.trigger($fakeStep_1);
+	sys.wait(.4);
+	sys.trigger($fakeStep_2);
+}
+
+void panel_fall()
+{
+	sys.trigger($metal_sound);
+	sys.wait(2);
+	$panel_1.show();
+	$remove_clip.remove();
+	$panel_1.applyImpulse($panel_1,$panel_1.getWorldOrigin(),'0 0 -1');
+	sys.wait(.5);
+	sys.trigger($func_fx_94);
+	sys.trigger($speaker_61);
+}
+
+void grunt_passby()
+{
+	sys.trigger($fakeDropper);
+	sys.trigger($fakeDropperSnd);
+	aiScriptedMoveWait($fakeDropper, $grunt_go, 16, 1);
+	sys.waitFrame();
+	$fakeDropper.remove();
+
+/*
+	aiScriptedAnimWait($fakeProtector, "walk", 0, true);	
+	sys.waitFrame();
+	$fakeProtector.remove();
+	sys.trigger($fakeProtectorGrowl);		
+*/
+/*
+	sys.trigger($grunt_growl);
+	sys.trigger($grunt_scare);
+	aiScriptedMoveWait($grunt_scare, $grunt_go, 16, 1);
+	sys.waitFrame();
+	$grunt_scare.remove();
+*/
+}
+void scareBerserker()
+{
+	thread whiteFlash();
+	$scareBerserker.setAnimRate(2);
+	sys.trigger($fakeBerserkerGrowl);
+	aiScriptedAnimWait($scareBerserker, "fall", 0, true);	
+	sys.fadeOut( '1 1 1', .1);
+	sys.wait(.1);
+	$scareBerserker.hide();
+	sys.fadeIn( '1 1 1', .1);
+}
+void fakeBlood()
+{
+	thread whiteFlash();
+	sys.trigger($fakeBloodSnd);
+	sys.wait(.1);
+	sys.trigger($fakeBloodLight);
+	$fakeBlood_1.show();
+	$fakeBlood_2.show();
+	sys.wait(.5);
+	thread whiteFlash();
+	sys.wait(.1);
+	sys.trigger($fakeBloodLight);
+	$fakeBlood_1.hide();
+	$fakeBlood_2.hide();
+
+}
+void start_healing()
+{
+	$npc_rutger.enableHeal();
+}
+
+void deadMills()
+{
+	$npc_mills.flashlight(0);
+}
+
+void deadRutger()
+{
+	$npc_rutger.flashlight(0);
+}
+
+//---------------------------------------------------------
+void main()
+{
+	$func_elevator_34.guiEvent ( "triggerDown" );
+	
+	// Set up fog madness
+	thread initFog();
+
+	// shut up the marines
+	$npc_mills.setTalkState(TALK_WAIT);	
+	$npc_rutger.setTalkState(TALK_WAIT);	
+
+	
+	// after the elevator reaches the bottom, the marines follow
+	$npc_rutger.disableHeal();
+	thread rideElevatorDown();
+	
+	thread startLights();
+
+	// sound used by firedoors, must be cached 
+	$player1.cacheSoundShader("storage_firedoor_open");
+	$player1.cacheSoundShader("storage_firedoor_close");
+
+	// Fire doors open.
+	sys.trigger($fireDoor_trigToggle);
+
+	// trigger Objective from last level.
+	sys.wait(.5);
+	sys.trigger($levelObjective1);
+}
+
+//end namespace
+}

@@ -1,0 +1,36 @@
+namespace gruntFunctions
+{
+
+// dispersal
+void StartCeilingAnim()
+{
+	sys.trigger($env_dispersal_ceiling_panel_1);
+	sys.wait(2);
+	$env_dispersal_ceiling_panel_1.remove();
+}
+
+// building_b
+void SmashGlassBody()
+{
+
+	$grunt_crack_01.show();
+
+}
+
+// building_b
+void SmashGlassLeftHand()
+{
+	
+	$grunt_crack_03.show();
+
+}
+
+// building_b
+void SmashGlassRightHand()
+{
+
+	$grunt_crack_02.show();
+
+}
+
+} // gruntFunctions

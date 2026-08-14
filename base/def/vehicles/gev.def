@@ -1,0 +1,613 @@
+//------------------------------------------------------------------------------
+// gev.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export gev
+{
+
+	options -prefix HVTK_ -rotate 90 -keep base eye turret mgun1 muzzle gun_pivot Light1 -parent eye gun_pivot
+	mesh	work/models/vehicles/marine_hovertank/Animation/HVTK_Idle.ma	-dest models/vehicles/gev/gev_base.md5mesh
+	anim	work/models/vehicles/marine_hovertank/Animation/HVTK_Idle.ma	-dest models/vehicles/gev/idle.md5mesh
+	anim	work/models/vehicles/marine_hovertank/Animation/HVTK_Cannon.ma	-dest models/vehicles/gev/cannon.md5anim
+
+	anim	work/models/monsters/Harvester/animations/CONVOY_2b_CINEMATIC.ma	-range 1 466 -dest models/vehicles/gev/convoy2b_tank_smash.md5anim
+
+	anim	work/models/monsters/Harvester/animations/CONVOY_2b_CINEMATIC2.ma	-range 1 491 -dest models/vehicles/gev/convoy2b_tank2_smash.md5anim
+
+	
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_gev
+{
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_ragdoll"			"1"
+	"editor_rotatable"			"1"
+	"editor_usage"				"GEV."
+
+	"spawnclass"				"rvVehicleRigid"
+
+	"model"						"vehicle_gev"
+	"clipmodel"					"models/vehicles/gev/clip.lwo"
+	"mins"						"-160 -100 0"
+	"maxs"						"160 100 100"
+
+	"def_position_driver"		"vehicle_gev_driver"
+
+	"gui_hud"					"guis/vehicles/hud.gui"
+	"hudid"						"1"
+	
+	"mass"						"2500"
+	"team"						"0"
+	"density"					".0005"
+	"friction_linear"			".8"
+	"friction_contact"			".7"
+	"bouncyness"				".2"
+	"nav_active"				"1"
+	
+	"shieldMins"				"-220 -140 -6"
+	"shieldMaxs"				"220 140 72"
+	"shieldSides"				"10"
+/*
+	"shieldHealth"				"250"
+	"shieldRegenDelay"			"6"
+	"shieldRegenTime"			"3"
+
+	"health"					"2000"
+	// wait 6 seconds after taking damage before starting recharge
+	"healthRegenDelay"			"6"
+	// regain 100 health per second
+	"healthRegenRate"			"100"
+*/
+
+	//	trying some things out.		-mrenner
+
+	"health"					"500"
+	"healthRegenDelay"			"6"
+	"healthRegenRate"			"22"
+	
+	"shieldHealth"				"1350"
+	"shieldRegenDelay"			"6"
+	"shieldRegenTime"			"16"
+
+
+
+//	"crashSpeedSmall"			"200"
+//	"crashSpeedMedium"			"350"
+//	"crashSpeedLarge"			"450"
+
+	"crashSpeedSmall"			"450"		// -mrenner
+	"crashSpeedMedium"			"650"		// -mrenner
+	"crashSpeedLarge"			"850"		// -mrenner
+	"crashVelocitySmall"		"0"
+	"crashVelocityMedium"		"0"
+	"crashVelocityLarge"		"0"
+	"alwaysImpactDamage"		"1"
+
+	"def_crashDamage"			"damage_gev_crash"
+
+	"snd_crash_small"			"vehicle_crash_small"
+	"snd_crash_medium"			"vehicle_crash_medium"
+	"snd_crash_large"			"vehicle_crash_large"
+	"snd_cannon_kickback"		"vehicle_gev_cannon_kickback"	
+	"snd_shieldWarning"			"vehicle_walker_shield_warning"
+	"snd_shieldRecharge"		"vehicle_walker_shield_recharge"
+	
+	"snd_incomingProjectile"	"ambient_incoming_klaxon"
+		
+	"fx_death"					"effects/vehicles/explosion_tank.fx"
+//	"fx_shield"					"effects/vehicles/walker/shield.fx"	
+	"fx_shield"					""	// mrenner
+	"fx_crash"					"effects/vehicles/crash.fx"
+
+	"focusLength_enter"			"100"
+	
+	"touchtriggers"				"1"
+
+	"joint_eyeOffset"			"eye"
+	
+	"locked_flip_death"			"1"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_gev_driver
+{
+	"def_part_hover_fl"			"vehicle_gev_hoverpad_fl"
+	"def_part_hover_bl"			"vehicle_gev_hoverpad_bl"
+	"def_part_hover_fr"			"vehicle_gev_hoverpad_fr"
+	"def_part_hover_br"			"vehicle_gev_hoverpad_br"
+				
+	"def_part_yaw"				"vehicle_gev_turret_yaw"
+	"def_part_pitch"			"vehicle_gev_turret_pitch"
+	
+	"def_part_main"				"vehicle_gev_weapon_main"
+	"def_part_mgun"				"vehicle_gev_weapon_mgun"		
+//	"def_part_rocket"			"vehicle_gev_weapon_rocket"
+	
+	"def_part_light"			"vehicle_gev_light"
+		
+	"eyeJoint"					"eye"
+	"eyeOffset"					"-1 8 4"
+//	"eyeJointAxisMap"			"1 0 2"
+//	"eyeJointDirMap"			"-1 1 1"
+	
+	"driverJoint"				"origin"
+	"driverVisible"				"0"
+
+	// Global sounds when position is enabled
+	"snd_loop"					"vehicle_gev_engine_loop"
+	"volume"					"-4 5.5"
+	"freqShift"					"1 1.2"
+	"maxSoundSpeed"				"600"	
+}
+
+//------------------------------------------------------------------------------
+//								Model Defintion
+//------------------------------------------------------------------------------
+
+model vehicle_gev
+{
+	mesh						"models/vehicles/gev/gev_base.md5mesh"
+
+	channel legs				( *origin )
+
+	anim idle					"models/vehicles/gev/idle.md5anim"
+	
+	anim cannon					"models/vehicles/gev/cannon.md5anim"
+	{
+		frame	3				sound	snd_cannon_kickback
+	}
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_gev_hoverpad
+{
+	"spawnclass"				"rvVehicleHoverpad"
+
+	"height"					"16"
+	"dampen"					"100"
+
+	"force"						"266.5"
+	"forceTable"				"vehicle_gev_hover"
+	"forceUpTime"				"2"
+	"forceDownTime"				"2"	
+	"forceRandom"				"75"
+	
+	"maxRestAngle"				"15"
+
+	"fx_dust"				"effects/vehicles/gev/dust.fx"
+	"fx_dust_rock"				"effects/vehicles/gev/dust_rock.fx"	
+
+	"snd_loop"					"vehicle_gev_hoverpad"
+	"volume"					"-20 -4"
+	"freqShift"					"1 1.2"
+	"fadetime"					"2"	
+
+	"mins"						"0 -.5 -.5"
+	"maxs"						"1 .5 .5"
+	
+	"thrustForward"				"225"
+	"thrustLeft"				"280"
+}
+
+entityDef vehicle_gev_hoverpad_fl
+{
+	"inherit"					"vehicle_gev_hoverpad"
+	"offset"					"100 70 0"
+	"force"						"300"
+	"mins"						"0 -100 -70"
+	"maxs"						"1 50 30"
+}
+
+entityDef vehicle_gev_hoverpad_fr
+{
+	"inherit"					"vehicle_gev_hoverpad"
+	"offset"					"100 -70 0"
+	"force"						"300"
+
+	"mins"						"0 -100 -30"
+	"maxs"						"1 50 70"
+}
+
+entityDef vehicle_gev_hoverpad_bl
+{
+	"inherit"					"vehicle_gev_hoverpad"
+	"offset"					"-110 70 0"
+
+	"mins"						"0 -30 -70"
+	"maxs"						"1 110 30"
+}
+
+entityDef vehicle_gev_hoverpad_br
+{
+	"inherit"					"vehicle_gev_hoverpad"
+	"offset"					"-110 -70 0"
+	
+	"mins"						"0 -30 -30"
+	"maxs"						"1 110 70"	
+}
+
+entityDef vehicle_gev_turret_yaw
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"turret"
+	
+	"yaw"						"1"
+	"turnrate"					"300"
+
+	"snd_loop"					"vehicle_turret_move"
+	"volume"					"-10 8"
+
+	"alignment_joint"			"turret"
+	"alignment_power"			"4"
+	"alignment_delta"			"3.4"
+}
+
+entityDef vehicle_gev_turret_pitch
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"gun_pivot"
+
+	"pitch"						"1"
+	"minpitch"					"-35"
+	"maxpitch"					"12"
+	"turnrate"					"240"
+
+	"snd_loop"					"vehicle_turret_move"
+	"volume"					"-10 6"
+}
+
+entityDef vehicle_gev_weapon_main
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"muzzle"
+	
+//	"firedelay"					"1.2"
+	"firedelay"					"1.75"		// mrenner
+	"def_projectile"			"projectile_gev_main"
+	"spread"					".25"
+
+	"launchFromJoint"			"1"
+	
+	"force"						"-50000 -25000 0"
+//	"force"						"-150000 -100000 0"
+	
+//	"shakeTime"					"500"
+	"shakeTime"					"750"	// mrenner
+	"shakeMagnitude"			"3"
+	"ammopercharge"				"1"
+	"chargetime"				"1.75"
+	
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"500"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"40 0 0"
+	
+	"anim"						"cannon"
+	"animchannel"				"0"
+	
+	"positions"					"0"
+
+	"fx_muzzleflash"			"effects/vehicles/gev/maingun/muzzleflash.fx"
+//	"snd_fire"					"vehicle_gev_cannon"
+	"snd_fire"					"harvester_rocket_launcher"	// mrenner
+	"snd_reload"				"vehicle_gev_rocket_reload"
+
+	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_lightninggun"
+
+	"zoomFov"					"45"
+	"zoomTime"					".1"
+	"zoomHideCrosshair"			"0"		// This doesn't work on vehicles.
+	"gui_zoom"					"guis/weapons/machinegun_scope.gui"
+}
+
+entityDef vehicle_gev_weapon_mgun
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"mgun1"
+//	"joint2"					"mgun2"
+//	"joint3"					"mgun3"
+	
+	"firedelay"					".1"
+	"def_hitscan"				"hitscan_gev_bullet"
+	"spread"					"2.5"
+
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"1"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"40 0 0"
+	
+	"recoilTime"				"200"
+	"recoilAngles"				"-0.15 0 0.15"
+
+	"positions"					"1"
+
+	"fx_muzzleflash"			"effects/vehicles/gev/machinegun/muzzleflash.fx"
+	"snd_fire"					"vehicle_walker_machinegun"
+	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
+}
+
+entityDef vehicle_gev_weapon_rocket
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"mgun1"
+	"joint2"					"mgun2"
+	"joint3"					"mgun3"
+	
+	"firedelay"					".3"
+
+	"def_projectile"			"projectile_gev_rocket"
+	"spread"					"2"
+	"convergeRate"				".5"
+		
+	"launchFromJoint"			"1"
+	"lockrange"					"10000"
+		
+	"ammopercharge"				"3"
+	"chargetime"				"1"
+
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"350"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"30 0 0"
+
+	"fx_muzzleflash"			"effects/vehicles/walker/rocket/muzzleflash.fx"
+	"snd_fire"					"vehicle_walker_rockets"
+}
+
+entityDef vehicle_gev_light
+{
+	"spawnclass"				"rvVehicleLight"
+	
+	"mtr_light"					"gfx/lights/vehicle"
+	"color"						"1 1 .9"
+	"radius"					"800"
+	"target"					"2000 0 0"
+	"up"						"0 900 0"
+	"right"						"0 0 1300"
+	"pointLight"				"0"
+	
+	"flaresurface"				"models/vehicles/flare"
+	
+	"snd_on"					"ambient_light_shut_off"
+	"snd_off"					"ambient_light_shut_off"
+	
+	"joint"						"Light1"
+	"start_on"					"0"
+}
+
+
+entityDef vehicle_gev_thruster_forward
+{
+	"spawnclass"				"rvVehicleThruster"
+	"force"						"25000"
+	"forceAxis"					"0"
+	"useCenterMass"				"1"
+	"offset"					"0 0 -10" // -100 0 25"
+	"key"						"forward"
+}
+
+entityDef vehicle_gev_thruster_right
+{
+	"spawnclass"				"rvVehicleThruster"
+	"force"						"-8500"
+	"forceAxis"					"1"
+	"useCenterMass"				"1"
+	"offset"					"200 0 0"
+	"key"						"right"
+}
+
+entityDef vehicle_gev_thruster_right2
+{
+	"spawnclass"				"rvVehicleThruster"
+	"force"						"8500"
+	"forceAxis"					"1"
+	"useCenterMass"				"1"
+	"offset"					"-200 0 0"
+	"key"						"right"
+}
+
+//------------------------------------------------------------------------------
+//								Projectiles
+//------------------------------------------------------------------------------
+
+entityDef projectile_gev_main
+{
+	"inherit"					"projectile_blaster"
+
+	"mins"						"-20 -20 -20"
+	"maxs"						"20 20 20"
+	"cone"						"1"
+
+//	"velocity"					"10000 0 0"
+	"velocity"					"7500 0 0"	// mrenner
+	
+	"def_damage"				"damage_gev_main"
+	"def_splash_damage"			"damage_gev_main_splash"
+
+	"fx_fly"				"effects/vehicles/gev/maingun/fly.fx"
+	"fx_impact"				"effects/vehicles/gev/impact.fx"	// mrenner
+
+/*	"fx_impact_rock"			"effects/vehicles/gev/impact.fx"
+	"fx_impact_dirt"			"effects/vehicles/gev/impact.fx"
+	"fx_impact_sand"			"effects/vehicles/gev/impact.fx"
+	"fx_impact_gravel"			"effects/vehicles/gev/impact.fx"
+	"fx_impact_concrete"			"effects/vehicles/gev/impact.fx"
+	"fx_detonate"				"effects/vehicles/gev/impact.fx"
+	"fx_impact_flesh"			"effects/vehicles/gev/impact.fx"
+	"fx_impact_monstermetal"		"effects/vehicles/gev/impact.fx"
+*/
+	
+//	"fx_impact"					"effects/vehicles/gev/maingun/impact.fx"
+	"fx_impact_hollowmetal" 	"effects/vehicles/gev/impact.fx"
+	"fx_impact_solidmetal" 		"effects/vehicles/gev/impact.fx"
+	"fx_impact_rock"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_dirt"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_sand"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_gravel"			"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_impact_concrete"		"effects/vehicles/gev/maingun/impact_rock.fx"
+	"fx_detonate"				"effects/vehicles/gev/maingun/detonate.fx"
+	"fx_impact_flesh"			"effects/vehicles/gev/maingun/impact_flesh.fx"
+	"fx_impact_monstermetal"	"effects/vehicles/gev/maingun/impact_flesh.fx"
+	
+	"mass"						"10"		
+}
+
+entityDef hitscan_gev_bullet
+{
+	"inherit"				"hitscan_bullet"
+	
+	"range"						"4096"	
+
+	"def_damage"				"damage_gev_bullet"
+
+	"push"					"90000"	
+
+	"fx_impact"				"effects/vehicles/walker/machinegun/impact_default.fx"
+	"fx_impact_water"			"effects/ambient/splash_smll.fx"
+	"fx_impact_concrete"			"effects/vehicles/walker/machinegun/impact_concrete.fx"
+	"fx_impact_electronics"			"effects/vehicles/walker/machinegun/impact_electronics.fx"
+	"fx_impact_flesh"			"effects/vehicles/walker/machinegun/impact_flesh.fx"						
+	"fx_impact_glass"			"effects/vehicles/walker/machinegun/impact_glass.fx"
+	"fx_impact_monstermetal"		"effects/vehicles/walker/machinegun/impact_monstermetal.fx"
+	"fx_impact_rock"			"effects/vehicles/walker/machinegun/impact_rock.fx"
+	
+	"fx_tracer"				"effects/vehicles/gev/machinegun/tracer.fx"
+	"tracerchance"				".60"
+}
+
+entityDef projectile_gev_rocket
+{
+	"spawnclass"				"idGuidedProjectile"
+	"mins"						"-2 -2 -2"
+	"maxs"						"2 2 2"
+	"cone"						"1"
+	"noshadows"					"1"
+
+	"model"						"models/weapons/nailgun/nail.ase"
+
+	"def_damage"				"damage_walker_rocket"
+	"def_splash_damage"			"damage_walker_rocket_splash"
+											
+	"decal_scale"				"8"											
+	
+	"speed"						"2000"																
+	"mass"						"6"
+	"gravity"					"0"
+	"fuse"						"6"
+								
+	"detonate_on_fuse"			"1"
+	"detonate_on_death"			"0"
+	"detonate_on_world"			"1"
+	"detonate_on_actor"			"1"
+								
+	"impact_gib"				"1"
+								
+	"decal_bounce"				""
+	"decal_size"				"8"
+
+	"fx_trail"					"effects/vehicles/walker/rocket/trail.fx"
+	"fx_fly"					"effects/vehicles/walker/rocket/fly.fx"
+	"fx_detonate"				"effects/vehicles/walker/rocket/detonate.fx"
+
+	"fx_impact"					"effects/vehicles/walker/rocket/impact.fx"
+	"fx_impact_rock"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_dirt"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_sand"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_gravel"			"effects/vehicles/walker/rocket/impact_rock.fx"
+	"fx_impact_concrete"		"effects/vehicles/walker/rocket/impact_rock.fx"
+}
+
+//------------------------------------------------------------------------------
+//								Damage Defs
+//------------------------------------------------------------------------------
+
+entityDef damage_gev_main
+{
+	"inherit"					"damage_bullet"
+//	"damage"					"350"		
+//	"deathPush"					"60000"
+//	"push"						"60000"		
+//	"gib"						"1"
+
+	"damage"					"500"		// mrenner
+	"push"						"300000"	// mrenner
+	"knockback"					"300000"	// mrenner
+}
+
+entityDef damage_gev_main_splash
+{
+	"inherit"					"damage_gev_main"
+	
+	"damage"					"150"
+	"radius"					"350"
+//	"knockback"					"40"
+
+	"push"						"150000"	// mrenner
+	"knockback"					"150000"	// mrenner
+}
+
+entityDef damage_gev_bullet
+{
+	"inherit"					"damage_bullet"
+	"damage"					"55"
+}
+
+entityDef damage_gev_crash
+{
+//	"inherit"					"damage_bullet"
+	"inherit"					"damage_gev_main"
+//	"damage"					"20"
+	"damage"					"2000"			// mrenner
+//	"push"						"8000"
+//	"push"						"150000"		// mrenner
+	"push"						"50"			// MCG: note - this key actually does something now, hence the much lower value...
+//	"knockback"					"40"
+	"knockback"					"150000"		// mrenner
+	"vehicle_collision"			"1"
+}
+
+table vehicle_gev_hover
+{
+	clamp
+	{
+//		0.0, 1.0, 1.5, 2.0, 3.0, 5.0, 8.0, 12.0
+		0.0, 2.0, 3.0, 4.0, 6.0, 10.0, 16.0		// mrenner
+	}
+}
+
+entityDef damage_gev_collision_self
+{
+	"damage"					"1"
+	"noShields"					"1"
+	"nonLethal"					"1"
+}
+
+entityDef damage_gev_collision
+{
+	"damage"					"1"
+}

@@ -1,0 +1,139 @@
+
+
+sound network_bridge_movement
+{
+	minDistance	118
+	maxDistance	787
+	volumeDb	0
+	looping
+
+	sound/ambience/network/bridge/bridge_loop
+	shakeData 0 fededeffe
+}
+
+
+sound network_bridge_connect
+{
+	minDistance	118
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/network/bridge/bridge_connect
+	shakeData 0 zzzwyyuotoplefdebaaaaa
+}
+
+
+sound network_bridge_disconnect
+{
+	minDistance	118
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/network/bridge/bridge_disconnect
+	shakeData 0 yxuspmojksqkfccbaaa
+}
+
+
+sound network_elevator_accel
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/network/elevator/elevator_accel
+	shakeData 0 dhfeeeefeeegfeiikrolkorifnjppolnkke
+}
+
+
+sound network_elevator_move
+{
+	minDistance	118
+	maxDistance	787
+	volumeDb	0
+	looping
+
+	sound/ambience/network/elevator/elevator_move
+	shakeData 0 plloqqlmikpnfkomljfhjhfhhffffghhfgggeiiigiimmmfmlomimh
+}
+
+
+sound network_elevator_decel
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/network/elevator/elevator_decel
+	shakeData 0 djighigheihjffhijnknijkijmnkjklkjqplrvwsqlqlkikhififhgdaa
+}
+
+
+sound network_elevator_stop
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/network/elevator/elevator_stop
+	shakeData 0 luqqptsqnngghmwqhjjlmggfddfecddcceheecbbaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound network_circle_bridge_start
+{
+	minDistance	196
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/network/circle_bridge/circle_bridge_start
+	shakeData 0 fgimpnnruwvtsuormpmlkkoihfdcbbaaaaa
+}
+
+
+sound network_circle_bridge_move
+{
+	minDistance	196
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/network/circle_bridge/circle_bridge_move
+	shakeData 0 dfffhgdeeeeeddeddddeecefddeddcdddddddedeeefed
+}
+
+
+sound network_circle_bridge_stop
+{
+	minDistance	196
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/network/circle_bridge/circle_bridge_stop
+	shakeData 0 cgkjkmkslimjjjnjjojhnhigihihgefgheeddeecdecbccccbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound network_lightsoff_01
+{
+	minDistance	118
+	maxDistance	787
+	volumeDb	0
+
+	sound/ambience/network/lights/lights_off
+	shakeData 0 cgjlrmpltrjkljjlkjjjggfghfhgffgfghggffeeeeddedddccccdccccccccbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound network_teleporter_move
+{
+	minDistance	80
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/network/teleporter_move
+	shakeData 0 deimpoqtqusquqsvsstrurtutrtqswrqponpoopstqptqppsqorrmklsqolnnqoqqoomnplrplnoqrwrrnnorrnonoqqvrmjmqoqoororrljljjjhkjokmjiidfddefcegeddccbbbabbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+
+

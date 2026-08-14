@@ -1,0 +1,428 @@
+
+
+sound load_screen_ready
+{
+	description	"pressing any button that escapes or cancels"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_esc
+	shakeData 0 cddcdccdedfddegdeededddccbbbbaaaaaaaaaaa
+}
+
+
+sound load_screen_click
+{
+	description	"pressing any button that activates something"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/generic/button01
+	shakeData 0 kcdcbcbbba
+}
+
+
+sound main_menu_mouseover
+{
+	description	"beep"
+
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+	no_occlusion
+
+	sound/guis/generic/menu_over
+	shakeData 0 bcccccbba
+}
+
+
+sound main_menu_selection
+{
+	description	"beep"
+
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+	no_occlusion
+
+	sound/guis/generic/button01
+	shakeData 0 kcdcbcbbba
+}
+
+
+sound wristcom_roam
+{
+	description	"buttons hilighted as cursor passes over them"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_roam
+	shakeData 0 nmsmgeaaa
+}
+
+
+sound wristcom_negative
+{
+	description	"trying to press a button that does nothing"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_neg
+	shakeData 0 kkrrobaaa
+}
+
+
+sound wristcom_use
+{
+	description	"pressing any button that activates something"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_use
+	shakeData 0 odffgggedbbbbaaaaa
+}
+
+
+sound wristcom_escape
+{
+	description	"pressing any button that escapes or cancels"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_esc
+	shakeData 0 qeegc
+}
+
+
+sound wristcom_open
+{
+	description	"main screen opens up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_scr1
+	shakeData 0 cfihiefiije
+}
+
+
+sound wristcom_weapon
+{
+	description	"weapon screen opens up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_scr2
+	shakeData 0 fhgfgiieddbbaa
+}
+
+
+sound wristcom_mod
+{
+	description	"mod screen opens up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/wristcom/gui_wristcom_scr3
+	shakeData 0 beefgfhff
+}
+
+
+sound bioadapt_roam
+{
+	description	"buttons hilighted as cursor passes over them"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_roam
+	shakeData 0 bcdedddba
+}
+
+
+sound bioadapt_negative
+{
+	description	"trying to press a button that does nothing"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_neg
+	shakeData 0 bcddefeeeeddeddcbbaaaa
+}
+
+
+sound bioadapt_use
+{
+	description	"pressing any button that activates something"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_use
+	shakeData 0 egjiihillhljjjjhfdecbaaa
+}
+
+
+sound bioadapt_escape
+{
+	description	"pressing any button that escapes or cancels"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_esc
+	shakeData 0 cddcdccdedfddegdeededddccbbbbaaaaaaaaaaa
+}
+
+
+sound bioadapt_open
+{
+	description	"main screen opens up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_scr1
+	shakeData 0 aaabccddeeeffefeeeeefeeeeddccbaaa
+}
+
+
+sound bioadapt_mod
+{
+	description	"mod screen opens up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_scr2
+	shakeData 0 cbcabbbcccccbbbba
+}
+
+
+sound bioadapt_install
+{
+	description	"install screen opens up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_scr4
+	shakeData 0 cccabbbbbbbbbbaabaa
+}
+
+
+sound bioadapt_progress
+{
+	description	"looping sound to play as progress bar is filing up"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+	looping
+
+	sound/guis/bioadapt/gui_bioadapt_fx1
+	shakeData 0 cccccccccccccccccbcbbbcccccccccccc
+}
+
+
+sound bioadapt_complete
+{
+	description	"plays when progress bar is full and install is complete"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	omnidirectional
+
+	sound/guis/bioadapt/gui_bioadapt_fx2
+	shakeData 0 bccccccccccbba
+}
+
+
+sound generic_static01
+{
+	description	"plays when progress bar is full and install is complete"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/guis/loops/static1
+	shakeData 0 bbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbcbbbbcbbbbbbbbb
+}
+
+
+sound generic_static02
+{
+	description	"plays when progress bar is full and install is complete"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/guis/loops/static2
+	shakeData 0 ccccdcddcccccccccccdccdcdcdccdccdcdddccccdd
+}
+
+
+sound generic_static03
+{
+	description	"plays when progress bar is full and install is complete"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/guis/loops/static3
+	shakeData 0 kijkijjkkiikhhkijkijkiljijjijikjijkgjkjkkijkii
+}
+
+
+sound generic_static04
+{
+	description	"plays when progress bar is full and install is complete"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/guis/loops/static4
+	shakeData 0 cdfbcccdeeddecbcdddegedkddeceeeedceecfjddcbfdefeeedddffedfdgeddfieefgddfgfhfffee
+}
+
+
+sound generic_static05
+{
+	description	"plays when progress bar is full and install is complete"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+
+	sound/guis/loops/static5
+	shakeData 0 jkljlkkkkkkkkjjjjjijjjiijijijiijjiijiiijjjjjkkji
+}
+
+
+sound generic_new_obj
+{
+	description	"New Objective"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+
+	sound/guis/generic/new_obj
+	shakeData 0 lhijhhfdeigeddbb
+}
+
+
+sound guisounds_click
+{
+	description	"New Objective"
+
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+
+	sound/guis/wristcom/gui_wristcom_use
+	shakeData 0 odffgggedbbbbaaaaa
+}
+
+
+sound guisound_beep2
+{
+	description	"beep"
+
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+	no_occlusion
+
+	sound/guis/generic/gui_button1
+	shakeData 0 cfjhgbaaaa
+	sound/guis/generic/gui_button2
+	shakeData 1 adcdehfded
+	sound/guis/generic/gui_button3
+	shakeData 2 aaacjhgfdcbcdddbb
+	sound/guis/generic/gui_button4
+	shakeData 3 cghgefffggda
+	sound/guis/generic/gui_button5
+	shakeData 4 adiihhkkhfaa
+	sound/guis/generic/gui_button6
+	shakeData 5 ehjihfdccbbbcca
+	sound/guis/generic/gui_button7
+	shakeData 6 hjeba
+	sound/guis/generic/gui_button8
+	shakeData 7 hhfb
+}
+
+
+sound guisound_beep_marine
+{
+	description	"beep"
+
+	minDistance	39
+	maxDistance	590
+	volumeDb	-6
+	no_occlusion
+
+	sound/guis/marine/button1
+	shakeData 0 rkgghidcaaa
+	sound/guis/marine/button2
+	shakeData 1 rjddegfecbaaaaaaaa
+	sound/guis/marine/button3
+	shakeData 2 qiefccbaaa
+	sound/guis/marine/button4
+	shakeData 3 rhddccbdeccddcbaaa
+}
+
+
+

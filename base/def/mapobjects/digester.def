@@ -1,0 +1,84 @@
+/***********************************************************************
+DISPERSAL -- digester models (decapitated torsos)
+***********************************************************************/
+
+export digester
+{
+	options -prefix DT1_ -align ALL 
+	mesh	work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/animation/DT1_wiggle1.ma	-dest models/mapobjects/strogg/stroyent/dispersal/digester1/mesh
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_01/animation/DT1_wiggle1.ma		-dest models/mapobjects/strogg/stroyent/dispersal/digester1/idle
+	
+	
+}
+
+entityDef env_dispersal_digester1
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"headless torso. purely decorative (but who decorates with headless torsos? yech.)"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_dispersal_digester1"
+	"anim"						"idle"
+	"start_anim"					"idle"
+	
+	"snd_squirm1"						"dispersal_torso_squirm"
+	"snd_spasm1"						"dispersal_torso_spasm"
+}
+
+model model_dispersal_digester1
+{
+	mesh					models/mapobjects/strogg/stroyent/dispersal/digester1/mesh.md5mesh
+	
+	anim idle				models/mapobjects/strogg/stroyent/dispersal/digester1/idle.md5anim
+	{
+		frame	1,69,112					sound		snd_squirm1
+		frame	125							sound		snd_spasm1
+		random_cycle_start
+	}
+}
+
+export digester
+{
+	options -prefix DT2_ -align ALL 
+	mesh	work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/animation/DT2_wiggle1.ma	-dest models/mapobjects/strogg/stroyent/dispersal/digester2/mesh
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/digest_tank_02/animation/DT2_wiggle1.ma		-dest models/mapobjects/strogg/stroyent/dispersal/digester2/idle
+	
+	
+}
+
+entityDef env_dispersal_digester2
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	
+	"combatModel"					"1"
+
+	"editor_usage"					"headless torso. purely decorative (but who decorates with headless torsos? yech.)"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_dispersal_digester2"
+	"anim"						"idle"
+	"start_anim"					"idle"
+	
+	"snd_squirm2"						"dispersal_torso_squirm"
+	"snd_spasm2"							"dispersal_torso_spasm"
+}
+
+model model_dispersal_digester2
+{
+	mesh					models/mapobjects/strogg/stroyent/dispersal/digester2/mesh.md5mesh
+	
+	anim idle				models/mapobjects/strogg/stroyent/dispersal/digester2/idle.md5anim
+	{
+		frame	1,35,80,148						sound		snd_squirm2
+		frame	95								sound		snd_spasm2
+		random_cycle_start
+	}
+}
+

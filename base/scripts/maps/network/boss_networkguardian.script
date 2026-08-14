@@ -1,0 +1,621 @@
+/*
+#include "scripts/doom_defs.script"
+
+#define ForEachTargetOf( ent, target )																		\
+	float index_##ent;																						\																				\
+	ent.removeNullTargets();																				\				
+	for( index_##ent = 0; $null_entity != (target = ent.getTarget(index_##ent)); index_##ent++ )
+
+*/
+
+//force the network guardian into walking mode
+scriptEvent void forceWalkMode();
+
+scriptEvent void forceLanding( );
+scriptEvent void forceTakeoff( );
+
+scriptEvent void allowAutopilot( float f );
+
+// The NG uses staged combat, use this to set the stage number.
+scriptEvent void setBattleStage( float f );
+
+#define NG_HEALTH 9000 
+
+#define NG_HEALTH_STAGE_1 8000
+#define NG_HEALTH_STAGE_2 5000
+
+//when this is 1, the NG is standing on a generator.
+float g_crushGenerator = 0;
+float g_atTether = 0;
+
+//while this is less than 6, we can crush generators.
+float g_crushTotal = 0;
+
+//while this is true, the NG is busy crushing a generator
+float g_busyCrushing = 0;
+
+//is the boss even alive?
+float g_bossAlive = 1;
+
+// generator crushing
+void crushGenerator( entity entNull,  float generatorNum );
+
+// checks to see if the NG moves to the next battle stage
+float checkStage( float value, float stageNext );
+
+//----------------------------------------------------------------
+// Jetwash functions
+
+//set up jetwash
+void beginJetwash();
+
+//end the jetwash
+void endJetwash();
+
+//finds the closest of target 8 or 9 to the player. 
+entity firstJetwashTarget();
+
+//given a point in the jetwash node grid, finds the closest of it's neighbors to the player
+entity closestWashNodeToPlayer( entity currentNode );
+
+//moves the jetwash mover from one node to another
+void moveJetwashToNode( entity targetNode );
+
+//keeps the NG facing the player during jetwash
+void maintainNGFacing();
+
+//maintains the jetwash damage and push effect
+void maintainJetwashDamage();
+
+//cleanup function for the death of the NG
+void networkGuardian_cleanup();
+
+void arrivedAtTether() { sys.println("Arrived at tether!"); g_atTether = 1; }
+
+void manageRoofStrafeShoot(float preDelay, float shots)
+{
+	sys.wait(preDelay);
+	while( shots > 0 )
+	{
+		$tgt_launchprojectile_wrk.setWorldOrigin($target_launchprojectile_6.getWorldOrigin());
+		$tgt_launchprojectile_wrk.setAngles( $stroggFighterBase_1.getAngles());
+		sys.trigger( $tgt_launchprojectile_wrk );
+		sys.wait(.1+sys.random(.1));
+
+		$tgt_launchprojectile_wrk.setWorldOrigin($target_launchprojectile_5.getWorldOrigin());
+		$tgt_launchprojectile_wrk.setAngles( $stroggFighterBase_1.getAngles());
+		sys.trigger( $tgt_launchprojectile_wrk );
+		sys.wait(sys.random(.15));
+
+		shots = shots - 1;
+	}
+}
+
+
+void moveStrafeRunner(entity splineMvr,float shotPreDelay, float numShots)
+{
+	$stroggFighter_1.show();
+
+	$stroggFighterBase_1.setWorldOrigin( splineMvr.getWorldOrigin());
+	$stroggFighter_1.setOrigin( '0 0 0');
+
+	$stroggFighterBase_1.startSpline( splineMvr );
+	thread manageRoofStrafeShoot(shotPreDelay, numShots);
+
+	$stroggFighter_1.time(9);
+	$stroggFighter_1.rotateOnce( '75 0 0' );
+	sys.waitFor( $stroggFighter_1 );
+	$stroggFighter_1.rotateOnce( '-75 0 0' );
+	sys.waitFor( $stroggFighterBase_1 );
+	$stroggFighterBase_1.stopSpline();
+	$stroggFighter_1.hide();
+}
+
+void strafeManager()
+{
+	while (1)
+	{
+		sys.wait(8);
+		moveStrafeRunner($func_splinemover_1,19,7);
+		sys.wait(12);
+		moveStrafeRunner($func_splinemover_2,20,7);
+		sys.wait(12);
+		moveStrafeRunner($func_splinemover_3,18,7);
+		sys.wait(4);
+	}
+}
+
+void washGround()
+{
+	aiScriptedAnimLoop( $monster_network_guardian_2, "engine_wash", 4) ;
+}
+
+void touchGeneratorRoof(entity entActivator )	{
+	if( entActivator == $player1)	{
+		return;
+	}
+
+	if( entActivator.getName() == "monster_network_guardian_2")	{
+		g_crushGenerator = 1;
+	}
+}
+
+// checks to see if the NG moves to the next battle stage
+float checkStage( float value, float stageNext )	{
+	value = getBossHealthByDifficulty( value,  sys.getcvar("g_skill") );
+
+	if( $monster_network_guardian_2.getHealth() <= value )	{
+		$monster_network_guardian_2.setBattleStage( stageNext );
+		return 1;
+	}
+	return 0;
+}
+
+//this will move the NG over to a generator he should crush.
+void prepareGeneratorCrush( )	{
+
+	//determine a random number, and activate that tether.
+	float fNumber = sys.randomInt( 5 ) + 1;
+	entity generator = sys.getEntity ( "env_roof_generator_" + fNumber );
+
+	while( generator.getFloatKey("crushed") == 1)	{
+		fNumber = sys.randomInt( 5 ) + 1;
+		generator = sys.getEntity ( "env_roof_generator_" + fNumber );
+		sys.waitFrame();
+	}
+
+	generator.setKey("crushed", 1);
+	g_crushTotal++;
+
+	//the NG is now busy
+	g_busyCrushing = 1;
+
+	$monster_network_guardian_2.setKey("generator", fNumber);
+	entity tether = sys.getEntity ( "tether_generator_" + fNumber );
+	entity tetherTrigger = sys.getEntity( "tether_trigger_" + fNumber );
+
+	//wake them up
+	sys.trigger( tether);
+	sys.trigger( tetherTrigger);
+
+
+	//wait for the signal
+	g_atTether = 0;
+
+	while( g_atTether == 0)	{
+		sys.waitFrame();
+	}	
+
+	//move to the correct position and crush the generator!
+	crushGenerator( $monster_network_guardian_2, fNumber);
+
+
+}
+void prepFall()		{
+
+	 $monster_network_guardian_2.forceLanding();
+
+}
+void crushGenerator( entity entNull,  float generatorNum )	{
+	
+	//get the generator and the target
+	entity generator = sys.getEntity ( "env_roof_generator_" + generatorNum );
+	entity genTarget = sys.getEntity ( "tgt_ng_generator_" + generatorNum );
+	vector vFallAxis = genTarget.getWorldOrigin();
+	vector vOrg;
+
+	//make sure he's flying
+	sys.println("move to the correct spot :" + sys.getTime() );
+
+	//move him to the right spot
+	aiScriptedMoveWait( $monster_network_guardian_2, genTarget, 0, 0);
+	sys.println("fall" + sys.getTime());
+
+	//play the falling anims -- and force him to obey gravity.
+	$monster_network_guardian_2.forceWalkMode();
+	aiScriptedAnimWait( $monster_network_guardian_2, "ac_fall_start", 4, 0);
+	//while we haven't hit the generator yet, play this anim.
+	g_crushGenerator = 0;
+	aiScriptedAnimLoop( $monster_network_guardian_2, "ac_fall_loop", 4);
+
+	while( g_crushGenerator == 0)	{
+		//alright, so it doesn't want to fall straight down? We'll fix that.
+		vOrg = $monster_network_guardian_2.getWorldOrigin();
+		vOrg_x = vFallAxis_x;
+		vOrg_y = vFallAxis_y;
+		$monster_network_guardian_2.setWorldOrigin( vOrg);
+		//heh
+		sys.waitFrame();
+	}
+	sys.println("Landed!!");
+	//play the crush anim
+	$fx_generator_crash.setWorldOrigin( generator.getWorldOrigin());
+	sys.trigger( $fx_generator_crash);
+	generator.playAnim( ANIMCHANNEL_ALL, "crush");
+	generator.jointCrawlEffect ( "fx_busted", 24 );
+	aiScriptedAnimWait( $monster_network_guardian_2, "ac_fall_end", 4, 1);	
+
+	//back in the air
+	sys.trigger( $ai_tether_none_boss);
+	sys.waitFrame();
+	$monster_network_guardian_2.forceTakeoff();
+	
+	//and no longer busy
+	g_busyCrushing = 0;
+
+	sys.println("Take off!!");
+
+}
+void randomRoofTether()	{
+
+	float fNumber = sys.randomInt( 4 ) + 1;
+	sys.trigger( sys.getEntity( "tether_quadrant_" + fNumber ));
+
+}
+
+void attatchNailableToNG( string boneName )	{
+
+	float fHandle;
+	vector vOrigin;
+
+	//get the handle and origin of the bone
+	fHandle = $monster_network_guardian_2.getJointHandle( boneName );
+	vOrigin = $monster_network_guardian_2.getJointPos( fHandle );
+	
+	sys.setSpawnArg( "origin", vOrigin_x + " " + vOrigin_y + " " + vOrigin_z );
+	sys.setSpawnArg( "target", "monster_network_guardian_2" );
+	sys.setSpawnArg( "lock_joint", boneName );
+	entity ent = sys.spawn("target_nailable");
+
+	ent.bindToJoint( $monster_network_guardian_2, boneName, 1);
+
+}
+
+void maintainNGBattle()	{
+
+	//add all the target nailables to him.
+	attatchNailableToNG( "chest" );
+	attatchNailableToNG( "shoulders" );
+	attatchNailableToNG( "r_lo_arm" );
+	attatchNailableToNG( "l_lo_arm" );
+	attatchNailableToNG( "r_lo_leg" );
+	attatchNailableToNG( "l_lo_leg" );
+
+	//set up his clipping so the player can run through his legs.
+	$monster_network_guardian_2.setContents( CONTENTS_PROJECTILE);
+
+	$stc_ng_hoof_2.bindToJoint(  $monster_network_guardian_2, "l_lo_leg", 1);
+	$stc_ng_hoof_1.bindToJoint(  $monster_network_guardian_2, "r_lo_leg", 1);	
+	
+	//sys.println(" maintainNGBattle start");
+	thread strafeManager();	
+
+	//start him off flying in from the north.
+	$monster_network_guardian_2.allowAutopilot( 0 );
+	$monster_network_guardian_2.setHealth( getBossHealthByDifficulty( NG_HEALTH,  sys.getcvar("g_skill") ));
+	$target_bossbattle_1.setMaxBossHealth( getBossHealthByDifficulty( NG_HEALTH,  sys.getcvar("g_skill") ));
+	aiScriptedAnimWait( $monster_network_guardian_2, "roof_landing", 1, 1);
+
+	//have some fun on the ground
+	//re write this to keep the monster focused on the player
+/*	sys.trigger( $tether_boss_ground_1 );
+	sys.wait(3);
+	sys.trigger( $tether_boss_ground_2);
+	sys.wait(5 + sys.random(6));
+	sys.trigger( $tether_boss_ground_1);
+	sys.wait(5 + sys.random(6));
+	sys.trigger( $ai_tether_none_boss); */
+
+	float fGoalTime = sys.getTime() + 15;
+	while ( sys.getTime() < fGoalTime )	{
+	
+		float smallestTetherDist = 99999;
+		entity closestTether = $tether_boss_ground_1;
+		
+		float t;
+		for( t=1; t<=6; t++	)	{
+			entity thisTether = sys.getEntity( "tether_boss_ground_" + t);
+			float tetherDist = thisTether.distanceTo( $player1);
+
+			if( tetherDist < smallestTetherDist )	{
+				closestTether = thisTether;
+				smallestTetherDist = tetherDist;
+			}
+		}
+
+		sys.println("Moving to " + closestTether.getName() );
+		sys.trigger( closestTether );
+		sys.wait(1);
+	}
+
+	//launch
+	$monster_network_guardian_2.forceTakeoff();
+	//sys.println("Take off!!");
+
+	sys.wait(5);
+	
+	//first stage. Yes this script is a mess.
+	while( g_bossAlive == 1)	{
+		
+		//have him crush a generator if there's any left to crush
+		//sys.println("prepare to crush a generator");
+		if( g_crushTotal < 6)	{
+			prepareGeneratorCrush( );
+		} else {
+			//go to stage 2.
+			break;
+		}
+		
+		//after generator crushing he's back in the air.
+		$monster_network_guardian_2.forceTakeoff();
+
+		//Check his health to see what sort of state he's in. If he's under a certain amount, move to the next state.
+		if ( checkStage( NG_HEALTH_STAGE_2, 2 ) )	{
+			break;
+		}
+		//fight for a little bit.
+		randomRoofTether();
+		sys.wait(12);
+	
+		//Check his health to see what sort of state he's in. If he's under a certain amount, move to the next state.
+		if ( checkStage( NG_HEALTH_STAGE_2, 2 ) )	{
+			break;
+		}
+			
+	}
+	if( g_bossAlive == 0)	{
+		return;
+	}
+	//if the NG is busy, wait.
+	while( g_busyCrushing == 1)	{
+		if( g_bossAlive == 0)	{
+			return;
+		}
+		sys.waitFrame();
+	}
+
+	//stage 2
+	//sys.println("Stage 2 begin.");
+
+	//get him to land.
+	sys.trigger( $tether_trigger_land);
+	sys.trigger( $tether_boss_landing);
+
+	//wait for the signal
+	g_atTether = 0;
+
+	while( g_atTether == 0)	{
+		sys.waitFrame();
+	}	
+
+	entity targetNode;
+	
+	float  fMaxWash = 4 + sys.randomInt( 6);
+
+	while( g_bossAlive == 1)	{
+	
+		//jet wash!
+		beginJetwash();
+
+		//go to jetwash 12 or 11
+		targetNode = firstJetwashTarget();
+		moveJetwashToNode( targetNode);
+
+		//find closest target to player
+	
+		for( t = 0; t < fMaxWash; t++)	{
+			targetNode = closestWashNodeToPlayer( targetNode );
+			moveJetwashToNode( targetNode);
+		}
+		
+		//go to that one, repeat.
+		endJetwash();
+			
+		//sys.println("Forcing the landing...");
+		$monster_network_guardian_2.forceLanding();
+
+		sys.wait(2);
+		sys.trigger( $tether_boss_landing);
+
+		//i'm a little fuzzy on this, but this should set him up right.
+		
+		sys.wait(3);
+		sys.trigger( $tether_boss_ground_2);
+		sys.wait(10 + sys.random(6));
+		sys.trigger( $tether_boss_ground_1);
+		sys.wait(10 + sys.random(6));
+		sys.trigger( $ai_tether_none_boss);
+
+		//make him fly again and fight for a bit
+		$monster_network_guardian_2.forceTakeoff();
+		randomRoofTether();
+		sys.wait(3);
+		randomRoofTether();
+		sys.wait(3);
+		randomRoofTether();
+		sys.wait(3);
+		sys.trigger( $ai_tether_none_boss); 
+	}
+
+}
+
+//-----------------------------------------------------------------------------------------------------------------
+// Jetwash functions
+
+void maintainJetwashDamage()	{
+
+	//just keep firing off damage
+	while(1)	{
+	
+		sys.radiusDamage( $tgt_jetwash_center.getWorldOrigin(),  $monster_network_guardian_2,  $monster_network_guardian_2,  $monster_network_guardian_2, "damage_network_guardian_jetwash" , 1 );
+		sys.wait(0.8);
+	}
+
+}
+//set up jetwash
+void beginJetwash()	{
+
+	//set the jetwash mover to the NG's origin
+	$mvr_jetwash.setWorldOrigin( $monster_network_guardian_2.getWorldOrigin() );
+	sys.waitFrame();
+
+	//bind the NG
+	$monster_network_guardian_2.bindPosition( $mvr_jetwash);	
+
+	//animate.
+	aiScriptedAnimLoop( $monster_network_guardian_2, "engine_wash", 12 );
+
+	thread maintainNGFacing();
+
+	$mvr_jetwash.speed( 360 );
+	$mvr_jetwash.accelTime( 0.5 );
+	$mvr_jetwash.decelTime( 1 );
+	
+	//start the damage
+	thread maintainJetwashDamage();
+
+
+}
+
+//end the jetwash
+void endJetwash()	{
+	
+	$mvr_jetwash.move( UP, 360 );
+	sys.waitFor( $mvr_jetwash );
+
+	//unbind the NG
+	$monster_network_guardian_2.unbind();
+
+	//move the mover to it's home
+	$mvr_jetwash.setWorldOrigin( $tgt_mvr_jetwash_home.getWorldOrigin() );
+
+	//all done
+	sys.killthread("maintainNGFacing");
+	sys.killthread("maintainJetwashDamage");
+
+	aiScriptedFaceWait( $monster_network_guardian_2, $player1, 1);
+	aiScriptedStop( $monster_network_guardian_2);
+
+//	aiScriptedAnimWait( $monster_network_guardian_2, "fly_idle", 4, 1);
+
+	
+}
+
+//moves the jetwash node to the targetNode 
+void moveJetwashToNode( entity targetNode )	{
+
+	$mvr_jetwash.moveTo( targetNode);
+	sys.waitFor( $mvr_jetwash);
+
+}
+
+//finds the closest of target 12 or 11 to the player. 
+entity firstJetwashTarget()	{
+
+	//simple check here
+	if( $tgt_jetwash_12.distanceTo( $player1) < $tgt_jetwash_11.distanceTo( $player1) )	{
+		return $tgt_jetwash_12;
+	} else	{
+		return $tgt_jetwash_11;
+	}
+
+}
+
+//given a point in the jetwash node grid, finds the closest of it's neighbors to the player
+entity closestWashNodeToPlayer( entity currentNode )	{
+
+	entity bestNode;
+	entity testNode;
+	float  bestDistance = 999999;
+	float  dist = 0;
+
+	ForEachTargetOf( currentNode, testNode )	{
+	
+		dist = testNode.distanceTo( $player1 );
+		if ( dist < bestDistance )	{
+			bestDistance = dist;
+			bestNode = testNode;
+		}
+	}
+
+	return bestNode;
+}
+
+
+//keeps the NG facing the player
+void maintainNGFacing()	{
+
+	vector	vFace;
+	float	fAngle;
+	float	bSearching;
+	
+	vFace = $monster_network_guardian_2.getAngles();
+	fAngle = 90;
+
+	while(1)	{
+		
+		vFace = VectorSubtract( $monster_network_guardian_2.getWorldOrigin(), $player1.getWorldOrigin());
+		vFace = sys.vecNormalize( vFace);
+		vFace = sys.VecToAngles( vFace);
+		vFace_z = 0;
+		vFace_x = 0;
+
+
+		if( (vFace_y - fAngle < 1) && (vFace_y - fAngle > -1) )
+		{
+			//one degree, do nothing.
+			fAngle = fAngle;
+		}
+		else if( (vFace_y - fAngle < 4) && (vFace_y - fAngle > 0) )
+		{
+			fAngle -= 0.15;
+		}
+		else if( (vFace_y - fAngle > -4) && (vFace_y - fAngle < 0) )
+		{
+			fAngle += 0.15;
+		}
+		else if( (vFace_y - fAngle > 180))
+		{
+			//reversed intentionally to accomodate for large turn arounds
+			fAngle += 0.35;
+		}
+		else if( (vFace_y - fAngle < -180))
+		{
+			//reversed intentionally to accomodate for large turn arounds
+			fAngle -= 0.35;
+		}
+
+		else if( (vFace_y - fAngle > 0))
+		{
+			fAngle -= 0.35;
+		}
+		else if( (vFace_y - fAngle < 0))
+		{
+			fAngle += 0.35;
+		}
+		
+		if( fAngle >=360)
+			fAngle -= 360;
+		if( fAngle < 0)
+			fAngle += 360;
+
+		vFace_y = fAngle;
+
+		$monster_network_guardian_2.setAngles( vFace);
+		sys.waitFrame();
+	}
+		
+}
+
+//this should kill all the threads he's involved in.
+void networkGuardian_cleanup()	{
+
+	sys.killthread("maintainNGFacing");
+	sys.killthread("maintainJetwashDamage");
+	sys.killthread("maintainNGBattle");
+	
+	sys.killthread("strafeManager");		// -mrenner
+	g_bossAlive = 0;
+
+	// The jetwash still happens when the Guardian is dead.  I couldn't get it to shut off.	-mrenner
+}

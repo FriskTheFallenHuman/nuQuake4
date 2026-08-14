@@ -1,0 +1,38 @@
+/***********************************************************************
+VOD TORSO BED
+***********************************************************************/
+
+export vos_torsobed
+{
+	options -prefix VTB_ -align ALL -keep chest -keep shoulders
+	mesh	work/models/mapobjects/strogg/bio_machines/vos_torso_bed/vos_torso_bed_idle.ma	-dest models/mapobjects/strogg/bio_machines/vos_torso_bed/mesh
+	anim	work/models/mapobjects/strogg/bio_machines/vos_torso_bed/vos_torso_bed_idle.ma	-dest models/mapobjects/strogg/bio_machines/vos_torso_bed/idle
+	
+	
+}
+
+entityDef env_vos_torsobed
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"Vos with no arms and legs in a strogg bed"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_vos_torsobed"
+	"anim"						"idle"
+	"start_anim"					"idle"
+	
+
+}
+
+model model_vos_torsobed		
+{
+	mesh					models/mapobjects/strogg/bio_machines/vos_torso_bed/mesh.md5mesh
+	
+	anim idle				models/mapobjects/strogg/bio_machines/vos_torso_bed/idle.md5anim
+	
+}
+

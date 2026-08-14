@@ -1,0 +1,92 @@
+/***********************************************************************
+DISPERSAL INJECTOR ARM
+***********************************************************************/
+
+export injector_arm
+{
+	options -prefix INJCTR_ARM_ -align ALL -scale .3937 -rotate 270 -keep lower_nozzle_effect upper_nozzle_effect
+	mesh	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/INJCTR_ARM_idle.ma	-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/mesh
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/INJCTR_ARM_idle.ma	-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/idle
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/INJCTR_ARM_part_1.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/part_1
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/INJCTR_ARM_part_2.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/part_2
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/INJCTR_ARM_part_3.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/part_3
+
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/DISP_scripted_sequence_01.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/dispersal_fill_vat
+
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/RECOMP_control_room_idle.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/recomp_idle
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/RECOMP_control_room_start.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/recomp_start
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/dispersal_injector_arm/animations/RECOMP_control_room_end.ma		-dest models/mapobjects/strogg/stroyent/dispersal/injector_arm/recomp_end
+	
+}
+
+entityDef env_dispersal_injector_arm
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for dispersal"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_dispersal_injector_arm"
+	"anim"						"idle"
+	"start_anim"					"idle"
+
+
+	"fx_acidSpray"					"effects/levels/dispersal/acid_vat.fx"
+	
+	"snd_motor1"						"dispersal_injector_arm_motor1"
+	"snd_motor2"						"dispersal_injector_arm_motor2"
+	"snd_motor3"						"dispersal_injector_arm_motor3"
+	"snd_motor4"						"dispersal_injector_arm_motor4"
+	"snd_motor5"						"dispersal_injector_arm_motor5"
+	"snd_lock"							"dispersal_injector_arm_lock"
+	"snd_unlock"						"dispersal_injector_arm_unlock"
+	"snd_stop"							"effects_steam_blast"
+	
+}
+
+model model_dispersal_injector_arm
+{
+	mesh					models/mapobjects/strogg/stroyent/dispersal/injector_arm/mesh.md5mesh
+	
+	anim start				models/mapobjects/strogg/stroyent/dispersal/injector_arm/part_1.md5anim
+	{
+		rate	2
+		frame	1				sound		snd_motor1
+		frame	16,40			sound		snd_stop
+		frame	29				sound		snd_motor2
+		frame   60				sound		snd_motor5
+		frame	66				sound		snd_lock
+	}
+	anim move				models/mapobjects/strogg/stroyent/dispersal/injector_arm/part_2.md5anim
+	{
+		rate	2
+		frame	1				sound		snd_unlock
+		frame	19,107			sound		snd_motor1
+		frame	35,93,124		sound		snd_stop
+		frame   58				sound		snd_motor4
+		frame	137				sound		snd_motor2
+		frame	158				sound		snd_motor5
+		frame	166				sound		snd_lock
+		
+	}
+	anim finish				models/mapobjects/strogg/stroyent/dispersal/injector_arm/part_3.md5anim
+	{
+		rate	2
+		frame	1				sound		snd_unlock
+		frame	12				sound		snd_motor5
+		frame	24,83			sound		snd_stop
+		frame   35				sound		snd_motor4
+	}
+
+	anim idle				models/mapobjects/strogg/stroyent/dispersal/injector_arm/idle.md5anim
+
+	anim disp_fill_vat		models/mapobjects/strogg/stroyent/dispersal/injector_arm/dispersal_fill_vat.md5anim
+
+	anim recomp_idle		models/mapobjects/strogg/stroyent/dispersal/injector_arm/recomp_idle.md5anim
+	anim recomp_start		models/mapobjects/strogg/stroyent/dispersal/injector_arm/recomp_start.md5anim
+	anim recomp_end			models/mapobjects/strogg/stroyent/dispersal/injector_arm/recomp_end.md5anim
+}
+

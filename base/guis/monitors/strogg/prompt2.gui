@@ -1,0 +1,230 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui, gui_parm_stroyent = 1 adds stroyent junk on the screen"
+	visible	1
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	definevec4	"logo_on"	0.894,0.811,0.470,0.8
+	definevec4	"logo_off"	0.894,0.811,0.470,0
+	windowDef t_left
+	{
+		rect	0,0,320,240
+		visible	1
+		background	"gfx/guis/common/strogg/edge2"
+		matcolor	0.737,0.447,0.180,0.8
+		matscalex	-1
+	}
+	windowDef t_right
+	{
+		rect	320,0,320,240
+		visible	1
+		background	"gfx/guis/common/strogg/edge2"
+		matcolor	0.737,0.447,0.180,0.8
+	}
+	windowDef b_left
+	{
+		rect	0,240,320,240
+		visible	1
+		background	"gfx/guis/common/strogg/edge2"
+		matcolor	0.737,0.447,0.180,0.8
+		matscalex	-1
+		matscaley	-1
+	}
+	windowDef b_right
+	{
+		rect	320,240,320,240
+		visible	1
+		background	"gfx/guis/common/strogg/edge2"
+		matcolor	0.737,0.447,0.180,0.8
+		matscaley	-1
+	}
+	windowDef data
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/common/strogg/data"
+		matcolor	1,1,0,0.219
+	}
+	windowDef data_grad
+	{
+		rect	-296,-91,1194,752
+		visible	1
+		background	"gfx/guis/common/gradient"
+		matcolor	0,0,0,1
+	}
+	windowDef logo1
+	{
+		rect	119,9,407,400
+		visible	1
+		background	"gfx/guis/common/strogg/logo_rotate1"
+		matcolor	0.894,0.811,0.470,0
+	}
+	windowDef logo2
+	{
+		rect	119,9,407,400
+		visible	1
+		background	"gfx/guis/common/strogg/logo_rotate2"
+		matcolor	0.894,0.811,0.470,0
+	}
+	windowDef logo3
+	{
+		rect	119,9,407,400
+		visible	1
+		background	"gfx/guis/common/strogg/logo_rotate3"
+		matcolor	0.894,0.811,0.470,0
+	}
+	windowDef logo4
+	{
+		rect	119,9,407,400
+		visible	1
+		background	"gfx/guis/common/strogg/logo_rotate4"
+		matcolor	0.894,0.811,0.470,0
+	}
+	windowDef gradient1
+	{
+		visible	1
+		rect	-35,415,717,129
+		background	"gfx/guis/common/gradient"
+		matcolor	0,0,0,1
+	}
+	windowDef box
+	{
+		rect	25,403,596,556
+		visible	1
+		background	"gfx/guis/common/simplebox"
+		matcolor	0.737,0.447,0.180,0.8
+	}
+	windowDef slashes
+	{
+		rect	65,429,40,51
+		visible	1
+		forecolor	0.815,0.823,0.682,0.8
+		text	"\\\\"
+		textscale	0.8
+	}
+	windowDef entercmd
+	{
+		rect	94,442,319,25
+		visible	1
+		forecolor	0.815,0.823,0.682,0.8
+		text	"enter system command:"
+		textscale	0.6
+		font	"fonts/strogg"
+		fontsize	38
+	}
+	windowDef prompt
+	{
+		rect	427,444,14,20
+		visible	1
+		backcolor	0.815,0.823,0.682,0.8
+
+		onTime 0 {
+			set "visible" "0" ;
+		}
+
+		onTime 600 {
+			set "visible" "1" ;
+		}
+
+		onTime 1200 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline1
+		{
+			visible	1
+			rect	0,-493,640,1584
+			background	"gfx/guis/common/monitor_line1"
+			matcolor	0.713,0.894,0.854,0.0784
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-16,-25,667,514
+			background	"gfx/guis/common/monitor_reflect"
+			matcolor	1,0.501,0,0.1
+		}
+		windowDef gradient
+		{
+			visible	1
+			rect	-66,-56,761,591
+			background	"gfx/guis/common/gradient"
+			matcolor	0.643,0.752,0.470,0.26*guitable_random1[time*0.0008]
+		}
+		windowDef dirt_stroyent
+		{
+			visible	"gui::gui_parm_stroyent"
+			rect	0,-73,640,553
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.486,0.462,0.129,1
+		}
+		windowDef broken_glass_b
+		{
+			visible	"gui::gui_parm_broken"
+			rect	4,6,640,480
+			background	"gfx/guis/common/broken_glass3"
+			matcolor	0,0,0,1
+			matscalex	-1
+		}
+		windowDef broken_glass
+		{
+			visible	"gui::gui_parm_broken"
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass3"
+			matcolor	0.823,0.886,0.901,1
+			matscalex	-1
+		}
+		windowDef monitor_darkedge
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef anim_logo
+	{
+		rect	0,0,1,1
+		visible	1
+
+		onTime 0 {
+			transition "logo1::matcolor" "$desktop::logo_on" "$desktop::logo_off" "100" ;	
+			transition "logo2::matcolor" "$desktop::logo_off" "$desktop::logo_on" "100" ;	
+		}
+
+		onTime 200 {
+			transition "logo2::matcolor" "$desktop::logo_on" "$desktop::logo_off" "100" ;	
+			transition "logo3::matcolor" "$desktop::logo_off" "$desktop::logo_on" "100" ;	
+		}
+
+		onTime 400 {
+			transition "logo3::matcolor" "$desktop::logo_on" "$desktop::logo_off" "100" ;	
+			transition "logo4::matcolor" "$desktop::logo_off" "$desktop::logo_on" "100" ;	
+		}
+
+		onTime 600 {
+			transition "logo4::matcolor" "$desktop::logo_on" "$desktop::logo_off" "100" ;	
+			transition "logo3::matcolor" "$desktop::logo_off" "$desktop::logo_on" "100" ;	
+		}
+
+		onTime 800 {
+			transition "logo3::matcolor" "$desktop::logo_on" "$desktop::logo_off" "100" ;	
+			transition "logo2::matcolor" "$desktop::logo_off" "$desktop::logo_on" "100" ;	
+		}
+
+		onTime 1000 {
+			transition "logo2::matcolor" "$desktop::logo_on" "$desktop::logo_off" "100" ;	
+			transition "logo1::matcolor" "$desktop::logo_off" "$desktop::logo_on" "100" ;	
+		}
+
+		onTime 2500 {
+			resettime "0" ;
+		}
+
+	}
+}

@@ -1,0 +1,211 @@
+/***********************************************************************************************************************
+Convoy2
+
+Unique entities created for the convoy2 level
+************************************************************************************************************************/
+entityDef convoy2_cin_gev
+{
+	"spawnclass"										"idAnimated"
+			
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 72"
+	"editor_menu"										"level"
+	"editor_color"										"0 .5 .25"
+	"editor_rotatable"									"1"
+	"editor_usage"										"Animated GEV for use in Convoy2b cinematic"
+
+	"anim"												"idle"
+
+	"model"												"model_convoy2_cin_gev"
+	"clipmodel"											"models/vehicles/gev/clip.lwo"
+	
+	"fx_dust"											"effects/vehicles/gev/dust_7sec.fx"
+	"fx_dustpuff"										"effects/vehicles/gev/dust_puff.fx"
+	"fx_exp1"											"effects/explosions/surface/medium.fx"
+	"fx_exp2"											"effects/explosions/surface/airdefense2.fx"
+	"fx_impact_harvmetal"								"effects/monsters/harvester/claw_metal.fx"
+	"fx_dust_fall"										"effects/ambient/dust_falling_large.fx"
+	"fx_explosion_gev"									"effects/vehicles/explosion_tank_nodebris.fx"
+	
+	"fx_muzzleflash"			"effects/vehicles/gev/maingun/muzzleflash.fx"
+	
+	"snd_fireTemp"					"harvester_rocket_launcher"	// mrenner	
+	
+	"snd_explosion"										"harvester_truck_explosion_E3"
+}
+
+model model_convoy2_cin_gev
+{
+	"inherit"											"vehicle_gev"
+
+	anim convoy2b_tank_smash							"models/vehicles/GEV/convoy2b_tank_smash.md5anim"
+	{
+		frame 9				trigger		speaker_vo_1
+		frame 98			trigger		speaker_vo_2
+		frame 136			trigger		speaker_vo_3
+		frame 198			trigger		speaker_vo_4
+	
+	//  Not triggered, because they get in the way.	
+	//		frame 250			trigger		func_fx_gev_fire_1
+	//		frame 250			trigger		func_static_smashed_gev
+			
+		frame 193			fx		fx_impact_harvmetal		hit_entry
+		frame 193			fx		fx_impact_harvmetal		hit_exit
+		frame 193			fx		fx_exp1					hit_entry
+		frame 193			fx		fx_exp1					hit_exit
+		
+		frame 193			fx		fx_dustpuff				base
+		
+		frame 242			fx		fx_explosion_gev		base
+		
+		frame 1				fx		fx_dust					base
+	}
+	anim convoy2b_tank2_smash							"models/vehicles/GEV/convoy2b_tank2_smash.md5anim"
+	{
+		frame 475			trigger		func_fx_gev_fire_2
+		frame 478			sound		snd_explosion
+		
+		frame 348			fx		fx_impact_harvmetal		hit_entry
+		frame 348			fx		fx_impact_harvmetal		hit_exit
+		frame 348			fx		fx_exp1					hit_entry
+		frame 348			fx		fx_exp1					hit_exit
+		
+		frame 396			fx		fx_impact_harvmetal		hit_entry
+		frame 396			fx		fx_impact_harvmetal		hit_exit
+		frame 396			fx		fx_exp2					hit_entry
+		frame 396			fx		fx_exp1					hit_exit
+		
+//		frame 333			call	map_convoy2b::driverShoot
+
+		frame 333			fx		fx_muzzleflash		mgun1
+		frame 333		sound		snd_fireTemp
+		
+		frame 348, 396		fx		fx_dustpuff				base
+		
+		frame 478			fx		fx_explosion_gev		hit_entry
+		frame 478			fx		fx_explosion_gev		hit_exit
+		
+		frame 1				fx		fx_dust					base
+		
+	}
+
+
+}
+
+
+entityDef convoy2_cin_walker
+{
+	"spawnclass"										"idAnimated"
+			
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 72"
+	"editor_menu"										"level"
+	"editor_color"										"0 .5 .25"
+	"editor_rotatable"									"1"
+	"editor_usage"										"Animated walker for use in Convoy2b cinematic"
+
+	"anim"												"idle"
+
+	"model"												"model_convoy2_cin_walker"
+}
+
+model model_convoy2_cin_walker
+{
+	"inherit"											"model_vehicle_walker"
+
+	anim e3_bg_mech										"models/vehicles/walker/e3_bg_mech.md5anim"
+	anim e3_cam_mech									"models/vehicles/walker/e3_cam_mech.md5anim"
+	{
+		frame	17,41,65,89,113,137,161,185,193,208,232,246,260,282,311	sound	vehicle_walker_steps_E3
+
+	}
+}
+
+entityDef convoy2_monster_harvester
+{
+	"inherit"											"monster_harvester"
+	"editor_menu"										"level"
+	"model"												"model_convoy2_monster_harvester"
+	
+	"snd_roar"								"harvester_alert_E3"
+	
+	"snd_pain"								"harvester_pain_E3"
+	
+	"snd_footstep"							"harvester_steps_E3"
+	"snd_footstep_sand"						"harvester_steps_E3"
+	"snd_footstep_dirt"						"harvester_steps_E3"
+	"snd_footstep_hollowmetal"				"harvester_steps_E3"
+	"snd_footstep_rock"						"harvester_steps_E3"
+	
+	"snd_death"								"harvester_death"
+	"snd_tendrils"							"harvester_tendrils"
+	"snd_flesh"								"harvester_flesh"
+	
+	"snd_explosion"							"harvester_truck_explosion_E3"
+	"snd_metal"								"harvester_bridge_crush"
+
+
+	"fx_impact"				"effects/vehicles/gev/impact.fx"	// mrenner
+
+	"fx_step"								"effects/monsters/harvester/claw_step.fx"
+}
+
+model model_convoy2_monster_harvester
+{
+	"inherit"											"model_monster_harvester"
+
+	anim convoy2b_intro									"models/monsters/harvester/convoy2b_intro.md5anim"
+	{
+		frame	164,240,252,259,274,279,283,297,305,315,321,425,453		footstep
+		frame	190										sound	snd_metal
+		frame	192										sound	snd_explosion
+		frame	216,320									sound	snd_pain
+		frame	259										sound	snd_roar
+
+		frame	336 						fx	fx_impact  	rt_muzzle_flash
+		frame	336										sound	snd_explosion
+
+		frame	348, 395, 422							sound	snd_metal
+		frame	400										sound	snd_explosion
+		
+		frame	164, 252, 279, 305, 425					fx 		fx_step 		l_toe_front
+		frame	321										fx 		fx_step 		l_toe_back
+		frame	240, 259, 274, 283, 315					fx 		fx_step 		r_toe_back
+		frame	297, 453								fx 		fx_step 		r_toe_front
+	}
+	
+	anim E3_harvester									"models/monsters/harvester/E3_harvester.md5anim"
+	{
+		frame	145,160,173,189,217,227,239,246,251,261,271,275,285,298,313,320,326,333,336,341,349	sound	snd_flesh
+		frame	97,120,139,162,232,248,253,270,280,291,309			footstep
+		frame	190										sound	snd_metal
+		frame	192										sound	snd_explosion
+		frame	216,320									sound	snd_pain
+		frame	259										sound	snd_roar
+	}
+}
+
+// Convoy2 tech
+
+model convoy2_model_char_marine_tech
+{
+	inherit					model_char_marine_tech	
+		
+	anim	recomp_mod_hyper		models/characters/marine/recomp_mod_hyper.md5anim
+	
+	anim	player_gift_start					models/characters/marine/player_gift_start.md5anim					
+	anim	player_gift_loop					models/characters/marine/player_gift_loop.md5anim			
+	anim	player_gift_end						models/characters/marine/player_gift_end.md5anim	
+	
+	anim	player_gift2_start					models/characters/marine/player_gift2_start.md5anim					
+	anim	player_gift2_loop					models/characters/marine/player_gift2_loop.md5anim			
+	anim	player_gift2_end					models/characters/marine/player_gift2_end.md5anim
+}
+
+entityDef convoy2_char_marine_tech
+{
+		"inherit"				"char_marine_tech"
+		
+		"model"					"convoy2_model_char_marine_tech"
+		"editor_menu"				"level"	
+}

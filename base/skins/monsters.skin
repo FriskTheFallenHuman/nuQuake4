@@ -1,0 +1,172 @@
+/*
+===============================================================================
+
+	Strogg Marine
+
+===============================================================================
+*/
+
+skin skins/monsters/strogg_marine/smv_shotgun
+{
+	"models/monsters/strogg_marine/smv_head_b"					"models/monsters/strogg_marine/smv_head_b4"
+	"models/monsters/strogg_marine/smv_teeth"					"models/monsters/strogg_marine/smv_teeth"	
+	"models/monsters/strogg_marine/smv_arms_lo"					"models/monsters/strogg_marine/smv_arms2_lo"
+	"models/monsters/strogg_marine/smv_arms_lo2"				"models/monsters/strogg_marine/smv_blaster_lo"
+	"models/monsters/strogg_marine/smv_blaster_lo"				"textures/common/nodraw"
+	"models/monsters/strogg_marine/shotgunarm_lo"				"models/monsters/strogg_marine/shotgunarm_lo"
+	"models/monsters/strogg_marine/machinegunarm_lo"			"textures/common/nodraw"
+	"models/monsters/strogg_marine/smv_bodylegs_lo"				"models/monsters/strogg_marine/smv_bodylegs2_lo"
+	"models/monsters/strogg_marine/smv_eyes_right"				"models/monsters/strogg_marine/smv_eyes_right"
+	"models/monsters/strogg_marine/smv_eyes_left"				"models/monsters/strogg_marine/smv_eyes_left"
+}
+
+skin skins/monsters/strogg_marine/smv_machinegun
+{
+	"models/monsters/strogg_marine/smv_head_b"					"models/monsters/strogg_marine/smv_head_b2"
+	"models/monsters/strogg_marine/smv_teeth"					"models/monsters/strogg_marine/smv_teeth"	
+	"models/monsters/strogg_marine/smv_arms_lo"					"models/monsters/strogg_marine/smv_arms3_lo"
+	"models/monsters/strogg_marine/smv_arms_lo2"				"models/monsters/strogg_marine/smv_blaster_lo"
+	"models/monsters/strogg_marine/smv_blaster_lo"				"textures/common/nodraw"
+	"models/monsters/strogg_marine/shotgunarm_lo"				"textures/common/nodraw"
+	"models/monsters/strogg_marine/machinegunarm_lo"			"models/monsters/strogg_marine/machinegunarm_lo"
+	"models/monsters/strogg_marine/smv_bodylegs_lo"				"models/monsters/strogg_marine/smv_bodylegs3_lo"
+	"models/monsters/strogg_marine/smv_eyes_right"				"models/monsters/strogg_marine/smv_eyes_right"
+	"models/monsters/strogg_marine/smv_eyes_left"				"models/monsters/strogg_marine/smv_eyes_left"
+}
+
+skin skins/monsters/strogg_marine/smv_blaster
+{
+	"models/monsters/strogg_marine/smv_head_b"					"models/monsters/strogg_marine/smv_head_b"
+	"models/monsters/strogg_marine/smv_teeth"					"models/monsters/strogg_marine/smv_teeth"	
+	"models/monsters/strogg_marine/smv_arms_lo"					"models/monsters/strogg_marine/smv_arms_lo"
+	"models/monsters/strogg_marine/smv_arms_lo2"				"models/monsters/strogg_marine/smv_blaster_lo"
+	"models/monsters/strogg_marine/smv_blaster_lo"				"models/monsters/strogg_marine/smv_blaster_lo"
+	"models/monsters/strogg_marine/shotgunarm_lo"				"textures/common/nodraw"
+	"models/monsters/strogg_marine/machinegunarm_lo"			"textures/common/nodraw"
+	"models/monsters/strogg_marine/smv_bodylegs_lo"				"models/monsters/strogg_marine/smv_bodylegs_lo"
+	"models/monsters/strogg_marine/smv_eyes_right"				"models/monsters/strogg_marine/smv_eyes_right"
+	"models/monsters/strogg_marine/smv_eyes_left"				"models/monsters/strogg_marine/smv_eyes_left"
+}
+
+/*
+===============================================================================
+
+	Failed Transfer
+
+===============================================================================
+*/
+
+skin skins/monsters/failed_transfer/torso
+{
+	"models/monsters/failed_transfer/ft_low_leg"				"textures/common/nodraw"
+	"models/weapons/mp_guns/w_sg"								"textures/common/nodraw"
+}
+
+skin skins/monsters/failed_transfer/legs
+{
+	"models/monsters/failed_transfer/ft_low_torso"				"textures/common/nodraw"
+	"models/monsters/failed_transfer/ft_eye"					"textures/common/nodraw"
+	"models/monsters/failed_transfer/ft_teeth"					"textures/common/nodraw"
+	"models/weapons/mp_guns/w_sg"								"textures/common/nodraw"
+}
+
+skin skins/monsters/failed_transfer/noweapon
+{
+	"models/weapons/mp_guns/w_sg"								"textures/common/nodraw"
+}
+
+/*
+===============================================================================
+
+	Repair bot
+
+===============================================================================
+*/
+
+skin skins/monsters/repair_bot/body_orange
+{
+	"models/monsters/repair_bot/body"		"models/monsters/repair_bot/body_orange"
+	"models/monsters/repair_bot/glass"		"models/monsters/repair_bot/glass"	
+}
+
+skin skins/monsters/repair_bot/body_yellow
+{
+	"models/monsters/repair_bot/body"		"models/monsters/repair_bot/body_yellow"
+	"models/monsters/repair_bot/glass"		"models/monsters/repair_bot/glass"	
+}
+
+
+skin skins/monsters/repair_bot/body_green
+{
+	"models/monsters/repair_bot/body"		"models/monsters/repair_bot/body_green"
+	"models/monsters/repair_bot/glass"		"models/monsters/repair_bot/glass"	
+}
+
+
+skin skins/monsters/repair_bot/body_blue
+{
+	"models/monsters/repair_bot/body"		"models/monsters/repair_bot/body_blue"
+	"models/monsters/repair_bot/glass"		"models/monsters/repair_bot/glass"	
+}
+
+
+skin skins/monsters/repair_bot/body_black
+{
+	"models/monsters/repair_bot/body"		"models/monsters/repair_bot/body_black"
+	"models/monsters/repair_bot/glass"		"models/monsters/repair_bot/glass"	
+}
+
+
+skin skins/mapobjects/strogg/machines/casket/IM_casket_empty
+{
+	"models/monsters/iron_maiden/base"	"textures/common/nodraw"
+}
+
+/////////////////////////// slimy transfer alternate mp skin and german version///////////////////////
+
+skin skins/models/monsters/failed_transfer/slimy_mp
+{
+	"models/monsters/failed_transfer/slimy_low"
+"models/monsters/failed_transfer/slimy_mp"
+}
+
+
+skin skins/models/monsters/failed_transfer/ger_slimy_low
+{
+	"models/monsters/failed_transfer/slimy_low"
+"models/monsters/failed_transfer/ger_slimy_low"
+}
+
+
+
+/////////////////////////// failed transfer alternate mp skin///////////////////////
+
+skin skins/models/monsters/failed_transfer/ft_mp
+{
+	"models/monsters/failed_transfer/ft_low_leg"
+"models/monsters/failed_transfer/ft_mp_leg"
+
+	"models/monsters/failed_transfer/ft_low_torso"
+"models/monsters/failed_transfer/ft_mp_torso"
+}
+
+
+/////////////////////////// corpse mp skins///////////////////////
+
+skin skins/models/characters/bodies_parts/corpses/corpse_mp
+{
+	"models/characters/bodies_parts/corpses/corpse"
+"models/characters/bodies_parts/corpses/corpse_mp"
+}
+
+skin skins/models/characters/bodies_parts/corpses/corpse3_mp
+{
+	"models/characters/bodies_parts/corpses/corpse"
+"models/characters/bodies_parts/corpses/corpse3_mp"
+}
+
+skin skins/models/characters/bodies_parts/corpses/corpse4_mp
+{
+	"models/characters/bodies_parts/corpses/corpse"
+"models/characters/bodies_parts/corpses/corpse4_mp"
+}

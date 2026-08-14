@@ -1,0 +1,35 @@
+namespace navCrossing
+{
+	
+// combat_smash will be called by anyone that uses the combat_smash navCrossing	
+// as such... eventually the code within will be generalized
+void combat_smash_special( )
+{	
+	sys.print( "special smashing code\n" );
+	$func_mover_1.hide();		
+	$func_mover_2.hide();		
+	$func_mover_1.remove();
+	$func_mover_2.remove();
+}
+void combat_smash_gate1( )
+{	
+	$Gate1.activate($Gate1);			
+}
+void combat_smash()
+{		
+	sys.print( "generic smashing code\n" );
+}
+
+void combat_smash_panel()
+{
+	$GruntPanel.hide();
+	$GruntPanel.remove();
+}
+
+void KillWeldGuard02()
+{
+	// Fixme: Whatever we wanted here wasn't done right (it didn't use damage defs, for a start.
+	//$monster_grunt_3.damage(300,"weld_guard_02");	
+}
+
+}

@@ -1,0 +1,132 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+
+	onNamedEvent weapon_ammo {
+		if ( "gui::player_ammo" > 9 )
+		{
+			set "bg::visible" "1" ;
+			set "bg_lowammo::visible" "0" ;
+			set "bg_noammo::visible" "0" ;
+			set "p_ammo::visible" "1" ;
+			set "p_ammo_lowammo::visible" "0" ;
+			set "p_ammo_noammo::visible" "0" ;
+			
+			setlightcolor "bg::matcolor";
+		}		
+		
+		else if ( "gui::player_ammo" > 0 )
+		{
+			set "bg::visible" "0" ;
+			set "bg_lowammo::visible" "1" ;
+			set "bg_noammo::visible" "0" ;
+			set "p_ammo::visible" "0" ;
+			set "p_ammo_lowammo::visible" "1" ;
+			set "p_ammo_noammo::visible" "0" ;
+			
+			setlightcolor "bg::matcolor";
+		}		
+		
+		else 
+		{
+			set "bg::visible" "0" ;
+			set "bg_lowammo::visible" "0" ;
+			set "bg_noammo::visible" "1" ;
+			set "p_ammo::visible" "0" ;
+			set "p_ammo_lowammo::visible" "0" ;
+			set "p_ammo_noammo::visible" "1" ;
+			
+			setlightcolor "bg::matcolor";
+		}	
+	}
+
+	windowDef bg_lowammo
+	{
+		rect	56,141,512,206
+		visible	0
+		background	"gfx/guis/weapons/machinegun/bg"
+		matcolor	0.792,0.560,0.0823,1*guitable_8_10[time*0.003]
+	}
+	windowDef bg_noammo
+	{
+		rect	56,141,512,206
+		visible	0
+		background	"gfx/guis/weapons/machinegun/bg"
+		matcolor	0.780,0.172,0.105,1*guitable_10_5[time*0.002]
+	}
+	windowDef bg
+	{
+		rect	56,141,512,206
+		visible	1
+		background	"gfx/guis/weapons/machinegun/bg"
+		matcolor	0.450,0.650,0.250,1*guitable_1_92[time*0.003]
+	}
+	windowDef ammo
+	{
+		rect	42,84,494,297
+		visible	1
+		forecolor	0,0,0,0.8
+		text	"gui::player_ammo"
+		textscale	4.5
+		font	"fonts/marine"
+		textalign	1
+		textspacing	-10
+	}
+	windowDef p_ammo
+	{
+		rect	0,-38,640,480
+		visible	1
+		windowDef bg_o
+		{
+			rect	67,203,491,190
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.717,0.686,0.309,0.5*guitable_1_92[time*0.009]
+		}
+		windowDef bg_o2
+		{
+			rect	175,286,274,80
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.827,0.984,0.733,0.3*guitable_1_92[time*0.009]
+		}
+	}
+	windowDef p_ammo_lowammo
+	{
+		rect	0,-38,640,479
+		visible	0
+		windowDef bg_o_lowammo
+		{
+			rect	67,203,491,190
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.996,0.603,0.0117,0.5*guitable_8_10[time*0.003]
+		}
+		windowDef bg_o2_lowammo
+		{
+			rect	175,286,274,80
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.984,0.788,0,0.3*guitable_8_10[time*0.003]
+		}
+	}
+	windowDef p_ammo_noammo
+	{
+		rect	0,-38,640,479
+		visible	0
+		windowDef bg_o_noammo
+		{
+			rect	67,203,491,190
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	1,0.509,0.0156,0.5*guitable_10_5[time*0.002]
+		}
+		windowDef bg_o2_noammo
+		{
+			rect	175,286,274,80
+			visible	1
+			background	"gfx/guis/weapons/shotgun/bg_o"
+			matcolor	0.984,0.647,0.0156,0.3*guitable_10_5[time*0.002]
+		}
+	}
+}

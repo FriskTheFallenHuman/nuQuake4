@@ -1,0 +1,761 @@
+//generic 128 by 128 doorway-------------------------------------------------------------------------------------------------
+// THIS IS ONLY ATLAS RIPPED AT THE MOMENT.  YOU MAY NEED TO CHANGE THE RESOLUTION SO THAT IT FITS BETTER INTO MEMORY
+models/mapobjects/strogg/doors/generic/frame_128
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/generic/frame_128_local.tga work/models/mapobjects/strogg/doors/generic/frame_128_high.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/frame_128_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/frame_128_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/frame_128_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/frame_128_s.tga
+	
+	{
+		if(Parm7 == 1)
+		blend			add
+		map				models/mapobjects/strogg/doors/generic/frame_128_glow.tga
+		red				0
+		green			0
+		blue			0	
+	}
+}
+
+//Brian's Dispersal Door----------------------------------------------------------------------------------------------------
+
+//models/mapobjects/strogg/doors/dispersal/d_door02_lo
+//{
+//    noSelfShadow
+//      unSmoothedTangents
+//      
+//renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/dispersal/d_door02_lo_local.tga work/models/mapobjects/strogg/doors/dispersal/d_door02_hi.lwo
+//
+//
+//	bumpmap	addnormals	( models/mapobjects/strogg/doors/dispersal/d_door02_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/dispersal/d_door02_lo_h.tga,1 ) )
+//	diffusemap		models/mapobjects/strogg/doors/dispersal/d_door02_lo_d.tga
+//	specularmap		models/mapobjects/strogg/doors/dispersal/d_door02_lo_s.tga
+//}
+
+models/mapobjects/strogg/doors/dispersal/d_door02_right_lo
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/dispersal/d_door02_lo_local.tga work/models/mapobjects/strogg/doors/dispersal/d_door02_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/dispersal/d_door02_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/dispersal/d_door02_lo_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/dispersal/d_door02_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/dispersal/d_door02_lo_s.tga
+}
+
+models/mapobjects/strogg/doors/dispersal/d_door02_left_lo
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/dispersal/d_door02_lo_local.tga work/models/mapobjects/strogg/doors/dispersal/d_door02_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/dispersal/d_door02_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/dispersal/d_door02_lo_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/dispersal/d_door02_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/dispersal/d_door02_lo_s.tga
+}
+
+//proto conveyor door--------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/doors/medlabs/conv_door_ripped
+{
+      noselfShadow
+	renderbump  -size 256 512  -trace .2 -aa 1  models/mapobjects/conveyor/conv_door_ripped_local.tga models/mapobjects/conveyor/conv_door_hi2.lwo
+
+		diffusemap		models/mapobjects/strogg/doors/medlabs/conv_door_ripped_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/doors/medlabs/conv_door_ripped_local, heightmap ( models/mapobjects/strogg/doors/medlabs/conv_door_ripped_h.tga, 2 ) )
+		specularmap		models/mapobjects/strogg/doors/medlabs/conv_door_ripped_s.tga
+
+}
+
+//sawtooth doors-------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/doors/sawtooth/doors_lo
+{
+      noselfShadow
+	renderbump  -size 512 512 -trace 0.2 -aa 2 models/mapobjects/door_sawtooth/doors_lo_local.tga models/mapobjects/door_sawtooth/door_sawtooth_left_highpoly.lwo
+
+	materialType solidmetal
+
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/sawtooth//doors_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/sawtooth/doors_lo_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/sawtooth/doors_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/sawtooth/doors_lo_s.tga
+}
+
+
+models/mapobjects/strogg/doors/sawtooth/door_frame
+{
+      noselfShadow
+	renderbump  -size 256 512 -trace 0.2 -aa 1 models/mapobjects/door_sawtooth/door_frame_local.tga models/mapobjects/door_sawtooth/doorframe_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/sawtooth/door_frame_local.tga, heightmap ( models/mapobjects/strogg/doors/sawtooth/door_frame_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/sawtooth/door_frame_d.tga
+	specularmap		models/mapobjects/strogg/doors/sawtooth/door_frame_s.tga
+}
+
+//dispersal doors-------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/dispersal/door
+{
+	unSmoothedTangents
+//check path	renderbump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/stroyent/dispersal/doorframe/door_02_local.tga work/models/mapobjects/strogg/stroyent/dispersal/doorframe/door_02_hp.lwo
+
+	materialType solidmetal
+
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/dispersal/door_local.tga, heightmap ( models/mapobjects/strogg/doors/dispersal/door_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/dispersal/door_d.tga
+	specularmap		models/mapobjects/strogg/doors/dispersal/door_s.tga
+}
+
+//.skin file--------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/dispersal/door_b
+{
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/doors/dispersal/door_b_hit
+	  
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/dispersal/door_local.tga, heightmap ( models/mapobjects/strogg/doors/dispersal/door_b_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/dispersal/door_b_d.tga
+	specularmap		models/mapobjects/strogg/doors/dispersal/door_b_s.tga
+}
+
+//lock lights
+models/mapobjects/strogg/doors/dispersal/doorlocklightg
+{
+	translucent
+	{
+		if ( parm7 == 0 )
+		blend 	add
+		map		models/mapobjects/strogg/doors/dispersal/doorlocklightg
+		red		1
+		green	0.1
+		blue	0.1
+
+	}
+	{
+		if ( parm7 == 1 )
+		blend 	add
+		map		models/mapobjects/strogg/doors/dispersal/doorlocklightg
+		red		0.6
+		green	1
+		blue	0.23
+	}
+}
+
+//--------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/doors/sawtooth/doors_lo_fade
+{	//fading version of the door_sawtooth
+      noselfShadow
+
+	bumpMap		addnormals(models/mapobjects/strogg/doors/sawtooth/doors_lo_local.tga,heightmap(models/mapobjects/strogg/doors/sawtooth/doors_lo_h.tga,1))
+	diffusemap		models/mapobjects/strogg/doors/sawtooth/doors_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/sawtooth/doors_lo_s.tga
+
+// abnormal stuff...
+
+	{		//Chipping texture 
+	blend		GL_ZERO, GL_ONE
+	map 		textures/Stream/Stream_Patchwork_Alpha.tga
+	uncompressed
+	AlphaTest	-.5 + global4
+	}
+
+	{		//Glow effect of the patchwork lines, before chip
+	if		(global4> 0 && global4< .6)
+	blend		add
+	map		textures/Stream/Stream_Patchwork_lines.tga
+	IgnoreAlphaTest
+	red		global4* Flicker[time] * 2
+	green		global4* Flicker[time] * 2
+	blue		global4* Flicker[time] * 2
+	}
+
+	{		//Glow effect of the patchwork lines, after chip
+	if		(global4>.6 && global4<= 3)
+	blend		add
+	map		textures/Stream/Stream_Patchwork_lines.tga
+	IgnoreAlphaTest
+	red		.2 + Flicker[time] - WallFade[global4- 2]
+	green		.2 + Flicker[time] - WallFade[global4- 2]
+	blue		.2 + Flicker[time] - WallFade[global4- 2]
+	}
+
+	{		//Overall flash
+	if		(global4>= .3 && global4<=.5)
+	blend		add
+	IgnoreAlphaTest
+	Map		_white
+	red		.2 * Arch[5 * (global4- .3)]
+	green		.6 * Arch[5 * (global4- .3)]
+	blue		.4 * Arch[5 * (global4- .3)]
+	}		
+}
+
+//-------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/sawtooth/StreamDoorframe
+{	//Sawtooth doorframe in the stream
+
+	{
+	if (parm4 > 0)
+	blend		add
+	map		models/mapobjects/strogg/doors/sawtooth/Stream_doorframe_edges.tga
+	red		(WallFade[(time - parm4) / 10] / 4) - (.5 + sintable[time] *2)
+	green		(WallFade[(time - parm4) / 10] / 2)
+	blue		(WallFade[(time - parm4) / 10] / 2)
+	}
+
+	{		//Glow effect of the patchwork lines
+	if (parm4 > 0)
+	blend		add
+	map		textures/stream/Stream_Patchwork_lines.tga
+	scale		2,2
+	red		-1 + Flicker[time] + WallFade[(time - parm4) / 10]
+	green		-1 + Flicker[time] + WallFade[(time - parm4) / 10]
+	blue		-1 + Flicker[time] + WallFade[(time - parm4) / 10]
+	}
+}
+
+
+//end sawtooth doors----------------------------------------------------------------------------------------------
+
+
+
+
+//--------------------TERMINAL DOOR & FRAME-----------------------------------
+//-------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/doors/terminal/frame
+{
+	noselfshadow
+	unsmoothedTangents
+	materialImage models/mapobjects/strogg/doors/terminal/frame_hit
+
+// check path	renderbump  -size 1024 1024 -aa 2 -trace .07 -colormap models/mapobjects/terminal/doorframe_local.tga models/mapobjects/terminal/render/doorframe_a_hi_render.lwo
+
+	diffuseMap	models/mapobjects/strogg/doors/terminal/frame_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/doors/terminal/frame_local.tga, heightmap (models/mapobjects/strogg/doors/terminal/frame_h.tga,1))
+	specularMap	models/mapobjects/strogg/doors/terminal/frame_s.tga
+
+	{
+		if(Parm4!=1)
+		blend add
+		map models/mapobjects/strogg/doors/terminal/frame_g.tga
+	}
+
+	{
+		if(Parm4 == 1)
+		blend add
+		map models/mapobjects/strogg/doors/terminal/frame_g.tga
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+}
+
+//-------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/doors/terminal/bottom
+{
+	noselfshadow
+	unsmoothedTangents
+
+//check path	renderbump  -size 1024 1024 -aa 2 -trace .07 -colormap models/mapobjects/terminal/doordown_local.tga models/mapobjects/terminal/render/door_down.lwo
+
+	materialType solidmetal
+
+	diffusemap	models/mapobjects/strogg/doors/terminal/frame_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/doors/terminal/frame_local.tga, heightmap (models/mapobjects/strogg/doors/terminal/frame_h.tga,1))
+	specularmap	models/mapobjects/strogg/doors/terminal/frame_s.tga
+}
+
+//-------------------------------------------------------------------------
+
+
+models/mapobjects/strogg/doors/terminal/top
+{
+	noselfshadow
+	unsmoothedTangents
+
+//check path	renderbump  -size 1024 1024 -aa 2 -trace .07 -colormap models/mapobjects/terminal/doorup_local.tga models/mapobjects/terminal/render/door_up.lwo
+
+	materialType solidmetal
+
+	diffusemap	models/mapobjects/strogg/doors/terminal/frame_d.tga
+	bumpmap addnormals (models/mapobjects/strogg/doors/terminal/frame_local.tga, heightmap (models/mapobjects/strogg/doors/terminal/frame_h.tga,1))
+	specularmap	models/mapobjects/strogg/doors/terminal/frame_s.tga
+}
+
+//-------------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/generic/prison/innerFrame
+{
+	unsmoothedTangents
+
+	renderbump  -size 1024 1024 -trace 0.07 -aa 1 models/mapobjects/strogg/doors/generic/prison/prison_door_innerFrame_local.tga work/models/mapobjects/strogg/doors/generic/prison/prison_door_teeth_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/prison/innerFrame_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/prison/innerFrame_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/prison/innerFrame_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/prison/innerFrame_s.tga
+}
+
+models/mapobjects/strogg/doors/generic/prison/02_innerFrame
+{
+ 	unsmoothedTangents
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/prison/02_innerFrame_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/prison/02_innerFrame_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/prison/02_innerFrame_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/prison/02_innerFrame_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/prison/02_innerFrame_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+//lock lights
+models/mapobjects/strogg/doors/generic/tram/doorlocklightg
+{
+	translucent
+	{
+		if ( parm7 == 0 )
+		blend 	add
+		map		models/mapobjects/strogg/doors/generic/tram/doorlocklightg
+		red		1
+		green	0.1
+		blue	0.1
+
+	}
+	{
+		if ( parm7 == 1 )
+		blend 	add
+		map		models/mapobjects/strogg/doors/generic/tram/doorlocklightg
+		red		0.6
+		green	1
+		blue	0.23
+	}
+}
+
+//.skin file entry for the tram door using the prison_door02 geometry/////////////////////////////////////////////////
+
+
+models/mapobjects/strogg/doors/generic/tram/tram_door01
+{
+ 	unsmoothedTangents
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/prison/02_innerFrame_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/tram/tram_door01_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/tram/tram_door01_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/tram/tram_door01_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/tram/tram_door01_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+
+}
+
+//.skin file entry for the airdefense door using the prison_door02 geometry/////////////////////////////////////////////////
+
+
+models/mapobjects/strogg/doors/generic/tram/airdef_door02
+{
+ 	unsmoothedTangents
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/prison/02_innerFrame_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/tram/tram_door01_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/tram/airdef_door02_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/tram/tram_door01_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/tram/tram_door01_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+
+}
+
+//.skin file entry for the building_a door using the prison_door02 geometry/////////////////////////////////////////////////
+
+
+models/mapobjects/strogg/doors/generic/tram/bA_door01
+{
+ 	unsmoothedTangents
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/prison/02_innerFrame_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/tram/tram_door01_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/tram/bA_door01_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/tram/tram_door01_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/tram/tram_door01_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+
+}
+
+models/mapobjects/strogg/doors/generic/tram/medlabs_door01
+{
+ 	unsmoothedTangents
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/prison/02_innerFrame_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/tram/tram_door01_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/tram/medlabs_door01_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/tram/tram_door01_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/tram/tram_door01_glow.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+
+}
+
+//---------------------------------------------------------------------------------
+models/mapobjects/strogg/doors/elevator_2/ele_dis
+{
+//      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/elevator_2/ele_dis_local.tga work/models/mapobjects/strogg/doors/elevator_2/ele_dis2_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/elevator_2/ele_dis_local.tga, heightmap ( models/mapobjects/strogg/doors/elevator_2/ele_dis_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/elevator_2/ele_dis_d.tga
+	specularmap		models/mapobjects/strogg/doors/elevator_2/ele_dis_s.tga
+	
+
+
+	{
+		if ( parm7 == 0 )
+		blend 	add
+		map models/mapobjects/strogg/doors/elevator_2/ele_dis_glow2.tga
+		red		1
+		green	0.1
+		blue	0.1
+
+	}
+	{
+		if ( parm7 == 1 )
+		blend 	add
+		map models/mapobjects/strogg/doors/elevator_2/ele_dis_glow2.tga
+		red		0.6
+		green	1
+		blue	0.23
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/elevator_2/ele_dis_red
+{
+	qer_editorimage models/mapobjects/strogg/doors/elevator_2/ele_dis_red_d
+
+	bumpmap addnormals ( models/mapobjects/strogg/doors/elevator_2/ele_dis_local.tga, heightmap ( models/mapobjects/strogg/doors/elevator_2/ele_dis_h.tga, 1 ) )
+	diffusemap	models/mapobjects/strogg/doors/elevator_2/ele_dis_red_d.tga
+	specularmap	models/mapobjects/strogg/doors/elevator_2/ele_dis_s.tga
+}
+
+//---Core Door----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/elevator_1/elecore_door
+{
+//      noSelfShadow
+      unSmoothedTangents
+      
+	//renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/elevator_1/elecore_door_local.tga work/models/mapobjects/strogg/doors/elevator_1/elecore_door_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/elevator_1/elecore_door_local.tga, heightmap ( models/mapobjects/strogg/doors/elevator_1/elecore_door_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/elevator_1/elecore_door_d.tga
+	specularmap		models/mapobjects/strogg/doors/elevator_1/elecore_door_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/elevator_1/elecore_door_glow.tga
+	}
+}
+
+
+models/mapobjects/strogg/doors/elevator_1/doorlocklightg
+{
+	translucent
+	{
+		if ( parm7 == 0 )
+		blend 	add
+		map		models/mapobjects/strogg/doors/elevator_1/doorlocklightg
+		red		1
+		green	0.1
+		blue	0.1
+
+	}
+	{
+		if ( parm7 == 1 )
+		blend 	add
+		map		models/mapobjects/strogg/doors/elevator_1/doorlocklightg
+		red		0.6
+		green	1
+		blue	0.23
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/fire/f_door
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 256 512 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/fire/f_door_local.tga work/models/mapobjects/strogg/doors/fire/f_door_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/fire/f_door_local.tga, heightmap ( models/mapobjects/strogg/doors/fire/f_door_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/fire/f_door_d.tga
+	specularmap		models/mapobjects/strogg/doors/fire/f_door_s.tga
+	
+
+} 
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/doors/floorhatch_1/hatch
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/floorhatch_1/hatch_local.tga work/models/mapobjects/strogg/doors/floorhatch_1/hatch_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/floorhatch_1/hatch_local.tga, heightmap ( models/mapobjects/strogg/doors/floorhatch_1/hatch_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/floorhatch_1/hatch_d.tga
+	specularmap		models/mapobjects/strogg/doors/floorhatch_1/hatch_s.tga
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/floorhatch_1/hatch_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+
+} 
+
+
+models/mapobjects/strogg/doors/floorhatch_1/hatch_2
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/floorhatch_1/hatch_2_local.tga work/models/mapobjects/strogg/doors/floorhatch_1/hatch_2_hi.lwo
+}
+
+models/mapobjects/strogg/doors/floorhatch_1/hatch3
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 512 512 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/floorhatch_1/hatch3_local.tga work/models/mapobjects/strogg/doors/floorhatch_1/hatch3_hi.lwo
+}   
+
+models/mapobjects/strogg/doors/floorhatch_1/hatchtop
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 512 512 -trace 0.07 -aa 2 -mergehigh models/mapobjects/strogg/doors/floorhatch_1/hatchtop_local.tga work/models/mapobjects/strogg/doors/floorhatch_1/hatchtop_hi.lwo
+}                             
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//Stream Hub Door.
+//Arnie adjusted the hues of the core door for me for temp usage until it gets repainted.
+//This can be deleted when we get the real thing.
+
+models/mapobjects/strogg/doors/elevator_1/elehub_door
+{
+      noSelfShadow
+      unSmoothedTangents
+      
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/elevator_1/elehub_door_local.tga work/models/mapobjects/strogg/doors/elevator_1/elecore_door_hi.lwo
+
+	materialType solidmetal
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/elevator_1/elehub_door_local.tga, heightmap ( models/mapobjects/strogg/doors/elevator_1/elehub_door_h.tga,1 ) )
+	diffusemap		models/mapobjects/strogg/doors/elevator_1/elehub_door_d.tga
+	specularmap		models/mapobjects/strogg/doors/elevator_1/elehub_door_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/elevator_1/elehub_door_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+}
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+// building b generic door and pieces------------------------------------------------------------------------------------------------
+
+  
+
+models/mapobjects/strogg/doors/generic/buildingb/bb_gd_frame
+{
+      //noSelfShadow
+      unSmoothedTangents
+
+	materialImage downsize( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_hit.tga, 2 )
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_h.tga,5 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_g.tga
+	}
+
+}
+
+models/mapobjects/strogg/doors/generic/buildingb/bb_gd_top
+{
+      //noSelfShadow
+      unSmoothedTangents
+
+	materialImage models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_hit.tga
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_h.tga,5 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_g.tga
+	}
+
+}
+
+models/mapobjects/strogg/doors/generic/buildingb/bb_gd_bottom
+{
+      //noSelfShadow
+      unSmoothedTangents
+
+	materialImage models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_hit.tga
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_h.tga,5 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_g.tga
+	}
+
+}
+
+models/mapobjects/strogg/doors/generic/buildingb/bb_gd_disc
+{
+      //noSelfShadow
+      unSmoothedTangents
+	materialImage models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_hit.tga
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_h.tga,5 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_g.tga
+	}
+
+}       
+
+
+models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo
+{
+      noSelfShadow
+      unSmoothedTangents
+
+	renderBump  -size 1024 1024 -trace 0.05 -aa 2 -mergehigh models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_local.tga 	work/models/mapobjects/strogg/doors/generic/buildingb_door_hi.lwo
+
+	materialImage models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_hit.tga
+	
+	bumpmap	addnormals	( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_h.tga,5 ) )
+	diffusemap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_d.tga
+	specularmap		models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_s.tga
+	
+	{ 
+		blend add
+		map models/mapobjects/strogg/doors/generic/buildingb/bb_gd_lo_g.tga
+	}
+
+}                  
+
+// MedLabs 2 Morgue Door
+
+models/mapobjects/strogg/doors/morgue
+{
+     noselfShadow
+	unsmoothedtangents
+//materialImage models/mapobjects/strogg/doors/morgue_door/meddoor_lo_hit.tga
+
+//this has been moved	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/strogg/doors/morgue_door/meddoor_lo_local.tga work/models/kevin/meddoor_hi.lwo
+
+		diffusemap		models/mapobjects/strogg/doors/morgue_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/doors/morgue_local.tga, heightmap ( models/mapobjects/strogg/doors/morgue_h.tga, 1 ) )
+		specularmap		models/mapobjects/strogg/doors/morgue_s.tga
+
+}
+
+// Makron cinematic door
+
+models/mapobjects/strogg/doors/generic/makrondoor
+{
+     	noselfShadow
+	unsmoothedtangents
+	materialType solidmetal
+
+		diffusemap		models/mapobjects/strogg/doors/generic/makrondoor_d.tga
+		bumpmap addnormals ( models/mapobjects/strogg/doors/generic/makrondoor_local.tga, heightmap ( models/mapobjects/strogg/doors/generic/makrondoor_h.tga, 2 ) )
+		specularmap		models/mapobjects/strogg/doors/generic/makrondoor_s.tga
+
+}

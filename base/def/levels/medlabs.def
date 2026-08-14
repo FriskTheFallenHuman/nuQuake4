@@ -1,0 +1,1610 @@
+/***********************************************************************************************************************
+MEDLABS.DEF
+UNIQUE ENTITIES CREATED FOR THE MEDLABS LEVEL
+************************************************************************************************************************/
+entityDef medlabs_spawnOverrides
+{
+	"def_char_marine"									"medlabs_char_marine"
+	"def_char_marine_naked"								"medlabs_char_marine_naked"
+	"def_monster_tactical"								"medlabs_monster_tactical"
+}
+
+/***********************************************************************
+MEDLABS_CHAR_MARINE
+***********************************************************************/
+entityDef medlabs_char_marine
+{
+	"inherit"											"char_marine"
+	"model"												"medlabs_model_char_marine"
+
+	"editor_menu"										"level"
+
+	"crouch_time"										"200000"
+
+	"followRange"										"75 160"
+
+	"def_attack_fromJoint"								"hitscan_marine_bullet"
+	"attack_fromJoint_hitscan"							"1"
+	"attack_fromJoint_lockToJoint"						"1"
+
+	"mtr_flashlight"									"gfx/lights/flashlight"
+	"joint_flashlight"									"lElbo"		
+	"flashlightColor"									"1 1 .9"
+	"flashlightRadius"									"400"
+	"flashlightTarget"									"1000 0 0"
+	"flashlightUp"										"0 350 0"
+	"flashlightRight"									"0 0 -350"
+	"flashlightPointLight"								"0"
+	"flashlightOffset"									"100 10 10"
+
+	"lipsync_vo_2_1_1_10_1"								"vo_2_1_1_10_1"
+	"lipsync_vo_2_1_1_10_2"								"vo_2_1_1_10_2"
+	"lipsync_vo_2_1_1_10_3"								"vo_2_1_1_10_3"
+	"lipsync_vo_2_1_1_10_4"								"vo_2_1_1_10_4"
+	"lipsync_vo_2_1_1_10_5"								"vo_2_1_1_10_5"
+	"lipsync_vo_2_1_1_10_7"								"vo_2_1_1_10_7"
+	"lipsync_vo_2_1_1_10_8"								"vo_2_1_1_10_8"
+	"lipsync_vo_2_1_1_10_9"								"vo_2_1_1_10_9"
+	"lipsync_vo_2_1_1_10_10"							"vo_2_1_1_10_10"
+	"lipsync_vo_2_1_1_10_11"							"vo_2_1_1_10_11"
+	"lipsync_vo_2_1_1_10_12"							"vo_2_1_1_10_12"
+	"lipsync_vo_2_1_1_10_13"							"vo_2_1_1_10_13"
+	"lipsync_vo_2_1_1_10_14"							"vo_2_1_1_10_14"
+	"lipsync_vo_2_1_1_10_15"							"vo_2_1_1_10_15"
+	"snd_vo_2_1_1_10_16"								"vo_2_1_1_10_16"
+	"lipsync_vo_2_1_1_10_17"							"vo_2_1_1_10_17"
+	"lipsync_vo_2_1_1_10_18"							"vo_2_1_1_10_18"
+	"lipsync_vo_2_1_1_10_19"							"vo_2_1_1_10_19"
+	"lipsync_vo_2_1_1_11_1"								"vo_2_1_1_11_1"
+	"lipsync_vo_2_1_1_12_1"								"vo_2_1_1_12_1"
+	"lipsync_vo_2_1_1_13_1"								"vo_2_1_1_13_1"
+	"lipsync_vo_2_1_1_13_2"								"vo_2_1_1_13_2"
+	"lipsync_vo_2_1_1_13_3"								"vo_2_1_1_13_3"
+	"lipsync_vo_2_1_1_13_4"								"vo_2_1_1_13_4"
+	"lipsync_vo_2_1_1_21_1"								"vo_2_1_1_21_1"
+	"lipsync_vo_2_1_1_21_2"								"vo_2_1_1_21_2"
+	"lipsync_vo_2_1_1_21_3"								"vo_2_1_1_21_3"
+	"lipsync_vo_2_1_1_22_1"								"vo_2_1_1_22_1"
+	"lipsync_vo_2_1_1_22_2"								"vo_2_1_1_22_2"
+	"lipsync_vo_2_1_1_22_3"								"vo_2_1_1_22_3"
+	"lipsync_vo_2_1_1_23_1"								"vo_2_1_1_23_1"
+	"lipsync_vo_2_1_1_23_2"								"vo_2_1_1_23_2"
+	"lipsync_vo_2_1_1_23_3"								"vo_2_1_1_23_3"
+	"lipsync_vo_2_1_1_31_1"								"vo_2_1_1_31_1"
+	"lipsync_vo_2_1_1_31_2"								"vo_2_1_1_31_2"
+	"lipsync_vo_2_1_1_31_3"								"vo_2_1_1_31_3"
+	"lipsync_vo_2_1_1_40_1"								"vo_2_1_1_40_1"
+	"lipsync_vo_2_1_1_40_2"								"vo_2_1_1_40_2"
+	"snd_vo_2_1_1_40_3"									"vo_2_1_1_40_3"
+	"lipsync_vo_2_1_1_40_4"								"vo_2_1_1_40_4"
+	"snd_vo_2_1_1_40_5"									"vo_2_1_1_40_5"
+	"lipsync_vo_2_1_1_40_6"								"vo_2_1_1_40_6"
+	"lipsync_vo_2_1_1_40_12"							"vo_2_1_1_40_12"
+	"lipsync_vo_2_1_1_40_13"							"vo_2_1_1_40_13"
+	"lipsync_vo_2_1_1_40_14"							"vo_2_1_1_40_14"
+	"lipsync_vo_2_1_1_40_15"							"vo_2_1_1_40_15"
+	"lipsync_vo_2_1_1_40_16"							"vo_2_1_1_40_16"
+	"lipsync_vo_2_1_1_40_17"							"vo_2_1_1_40_17"
+	"lipsync_vo_2_1_1_50_1"								"vo_2_1_1_50_1"
+	"lipsync_vo_2_1_1_50_2"								"vo_2_1_1_50_2"
+	"lipsync_vo_2_1_1_50_3"								"vo_2_1_1_50_3"
+	"lipsync_vo_2_1_1_50_4"								"vo_2_1_1_50_4"
+	"lipsync_vo_2_1_1_60_1"								"vo_2_1_1_60_1"
+	"lipsync_vo_2_1_1_60_2"								"vo_2_1_1_60_2"
+	"lipsync_vo_2_1_1_60_3"								"vo_2_1_1_60_3"
+	"lipsync_vo_2_1_1_65_1"								"vo_2_1_1_65_1"
+	"snd_vo_2_1_1_67_1"									"vo_2_1_1_67_1"
+	"lipsync_vo_2_1_1_67_2"								"vo_2_1_1_67_2"
+	"lipsync_vo_2_1_1_67_2_5"							"vo_2_1_1_67_2_5"
+	"snd_vo_2_1_1_67_3"									"vo_2_1_1_67_3"
+	"lipsync_vo_2_1_1_67_4"								"vo_2_1_1_67_4"
+	"lipsync_vo_2_1_1_67_5"								"vo_2_1_1_67_5"
+	//"snd_vo_2_1_1_70_1"									"vo_2_1_1_70_1"
+	"lipsync_vo_2_1_1_80_1"								"vo_2_1_1_80_1"
+	"lipsync_vo_2_1_1_80_2"								"vo_2_1_1_80_2"
+	"snd_vo_2_1_1_90_1"									"vo_2_1_1_90_1"
+	"snd_vo_2_1_1_90_2"									"vo_2_1_1_90_2"
+	"lipsync_vo_2_1_1_90_3"								"vo_2_1_1_90_3"
+	
+	"snd_fire"											"npc_machinegun_fire"
+	"snd_casing"										"brass_casing"
+	"snd_glass1"										"generic_glass_tap"
+	"snd_glass2"										"glass_break"
+	"snd_glass3"										"glass_crack_medlabs_tube"
+	"snd_rhodes_weapon_slap"							"smarine_weapon_slap"
+	"snd_weapon_slap"									"smarine_weapon_slap"
+	"snd_console"										"npc_gui_button"
+}
+
+model medlabs_model_char_marine
+{
+	inherit												model_char_marine
+
+	anim med1_anderson_scan								models/characters/marine/med1_anderson_scan.md5anim
+	{
+		ai_no_look
+		frame 335										call map_medlabs::rescueVO
+	}
+	anim med1_rescue_voss								models/characters/marine/med1_rescue_voss.md5anim
+	{
+		ai_no_look
+		frame 50										speak lipsync_vo_2_1_1_10_8
+		frame 75										speak lipsync_vo_2_1_1_10_9
+	}
+
+	anim med1_rescue_bruner								models/characters/marine/med1_rescue_bruner.md5anim
+	{
+		ai_no_look 
+		frame	60										sound	snd_rhodes_weapon_slap
+	}
+
+	anim break_tube_medlabs								models/characters/marine/break_tube_medlabs.md5anim
+	{
+		ai_no_look
+		frame	29,34									sound	snd_casing
+		frame	72										sound	snd_glass3
+		frame	72										trigger glass_bullet
+		frame	105										sound	glass_break_medlabs_tube
+		frame	105										call map_medlabs::rescueSwapGlass
+		frame	28, 33									ai_attack			fromJoint			MG_muzzle_flash
+		frame	28, 33									sound_weapon		npc_machinegun_fire
+		frame	28, 33									fx					fx_base_flash		MG_muzzle_flash
+	}
+
+	anim med_trans										models/characters/marine/med_trans.md5anim
+	{
+		ai_no_look
+	}
+
+	anim med_gun_high									models/characters/marine/med_gun_high.md5anim
+	{
+		ai_no_look
+	}
+
+	anim	med_sht_relax								models/characters/marine/med_sht_relax.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim	medlabs_voss_reg						models/characters/marine/medlabs_voss_reg.md5anim
+	
+	anim	medlabs_rhodes_reg						models/characters/marine/medlabs_rhodes_reg.md5anim
+	{
+		frame	100										sound	snd_rhodes_weapon_slap
+	}
+	
+	anim console_w_weapon				models/characters/marine/console_w_weapon.md5anim
+	{
+		ai_look_head_only
+		frame	20,33														footstep
+		frame	41,59,83,104,114,125,140,147,159,167,177,188,199,208,217	sound	snd_console
+		frame	246															sound	snd_weapon_slap	
+	}
+	
+	anim	idle_weapon_2_start				models/characters/marine/idle_weapon_2_start.md5anim
+	anim	idle_weapon_2_loop				models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2					models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2_end				models/characters/marine/idle_weapon_2_end.md5anim
+
+	anim	idle_weapon_3_start				models/characters/marine/idle_weapon_3_start.md5anim
+	anim	idle_weapon_3_loop				models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3					models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3_end				models/characters/marine/idle_weapon_3_end.md5anim
+	
+	anim	idle_weapon_4					models/characters/marine/idle_weapon_4.md5anim
+	
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_weapon_slap
+		frame	42						sound	snd_gun_ready 
+	}
+	
+	anim	com_link_start				models/characters/marine/com_link_start.md5anim
+	{
+		frame	27							sound	snd_comm
+	}
+	anim	com_link_loop				models/characters/marine/com_link_loop.md5anim
+	anim	com_link_end				models/characters/marine/com_link_end.md5anim
+	
+	
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+	
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+}
+
+/***********************************************************************
+MEDLABS_MONSTER_TACTICAL
+***********************************************************************/
+entityDef medlabs_monster_tactical
+{
+	"inherit"											"monster_tactical"
+	"editor_menu"										"level"
+	"model"												"medlabs_model_monster_tactical"	
+}
+
+model medlabs_model_monster_tactical
+{
+	inherit												model_monster_tactical
+
+	/*
+	anim	neck_snap									models/monsters/tactical/neck_snap.md5anim
+	{
+		ai_no_look
+		rate  1.3
+		frame 1											disableGravity
+		frame 1											call map_medlabs::neckBreakHideSurfaces
+		frame 1											disableClip
+		frame 148										call map_medlabs::neckBreakShowSurfaces
+		frame 168										enableClip
+	}		
+	*/
+}
+
+model medlabs_model_monster_tactical_kane
+{
+	inherit												model_char_kane_strogg
+
+	anim med2_kane										models\characters\marine\med2_kane.md5anim
+	{
+		ai_no_look
+		frame	1										disableGravity
+		frame	1										disableClip
+	}
+	
+	// First anim for Anderson death
+	anim med_cin_kane2									models\characters\marine\med_cin_kane2.md5anim
+	{
+		ai_no_look
+		frame	1										disableGravity
+		frame	1										disableClip
+		frame	13,15,31,49,73							footstep
+	}
+	
+	// Second anim for Anderson death
+	anim med_cin_kane3									models\characters\marine\med_cin_kane3.md5anim
+	{
+		ai_no_look
+		frame	1						disableGravity
+		frame	1						disableClip
+		frame	17,30,51,68				footstep
+		frame 109					call	map_medlabs::stabStabStab
+	}
+}
+
+
+
+entityDef medlabs_monster_tactical_float
+{
+	"spawnclass"										"idAnimated"
+	
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 72"
+	"editor_menu"										"level"
+	"editor_color"										"0 .5 .25"
+	"editor_rotatable"									"1"
+	"editor_usage"										"Tacticals without ai for animated scenery"
+
+	"animate_z"											"1"
+	"floats"											"1"	
+
+	"combatModel"										"1"
+	"mtr_wound"											"textures/decals/hurt02"
+	"mtr_splat"											"textures/decals/dsplat2"
+	"mtr_splat2"										"textures/decals/dsplat5"
+	"mtr_splat3"										"textures/decals/dsplat7"
+	"mtr_splat4"										"textures/decals/dsplat11"
+
+	"model"												"medlabs_model_monster_tactical"
+
+	"hidesurface1"										"models/weapons/mp_guns/w_sg"
+	"hidesurface2"										"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"										"models/weapons/mp_guns/w_hb"
+	"hidesurface4"										"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"										"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface6"										"models/weapons/railgun/world/w_rg"
+}
+
+entityDef medlabs_monster_tactical_float_ai	// idAnimateds don't have blend frames :(
+{
+	"inherit"										"actor_default"
+//	"health"										"-1"
+	"undying"										"1"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 72"
+	"editor_menu"										"level"
+	"editor_color"										"0 .5 .25"
+	"editor_rotatable"									"1"
+	"editor_usage"										"Tacticals without ai for animated scenery"
+
+	"animate_z"											"1"
+	"floats"											"1"	
+
+	"combatModel"										"1"
+	"mtr_wound"											"textures/decals/hurt02"
+	"mtr_splat"											"textures/decals/dsplat2"
+	"mtr_splat2"										"textures/decals/dsplat5"
+	"mtr_splat3"										"textures/decals/dsplat7"
+	"mtr_splat4"										"textures/decals/dsplat11"
+
+	"model"												"medlabs_model_monster_tactical"
+
+	"hidesurface1"										"models/weapons/mp_guns/w_sg"
+	"hidesurface2"										"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"										"models/weapons/mp_guns/w_hb"
+	"hidesurface4"										"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"										"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface6"										"models/weapons/railgun/world/w_rg"
+}
+
+entityDef medlabs_monster_tactical_kane
+{
+	"inherit"									"char_kane_strogg"
+	"model"										"medlabs_model_monster_tactical_kane"
+	"editor_menu"								"level"
+}
+
+
+/***********************************************************************
+MEDLABS_NANOCYTE_KIDNAP_CREATURE
+***********************************************************************/
+entityDef medlabs_nanocyte_kidnap_creature
+{
+	"spawnclass"										"idAnimated"
+			
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 72"
+	"editor_menu"										"level"
+	"editor_color"										"0 .5 .25"
+	"editor_rotatable"									"1"
+	"editor_usage"										"Nanocyte creature for Voss cinematic"
+
+	"model"												"model_medlabs_nanocyte_kidnap_creature"
+
+	"hidesurface1"										"models/weapons/mp_guns/w_sg"
+	"hidesurface2"										"models/weapons/mp_guns/w_sg_mod_ammo"
+	"hidesurface3"										"models/weapons/mp_guns/w_hb"
+	"hidesurface4"										"models/weapons/mp_guns/w_hb_battery"
+	"hidesurface5"										"models/weapons/mp_guns/w_mg_lo"
+	"hidesurface6"										"models/weapons/railgun/world/w_rg"
+
+//	"snd_metal_break"									"cine_voss_kidnap_metal_break"
+}
+
+model model_medlabs_nanocyte_kidnap_creature
+{
+	inherit												model_monster_tactical
+	anim nanocyte_idle										models\characters\marine_prisoner\med2_nanocyte_idle.md5anim
+	{
+		frame 1											disableGravity
+		frame 1											disableClip	
+	}
+	anim kill_voss										models\characters\marine_prisoner\med2_nanocyte_kills_voss.md5anim
+	{
+		frame 1											ai_disablePain
+		frame 1											disableGravity
+		frame 1											disableClip
+//		frame 345										sound	glass_break_medlabs_tube
+		frame 343							sound	cine_voss_kidnap_glass_crash
+		frame 345										call map_medlabs::tankSwitchThread
+		frame 396							sound	grunt_punch
+		frame 450							sound  cine_voss_kidnap_metal_break						
+	}
+}
+
+/***********************************************************************
+MEDLABS_VOSS_MARINE
+***********************************************************************/
+entityDef medlabs_voss_marine
+{
+	"inherit"											"medlabs_char_marine"
+
+	"model"												"model_medlabs_voss_marine"
+
+	"snd_vo_2_1_2_70_1"									"vo_2_1_2_70_1_full"
+}
+
+model model_medlabs_voss_marine
+{
+	inherit												model_char_marine
+	anim voss_idles										models\characters\marine\med2_voss_idle.md5anim	
+	{
+		frame 1											disableGravity
+		frame 1											disableClip
+	}
+	anim voss_death										models\characters\marine\med2_voss_death.md5anim
+	{
+		ai_no_look
+		frame 1											ai_disablePain
+		frame 1											disableGravity
+		frame 1											disableClip
+		frame 1											call map_medlabs::vossTalks
+		frame 20										call map_medlabs::vossTalksVO
+	}
+}
+
+/***********************************************************************
+MEDLABS_BUZZARM
+***********************************************************************/
+export medlabs_buzzarm
+{		
+	options -prefix BUZZ_ -align ALL -scale .3937    
+	mesh	work\models\mapobjects\strogg\machines\arms_generic\med_labs_saw\mesh.ma		-dest models/mapobjects/strogg/machines/medlabs_buzzsaw/mesh
+	anim	work\models\mapobjects\strogg\machines\arms_generic\med_labs_saw\idle.ma		-range 1 2 -dest models/mapobjects/strogg/machines/medlabs_buzzsaw/idle_start
+	anim	work\models\mapobjects\strogg\machines\arms_generic\med_labs_saw\idle.ma		-range 17 147 -dest models/mapobjects/strogg/machines/medlabs_buzzsaw/move
+	anim	work\models\mapobjects\strogg\machines\arms_generic\med_labs_saw\idle.ma		-range 147 348 -dest models/mapobjects/strogg/machines/medlabs_buzzsaw/slice
+	anim	work\models\mapobjects\strogg\machines\arms_generic\med_labs_saw\idle.ma		-range 348 349 -dest models/mapobjects/strogg/machines/medlabs_buzzsaw/idle_ready
+}
+
+entityDef env_medlabs_buzzarm
+{
+	"model"												"model_env_medlabs_buzzarm"
+	"spawnclass"										"idAnimated"
+	"editor_usage"										"Buzz Saw for Medlabs"
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"	
+	"animate_z"											"1"
+	"floats"											"1"
+	"anim"												"idle_start"
+	"start_anim"										"idle_start"
+	
+	"snd_move"											"generic_buzzsaw_move"
+	"snd_slice"											"generic_buzzsaw_slice"
+}
+
+model model_env_medlabs_buzzarm
+{
+	mesh												models/mapobjects/strogg/machines/medlabs_buzzsaw/mesh.md5mesh
+
+	anim idle_start										models/mapobjects/strogg/machines/medlabs_buzzsaw/idle_start.md5anim
+
+	anim move											models/mapobjects/strogg/machines/medlabs_buzzsaw/move.md5anim	
+	{
+		frame 1											sound snd_move
+	}
+
+	anim slice											models/mapobjects/strogg/machines/medlabs_buzzsaw/slice.md5anim	
+	{
+		frame 1											sound snd_slice
+		frame 92										trigger func_fx_saw
+		frame 92										call map_medlabs::determineScream
+		frame 92										call map_medlabs::sawMarineThread
+		frame 92										trigger slice_hit_1
+		frame 135										trigger slice_hit_2
+		frame 155										trigger slice_hit_3
+		frame 159										trigger func_fx_saw
+	}	
+
+	anim idle_ready										models/mapobjects/strogg/machines/medlabs_buzzsaw/idle_ready.md5anim
+}
+
+/***********************************************************************
+MEDLABS_NANOCYTE_IMPLANT_ARM
+***********************************************************************/
+export medlabs_nanocyte_implant_arm
+{
+	options -prefix IMPLANT_ -scale .3937 -parent lo_arm_1 arm_01 -parent arm_01 piston_lo -parent piston_lo piston_upper -parent piston_upper body -parent implanter_1 arm_03 -parent arm_03 piston_lo1 -parent piston_lo1 piston_upper1 -parent piston_upper1 body -sourcedir work/models/mapobjects/strogg/machines/arms_generic/medlabs_nanocyte_implant_arm/animation -destdir models/mapobjects/strogg/machines/medlabs_nanocyte_implant_arm
+	mesh	idle.ma										-dest implant_nanocyte
+	anim	idle.ma										-dest idle
+	anim	implant_nanocyte.ma							-dest implant_nanocyte
+}
+
+entityDef	env_medlabs_nanocyte_implant_arm
+{
+	"editor_color"										"1 .5 0"
+	"editor_mins"										"-16 -16 0"
+	"editor_maxs"										"16 16 64"
+	"editor_usage"										"Nanocyte arm for Medlabs"
+	"spawnclass"										"idAnimated"
+	"model"												"model_env_medlabs_nanocyte_implant_arm"
+	"anim"												"idle"
+	"start_anim"										"idle"
+	"snd_implant"										"generic_nanocyte_arm"
+}
+
+model model_env_medlabs_nanocyte_implant_arm
+{
+	mesh												models/mapobjects/strogg/machines/medlabs_nanocyte_implant_arm/implant_nanocyte.md5mesh	
+
+	anim idle											models/mapobjects/strogg/machines/medlabs_nanocyte_implant_arm/idle.md5anim
+
+	anim implant_nanocyte								models/mapobjects/strogg/machines/medlabs_nanocyte_implant_arm/implant_nanocyte.md5anim
+	{
+		frame 1								sound	snd_implant
+		frame 135							call	map_medlabs::announcerFade
+		frame 183							call 	map_medlabs::determineScream
+		frame 183							call	map_medlabs::nanocyteFade
+	}
+}
+
+/***********************************************************************
+MEDLABS_INJECTION_ARM
+***********************************************************************/
+export medlabs_injection_arm
+{
+	options -prefix INJCT_ -scale .3937 -sourcedir work/models/mapobjects/strogg/machines/arms_generic/medlabs_injection_arm/animations -destdir models/mapobjects/strogg/machines/medlabs_injection_arm
+	mesh	mesh.ma										-dest injection_arm
+	anim	idle.ma										-dest idle
+	anim	inject.ma									-dest injection
+
+}
+
+entityDef	env_medlabs_injection_arm
+{
+	"editor_color"										"1 .5 0"
+	"editor_mins"										"-16 -16 0"
+	"editor_maxs"										"16 16 64"
+	"editor_usage"										"Injection Arm for Medlabs"
+	"spawnclass"										"idAnimated"
+	"model"												"model_env_medlabs_injection_arm"
+	"anim"												"idle"
+	"start_anim"										"idle"
+	"snd_implant"										"generic_nanocyte_arm"
+	"snd_motor"											"generic_mechanical_servo"
+	"snd_inject"										"needle_inject"
+}
+
+model model_env_medlabs_injection_arm
+{
+	mesh												models/mapobjects/strogg/machines/medlabs_injection_arm/injection_arm.md5mesh	
+
+	anim idle											models/mapobjects/strogg/machines/medlabs_injection_arm/idle.md5anim
+
+	anim inject											models/mapobjects/strogg/machines/medlabs_injection_arm/injection.md5anim
+	{
+		frame	1,16,32,101								sound		snd_motor
+		frame	35										sound		snd_inject
+		frame	35										trigger ride_shot
+		frame	35										call map_medlabs::determineScream
+		frame	35										trigger	func_fx_injection
+		frame	35										call map_medlabs::injectionMarineThread
+		frame	35										call map_medlabs::injectionGooOn
+
+//		frame	36										call map_medlabs::blurView_frame	
+		frame	105										call map_medlabs::injectionGooOff
+		frame	107										trigger	func_fx_removal		
+	}
+}
+
+/***********************************************************************
+MEDLABS_NEEDLE_SCAN
+***********************************************************************/
+export medlabs_needle_scan
+{
+	options -prefix Need_Scan_ -align ALL -keep needle_effect -scale .3937  -sourcedir work/models/mapobjects/strogg/machines/arms_generic/medlabs_needle_scanner/animations
+
+	mesh 	armor_attach2.ma										-dest models/mapobjects/strogg/machines/medlabs_needle_scanner/mesh
+	anim 	armor_attach2.ma										-range 1 2 -dest models/mapobjects/strogg/machines/medlabs_needle_scanner/idle
+	anim 	armor_attach2.ma										-dest models/mapobjects/strogg/machines/medlabs_needle_scanner/cycle
+	
+}
+
+entityDef env_medlabs_needle_scanner
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Needle Scanner for Medlabs"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_env_medlabs_needle_scanner"
+	"anim"												"idle"	
+	"fx_needle_graft"									"effects/mapobjects/needle_graft.fx"
+	
+	"snd_sequence"										"med_labs_leg_machine"
+	
+}
+
+model model_env_medlabs_needle_scanner
+{
+	mesh												models/mapobjects/strogg/machines/medlabs_needle_scanner/mesh.md5mesh
+
+	anim idle											models/mapobjects/strogg/machines/medlabs_needle_scanner/idle.md5anim
+
+	anim cycle											models/mapobjects/strogg/machines/medlabs_needle_scanner/cycle.md5anim
+	{
+		frame	280										call map_medlabs::determineScream
+		frame	280,284,147,295,302,306,313,317			fx	fx_needle_graft	needle_effect
+		frame	1										sound	snd_sequence
+		frame	280										call map_medlabs::swapToTacticals
+	}
+	
+//	anim start											models/mapobjects/strogg/machines/medlabs_needle_scanner/start.md5anim
+
+//	anim cycle											models/mapobjects/strogg/machines/medlabs_needle_scanner/cycle.md5anim		
+}
+
+/***********************************************************************
+MEDLABS_REGISTRATION
+***********************************************************************/
+export medlabs_registration
+{
+	options -prefix RG_ -scale .3937 -align ALL -keep bind_1 bind_2 bind_3 bind_4 effects effects1 effects2 effects3 -sourcedir work/models/mapobjects/strogg/medlabs/registration/animation -destdir models/mapobjects/strogg/medlabs/registration
+	mesh idle.ma				-dest registration
+	anim idle.ma				-dest idle
+	anim registration_01.ma		-dest registration
+	anim tube_bottom_drop_out.ma	-range 375 410 -dest bottom_drop_out_a
+	anim tube_bottom_drop_out.ma	-range 415 466 -dest bottom_drop_out_b
+	anim tube_drop.ma		-range 440 500 -dest tube_drop
+}
+
+entityDef env_medlabs_registration
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Registration Arm for Medlabs"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_medlabs_registration"
+	"anim"												"idle"
+	"combatModel"										"1"
+
+	"snd_land"											"med_labs_tube_land"
+	"snd_move1"											"med_labs_scanner_arm_move1"
+	"snd_move2"											"med_labs_scanner_arm_move2"
+	"snd_move3"											"med_labs_scanner_arm_move3"
+	
+	"fx_scan"											"effects/levels/scan_light_med1.fx"
+	
+}
+
+model model_medlabs_registration
+{
+	mesh												models/mapobjects/strogg/medlabs/registration/registration.md5mesh
+
+	anim idle											models/mapobjects/strogg/medlabs/registration/idle.md5anim
+
+	anim registration									models/mapobjects/strogg/medlabs/registration/registration.md5anim
+	{
+		frame 1,125,294										sound	snd_move1
+		frame 22,178										sound	snd_move3
+		frame 82,270,354									sound	snd_move2
+		frame 384											sound	generic_large_metal_break
+		frame 124											call map_medlabs::registrationTacticalThread
+		frame 93											fx fx_scan	effects
+		frame 93											fx fx_scan	effects1
+		frame 93											fx fx_scan	effects2
+		frame 93											fx fx_scan	effects3
+	}
+
+	anim bottom_drop_out_a								models/mapobjects/strogg/medlabs/registration/bottom_drop_out_a.md5anim
+	anim bottom_drop_out_b								models/mapobjects/strogg/medlabs/registration/bottom_drop_out_b.md5anim
+	anim tube_drop										models/mapobjects/strogg/medlabs/registration/tube_drop.md5anim
+	{
+		frame 25										sound snd_land
+	}
+}
+
+/***********************************************************************
+MEDLABS TUBE_ARM
+***********************************************************************/
+export tube_arm
+{
+	options -prefix ARM_ -align ALL -keep bind_a bind_b bind_c bind_d bind_e bind_conveyor_a bind_conveyor_b bind_conveyor_c bind_conveyor_d -parent bind_a grabber_A1 -parent bind_b grabber_B1 -parent bind_c grabber_C1 -parent bind_d grabber_D1 -parent bind_e grabber_E1 -parent bind_conveyor_a conveyor_a_upper -parent bind_conveyor_b conveyor_b_upper -parent bind_conveyor_c conveyor_c_upper -parent bind_conveyor_d conveyor_d_upper -sourcedir work/models/mapobjects/strogg/medlabs/medlab_arm/animation	   -destdir models/mapobjects/strogg/medlabs/tube_arm
+
+	mesh medlab_tubearm_MESH.ma						-dest tube_arm_mesh  
+	anim medlab_tubearm_process.ma						-dest idle
+	anim extended.ma									-dest extended
+}
+
+entityDef env_tube_arm
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Tube Arm for Medlabs"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_env_tube_arm"
+	"anim"												"idle"	
+	"combatModel"										"1"
+	
+//	"snd_probe"											"core_verification_arm_probe"
+//	"snd_servo"											"core_verification_arm_servo"
+//	"snd_pop_down"										"core_verification_arm_pop_down"
+//	"snd_stop"											"core_verification_arm_stop"
+	"snd_arm_extend"									"med_labs_tube_arm_extend"
+	"snd_lock"											"med_labs_tube_arm_lock"
+	"snd_unlock"										"med_labs_tube_arm_unlock"
+	"snd_glass_slide"									"med_labs_tube_arm_glass"
+	"snd_deep_thud"										"med_labs_tube_arm_deep_thud"
+	"snd_rotate"										"med_labs_tube_arm_rotate"
+	
+	
+//	"fx_ver_arm_steam"									"effects/levels/core/ver_arm_steam.fx"
+//	"fx_ver_arm_charge"									"effects/levels/core/ver_arm_charge.fx"
+//	"fx_ver_arm_charge_sm"								"effects/levels/core/ver_arm_charge_sm.fx"
+//	"fx_ver_arm_scan"									"effects/levels/core/ver_arm_scan.fx"	
+}
+
+model model_env_tube_arm
+{
+	mesh												models/mapobjects/strogg/medlabs/tube_arm/tube_arm_mesh.md5mesh
+
+	anim idle											models/mapobjects/strogg/medlabs/tube_arm/idle.md5anim
+	{
+		frame 1,122,248,416,702,861							sound snd_deep_thud
+		//frame 12,29,53,80,109,186,213,230,262,280,294,330,372,407,462,471,479,501,635,662,710,730,741,752,779,790,808,819,853,887,890 sound	snd_arm_extend
+		frame 78,232,523,679								sound snd_glass_slide
+		frame 92,220,445,555,670,895						sound snd_lock
+		frame 135,576										sound snd_rotate
+		frame 108,365,557,814								sound snd_unlock
+	}
+
+	anim extend_idle									models/mapobjects/strogg/medlabs/tube_arm/extended.md5anim
+	{
+		frame 40										call map_medlabs::bindMarinesToTubes
+	}
+/*
+	{
+		frame 1,48,64,176,197,213						sound snd_servo
+		frame 44,260									sound snd_stop
+		frame 53,186									sound snd_pop_down
+		frame 86										sound snd_probe	
+
+		frame 1,185										fx fx_ver_arm_steam	steam_emitter1
+		frame 1,185										fx fx_ver_arm_steam	steam_emitter2
+		frame 30										fx fx_ver_arm_charge lpinky_emit
+		frame 1											fx fx_ver_arm_charge lindex_emit
+		frame 15										fx fx_ver_arm_charge l_mid_emit
+		frame 10										fx fx_ver_arm_charge_sm	r_low_pinky_emit
+		frame 20										fx fx_ver_arm_charge_sm	r_low_index_emit
+		frame 1											fx fx_ver_arm_charge_sm	r_low_mid_emit
+		frame 90										fx fx_ver_arm_scan l_mid_emit
+		frame 86										fx fx_ver_arm_scan lpinky_emit
+		frame 95										fx fx_ver_arm_scan lindex_emit
+		frame 90										fx fx_ver_arm_scan r_low_pinky_emit
+		frame 86										fx fx_ver_arm_scan r_low_index_emit
+		frame 95										fx fx_ver_arm_scan r_low_mid_emit
+	}
+*/
+}
+
+/***********************************************************************
+MEDLABS_VERIFICATION_ARM
+***********************************************************************/
+export medlabs_verification_arm
+{
+	options -prefix VA_ -align ALL -scale .3937 -keep steam_emitter1 steam_emitter2 root r_arm L_mid_emit Lpinky_emit Lindex_emit r_low_index_emit r_low_mid_emit r_low_pinky_emit -sourcedir work/models/mapobjects/strogg/core/verification_arm   
+
+	mesh 	medlabs_ver_arm_mesh.ma						-dest models/mapobjects/strogg/machines/medlabs_verification/mesh
+	anim 	medlabs_ver_arm.ma							-range 1 11 -dest models/mapobjects/strogg/machines/medlabs_verification/idle
+	anim 	medlabs_ver_arm.ma							-range 11 47 -dest models/mapobjects/strogg/machines/medlabs_verification/move
+	anim 	medlabs_ver_arm.ma							-range 47 297 -dest models/mapobjects/strogg/machines/medlabs_verification/cycle
+}
+
+entityDef env_medlabs_verification_arm
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Verification Arm for Medlabs"
+
+	"spawnclass"										"idAnimated"
+		
+	"model"												"model_env_medlabs_verification_arm"
+	"anim"												"probe"	
+	
+	"snd_probe"											"core_verification_arm_probe"
+	"snd_servo"											"core_verification_arm_servo"
+	"snd_inject"										"needle_inject"
+	"snd_pop_down"										"core_verification_arm_pop_down"
+	"snd_stop"											"core_verification_arm_stop"	
+}
+
+model model_env_medlabs_verification_arm
+{
+	mesh												models/mapobjects/strogg/machines/medlabs_verification/mesh.md5mesh
+
+	anim idle											models/mapobjects/strogg/machines/medlabs_verification/idle.md5anim
+
+	anim move											models/mapobjects/strogg/machines/medlabs_verification/move.md5anim
+	{
+		frame 1											sound snd_pop_down
+	}
+
+	anim cycle											models/mapobjects/strogg/machines/medlabs_verification/cycle.md5anim
+	{	
+		frame 1											sound snd_stop
+		frame 2,4,76,132								sound snd_servo
+		frame 104,155,165								sound snd_inject
+	}	
+}
+
+/***********************************************************************
+MEDLABS_TUBE_ARMS
+***********************************************************************/
+export medlabs_tube_arms
+{
+	options -prefix DISP_ -align ALL -keep bind_point -sourcedir work/models/mapobjects/strogg/machines/arms_generic/arms_combined/animations -destdir models/mapobjects/strogg/machines/arms_generic/medlabs2_arms
+	mesh DISP_2_arms_process_idle.ma					-dest medlabs_arms
+	anim DISP_2_arms_process_idle.ma					-dest idle
+	anim DISP_2_arms_process.ma							-dest process
+}
+
+entityDef env_medlabs_tube_arms
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Tube Arms for Medlabs"
+
+	"spawnclass"										"idAnimated"
+	"combatModel"										"1"
+
+	"model"												"model_medlabs_tube_arms"
+	"anim"												"idle"
+	
+	"snd_extend"										"med_labs_tube_arm_extend"
+	"snd_thump"											"med_labs_tube_arm_lock"
+	"snd_attach"										"med_labs_tube_arm_lock"
+	"snd_steam"											"med_labs_tub_arm_steam"
+	"snd_detach"										"med_labs_tube_arm_unlock"
+	"snd_rotate"										"med_labs_tube_arm_rotate2"
+}
+
+model model_medlabs_tube_arms
+{
+	mesh												models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/medlabs2_arms.md5mesh
+
+	anim idle											models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/idle.md5anim
+
+	anim process										models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/process.md5anim
+	{
+		frame	1										call	map_medlabs::armScan
+		frame	14,27,70,97,115,137,173,207,221,235,256,355,380,404,434 sound		snd_extend
+		frame	12,188									sound snd_detach
+		frame	97,242,377								sound snd_attach
+		frame	67,298									sound snd_rotate
+		frame	28,59,88,132,190,256,282,341,378		sound snd_steam
+		frame	1, 224									call	map_medlabs::scanTactical
+	}
+}
+
+/***********************************************************************
+MEDLABS_TUBE_FOUR_ARMS
+***********************************************************************/
+export medlabs_tube_four_arms
+{
+	options -prefix MED2_ -align ALL -keep brush_1 brush_2 brush_3 brush_4 mar_bind_1 mar_bind_2 mar_bind_3 mar_bind_4 str_bind_5 str_bind_6 str_bind_7 str_bind_8 -sourcedir work/models/mapobjects/strogg/machines/arms_generic/four_arms/animations -destdir models/mapobjects/strogg/machines/arms_generic/four_arms
+	mesh med2_still_a.ma								-dest four_arms_mesh
+	anim med2_still_a.ma								-dest still
+	anim med2_four_arms_and_scanner.ma					-range 60 780 -dest idle
+//	anim med2_four_arms_and_scanner.ma					-range 780 1320 -dest first_transition
+//	anim med2_four_arms_and_scanner.ma					-range 1320 2040 -dest idle_b
+//	anim med2_four_arms_and_scanner.ma					-range 2040 2220 -dest second_transition
+}
+
+entityDef env_medlabs_tube_four_arms
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Four Arm Machine for Medlabs"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_medlabs_tube_four_arms"
+	"anim"												"idle"
+	"combatModel"										"1"
+	
+	"snd_extend"										"med_labs_tube_arm_extend"
+	"snd_thump"											"med_labs_tube_arm_lock"
+	"snd_attach"										"med_labs_tube_arm_lock"
+	"snd_steam"											"med_labs_tub_arm_steam"
+	"snd_detach"										"med_labs_tube_arm_unlock"
+	"snd_rotate"										"med_labs_tube_arm_rotate_deep"
+}
+
+model model_medlabs_tube_four_arms
+{
+	mesh												models/mapobjects/strogg/machines/arms_generic/four_arms/four_arms_mesh.md5mesh
+
+	anim still											models/mapobjects/strogg/machines/arms_generic/four_arms/still.md5anim
+
+	anim idle											models/mapobjects/strogg/machines/arms_generic/four_arms/idle.md5anim
+	{
+		frame 1,183,362,544								sound snd_rotate
+		frame 96,140,158,177,276,335,340,357,456,505,518,537,637,686,693,700		sound	snd_extend
+		frame 129,148,309,330,490,508,669,688			sound snd_thump
+		frame 30										call map_medlabs::door_set_2
+		frame 80										call map_medlabs::door_set_1
+		frame 210										call map_medlabs::door_set_2
+		frame 260										call map_medlabs::door_set_1
+		frame 390										call map_medlabs::door_set_2
+		frame 440										call map_medlabs::door_set_1
+		frame 570										call map_medlabs::door_set_2
+		frame 620										call map_medlabs::door_set_1
+	}
+
+	anim first_transition								models/mapobjects/strogg/machines/arms_generic/four_arms/first_transition.md5anim
+	{
+		frame 1,183,362									sound snd_rotate
+		frame 96,140,158,177,276,335,340,357,456,505,518,537 sound snd_extend
+		frame 129,148,309,330,490,508					sound snd_thump
+	}
+	
+	anim idle_b											models/mapobjects/strogg/machines/arms_generic/four_arms/idle_b.md5anim
+	{
+		frame 1,183,362,544								sound snd_rotate
+		frame 96,140,158,177,276,335,340,357,456,505,518,537,637,686,693,700 sound snd_extend
+		frame 129,148,309,330,490,508,669,688			sound snd_thump
+		frame 15										call map_medlabs::door_set_3
+		frame 80										call map_medlabs::door_set_1
+		frame 200										call map_medlabs::door_set_3
+		frame 260										call map_medlabs::door_set_1
+		frame 380										call map_medlabs::door_set_3
+		frame 440										call map_medlabs::door_set_1
+		frame 560										call map_medlabs::door_set_3
+		frame 620										call map_medlabs::door_set_1
+	}
+
+	anim second_transition								models/mapobjects/strogg/machines/arms_generic/four_arms/second_transition.md5anim
+	{
+		frame 1											sound snd_rotate
+		frame 96,140,158,177							sound snd_extend
+		frame 129,148									sound snd_thump
+	}
+}
+
+/***********************************************************************
+MEDLABS_SCANNER_ARM
+***********************************************************************/
+export medlabs_scanner_arm
+{
+	options -prefix SCAN_ARM_ -align ALL -keep laser_fx_middle laser_fx_right laser_fx_left -sourcedir work/models/mapobjects/strogg/machines/arms_generic/four_arms/animations -destdir models/mapobjects/strogg/machines/arms_generic/medlabs_arms
+	mesh med2_still_a.ma								-dest scanner_arm
+	anim med2_still_a.ma								-dest scanner_still
+	anim med2_four_arms_and_scanner.ma					-range 60 780 -dest scanner_idle
+	anim med2_four_arms_and_scanner.ma					-range 780 1140 -dest scanner_first_transition
+	anim med2_four_arms_and_scanner.ma					-range 1320 2040 -dest scanner_idle_b
+	anim med2_four_arms_and_scanner.ma					-range 2040 2220 -dest scanner_second_transition
+}
+
+entityDef env_medlabs_scanner_arm
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Scanner Arm for Medlabs"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_medlabs_scanner_arm"
+	"anim"												"idle"
+	
+	"snd_extend"										"med_labs_tube_arm_extend"
+	"snd_thump"											"med_labs_tube_arm_lock"
+	"snd_attach"										"med_labs_tube_arm_lock"
+	"snd_steam"											"med_labs_tub_arm_steam"
+	"snd_detach"										"med_labs_tube_arm_unlock"
+	"snd_rotate"										"med_labs_tube_arm_rotate2"
+	"snd_move1"											"med_labs_scanner_arm_move1"
+	"snd_move2"											"med_labs_scanner_arm_move2"
+	"snd_move3"											"med_labs_scanner_arm_move3"
+	
+	"fx_scan"											"effects/levels/scan_light.fx"
+	"fx_scan_sm"										"effects/levels/scan_light_sm.fx"	
+}
+
+model model_medlabs_scanner_arm
+{
+	mesh												models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/scanner_arm.md5mesh
+
+	anim still											models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/scanner_still.md5anim
+	
+	anim idle											models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/scanner_idle.md5anim
+	{
+		frame 53,235,414,592								sound	snd_move2
+		frame 80,265,446,621								sound	snd_move3
+		frame 79										fx fx_scan laser_fx_middle
+		frame 79										fx fx_scan_sm laser_fx_left
+		frame 79										fx fx_scan_sm laser_fx_right
+		frame 261										fx fx_scan laser_fx_middle
+		frame 261										fx fx_scan_sm laser_fx_left
+		frame 261										fx fx_scan_sm laser_fx_right
+		frame 440										fx fx_scan laser_fx_middle
+		frame 440										fx fx_scan_sm laser_fx_left
+		frame 440										fx fx_scan_sm laser_fx_right
+		frame 623										fx fx_scan laser_fx_middle
+		frame 623										fx fx_scan_sm laser_fx_left
+		frame 623										fx fx_scan_sm laser_fx_right
+	}
+
+	anim first_transition								models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/scanner_first_transition.md5anim
+	{
+		frame 1												sound	snd_move2
+		frame 24,82											sound	snd_move1
+		frame 25,115										sound	snd_move3
+	}
+
+	anim idle_b											models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/scanner_idle_b.md5anim
+	{
+		frame 53,235,414,592								sound	snd_move2
+		frame 80,265,446,621								sound	snd_move3
+		frame 79										fx fx_scan	  laser_fx_middle
+		frame 79										fx fx_scan_sm laser_fx_left
+		frame 79										fx fx_scan_sm laser_fx_right
+		frame 261										fx fx_scan	  laser_fx_middle
+		frame 261										fx fx_scan_sm laser_fx_left
+		frame 261										fx fx_scan_sm laser_fx_right
+		frame 440										fx fx_scan	  laser_fx_middle
+		frame 440										fx fx_scan_sm laser_fx_left
+		frame 440										fx fx_scan_sm laser_fx_right
+		frame 623										fx fx_scan	  laser_fx_middle
+		frame 623										fx fx_scan_sm laser_fx_left
+		frame 623										fx fx_scan_sm laser_fx_right
+	}
+	
+	anim second_transition								models/mapobjects/strogg/machines/arms_generic/medlabs2_arms/scanner_second_transition.md5anim
+{
+		frame 22											sound	snd_move3
+		frame 81											sound	snd_move1
+		frame 150											sound	snd_move2
+	}
+}
+
+/***********************************************************************
+MEDLABS_RETRACTTANK
+***********************************************************************/
+export retracttank
+{		
+	options -prefix BTK_ -align ALL -keep sound_effects -parent sound_effects cap
+         
+	mesh	work/models/mapobjects/strogg/medlabs/retractable_body_tank/animation/tank_closed_idle.ma		-dest models/mapobjects/strogg/medlabs/retractable_body_tank/mesh
+	anim	work/models/mapobjects/strogg/medlabs/retractable_body_tank/animation/tank_closed_idle.ma		-dest models/mapobjects/strogg/medlabs/retractable_body_tank/idle
+	anim	work/models/mapobjects/strogg/medlabs/retractable_body_tank/animation/tank_open_idle.ma			-dest models/mapobjects/strogg/medlabs/retractable_body_tank/idle_open
+	anim	work/models/mapobjects/strogg/medlabs/retractable_body_tank/animation/tank_open.ma			-dest models/mapobjects/strogg/medlabs/retractable_body_tank/open
+	anim	work/models/mapobjects/strogg/medlabs/retractable_body_tank/animation/tank_close.ma			-dest models/mapobjects/strogg/medlabs/retractable_body_tank/close
+}
+
+entityDef env_retracttank
+{
+	"model"												"model_env_retracttank"
+	"spawnclass"										"idAnimated"
+	
+	"editor_usage"										"Retractable Tank for Medlabs"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"animate_z"											"1"
+	"floats"											"1"
+	"anim"												"idle"
+	"start_anim"										"idle"	
+}
+
+model model_env_retracttank
+{
+	mesh												models/mapobjects/strogg/medlabs/retractable_body_tank/mesh.md5mesh
+
+	anim idle											models/mapobjects/strogg/medlabs/retractable_body_tank/idle.md5anim
+
+	anim idle_open 										models/mapobjects/strogg/medlabs/retractable_body_tank/idle_open.md5anim
+
+	anim open 											models/mapobjects/strogg/medlabs/retractable_body_tank/open.md5anim
+
+	anim close 											models/mapobjects/strogg/medlabs/retractable_body_tank/close.md5anim
+}
+
+/***********************************************************************
+BODYTABLE
+***********************************************************************/
+export bodytable
+{
+	options -prefix BT_ -align ALL -keep head -parent head base -sourcedir work/models/mapobjects/strogg/medlabs/bodytable   -destdir models/mapobjects/strogg/medlabs/bodytable
+
+	mesh idle.ma										-dest bodytable  
+	anim idle.ma										-dest idle
+//	anim lamp_raised_mid.ma								-dest lamp_raised_mid
+//	anim lamp_raised_high.ma							-dest lamp_raised_high
+	anim table_raiselower.ma							-range 1 50 -dest raise
+	anim table_raiselower.ma							-range 50 100 -dest lower
+
+	options -prefix BT_ -align ALL -keep head -parent head base -sourcedir work/models/mapobjects/strogg/medlabs/bodytable   -destdir models/mapobjects/strogg/medlabs/bodytable
+	mesh idle_wide.ma										-dest bodytable_wide 
+}
+
+entityDef env_bodytable
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Body Table for Medlabs"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_bodytable"
+	"anim"												"idle"
+		
+	"snd_servo"											"med_labs_bodytable_servo"
+	"snd_stop"											"med_labs_bodytable_stop"	
+}
+
+model model_bodytable
+{
+	mesh												models/mapobjects/strogg/medlabs/bodytable/bodytable.md5mesh
+	
+	anim idle											models/mapobjects/strogg/medlabs/bodytable/idle.md5anim
+
+//	anim lamp_raised_mid								models/mapobjects/strogg/medlabs/bodytable/lamp_raised_mid.md5anim
+
+//	anim lamp_raised_high								models/mapobjects/strogg/medlabs/bodytable/lamp_raised_high.md5anim
+
+	anim raise											models/mapobjects/strogg/medlabs/bodytable/raise.md5anim
+	{
+		frame 1											sound snd_servo
+		frame 47										sound snd_stop
+	}	
+
+	anim lower											models/mapobjects/strogg/medlabs/bodytable/lower.md5anim
+	{
+		frame 1											sound snd_servo
+		frame 47										sound snd_stop
+	}	
+}
+
+/***********************************************************************
+DROPSHIP CRASHING
+***********************************************************************/
+/*
+export env_dropship_crashing
+{
+	options -prefix DROPSHIP_ -scale .3937 -sourcedir work/models/cinematics/dropship_explosion/animation -destdir models/cinematics/dropship_explosion
+	mesh												dropship_lift_off_2.ma			-dest mesh
+	anim												dropship_lift_off_2.ma			-dest dropship_lift_off_2
+
+}
+*/
+model model_env_dropship_medlabs
+{
+	mesh								models\vehicles\dropship_exterior\dropship.md5mesh
+		
+	anim idle							models\vehicles\dropship_exterior\idle.md5anim
+	anim dropship_crashing						models\vehicles\dropship_exterior\dropship_lift_off_2.md5anim
+	{
+		frame 1							sound	medlabs_dropship_crash
+		frame 70						call map_medlabs::dropshipRocket1
+		frame 70						sound	medlabs_dropship_missile
+		frame 75						call map_medlabs::dropshipDustOff
+		frame 123						call map_medlabs::dropshipFirstHit
+		frame 193						call map_medlabs::dropshipExplosion
+		frame 122						fx	fx_explosion			fx2
+		frame 150						fx	fx_explosion_second		fx2
+		frame 165						fx	fx_explosion_second		engine_left
+		frame 168						fx	fx_explosion_second		fx3
+		frame 171						fx	fx_explosion_second		gun_right_03
+		frame 175						fx	fx_explosion_second		gun_right_02
+		frame 178						fx	fx_explosion_second		gun_left_01				
+		frame 194						fx	fx_explosion_big 		engine_center
+
+
+	}
+	anim dropship_crashing_idle			models\vehicles\dropship_exterior\dropship_lift_off_idle.md5anim
+
+}
+
+entityDef env_dropship_medlabs
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+
+	"editor_usage"										"Marine Dropship Medlabs"
+
+	"spawnclass"										"idAnimated"
+	
+	"skin"							"skins/vehicles/dropship_exterior/dropship_decal3"
+
+
+	"model"												"model_env_dropship_medlabs"
+	"anim"												"idle"
+	"start_anim"										"idle"
+	"snd_crash"											"medlabs_dropship_crash"
+	"sound_bone"										"base_trans"
+	
+	"fx_pre_liftoff"									"effects/cinematics/intro/dropship_pre_liftoff.fx"
+	"fx_vtol1"											"effects/cinematics/intro/vtol_5sec.fx"
+	"fx_thruster"									"effects/vehicles/vtol.fx"
+	"fx_explosion"										"effects/explosions/surface/dropship_sm.fx"
+	"fx_explosion_second"								"effects/weapons/rocketlauncher/impact.fx"
+	"fx_explosion_big"									"effects/explosions/surface/dropship_exp_offset.fx"
+	"snd_missle"										"medlabs_dropship_missile"
+}
+
+entityDef projectile_medlabs
+{
+	"inherit"							"projectile_base"
+
+	"spawnclass"						"idGuidedProjectile"
+
+	"mins"								"-8 -8 -8"
+	"maxs"								"8 8 8"
+	"cone"								"2"
+	"noshadows"							"0"
+	"clipmask_largeshot"				"1"
+	"no_contents"						"0"
+
+	"model"								"models/monsters/heavyhovertank/rocket.lwo"
+
+	"health"							"50"
+
+	"turn_max"							"200"
+	"speed"								"800"
+
+	"angular_velocity"					"0 0 5"
+	
+	"fx_fly"							"effects/monsters/heavy_tank/fly.fx"
+	//"fx_detonate"						"effects/weapons/rocketlauncher/detonate.fx"
+	//"fx_impact"							"effects/weapons/rocketlauncher/impact.fx"
+	//"fx_impact"							"effects/monsters/heavy_tank/impact.fx"
+	"fx_impact"							"effects/explosions/air/airburst_01_small.fx"
+	"fx_detonate"						"effects/monsters/heavy_tank/impact.fx"
+	"fx_fuse"							"effects/monsters/heavy_tank/impact.fx"
+
+	"snd_fly"							"weapon_energy_projectile_loop"
+}
+
+/***********************************************************************
+MEDLABS_TUBE_GOO
+***********************************************************************/
+export medlabs_tube_goo
+{
+	options -prefix GOO_ -scale .3937 -align ALL  -sourcedir work/models/mapobjects/strogg/medlabs/tube_liquid/animation -destdir models/mapobjects/strogg/medlabs/tube_goo
+	mesh goo_drain.ma				-dest tube_goo
+	anim goo_drain.ma				-dest goo_drain
+	anim idle.ma					-dest idle
+
+}
+
+entityDef env_medlabs_tube_goo
+{
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 16"
+	"editor_usage"										"Goo for the inside of medlabs tube"
+
+	"spawnclass"										"idAnimated"
+
+	"model"												"model_medlabs_tube_goo"
+	"anim"												"goo_drain"
+
+	"snd_empty"											"med_labs_tube_empty"
+}
+
+model model_medlabs_tube_goo
+{
+	mesh												models/mapobjects/strogg/medlabs/tube_goo/tube_goo.md5mesh
+
+	anim goo_drain											models/mapobjects/strogg/medlabs/tube_goo/goo_drain.md5anim
+	{
+		frame 1											sound snd_empty
+	}
+
+	anim idle											models/mapobjects/strogg/medlabs/tube_goo/idle.md5anim
+
+}
+
+entityDef projectile_glass
+{
+	"inherit"											"projectile_bullet"
+	
+	"fx_impact"											"effects/impact/glass_impact.fx"
+}
+
+// MEDLABS MEDIC
+
+entityDef medlabs_char_marine_medic
+{
+	"inherit1"											"char_marine_medic_extras"
+	"inherit2"											"medlabs_char_marine"
+	"editor_ignore"										"0"
+
+	"model"												"model_medlabs_char_marine_medic"
+
+	// MEDIC lipsyncs for medic script
+/*	// Let the persona fill these in.  The only other entities using this def simply exist to be
+	//	killed so they don't need to be playing any of these sounds?  In any case, these sounds
+	//	no longer exist!
+	"lipsync_call_marine_1"								"vo_1_1_1_26_1"
+	"lipsync_call_marine_2"								"vo_1_1_1_26_2"
+	"lipsync_call_marine_3"								"vo_1_1_1_26_3"
+
+	"lipsync_call_player_1"								"vo_1_1_1_27_1"
+	"lipsync_call_player_2"								"vo_1_1_1_27_2"
+	"lipsync_call_player_3"								"vo_1_1_1_27_2"
+	"lipsync_call_player_4"								"vo_1_1_1_27_1"
+	"lipsync_call_player_5"								"vo_1_1_1_27_2"
+	
+	"lipsync_heal_start_1"								"vo_1_1_1_24_1"
+	"lipsync_heal_start_2"								"vo_1_1_1_24_2"
+	"lipsync_heal_start_3"								"vo_1_1_1_24_3"
+	"lipsync_heal_start_4"								"vo_1_1_1_24_4"
+	
+	"lipsync_heal_end_1"								"vo_1_1_1_25_1"
+	"lipsync_heal_end_2"								"vo_1_1_1_25_2"
+	"lipsync_heal_end_3"								"vo_1_1_1_25_3"
+	"lipsync_heal_end_4"								"vo_1_1_1_25_4"
+*/
+	"lipsync_heal_busy_1"								"vo_9_1_30_2"
+	"lipsync_heal_busy_2"								"vo_9_1_30_3"
+
+	"lipsync_heal_noheal_1"								"vo_9_1_250_1"
+	"lipsync_heal_noheal_2"								"vo_9_1_250_3"
+	
+	"snd_neck_break"									"med_labs_anderson_neck_break"
+	"snd_gear"											"npc_gear_movement"
+}	
+
+model model_medlabs_char_marine_medic
+{
+	inherit						medlabs_model_char_marine
+	
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+
+	//anim med1_broken_neck				models/characters/marine/med1_broken_neck.md5anim
+	//{
+	//	ai_no_look
+	//	rate  1.3
+	//	frame 1											disableGravity
+	//	frame 1											disableClip		
+	//	frame 1											speak lipsync_vo_2_1_1_80_2	
+	//	frame 88										sound	snd_gear
+	//	frame 112										sound	snd_neck_break
+	//	frame 145										event kill
+	//}
+
+	anim medlabs_anderson_reaction			models/characters/marine/medlabs_anderson_reaction.md5anim
+	
+	anim	med_cin_anderson2			models/characters/marine/med_cin_anderson2.md5anim
+	{
+		ai_no_look
+		frame 8,20,47,59,86,101,124,140,162,179,202,218,223,240,258,277,296,316,335,354,374,391	footstep
+		frame 180			call	map_medlabs::cinSciStarts
+		frame 282			call	map_medlabs::kaneScans
+	}
+	
+	anim	med_cin_anderson3			models/characters/marine/med_cin_anderson3.md5anim
+	{
+		ai_no_look
+		frame 8,86,106,158,168,171,185	footstep
+		frame 179,185,192,211,217,224,231,238,245	sound	generic_glass_tap_deeper
+		frame 258			sound_voice	vo_9_1_260_5
+		frame 356			sound_voice	vo_9_1_260_7
+		frame 398			sound_voice	vo_9_1_270_1
+		frame 437			sound_voice	vo_9_1_270_2
+		frame 504			sound_voice	vo_9_1_270_3
+		frame 132			call	map_medlabs::dropGlass
+		frame 312			call	map_medlabs::swapAndersonGuns
+		frame 702			call	map_medlabs::fadeAndEndCinematic
+	}
+}
+
+entityDef medlabs_animated_scientist
+{
+	"spawnClass"										"idAnimated"
+	"editor_mins"										"-32 -32 0"
+	"editor_maxs"										"32 32 72"
+	"editor_menu"										"level"
+	"editor_color"										"0 .5 .25"
+	"editor_rotatable"									"1"
+	"editor_usage"										"Animated scientist with no AI used for medlabs ride."
+
+	"model"												"model_monster_scientist"
+
+	"snd_squish"										"scientist_squish"
+	"snd_breathe"										"scientist_breathe"
+	"snd_weapons"										"scientist_weapon_move"
+	"snd_saw"											"scientist_saw"
+	"snd_cut"											"med_labs_scientist_saw_cut"
+	
+	"sound_bone"					"waist"
+
+	"fx_chop"											"effects/monsters/scientist/buzzsaw_chop.fx"
+}
+
+entityDef medlabs_projectile_bullet
+{
+	"inherit"											"projectile_bullet"
+
+	"fx_impact"											""
+	"fx_impact_concrete"								""
+	"fx_impact_flesh"									""						
+	"snd_ricochet"										""
+}
+
+// SCIENTIST FOR CINEMATIC
+
+entityDef medlabs_monster_scientist_cin
+{
+
+	"inherit"					"monster_scientist"
+	"model"						"medlabs_model_monster_scientist_cin"
+	"editor_menu"					"level"
+	
+	"snd_squish"										"scientist_squish"
+	"snd_breathe"										"scientist_breathe"
+	"snd_weapons"										"scientist_weapon_move"
+	"snd_saw"											"scientist_saw"
+	"snd_cut"											"med_labs_scientist_saw_cut"
+	"snd_voice"											"scientist_breathe"
+	
+	"sound_bone"					"waist"
+	
+}
+
+model medlabs_model_monster_scientist_cin
+{
+	inherit								model_monster_scientist
+	
+	anim medlabs_anderson_cin					models/monsters/scientist/anderson_cin_medlabs.md5anim
+	{
+		ai_no_look
+		frame	65,430,478,533,793						sound	snd_voice
+		frame	463,605,616,622,653,665					sound	snd_weapons
+		frame	465										sound	berserker_blade_slice
+		frame	563										sound	snd_saw
+		frame	566,616,645								sound	snd_cut
+		frame 571										fx 	fx_chop		blade_joint
+		frame 610, 618									call	map_medlabs::splatter_1
+		frame 648										call	map_medlabs::splatter_2
+	}
+	
+}
+
+//--
+// Teleport Dropper with no grunt for medlabs
+
+entityDef spawner_teleport_dropper_nogrunt
+{
+	"spawnclass"							"rvSpawner"
+	"count"									"-1"
+	"remove"								"0"
+	"delay"									"0"
+	"auto_target"							"1"
+	"faceEnemy"								"1"
+	"max_active"							"4"
+	"skipvisible"							"0"
+	
+	"fx_spawning"							"effects/monsters/teleport2.fx"
+		
+	"def_spawn_1"							"monster_strogg_marine"
+	"def_spawn_2"							"monster_strogg_marine"
+	"def_spawn_3"							"monster_strogg_marine"
+	"def_spawn_4"							"monster_strogg_marine_shotgun"
+	"def_spawn_5"							"monster_berserker"
+}
+
+entityDef medlabs_monster_teleport_dropper
+{
+	"editor_menu"					"level"
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterTeleportDropper"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_evadeLeft"						"1"
+	"action_evadeLeft_rate"					"0"
+	"action_evadeLeft_failrate"				"0"
+	"action_evadeRight"						"1"	
+	"action_evadeRight_rate"				"0"
+	"action_evadeRight_failrate"			"0"
+//	"action_rangedAttack"					"1"
+//	"action_rangedAttack_rate"				"10"
+
+	"action_dropSpawners"					"1"
+	"action_dropSpawners_rate"				"3"
+	"action_dropSpawners_nopain"			"1"
+	"action_dropSpawners_minRange"			"0"
+	"action_dropSpawners_maxRange"			"300"
+
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_teleport_dropper"
+	"ragdoll"								"monster_teleport_dropper"
+	"size"									"48 48 48"
+	"use_aas"								"aas48"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint neck"						".5 .5 0"
+	  "look_joint head"						".5 .5 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"500"
+
+	"walkRange"								"48"
+	
+	"attackRange"							"0 256"
+	"maxLostVisTime"						"4"
+	"projectile_spread"						"5"
+
+	"tactical_ranged"						"0"
+	"tactical_rush"							"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"1"
+	
+	"def_spawner"							"spawner_teleport_dropper_nogrunt"
+
+	"def_attack_dropSpawner"				"projectile_teleportDropper_spawner"
+	"attack_dropSpawner_lockToJoint"		"1"
+	"attack_dropSpawner_spread"				"45"
+	"attack_dropSpawner_cone"				"0"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck2"
+//	"damage_scale head"						"2"	
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_breathe"							"teleportdropper_breath"
+	"lipsync_sight"							"teleportdropper_alert"
+	"snd_alert"								"teleportdropper_alert"
+	"snd_growl"								"teleportdropper_growl"
+	"snd_sniff"								"teleportdropper_sniff"
+	"snd_pain"								"teleportdropper_pain"
+	"snd_death"								"teleportdropper_death"
+	"snd_servo"								"teleportdropper_servo"
+	
+	"snd_footstep"							"teleportdropper_steps"
+	"snd_footstep_sand"						"teleportdropper_steps_dirt"
+	"snd_footstep_dirt"						"teleportdropper_steps_dirt"
+	"snd_footstep_hollowmetal"				"teleportdropper_steps_hollow_metal"
+	"snd_footstep_rock"						"teleportdropper_steps"
+	
+	"sound_bone"							"jaw"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"								"Teleport Dropper"
+	"dbText"								"Description Text of the Teleport Dropper"
+	"sg_name"								"Teleport Dropper"
+	
+	// --------------------------------- effects   -------------------------------
+	"fx_runsmoke"							"effects/monsters/teleport_dropper/runsmoke.fx"
+	"fx_vent_td"							"effects/monsters/teleport_dropper/ambient_steam.fx"
+	"fx_muzzleflash"						"effects/monsters/teleport_dropper/muzzleflash.fx"
+	"fx_blast_exhaust"						"effects/monsters/teleport_dropper/blast_exhaust.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+}

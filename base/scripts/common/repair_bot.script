@@ -1,0 +1,133 @@
+namespace repair_bot	{
+
+//--
+// Repair Bot ambience 		aweldon Feb 05
+//--
+
+// The following functions allow placement of random/ambient repair bot paths from either monster_repair_bot
+// entities or Repair Bots spawned from func_spawners.
+
+// To use this feature, place a series of target_nulls at all the points you want the Repair Bot to move to.
+// These will form your "Move Targets." Each move target should target a second target_null, the "Action Target."
+// From each Move Target, target the appropriate Action target. The script function will pull this information to
+// determine facing for each action.
+
+// On each Move Target, add the following keys:
+//	KEY:		VALUE:
+//	action		repair		(defines the action for this move target)
+//	duration	X		(defines the length of time, X, to perform the action)
+//	occupied	0		(sets the initial occupied status)
+
+// Add another target_null in a convenient location. This will form the list from which random move targets will
+// be selected. From this target_null, target all Move Targets in the area.
+
+// On a func_spawner, this script can be called by setting the "spawn_script" key to the value "map_hub2::randomBots"
+// An additional key, "spawn_list" is required to allow Repair Bots to select targets from the proper list. Set this key
+// to match the name of the target_null you created in the previous step. Finally, make sure you have more Move Targets
+// than Repair Bots.
+
+// When triggered, the Repair Bots will spawn in, fire the randomBots function which, in turn, threads the function
+// botActions for that bot. botActions will pull the name of the list from the Repair Bot (set with spawn_list as seen 
+// above), select a random Move Target, and begin the cycle.
+
+// In some cases, you may want to keep fresh repair bots cycling in over time. This function includes support for
+// "Kill Targets" which will remove the Repair Bot from the game and spawn a new one if the spawner is able.
+// Kill Targets are set up as normal move targets, but do not have an action target specified. They should be placed
+// out of view to prevent badness.
+
+// If a list has Kill Targets available, toggling a spawner off will cause the Repair Bots to gradually trickle out of
+// the area as they come across the kill targets. This can be triggered the same time as a combat trigger and used with 
+// a high number of kill targets to simulate Repair Bots clearing an area when combat is active.
+
+void setOccupied( entity target )	{
+		
+	if( target.getKey( "occupied" ) == "1" )	{
+		// Set the occupied key to the appropriate value
+		target.setKey( "occupied" , "0" );
+	}
+	
+	else	{
+		// Set the occupied key to the appropriate value
+		target.setKey( "occupied" , "1" );
+	}
+}
+
+void botActions( entity botName )	{
+	
+	// Define the entities that will be used for random target selection
+	entity repairTarget = $null_entity;
+	entity oldTarget = $null_entity;
+	
+	// Pull the name of the correct list passed to this repair bot from the spawner.
+	entity botList = botName.getEntityKey("list");
+	
+	// Perform these actions as long as the Repair Bot lives.
+	while ( isValidEntity ( botName ) ) {
+		// Select a new move target at random from the list of target_nulls
+		repairTarget = qListRandom( botList );
+						
+		// Check against the previous target, and select a new one if the old target repeats itself.
+		while ( repairTarget.getKey( "occupied" ) == "1" )	{
+			repairTarget = qListRandom( botList );
+			sys.waitFrame();
+		}
+		
+		// We found a valid target! Pull the action target from the move target.
+		entity repairAction = repairTarget.getTarget(0);
+		
+		// Set target as occupied to prevent other repair bots from using it
+		thread setOccupied( repairTarget );
+	
+		// Identify action type (repair target or kill target).
+		if( isValidEntity ( repairAction ) )	{
+			// Move to the target.
+			aiScriptedMoveWait( botName, repairTarget , 32 , 0 );
+			sys.waitFrame();
+			
+				// Run check to ensure bot is still valid.
+				if( isValidEntity ( botName ) )	{
+					// Look at the target.
+					aiScriptedFaceWait( botName, repairAction, 0 );
+					sys.waitFrame();
+	
+					// Run another check to ensure bot is still valid.
+					if( isValidEntity ( botName ) )	{
+						// Perform the scripted action.
+						aiScriptedActionWait( botName, repairTarget , 0 );
+						sys.waitFrame();
+					}
+				}
+			
+			// Set target as unoccupied once action is completed.
+			thread setOccupied( repairTarget );
+		}
+			
+		// Move targets with no target are kill zones which should remove the repair bot. Handle those here.
+		else	{ 
+			// Move to the target.
+			aiScriptedMoveWait( botName, repairTarget , 64 , 0 ); 
+			sys.waitFrame();
+			
+			// Run check to ensure bot is still valid.
+			if( isValidEntity ( botName ) )	{
+				// Set target as unoccupied once action is completed.
+				thread setOccupied( repairTarget );
+				
+				//Kill repair bot. FIX LATER IF THIS MAKES THINGS EXPLODE.
+				botName.removeUpdateSpawner();
+				break;
+			}
+		}
+		
+		// Define the old target for comparison against the new target.
+		oldTarget = repairTarget;
+	}
+}	
+
+void randomBots( entity repairBot )	{
+	
+	thread botActions( repairBot );
+}
+
+
+} // End namespace

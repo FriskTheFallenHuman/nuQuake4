@@ -1,0 +1,3321 @@
+//-------------------------------------------------------------------------------
+// namespace map_medlabs
+//
+// Namespace containing functions and globals for the Medlabs map.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+namespace map_medlabs
+{
+
+float gurneySequence	= 1;
+float tubeSequence		= 1;
+float vossSpeaking		= 1;
+float scanning			= 1;
+float armStatus			= 1;
+float armTransition		= 1;
+float allowedToFade		= 1;
+float tacticalsSwapped	= 0;
+float numKills			= 0;
+float readyForNeckBreak = 0;
+float dropshipHit		= 0;
+float scientistDone		= 0;
+float kaneWithTeam		= 0;
+float ridePosition		= 0;
+float andersonSpeaking	= 0;
+float playersTurn		= 0;
+
+// blurs the player's vision
+void blurPlayerView();
+
+
+//-------------------------------------------------------------------------------
+// void setAllowedToFade()
+//
+// Sets whether fading is allowed.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+void setAllowedToFade(float val)
+{
+	//sys.println("void setAllowedToFade::begin");
+
+	allowedToFade = val;
+
+	//sys.println("void setAllowedToFade::end");
+
+} //-------------- End void setAllowedToFade ---------------
+
+
+//-------------------------------------------------------------------------------
+// float getAllowedToFade()
+//
+// Gets whether the player is allowed to fade.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+float getAllowedToFade()
+{
+	//sys.println("float getAllowedToFade::begin");
+
+	return allowedToFade;
+
+	//sys.println("float getAllowedToFade::end");
+
+} //-------------- End float getAllowedToFade ---------------
+
+
+//-------------------------------------------------------------------------------
+// void setNumKills()
+//
+// Sets the number of kills the player has.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+void setNumKills(float val)
+{
+	//sys.println("void setNumKills::begin");
+
+	numKills = val;
+
+	//sys.println("void setNumKills::end");
+
+} //-------------- End void setNumKills ---------------
+
+
+//-------------------------------------------------------------------------------
+// float getNumKills()
+//
+// Gets the number of kills the player has.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+float getNumKills()
+{
+	//sys.println("float getNumKills::begin");
+
+	return numKills;
+
+	//sys.println("float getNumKills::end");
+
+} //-------------- End float getNumKills ---------------
+
+
+//-------------------------------------------------------------------------------
+// void setPlayersTurn()
+//
+// Sets the players turn.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+void setPlayersTurn(float val)
+{
+	//sys.println("void setPlayersTurn::begin");
+
+	playersTurn = val;
+
+	//sys.println("void setPlayersTurn::end");
+
+} //-------------- End void setPlayersTurn ---------------
+
+
+//-------------------------------------------------------------------------------
+// void showWeapons()
+//
+// Allows Kane to have his weapons.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void showWeapons()
+{
+	//sys.println("void showWeapons::begin");
+
+	sys.sendNamedEvent( GUI_PLAYERHUD, "showHud" );	// hello HUD
+	$player1.enableWeapon();
+	$player1.enableTarget();
+
+	//sys.println("void showWeapons::end");
+
+} //-------------- End void showWeapons ---------------
+
+
+//-------------------------------------------------------------------------------
+// void startScientist()
+//
+// Starts the scientist playing an idle.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void startScientist()
+{
+	//sys.println("void startScientist::begin");
+
+	$SF_monster_scientist_1.playCycle(ANIMCHANNEL_ALL, "idle");
+
+	//sys.println("void startScientist::end");
+
+} //-------------- End void startScientist ---------------
+
+
+//-------------------------------------------------------------------------------
+// void vossTalks()
+//
+// Voss talks during the cinematic.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void vossTalks()
+{
+	$cin_voss.getHead().playAnim(ANIMCHANNEL_ALL, "head_voss_talks_medlabs");
+} //-------------- End void vossTalks ---------------
+
+// Adding new function to offset VO on frame commands
+
+void vossTalksVO()	{
+	$cin_voss.startSound("snd_vo_2_1_2_70_1", SND_CHANNEL_ANY, 0);	
+}
+
+void vosslighton() {
+	//sys.print("lights on!"); $light_vossfill_1.On();
+}
+
+void vosslightoff() {
+	//sys.print("lights on!"); $light_vossfill_1.Off();
+}
+
+//-------------------------------------------------------------------------------
+// void vossCinematic()
+//
+// Cinematic with Voss' death.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+
+// Idle animations prior to Voss cinematic
+
+void vossCinematicIdles()	{
+	aiScriptedAnimLoop($cin_voss, "voss_idles", 0 );
+	sys.trigger( $cin_nanocyte );
+	$cin_nanocyte.playCycle(ANIMCHANNEL_ALL, "nanocyte_idle");
+	$cin_tank.playAnim(ANIMCHANNEL_ALL, "idle_open");
+}
+
+void vossCinematic()
+{
+	sys.trigger($vossKidnapMusic);
+
+	sys.trigger($item_objectivecomplete_2);
+	
+	$cin_voss.disableBlinking();
+
+	$cin_railing.playAnim(ANIMCHANNEL_ALL, "breaking");
+	$cin_nanocyte.playAnim(ANIMCHANNEL_ALL, "kill_voss");
+	aiScriptedAnim($cin_kane, "med2_kane",  0, 1);
+	aiScriptedAnim($cin_voss, "voss_death", 0, 1);
+
+	playCameraWait($cin_cam);
+
+	$cin_voss.remove();
+	$cin_nanocyte.remove();
+	$cin_kane.remove();
+
+	sys.trigger( $postVossAbduct );	
+	
+	
+	sys.trigger($func_savegame_1);
+	sys.waitFrame();
+	
+//	sys.trigger($item_objective_5);
+
+	sys.wait(3);
+	
+	// Strogg PA Announcement 6
+	sys.trigger($strogg_pa_6);
+	
+	sys.wait(2);
+	
+	sys.trigger($monster_berserker_3);
+	
+	//sys.println("void vossCinematic::end");
+
+} //-------------- End void vossCinematic ---------------
+
+
+//-------------------------------------------------------------------------------
+// void tankSwitch()
+//
+// Switches the tanks out during the cinematic and plays an effect.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void tankSwitch()
+{
+	//sys.println("void tankSwitch::begin");
+
+	$cin_fx.start();
+	sys.waitFrame();
+	$cin_tank_broken.show();
+	$cin_hinge.show();
+	$cin_housing.show();
+	$cin_tank.remove();
+
+	//sys.println("void tankSwitch::end");
+
+} //-------------- End void tankSwitch ---------------
+
+
+void tankSwitchThread()
+{
+	thread tankSwitch();
+}
+
+
+//-------------------------------------------------------------------------------
+// void scanTactical()
+//
+// Makes the tactical beat on the glass in the scanning room.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void scanTactical()
+{
+	//sys.println("void scanTactical::begin");
+
+	// If he's in the scanner, make him lifeless.
+	if(scanning)
+	{
+		$medlabs_monster_tactical_float_6.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+		scanning = 0;
+	}
+	else
+	{
+		$medlabs_monster_tactical_float_6.playCycle(ANIMCHANNEL_ALL, "pounding_tube");
+		scanning = 1;
+	}
+
+	//sys.println("void scanTactical::end");
+
+} //-------------- End void scanTactical ---------------
+
+//-------------------------------------------------------------------------------
+// void determineScream()
+//
+// Makes the marine in front or the player scream.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void determineScream()
+{
+	if(playersTurn)
+	{
+		sys.trigger($player_scream);
+		sys.sendNamedEvent(GUI_VEHICLEHUD, "hurt");
+	}
+	
+	else
+	{
+		if(ridePosition == 0)
+		{
+			sys.trigger($injection_speaker);
+		}
+		else if(ridePosition == 1)
+		{
+			sys.trigger($saw_speaker);
+		}
+		else if(ridePosition == 2)
+		{
+			sys.trigger($scanner_speaker);
+		}
+		else
+		{
+			sys.trigger($registration_speaker);
+		}
+
+		ridePosition++;
+	}
+	
+} //-------------- End void determineScream ---------------
+
+
+//-------------------------------------------------------------------------------
+// void armScan()
+//
+// This controls the gui in medlabs. Sends it events.
+//
+// mekberg | Feb 2005
+//-------------------------------------------------------------------------------
+void armScan()
+{
+	float val = sys.random(2);
+
+	if(val)
+	{
+		$func_static_13134.guiEvent("good");
+	}
+
+	else
+	{
+		$func_static_13134.guiEvent("bad");
+	}
+
+} //-------------- End void armScan ---------------
+
+
+/*
+//-------------------------------------------------------------------------------
+// void flyBy()
+//
+// This makes the strogg flyer fly by the player on the ledge.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void flyBy()
+{
+	$env_strogg_flyer_1.playEffect("fx_thrusters", "tail_thrusters", 1);
+	playAnimWait($env_strogg_flyer_1, ANIMCHANNEL_ALL, "med_labs_flyby");
+	$env_strogg_flyer_1.remove();
+
+} //-------------- End void flyBy ---------------
+
+*/
+
+/* NECK BREAK IS NO LONGER USED, ADDING ANDERSON DEATH CINEMATIC
+
+
+//-------------------------------------------------------------------------------
+// void neckBreakShowSurfaces()
+//
+// This turns on the tactical's surfaces.
+//
+// mekberg | Feb 2005
+//-------------------------------------------------------------------------------
+void neckBreakShowSurfaces()
+{
+	$monster_tactical_neckbreak.showSurface("models/weapons/mp_guns/w_sg");
+	$monster_tactical_neckbreak.showSurface("models/weapons/mp_guns/w_sg_mod_ammo");
+
+} //-------------- End void neckBreakShowSurfaces ---------------
+
+
+//-------------------------------------------------------------------------------
+// void neckBreakHideSurfaces()
+//
+// This turns off the tactical's surfaces.
+//
+// mekberg | Feb 2005
+//-------------------------------------------------------------------------------
+void neckBreakHideSurfaces()
+{
+	$monster_tactical_neckbreak.hideSurface("models/weapons/mp_guns/w_sg");
+	$monster_tactical_neckbreak.hideSurface("models/weapons/mp_guns/w_sg_mod_ammo");
+
+} //-------------- End void neckBreakHideSurfaces ---------------
+
+
+//-------------------------------------------------------------------------------
+// void neckBreak()
+//
+// This plays the neckbreak animation.
+//
+// mekberg | Feb 2005
+//-------------------------------------------------------------------------------
+void neckBreak()
+{
+	while(!readyForNeckBreak)
+	{
+		sys.waitFrame();
+	}
+
+	aiScriptedAnim($Anderson, "med1_broken_neck", 4, 0);
+	aiScriptedAnimWait($monster_tactical_neckbreak, "neck_snap", 0, 1);
+	sys.waitFrame();
+	$monster_tactical_neckbreak.becomeAggressive();
+	sys.trigger($ai_tether_radius_neckbreak);
+	
+	sys.wait(5);
+
+	radioChatterPlayWait($chatter, "vo_2_1_1_90_1");
+	radioChatterPlayWait($chatter, "vo_2_1_1_90_2");
+
+} //-------------- End void neckBreak ---------------
+
+
+//-------------------------------------------------------------------------------
+// void neckBreakSequence()
+//
+// This is the neckbreak sequence.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void neckBreakSequence()
+{
+	$Anderson.setKey( "annoyed" , "0" );
+	$Anderson.setTalkState( TALK_NEVER );
+
+	//radioChatterPlay($chatter, "vo_2_1_1_70_1");
+	aiSpeak($Anderson, "lipsync_vo_2_1_1_50_1");
+
+	sys.wait(0.5);
+	$Anderson.setLeader($null_entity);
+	sys.waitFrame();
+	$Anderson.becomePassive(true);
+	sys.waitFrame();
+
+	aiScriptedMoveWait($Anderson, $target_null_neckbreak, 1, 0);
+	aiScriptedFaceWait($Anderson, $target_null_neckbreak_1, 0);
+
+	readyForNeckBreak = 1;
+
+} //-------------- End void neckBreakSequence ---------------
+
+*/
+
+//-------------------------------------------------------------------------------
+// void dropshipRocket1()
+//
+// This is is the initial hit on the dropship with the Rocket.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipRocket1()
+{
+	sys.trigger($DS_target_launchprojectile_1);	
+	sys.wait(.3);
+	sys.trigger($DS_target_launchprojectile_2);	
+
+} //-------------- End void dropshipRocket1 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipRocket2()
+//
+// This is is the second hit on the dropship with the Rocket.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipRocket2()
+{
+	sys.trigger($DS_target_launchprojectile_3);
+	sys.wait(.3);
+	sys.trigger($DS_target_launchprojectile_4);
+
+} //-------------- End void dropshipRocket2 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipRocket3()
+//
+// This is is the third hit on the dropship with the Rocket.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipRocket3()
+{
+	sys.trigger($DS_target_launchprojectile_7);
+	sys.wait(.2);
+	sys.trigger($DS_target_launchprojectile_6);
+	sys.wait(.15);
+	sys.trigger($DS_target_launchprojectile_5);
+	
+} //-------------- End void dropshipRocket2 ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipFirstHit()
+//
+// This is the first hit effect on the dropship.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipFirstHit()
+{
+	sys.trigger($DS_func_fx_hit_1);
+ 	radioChatterPlay($chatter, "vo_2_1_1_67_2");
+} //-------------- End void dropshipFirstHit ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipSecondHit()
+//
+// This is the Second hit effect on the dropship.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipSecondHit()
+{
+	sys.trigger($DS_func_fx_hit_2);
+	sys.trigger($DS_func_fx_hit_3);
+
+} //-------------- End void dropshipSecondHit ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipThirdHit()
+//
+// This is the Third hit effect on the dropship.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipThirdHit()
+{
+	sys.trigger($DS_func_fx_hit_4);
+	sys.trigger($DS_func_fx_hit_5);
+
+} //-------------- End void dropshipThirdHit ---------------
+
+
+//-------------------------------------------------------------------------------
+// void toggleDropshipHit()
+//
+// This toggles the dropshipHit boolean.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void toggleDropshipHit()
+{
+	if(dropshipHit)
+		dropshipHit = 0;
+
+	else
+		dropshipHit = 1;
+
+} //-------------- End void toggleDropshipHit ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipDustOff()
+//
+// This turns the dust effect off.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipDustOff()
+{
+	$DS_func_fx_dust_1.stop();
+
+} //-------------- End void dropshipDustOff ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipVO()
+//
+// This plays the dropship vo after the crash.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipVO()
+{
+	// Start effects for the flight.
+	$DS_func_fx_vtol_1.start();
+	$DS_func_fx_vtol_2.start();
+	$DS_func_fx_dust_1.start();
+	
+	sys.trigger( $dshipCrashMusic );
+	playAnimWait($env_dropship_crashing_1, ANIMCHANNEL_ALL, "dropship_crashing");
+	dropshipHit = 1;
+	sys.trigger($item_objectivecomplete_1);
+
+	sys.wait(1.5);
+
+	aiScriptedAnim($Anderson, "medlabs_anderson_reaction", 4, 1);
+	aiSpeakWait($Anderson, "lipsync_vo_2_1_1_67_2_5");
+	sys.wait(.5);
+	aiScriptedWait($Anderson);
+	radioChatterPlayWait($chatter, "vo_2_1_1_67_3");
+	sys.wait(.5);
+	aiSpeakComlinkWait($Anderson, "lipsync_vo_2_1_1_67_4");
+	$Anderson.lookAt($player1);
+	sys.wait(.5);
+	//aiSpeakWait($Anderson, "lipsync_vo_2_1_1_67_5");
+
+	sys.trigger($item_objective_2);
+	$Anderson.lookAt($null_entity);
+	$Anderson.becomeAggressive();
+	sys.waitFrame();
+	sys.trigger($DBB_target_ai_tether_2);
+
+	$func_door_253.lock(0);
+	$func_door_252.lock(0);
+	$func_static_53120.setShaderParm(7, 1);
+
+	$Anderson.setLeader($player1);
+	$Anderson.setKey( "annoyed" , "1" );
+	$Anderson.setTalkState( TALK_OK );
+
+} //-------------- End void dropshipVO ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipExplosion()
+//
+// This plays all of the explosion effects for the dropship.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipExplosion()
+{
+	sys.trigger($DS_func_fx_explosion);
+	sys.trigger($DS_func_fx_smoke);
+	
+	sys.wait(1);
+	
+	// Strogg PA Announcement 5
+	sys.trigger($strogg_pa_5);
+
+} //-------------- End void dropshipExplosion ---------------
+
+
+//-------------------------------------------------------------------------------
+// void dropshipSequence()
+//
+// This makes the dropship crash and lets the doors open so the player can continue.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void dropshipSequence()
+{
+	$func_door_236.lock(1);
+	//$Anderson.setKey( "annoyed" , "0" );
+	//$Anderson.setTalkState( TALK_NEVER );
+	//$Anderson.lookAt($env_dropship_crashing_1);
+	//aiScriptedAnim($Anderson, "point_forward", 4, 1);
+	//aiSpeakWait($Anderson, "lipsync_vo_2_1_1_65_1");
+	radioChatterPlay($chatter, "vo_2_1_1_67_1");
+	thread dropshipVO();	
+
+	while(!dropshipHit)
+	{
+		sys.wait(1);
+	}
+
+	// Removal of guys from previous scene. Door is guaranteed to be closed by this time.
+	// Remove them since they are set neverDormant.
+	$Voss.remove();
+	$Kohley.remove();
+	$Bruner.remove();
+	$env_tube_arm_1.remove();
+	
+	float i = 10;
+	for(i; i < 22; i++)
+	{
+		sys.getEntity("tube_marine_" + i).remove();
+	}
+}
+
+//-------------- End void dropshipSequence ---------------
+
+
+//--
+// Radio chatter signaling the retreat to Waste
+//-- 
+// yanked this from Weldon in walker
+
+void initialRetreatMessage()	{
+	radioChatterPlayWait( $radio_retreat_1 , "");
+	sys.trigger( $item_objective_3 );
+//	sys.wait( .5 );
+//	radioChatterPlayWait( $radio_retreat_2 , "");
+//	radioChatterPlayWait( $radio_retreat_3 , "");
+}
+
+
+//-----------------------------------------------------
+// setupPuppies 1,2 and runPuppies 1,2
+//
+// Prepares the first two teleport_droppers, and moves them past the player
+// pwilliams | March 2005
+//-----------------------------------------------------
+void setupPuppy1()	{
+	aiScriptedAnimLoop( $puppy_1, "idle", 1);
+}
+
+void runPuppy1()	{
+	aiScriptedMove( $puppy_1, $tgt_puppy_1, 1, 0);
+}
+
+void setupPuppy2()	{
+	aiScriptedAnimLoop( $puppy_2, "idle", 1);
+}
+
+void runPuppy2()	{
+	aiScriptedMove( $puppy_2, $tgt_puppy_2, 1, 0);
+}
+
+
+//-----------------------------------------------------
+// setupPuppy3 and runPuppy3
+//
+// Prepares the third teleport_dropper
+// pwilliams | March 2005
+//-----------------------------------------------------
+void setupPuppy3()	{
+	aiScriptedAnimLoop( $puppy_3, "idle", 1);
+}
+
+void runPuppy3()	{
+	aiScriptedAnimWait( $puppy_3, "idle_hide_bite", 1, 0);
+	aiScriptedMove( $puppy_3, $tgt_puppy_3, 1, 0);
+}
+
+
+
+// Teleport dropper jumps out of the floor
+//-------------------------------------------------------------------------------
+void teleportDropperIntro() 
+{
+	$dropper_door_1.move( WEST, 64 );
+	$dropper_door_2.move( EAST, 64 );
+	sys.waitFor($dropper_door_2);
+	sys.trigger($monster_teleport_dropper_3);
+	sys.wait(1.5);
+	$func_puppyplat.move( UP , 140 );
+}
+
+
+//-------------------------------------------------------------------------------
+// void allowExit()
+//
+// Allows the player to exit the level after the teleport dropper is dead.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void allowExit()
+{
+	//sys.println("void allowExit::begin");
+
+	sys.trigger($trigger_multiple_end);
+	
+	//open new exit door -corey
+	sys.trigger($speaker_60);
+	sys.wait(1);
+	sys.trigger($func_door_296);
+	
+	sys.wait(2);
+	
+	// Strogg PA Announcement 8
+	sys.trigger($strogg_pa_8);
+
+	//sys.println("void allowExit::end");
+
+} //-------------- End void allowExit ---------------
+
+void blurView()	{
+
+	if( playersTurn )	{
+		// requested to disable blur for now
+		sys.wait(1);
+//		thread blurPlayerView();
+	}
+}
+
+void blurView_frame()	{
+	
+	blurView();
+}
+
+
+//-------------------------------------------------------------------------------
+// void injectionMarine()
+//
+// Marine's reaction to the injection.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void injectionMarine()
+{
+	//sys.println("void injectionMarine::begin");
+
+	if(playersTurn)
+	{
+		aiScriptedStop($char_marine_choppable_1);
+		aiScriptedAnimWait($char_marine_choppable_1, "needle_impact", 5, 0);
+		aiScriptedAnimLoop($char_marine_choppable_1, "table_idle", 5);
+		blurView();
+	}
+	else
+	{
+		aiScriptedStop($char_marine_choppable_2);
+		aiScriptedAnimWait($char_marine_choppable_2, "needle_impact", 5, 0);
+		aiScriptedAnimLoop($char_marine_choppable_2, "table_idle", 5);
+	}
+
+	//sys.println("void injectionMarine::end");
+
+} //-------------- End void injectionMarine ---------------
+
+
+void injectionMarineThread()
+{
+	thread injectionMarine();
+}
+
+
+//-------------------------------------------------------------------------------
+// void bindMarinesToTubes()
+//
+// Called from the medlabs_tube_arm. This binds all of the naked marines in the
+// level to their appropriate bones in tubes.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void bindMarinesToTubes()
+{
+	//sys.println("Binding Marines to Tubes");
+
+	string strAlpha = "abcdefghijklmnopqrstuvwxyz"; 
+	string letter;
+	entity ent;
+
+	float loop = 1; 
+	float loop2 = 0;
+	vector v;
+
+	// First 5 marines in the tubes on the upper tracks of the drainage farm.
+	for(loop; loop < 6; loop++)
+	{
+		letter = sys.strMid( strAlpha, loop - 1, 1);
+		ent = sys.getEntity("tube_marine_" + (loop + 12));
+		v = $env_tube_arm_1.getJointPos($env_tube_arm_1.getJointHandle("bind_" + letter));
+		//v_z -= 8;
+		ent.setWorldOrigin(v);
+		ent.bindToJoint($env_tube_arm_1, "bind_" + letter, 1);
+	}
+
+	// Marines 6 - 9 on the lower conveyor of the drainage farm.
+	for(loop = 6; loop < 10; loop++)
+	{
+		letter = sys.strMid( strAlpha, loop2, 1);
+		ent = sys.getEntity("tube_marine_" + (loop + 12));
+		v = $env_tube_arm_1.getJointPos($env_tube_arm_1.getJointHandle("bind_conveyor_" + letter));
+		v_z -= 8;
+		ent.setWorldOrigin(v);
+		ent.bindToJoint($env_tube_arm_1, "bind_conveyor_" + letter, 1);
+		loop2++;
+	}	
+
+	loop2 = 1;
+
+	for(loop = 10; loop < 13; loop++)
+	{
+		if(loop2 == 3)
+		{
+			loop2++;
+		}
+
+		ent = sys.getEntity("tube_marine_" + loop);
+		v = $env_medlabs_registration_1.getJointPos($env_medlabs_registration_1.getJointHandle("bind_" + loop2));
+		v_z -= 8;
+		ent.setWorldOrigin(v);
+		ent.bindToJoint($env_medlabs_registration_1, "bind_" + loop2, 1);
+		loop2++;
+	}
+
+} //-------------- End void bindMarinesToTubes ---------------
+
+
+//-------------------------------------------------------------------------------
+// void endOfTrack()
+//
+// Fades the screen out after the end of a track as well as any initialization code.
+// Checks if we are allowed to fade (can be turned off for debugging, and to see if we have
+// skipped the ride.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void endOfTrack( float secs )
+{
+	sys.trigger($player_groan);
+
+	if(getAllowedToFade())
+	{
+		sys.fadeTo('0 0 0', 1, secs);
+	}
+
+	sys.wait(secs);
+
+} //-------------- End void endOfTrack ---------------
+
+
+//-------------------------------------------------------------------------------
+// void startOfTrack()
+//
+// This fades the screen in at the beginning of the track as well as any init code.
+// Checks if we are allowed to fade (can be turned off for debugging, and to see if we have
+// skipped the ride.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void startOfTrack( float secs )
+{
+	if(getAllowedToFade())
+	{
+		sys.fadeIn('0 0 0', secs);
+	}
+
+	sys.wait(secs);
+
+} //-------------- End void startOfTrack ---------------
+
+
+//-------------------------------------------------------------------------------
+// void addKill()
+//
+// This gets called every time a strogg dies during the rescue sequence, 
+// so we know when to spring the guys into position for scripted anims.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void addKill()
+{
+	numKills++;
+
+} //-------------- End void addKill ---------------
+
+
+//-------------------------------------------------------------------------------
+// void vossRescue(entity mover, string anim, entity target)
+//
+// Makes voss do his thing during the rescue.
+//
+// mekberg | Jan 2004
+//-------------------------------------------------------------------------------
+void vossRescue()
+{
+	aiScriptedAnimWait($Voss, "med1_rescue_voss", 24, 1);
+	$Voss.lookAt($player1);
+	sys.wait(1.5);
+	aiScriptedFaceWait($Voss, $player1, 1);
+
+} //-------------- End void vossRescue ---------------
+
+
+//-------------------------------------------------------------------------------
+// void brunerRescue(entity mover, string anim, entity target)
+//
+// Makes Bruner do his thing during the rescue.
+//
+// mekberg | Jan 2004
+//-------------------------------------------------------------------------------
+void brunerRescue()
+{
+	aiScriptedAnim($Bruner, "med1_rescue_bruner", 24, 1);
+	sys.wait(1);
+	aiSpeakWait($Bruner, "lipsync_vo_2_1_1_10_5");
+	aiScriptedWait($Bruner);
+	$Bruner.setKey("noLook", 0);
+
+} //-------------- End void brunerRescue ---------------
+
+
+//-------------------------------------------------------------------------------
+// void animTalkTarget(entity mover, string anim, entity target)
+//
+// This makes the passed in entity perform the passed in animation, 
+// then set the talk target to the next passed in entity.
+//
+// mekberg | Jan 2004
+//-------------------------------------------------------------------------------
+void animTalkTarget(entity mover, string anim, entity target, float blend)
+{
+	aiScriptedAnimWait(mover, anim, blend, 1);
+	mover.setKey("noLook", 0);
+	mover.lookAt(target);
+	aiScriptedAnimWait(mover, "idle", blend, 1);
+
+} //-------------- End void animTalkTarget ---------------
+
+
+//-------------------------------------------------------------------------------
+// void moveFaceWait(entity mover, entity location, entity target)
+//
+// This moves the entity to a location and faces a target.
+//
+// mekberg | Jan 2004
+//-------------------------------------------------------------------------------
+void moveFaceWait(entity mover, entity location, entity target)
+{
+	aiScriptedMoveWait(mover, location, 4, 1);
+	aiScriptedFaceWait(mover, target, 1);
+
+} //-------------- End void moveFaceWait ---------------
+
+
+//-------------------------------------------------------------------------------
+// void swapToTacticals()
+//
+// This swaps the char marine choppables to tactical bodies.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void swapToTacticals()
+{
+	if(!playersTurn || tacticalsSwapped)
+		return;
+
+	$char_marine_choppable_1.remove();
+	$char_marine_choppable_2.remove();
+	aiScriptedStop($char_marine_choppable_3);
+	aiScriptedStop($char_marine_choppable_4);
+	aiScriptedAnimLoop($char_marine_choppable_3, "table_idle", 8);
+	aiScriptedAnimLoop($char_marine_choppable_4, "table_idle", 8);
+	$char_marine_choppable_3.show();
+	$char_marine_choppable_4.show();
+
+	tacticalsSwapped = 1;
+
+} //-------------- End void swapToTacticals ---------------
+
+
+//-------------------------------------------------------------------------------
+// void playerIsTactical()
+//
+// The player looks at himself after he becomes tactical.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void playerIsTactical()
+{
+	//sys.println("void playerIsTactical::begin");
+
+	aiScriptedStop($char_marine_choppable_3);
+	aiScriptedAnimWait($char_marine_choppable_3, "look_at_hands", 8, 0);
+	aiScriptedAnimLoop($char_marine_choppable_3, "table_idle", 8);
+
+	//sys.println("void playerIsTactical::end");
+
+} //-------------- End void playerIsTactical ---------------
+
+
+//-------------------------------------------------------------------------------
+// void moveFaceWaitIdle(entity mover, entity location, entity target)
+//
+// This moves the entity to a location and faces a target.
+//
+// mekberg | Jan 2004
+//-------------------------------------------------------------------------------
+void moveFaceWaitIdle(entity mover, entity location, entity target)
+{
+	aiScriptedMoveWait(mover, location, 2, 0);
+	aiScriptedFaceWait(mover, target, 1);
+
+} //-------------- End void moveFaceWaitIdle ---------------
+
+
+//-------------------------------------------------------------------------------
+// void moveFaceWaitAnim(entity mover, entity location, entity target, string anim)
+//
+// This moves the entity to a location, faces a target, then plays an anim.
+//
+// mekberg | Jan 2004
+//-------------------------------------------------------------------------------
+void moveFaceWaitAnim(entity mover, entity location, entity target, string anim)
+{
+	mover.setKey("noLook", 1);
+	aiScriptedMoveWait(mover, location, 4, 0);
+	aiScriptedFaceWait(mover, target, 0);
+	aiScriptedAnimWait(mover, anim, 12, 0);
+	aiScriptedAnimLoop(mover, "med_gun_high", 16);
+
+} //-------------- End void moveFaceWaitAnim ---------------
+
+
+//-------------------------------------------------------------------------------
+// void andersonTalks()
+//
+// Anderson tells the player the strogg did a number on him.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void andersonTalks()
+{
+	while(andersonSpeaking)
+	{
+		sys.wait(1);
+	}
+
+	andersonSpeaking = 1;
+	aiSpeakWait($Anderson, "lipsync_vo_2_1_1_12_1");
+	andersonSpeaking = 0;
+
+} //-------------- End void andersonTalks ---------------
+
+
+//-------------------------------------------------------------------------------
+// void rescueAllowChat()
+//
+// Turns chat back on after release from tube, called by trigger in map.
+//
+// rbettenberg | Apr 2005
+//-------------------------------------------------------------------------------
+void rescueAllowChat( )
+{
+/*	sys.wait( 3.0 );
+	$Anderson.setKey( "annoyed" , "1" );
+	sys.wait( 1.5 );
+	$Kohley.setKey( "annoyed" , "1" );
+	sys.wait( 1.5 );
+	$Bruner.setKey( "annoyed" , "1" );
+*/
+	$Voss.setTalkState(TALK_OK);
+	$Kohley.setTalkState(TALK_OK);
+	$Bruner.setTalkState(TALK_OK);
+	$Anderson.setTalkState(TALK_OK);
+} //-------------- End void rescueAllowChat ---------------
+
+
+//-------------------------------------------------------------------------------
+// void rescueVO()
+//
+// VO for Voss and Anderson during rescue.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void rescueVO()
+{
+	$Anderson.setTalkState( TALK_NEVER );		// these talk_nevers are intentionally not talk_wait
+	$Kohley.setTalkState( TALK_NEVER );		// because player shouldn't have crosshair yet
+	$Bruner.setTalkState( TALK_NEVER );
+	$Voss.setTalkState( TALK_NEVER );
+
+	$Bruner.lookAt($player1);
+	$Voss.lookAt($player1);
+	
+	aiSpeakWait($Anderson, "lipsync_vo_2_1_1_10_10");
+	sys.wait(.5);
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_10_11");
+	sys.wait(.5);
+	aiSpeakWait($Anderson, "lipsync_vo_2_1_1_10_12");
+	$Bruner.forcePosture(AIPOSTURE_RELAXED);
+	sys.wait(.5);
+	
+//	aiScriptedAnimWait($Bruner, "relax_idle_start", 12, 1);
+	$Anderson.lookAt($player1);
+	aiScriptedAnim($Bruner, "weapon_check_2", 12, 0);
+	aiSpeakWait($Bruner, "lipsync_vo_2_1_1_10_13");
+	
+	sys.wait(.5);
+	aiSpeakWait($Anderson, "lipsync_vo_2_1_1_10_14");
+	sys.wait(.5);
+	aiSpeakComlinkWait($Voss, "lipsync_vo_2_1_1_10_15");
+	
+	
+	radioChatterPlayWait($chatter, "vo_2_1_1_10_16");
+	sys.wait(.5);
+	aiSpeakComlink($Voss, "lipsync_vo_2_1_1_10_17");
+//	sys.wait(.5);
+
+	moveFaceWaitIdle($Bruner, $target_null_Bruner_Rescue_Break, $target_null_Bruner_Rescue_Break_Look);
+	sys.trigger($speaker_tube);
+	aiScriptedAnimWait($Bruner, "break_tube_medlabs", 12, 1);
+
+	sys.waitFor($Voss);
+	$player1.enableObjectives();
+	$tube_clip.show();
+	
+	// Welcome back to the land of the living, Kane ...
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_10_18");
+	sys.wait(1);
+	
+	// Player is free, so...
+	// Autosave #1
+	sys.trigger($func_savegame_1);
+	$Kohley.lookAt($null_entity);
+	$Voss.lookAt($null_entity);
+	$Bruner.lookAt($null_entity);
+	$Anderson.lookAt($null_entity);
+	sys.wait(1);
+	
+	// get these guys out of the way faster so they don't mill around
+	aiScriptedStop($Bruner);
+	$Bruner.forcePosture(AIPOSTURE_DEFAULT);
+	$Bruner.becomeAggressive();
+	sys.waitFrame();
+	sys.trigger($NRL_target_ai_tether_Bruner);
+
+	// Come on ... let's go.
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_10_19");
+//	sys.wait(1);
+	
+	// Strogg PA Announcement 3
+	sys.trigger($strogg_pa_3);
+	
+	aiScriptedStop($Kohley);
+	$Kohley.becomeAggressive();
+	sys.waitFrame();
+	sys.trigger($NRL_target_ai_tether_Kohley);	
+
+	sys.trigger($item_objective_1);
+
+	$Kohley.lookAt($null_entity);
+	$Voss.lookAt($null_entity);
+	$Bruner.lookAt($null_entity);
+	$Anderson.lookAt($null_entity);
+
+	sys.waitFrame();
+
+	//aiSpeak($Anderson, "lipsync_vo_2_1_1_11_1");
+
+	aiScriptedStop($Anderson);
+	$Anderson.becomeAggressive();
+	sys.waitFrame();
+	sys.trigger($NRL_target_ai_tether_Anderson);	
+
+
+	sys.wait(.5);
+
+	aiScriptedStop($Voss);
+	$Voss.becomeAggressive();
+	sys.waitFrame();
+	sys.trigger($NRL_target_ai_tether_Voss);
+
+	sys.wait(1);
+	$player1.setHealth(125);
+	$player1.unbind();	
+	//thread showWeapons();
+	//sys.trigger( $giveGauntlet );
+	$Anderson.enableHeal();
+
+	sys.wait(2);
+
+	float startTime = sys.getTime();
+
+	while(!kaneWithTeam)
+	{
+		if(sys.getTime() > (startTime + 7) && !andersonSpeaking)
+		{
+			float randomVal = sys.random(4);
+
+			//sys.println("Random number is " + randomVal);
+
+			if(randomVal <= 1)
+			{
+				aiSpeak($Voss, "lipsync_vo_2_1_1_13_1"); 
+			}
+			else if(randomVal <= 2)
+			{
+				aiSpeak($Kohley, "lipsync_vo_2_1_1_13_2"); 
+			}
+			else if(randomVal <= 3)
+			{
+				aiSpeak($Bruner, "lipsync_vo_2_1_1_13_3"); 
+			}
+			else
+			{
+				andersonSpeaking = 1;
+				aiSpeakWait($Anderson, "lipsync_vo_2_1_1_13_4"); 
+				andersonSpeaking = 0;
+			}
+
+			startTime = sys.getTime();
+		}
+
+		sys.wait(1);
+	}
+	
+} //-------------- End void rescueVO ---------------
+
+
+void andyWeapons()
+{
+	aiSpeak($Anderson, "lipsync_vo_2_1_1_11_1");
+	showWeapons();
+}
+
+//--------------------------------------------------------------------------------
+// void rescueSwapGlass()
+//
+// Swaps the glass and collision model out for the glass.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void rescueSwapGlass()
+{
+	$collision_glass.remove();
+	$env_medlabs_registration_1.setShaderParm(4, 1);
+	$broken_glass.show();
+	sys.trigger($shatter_glass);
+
+} //-------------- End void rescueSwapGlass ---------------
+
+
+//-------------------------------------------------------------------------------
+// void rescueSequence()
+//
+// The general rescue sequence which includes threaded functions for specific members.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void rescueSequence()
+{
+	sys.trigger($ai_tether_none_rescue);
+
+	aiScriptedStop($Kohley);
+	aiScriptedStop($Voss);
+	aiScriptedStop($Bruner);
+	aiScriptedStop($Anderson);
+
+	// Passive mode and turn off chat.
+	$Kohley.becomePassive(1);
+	$Voss.becomePassive(1);
+	$Bruner.becomePassive(1);
+	$Anderson.becomePassive(1);
+
+	$Kohley.setKey( "annoyed" , "0" );
+	$Voss.setKey( "annoyed" , "0" );
+	$Bruner.setKey( "annoyed" , "0" );
+	$Anderson.setKey( "annoyed" , "0" );
+
+	// Move them into position and face the right direction.
+	float a;
+	float b;
+	float c;
+	float d;
+
+	$Kohley.lookAt($player1);
+	$Anderson.lookAt($player1);
+	$Bruner.lookAt($null_entity);
+	$Voss.lookAt($null_entity);
+
+	$Bruner.forcePosture(AIPOSTURE_STAND);
+
+	sys.waitFrame();
+
+	b = thread moveFaceWaitAnim($Bruner,	$target_null_Bruner_Rescue,		$target_null_Bruner_Rescue_Look, "med_trans");
+	a = thread moveFaceWaitAnim($Voss,		$target_null_Voss_Rescue,		$target_null_Voss_Rescue_Look, "med_trans");
+	c = thread moveFaceWaitIdle($Kohley,	$target_null_Kohley_Rescue,		$target_null_Kohley_Rescue_Look);
+	d = thread moveFaceWaitIdle($Anderson,	$target_null_Anderson_Rescue,	$target_null_Anderson_Rescue_Look);	
+
+	// Wait for all the moves/faces to complete.
+	sys.waitForThread(b);
+	sys.waitForThread(a);
+	sys.waitForThread(c);
+	sys.waitForThread(d);
+
+	// Bruner raises his gun to shoot the player while Voss stops him.
+	thread brunerRescue();
+	thread vossRescue();
+	sys.wait(3.5);
+
+	// Anderson moves up to the console to take a reading.
+	$Anderson.lookAt($null_entity);
+	thread aiScriptedAnimWait($Anderson, "console_w_weapon", 16, 1);
+
+	sys.wait(2);
+
+	thread rescueVO();
+
+	// Let the player free.
+	$RS_func_fx_tube.stop();
+	playAnimWait($env_medlabs_tube_goo_1, ANIMCHANNEL_ALL, "goo_drain");
+	sys.wait(1);
+	playAnimWait($env_medlabs_registration_1, ANIMCHANNEL_ALL, "tube_drop");
+	
+
+} //-------------- End void rescueSequence ---------------
+
+
+//-------------------------------------------------------------------------------
+// void cavalry()
+//
+// Sends in the player's helpers when he's all tube trapped.
+//
+// jshepard | Dec 2004
+//-------------------------------------------------------------------------------
+void cavalry()
+{
+	//sys.println("Cavalry");
+
+	// Trigger them all in.
+	sys.trigger($Kohley);
+	sys.trigger($Anderson);
+	sys.trigger($Voss);
+	sys.trigger($Bruner);
+
+	$Anderson.showSurface("models/weapons/mp_guns/w_mg_lo");
+	$Anderson.disableHeal();
+
+  	// Make them move to combat points.
+  	sys.trigger($target_ai_tether_Kohley);
+  	sys.trigger($target_ai_tether_Anderson);
+	sys.wait(.25);
+  	sys.trigger($target_ai_tether_Voss);
+  	sys.trigger($target_ai_tether_Bruner);
+
+	$Voss.becomeAggressive();
+	$Kohley.becomeAggressive();
+	$Bruner.becomeAggressive();
+	$Anderson.becomeAggressive();
+
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_10_1");
+	aiSpeakWait($Kohley, "lipsync_vo_2_1_1_10_2");
+	aiSpeakWait($Bruner, "lipsync_vo_2_1_1_10_3");
+
+} //-------------- End void cavalry ---------------
+
+
+//-------------------------------------------------------------------------------
+// void registrationTactical()
+//
+// Makes the tactical flinch and make sounds.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void registrationTactical()
+{
+	//sys.println("void registrationTactical::begin");
+
+	playAnimWait($tube_marine_11, ANIMCHANNEL_ALL, "scan");
+	$tube_marine_11.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+
+	//sys.println("void registrationTactical::end");
+
+} //-------------- End void registrationTactical ---------------
+
+
+void registrationTacticalThread()
+{
+	thread registrationTactical();
+}
+
+
+//-------------------------------------------------------------------------------
+// void beginTubeSequence()
+//
+// Makes the tubes move and triggers the rescue sequence.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void beginTubeSequence()
+{
+	if(!tubeSequence)
+	{
+		//sys.println("Skipping tube sequence");
+		return;
+	}
+
+	//sys.println("Starting Tube Sequence");
+	sys.sendNamedEvent( GUI_PLAYERHUD, "hideHud" );	// bye bye HUD
+
+	vector v = $env_medlabs_registration_1.getJointPos($env_medlabs_registration_1.getJointHandle("bind_3"));
+	v_z += 20;
+	$RS_func_fx_tube.setWorldOrigin(v);
+	$RS_func_fx_tube.bindToJoint($env_medlabs_registration_1, "bind_3", 1);
+
+	// The tube arm moving the tubes around.
+	$env_tube_arm_1.playAnim(ANIMCHANNEL_ALL, "extend_idle");
+	$env_medlabs_tube_goo_1.playAnim(ANIMCHANNEL_ALL, "idle");
+
+	// Let's remove all of the marines and machines on the ride that may be playing cycles.
+	$char_marine_choppable_3.remove();
+	$char_marine_choppable_4.remove();
+
+	$env_medlabs_injection_arm_1.remove();
+	$env_medlabs_buzzarm_1.remove();
+	$env_medlabs_verification_arm_1.remove();
+	$env_medlabs_needle_scanner_1.remove();	
+	$env_medlabs_nanocyte_implant_arm_1.remove();
+
+	sys.wait(1);
+	
+	sys.trigger($RS_func_fx_tube);
+	sys.trigger($speaker_tube);
+
+	$player1.setWorldOrigin($env_medlabs_registration_1.getJointPos($env_medlabs_registration_1.getJointHandle("bind_3")));
+	$player1.bindToJoint($env_medlabs_registration_1, "bind_3", 1);
+	$player1.disableTarget();
+
+	// Fade in.
+	$speaker_ride.fadeSound( SND_CHANNEL_ANY, 0, 6 );
+	sys.wait(3);
+	$env_medlabs_registration_1.playAnim(ANIMCHANNEL_ALL, "registration");
+	
+	// begins the fadein
+	startOfTrack(4);
+	
+	// Strogg PA Announcement 2
+	sys.trigger($strogg_pa_2);
+
+	while(getNumKills() < 2)
+	{
+		sys.wait(1);
+	}
+
+	$speaker_ride.remove();
+
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_10_4");
+
+	setNumKills(0);
+	setAllowedToFade(0);	
+
+	// Rescue him!
+	rescueSequence();
+	
+} //-------------- End void beginTubeSequence ---------------
+
+
+//-------------------------------------------------------------------------------
+// void vossInjured()
+//
+// Voss is pwned behind the messed up door.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void vossInjured()
+{
+	//sys.println("void vossInjured::begin");
+
+	aiSpeakWait($injuredVoss, "lipsync_vo_2_1_1_90_3");
+	sys.wait(2);
+	vossSpeaking = 0;
+//	sys.trigger($item_objective_3);
+
+	//sys.println("void vossInjured::end");
+
+} //-------------- End void vossInjured ---------------
+
+
+//-------------------------------------------------------------------------------
+// void vossDoor()
+//
+// Controls the door that moves back and forth with Voss behind it.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void vossDoor()
+{
+	//lock the door that leads outside downstairs
+	sys.trigger($blast_door_lock);
+	
+	//sys.println("void vossDoor::begin");
+
+	vector doorPos = $voss_door.getWorldOrigin();
+	vector temp;
+	float threshHold = 16;
+
+	sys.trigger($injuredVoss);
+	$func_fx_vossdoor_1.start();
+	sys.wait(.25);
+	$func_fx_vossdoor_2.start();
+
+	while(vossSpeaking)
+	{
+		temp = doorPos;
+
+		temp_y += randomRoundFloat(1, threshHold);
+		$voss_door.speed(sys.random(25) + 25);
+		$voss_door.moveToPos(temp);
+		sys.waitFor($voss_door);
+		sys.wait(.10);
+	}
+
+	$voss_door.moveToPos(doorPos);
+
+	$func_fx_vossdoor_1.remove();
+	$func_fx_vossdoor_2.remove();
+	
+	sys.wait(1);
+	$injuredVoss.remove();
+
+
+	//sys.println("void vossDoor::end");
+
+} //-------------- End void vossDoor ---------------
+
+
+//-------------------------------------------------------------------------------
+// void doesAndersonLead( whoTriggered )
+//
+// Plays VO only if Anderson is ahead
+//
+// rbettenberg | April 2005
+//-------------------------------------------------------------------------------
+void doesAndersonLead( entity whoTriggered )
+{
+	if ( ( whoTriggered.getName( ) ) == ( "Anderson" ) )
+	{
+		aiSpeak($Anderson, "lipsync_vo_2_1_1_80_1");
+	}
+
+} //-------------- End void doesAndersonLead ---------------
+
+
+//-------------------------------------------------------------------------------
+//  void moveOnTrack()
+//
+// Function used for threading splinemovers
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void moveOnTrack(entity mover, float startIndex, float endIndex, string track) 
+{
+	float index;
+	
+	for(index = startIndex; index <= endIndex; index++) 
+	{
+		mover.setSpline(sys.getEntity(track + "_" + index));
+		mover.setSpeed(100);
+		sys.waitFor(mover);
+	}
+	
+} //-------------- End void moveOnTrack ---------------
+
+
+//-------------------------------------------------------------------------------
+// void scientists()
+//
+// Moves scientists in front of the player.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void scientists()
+{
+	// Make scientist move
+	playAnimWait($SF_monster_scientist_1, ANIMCHANNEL_ALL, "medlabs_work");
+	scientistDone = 1;
+		
+} //-------------- End void scientists ---------------
+
+
+//-------------------------------------------------------------------------------
+//  void hood()
+//
+// This function handles all of the movement for the hood machine
+// One convenient location in case the machine's timing changes.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void hood(float player)
+{
+	$hood_lasers.bind($hood);
+	$hood.time(2);
+	sys.trigger($sound_hood_move);
+	if(player) $table_light1.fadeOutLight(2);
+	$hood.moveTo($target_null_hood_2);
+	//$hood.startSound("snd_hood", SND_CHANNEL_ANY, 0);
+
+	sys.waitFor($hood);
+	sys.trigger($sound_hood_stop);
+	
+	if(player)
+	{
+		$hood_lasers.bind($func_mover_hood_effect);
+		$hood_lasers_flares.show();
+
+		$hood_laser_light.On();
+		$func_fx_scan_light.start();
+		$func_fx_scan_light_1.start();
+		$func_fx_scan_light_2.start();
+
+		$func_fx_scan_light.startSound("snd_scan", SND_CHANNEL_ANY, 0);
+
+		$func_mover_hood_effect.time(2);		
+		$func_mover_hood_effect.moveTo($target_null_hood_effect_2);
+		
+		sys.waitFor($func_mover_hood_effect);
+		
+		$func_mover_hood_effect.moveTo( $target_null_hood_effect_1 );
+		$func_fx_scan_light.startSound("snd_scan", SND_CHANNEL_ANY, 0);
+
+		sys.waitFor($func_mover_hood_effect);
+
+		$func_fx_scan_light.stop();
+		$func_fx_scan_light_1.stop();
+		$func_fx_scan_light_2.stop();
+		$hood_laser_light.Off();
+
+		$func_fx_scan_light.stopSound(SND_CHANNEL_ANY, 0);
+
+		$hood_lasers.bind($hood);
+		$hood_lasers_flares.hide();
+	}
+	else
+	{
+		sys.wait(2);
+	}
+		
+	sys.trigger($sound_hood_move);
+	if(player) $table_light1.fadeInLight(2);
+	$hood.moveTo($target_null_hood_1);
+//	$hood.startSound("snd_hood", SND_CHANNEL_ANY, 0);
+	sys.waitFor($hood);
+	sys.trigger($sound_hood_stop);
+	
+} //-------------- End void hood ---------------
+
+
+//-------------------------------------------------------------------------------
+// void injectionGooOff()
+//
+// Turns the goo Off for the injection needle.
+//
+// mekberg | Mar 2005
+//-------------------------------------------------------------------------------
+void injectionGooOff()
+{
+	
+	$env_medlabs_injection_arm_1.setShaderParm(4, 0);
+	sys.trigger($needle_speaker);
+
+	if(playersTurn)
+	{
+		//sys.setSpecialEffect(SPECIAL_EFFECT_BLUR, 0);
+		thread scientists();
+	}
+
+} //-------------- End void injectionGooOff ---------------
+
+
+//-------------------------------------------------------------------------------
+// void injectionGooOn()
+//
+// Turns the goo on for the injection needle.
+//
+// mekberg | Mar 2005
+//-------------------------------------------------------------------------------
+void injectionGooOn()
+{
+	sys.trigger($needle_speaker);
+	$env_medlabs_injection_arm_1.setShaderParm(4, 1);
+
+} //-------------- End void injectionGooOn ---------------
+
+
+//-------------------------------------------------------------------------------
+//  void injection()
+//
+// This function handles all of the movement for the injection machine
+// One convenient location in case the machine's timing changes.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void injection(entity marine, entity table, entity mover)
+{
+	$func_rotating_1.time(2);
+
+	table.unbind();
+	table.bind($func_rotating_1);
+	$func_rotating_1.rotateUpTo(1, 90);	
+	sys.wait(2.5);
+
+	playAnimWait($env_medlabs_injection_arm_1, ANIMCHANNEL_ALL, "inject");
+
+	if(playersTurn)
+	{
+		while(!scientistDone)
+		{
+			sys.waitFrame();
+		}
+	}
+	
+	$func_rotating_1.rotateDownTo(1, 360);
+	sys.wait(2.5);
+	table.unbind();
+	table.bind(mover);
+
+} //-------------- End void injection ---------------
+
+
+//-------------------------------------------------------------------------------
+// void spawnLeg()
+//
+// Spawns a leg and applies an impulse.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void spawnLeg()
+{
+	//sys.println("void spawnLeg::begin");
+
+	sys.wait(1);
+	vector temp;
+	entity leg;
+	sys.setSpawnArg("origin", "-7920 -8424 -1848");
+	sys.setSpawnArg("rotation", "-1.21343e-007 1 -1.62766e-007 -0.309017 -1.92297e-007 -0.951057 -0.951057 -6.51066e-008 0.309017");
+	leg = sys.spawn("env_dead_d_leg_clean");
+	sys.waitFrame();
+	temp = leg.getWorldOrigin();
+	temp_y -= 8;
+	leg.applyImpulse(leg, temp, '0 -20000 2000');
+
+	//sys.println("void spawnLeg::end");
+
+} //-------------- End void spawnLeg ---------------
+
+
+//-------------------------------------------------------------------------------
+// void sawMarine()
+//
+// Marine's reaction to the saw.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void sawMarine()
+{
+	if(playersTurn)
+	{
+		sys.trigger($speaker_heartbeat);
+		aiScriptedStop($char_marine_choppable_1);
+		aiScriptedAnimWait($char_marine_choppable_1, "surgery_squirm_short", 8, 0);
+		aiScriptedAnimLoop($char_marine_choppable_1, "table_idle", 8);
+	}
+	else
+	{
+		thread spawnLeg();
+		aiScriptedStop($char_marine_choppable_2);
+		aiScriptedAnimWait($char_marine_choppable_2, "surgery_squirm_short", 8, 0);
+		aiScriptedAnimLoop($char_marine_choppable_2, "table_idle", 8);
+	}
+
+} //-------------- End void sawMarine ---------------
+
+void sawMarineThread()
+{
+	thread sawMarine();
+}
+
+
+//-------------------------------------------------------------------------------
+//  void saw()
+//
+// This function handles all of the movement for the saw machine
+// One convenient location in case the machine's timing changes.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void saw()
+{
+	$env_medlabs_buzzarm_1.playAnim(ANIMCHANNEL_ALL, "slice");
+	$env_medlabs_verification_arm_1.playAnim(ANIMCHANNEL_ALL, "cycle");
+	sys.wait(8);
+
+} //-------------- End void saw ---------------
+
+
+//-------------------------------------------------------------------------------
+//  void armorGrafting()
+//
+// This function handles all of the movement for the armor grafting machine
+// One convenient location in case the machine's timing changes.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void armorGrafting()
+{
+	playAnimWait($env_medlabs_needle_scanner_1, ANIMCHANNEL_ALL, "cycle");
+
+} //-------------- End void armorGrafting ---------------
+
+
+//-------------------------------------------------------------------------------
+//  void nanocyteFade()
+//
+// Fades the player screen to white and then back to normal during the nanocyte implant.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void nanocyteFade() 
+{
+	if(!playersTurn)
+	{
+		return;
+	}
+
+	if(getAllowedToFade())
+	{
+		sys.fadeTo('1 1 1', 1, 0);
+		sys.fadeIn('1 1 1', 4);
+	}
+
+	sys.sendNamedEvent(GUI_VEHICLEHUD, "activate");
+		
+} //-------------- End void nanocyteFade ---------------
+
+// Vocal changeover
+void announcerFade()	{
+	if(!playersTurn)	{
+		return;
+	}
+	
+	sys.trigger($speaker_strogglish);	
+}
+
+//-------------------------------------------------------------------------------
+// void nanocyteMarine()
+//
+// Marine's reaction to the nanocyte.
+//
+// mekberg | Apr 2005
+//-------------------------------------------------------------------------------
+void nanocyteMarine()
+{
+	//sys.println("void nanocyteMarine::begin");
+
+	aiScriptedStop($char_marine_choppable_4);
+	aiScriptedAnimWait($char_marine_choppable_4, "med_neuro_implant", 8, 0);
+	aiScriptedAnimLoop($char_marine_choppable_4, "table_idle", 8);
+
+	//sys.println("void nanocyteMarine::end");
+
+} //-------------- End void nanocyteMarine ---------------
+
+
+//-------------------------------------------------------------------------------
+// void nanocytePlayer()
+//
+// This makes the player squirm and then returns to table_idle.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void nanocytePlayer()
+{
+	//sys.println("void nanocytePlayer::begin");
+
+	aiScriptedStop($char_marine_choppable_3);
+	aiScriptedAnimWait($char_marine_choppable_3, "med_neuro_implant", 8, 0);
+	sys.setSpecialEffect(SPECIAL_EFFECT_BLUR, 0);
+	aiScriptedAnimLoop($char_marine_choppable_3, "table_idle", 8);
+
+	//sys.println("void nanocytePlayer::end");
+
+} //-------------- End void nanocytePlayer ---------------
+
+
+//-------------------------------------------------------------------------------
+//  void nanocyte()
+//
+// This function handles all of the movement for the nanocyte machine
+// One convenient location in case the machine's timing changes.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void nanocyte(entity table, entity mover)
+{
+	table.unbind();
+	table.bind($func_rotating_2);
+	$func_rotating_2.time(2);
+	$func_rotating_2.rotateDownTo(1, 270);
+	sys.wait(2);
+
+	// Make the player squirm a bit, for fun of course.
+	if(playersTurn)
+	{
+		thread nanocytePlayer();
+	}
+	else
+	{
+		thread nanocyteMarine();
+	}
+
+	playAnimWait($env_medlabs_nanocyte_implant_arm_1, ANIMCHANNEL_ALL, "implant_nanocyte");
+	$func_rotating_2.rotateUpTo(1, 360);
+	sys.wait(1.5);
+
+	if(playersTurn)
+	{
+		// Update the gui.
+		$status_change.guiEvent("changeover");
+	}
+
+	sys.wait(2.5);
+	table.unbind();
+	table.bind(mover);
+
+} //-------------- End void nanocyte ---------------
+
+
+void OnGurneyStart() {
+	sys.wait( $vehicle_bodytable_1.startSound( "snd_start", SND_CHANNEL_ANY, 0 ) - 0.1 );
+	$vehicle_bodytable_1.startSound( "snd_move", SND_CHANNEL_ANY, 0 );
+}
+
+
+void OnGurneyStop() {
+	$vehicle_bodytable_1.stopSound( SND_CHANNEL_ANY, 0 );
+	$vehicle_bodytable_1.startSound( "snd_brakes", SND_CHANNEL_ANY, 0 );
+	$vehicle_bodytable_1.startSound( "snd_stop", SND_CHANNEL_ANY, 0 );
+}
+
+
+//-------------------------------------------------------------------------------
+// void repairBot()
+//
+// Repair bot at the beginning of the level.
+//
+// mekberg | Jan 2005
+//-------------------------------------------------------------------------------
+void repairBot()
+{	
+	sys.wait(1);
+	aiScriptedMoveWait($STR_monster_repair_bot_1, $STR_target_null_3, 4, 0);
+	aiScriptedFace($STR_monster_repair_bot_1, $player1, 0);
+	sys.wait(2);
+	aiScriptedMoveWait($STR_monster_repair_bot_1, $STR_target_null_1, 4, 0);
+	aiScriptedFaceWait($STR_monster_repair_bot_1, $STR_target_null_2, 0);
+	aiScriptedActionWait($STR_monster_repair_bot_1, $STR_target_null_1, 0);
+
+} //-------------- End void repairBot ---------------
+
+
+//-------------------------------------------------------------------------------
+// void stroggification()
+//
+// This makes the player and his buddy ride the medbeds through medlabs and get turned into Strogg.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void stroggification()
+{
+	$char_marine_choppable_1.show();
+	$char_marine_choppable_2.show();
+
+	float thread1 = 0;
+	float thread2 = 0;
+
+	aiScriptedAnimLoop($char_marine_choppable_1, "table_idle", 8);
+	aiScriptedAnimLoop($char_marine_choppable_2, "table_idle", 8);
+
+	// Make the buzzarm idle since this isn't his default anim.
+	$env_medlabs_buzzarm_1.playAnim(ANIMCHANNEL_ALL, "idle_ready");
+	$env_medlabs_verification_arm_1.playAnim(ANIMCHANNEL_ALL, "cycle");
+
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 0, 0, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 0, 0, "B");
+
+	// Fade in.
+	sys.wait(1);
+	thread startOfTrack(6);
+
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	//sys.println("Reached first stop");
+	thread repairBot();
+	playersTurn = 0;
+
+	//sys.println("Starting hood");
+
+	// Hood over marine.
+	hood(0);
+	
+	// Strogg PA Announcement 1
+	sys.trigger($strogg_pa_1);
+
+	//sys.println("Moving player");
+	
+	// First move.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 1, 1, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 1, 1, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 1;
+
+	// Hood over player.
+	hood(1);
+
+	$STR_monster_repair_bot_1.remove();
+
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 2, 2, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 2, 2, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 0;
+
+	// Inject marine.
+	injection($char_marine_choppable_2, $vehicle_bodytable_2, $vehicle_tablemover_2);
+
+	sys.wait(1);
+	
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 3, 3, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 3, 3, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 1;
+
+	// Inject player.
+	injection($char_marine_choppable_1, $vehicle_bodytable_1, $vehicle_tablemover_1);
+	
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 4, 4, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 4, 4, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	$SF_monster_repair_bot_1.remove();
+	$SF_monster_scientist_1.remove();
+	$SF_monster_gunner_1.remove();
+
+	playersTurn = 0;
+
+	// Saw up the marine.
+	float sawThread = thread saw();
+	sys.waitForThread( sawThread );
+
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 5, 5, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 5, 5, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 1;
+
+	// Saw up the player
+	thread saw();
+		
+	// Fade out.
+	sys.wait(2);
+	endOfTrack(4);
+
+	$char_marine_choppable_1.collapseJoints("*l_loleg", "l_upleg");
+	$char_marine_choppable_1.collapseJoints("*r_loleg", "r_upleg");
+	$char_marine_choppable_2.collapseJoints("*l_loleg", "l_upleg");
+	$char_marine_choppable_2.collapseJoints("*r_loleg", "r_upleg");
+	// Wait a few secs.
+	sys.wait(6);
+
+	// Move them to the position while blacked out.
+	$vehicle_tablemover_1.setWorldOrigin($A_6.getWorldOrigin());
+	$vehicle_tablemover_1.setAngles('0 270 0');
+	$vehicle_tablemover_1.setSpeed(0);
+	$vehicle_tablemover_2.setWorldOrigin($B_6.getWorldOrigin());
+	$vehicle_tablemover_2.setAngles('0 270 0');
+	$vehicle_tablemover_2.setSpeed(0);
+	thread OnGurneyStop();
+
+	// Fade in.
+	startOfTrack( 4 );
+
+	playersTurn = 0;
+
+	// Armor graft the marine.
+	armorGrafting();
+	
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 6, 6, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 6, 6, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 1;
+
+	// Armor graft the player.
+	armorGrafting();
+
+	thread playerIsTactical();
+
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 7, 7, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 7, 7, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 0;
+
+	// Implant the marine.
+	nanocyte($vehicle_bodytable_2, $vehicle_tablemover_2);
+
+	// Next spline.
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 8, 8, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 8, 8, "B");
+	sys.waitForThread(thread1);
+	sys.waitForThread(thread2);
+	thread OnGurneyStop();
+
+	playersTurn = 1;
+
+	// Implant the player.
+	nanocyte($vehicle_bodytable_1, $vehicle_tablemover_1);
+
+	thread OnGurneyStart();
+	thread1 = thread moveOnTrack($vehicle_tablemover_1, 9, 9, "A");
+	thread2 = thread moveOnTrack($vehicle_tablemover_2, 9, 9, "B");
+
+	sys.wait(1);
+	endOfTrack(4);	
+
+	$vehicle_tablemover_1.setSpline($A_13);
+	$vehicle_tablemover_1.setSpeed(0);
+	$vehicle_tablemover_2.setSpline($B_13);
+	$vehicle_tablemover_2.setSpeed(0);
+	$vehicle_bodytable_1.unbind();
+	$vehicle_tablemover_1.remove();
+	$vehicle_tablemover_2.remove();	
+
+	sys.waitFrame();
+	$vehicle_bodytable_1.setWorldOrigin($target_null_exit.getWorldOrigin());
+	$vehicle_bodytable_1.lock(0);
+	sys.waitFrame();
+
+	// Get the player out of the medbed.
+	$player1.exitVehicle(1);
+	sys.waitFrame();
+	$player1.setViewAngles('0 0 24' );
+
+	// Tube Sequence
+	beginTubeSequence();
+
+} //-------------- End void stroggification ---------------
+
+
+//-------------------------------------------------------------------------------
+// void andersonLeads()
+//
+// Anderson leads the player through docking bay bridges
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void andersonLeads()
+{
+	setNumKills(0);
+	sys.trigger($ai_tether_none_anderson);
+	sys.waitFrame();
+	$Anderson.becomePassive(1);
+	sys.waitFrame();
+
+	aiScriptedMove($Anderson, $DBB_target_ai_tether_1, 4, 1);
+
+} //-------------- End void andersonLeads ---------------
+
+
+//-------------------------------------------------------------------------------
+// void drainageMovement()
+//
+// Moves the team into the drainage farm.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void drainageMovement()
+{
+	//sys.println("void drainageMovement::begin");
+
+	kaneWithTeam = 1;
+
+	// Start the tube arm doing its thing.
+	$env_tube_arm_1.playCycle(ANIMCHANNEL_ALL, "idle");
+
+	sys.trigger($ai_tether_none_rescue);
+	sys.waitFrame();
+
+	sys.trigger($DF_target_ai_tether_Voss);
+	sys.trigger($DF_target_ai_tether_Anderson);
+	sys.wait(4);
+	sys.trigger($DF_target_ai_tether_Kohley);
+	sys.trigger($DF_target_ai_tether_Bruner);
+	sys.trigger($ai_trigger_once_Bruner);
+
+	//sys.println("void drainageMovement::end");
+
+} //-------------- End void drainageMovement ---------------
+
+
+//-------------------------------------------------------------------------------
+// void drainageSequence()
+//
+// This is the sequence in the drainage farm where the marines split up.
+//
+// mekberg | Dec 2004  modified kbanks aug 23 05
+//-------------------------------------------------------------------------------
+void drainageSequence()
+{
+	aiSpeakWait($Bruner, "lipsync_vo_2_1_1_40_1");
+
+	sys.wait(.5);
+
+	$Voss.becomePassive(1);
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_40_2");
+
+	sys.trigger($ai_tether_none_voss);
+	sys.waitFrame();
+	sys.waitFrame();
+//	$Anderson.becomePassive(1);
+
+	aiScriptedMoveWait($Voss, $DF_target_null_1, 4, 0);
+	aiScriptedFaceWait($Voss, $DF_target_null_2, 0);
+	aiScriptedAnimWait($Voss, "console_stand_start", 4, 0);
+	aiScriptedAnimLoop($Voss, "console_stand_loop", 4);
+	sys.wait(1);
+	radioChatterPlayWait($chatter, "vo_2_1_1_40_3");
+	sys.wait(.5);
+	aiScriptedAnimWait($Voss, "console_stand_end", 4, 0);
+	aiScriptedAnim($Voss, "idle_wrist_gui_start_fast", 4, 0);
+	aiScriptedAnimLoop($Voss, "idle_wrist_gui_loop", 4);
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_40_4");
+	aiScriptedAnim($Voss, "idle_wrist_gui_end_fast", 4, 0);
+	aiScriptedAnimWait($Voss, "console_stand_start", 4, 0);
+	aiScriptedAnimLoop($Voss, "console_stand_loop", 4);
+	sys.wait(.5);
+	radioChatterPlayWait($chatter, "vo_2_1_1_40_5");
+	sys.wait(.5);
+	aiScriptedAnimWait($Voss, "console_stand_end", 4, 0);
+	aiScriptedAnim($Voss, "idle_wrist_gui_start_fast", 4, 0);
+	aiScriptedAnimLoop($Voss, "idle_wrist_gui_loop", 4);
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_40_6");
+	aiScriptedAnim($Voss, "idle_wrist_gui_end_fast", 4, 1);
+
+	$Anderson.lookAt($Voss);
+	aiScriptedFaceWait($Voss, $Anderson, 1);
+	aiSpeakWait($Voss, "lipsync_vo_2_1_1_40_12");
+	sys.wait(.5);
+	$Voss.lookAt($Anderson);
+	$Anderson.lookAt($player1);
+	//radioChatterPlayWait($chatter, "vo_2_1_1_60_1");
+	//sys.wait(.8);
+	aiSpeakWait($Anderson, "lipsync_vo_2_1_1_40_17");
+
+	$env_dropship_crashing_1.playCycle(ANIMCHANNEL_ALL, "dropship_crashing_idle");
+
+	$func_door_236.lock(0);
+	$func_door_236.open();
+	sys.wait(.5);
+
+	// Wait for all the moves/faces to complete.
+	$Voss.lookAt($null_entity);
+	$Anderson.lookAt($null_entity);
+
+	$Voss.setKey( "annoyed" , "1" );
+
+	thread andersonLeads();
+
+} //-------------- End void drainageSequence ---------------
+
+
+// --------------------------------------------
+// Scripts for motion sensor lights
+// It'd be nice to have one of these with a parm, instead of 14 ...
+// --------------------------------------------
+
+void balconylightscript1()
+{
+	$balconyLight1.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight1.fadeOutLight(5);
+}
+
+
+void balconylightscript2()
+{
+	$balconyLight2.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight2.fadeOutLight(5);
+}
+
+
+void balconylightscript3()
+{
+	$balconyLight3.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight3.fadeOutLight(5);
+}
+
+
+void balconylightscript4()
+{
+	$balconyLight4.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight4.fadeOutLight(5);
+}
+
+
+void balconylightscript5()
+{
+	$balconyLight5.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight5.fadeOutLight(5);
+}
+
+
+void balconylightscript6()
+{
+	$balconyLight6.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight6.fadeOutLight(5);
+}
+
+
+void balconylightscript7()
+{
+	$balconyLight7.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight7.fadeOutLight(5);
+}
+
+
+void balconylightscript8()
+{
+	$balconyLight8.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight8.fadeOutLight(5);
+}
+
+
+void balconylightscript9()
+{
+	$balconyLight9.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight9.fadeOutLight(5);
+}
+
+
+void balconylightscript10()
+{
+	$balconyLight10.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight10.fadeOutLight(5);
+}
+
+
+void balconylightscript11()
+{
+	$balconyLight11.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight11.fadeOutLight(5);
+}
+
+
+void balconylightscript12()
+{
+	$balconyLight12.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight12.fadeOutLight(5);
+}
+
+
+void balconylightscript13()
+{
+	$balconyLight13.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight13.fadeOutLight(5);
+}
+
+
+void balconylightscript14()
+{
+	$balconyLight14.fadeInLight(0.05);
+	sys.wait(0.05);
+	$balconyLight14.fadeOutLight(5);
+}
+
+
+void balconyLightsInit()
+{
+	$balconyLight1.Off();
+	$balconyLight2.Off();
+	$balconyLight3.Off();
+	$balconyLight4.Off();
+	$balconyLight5.Off();
+	$balconyLight6.Off();
+	$balconyLight7.Off();
+	$balconyLight8.Off();
+	$balconyLight9.Off();
+	$balconyLight10.Off();
+	$balconyLight11.Off();
+	$balconyLight12.Off();
+	$balconyLight13.Off();
+	$balconyLight14.Off();
+}
+
+
+////////////////////////////////////////////////////
+///tubes moving through room with light effect//////
+////////////////////////////////////////////////////
+void start_tube_1()
+{
+	entity enttube = $tube_1;
+	entity entDest1 = $tube_point_1;
+	
+	while(1)
+	{
+		enttube.setOrigin(entDest1.getOrigin());
+		$tube_1.time(20);
+		$tube_1.rotate('90 0 0');
+		$tube_1.moveTo($tube_point_3);
+		sys.waitFor($tube_1);
+	}
+}
+
+
+void start_tube_2()
+{
+	entity enttube = $tube_2;
+	entity entDest1 = $tube_point_4;
+	
+	while(1)
+	{
+		enttube.setOrigin(entDest1.getOrigin());
+		$tube_2.time(30);
+		$tube_2.moveTo($tube_point_5);
+		$tube_2.rotate('-90 0 0');
+		$tube_2.moveTo($tube_point_6);
+		sys.waitFor($tube_2);
+	}
+}
+
+
+void start_tube_3()
+{
+	entity enttube = $tube_3;
+	entity entDest1 = $tube_point_7;
+	
+	while(1)
+	{
+		enttube.setOrigin(entDest1.getOrigin());
+		$tube_3.time(20);
+		//$tube_3.rotate('90 0 0');
+		$tube_3.moveTo($tube_point_9);
+		sys.waitFor($tube_3);
+	}
+}
+
+
+/////////////////////////////////////////////////
+////////Ambient pillars moving up and down//////
+///////////////////////////////////////////////
+void start_pillar_1()
+{
+	while(1)
+	{
+		$moving_pillar_1.time(4);
+		$moving_pillar_1.moveTo($pillar_point_4);
+		sys.waitFor($moving_pillar_1);
+		sys.wait(2);
+		$moving_pillar_1.time(2);
+		$moving_pillar_1.moveTo($pillar_point_5);
+		sys.waitFor($moving_pillar_1);
+		sys.wait(2);
+		$moving_pillar_1.time(4);
+		$moving_pillar_1.moveTo($pillar_point_3);
+		sys.waitFor($moving_pillar_1);
+		sys.wait(2);
+		$moving_pillar_1.time(4);
+		$moving_pillar_1.moveTo($pillar_point_2);
+		sys.waitFor($moving_pillar_1);
+		sys.wait(2);
+		$moving_pillar_1.time(2);
+		$moving_pillar_1.moveTo($pillar_point_1);
+		sys.waitFor($moving_pillar_1);
+		sys.wait(2);
+		$moving_pillar_1.time(2);
+		$moving_pillar_1.moveTo($pillar_point_3);
+		sys.waitFor($moving_pillar_1);
+		sys.wait(2);
+	}
+}
+
+
+void start_pillar_2()
+{
+	
+	while(1)
+	{
+		$moving_pillar_2.time(4);
+		$moving_pillar_2.moveTo($pillar_point_7);
+		sys.waitFor($moving_pillar_2);
+		sys.wait(3);
+		$moving_pillar_2.time(2);
+		$moving_pillar_2.moveTo($pillar_point_6);
+		sys.waitFor($moving_pillar_2);
+		sys.wait(2);
+		$moving_pillar_2.time(4);
+		$moving_pillar_2.moveTo($pillar_point_8);
+		sys.waitFor($moving_pillar_2);
+		sys.wait(3);
+		$moving_pillar_2.time(4);
+		$moving_pillar_2.moveTo($pillar_point_9);
+		sys.waitFor($moving_pillar_2);
+		sys.wait(2);
+		$moving_pillar_2.time(2);
+		$moving_pillar_2.moveTo($pillar_point_10);
+		sys.waitFor($moving_pillar_2);
+		sys.wait(2);
+		$moving_pillar_2.time(2);
+		$moving_pillar_2.moveTo($pillar_point_8);
+		sys.waitFor($moving_pillar_2);
+		sys.wait(2);
+	}
+}
+
+
+void start_pillar_3()
+{
+	
+	while(1)
+	{
+		$moving_pillar_3.time(4);
+		$moving_pillar_3.moveTo($pillar_point_12);
+		sys.waitFor($moving_pillar_3);
+		sys.wait(1);
+		$moving_pillar_3.time(2);
+		$moving_pillar_3.moveTo($pillar_point_11);
+		sys.waitFor($moving_pillar_3);
+		sys.wait(2);
+		$moving_pillar_3.time(4);
+		$moving_pillar_3.moveTo($pillar_point_13);
+		sys.waitFor($moving_pillar_3);
+		sys.wait(4);
+		$moving_pillar_3.time(4);
+		$moving_pillar_3.moveTo($pillar_point_14);
+		sys.waitFor($moving_pillar_3);
+		sys.wait(2);
+		$moving_pillar_3.time(2);
+		$moving_pillar_3.moveTo($pillar_point_15);
+		sys.waitFor($moving_pillar_3);
+		sys.wait(2);
+		$moving_pillar_3.time(2);
+		$moving_pillar_3.moveTo($pillar_point_13);
+		sys.waitFor($moving_pillar_3);
+		sys.wait(2);
+	}
+}
+
+
+void start_pillar_4()
+{
+	
+	while(1)
+	{
+		$moving_pillar_4.time(4);
+		$moving_pillar_4.moveTo($pillar_point_19);
+		sys.waitFor($moving_pillar_4);
+		sys.wait(1);
+		$moving_pillar_4.time(2);
+		$moving_pillar_4.moveTo($pillar_point_20);
+		sys.waitFor($moving_pillar_4);
+		sys.wait(3);
+		$moving_pillar_4.time(4);
+		$moving_pillar_4.moveTo($pillar_point_18);
+		sys.waitFor($moving_pillar_4);
+		sys.wait(2);
+		$moving_pillar_4.time(4);
+		$moving_pillar_4.moveTo($pillar_point_17);
+		sys.waitFor($moving_pillar_4);
+		sys.wait(2);
+		$moving_pillar_4.time(2);
+		$moving_pillar_4.moveTo($pillar_point_16);
+		sys.waitFor($moving_pillar_4);
+		sys.wait(2);
+		$moving_pillar_4.time(2);
+		$moving_pillar_4.moveTo($pillar_point_18);
+		sys.waitFor($moving_pillar_4);
+		sys.wait(2);
+	}
+}
+
+
+void start_all_pillars()
+{
+	thread start_pillar_1();
+	thread start_pillar_2();
+	thread start_pillar_3();
+	thread start_pillar_4();
+}
+
+
+//////////////////////////////////////////
+//////Gladiator kicks barrels////////////
+////////////////////////////////////////
+void barrel_kick()
+{
+	$barrel_kick_1.applyImpulse($barrel_kick_1,$barrel_kick_1.getWorldOrigin(),'10000 100000 0');
+	$barrel_kick_2.applyImpulse($barrel_kick_2,$barrel_kick_2.getWorldOrigin(),'10000 100000 0');
+	$barrel_kick_3.applyImpulse($barrel_kick_3,$barrel_kick_3.getWorldOrigin(),'10000 100000 0');
+}
+
+
+//////////////////////////////////////////
+//////Grunt charges down hallway/////////
+////////////////////////////////////////
+void grunt_rush()
+{
+	$rusher.show();
+	sys.trigger($rusher);
+	aiScriptedMoveWait ( $rusher, $rusher_point, 20, true );
+}
+
+
+//////////////////////////////////////////
+//////Adding clips to animated models////
+////////////////////////////////////////
+void add_clips()
+{
+	////sys.println("clip called");
+	$scanner_clip.bindToJoint($scanner, "laser_fx_middle", 1);
+	$platform_clip_1.bindToJoint($fourarm, "brush_1", 1);
+	$platform_clip_2.bindToJoint($fourarm, "brush_2", 1);
+	$platform_clip_3.bindToJoint($fourarm, "brush_3", 1);
+	$platform_clip_4.bindToJoint($fourarm, "brush_4", 1);
+}
+
+
+//////////////////////////////////////////
+//////Adding marines to tubes////////////
+////////////////////////////////////////
+void add_tube_marines()
+{
+	float i = 1;
+	entity ent;
+	vector v;
+
+	for(i; i < 5; i++)
+	{
+		ent = sys.getEntity("tube_marine_" + i);
+		v = $fourarm.getJointPos($fourarm.getJointHandle("mar_bind_" + i));
+		v_z -= 9;
+		ent.setWorldOrigin(v);
+		ent.bindToJoint($fourarm, "mar_bind_" + i, 1);
+	}
+
+	for(i = 5; i < 9; i++)
+	{
+		ent = sys.getEntity("tube_marine_" + i);
+		v = $fourarm.getJointPos($fourarm.getJointHandle("str_bind_" + i));
+		v_z -= 9;
+		ent.setWorldOrigin(v);
+		ent.bindToJoint($fourarm, "str_bind_" + i, 1);
+	}
+}
+
+
+void play_float_anim()
+{
+	$tube_marine_3.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+	sys.wait(1);
+	$tube_marine_4.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+	sys.wait(1);
+	$tube_marine_5.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+	sys.wait(1);
+	$tube_marine_6.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+	sys.wait(1);
+	$tube_marine_7.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+	sys.wait(1);
+	$tube_marine_8.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+	sys.wait(1);
+	$tube_marine_9.playCycle(ANIMCHANNEL_ALL, "floating_tube");
+}
+
+
+//////////////////////////////////////////
+//////Zerker walking down overlook hall//
+////////////////////////////////////////
+void zerker_wakeup()
+{
+	$zerker_1.show();
+	sys.trigger($zerker_1);
+	aiScriptedMoveWait ( $zerker_1, $zerker_spot_1, 20, true );
+}
+
+
+//////////////////////////////////////////
+//////One arm machine playing its loop///
+////////////////////////////////////////
+void arms_process_start()
+{
+	$arms_process_1.playCycle(ANIMCHANNEL_ALL, "process");
+}
+
+
+/////////////////////////////////////////////
+//////Doors opening for barrels in center///
+///////////////////////////////////////////
+void door_set_1()
+{
+	sys.trigger($func_door_178);
+}
+
+
+void door_set_2()
+{
+	sys.trigger($func_door_180);
+}
+
+
+void door_set_3()
+{
+	sys.trigger($func_door_184);
+}
+
+
+// --------------------------------------------
+// Scripts for windows, shifts glass according
+// to whether you are on the inside or outside
+// so that the panes are on the correct side
+// of the fading vis portals
+// --------------------------------------------
+void glassShiftStorage1()
+{
+	$storage1glass1.move( WEST,2 );
+	$storage1glass3.move( WEST,2 );
+
+	$storage1glass2.move( NORTH,2 );
+	$storage1glass4.move( NORTH,2 );
+}
+
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+// Busy scientists
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+void busyScientist( )
+{
+	//sys.println( "Busy scientist" );
+	$monster_scientist_8.lookAt( $func_static_13134 );
+
+	sys.wait( 1.2 );
+
+	$monster_scientist_8.lookAt( $null_entity );
+	$monster_scientist_8.becomeAggressive( );
+	$monster_scientist_8.setEnemy( $player1 );
+}
+
+
+void busyScientist2( )
+{
+	//sys.println( "Busy scientist2" );
+	$monster_scientist_13.lookAt( $env_dispersal_digester1_3 );
+
+	sys.wait( 1.2 );
+
+	$monster_scientist_13.lookAt( $null_entity );
+	$monster_scientist_13.becomeAggressive( );
+	$monster_scientist_13.setEnemy( $player1 );
+}
+
+
+void busyScientist3( )
+{
+	//sys.println( "Busy scientist3" );
+	$monster_scientist_14.lookAt( $func_static_53194 );
+
+	sys.wait( 2.5 );
+
+	$monster_scientist_14.lookAt( $null_entity );
+	$monster_scientist_14.becomeAggressive( );
+	$monster_scientist_14.setEnemy( $player1 );
+}
+
+
+void busyScientist4( )
+{
+	//sys.println( "Busy scientist4" );
+	$monster_scientist_15.lookAt( $func_static_53194 );
+
+	sys.wait( 1.5 );
+
+	$monster_scientist_15.lookAt( $null_entity );
+	$monster_scientist_15.becomeAggressive( );
+	$monster_scientist_15.setEnemy( $player1 );
+
+//	sys.trigger( $ai_tether_busyscientist4 );
+}
+
+
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+// Scientists on splines, called by map entities with script_init
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+void balconyScientist( )
+{
+	$balconySci_mover.startSpline( $balconySci_spline );
+	sys.waitFor( $balconySci_mover );
+	$balconySci.unbind( );
+}
+
+
+void preproomScientist( )
+{
+	$preproomSci.setHealth( 800 );
+	$preproomSci_mover.startSpline( $preproomSci_spline );
+	sys.waitFor( $preproomSci_mover );
+	$preproomSci.remove( );
+}
+
+
+void storageroomScientist_1( )
+{
+	$storageroomSci_1.setHealth( 800 );
+	$storageroomSci_mover_1.startSpline( $storageroomSci_spline_1 );
+	sys.waitFor( $storageroomSci_mover_1 );
+	$storageroomSci_1.remove( );
+}
+
+
+void storageroomScientist_2( )
+{
+	$storageroomSci_2.setHealth( 800 );
+	$storageroomSci_mover_2.startSpline( $storageroomSci_spline_2 );
+	sys.waitFor( $storageroomSci_mover_2 );
+	$storageroomSci_2.remove( );
+}
+
+
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+// Moving pillars in storage building
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+void movingPillars( )
+{
+	float randomPoint;
+	float pillarNumber;
+	entity pillar;
+	entity point;
+
+	while( 1 )
+	{
+		pillarNumber = 0;
+
+		while ( pillarNumber < 4 )
+		{
+			pillarNumber++;
+			pillar = sys.getEntity( "moving_pillar_" + pillarNumber );
+
+			randomPoint = ( sys.randomInt( 4 ) ) + 1;
+			point = sys.getEntity( "moving_pillar_node_" + randomPoint );
+
+			pillar.moveTo( point );
+
+			sys.wait( 0.2 );
+		}
+
+		sys.wait( 6.2 );
+	}
+}
+
+
+//-------------------------------------------------------------------------------
+// void prepForOldMedlabs2()
+//
+// This preps for what used to be medlabs2.
+//
+// mekberg | May 2005
+//-------------------------------------------------------------------------------
+void prepForOldMedlabs2()
+{
+	//sys.println("void prepForOldMedlabs2::begin");
+
+	add_clips();
+	add_tube_marines();
+	thread play_float_anim();
+	$fourarm.playCycle(ANIMCHANNEL_ALL, "idle");
+	$scanner.playCycle(ANIMCHANNEL_ALL, "idle");			
+	thread balconyLightsInit();
+
+	//sys.println("void prepForOldMedlabs2::end");
+
+} //-------------- End void prepForOldMedlabs2 ---------------
+
+//--
+// Anderson Death cinematic			aweldon Jun 05
+//--
+
+// Start the whole sequence and remove the 'living' Anderson.
+void andersonDeathCinematic()	{
+	
+	// Hide the cleverly placed weapon pickup
+	$deadAndersonGun.hide();
+	
+	// Fadey goodness
+	sys.fadeOut( '0 0 0' , .25 );
+	sys.wait(.25);
+	sys.fadeIn( '0 0 0' , .25 );
+	
+	// Remove the 'real' Anderson and start the cinematic and animations.
+	$Anderson.remove();
+	sys.trigger( $cin_med_anderson );
+	sys.trigger( $aDeathMusic );
+	sys.trigger( $andersonCinDoorA_1 );
+	sys.trigger( $adeath_anderson_1 );
+	sys.trigger( $adeath_kane );
+	$adeath_kane.hideSurface("models/weapons/mp_guns/w_mg_lo");
+	$adeath_kane.showSurface("models/weapons/mp_guns/w_sg");
+	aiScriptedAnim( $adeath_kane , "med_cin_kane2" , 0 , 0 );
+	aiScriptedAnimWait( $adeath_anderson_1 , "med_cin_anderson2" , 0 , 0 );
+}
+
+// Start the scientist and remove him when finished. This is called on a frame command.
+void cinSciStarts()	{
+	aiScriptedAnim( $adeath_sci , "medlabs_anderson_cin" , 0 , 0 );
+}
+
+// Kane does stuff, then gets removed. This is called from a frame command.
+void kaneScans()	{
+	aiScriptedAnimWait( $adeath_kane , "med_cin_kane3" , 0 , 0 );
+}
+
+void dropGlass()	{
+	$andersonTrap.move( DOWN , 128 );
+	sys.trigger( $aTrapSound );
+}
+
+// This can't end well. Anderson is stabbed, then removed. This is called from a frame command.
+void stabStabStab()	{
+	$adeath_anderson_1.remove();
+	aiScriptedAnim( $adeath_anderson_2 , "med_cin_anderson3" , 0 , 0 );
+	$adeath_anderson_2.getHead().playAnim(ANIMCHANNEL_ALL, "anderson_death");
+}
+
+void splatter_1()	{
+	sys.trigger( $andersonSplat_1 );	
+}
+
+void splatter_2()	{
+	sys.trigger( $andersonSplat_2 );	
+}
+
+void swapAndersonGuns()	{
+	$adeath_anderson_2.hideSurface("models/weapons/mp_guns/w_mg");
+	$deadAndersonGun.show();
+}
+
+// This will fade out, teleport the player to the appropriate end spot, and start gameplay. Called on a frame command.
+void fadeAndEndCinematic()	{
+	sys.fadeOut( '0 0 0' , .25 );
+	sys.wait(.25);
+	$adeath_sci.remove();
+	$adeath_kane.remove();
+	$adeath_anderson_2.remove();
+	sys.trigger( $postAndersonDeath );
+	sys.trigger( $andersonCinLock );
+	sys.fadeIn( '0 0 0' , .25 );
+	
+	// Spawn first scientist
+	sys.trigger( $spawnFirstSci );
+}
+
+//--
+// End Anderson death cinematic
+
+
+//--
+// Scientist Booth functions	aweldon Jun 05
+//--
+
+void liftBoothWindow( entity booth )	{
+	
+	entity boothAASObst = booth.getTarget(0);
+	
+	// Quick burst up
+	setNewTimes( booth , .25 , .1 , .05 );
+	booth.move( UP , 8 );
+	// TRIGGER EFFECT HERE
+	sys.waitFor( booth );
+	sys.wait( .25 );
+	
+	// Bounce
+	setNewTimes( booth , .1 , .05 , .05 );
+	booth.move( DOWN , 1 );
+	sys.waitFor( booth );
+	
+	// Open
+	setNewTimes( booth , 1 , .5 , .25 );
+	booth.move( UP , 121 ); // 128 units total, -8 for quick burst, +1 for reverse motion
+	sys.waitFor( booth );
+	
+	// Nuke AAS Obstacle.
+	sys.trigger( boothAASObst );
+	
+}
+
+void sciSpawn( entity sci )		{
+	//Lights?
+	thread liftBoothWindow( sci.getTarget(0) );
+}
+
+//--
+// End scientist booth stuff
+
+//-------------------------------------------------------------------------------
+// void main()
+//
+// Main function. Called on map execution.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void main()
+{
+	$player1.disableObjectives();
+	sys.trigger($target_removeweapons_1);
+	
+	if(sys.getcvar("si_entityFilter") == "skipride")
+	{
+		//sys.println("Skipping ride");
+		gurneySequence = 0;
+		tubeSequence = 1;
+	}
+	else if(sys.getcvar("si_entityFilter") == "skipall")
+	{
+		//sys.println("Skipping all");
+		tubeSequence = 0;
+		gurneySequence = 0;
+		$player1.enableWeapon();
+		$player1.enableTarget();
+		$player1.enableObjectives();
+		sys.sendNamedEvent( GUI_PLAYERHUD, "showHud" );	// hello HUD
+		$player1.setWorldOrigin($target_null_Bruner_Rescue_Break.getWorldOrigin());
+	}
+	
+	if (gurneySequence)
+	{
+		// Set up the player.
+		sys.fadeTo('0 0 0', 1, 0);
+		
+		$player1.enterVehicle($vehicle_bodytable_1);
+		sys.waitFrame();
+		$vehicle_bodytable_1.lock(1);
+		$vehicle_bodytable_2.lock(1);		
+
+		sys.wait(.5);
+
+		$player1.disableTarget();
+		$player1.disableWeapon();
+
+		sys.trigger($speaker_ride);
+		sys.trigger($STR_monster_repair_bot_1);
+
+		// Start the ride 'o fun.
+		thread stroggification();
+	} 
+	else if(tubeSequence)
+	{
+		sys.fadeTo('0 0 0', 1, 0);
+		sys.wait(1);
+
+		$player1.disableTarget();
+		$player1.disableWeapon();
+	
+		beginTubeSequence();		
+	}
+
+} //-------------- End void main ---------------
+
+
+//-------------------------------------------------------------------------------
+// void unbindPlayer()
+//
+// This is a util used for getting the player out of the otherwise locked vehicles.
+//
+// mekberg | Jun 2005
+//-------------------------------------------------------------------------------
+void unbindPlayer()
+{
+	//sys.println("void unbindPlayer::begin");
+
+	$player1.unbind();
+	$vehicle_bodytable_1.lock(0);
+	sys.waitFrame();
+	$player1.exitVehicle(1);
+
+	//sys.println("void unbindPlayer::end");
+
+} //-------------- End void unbindPlayer ---------------
+
+
+void blurPlayerView()	{
+
+//sys.wait(2);
+//sys.println("Effected!!");
+sys.setSpecialEffect(SPECIAL_EFFECT_BLUR, 1);
+
+//sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 0, 1.0);
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 0, 0.6);
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 1, 0.6);
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 2, 0.6);
+
+//alpha
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 3, 0);
+
+//inverse aperture (bigger numbers == smaller band of clarity)
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 4, 3);
+
+//focus
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 5, 0);
+
+//approach (degree to which scene is blurred to set color, 0-1)
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 6, 1);
+
+//distance at which player view will focus
+sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 7, 500);
+
+float fDistance;
+float fEntityDistance;
+
+float fFocus;
+float fGoalFocus;
+
+vector vViewPos;
+vector vLook;
+entity eFocus;
+
+float jointID = $vehicle_bodytable_1.getJointHandle( "head" );
+
+//speed at which focus closes in to object in view crosshair.
+float FOCUS_RATE = 0.004;
+
+while(1)	{
+	
+	//get player eye position and look angles
+	vViewPos = $vehicle_bodytable_1.getJointPos( jointID );
+	vLook = $vehicle_bodytable_1.getViewAngles( );
+
+	//get focus target
+	sys.tracePoint( vViewPos, vViewPos + (vLook* 2000), MASK_SHOT_RENDERMODEL, $vehicle_bodytable_1 );
+//	sys.debugLine( '0 1 0', vViewPos, vViewPos + (vLook* 2000), 0.2 );
+	eFocus = sys.getTraceEntity();
+
+	if( eFocus ) {
+
+		if( eFocus.getName() == "world" )	{
+			fEntityDistance = 100;
+		} else {
+			fEntityDistance = $player1.distanceTo( eFocus);
+		}
+	}
+
+	fDistance += FOCUS_RATE * (fEntityDistance - fDistance);
+
+	//within 300 units, tighten the focus.
+	fGoalFocus = (fDistance / 300 );
+
+	fFocus += FOCUS_RATE * (fGoalFocus - fFocus);
+
+	if( fFocus > 0.45) { fFocus = 0.45; }
+	if( fFocus < 0.3) { fFocus = 0.3; }
+
+	sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 7, fDistance + (200 * fFocus ) );
+	sys.setSpecialEffectParm( SPECIAL_EFFECT_BLUR, 5, fFocus);
+	
+	//sys.println(" dist = " + fDistance + " | goalDist = " + fEntityDistance + " | ent = " + eFocus.getName() );
+	//sys.println(" fFocus = " + fFocus + " | fGoalFocus = " + fGoalFocus  );
+	//sys.print(" ViewAngles " );
+	printVector( vLook );
+	sys.waitFrame();
+	sys.waitFrame();
+
+	}
+
+}
+
+
+
+} // namespace map_medlabs

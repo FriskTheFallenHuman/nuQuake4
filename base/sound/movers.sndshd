@@ -1,0 +1,315 @@
+
+
+sound lift_01_start
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/objects/lift01/start
+	shakeData 0 bcejqqoqsqouxtxe
+}
+
+
+sound lift_01_move
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+	looping
+
+	sound/objects/lift01/move
+	shakeData 0 qtrrrosqooqpprqpqqruqnpotptqpqpsoropoqqpmlptqmnnnnponmmronolonoqoomnonmnnnknmolomomlmlmnmnqonmnllmjjljjllkmnnmp
+}
+
+
+sound lift_01_end
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/objects/lift01/end
+	shakeData 0 qtxwsmikedefdecdejlheeeedccbaaa
+}
+
+
+sound elevator_small_start
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_small_start
+	shakeData 0 svtrqppoppsqkjja
+}
+
+
+sound elevator_small_move
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/elevators/elev_small_move
+	shakeData 0 jlmmnmmnkmlkhhhjjknlnmmnmlliihjf
+}
+
+
+sound elevator_small_decel
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_small_decel
+	shakeData 0 mqopmplmnmlmmkg
+}
+
+
+sound elevator_small_stop
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_small_stop
+	shakeData 0 lnkwvsjijggeedcbbbaaaaa
+}
+
+
+sound elevator_medium_start
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_med_start
+	shakeData 0 inoljoqorrmklomb
+}
+
+
+sound elevator_medium_move
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/elevators/elev_med_move
+	shakeData 0 hklmillgjmljjjmhhkkiiikiillkiijihiikikjkhhjjhjhkiiihjligmhilimjliljgkmnf
+}
+
+
+sound elevator_medium_decel
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_med_decel
+	shakeData 0 jrvvolkjjihhjkea
+}
+
+
+sound elevator_medium_stop
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_med_stop
+	shakeData 0 jigiqsoplkklihfhfuoonkkhhhfeccdbbbaaaa
+}
+
+
+sound elevator_large_start
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_large_start
+	shakeData 0 gmjnrsuxstutuqqb
+}
+
+
+sound elevator_large_move
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/elevators/elev_large_move
+	shakeData 0 sonpoopmkopunnnrjtqoppnyrkkniwlklrpqnnompmkptmvoonqjomloqlorpoqomooppf
+}
+
+
+sound elevator_large_decel
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_large_decel
+	shakeData 0 sqwrsuqmpmlnmnk
+}
+
+
+sound elevator_large_stop
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_large_stop
+	shakeData 0 lnlsqoolruuopjmiiiikhhgeeeccbbaaa
+}
+
+
+sound elevator_medium_start_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+
+	sound/elevators/elev_med_start
+	shakeData 0 inoljoqorrmklomb
+}
+
+
+sound elevator_medium_move_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+	looping
+	noRandomStart
+
+	sound/elevators/elev_med_move
+	shakeData 0 hklmillgjmljjjmhhkkiiikiillkiijihiikikjkhhjjhjhkiiihjligmhilimjliljgkmnf
+}
+
+
+sound elevator_medium_decel_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+
+	sound/elevators/elev_med_decel
+	shakeData 0 jrvvolkjjihhjkea
+}
+
+
+sound elevator_medium_stop_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+
+	sound/elevators/elev_med_stop
+	shakeData 0 jigiqsoplkklihfhfuoonkkhhhfeccdbbbaaaa
+}
+
+
+sound elevator_large_start_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+
+	sound/elevators/elev_large_start
+	shakeData 0 gmjnrsuxstutuqqb
+}
+
+
+sound elevator_large_move_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+	looping
+	noRandomStart
+
+	sound/elevators/elev_large_move
+	shakeData 0 sonpoopmkopunnnrjtqoppnyrkkniwlklrpqnnompmkptmvoonqjomloqlorpoqomooppf
+}
+
+
+sound elevator_large_decel_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+
+	sound/elevators/elev_large_decel
+	shakeData 0 sqwrsuqmpmlnmnk
+}
+
+
+sound elevator_large_stop_hangar1
+{
+	minDistance	500
+	maxDistance	2000
+	volumeDb	6
+
+	sound/elevators/elev_large_stop
+	shakeData 0 lnlsqoolruuopjmiiiikhhgeeeccbbaaa
+}
+
+
+sound elevator_tech_start
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_tech_start
+	shakeData 0 ostosqxsrvqwxsi
+}
+
+
+sound elevator_tech_move
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+	looping
+	noRandomStart
+
+	sound/elevators/elev_tech_move
+	shakeData 0 opssmmprmooqmiktonjoqqmsolosmrrorllmukooprlrrwvrkkmnrjqknonpolqknmoqqilrlnlknlpnomootnjpmplnkf
+}
+
+
+sound elevator_tech_decel
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_tech_decel
+	shakeData 0 vtquromollnrmhha
+}
+
+
+sound elevator_tech_stop
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_tech_stop
+	shakeData 0 dgiktstppolkjgfgeeecccbbbaaaa
+}
+
+
+
+
+

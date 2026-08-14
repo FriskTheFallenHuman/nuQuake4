@@ -1,0 +1,157 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	visible	1
+	definevec4	"on"	0.8,1,1,1
+	definevec4	"off"	0,0.623,0.623,1
+
+	onNamedEvent weapon_ready {	
+		
+	}
+
+	onNamedEvent weapon_ammo {		
+		if ( "gui::player_ammo" == 0 )
+		{
+			resettime "anim" "0" ;
+		}
+	}
+
+	onNamedEvent weapon_noammo {
+	}
+
+	windowDef bg
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/weapons/railgun/bg"
+		matcolor	1,1,1,1*guitable_random2[time*0.001]
+	}
+	windowDef circle_l
+	{
+		rect	77,197,109,116
+		visible	1
+		background	"gfx/guis/common/circle5"
+		matcolor	0.8,1,1,0.4
+		rotate	-.04*time
+		matscalex	-1
+	}
+	windowDef circle_r
+	{
+		rect	457,197,109,116
+		visible	1
+		background	"gfx/guis/common/circle5"
+		matcolor	0.8,1,1,0.4
+		rotate	.04*time
+		matscalex	-1
+	}
+	windowDef charge_left
+	{
+		rect	23,89,238,236
+		visible	1
+		background	"gfx/guis/weapons/railgun/charge"
+		matcolor	0,0.623,0.623,1
+		matscalex	-1
+	}
+	windowDef charge_right
+	{
+		rect	379,89,238,236
+		visible	1
+		background	"gfx/guis/weapons/railgun/charge"
+		matcolor	0,0.623,0.623,1
+	}
+	windowDef charge_left_warn
+	{
+		rect	23,89,238,236
+		visible	0
+		background	"gfx/guis/weapons/railgun/charge"
+		matcolor	0.984*guitable_10_5[time*0.002],0.392*guitable_10_5[time*0.002],0,1
+		matscalex	-1
+	}
+	windowDef charge_right_warn
+	{
+		rect	379,89,238,236
+		visible	0
+		background	"gfx/guis/weapons/railgun/charge"
+		matcolor	0.984*guitable_10_5[time*0.002],0.392*guitable_10_5[time*0.002],0,1
+	}
+	windowDef d_scan
+	{
+		rect	66,226,511,61
+		visible	0
+		background	"gfx/guis/common/gradient"
+		matcolor	0.5,1,1,1
+		matscaley	-1
+	}
+	windowDef scan
+	{
+		rect	112,102,411,58
+		visible	1
+		background	"gfx/guis/common/gradient"
+		matcolor	0.5,1,1,0
+		matscaley	-1
+
+		onTime 0 {
+			transition "scan::rect" "$scan::rect" "$d_scan::rect" "2000" ;
+			transition "scan::matcolor_w" "0" "0.4" "1000" ;
+		}
+
+		onTime 1000 {
+			transition "scan::matcolor_w" "0.4" "0" "1000" ;
+		}
+
+		onTime 2000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef pulse
+	{
+		rect	270,136,100,124
+		visible	1
+		background	"gfx/guis/weapons/railgun/pulse"
+		matcolor	0.5,1,1,0
+		matscalex	-1
+
+		onTime 0 {
+			transition "pulse::rect" "$pulse::rect" "$d_pulse::rect" "500" ;
+			transition "pulse::matcolor_w" "0.3" "0" "500" ;
+		}
+
+		onTime 1200 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef d_pulse
+	{
+		rect	170,12,300,373
+		visible	0
+		background	"gfx/guis/weapons/railgun/pulse"
+		matcolor	0.5,1,1,0
+		rotate	-.04*time
+		matscalex	-1
+	}
+	windowDef anim
+	{
+		visible	1
+		rect	0,0,1,1
+		notime	1
+
+		onTime 0 {
+			set "charge_left::visible" "0" ;
+			set "charge_right::visible" "0" ;
+			set "charge_left_warn::visible" "1" ;
+			set "charge_right_warn::visible" "1" ;
+		}
+
+		onTime 2000 {
+			set "charge_left::visible" "1" ;
+			set "charge_right::visible" "1" ;
+			set "charge_left_warn::visible" "0" ;
+			set "charge_right_warn::visible" "0" ;
+			transition "charge_left::matcolor" "$desktop::on" "$desktop::off" "500" ;
+			transition "charge_right::matcolor" "$desktop::on" "$desktop::off" "500" ;
+		}
+
+	}
+}

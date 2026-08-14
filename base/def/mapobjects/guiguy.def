@@ -1,0 +1,89 @@
+
+/**********************************************************************
+Gui Guy
+
+***********************************************************************/
+
+export guiguy
+{		
+	options -prefix GG_ -align ALL -scale 1.2
+		  
+	mesh	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_idle.ma	-dest models/mapobjects/strogg/console/guiguy/mesh
+
+	anim	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_idle.ma	-dest models/mapobjects/strogg/console/guiguy/idle
+
+	anim	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_online.ma	-dest models/mapobjects/strogg/console/guiguy/online_start
+
+	anim	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_onlineidle.ma	-dest models/mapobjects/strogg/console/guiguy/online_idle
+
+	anim	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_offline.ma	-dest models/mapobjects/strogg/console/guiguy/online_finish
+
+	anim	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_broken.ma	-dest models/mapobjects/strogg/console/guiguy/broken
+	
+
+	anim	work/models/mapobjects/strogg/console/guiguy/animation/guiguy_cryout.ma	-dest models/mapobjects/strogg/console/guiguy/cryout
+
+
+}
+
+entityDef env_guiguy
+{
+	"model"							"model_env_guiguy"
+	"spawnclass"					"idAnimated"
+
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"animated_guiguy"
+	
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"
+	
+	"fx_spark"						"effects/sparks/generic5.fx"
+	
+	"snd_idle"						"generic_guiguy_idle"
+	"snd_online_start"				"generic_guiguy_online_start"
+	"snd_online_idle"				"generic_guiguy_online_idle"
+	"snd_online_finish"				"generic_guiguy_online_finish"
+	"snd_broken"					"generic_guiguy_broken"
+	"snd_cryout"					"generic_guiguy_cryout"
+	
+
+}
+
+model model_env_guiguy
+{
+	mesh					models/mapobjects/strogg/console/guiguy/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/console/guiguy/idle.md5anim
+	{
+		frame	1					sound	snd_idle
+	}
+	anim online_start 			models/mapobjects/strogg/console/guiguy/online_start.md5anim
+	{
+		frame	1					sound	snd_online_start	
+	}
+	anim online_idle 			models/mapobjects/strogg/console/guiguy/online_idle.md5anim
+	{
+		frame	1					sound	snd_online_idle	
+	}
+	anim online_finish 			models/mapobjects/strogg/console/guiguy/online_finish.md5anim
+	{
+		frame	1					sound	snd_online_finish	
+	}
+	anim broken 				models/mapobjects/strogg/console/guiguy/broken.md5anim
+	{
+			frame	1				sound	snd_broken
+			frame	90										fx					fx_spark						spark1
+			frame	34										fx					fx_spark						spark2
+			frame	227										fx					fx_spark						spark3
+			frame	80, 114									fx					fx_spark						spark4
+	}
+	anim cryout 				models/mapobjects/strogg/console/guiguy/cryout.md5anim
+	{
+		frame	1					sound	snd_cryout	
+	}
+}
+

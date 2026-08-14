@@ -1,0 +1,31 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_SHADOW
+# 
+# input:
+# 
+# attrib[0]		vertex.position (4 floats, includes w which is either 0 or 1)
+#
+# program.env[75]-program.env[78]	Model-view-projection transform
+# program.env[79]					localLightOrigin (local to the model)
+# 
+# output:
+# 
+TEMP	R0;
+
+# RO = OPOS - light, assumes light.w = 0
+SUB	R0, vertex.position, program.env[79];
+
+# RO -= OPOS.w * light
+MAD	R0, R0.wwww, program.env[79], R0;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], R0;
+DP4 result.position.y, program.env[76], R0;
+DP4 result.position.z, program.env[77], R0;
+DP4 result.position.w, program.env[78], R0;
+
+END
+

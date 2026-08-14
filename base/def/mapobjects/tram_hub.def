@@ -1,0 +1,51 @@
+
+/***********************************************************************
+Tram Hub
+
+***********************************************************************/
+
+
+export tram_hub 
+{
+	options -prefix HUB_ -align ALL
+
+	mesh	work/models/mapobjects/strogg/tram/hub/hub_anim.ma 			-dest models/mapobjects/strogg/tram/hub/mesh
+	
+	anim	work/models/mapobjects/strogg/tram/hub/hub_anim.ma	-range 163 165  -dest models/mapobjects/strogg/tram/hub/idle
+	anim	work/models/mapobjects/strogg/tram/hub/hub_anim.ma 	-range 77 79    -dest models/mapobjects/strogg/tram/hub/idle2
+
+	anim	work/models/mapobjects/strogg/tram/hub/hub_anim.ma 	-range 1 76     -dest models/mapobjects/strogg/tram/hub/turn
+	anim	work/models/mapobjects/strogg/tram/hub/hub_anim.ma 	-range 85 161   -dest models/mapobjects/strogg/tram/hub/turn2
+}	
+
+
+entityDef env_tram_hub
+{
+
+	"model"						"model_env_tram_hub"
+	"spawnclass"				"idAnimated"
+	"editor_usage"				"animated_tram_hub"
+	"editor_mins"				"-96 -96 -32"
+	"editor_maxs"				"96 96 32"
+	
+	"start_state"				"1"
+	
+	"scriptobject"				"tramHub"
+	
+	"snd_sequence"				"tram_hub_sequence"
+}
+
+model model_env_tram_hub
+
+{
+	mesh					models/mapobjects/strogg/tram/hub/mesh.md5mesh
+	anim idle	 			models/mapobjects/strogg/tram/hub/idle.md5anim // For Editor only
+	
+	anim westEast			models/mapobjects/strogg/tram/hub/idle.md5anim
+	anim southNorth			models/mapobjects/strogg/tram/hub/idle2.md5anim
+	anim toSouthNorth		models/mapobjects/strogg/tram/hub/turn.md5anim
+	{
+		frame	1				sound		snd_sequence
+	}
+	anim toWestEast 		models/mapobjects/strogg/tram/hub/turn2.md5anim
+}

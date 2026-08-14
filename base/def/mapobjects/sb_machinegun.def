@@ -1,0 +1,29 @@
+//------------------------------------------------------------------------------
+// sb_machinegun.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export sb_machinegun
+{
+	options -prefix SBM_ -scale .3937 -sourcedir work/models/vehicles/marine_hover_flatbed/animations -destdir models/mapobjects/marine/weapons/sb_machinegun
+	mesh	SB_mgun_idle.ma					-dest sb_mgun
+	anim	SB_mgun_idle.ma					-dest sb_mgun_idle
+}
+
+model model_env_sb_machinegun
+{
+	mesh				models/mapobjects/marine/weapons/sb_machinegun/sb_mgun.md5mesh
+	anim idle			models/mapobjects/marine/weapons/sb_machinegun/sb_mgun_idle.md5anim
+}
+
+entityDef	env_sb_machinegun
+{
+	"inherit"						"actor_default"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"don't use"
+	"model"							"model_env_sb_machinegun"
+	"anim"							"idle"
+}

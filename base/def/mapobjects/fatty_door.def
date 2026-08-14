@@ -1,0 +1,57 @@
+
+/***********************************************************************
+FATTY DOOR
+
+***********************************************************************/
+
+export fattydoor
+{		
+	options  -align ALL 
+         
+	mesh	work/models/monsters/fatty/animation/door_cinematic2.ma	 -dest models/mapobjects/strogg/doors/fatty_door/fatty_door/mesh
+	anim	work/models/monsters/fatty/animation/door_cinematic2.ma	-range 188 189 -dest models/mapobjects/strogg/doors/fatty_door/fatty_door/idle
+	anim	work/models/monsters/fatty/animation/door_cinematic2.ma	-range 188 255 -dest models/mapobjects/strogg/doors/fatty_door/fatty_door/bust
+	anim	work/models/monsters/fatty/animation/door_cinematic2.ma	-range 255 256 -dest models/mapobjects/strogg/doors/fatty_door/fatty_door/idlebust
+
+
+}
+
+entityDef env_fattydoor
+{
+	"model"							"model_env_fattydoor"
+	"spawnclass"					"idAnimated"
+	"editor_usage"					"animated_fattydoor"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"bust"
+	//"start_anim"					"idle"
+	
+	"snd_impact"					"putra_fatguy_claw_impact"
+	"snd_break"						"generic_large_metal_break"
+	"snd_thump"						"ambient_deep_metal_thump"
+	"snd_pound"						"ambient_metal_pound"
+	"snd_fatty_door"				"putra_fatguy_door"
+	
+	"sound_bone"					"glass_still"
+		
+}
+
+model model_env_fattydoor
+
+{
+	mesh					models/mapobjects/strogg/doors/fatty_door/fatty_door/mesh.md5mesh
+	anim idle	 			models/mapobjects/strogg/doors/fatty_door/fatty_door/idle.md5anim
+	anim bust 				models/mapobjects/strogg/doors/fatty_door/fatty_door/bust.md5anim
+	{
+		frame	1					sound	snd_fatty_door
+		frame	2					sound	snd_thump
+		frame	15					sound	snd_break
+		frame	1,14				sound	snd_pound
+		
+	}
+	anim idlebust 				models/mapobjects/strogg/doors/fatty_door/fatty_door/idlebust.md5anim
+
+}

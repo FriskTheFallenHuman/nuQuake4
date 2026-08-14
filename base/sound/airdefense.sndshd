@@ -1,0 +1,196 @@
+
+
+sound airdefense_intro_heartbeat
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	soundClass	2
+	global
+
+	sound/ambience/med_labs/heartbeat
+	shakeData 0 aabbcbbcdceeefhijeefiglimkkopomplqqvusknppsppxooqmplotuvptqsmnornmnzrnonnskkpuzzlmvsjroptrojpnmloqoqzntoqlomroxzxhkmqrtnopslllmorulzlupplmpogztifkqhinuojjijgglkjmjzqonnljjhjfyznmihfighikikiiijkjjfymgljhdhgclyydgifgefhidffefedeexekjeeddcdwlcdcccbbcdcccbcbbcbcbnjdebbaaabbkkdcbbaaaaaaaaaaaaaaaaiecaaaaaaaaddaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_intro_headshot
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	0
+
+	sound/impact/bullet/headshot
+	shakeData 0 hmzyzzxzzzzurpnrorpjheedccbbbaaaa
+}
+
+
+sound airdefense_cannon_fire
+{
+	minDistance	500
+	maxDistance	5000
+	volumeDb	-4
+	shakes		1
+	soundClass	1
+
+	sound/effects/airdefense/cannon_fire1
+	shakeData 0 zyxquvtxuvurvrororssqmpnlmnlonklpponllmihjlhihghfgegdddcdbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/airdefense/cannon_fire2
+	shakeData 1 xzxyywsrxpqsrppmurrnqmrmonmlkmjkkghfgkjkjhghhhehgcedddddcbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_cannon_charge
+{
+	minDistance	1000
+	maxDistance	5000
+	volumeDb	0
+	soundClass	1
+
+	sound/effects/airdefense/cannon_charge
+	shakeData 0 aaaaabbbcccdgghhfefhillkkkikqhjijjoolnpnmurqntmrwvxtqrtsouwxuntsossuvrqptutvxuxswyyzefffhifgffhhfbbbbbbbbaaaaa
+}
+
+
+sound airdefense_cannon_fire_muffled
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	-16
+	shakes		0.01
+	soundClass	1
+
+	sound/ambience/airdefense/cannon_muffled1
+	shakeData 0 kpmjmnlonmnkokkljmmlkjljiijhkjhikjjjhhiffgifffeededecbcbcbbababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/airdefense/cannon_muffled2
+	shakeData 1 jjjjljjgjhhiihigihnmmjmlkmkjkllijiihfihjiggffifhffhggfefedededddcdccccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_cannon_fire_muffled_deeper
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/airdefense/cannon_muffled_deeper1
+	shakeData 0 ekhgijhjhhhgiighgiijgfhhegfehgfgiihhfggeddgdeddecdcdbbbbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/airdefense/cannon_muffled_deeper2
+	shakeData 1 dhgggheegdeffffegfhihhkjgjehghgfggffegfhgfdddfdfdeffedcddcdcdcdcccbbcbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_cannon_accel
+{
+	minDistance	1000
+	maxDistance	2000
+	volumeDb	0
+
+	sound/ambience/airdefense/big_gun_accel
+	shakeData 0 kllknrnmpqupvusoxuqpmpnllkqtrvoljijiololjkkipmnjgklknmjjmmmma
+}
+
+
+sound airdefense_cannon_move
+{
+	minDistance	1000
+	maxDistance	2000
+	volumeDb	0
+	looping
+
+	sound/ambience/airdefense/big_gun_move
+	shakeData 0 oonltnolonqlmnlonknonoollmklmlkjjjklljijljkmilnmkikijkjklkjjlikimnmlkkiljkkilknllljkkmljlkllkljmmmnmlllmkmlnlllnnkikkkmlklkmmllljmlkljmijkjmijjljnnlmmmmvnjilnnkjljmmtmikkjiomomklmjpmpkimknlojlmmoqm
+}
+
+
+sound airdefense_cannon_decel
+{
+	minDistance	1000
+	maxDistance	2000
+	volumeDb	0
+
+	sound/ambience/airdefense/big_gun_decel
+	shakeData 0 xyxyzyyyprtnijplolojpponlmhmmkmjiggifheggeeddcdcbbbbaaaaaaaaa
+}
+
+
+sound airdefense_ambientbattle_1_1_1_90
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/amb_1_1_1_90
+	shakeData 0 hkmghllhhgfedeeeefdefeddddcccccccdccdfffeeededeeeeeedcbbbgfiiijlpjkmkkijjihgjihjimpolhjjhijgifgfeekmtpruuspwxrusqpnqsrpnotosqprrpnnpnopqpnmopqkpmlmnmlnjlkklkkkiljikhghjifgfhgfeeedddcccccdcccbcbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_ambientbattle_1_1_1_100
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/amb_1_1_1_100
+	shakeData 0 cbcpkoihgffdeddiigklsrpqosmkkljihfjkfeiehhiffeeegfedddccjkfefjmrssomnlihiklghhhighfeefeefgjkhfdeggijkjlknjjmlljkioqvqqjiljmjljmkpnmlmnlmklikjinmmljjhjgikhihgkfhhgegfdddccbbbcbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_ambientbattle_1_1_1_110
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/amb_1_1_1_110
+	shakeData 0 aglsohkkhhfffffgghhfkmoooommkjlkhhhhhhihfgfggeellpppvopsrqtppsqtsqqsnlmjmkhghfgfifffekppmqroqqqmmmkkiihhipsrltqpnjmhiimoumrrstrmoqnmjmnmkikjnnqtntqprrrrturuqrqmjjinopmrnlkkhkjgffddddcccccbbcbbbbbbbbbbbbbbbaabaabbabaababbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_ambientbattle_1_1_1_120
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/amb_1_1_1_120
+	shakeData 0 dejjknmookmnxqqsortnkhhkooouspsvwpsnnpoookkgjggfefggfgfffeggggjjlknoprvwursnstrqswstuyotxwpvxurvxsrwvrtzursrvtsxuqrqojlloowqyyvvrroutqqnynmjnkkljojnkjmjmjjkllonlirrlnmplilhgffefgdcdddccccbdcccbcbcbbbbbbbbbbbccbbbbbbbbabbbbabbbbaabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_ambientbattle_1_1_1_130
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/amb_1_1_1_130
+	shakeData 0 acegptswpljkhhggjfhffedgfedgcdddfecccfhdggegefeddceeefeefhfjifgeecdccbbbbbdgfdcdcbiffhgfjkfdgihfcbbbglmgmpnokhokhnokoikfiigjllkoqlghpkmhhqmkjlhjgffkhfcccdbbbdccbbbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_ambientbattle_pre_grunt_drag
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/airdefense/pre_grunt_drag
+	shakeData 0 bhlnnlkoqnorjliiggeeeiqqoprsvtuxuxwxvzxvvxyvxvwxyytutvwvvwxvxvywxvvtqqtrqqprporsutuutttrtppqqtpqrttsiiefcdddcccbbbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound airdefense_berserker_ceiling_break
+{
+	minDistance	400
+	maxDistance	1000
+	volumeDb	0
+	no_dups
+
+	sound/ambience/airdefense/berserker_ceiling
+	shakeData 0 zzzyzzxwzzxyxuonjmmnkjkjiheedcccccbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+
+
+

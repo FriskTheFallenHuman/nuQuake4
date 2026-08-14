@@ -1,0 +1,608 @@
+/*
+===============================================================================
+
+	Light Tank
+
+===============================================================================
+*/
+
+export lt_tank {
+	options -prefix LTNK_ -scale .3937 -align ALL -keep SPINNER BODY_MAIN gun_effect -parent SPINNER BODY_MAIN -parent hips BODY_MAIN -parent waist SPINNER -keep eye_target Lfteye_Focus Rteye_Focus -parent eye_target head_1 -parent Lfteye_Focus Lft_EyeBall -parent Rteye_Focus Rt_EyeBall 
+	mesh	work/models/monsters/Light_Tank/Animations/LTNK_idle_short.ma			-dest models/monsters/lt_tank/mesh
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_idle_short.ma			-dest models/monsters/lt_tank/idle
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_walk.ma					-dest models/monsters/lt_tank/walk
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_rangeAttack_2shot.ma	-dest models/monsters/lt_tank/2shot_attack
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_rangeAttack_3shot.ma	-dest models/monsters/lt_tank/3shot_attack
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_flamethrower.ma			-dest models/monsters/lt_tank/flamethrower
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_rangeAttack_kneeling.ma	-dest models/monsters/lt_tank/kneeling_attack
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_rangeAttack_torso_only.ma	-dest models/monsters/lt_tank/torso_only_attack
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_melee_A.ma				-dest models/monsters/lt_tank/melee_a
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_melee_B.ma				-dest models/monsters/lt_tank/melee_b
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_melee_C.ma				-dest models/monsters/lt_tank/melee_c
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_chest.ma			-dest models/monsters/lt_tank/pain_chest
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_gut.ma				-dest models/monsters/lt_tank/pain_gut
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_head.ma			-dest models/monsters/lt_tank/pain_head
+	
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_damage.ma				-dest models/monsters/lt_tank/damaged
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_damage_walk.ma			-dest models/monsters/lt_tank/damage_walk
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_damage_melee_a.ma		-dest models/monsters/lt_tank/damage_melee_a
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_damage_pain_a.ma		-dest models/monsters/lt_tank/damage_pain_a
+
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_reposition_a.ma			-dest models/monsters/lt_tank/reposition_a
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_reposition_b.ma			-dest models/monsters/lt_tank/reposition_b
+
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_powerup_start.ma		-dest models/monsters/lt_tank/powerup_start
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_powerup_loop.ma			-dest models/monsters/lt_tank/powerup_loop
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_powerup_end.ma			-dest models/monsters/lt_tank/powerup_end
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_af_pose.ma				-dest models/monsters/lt_tank/af_pose
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_charge_B2.ma			-dest models/monsters/lt_tank/charge
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_std3.ma				-dest models/monsters/lt_tank/pain_std
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_std4.ma			-dest models/monsters/lt_tank/pain_std2
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_con2.ma				-dest models/monsters/lt_tank/pain_con
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_strm2.ma			- range 1 5 -dest models/monsters/lt_tank/pain_strm_start
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_strm2.ma			- range 5 20 -dest models/monsters/lt_tank/pain_strm_loop
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_strm2.ma			- range 20 24 -dest models/monsters/lt_tank/pain_strm_end
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_dam_pain_strm.ma		- range 1 5 -dest models/monsters/lt_tank/dam_pain_strm_start
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_dam_pain_strm.ma		- range 5 19 -dest models/monsters/lt_tank/dam_pain_strm_loop
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_dam_pain_strm.ma		- range 19 24 -dest models/monsters/lt_tank/dam_pain_strm_end
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_dam_pain_std.ma			-dest models/monsters/lt_tank/dam_pain_std
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_dam_pain_con2.ma		-dest models/monsters/lt_tank/dam_pain_con
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_knock2.ma			-dest models/monsters/lt_tank/pain_knock
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_charge_A_uppercut4.ma			-dest models/monsters/lt_tank/charge_uppercut
+
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_damage_run.ma			-range 1 30 -dest models/monsters/lt_tank/damage_run
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_charge.ma			-range 1 19 -dest models/monsters/lt_tank/pain_charge
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_pain_damage_charge.ma		-range 1 19 -dest models/monsters/lt_tank/pain_damage_charge
+
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_idle_breathe.ma			-range 1 31 -dest models/monsters/lt_tank/idle_breathe
+	anim	work/models/monsters/Light_Tank/Animations/LTNK_damage_idle.ma			-range 1 40 -dest models/monsters/lt_tank/damage_idle
+
+	anim	work/models/cinematics/recomp_lt_tank/animations/recomp_tank_and_barrels.ma		-dest models/monsters/lt_tank/recomp_lttank_cinematic
+
+}
+
+/*
+===============================================================================
+
+	Light Tank Model Definition
+
+===============================================================================
+*/
+
+model model_monster_lt_tank
+{
+	mesh												models/monsters/lt_tank/mesh.md5mesh
+
+	channel	torso										( *waist )
+	channel	legs										( *hips BODY_MAIN origin SPINNER)
+
+	anim idle											models/monsters/lt_tank/idle.md5anim
+	{
+		frame 6,43										sound_voice			snd_breathe
+	}
+	anim	idle_alert									models/monsters/lt_tank/idle_breathe.md5anim
+	{
+		frame 1											sound_voice			snd_breathe
+	}
+	anim	damage_idle									models/monsters/lt_tank/damage_idle.md5anim
+	{
+		frame 1											sound_voice			snd_breathe
+	}
+	anim	damage_idle_alert							models/monsters/lt_tank/damage_idle.md5anim
+	{
+		frame 1											sound_voice			snd_breathe
+	}
+
+	anim walk											models/monsters/lt_tank/walk.md5anim
+	{	
+		frame 9,25										sound				snd_beep
+		frame 3,19										footstep
+		frame 4,21									 	sound				snd_gear
+	}
+	anim flamethrower									models/monsters/lt_tank/flamethrower.md5anim		
+	{
+		ai_no_turn
+		frame 10											sound_weapon				snd_flame_start
+		frame 12											sound_item				snd_flame_whoosh
+		frame 12, 16, 20, 24, 28, 32, 36, 40				ai_attack			plasma			gun_effect
+		frame 44, 48, 52, 56, 60, 64						ai_attack			plasma			gun_effect
+	}
+	
+	anim range_megaattack								models/monsters/lt_tank/kneeling_attack.md5anim
+	{
+		frame 1											ai_disablePain
+		frame 1											fx					fx_fireball_charge	gun_effect
+		frame 8											sound				snd_beep
+		frame 12										footstep
+		frame 16										sound_voice			snd_breathe
+		frame 35										fx					fx_fireball_muzzle	gun_effect
+		frame 35										ai_attack			fireball		gun_effect
+	}
+	anim melee_attack1									models/monsters/lt_tank/melee_a.md5anim
+	{
+		frame	10										sound				snd_gear
+		frame	11										fx					fx_swipe						pounder_tip
+		frame	9										sound				snd_beep
+		frame	13										footstep
+		frame	15										ai_attack_melee 	melee
+		frame   12										sound_voice			snd_growl
+	}
+	anim melee_attack2									models/monsters/lt_tank/melee_b.md5anim
+	{
+		frame	11										sound				snd_gear
+		frame	12										fx					fx_swipe						pounder_tip
+		frame	15										ai_attack_melee 	melee_popup
+		frame   12										sound_voice			snd_breathe
+		frame	22										sound				snd_beep
+		frame	26										footstep
+	}
+	anim melee_attack3									models/monsters/lt_tank/melee_c.md5anim
+	{
+		frame	12										sound				snd_gear
+		frame	13										fx					fx_swipe						pounder_tip
+		frame	18										ai_attack_melee 	melee
+		frame   14										sound_voice			snd_growl
+	}
+
+	anim pain1											models/monsters/lt_tank/pain_std.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	anim pain2											models/monsters/lt_tank/pain_std2.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	anim pain_concussive								models/monsters/lt_tank/pain_con.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	anim pain_concussive2								models/monsters/lt_tank/pain_knock.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}	
+	anim pain_concussive3								models/monsters/lt_tank/pain_knock.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}	
+	anim pain_concussive4								models/monsters/lt_tank/pain_knock.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}	
+	anim pain_stream_start								models/monsters/lt_tank/pain_strm_start.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	anim pain_stream									models/monsters/lt_tank/pain_strm_loop.md5anim
+	anim pain_stream_end								models/monsters/lt_tank/pain_strm_end.md5anim
+
+	anim damaged										models/monsters/lt_tank/damaged.md5anim
+	{
+		frame	1										sound_voice			snd_pain
+		frame	2										fx					fx_destroy_arm					r_bigShield_nadeLauncher
+	}
+	anim damage_walk									models/monsters/lt_tank/damage_walk.md5anim
+	{
+		frame	10,15,43,60								sound				snd_beep
+		frame	14,19,47,64								footstep
+		frame	20,35,52,67								sound				snd_gear
+	}
+	anim damage_melee_attack							models/monsters/lt_tank/damage_melee_a.md5anim
+	{
+		frame	9										sound				snd_gear
+		frame	9										fx					fx_swipe						pounder_tip
+		frame	15										ai_attack_melee 	melee_popup
+		frame	12										sound_voice			snd_pain
+	}
+	anim damage_pain									models/monsters/lt_tank/damage_pain_a.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	1										sound_voice			snd_pain
+	}
+	anim reposition_a									models/monsters/lt_tank/reposition_a.md5anim
+	{
+		frame	1										sound				snd_gear
+		frame	4,12									sound				snd_beep
+		frame	8,16									footstep
+	}
+	anim reposition_b									models/monsters/lt_tank/reposition_b.md5anim
+	{
+		frame	1										sound				snd_gear
+		frame	3,15									sound				snd_beep
+		frame	7,19									footstep
+	}
+	anim af_pose										models/monsters/lt_tank/af_pose.md5anim
+	{
+	}
+	anim run											models/monsters/lt_tank/charge.md5anim
+	{	
+		frame 1,10,18									footstep
+		frame 3,12								sound				snd_gear
+	}
+	
+	anim range_attack_torso								models/monsters/lt_tank/torso_only_attack.md5anim
+	{
+		frame 1											sound				snd_beep
+		frame 4											sound_voice			snd_breathe
+		frame 14,32										sound_weapon		snd_blaster_fire
+		frame 14,32										fx					fx_blaster_muzzleflash	gun_effect
+		frame 14,14,14,32,32,32							ai_attack			blaster		gun_effect
+		frame 3,9,17,24									sound				snd_gear
+	}
+
+	anim powerup_start									models/monsters/lt_tank/powerup_start.md5anim
+	{
+		frame 1											sound				snd_gear
+		frame 1											sound_weapon				snd_powerup_start
+	}
+	anim powerup_loop									models/monsters/lt_tank/powerup_loop.md5anim
+	{
+		frame 1												fx					fx_powerup	hips
+		frame 1												fx					fx_powerup	rt_femur
+		frame 1												fx					fx_powerup	rt_knee
+		frame 1												fx					fx_powerup	rt_ankle
+		frame 1												fx					fx_powerup	lft_femur
+		frame 1												fx					fx_powerup	lft_knee
+		frame 1												fx					fx_powerup	lft_ankle
+		frame 1												fx					fx_powerup	chest
+		frame 1												fx					fx_powerup	shoulders
+		frame 1												fx					fx_powerup	r_spad
+		frame 1												fx					fx_powerup	r_clavicle
+		frame 1												fx					fx_powerup	r_uparm
+		frame 1												fx					fx_powerup	r_elbo
+		frame 1												fx					fx_powerup	l_spad
+		frame 1												fx					fx_powerup	l_clavicle
+		frame 1												fx					fx_powerup	l_uparm
+		frame 1												fx					fx_powerup	l_elbo
+		frame 1												fx					fx_powerup	l_wrist
+		frame 1												fx					fx_powerup	head_1
+		frame 1												sound_weapon				snd_powerup_loop
+		frame 10											sound				snd_beep
+		frame 22											sound				snd_gear
+	}
+	anim powerup_end									models/monsters/lt_tank/powerup_end.md5anim
+	{
+		frame 1											sound				snd_gear
+		frame 1											sound_weapon				snd_powerup_end
+	}
+	
+	anim damage_pain_std								models/monsters/lt_tank/dam_pain_std.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	anim damage_pain_strm_start							models/monsters/lt_tank/dam_pain_strm_start.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	anim damage_pain_strm_loop								models/monsters/lt_tank/dam_pain_strm_loop.md5anim
+	anim damage_pain_strm_end								models/monsters/lt_tank/dam_pain_strm_end.md5anim
+	anim damage_pain_con								models/monsters/lt_tank/dam_pain_con.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+	}
+	
+	anim charge_uppercut								models/monsters/lt_tank/charge_uppercut.md5anim
+	{
+		frame	7,17,34										footstep
+		frame	10										sound				snd_gear
+		frame	11										fx					fx_swipe						pounder_tip
+		frame	9										sound				snd_beep
+		frame	13										ai_attack_melee 	melee_popup
+		frame   12										sound_voice			snd_growl
+	}
+
+	anim	damage_run			models/monsters/lt_tank/damage_run.md5anim
+	{
+		frame 1,10,18									footstep
+		frame 3,12								sound				snd_gear
+	}
+	anim	pain_charge			models/monsters/lt_tank/pain_charge.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+		frame	8,18										footstep
+	}
+	anim	damage_pain_charge		models/monsters/lt_tank/pain_damage_charge.md5anim
+	{
+		frame	2										sound_voice			snd_pain
+		frame	8,18										footstep
+	}
+
+	// --------- ANIMS THAT AREN'T CURRENTLY BEGIN REFERENCED GO BELOW HERE --------------
+	
+}
+
+/*
+===============================================================================
+
+	Light Tank Attacks
+
+===============================================================================
+*/
+
+entityDef damage_lightTank_plasma
+{
+	"damage"					"10"
+	"gib"						"0"
+	"pain"						"stream"
+}	
+
+entityDef damage_lightTank_residualPlasma
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"2"
+	"radius"					"50"
+}	
+
+entityDef projectile_lightTank_plasma
+{
+	"inherit"					"projectile_base"
+	"mins"						"-16 -16 -16"
+	"maxs"						"16 16 16"
+	"def_damage"				"damage_lightTank_plasma"
+	"velocity"					"500"
+	"fuse"						".9"
+	"snd_fly"					"effects_fire_deep2"
+	
+	"gravity"					".25"
+		
+	"fx_impact"					"effects/fire/spot_32_6sec"
+	"fx_impact_actor"			"effects/monsters/light_tank/plasma_impact_actor"
+
+	"delay_residual"			"1.5"
+	"residual_time"				"6"
+	"def_residual_damage"		"damage_lightTank_residualPlasma"
+}
+
+
+entityDef damage_lightTank_fireball_direct
+{
+	"damage"							"50" //30
+	"push"								"100"
+	"knockback"							"100"
+//	"mtr_splat"							""
+//	"gib"								"1"
+}
+
+entityDef damage_lightTank_fireball_splash
+{
+	"damage"							"30" //20
+	"radius"							"150"
+	"knockback"							"50"
+	"push"								"50"
+	"gib"								"0"
+}
+
+entityDef projectile_lightTank_fireball
+{
+	"inherit"							"projectile_blaster_base"
+//	"inherit"							"projectile_base"
+//	"spawnclass"						"idGuidedProjectile"
+
+//	"mins"								"-8 -8 -8"
+//	"maxs"								"8 8 8"
+	"cone"								"2"
+
+	"velocity"							"650 0 0"
+	"speed"								"650"
+	
+	"fx_fly"							"effects/monsters/light_tank/fireball_fly.fx"
+	"fx_impact"							"effects/monsters/light_tank/fireball_burst.fx"
+	"fx_detonate"						"effects/monsters/light_tank/fireball_burst.fx"
+	"fx_fuse"							"effects/monsters/light_tank/fireball_burst.fx"
+
+	"def_damage"						"damage_lightTank_fireball_direct"
+	"def_splash_damage"					"damage_lightTank_fireball_splash"
+
+	"snd_fly"							"effects_fire_small"
+}
+
+entityDef melee_lightTank
+{
+	"inherit"						"melee_monster_base"
+	"damage"						"30"
+	"knockback"						"50"
+	"snd_miss"						"lt_tank_mace_swing"
+	"snd_hit"						"lt_tank_mace_impact"
+
+	"kickDir"						".7 0 .3"
+	"kick_time"						"300"
+	"kick_amplitude"				"1"
+	
+	"blob_time"						"500"
+	"mtr_blob"						"textures/decals/genericdamage"
+	"blob_x"						"0"
+	"blob_y"						"-125"
+	"blob_width"					"400"
+	"blob_height"					"400"
+	
+	"dv_time"						"500"
+	"dv_scale"						".1"
+	
+	"tv_time"						"500"
+	
+	"fx_wound"						""
+	"snd_flesh"						"bullet_impact_flesh"	
+
+	"deathPush"					"100"
+	"deathPushMin"				"3000 350"
+	"deathPushMax"				"5000 500"	
+}
+
+entityDef melee_lightTank_popup
+{
+	"inherit"						"melee_lightTank"
+	"knockback"						"80"
+	"kickDir"						".5 0 .75"
+	"damage"						"65"
+}
+
+entityDef projectile_lightTank_miniballz
+{
+	"inherit"						"projectile_strogg_marine_blaster"
+
+	"spawnclass"					"rvDriftingProjectile"
+
+	"driftOffset"					"40"
+	"driftSpeed"					"100"
+	"driftTime"						".4"
+	"speed"							"200"
+
+	"fx_fly"						"effects/monsters/light_tank/miniball_fly.fx"
+}
+
+/*
+===============================================================================
+
+	Light Tank Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_lt_tank
+{
+	"inherit"						"actor_default"
+	"editor_var script_postWeaponDestroyed"				"Script executed when flamethrower is destroyed."
+
+	// --------------------------------- Actions ------------------------------------
+	"action_flameThrower"				"1"
+	"action_flameThrower_rate"			"2" //3
+	"action_flameThrower_minRange"			"64"
+	"action_flameThrower_maxRange"			"325"
+
+	"action_rangedAttack"				"1"
+	"action_rangedAttack_rate"			"2" //5
+	"action_rangedAttack_anim"			"range_attack_torso"
+	"action_rangedAttack_state"			"Torso_RangedAttack"
+	"action_rangedAttack_minRange"			"300"
+	"action_rangedAttack_maxRange"			"800"
+	"action_rangedAttack_overrideLegs"		"0"
+	"action_rangedAttack_nopain"			"1" //aw
+
+	"actionTimer_evade_rate"			"2"
+
+	"action_evadeLeft"				"1"
+	"action_evadeLeft_anim"				"reposition_a"
+	"action_evadeLeft_minRange"			"120"
+
+	"action_evadeRight"				"1"
+	"action_evadeRight_anim"			"reposition_b"
+	"action_evadeRight_minRange"			"120"
+
+	"action_meleeAttack"				"1"
+	"action_meleeAttack_maxRange"			"88"
+	"melee_range"					"88"
+
+	"action_chargeAttack"				"1"
+	"action_chargeAttack_rate"			"5" //4
+	"action_chargeAttack_maxRange"			"100"
+	"action_chargeAttack_anim"			"charge_uppercut"
+	//"action_chargeAttack_nopain"			"1" //aw
+
+	"action_powerup"				"1"
+	"action_powerup_rate"				"5" //10
+	"action_powerup_state"				"Torso_PowerUp"
+	"action_powerup_minRange"			"100"
+	"action_powerup_maxRange"			"800"
+	"action_powerup_nopain"				"1"
+
+	// --------------------------------- Body ------------------------------------
+	"spawnclass"					"rvMonsterLightTank"
+	"model"							"model_monster_lt_tank"
+	"ragdoll"						"monster_light_tank"
+	"size"							"48 48 88"
+	"use_aas"						"aas48"
+	"joint_eyeOffset"				"Rt_EyeBall"
+	"joint_chestOffset"				"chest"
+
+	// --------------------------------- Combat ----------------------------------
+	"attackRange"					"0 500" //300 -aw
+	"health"						"750" //500 -aw
+//	"health_damagedThreshold"		"160"
+	"flamethrowerHealth"			"275" //160
+	"bone_focus"					"eye_target"
+	"missile_visibility_joint"		"gun_effect"
+	
+
+	"tactical_ranged"				"1"
+	"tactical_rush"					"1"
+	"tactical_cover"				"0"
+	"tactical_hide"					"0"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"				"*head_1"
+	"damage_zone legs"				"*hips BODY_MAIN origin SPINNER"
+	"damage_zone flamethrower"		"*r_elbo"
+	"damage_scale head"				"1.5" //2
+	"damage_scale legs"				".75"
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_melee"				"melee_lightTank"
+	"def_attack_melee_popup"		"melee_lightTank_popup"
+	"def_attack_plasma"				"projectile_lightTank_plasma"
+	"attack_plasma_accuracy"		"2"
+	"def_attack_fireball"			"projectile_lightTank_fireball"
+	"attack_fireball_accuracy"		"1"
+	"def_attack_blaster"			"projectile_lightTank_miniballz"
+//	"attack_blaster_accuracy"		"3"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"				"0.2 0.2 0"
+	  "look_joint chest"			"0.2 0.2 0"
+	    "look_joint shoulders"		"0.2 0.2 0"
+		  "look_joint r_elbo"		"0.4 0.4 0"
+	      "look_joint head_1"		"0.4 0.4 0"
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"					"lt_tank_alert"	
+	"lipsync_rush"					"lt_tank_rush"
+	"lipsync_victory"				"lt_tank_victory"
+	
+	"snd_breathe"					"lt_tank_breath"					
+	"snd_growl"					"lt_tank_growl"						
+	"snd_gear"					"lt_tank_gear"
+	
+	"snd_footstep"					"lt_tank_stomp"	
+	"snd_footstep_sand"				"lt_tank_stomp"
+	"snd_footstep_dirt"				"lt_tank_stomp"
+	"snd_footstep_hollowmetal"			"lt_tank_stomp"
+	"snd_footstep_rock"				"lt_tank_stomp"
+	"snd_beep"					"lt_tank_beeps"
+					
+	"snd_pain"					"lt_tank_pain"
+	"snd_death"					"lt_tank_die"							
+	"snd_mace_swing"				"lt_tank_mace_swing"
+	"snd_flame_start"				"lt_tank_flame_start"
+	"snd_flame_whoosh"				"lt_tank_flame_whoosh"
+	"snd_powerup_start"				"lt_tank_powerup_start"
+	"snd_powerup_loop"				"lt_tank_powerup_loop"
+	"snd_powerup_end"				"lt_tank_powerup_end"
+	"snd_blaster_fire"				"smarine_gun"
+	
+	"snd_bounce"					"generic_creature_fall_metal"
+	
+	"sound_bone"					"jaw"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_swipe"					"effects/monsters/grunt/swipe_attack.fx"	
+	"fx_destroy_arm"				"effects/monsters/light_tank/destroy_arm.fx"
+	"fx_destroy_arm_trail"				"effects/monsters/light_tank/destroy_arm_trail.fx"
+	"fx_flame_muzzle"				"effects/monsters/light_tank/flame_mflash.fx"
+	"fx_fireball_charge"				"effects/monsters/light_tank/fireball_charge.fx"
+	"fx_fireball_muzzle"				"effects/monsters/light_tank/fireball_mflash.fx"
+	"fx_blaster_muzzleflash"			"effects/monsters/strogg_marine/blaster_mflash.fx"
+	"fx_powerup"					"effects/monsters/light_tank/powerup.fx"
+
+//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"				"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"				"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport4.fx"
+
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"					"Light Tank"
+	"dbText"					"Description Text of the Light Tank"
+	"sg_name"					"Light Tank"
+	"sg_category"					"MiniBosses"
+}

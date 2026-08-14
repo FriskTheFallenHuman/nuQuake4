@@ -1,0 +1,422 @@
+
+
+sound med_labs_anderson_neck_break
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/impact/gibs/neck_break
+	shakeData 0 hxzyutecajgvfcbghjcbaa
+}
+
+
+sound med_labs_scanner_arm_move1
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/scanner_arm/move1
+	shakeData 0 aaafpoutvrtwvxvswuwtvrrsrvvywrwuvsuxuwuvvustxzyrtqtursqromjhhiffgeeddcccbbaaaaaaa
+}
+
+
+sound med_labs_scanner_arm_move2
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/scanner_arm/move2
+	shakeData 0 kmljzutttwxxrvxvvtttqrnoqmmnnnqkkjiighhhhhgfefdddccccbbbbaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_scanner_arm_move3
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/scanner_arm/move3
+	shakeData 0 edeefhifkrnlijooihkiiihiihhiihihhiiihihghjijiliijiijjilkjiijijikliijikikjijiiiihijihlkjihhhjkiiokiulkqiiggebbaaaa
+}
+
+
+sound med_labs_bodytable_servo
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/bodytable/servo1
+	shakeData 0 aaacdeehjjjmnoosursotqsqrqoppsomqooonlnmonmkrjkgikigfffffecbbbaaaaaaaa
+	sound/objects/bodytable/servo2
+	shakeData 1 cdiooommopqqrrqpsnqrnqpqnrropnnnnrnonomonnomnmlolnjjihgdcbaaa
+}
+
+
+sound med_labs_bodytable_stop
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+
+	sound/objects/bodytable/stop
+	shakeData 0 eoqsnkjifdcbaaaa
+}
+
+
+sound med_labs_gurney_start
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+
+	sound/ambience/med_labs/gurney/start
+	shakeData 0 fkkjkomkjjlkljmjlkmspoimmlnkkmlmknjlkllmilmjjjjhjgihghgfgfihd
+}
+
+
+sound med_labs_gurney_move
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+	looping
+
+	sound/ambience/med_labs/gurney/move
+	shakeData 0 ggefehigfgfhihgfffggghfgffegfhgegfgkgfgfhjgfefgggghghffffghfhifhfgegegehffgieffefged
+}
+
+
+sound med_labs_gurney_stop
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+
+	sound/ambience/med_labs/gurney/stop
+	shakeData 0 npptptrqpoooqkkokkkkklijiihhijgheeeeddcccdcbbbaaaaaaaaaaaa
+}
+
+
+sound med_labs_gurney_grind
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+	shakes		0.2
+
+	sound/ambience/med_labs/gurney/grind
+	shakeData 0 ovuuuvuwvrrsopoolkkjihgfeeeeddccbbbaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_extend
+{
+	minDistance	314
+	maxDistance	1574
+	volumeDb	-6
+
+	sound/ambience/recomp/barrel_arm/motor1
+	shakeData 0 acefilomlkmmnkhgilghgggfhffffefefggfiighhieefeeeeddddccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/motor2
+	shakeData 1 aaeedgfhhhhiigffeeeeffeffeffffeeddffefghhddddccbbcccccccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/motor3
+	shakeData 2 bcffhhgffkljhiigffffgfffffddccccbcbbccdeddefddcccbcccccdcccbbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/motor4
+	shakeData 3 abcdfhhhjifghgeehggihgiiihiihgfgghghjjiihjggefeffgfeeddccccccdedbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/motor5
+	shakeData 4 abdedgihiikjhkighggggfggggggfeeffeggffghgfeedcccbcdccccbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_rotate
+{
+	minDistance	472
+	maxDistance	1574
+	volumeDb	0
+
+	sound/ambience/recomp/barrel_arm/rotate1
+	shakeData 0 fddddefgjlmnljtqmpqruskoqsppmnlprmlrqrnrsqqoqompsmlnrnqnmwsmslqnrphmlohlnijhedcddbccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/rotate2
+	shakeData 1 fddeeedkkjkmkmplnvvyprptyvzrsqsutrwpswyuwttrpsqwoquxsxywvxxzypztnmkjljffgdecdccbbbbbaabaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/rotate3
+	shakeData 2 bfeefggimqoqmjlnnsqolypqsrrqplklouprorurpqlmjoiktpmnsjnnnqqtsltuuqrlnlqjjjhmjmjjhhedccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_rotate_deep
+{
+	minDistance	472
+	maxDistance	2354
+	volumeDb	0
+
+	sound/ambience/med_labs/tube_arm/rotate1
+	shakeData 0 gdddcddccdddfghgjkklinmilijiktqjljoooqqsnusjkilormsrmqppjolmkmlpoqjmjkmqoqornmsopqprlnomooolmklpsljmlimmrqmjrikmmjupoomjrqjlkqmnrjlnhfkmilnnhfkijnidejgheeddccccdcbbbccbbbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/med_labs/tube_arm/rotate2
+	shakeData 1 bgdddddeeddeddhjijjhijkkkllnmpglknvvvprypoqrjourkyvoyxporspoqtqsrrrnxsqlpspwzxpvvvulntrnnmsonqvvlopptuytprmxxowwlvxwtxvyyxqnyununkikkfejmhiifdefgfddeebcdcccbcbbbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/med_labs/tube_arm/rotate3
+	shakeData 2 abgedecefffgfgihklommomrnjijkkmlkosmqoommjzoqmoqsjprrrmqpmkijkjllnnunpnonnjrtmronoqnilimjillifhjrokpllnksojioklnohnpmrtloslkouulmupmrojkknllppiihkjjgflljhjmigjffhheedddcccccccbbbbbbbbbababbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_rotate2
+{
+	minDistance	472
+	maxDistance	1574
+	volumeDb	-9
+
+	sound/ambience/recomp/barrel_arm/rotate1
+	shakeData 0 fddddefgjlmnljtqmpqruskoqsppmnlprmlrqrnrsqqoqompsmlnrnqnmwsmslqnrphmlohlnijhedcddbccbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/rotate2
+	shakeData 1 fddeeedkkjkmkmplnvvyprptyvzrsqsutrwpswyuwttrpsqwoquxsxywvxxzypztnmkjljffgdecdccbbbbbaabaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/recomp/barrel_arm/rotate3
+	shakeData 2 bfeefggimqoqmjlnnsqolypqsrrqplklouprorurpqlmjoiktpmnsjnnnqqtsltuuqrlnlqjjjhmjmjjhhedccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_lock
+{
+	minDistance	314
+	maxDistance	1574
+	volumeDb	0
+
+	sound/ambience/recomp/barrel_arm/lock1
+	shakeData 0 tyyzyuoqqquvljihihnslhjihgebceccbcbcdccbbcbbbaabaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_unlock
+{
+	minDistance	314
+	maxDistance	1574
+	volumeDb	0
+
+	sound/ambience/recomp/barrel_arm/unlock1
+	shakeData 0 wwsspmokjhigdfihihhjjjkolkihjhjhhihffgghfeddddddcdfeeccbbcbbabbaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_glass
+{
+	minDistance	314
+	maxDistance	1574
+	volumeDb	-6
+
+	sound/ambience/med_labs/glass_tubes/glass_tube1
+	shakeData 0 mgiheddddddeddddedegefdfddgefedcdccbbbbbbabaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/med_labs/glass_tubes/glass_tube2
+	shakeData 1 sqqpliijigffeeeeeceedddddddfeeeiffedcdcdccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/med_labs/glass_tubes/glass_tube3
+	shakeData 2 mgeddgeffedhdedddefccccbccedlgihlkgeeedddccbbbaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_arm_deep_thud
+{
+	minDistance	314
+	maxDistance	1968
+	volumeDb	0
+	shakes		0.1
+
+	sound/ambience/med_labs/glass_tubes/deep_thud
+	shakeData 0 abfqpknologkmnnlpnwupsqsxwlmqlpmnklljjjphiigglijgefeigeffgihfdegfeiiedghgeefedeccefdeggdcdedcdecbbcbcbbbccbbccbbbbbbbbaaaaabbaababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tub_arm_steam
+{
+	minDistance	39
+	maxDistance	1574
+	volumeDb	-12
+
+	sound/effects/generic/steam_01
+	shakeData 0 ahkoommmnnnlmkjjhiggffeeedbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_02
+	shakeData 1 aaaflklllnllkjkkjhighghgfgffffeddddddcccbcbbbbbbbbbbbbbbaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_03
+	shakeData 2 hnlnonoonqqnrnonmmlhggfeegfffffhkiihhggffeddccbbbbaaaaaaaaaaaa
+	sound/effects/generic/steam_04
+	shakeData 3 fotvusrsstrtrsrrsqqqpppqroqprpooopnqopooqjgfddaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/effects/generic/steam_05
+	shakeData 4 iillmlnlnllkljjkkijiiiiiiighgghfgffgffffgfefeeeeeefeeefeeddddeddecddccdcccccccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_scanner_move
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/scanner_move
+	shakeData 0 xzxyxwxsqnprtqqlojjklmgigihihjjiijilihjijijijiikkikkijkjlnyyyxwwwwvssovvpulpolkmgjfffefdfccddddbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_scanner_stop
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/elevators/elev_large_stop
+	shakeData 0 lnlsqoolruuopjmiiiikhhgeeeccbbaaa
+}
+
+
+sound med_labs_scanner_scan
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/scan
+	shakeData 0 abccdeeefegfgjijkknkmsnqostvwtnppnnlnmmljkihiffffgdddccbbbbaaa
+}
+
+
+sound med_labs_slurp_loop
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	looping
+
+	leadin	sound/ambience/med_labs/slurp_leadin
+	sound/ambience/med_labs/slurp_loop
+	shakeData 0 xiqgrvnfnkkqewrgvtpieoejsrmoifnhedmtkilipjmwhwhjnhdguejhnmrvmgqqspurhsmnihtrpjhshoognttlvrnplimfmskrimfrmrpgglfkkpklinoerlt
+}
+
+
+sound med_labs_heartbeat
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	global
+
+	sound/ambience/med_labs/heartbeat
+	shakeData 0 aabbcbbcdceeefhijeefiglimkkopomplqqvusknppsppxooqmplotuvptqsmnornmnzrnonnskkpuzzlmvsjroptrojpnmloqoqzntoqlomroxzxhkmqrtnopslllmorulzlupplmpogztifkqhinuojjijgglkjmjzqonnljjhjfyznmihfighikikiiijkjjfymgljhdhgclyydgifgefhidffefedeexekjeeddcdwlcdcccbbcdcccbcbbcbcbnjdebbaaabbkkdcbbaaaaaaaaaaaaaaaaiecaaaaaaaaddaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_inside_tube
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	global
+	looping
+
+	sound/ambience/med_labs/inside_tube
+	shakeData 0 fhffhgggeeeegdegecgfhigejiifddedffddegfgceffgfgfhihggghegffhegfedegghggdhjgfhfedecfdgfffecdegheefegedeggdfhkfeghceecfifeifdhfdfedefideiefffeggeeehhjfhfdefffddddeegfgigecdddhffgefhnedghmejfcdgfefhdeghefifdighgeeefgggiehifddihcfffhed
+}
+
+
+sound med_labs_tube_empty
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/tube_empty
+	shakeData 0 nwxwxstqtropmnsvuqtrvvqqtvxxyxustrpnmllhhgghfhgihiihiigghgghkhhgghhggfffefeededcdccccbbbbbbbbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_tube_land
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/tube_land
+	shakeData 0 tvwwssmpmmmjhjhfeeddddcccbcbbbbbabbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound med_labs_scientist_saw_cut
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/scientist_cut
+	shakeData 0 yzzvqpqrtvpooviefedgdeddedceddaaaaaaaaaa
+}
+
+
+sound med_labs_leg_machine
+{
+	minDistance	200
+	maxDistance	1200
+	volumeDb	0
+
+	sound/ambience/med_labs/leg_machine
+	shakeData 0 hijkjjjiiihghghgfggfgfgffffegigfighllijifggggfeffgffggffegegegkmnjiljjihinhigiihfhgihgfhhhfhgtnzvojksrgffgfgefeffgegefefefeigfegeghifinsnjjkilprjjjivolkkuzrwkhjgihjnqlmgmoomhgjkihgggfikixvpnmmkiihhjhihmmmkjjhihhijhhhifhgigiispinjpsqoikjhihhfgihhijiigjjjkmjlnvxyuotwsmmjmmjlijhjjiqninlghhiiiigjhfffgfgffffffgfffggggfhgggffffefffhggggggffgfeeegffgfhefhepyxyyyzzxzyxyxwzxxyyzwzzyxyyvywxvyyyyzwyxxxzvwwwzxxzxxwxvwtpkkigighgfgfgifffhffeffeefffgjwnnkrnqnpqopooonoorovpoomsnmmlklkkospxwqupokmnpkknlkojiimiijkkljwroqpruqsrrrrutpurvppnvqrnnmppyvxorwsssppqqmpoonmkllqtlkplkjlkkkmlkkmqniplniklnjnstsvrtqsyuqmnnkllmmnkmyspoplnooournpkksmnmommwspnookjmjjkjlkjillikjkfjgjfjfieihgeggeedfedddddccccbbccbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound medlabs_dropship_crash
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+	global
+
+	sound/ambience/med_labs/dropship_crash
+	shakeData 0 tsrtsttossvtnrtssssvruvvtsssrtwuvsvsprtrtstottturuquptqttpwvxsututvvttvwvstusrtxsvtrutrsuuruussrqvttsuupstususuwrvuuutttuuwsuqwvwsswvrwvwvttwvwvsxtvywzwwwwxwwwwvxtxvwxzyxywywvwuvuzwyyswwwxxvuutuvutuusrvxutwustttututusswrtuuspttrrtsqrsqropsrsqqpqnpqnooqplnpoopoolpompoplmppomnolkmlkjijkhggeddcbaa
+}
+
+
+sound medlabs_dropship_missile
+{
+	minDistance	1000
+	maxDistance	3000
+	volumeDb	0
+
+	sound/ambience/med_labs/missile
+	shakeData 0 aceilsvzxwuwvyzvxuwuxwvvtyvwuyvyzxxwvuusuxxvuzxvxwtwvxwvvuttstuqponlknmjliihhghfgffeeeedccccbbaaa
+}
+
+
+sound med_labs_glass_chamber_close
+{
+	minDistance	200
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/med_labs/glass_chamber_close
+	shakeData 0 qyxxsvzzyyzxywurorpopmilihhfefededdccddcbcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound medlabs_dropship_explosion
+{
+	minDistance	400
+	maxDistance	4000
+	volumeDb	-6
+	global
+
+	sound/ambience/convoy/cannon_explosion
+	shakeData 0 zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyyyytwrstsrrpqrpsqoqnopnqoonpomopnqnopklknnlmlmlljljjjkjjlkjkhigfgfggefeeeeeedddgdcdcccccbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound medlabs_dropship_explosion2
+{
+	minDistance	400
+	maxDistance	4000
+	volumeDb	-3
+	global
+
+	sound/ambience/convoy/truck_explosion
+	shakeData 0 eowztppqszzzzzzzzzzzzzzzzyxzzyzwvzwuyuzyzyyqpyxxvzrqqqonkklokopnjjlmljighhigeefeegeggdcbbccbddbbcbbabbbaabcabbbbabbaaabaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+

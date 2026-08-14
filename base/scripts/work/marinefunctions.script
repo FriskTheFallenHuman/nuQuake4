@@ -1,0 +1,16 @@
+namespace marineFunctions
+{
+
+void HookedBodyStartRagdoll(entity self)
+{
+	string	hookBaseName;
+	entity	hookBase;
+	
+	hookBaseName = self.getKey("hookBase");
+	hookBase = sys.getEntity(hookBaseName);
+	self.setKey("bindConstraint Constraint1", "hinge b_hook hook");
+	self.startRagdoll();
+	self.bindToJoint(hookBase, "hook_base_mover", 1);
+}
+
+} // marineFunctions

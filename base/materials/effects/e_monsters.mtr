@@ -1,0 +1,211 @@
+
+
+gfx/effects/monsters/slimy_transfer/puke
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/monsters/slimy_transfer/puke2
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map gfx/effects/monsters/slimy_transfer/puke2.tga
+		vertexColor
+
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke2_alpha
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke2_alpha.tga
+	translucent
+	twoSided
+	noShadows
+	DECAL_MACRO
+
+	{
+		blend blend
+		map gfx/effects/monsters/slimy_transfer/puke2_alpha.tga
+		vertexColor
+		rgba		decalFade[ DecalLife ]
+
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke2_decal
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend GL_ZERO, GL_ONE
+		map gfx/effects/monsters/slimy_transfer/puke2.tga
+		vertexColor
+		rgba		decalFade[ DecalLife ]
+
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke2_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke2_add.tga
+	translucent
+	twoSided
+	noShadows
+	DECAL_MACRO
+
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke2_add.tga
+		vertexColor
+		rgba		decalFade[ DecalLife ]
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke_drip_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_drip.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke_drip.tga
+		vertexColor
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke_drip_group_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_drip_group.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke_drip_group.tga
+		vertexColor
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke_trail1_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_trail1.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke_trail1.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/monsters/slimy_transfer/puke_trail2_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_trail2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke_trail2.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/monsters/slimy_transfer/puke_trail3_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_trail3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke_trail3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke_trail1
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_trail1.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/monsters/slimy_transfer/puke_trail1.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/monsters/slimy_transfer/puke_trail2
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_trail2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/monsters/slimy_transfer/puke_trail2.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/monsters/slimy_transfer/puke_trail3
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_trail3.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/monsters/slimy_transfer/puke_trail3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke_fly
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_fly.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend blend
+		map gfx/effects/monsters/slimy_transfer/puke_fly.tga
+		vertexColor
+	}
+}
+
+gfx/effects/monsters/slimy_transfer/puke_fly_add
+{
+	qer_editorimage gfx/effects/monsters/slimy_transfer/puke_fly_add.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/monsters/slimy_transfer/puke_fly_add.tga
+		vertexColor
+	}
+}

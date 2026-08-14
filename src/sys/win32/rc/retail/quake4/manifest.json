@@ -1,0 +1,27 @@
+{
+  "source": "E:\\projects\\Quake4Alpha\\quake4.exe",
+  "source_size": 4919296,
+  "source_sha256": "3b713ad6114ae9a8427bc23c7317c736d86c67419eb8a1e275c9591aaf7be6ea",
+  "resource_directory_rva": "0x013b5000",
+  "resource_directory_size": 613584,
+  "emitted": [
+    {
+      "resource_type": "2",
+      "resource_name": "4001",
+      "language": "1033",
+      "rva": "0x013ba9f0",
+      "path": "bitmaps/4001_1033.bmp",
+      "size": 589880,
+      "sha256": "bef78ce90873fdad6eaa8030056a5cc9d9b6e4a4973c44e893109bd183745ce1"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "1024",
+      "language": "1033",
+      "rva": "0x013ba990",
+      "path": "icons/1024_1033.ico",
+      "size": 22486,
+      "sha256": "0d6c0d7b3293db959c4268743b6fabc05b7b242438641acd005a15f079c96a37"
+    }
+  ]
+}

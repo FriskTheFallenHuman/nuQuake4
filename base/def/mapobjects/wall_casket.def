@@ -1,0 +1,67 @@
+/***********************************************************************
+WALL CASKET
+***********************************************************************/
+
+export wall_casket
+{
+	options -prefix CAS_ -keep fx1 fx2 fx3 fx4 fx5 -align ALL -scale .3937 -sourcedir work/models/mapobjects/strogg/casket/animation -destdir models/mapobjects/strogg/machines/casket 
+
+	mesh	idle_temp.ma				-dest mesh
+	anim	idle.ma						-dest idle
+	anim	open_anim.ma				-dest open_anim
+	anim	intro_open.ma				-dest intro_open
+	
+}
+
+model model_env_wall_casket
+{
+	mesh					models/mapobjects/strogg/machines/casket/mesh.md5mesh
+	anim idle				models/mapobjects/strogg/machines/casket/idle.md5anim
+	anim open_anim			models/mapobjects/strogg/machines/casket/open_anim.md5anim
+	{
+		rate 1.5
+		frame	1			sound	snd_open
+		frame   1			skin	skins/mapobjects/strogg/machines/casket/IM_casket_empty
+		frame 	10			fx		fx_doors1			fx2 
+		frame 	10			fx		fx_doors1_inv		fx1
+		frame 	50			fx		fx_doors2			fx2 
+		frame 	50			fx		fx_doors2_inv		fx1 	
+		frame 	50			fx		fx_casket_main		fx5 
+		frame 	50			fx		fx_casket_main_inv		fx4 	
+	}
+	anim intro_open			models/mapobjects/strogg/machines/casket/intro_open.md5anim
+	{
+		frame	1			sound	snd_open
+		frame   1			skin	skins/mapobjects/strogg/machines/casket/IM_casket_empty
+		frame 	10			fx		fx_doors1			fx2 
+		frame 	10			fx		fx_doors1_inv		fx1
+		frame 	50			fx		fx_doors2			fx2 
+		frame 	50			fx		fx_doors2_inv		fx1 	
+		frame 	50			fx		fx_casket_main		fx5 
+		frame 	50			fx		fx_casket_main_inv	fx4 	
+	}
+	
+}
+
+entityDef env_wall_casket
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+	
+	"combatModel"			"1"
+	
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_wall_casket"
+	"anim"					"open_anim"
+	
+	"snd_open"				"iron_maiden_casket"
+	
+	"fx_doors1"						"effects/mapobjects/casket_doorsteam.fx"
+	"fx_doors1_inv"					"effects/mapobjects/casket_doorsteam_inv.fx"
+	"fx_casket_main"				"effects/mapobjects/casket_mainsteam.fx"
+	"fx_casket_main_inv"			"effects/mapobjects/casket_mainsteam_inv.fx"
+	"fx_doors2"						"effects/mapobjects/casket_door2.fx"
+	"fx_doors2_inv"					"effects/mapobjects/casket_door2_inv.fx"
+}

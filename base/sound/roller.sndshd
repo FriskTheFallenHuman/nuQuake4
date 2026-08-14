@@ -1,0 +1,86 @@
+
+
+sound roller_alert
+{
+	description	"I see you!"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/roller/alert
+	shakeData 0 zzzzzzzzzzzzzzzzzzzzzzzzzzzzxxwvtsnojffeffcaaaaaaaaaa
+}
+
+
+sound roller_unfold
+{
+	description	"guns come out"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/roller/unfold
+	shakeData 0 kzzzzzzzzxyzrlkqrhedcbbbaaaaaaaaaaaaa
+}
+
+
+sound roller_unfold2
+{
+	description	"guns come out"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/roller/unfold2
+	shakeData 0 xzyzzzxzyvuttvmkmhghggeeddcbbbbbaaaaaa
+}
+
+
+sound roller_move
+{
+	description	"rolling"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+	frequentlyUsed
+	looping
+
+	sound/strogg/roller/roll_loop
+	shakeData 0 ywxxvxxvwvxtuxnxrxxxuyywvuvytwxuxyuwtvvwxpxuwwxuvwsvyztvwvxxwwsuvxvzvztvytwxuuyxwsvwvvwuwxsxwxxwsrutz
+}
+
+
+sound roller_prepare
+{
+	description	"rolling"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+
+	sound/strogg/roller/prepare
+	shakeData 0 bcimstywsmmnmnpqpqqprqqpqppqqqprqrqrokfhebaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound roller_gun
+{
+	description	"gun fire"
+
+	minDistance	200
+	maxDistance	2000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/turrets/convoy_turretfire01
+	shakeData 0 zzwxtppjhgedccbbaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/turrets/convoy_turretfire02
+	shakeData 1 zzxvvuojihfeddccbbbcbbaaaaaaaaaaaaaa
+}
+
+
+

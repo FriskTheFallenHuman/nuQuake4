@@ -1,0 +1,58 @@
+
+gfx/effects/screen
+{
+	qer_editorimage gfx/effects/old/screen.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/old/screen.tga
+		vertexColor
+	}
+}
+
+
+textures/test/marine_decal_alpha
+{
+	noShadows
+//	translucent	
+	qer_editorimage gfx/test/marine_decal_d.tga
+
+	{	
+//		blend diffuseMap
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map gfx/test/marine_decal_d.tga
+//		alphaTest .5
+	}
+
+/*	{
+		blend bumpMap
+		map _white  
+		red		.5
+		green	.5		
+		blue	1
+	}
+
+	{
+		blend specularMap
+		map _white
+		red		.05
+		green	.08
+		blue	.07
+	}
+*/
+}
+
+
+textures/test/526_decal
+{
+	noShadows
+	qer_editorimage gfx/test/526_decal_d.tga
+
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map gfx/test/526_decal_d.tga
+	}
+
+}

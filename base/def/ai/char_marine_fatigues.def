@@ -1,0 +1,544 @@
+/*
+===============================================================================
+
+	Marine Fatigues (char_marine_fatigues)
+
+===============================================================================
+*/
+export char_marine_fatigues
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -keep SPINNER body shoulders neckcontrol legs_channel head_channel -parent hips body -parent waist SPINNER -parent SPINNER body  -sourcedir work/models/characters/marine_fatigues/mocap_animations -destdir models/characters/marine_fatigues_mocap
+	addoptions -skipmesh dummy_head_mesh
+
+	mesh	fatigue_marine_mesh.ma					-dest fatigue_marine_mesh
+	anim	fatigue_marine_mesh.ma					-dest fatigue_marine_idle
+	anim	af_pose.ma								-dest af_pose
+
+	anim	doctor_thinking.ma					-dest thinking
+	anim	strauss_talking.ma					-dest strauss_talking
+	anim	fatigue_idle_drinking.ma				-dest drinking			
+	anim	m_sitting_working_consoles_1.ma		-dest sitting_working_consoles_1
+	anim	m_sitting_working_consoles_2.ma		-dest sitting_working_consoles_2
+	anim	m_sitting_working_consoles_3.ma		-dest sitting_working_consoles_3
+	anim	m_sitting_working_consoles_4.ma		-dest sitting_working_consoles_4
+	anim	m_sitting_working_consoles_5.ma		-dest sitting_working_consoles_5
+	anim	lookingdown_gui_1.ma				-dest looking_down_gui_1
+	anim	lookingdown_gui_2.ma				-dest looking_down_gui_2
+	anim	lookingdown_gui_3.ma				-dest looking_down_gui_3
+	anim	idle_against_wall.ma				-dest idle_against_wall
+	anim	idle_against_wall_arms_back.ma		-dest idel_against_wall_arms_back
+	anim	working_on_knee.ma					-dest working_on_knee
+	anim	working_wall_panel_2.ma				-range 282 351 -dest working_wall_panel
+	anim	working_wall_panel_2.ma				-range 351 445 -dest working_wall_panel_2
+	anim	working_wall_panel_2.ma				-range 445 590 -dest working_wall_panel_3
+	anim	mcc1_d_chamber_loop.ma				-dest mcc1_up_from_chair
+	anim	mcc1_d_chamber_loop.ma				-dest mcc1_d_chamber_loop
+	anim	mcc1_d_chamber_action.ma			-dest mcc1_d_chamber_action
+	anim	mcc1_reaction_seated_1.ma			-dest mcc1_reaction_seated_1
+	anim	mcc1_reaction_seated_2.ma			-dest mcc1_reaction_seated_2
+	anim	weaponless_walk_1.ma				-dest weaponless_walk_fast
+	anim	weaponless_walk_2.ma				-dest weaponless_walk_slow
+	anim	weaponless_walk_back.ma				-dest weaponless_walk_backwards
+	anim	weaponless_walk_left.ma				-rotate 90 -dest weaponless_walk_left
+	anim	weaponless_walk_right.ma			-rotate 90 -dest weaponless_walk_right
+	anim	weaponless_run01.ma					-dest weaponless_run
+	anim	onbackworking_Nick_work.ma			-dest onbackworking_Nick
+	anim	onbackworking_Nick_spark.ma			-dest onbackworking_Nick_spark
+	anim	onbackworking_Zack_work.ma			-dest onbackworking_Zack
+	anim	onbackworking_Zack_spark.ma			-dest onbackworking_Zack_spark
+	anim	onbackworking_Zack_work_idle.ma		-dest onbackworking_Zack_work_idle
+	anim	weld_loop.ma						-dest weld_loop
+//	anim	weld_loop_short.ma					-dest weld_loop_short  		//doesn't exist for fatigue_marine.  there is a copy in char_marine.def
+	anim	sit_sleeping.ma						-dest sit_sleeping
+	anim	sarge_briefing_1.ma					-dest sarge_briefing_1
+	anim	sarge_briefing_2.ma					-dest sarge_briefing_2
+	anim	sarge_briefing_3.ma					-dest sarge_briefing_3
+	anim	sarge_briefing_4.ma					-dest sarge_briefing_4
+	anim	sarge_briefing_5.ma					-dest sarge_briefing_5
+	anim	sarge_briefing_6.ma					-dest sarge_briefing_6
+	anim	sarge_briefing_7.ma					-dest sarge_briefing_7
+	anim	weaponless_points.ma				-range 91 151 -dest weaponless_point_right
+	anim	weaponless_points.ma				-range 151 215 -dest weaponless_point_left	
+	anim	weaponless_points.ma				-range 215 276 -dest weaponless_point_front
+	anim	weaponless_points.ma				-range 276 387 -dest weaponless_point_back
+	anim	weaponless_points.ma				-range 387 481 -dest weaponless_point_down
+	anim	weaponless_points.ma				-range 481 567 -dest weaponless_point_up
+	anim	idle_sitting_1.ma					-dest idle_sitting_1		//doesn't exist for fatigue_marine.  there is a copy in char_marine.def
+	anim	idle_sitting_2.ma					-dest idle_sitting_2		//doesn't exist for fatigue_marine.  there is a copy in char_marine.def
+	anim	weaponless_idle_1.ma					-dest weaponless_idle_1
+	anim	weaponless_idle_2.ma		-range 13 60 -dest weaponless_idle2_start
+	anim	weaponless_idle_2.ma		-range 60 362 -dest weaponless_idle2_loop
+	anim	weaponless_idle_2.ma		-range 362 457 -dest weaponless_idle2_end
+	anim	weaponless_idle_3.ma		-range 1 60 -dest weaponless_idle3_start
+	anim	weaponless_idle_3.ma		-range 60 310 -dest weaponless_idle3_loop
+	anim	weaponless_idle_3.ma		-range 493 548 -dest weaponless_idle3_end
+	anim	weaponless_idle_4.ma		-range 10 65 -dest weaponless_idle4_start
+	anim	weaponless_idle_4.ma		-range 65 155 -dest weaponless_idle4_loop
+	anim	weaponless_idle_4.ma		-range 350 395 -dest weaponless_idle4_end
+	anim	weaponless_idle_5.ma		-range 35 90 -dest weaponless_idle5_start
+	anim	weaponless_idle_5.ma		-range 90 165 -dest weaponless_idle5_loop
+	anim	weaponless_idle_5.ma		-range 470 500 -dest weaponless_idle5_end
+	anim	weaponless_idle_6.ma		-range 1 60 -dest weaponless_idle6_start
+	anim	weaponless_idle_6.ma		-range 60 140 -dest weaponless_idle6_loop
+	anim	weaponless_idle_6.ma		-range 350 432 -dest weaponless_idle6_end
+
+// --------------------------------- MCC1 BRIEFING CINEMATIC ANIMATIONS ---------------------------------
+	anim	MCC_1B_Player_walks_in_stops1.ma 						-dest mcc1_cin_player_enters
+ 	anim	MCC_1B_Stand_Salute_1.ma 								-dest mcc1_cin_marine_salute1
+ 	anim	MCC_1B_Stand_Salute_2.ma 								-dest mcc1_cin_marine_salute2
+ 	anim	MCC_1B_Stand_Salute_3.ma 								-dest mcc1_cin_marine_salute3
+ 	anim	MCC_1B_Stand_Salute_4.ma 								-dest mcc1_cin_marine_salute4
+ 	anim	MCC_1B_Stand_Salute_5.ma 								-dest mcc1_cin_marine_salute5
+ 	anim	MCC_1B_Stand_Salute_6.ma 								-dest mcc1_cin_marine_salute6
+ 	anim	MCC_1B_Stand_Salute_7.ma 								-dest mcc1_cin_marine_salute7
+ 	anim	MCC_1B_Stand_Salute_8.ma 								-dest mcc1_cin_marine_salute8
+ 	anim	MCC_1B_Morris_Intro_1.ma 								-dest mcc1_cin_morris_intro
+	anim	MCC_1B_Rhodes_replies.ma					  			-dest mcc1_cin_rhodes_replies
+	anim	MCC_1B_Harper_entance.ma 								-dest mcc1_cin_Harper_enters1
+	anim	MCC_1B_Voss_entance.ma 									-dest mcc1_cin_Voss_enters1	
+ 	anim	MCC_1B_Kane_enters_1.ma 								-dest mcc1_cin_Kane_sits
+ 	anim	MCC_1B_Harper_enters_Intro_1.ma 						-dest mcc1_cin_Harper_starts_talking
+ 	anim	MCC_1B_Voss_enters_sits_1.ma 							-dest mcc1_cin_Voss_sits	
+ 	anim	MCC_1B_Voss_talks_2.ma									-dest mcc1_cin_voss_talks1	
+	anim	MCC_1B_Reaction_Strassa.ma 								-dest mcc1_cin_strassa_talks
+//NA anim	MCC_1B_Reaction_2.ma 									-dest mcc1_cin_Player_reacts
+//NA anim	MCC_1B_Reaction_3.ma 									-dest mcc1_cin_morris_reacts	
+ 	anim	MCC_1B_idle1.ma 										-dest mcc1_cin_idle1
+ 	anim	MCC_1B_idle2.ma 										-dest mcc1_cin_idle2
+ 	anim	MCC_1B_idle3.ma 										-dest mcc1_cin_idle3
+ 	anim	MCC_1B_idle4.ma 										-dest mcc1_cin_idle4
+ 	anim	MCC_1B_idle5.ma 										-dest mcc1_cin_idle5
+ 	anim	MCC_1B_idle6.ma 										-dest mcc1_cin_idle6
+ 	anim	MCC_1B_idle7.ma 										-dest mcc1_cin_idle7
+ 	anim	MCC_1B_idle8.ma 										-dest mcc1_cin_idle8
+ 	anim	MCC_1B_idle9.ma 										-dest mcc1_cin_idle9
+ 	anim	MCC_1B_Harper_long_idle.ma 								-dest mcc1_cin_harper_longIdle
+ 	anim	MCC_1B_Cortez_long_idle.ma 								-dest mcc1_cin_cortez_longIdle
+ 	anim	MCC_1B_idle_rhodes.ma 									-dest mcc1_cin_idle_rhodes
+ 	anim	MCC_1B_anderson_shot1.ma 								-dest mcc1_cin_anderson_shot1
+ 	anim	MCC_1B_sledge_shot1.ma 									-dest mcc1_cin_sledge_shot1
+ 	anim	MCC_1B_cortez_shot1.ma	 								-dest mcc1_cin_cortez_shot1
+ 	anim	MCC_1B_strassa_shot1.ma 								-dest mcc1_cin_strassa_shot1
+ 	anim	MCC_1B_rhodes_shot1.ma	 								-dest mcc1_cin_rhodes_shot1
+ 	anim	MCC_1B_bidwell_shot1.ma 								-dest mcc1_cin_bidwell_shot1
+ 	anim	MCC_1B_harper_shot14.ma 								-dest mcc1_cin_harper_shot14
+ 	anim	MCC_1B_cortez_shot14.ma 								-dest mcc1_cin_cortez_shot14
+ 	anim	MCC_1B_Harper_leave_room_1.ma 							-dest mcc1_cin_harper_leaves
+ 	anim	MCC_1B_Voss_nods_and_leaves_room_1.ma 					-dest mcc1_cin_voss_leaves
+//NA 	anim	MCC_1B_Cortez_looks.ma 								-dest mcc1_cin_cortez_looks
+ 	anim	MCC_1B_Camera_guy.ma									-range 1 3145 -dest mcc1_cin_camera_guy
+// 	anim	MCC_Kane_Reaction_7.ma									-dest kane_reaction
+// 	anim	MCC_Kane_Reaction_rt_1.ma								-dest kane_reaction_rt	 	
+
+	anim	kane_reaction_1B.ma										-dest kane_reaction_1
+	anim	kane_reaction_arms_folded.ma							-dest kane_reaction_2
+
+
+// --------------------------------- MCC2 BRIEFING CINEMATIC ANIMATIONS ---------------------------------
+	anim	MCC2_Strauss_talks_2.ma 						-dest mcc2_cin_strauss_talks2
+	anim	MCC2_Strauss_talks_1.ma 						-dest mcc2_cin_strauss_talks1
+ //	anim	MCC2_Idle_strauss.ma 							-dest mcc2_cin_idle_strauss
+	anim	MCC2_idle_6.ma 									-dest mcc2_cin_idle_kane
+	anim	MCC2_idle_4.ma 									-dest mcc2_cin_idle_sledge
+	anim	MCC2_idle_3.ma 									-dest mcc2_cin_idle_rhodes
+	anim	MCC2_idle_2.ma 									-dest mcc2_cin_idle_cortez
+	anim	MCC2_idle_1.ma 									-dest mcc2_cin_idle_morris
+	anim	MCC2_Morris_idle_shot11.ma 						-dest mcc2_cin_morris_idle_shot11
+	anim	MCC2_Rhodes_shot15.ma 							-dest mcc2_cin_rhodes_shot15
+	//NA anim	MCC2_Sit_down_3.ma 								-dest mcc2_cin_morris_sits
+ 	anim	MCC2_Stand_Salute_2.ma 						-dest mcc2_cin_morris_salutes
+ 	anim	MCC2_Stand_Salute_1.ma 						-dest mcc2_cin_sledge_salutes
+	anim	MCC2_Stand_Salute_5.ma 						-dest mcc2_cin_cortez_salutes
+ 	anim	MCC2_Stand_Salute_6.ma 						-dest mcc2_cin_strauss_salutes
+ 	anim	MCC2_Stand_Salute_4.ma 						-dest mcc2_cin_rhodes_salutes
+	anim	MCC2_Morris_giving_orders_2b.ma					-dest mcc2_cin_morris_talks
+	anim	MCC2_Sledge_responds_1.ma						-dest mcc2_cin_sledge_responds
+	anim	MCC2_Harper_talks_1.ma						-dest mcc2_cin_harper_talks
+ 	anim	MCC2_Harper_enters.ma							-dest mcc2_cin_harper_enters
+	anim	MCC2_Sledge_escorts_1_1.ma						-dest mcc2_cin_sledge_escorts
+//NA anim	MCC2_Cortez_Stands_1.ma							-dest mcc2_cin_cortez_stands
+	anim	MCC2_Morris_scolds_Rhodes_1.ma 					-dest mcc2_cin_morris_scolds
+	anim	MCC2_Rhodes_leans_back_1.ma						-dest mcc2_cin_rhodes_leans
+	anim	MCC2_Sledge_sits_1.ma 							-dest mcc2_cin_sledge_sits
+	anim	MCC2_Sledge_shot15.ma 							-dest mcc2_cin_sledge_shot15
+	anim	MCC2_cortez_shot12.ma 							-dest mcc2_cin_cortez_shot12
+	anim	MCC2_Sledge_shot22.ma 							-dest mcc2_cin_sledge_shot22
+ 	anim	MCC2_camera_guy.ma 								-range 0 3040 -dest mcc2_cin_camera_guy
+
+// --------------------------------- OUTRO CINEMATIC ANIMATIONS ---------------------------------
+				
+	
+	addoptions -sourcedir work/models/cinematics/GAME_OUTRO/animation
+	anim	outro_morris.ma					-dest morris_idle
+	anim	outro_sledge.ma					-dest sledge_idle
+	anim	outro_cortez.ma					-dest cortez_idle
+	anim	outro_rhodes.ma					-dest rhodes_idle
+	anim	outro_strauss.ma	 			-dest strauss_idle
+
+
+	addoptions  -sourcedir work/models/characters/Officer/referenced
+	mesh	tempIdle.ma			-dest officer_mesh		
+	addoptions -sourcedir work/models/cinematics/GAME_OUTRO/animation	
+	anim	outro_harper.ma			-dest harper_idle
+}
+/*
+===============================================================================
+
+	Marine Fatigues
+
+===============================================================================
+*/
+
+model model_char_marine_fatigues
+{
+	mesh									models/characters/marine_fatigues_mocap/fatigue_marine_mesh.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim idle						models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim
+	anim walk						models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim unarmed_walk				models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim unarmed_idle				models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim	
+	
+	anim weaponless_walk_fast				models/characters/marine_fatigues_mocap/weaponless_walk_fast.md5anim
+	anim weaponless_walk_slow				models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim weaponless_walk_backwards			models/characters/marine_fatigues_mocap/weaponless_walk_backwards.md5anim
+	anim weaponless_walk_right				models/characters/marine_fatigues_mocap/weaponless_walk_right.md5anim
+	anim weaponless_walk_left				models/characters/marine_fatigues_mocap/weaponless_walk_left.md5anim
+	anim walk_backwards						models/characters/marine_fatigues_mocap/weaponless_walk_backwards.md5anim
+	anim walk_right							models/characters/marine_fatigues_mocap/weaponless_walk_right.md5anim
+	anim walk_left							models/characters/marine_fatigues_mocap/weaponless_walk_left.md5anim
+	anim run_backwards						models/characters/marine_fatigues_mocap/weaponless_walk_backwards.md5anim
+	anim run_right							models/characters/marine_fatigues_mocap/weaponless_walk_right.md5anim
+	anim run_left							models/characters/marine_fatigues_mocap/weaponless_walk_left.md5anim
+	anim weaponless_run						models/characters/marine_fatigues_mocap/weaponless_run.md5anim
+	anim run								models/characters/marine_fatigues_mocap/weaponless_run.md5anim
+	anim weaponless_idle_1					models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim
+	anim weaponless_idle_2					models/characters/marine_fatigues_mocap/weaponless_idle_2.md5anim
+	
+	anim af_pose							models/characters/marine_fatigues_mocap/af_pose.md5anim
+
+/* taking these off the base fatigues guy since they're only used in mcc anyway.
+
+	anim thinking							models/characters/marine_fatigues_mocap/thinking.md5anim
+	anim strauss_talking							models/characters/marine_fatigues_mocap/strauss_talking.md5anim
+	anim drinking							models/characters/marine_fatigues_mocap/drinking.md5anim
+	anim sitting_working_consoles_1			models/characters/marine_fatigues_mocap/sitting_working_consoles_1.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sitting_working_consoles_2			models/characters/marine_fatigues_mocap/sitting_working_consoles_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sitting_working_consoles_3			models/characters/marine_fatigues_mocap/sitting_working_consoles_3.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sitting_working_consoles_4			models/characters/marine_fatigues_mocap/sitting_working_consoles_4.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sitting_working_consoles_5			models/characters/marine_fatigues_mocap/sitting_working_consoles_5.md5anim
+	{
+		ai_look_head_only
+	}
+	anim looking_down_gui_1					models/characters/marine_fatigues_mocap/looking_down_gui_1.md5anim
+	anim looking_down_gui_2					models/characters/marine_fatigues_mocap/looking_down_gui_2.md5anim
+	anim looking_down_gui_3					models/characters/marine_fatigues_mocap/looking_down_gui_3.md5anim
+	anim idle_against_wall					models/characters/marine_fatigues_mocap/idle_against_wall.md5anim
+	{
+		ai_look_head_only
+	}
+	anim working_on_knee					models/characters/marine_fatigues_mocap/working_on_knee.md5anim
+	{
+		ai_look_head_only
+	}
+	anim working_wall_panel_2				models/characters/marine_fatigues_mocap/working_wall_panel_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim working_wall_panel_3				models/characters/marine_fatigues_mocap/working_wall_panel_3.md5anim
+	{
+		ai_look_head_only
+	}
+//	anim mcc1_up_from_chair					
+	anim mcc1_d_chamber_loop				models/characters/marine_fatigues_mocap/mcc1_d_chamber_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	anim mcc1_d_chamber_action				models/characters/marine_fatigues_mocap/mcc1_d_chamber_action.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	
+	anim onbackworking_Nick_work			models/characters/marine_fatigues_mocap/onbackworking_Nick.md5anim
+	{
+		ai_no_look
+	}
+	anim onbackworking_Nick_spark			models/characters/marine_fatigues_mocap/onbackworking_Nick_spark.md5anim
+	{
+		ai_no_look
+	}
+	anim onbackworking_Zack_work			models/characters/marine_fatigues_mocap/onbackworking_Zack.md5anim
+	{
+		ai_look_head_only
+	}
+	anim onbackworking_Zack_spark			models/characters/marine_fatigues_mocap/onbackworking_Zack_spark.md5anim
+	{
+		ai_look_head_only
+	}
+	anim onbackworking_Zack_work_idle		models/characters/marine_fatigues_mocap/onbackworking_Zack_work_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	anim weld_loop							models/characters/marine_fatigues_mocap/weld_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim sit_sleeping						models/characters/marine_fatigues_mocap/sit_sleeping.md5anim
+	{
+		ai_no_look
+	}
+	anim sarge_briefing_1					models/characters/marine_fatigues_mocap/sarge_briefing_1.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sarge_briefing_2					models/characters/marine_fatigues_mocap/sarge_briefing_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sarge_briefing_3					models/characters/marine_fatigues_mocap/sarge_briefing_3.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sarge_briefing_4					models/characters/marine_fatigues_mocap/sarge_briefing_4.md5anim
+	{
+		ai_no_look
+	}
+	anim sarge_briefing_5					models/characters/marine_fatigues_mocap/sarge_briefing_5.md5anim
+	{
+		ai_look_head_only
+	}
+	anim sarge_briefing_6					models/characters/marine_fatigues_mocap/sarge_briefing_6.md5anim
+	{
+		ai_no_look
+	}
+	anim sarge_briefing_7					models/characters/marine_fatigues_mocap/sarge_briefing_7.md5anim
+	{
+		ai_look_head_only
+	}
+	anim weaponless_point_right				models/characters/marine_fatigues_mocap/weaponless_point_right.md5anim
+	anim weaponless_point_left				models/characters/marine_fatigues_mocap/weaponless_point_left.md5anim
+	anim weaponless_point_front_fast		models/characters/marine_fatigues_mocap/weaponless_point_front.md5anim
+	anim weaponless_point_back				models/characters/marine_fatigues_mocap/weaponless_point_back.md5anim
+	anim weaponless_point_down				models/characters/marine_fatigues_mocap/weaponless_point_down.md5anim
+	anim weaponless_point_up				models/characters/marine_fatigues_mocap/weaponless_point_up.md5anim
+	anim idle_sitting_1			models/characters/marine_fatigues_mocap/idle_sitting_1.md5anim	
+	{
+		ai_no_look
+	}
+	anim idle_sitting_2			models/characters/marine_fatigues_mocap/idle_sitting_2.md5anim
+	{
+		ai_look_head_only
+	}
+	anim weaponless_idle2_start		models/characters/marine_fatigues_mocap/weaponless_idle2_start.md5anim
+	anim weaponless_idle2_loop		models/characters/marine_fatigues_mocap/weaponless_idle2_loop.md5anim
+	anim weaponless_idle2			models/characters/marine_fatigues_mocap/weaponless_idle2_loop.md5anim
+	anim weaponless_idle2_end		models/characters/marine_fatigues_mocap/weaponless_idle2_end.md5anim
+	anim weaponless_idle3_start		models/characters/marine_fatigues_mocap/weaponless_idle3_start.md5anim
+	anim weaponless_idle3_loop		models/characters/marine_fatigues_mocap/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3			models/characters/marine_fatigues_mocap/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3_end		models/characters/marine_fatigues_mocap/weaponless_idle3_end.md5anim
+	anim weaponless_idle4_start		models/characters/marine_fatigues_mocap/weaponless_idle4_start.md5anim
+	anim weaponless_idle4_loop		models/characters/marine_fatigues_mocap/weaponless_idle4_loop.md5anim
+	anim weaponless_idle4			models/characters/marine_fatigues_mocap/weaponless_idle4_loop.md5anim
+	anim weaponless_idle4_end		models/characters/marine_fatigues_mocap/weaponless_idle4_end.md5anim
+	anim weaponless_idle5_start		models/characters/marine_fatigues_mocap/weaponless_idle5_start.md5anim
+	anim weaponless_idle5_loop		models/characters/marine_fatigues_mocap/weaponless_idle5_loop.md5anim
+	anim weaponless_idle5			models/characters/marine_fatigues_mocap/weaponless_idle5_loop.md5anim
+	anim weaponless_idle5_end		models/characters/marine_fatigues_mocap/weaponless_idle5_end.md5anim
+	anim weaponless_idle6_start		models/characters/marine_fatigues_mocap/weaponless_idle6_start.md5anim
+	anim weaponless_idle6_loop		models/characters/marine_fatigues_mocap/weaponless_idle6_loop.md5anim
+	anim weaponless_idle6			models/characters/marine_fatigues_mocap/weaponless_idle6_loop.md5anim
+	anim weaponless_idle6_end		models/characters/marine_fatigues_mocap/weaponless_idle6_end.md5anim
+//	anim 	points						models/characters/marine_fatigues_mocap/points.md5anim
+
+	anim	idle_drinking_1				models/characters/marine_fatigues_mocap/drinking.md5anim
+	anim	kane_reaction1				models/characters/marine_fatigues_mocap/mcc1_reaction_seated_1.md5anim
+	anim	kane_reaction2				models/characters/marine_fatigues_mocap/mcc1_reaction_seated_1.md5anim
+	*/
+	
+}
+/*
+model model_char_marine_fatigues_unarmed
+{
+	inherit							model_char_marine_fatigues
+
+	anim idle						models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim
+	anim walk						models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim unarmed_walk				models/characters/marine_fatigues_mocap/weaponless_walk_slow.md5anim
+	anim unarmed_idle				models/characters/marine_fatigues_mocap/weaponless_idle_1.md5anim
+
+//	anim unarmed_walk				models/characters/marine/weaponless_walk_slow_fatigues.md5anim //point it to a normal walk//
+}
+*/
+	
+/*
+===============================================================================
+
+	Marine Fatigues Entity Definition
+
+===============================================================================
+*/
+
+/*
+entityDef char_marine_fatigues_unarmed
+{
+	"inherit"									"char_marine_fatigues"
+
+	// --------------------------------- Body ------------------------------------
+	"model"										"model_char_marine_fatigues_unarmed"
+}
+*/
+
+
+entityDef char_marine_fatigues
+{
+	"inherit1"							"actor_default"
+	"editor_ignore"							"0"
+	"editor_var healthRegen"					"If set, this character will regenerate this amount of health every second up to their max health.  1 is the lowest value."
+
+
+	// --------------------------------- Movement ------------------------------------
+	"walkRange"									"48"
+	"followRange"								"65 192"
+	"holdRange"									"250 450"	
+	"directionalMovement"						"1"
+	"attackRange"								"300 1000"
+	"walkTurn"									"0"
+
+	// --------------------------------- Combat ----------------------------------
+	"ammo"										"40"
+	"weaponPrefix"								"machinegun"
+	"minShots"									"5"	
+	"maxShots"									"10"
+	"painThreshold"								"1"
+	"aggressiveRange"							"384"
+	"tactical_Ranged"							"1"
+	"tactical_rush"								"1"
+	"tactical_cover"							"1"
+	"tactical_hide"								"1"
+	
+	"selfMeleeDamageScale"						"3"
+	
+	"visCrouchHeight"							"42"
+
+	"allowPlayerPush"							"1"
+	
+	"head_focus_rate"							"0.04"
+	
+	// --------------------------------- Body ------------------------------------
+	"model"										"model_char_marine_fatigues"
+	"team"										"0"
+	"size"										"32 32 72"
+	"use_aas"									"aas32"
+//	"articulatedFigure"							"marine3"
+//	"ragdoll"									"marine3"
+	"health"									"125"
+	"talks"										"0"
+	"npc_name"									"#str_107521"
+	"spawnclass"								"rvAITactical"
+	"fov"										"110"
+ 	"removeDelay"								"-1"
+ 	"burnaway"									"0"
+
+	"focus_range"								"128"
+	"lookAtPlayer"								"1"
+
+	"joint_head"								"chest"
+	"joint_eyeOffset"							"head_channel"
+	"joint_chestOffset"							"chest"
+
+	// --------------------------------- Combat ------------------------------------
+	"forceEnemy"								"0"
+	
+	"tactical_passive"							"1"
+
+	// --------------------------------- Flashlight -----------------------------
+/*
+	"joint_flashlight"							"MG_muzzle_flash"
+	"mtr_flashlight"							"gfx/lights/flashlight"
+	"flashlightColor"							"1 1 .9"
+	"flashlightRadius"							"400"
+	"flashlightAngle"							"15.0"
+	"flashlightTarget"							"1000 0 0"
+	"flashlightUp"								"0 350 0"
+	"flashlightRight"							"0 0 -350"
+	"flashlightPointLight"						"0"
+*/
+	
+	// --------------------------------- Look Joints -----------------------------
+
+	"look_joint waist"							"0.1 0.3 0"
+	  "look_joint chest"						"0.2 0.2 0"
+	    "look_joint shoulders"					"0.2 0.2 0"
+	      "look_joint legs_channel"				"0.3 0.3 0"
+
+	// --------------------------------- Sounds ----------------------------------
+
+	"snd_gun"									"npc_machinegun_fire"
+	"snd_flesh"									"bullet_impact_flesh"
+	"snd_footstep"								"npc_steps_solid_metal"
+	"snd_footstep_sand"							"player_steps_dirt"
+	"snd_footstep_dirt"							"player_steps_dirt"
+	"snd_footstep_hollowmetal"					"player_steps_hollow_metal"
+	"snd_footstep_rock"							"player_sounds_footstep"
+	"snd_glass_tap"								"generic_glass_tap"
+	"snd_gear"									"npc_gear_movement"
+	"snd_gun_ready"								"weapon_machinegun_bolt"
+	"snd_casing"								"brass_casing"
+	"snd_flashlight"							"weapon_blaster_flashlight"
+	"snd_base_flash"				"npc_machinegun_fire"
+	
+	"sound_bone"										"body"
+
+	// ---------------------------------- Gibs -----------------------------------
+	"gib"										"1"
+	"fx_gib"									"effects/monsters/gib.fx"
+
+	"def_dropGibItem1"							"moveable_gib_head_pork"
+	"dropGibItem1Joint"							"neckcontrol"
+
+	"def_dropGibItem2"							"moveable_gib_torso_pork"
+	"dropGibItem2Joint"							"chest"
+
+	"def_dropGibItem3"							"moveable_gib_rup_arm_pork"
+	"dropGibItem3Joint"							"r_up_arm"
+
+	"def_dropGibItem4"							"moveable_gib_left_waist_pork"
+	"dropGibItem4Joint"							"waist"
+
+	"def_dropGibItem5"							"moveable_gib_lup_leg_pork"
+	"dropGibItem5Joint"							"l_upleg"
+
+	"def_dropGibItem6"							"moveable_gib_rup_leg_pork"
+	"dropGibItem6Joint"							"r_upleg"
+
+	"def_dropGibItem7"							"moveable_gib_rup2_leg_pork"
+	"dropGibItem7Joint"							"r_loleg"
+
+	"def_dropGibItem8"							"moveable_gib_pelvis_pork"
+	"dropGibItem8Joint"							"hips"
+
+	"def_head"									"char_marinehead_default"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_base_flash"					"effects/weapons/machinegun/muzzleflash_world.fx"
+	"fx_blood_cough1"				"effects/player/blood_cough1"
+	"fx_blood_cough2"				"effects/player/blood_cough2"
+
+}
+

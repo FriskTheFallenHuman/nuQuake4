@@ -1,0 +1,760 @@
+guide textures/tram/tr_steptop32 generic_shader("tram/tr_steptop32")
+guide textures/tram/tr_wall_02_grime_stripe generic_Localvariant("tram/tr_wall_02", "tram/tr_wall_02_grime_stripe")
+guide textures/tram/tr_pipecap_01_dusty_label generic_Localvariant("tram/tr_pipecap_01", "tram/tr_pipecap_01_dusty_label")
+
+//road textures
+textures/tram/road1_1
+{
+	materialType solidmetal
+
+	qer_EditorImage		textures/tram/road1_1_d.tga
+	bumpMap addnormals	(textures/tram/road1_1_local.tga, heightmap ( textures/tram/road1_1_h.tga,4 ) )
+	diffuseMap			textures/tram/road1_1_d.tga
+	specularMap			textures/tram/road1_1_s.tga
+}
+
+
+
+guide textures/tram/tr_4floor_2 generic_Localvariant("tram/tr_4floor_2_dusty", "tram/tr_4floor_2")
+guide textures/tram/tr_4floor_3_dusty generic_Localvariant("tram/tr_4floor_2_dusty", "tram/tr_4floor_3_dusty")
+guide textures/tram/tr_4floor_4_dusty generic_Localvariant("tram/tr_4floor_2_dusty", "tram/tr_4floor_4_dusty")
+guide textures/tram/tr_support_03dusty_alpha generic_Localvalpha2("tram/tr_support_03_alpha", "tram/tr_support_03dusty_alpha")
+
+guide textures/tram/tr_45_wall_dusty_alpha generic_Localvariant ("tram/tr_45_wall_dusty_label", "tram/tr_45_wall_dusty")
+guide textures/tram/tr_alpha_railing_01_dusty generic_shader2sidedalpha_lv("tram/tr_alpha_railing_01_dusty", "tram/tr_alpha_railing_01")
+guide textures/tram/tr_alpha_railing_01end_dusty generic_shader2sidedalpha_lv("tram/tr_alpha_railing_01end_dusty", "tram/tr_alpha_railing_01end")
+guide textures/tram/tr_4floor_2_dusty generic_shader("tram/tr_4floor_2_dusty")
+guide textures/tram/tr_steptop16 generic_shader("tram/tr_steptop16")
+guide textures/tram/tr_support_02 generic_shader("tram/tr_support_02")
+guide textures/tram/tr_support_02dusty generic_Localvariant("tram/tr_support_02", "tram/tr_support_02dusty") 
+guide textures/tram/tr_support_02dusty_alpha generic_shader2sidedalpha_lv("tram/tr_support_02dusty_alpha", "tram/tr_support_02")
+guide textures/tram/tr_support_03_alpha generic_shader2sidedalpha_lv("tram/tr_support_03_alpha", "tram/tr_support_03")
+
+textures/tram/tr_support_04adusty_2sided
+{
+
+	qer_editorimage textures/tram/tr_support_04adusty_d
+	Twosided
+
+	bumpmap addnormals ( textures/tram/tr_support_04_local, heightmap ( textures/tram/tr_support_04adusty_h, 1 ) )
+	specularmap	textures/tram/tr_support_04adusty_s
+
+	{
+		blend 	diffusemap	
+		map	textures/tram/tr_support_04adusty_d
+		alphaTest .5
+	}
+}
+
+guide textures/tram/tr_support_05adusty generic_alpha_lv("tram/tr_support_05adusty", "tram/tr_support_05")
+
+textures/tram/tr_support_05adusty_2sided
+{
+
+	qer_editorimage textures/tram/tr_support_05adusty_d
+	Twosided
+
+	bumpmap addnormals ( textures/tram/tr_support_05_local, heightmap ( textures/tram/tr_support_05adusty_h, 1 ) )
+	specularmap	textures/tram/tr_support_05adusty_s
+
+	{
+		blend 	diffusemap	
+		map	textures/tram/tr_support_05adusty_d
+		alphaTest .5
+	}
+}
+guide textures/tram/tr_support_mod_01a generic_shader2sidedalpha_lv("tram/tr_support_mod_01a", "tram/tr_support_mod_01")
+guide textures/tram/tr_support_mod generic_shader("tram/tr_support_mod")
+guide textures/tram/tr_support_moddusty generic_Localvariant("tram/tr_support_mod", "tram/tr_support_moddusty")
+guide textures/tram/tr_ribbed_piece generic_shader("tram/tr_ribbed_piece")
+guide textures/tram/tr_ribbed_piecedusty generic_Localvariant("tram/tr_ribbed_piece", "tram/tr_ribbed_piecedusty")
+guide textures/tram/tr_trim_piece generic_shader("tram/tr_trim_piece")
+guide textures/tram/tr_4_ceiling1 generic_shader("tram/tr_4_ceiling1")
+guide textures/tram/tr_tunceiltop generic_shader_mi("tram/tr_tunceiltop")
+guide textures/tram/tr_step1_1 generic_glow("tram/tr_step1_1","tram/tr_step1_1_g")
+guide textures/tram/tr_step1_2 generic_glow("tram/tr_step1_2","tram/tr_step1_2_g")
+guide textures/tram/tr_ceiling_1 generic_shader("tram/tr_ceiling_1")
+guide textures/tram/tr_ceiling_2 generic_shader("tram/tr_ceiling_2")
+guide textures/tram/tr_floor_01 generic_shader_mi("tram/tr_floor_01")
+guide textures/tram/tr_floor_3 generic_shader("tram/tr_floor_3")
+guide textures/tram/tr_13_floor_1 generic_shader_mi("tram/tr_13_floor_1")
+guide textures/tram/tr_4_trim2 generic_shader("tram/tr_4_trim2")
+guide textures/tram/tr_1_trim2 generic_shader("tram/tr_1_trim2")
+guide textures/tram/tr_ceiling_3 generic_shader("tram/tr_ceiling_3")
+guide textures/tram/tr_4floor_1 generic_shader_mi("tram/tr_4floor_1")
+guide textures/tram/tr_1_floor1 generic_shader("tram/tr_1_floor1")
+guide textures/tram/tr_2_ceiling1 generic_shader("tram/tr_2_ceiling1")
+guide textures/tram/tr_4_trim1 generic_shader_mi("tram/tr_4_trim1")
+guide textures/tram/tr_floor_trim1_1 generic_shader("tram/tr_floor_trim1_1")
+guide textures/tram/tr_floor_trim1_2 generic_shader("tram/tr_floor_trim1_2")
+guide textures/tram/tr_grip_floor1 generic_shader("tram/tr_grip_floor1")
+guide textures/tram/tr_door_floor_piece1 generic_alphaglow("tram/tr_door_floor_piece1","tram/tr_door_floor_piece1_g")
+
+guide textures/tram/tr_tracktop generic_glow("tram/tr_step1_2","tram/tr_step1_2_g")
+
+guide textures/tram/tr_trim_07_dusty generic_Localvariant("tram/tr_trim_07", "tram/tr_trim_07_dusty")
+guide textures/tram/tr_45_wall_dusty generic_Localvariant("tram/tr_45_wall_dusty_label", "tram/tr_45_wall_dusty")
+guide textures/tram/tr_45_wall_dusty_label generic_shader("tram/tr_45_wall_dusty_label")
+guide textures/tram/tr_rail generic_shader("tram/tr_rail")
+guide textures/tram/tr_rail_dusty generic_Localvariant("tram/tr_rail","tram/tr_rail_dusty")
+guide textures/tram/tr_light_02 generic_shader("tram/tr_light_02")
+guide textures/tram/tr_pipecap_01 generic_Localvariant("tram/tr_pipecap", "tram/tr_pipecap_01")
+guide textures/tram/tr_pipecap_01_label generic_Localvariant("tram/tr_pipecap_01", "tram/tr_pipecap_01_label")
+guide textures/tram/tr_pipecap_01_dusty generic_Localvariant("tram/tr_pipecap_01", "tram/tr_pipecap_01_dusty")
+guide textures/tram/tr_pipecap_01_dusty2 generic_Localvariant("tram/tr_pipecap_01", "tram/tr_pipecap_01_dusty2")
+guide textures/tram/tr_trim_01_dusty generic_Localvariant("tram/tr_trim_01", "tram/tr_trim_01_dusty")
+guide textures/tram/tr_trim_02_dusty generic_Localvariant( "tram/tr_trim_02", "tram/tr_trim_02_dusty")
+guide textures/tram/tr_trim_02_dusty_label generic_Localvariant("tram/tr_trim_02", "tram/tr_trim_02_dusty_label")
+guide textures/tram/tr_trim_03_dusty generic_Localvariant("tram/tr_trim_03", "tram/tr_trim_03_dusty" )
+guide textures/tram/tr_trim_03_dusty_label generic_Localvariant("tram/tr_trim_03", "tram/tr_trim_03_dusty_label" )
+guide textures/tram/tr_trim_04_dusty generic_Localvariant("tram/tr_trim_04", "tram/tr_trim_04_dusty" )
+guide textures/tram/tr_trim_05_dusty generic_Localvariant("tram/tr_trim_05", "tram/tr_trim_05_dusty")
+guide textures/tram/tr_trim_06_grime generic_Localvariant( "tram/tr_trim_06", "tram/tr_trim_06_grime")
+guide textures/tram/tr_wall_01 generic_shader("tram/tr_wall_01")
+guide textures/tram/tr_wall_01_grime generic_Localvariant("tram/tr_wall_01", "tram/tr_wall_01_grime")
+guide textures/tram/tr_wall_01_label generic_Localvariant("tram/tr_wall_01", "tram/tr_wall_01_label")
+guide textures/tram/tr_wall_02_grime generic_Localvariant("tram/tr_wall_02", "tram/tr_wall_02_grime")
+guide textures/tram/tr_wall_02_grime_label generic_Localvariant("tram/tr_wall_02", "tram/tr_wall_02_grime_label")
+guide textures/tram/tr_wall_03_grime_label generic_Localvariant("tram/tr_wall_03", "tram/tr_wall_03_grime_label")
+guide textures/tram/tr_wall_03_grime generic_Localvariant("tram/tr_wall_03",  "tram/tr_wall_03_grime")
+guide textures/tram/tr_wall_04_grime_stripe generic_Localvariant("tram/tr_wall_04", "tram/tr_wall_04_grime_stripe")
+guide textures/tram/tr_wall_04_grime_label generic_Localvariant("tram/tr_wall_04", "tram/tr_wall_04_grime_label")
+guide textures/tram/tr_wall_05 generic_shader("tram/tr_wall_05")
+guide textures/tram/tr_wall_06 generic_shader("tram/tr_wall_06")
+guide textures/tram/tr_walltrim_02a generic_shader("tram/tr_walltrim_02a")
+guide textures/tram/tr_walltrim_02b generic_shader("tram/tr_walltrim_02b")
+guide textures/tram/tr_walltrim_01a generic_shader("tram/tr_walltrim_01a")
+guide textures/tram/tr_walltrim_03 generic_shader("tram/tr_walltrim_03")
+guide textures/tram/tr_walltrim_03a generic_shader("tram/tr_walltrim_03a")
+guide textures/tram/tr_walltrim_03a_2side generic_shader2sided("tram/tr_walltrim_03a")
+guide textures/tram/tr_walltrim_04 generic_shader("tram/tr_walltrim_04")
+guide textures/tram/tr_walltrim_04a generic_shader("tram/tr_walltrim_04a")
+guide textures/tram/tr_walltrim_05 generic_shader("tram/tr_walltrim_05")
+guide textures/tram/tr_walltrim_06 generic_shader("tram/tr_walltrim_06")
+guide textures/tram/tr_wall_04b generic_shader("tram/tr_wall_04b")
+guide textures/tram/tr_pillar_1_dusty generic_Localvariant("tram/tr_pillar_1", "tram/tr_pillar_1_dusty")
+guide textures/tram/tr_pillar_1_dusty_label generic_Localvariant("tram/tr_pillar_1", "tram/tr_pillar_1_dusty_label")
+guide textures/tram/tr_wall_01a_grime generic_Localvariant("tram/tr_wall_01a", "tram/tr_wall_01a_grime")
+guide textures/tram/tr_wall_01a_grime_label generic_Localvariant("tram/tr_wall_01a", "tram/tr_wall_01a_grime_label")
+guide textures/tram/tr_wall_02a generic_shader("tram/tr_wall_02a")
+guide textures/tram/tr_wall_04a_grime generic_Localvariant("tram/tr_wall_04a", "tram/tr_wall_04a_grime")
+guide textures/tram/tr_walltrim_01 generic_shader("tram/tr_walltrim_01")
+guide textures/tram/tr_walltrim_02_grime generic_shader("tram/tr_walltrim_02_grime")
+guide textures/tram/tr_pipecap_arnie_01 generic_shader("tram/tr_pipecap_arnie_01")
+guide textures/tram/tr_pipe_outside_01 generic_shader("tram/tr_pipe_outside_01")
+guide textures/tram/tr_pipe_outside_02 generic_shader("tram/tr_pipe_outside_02")
+guide textures/tram/tr_pipe_outside_05 generic_shader("tram/tr_pipe_outside_05")
+guide textures/tram/tr_trim_outside_03 generic_shader("tram/tr_trim_outside_03")
+guide textures/tram/tr_trim_outside_04 generic_shader("tram/tr_trim_outside_04")
+guide textures/tram/tr_trim_outside_05 generic_shader("tram/tr_trim_outside_05")
+guide textures/tram/tr_vent_outside_01 generic_shader("tram/tr_vent_outside_01")
+guide textures/tram/tr_wall_outside_01 generic_shader("tram/tr_wall_outside_01")
+guide textures/tram/tr_wall_outside_02 generic_shader("tram/tr_wall_outside_02")
+guide textures/tram/tr_wall_outside_04 generic_shader("tram/tr_wall_outside_04")
+guide textures/tram/tr_wall_outside_05 generic_shader("tram/tr_wall_outside_05")
+guide textures/tram/tr_wall_outside_07 generic_shader("tram/tr_wall_outside_07")
+guide textures/tram/tr_wall_outside_09 generic_shader("tram/tr_wall_outside_09")
+guide textures/tram/tr_wall_outside_10 generic_shader("tram/tr_wall_outside_10")
+guide textures/tram/tr_wall_outside_11 generic_shader("tram/tr_wall_outside_11")
+guide textures/tram/tr_wall_outside_12 generic_shader("tram/tr_wall_outside_12")
+guide textures/tram/tr_wall_outside_13 generic_shader("tram/tr_wall_outside_13")
+guide textures/tram/tr_45_wall_grime generic_shader("tram/tr_45_wall_grime")
+
+guide textures/tram/trim3_1 generic_shader("tram/trim3_1")
+guide textures/tram/walltrim1_1 generic_shader("tram/walltrim1_1")
+
+textures/tram/road1_1_smolder
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_EditorImage		textures/tram/road1_1_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/tram/road1_1_local.tga, heightmap ( textures/tram/road1_1_h.tga, 4 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/tram/road1_1_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/tram/road1_1_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+textures/tram/road1_1cap
+{
+	materialType solidmetal
+
+	qer_EditorImage		textures/tram/road1_1cap_d.tga
+	bumpMap addnormals	( textures/tram/road1_1cap_local.tga, heightmap ( textures/tram/road1_1cap_h.tga,4 ) )
+	diffuseMap			textures/tram/road1_1cap_d.tga
+	specularMap			textures/tram/road1_1cap_s.tga
+}
+
+textures/tram/road1_1cap_smolder
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_EditorImage		textures/tram/road1_1cap_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/tram/road1_1cap_local.tga, heightmap ( textures/tram/road1_1cap_h.tga, 4 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/tram/road1_1cap_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/tram/road1_1cap_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+
+textures/tram/road1_2
+{
+	materialType solidmetal
+
+	qer_EditorImage		textures/tram/road1_2_d.tga
+	bumpMap addnormals	( textures/tram/road1_2_local.tga, heightmap ( textures/tram/road1_2_h.tga,4 ) )
+	diffuseMap			textures/tram/road1_2_d.tga
+	specularMap			textures/tram/road1_2_s.tga
+}
+
+textures/tram/road1_2_smolder
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_EditorImage		textures/tram/road1_2_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/tram/road1_2_local.tga, heightmap ( textures/tram/road1_2_h.tga, 4 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/tram/road1_2_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/tram/road1_2_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+/*	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+*/
+}
+
+//end road textures
+
+textures/tram/tr_support_04adusty_scroll
+
+{
+
+	qer_editorimage textures/tram/tr_support_04adusty_d.tga
+	noShadows
+
+
+	{
+		blend	bumpmap
+		map		addnormals ( textures/tram/tr_support_04_local.tga, heightmap ( textures/tram/tr_support_04adusty_h.tga, 1 ) )
+		scroll time * 0, time * .5
+			
+	}
+	
+
+	{
+		blend	specularmap
+		map		textures/tram/tr_support_04adusty_s.tga       
+		scroll time * 0, time * .5
+	}
+
+
+	{       
+	      	blend	diffuseMap 
+		map	textures/tram/tr_support_04adusty_d.tga
+		alphaTest .5
+		scroll time * 0, time * .5
+	}
+
+
+
+
+}
+
+textures/tram/ceil_light1_blue
+{
+	qer_editorimage textures/common_lights/ceil_light1_d.tga
+	bumpMap addnormals ( textures/common_lights/ceil_light1_local.tga, heightmap ( textures/common_lights/ceil_light1_h.tga, 1 ) )
+	diffusemap	textures/common_lights/ceil_light1_d.tga
+	specularmap	textures/common_lights/ceil_light1_s.tga
+
+	{
+		blend		add
+		map			textures/common_lights/ceil_light1_g.tga
+		red		.9
+		green		1
+		blue		.99
+	}
+}
+
+textures/tram/flare_blue_64
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+	{
+		blend add
+		map _quadratic
+		
+		red		.9
+		green		1
+		blue		.99
+		alpha	.1
+		vertexcolor
+	}
+}
+
+
+
+textures/tram/small_light7_ns_orange
+
+
+{
+	qer_EditorImage		textures/common_lights/small_light7.tga
+	nonSolid
+	noShadows
+	bumpMap			textures/common_lights/small_light7_local.tga
+	diffuseMap		textures/common_lights/small_light7_d.tga
+	specularMap		textures/common_lights/small_light7_s.tga
+	{
+		blend		add
+		map			textures/common_lights/small_light7_add.tga
+		red		1.000000 
+		green		.59
+		blue		0.01
+	}
+}
+
+
+
+// guide textures/common_lights/strip_light1 generic_glow_mi ("common_lights/strip_light1", "common_lights/strip_light1_g"  )
+
+textures/tram/stip_light1_off_white
+
+
+
+{
+	qer_editorimage textures/common_lights/strip_light1_d.tga
+
+
+	bumpmap addnormals ( textures/common_lights/strip_light1_local.tga, heightmap ( textures/common_lights/strip_light1_h.tga, 1 ) )
+	diffusemap	textures/common_lights/strip_light1_d.tga
+	specularmap	textures/common_lights/strip_light1_s.tga
+
+	{
+		blend		add
+		map			textures/common_lights/strip_light1_g.tga
+		red		.82
+		green		.73
+		blue		.66
+	}
+
+
+}
+
+textures/tram/flare_off_white_64
+
+
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		12
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red		.82
+		green		.73
+		blue		.66
+		
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+
+
+textures/tram/stip_light2_orange
+
+
+
+{
+	qer_editorimage textures/common_lights/strip_light2_d.tga
+
+
+	bumpmap addnormals ( textures/common_lights/strip_light2_local.tga, heightmap ( textures/common_lights/strip_light2_h.tga, 1 ) )
+	diffusemap	textures/common_lights/strip_light2_d.tga
+	specularmap	textures/common_lights/strip_light2_s.tga
+
+	{
+		blend		add
+		map			textures/common_lights/strip_light2_g.tga
+		red		1
+		green		.53
+		blue		.17
+	}
+
+
+}
+
+textures/tram/flare_orange_64
+
+
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red		1
+		green		.53
+		blue		.17
+		
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+
+
+
+// guide textures/common_lights/rect_light10 generic_glow_mi ("common_lights/rect_light10", "common_lights/rect_light10_g"  )
+
+
+textures/tram/rect_light10
+
+{
+	qer_editorimage textures/common_lights/rect_light10_d.tga
+
+
+	bumpmap addnormals ( textures/common_lights/rect_light10_local.tga, heightmap ( textures/common_lights/rect_light10_h.tga, 1 ) )
+	diffusemap	textures/common_lights/rect_light10_d.tga
+	specularmap	textures/common_lights/rect_light10_s.tga
+
+	{
+		blend		add
+		map			textures/common_lights/rect_light10_g.tga
+		
+		
+		
+	}
+
+
+}
+
+textures/tram/flare_white_64
+
+
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		10
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+	{
+		blend add
+		map _quadratic
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+
+
+textures/tram/rect_light10_orange
+{
+	qer_editorimage textures/common_lights/rect_light10_d.tga
+
+	bumpmap addnormals ( textures/common_lights/rect_light10_local.tga, heightmap ( textures/common_lights/rect_light10_h.tga, 1 ) )
+	diffusemap	textures/common_lights/rect_light10_d.tga
+	specularmap	textures/common_lights/rect_light10_s.tga
+
+	{
+		blend		add
+		map			textures/common_lights/rect_light10_g.tga
+		red		1
+		green		.53
+		blue		.17
+	}
+}
+
+
+textures/tram/flare_red_64
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		10
+	qer_EditorImage	textures/common_misc/QER_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red		1
+		green		.27
+		blue		.02
+		
+		alpha	.1
+		vertexcolor
+	}
+
+}
+
+
+//  guide textures/floors/floor_06a generic_alpha_mi("common_floors/floor_06a")
+
+
+textures/tram/floor_06a
+{
+
+	noshadows
+	qer_editorimage textures/common_floors/floor_06a_d.tga
+
+	bumpMap addnormals ( textures/common_floors/floor_06a_local.tga, heightmap ( textures/common_floors/floor_06a_h.tga, 1 ) )
+	specularmap	textures/common_floors/floor_06a_s.tga
+	{       
+		blend			diffusemap 
+		map			textures/common_floors/floor_06a_d.tga
+		alphaTest		.5
+	}
+}
+
+//----------------------------------------------------------------------------------
+textures/tram/big_Red_flare
+{	
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 	37 + ( 3 *sintable[time] )
+	qer_editorimage	textures/common_misc/QER_flare.tga
+
+	{
+		blend		add
+		map			_quadratic
+		colored
+		vertexColor
+		Red		.91	
+		Green		.3 
+		Blue		.05 
+	}
+}
+
+
+//----------------------------------------------------------------------------------
+textures/tram/big_orange_flare
+{	
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 	37 + ( 3 *sintable[time] )
+	qer_editorimage	textures/common_misc/QER_flare.tga
+
+	{
+		blend		add
+		map			_quadratic
+		colored
+		vertexColor
+		Red		1	
+		Green		.53 
+		Blue		.05 
+	}
+}
+
+textures/tram/tr_45_wall_dusty_label_ut
+{
+	qer_editorimage textures/tram/tr_45_wall_dusty_label_d.tga
+	unSmoothedTangents
+	
+	bumpMap addnormals	( textures/tram/tr_45_wall_dusty_label_local.tga, heightmap ( textures/tram/tr_45_wall_dusty_label_h.tga, 3 ) )
+	specularMap			textures/tram/tr_45_wall_dusty_label_s.tga       
+    diffuseMap 			textures/tram/tr_45_wall_dusty_label_d.tga
+}
+
+textures/tram/tr_alpha_railing_01_dusty_ns
+{
+	qer_editorimage textures/tram/tr_alpha_railing_01_dusty_d.tga
+	nonSolid
+	
+	bumpMap addnormals	( textures/tram/tr_alpha_railing_01_local.tga, heightmap ( textures/tram/tr_alpha_railing_01_dusty_h.tga, 3 ) )
+	specularMap			textures/tram/tr_alpha_railing_01_dusty_s.tga       
+
+	{
+	    blend diffuseMap
+	    map 	textures/tram/tr_alpha_railing_01_dusty_d.tga
+	    alphaTest	.5
+	}
+	   
+}
+
+
+
+
+textures/tram/rect_light4_red
+{
+	qer_editorimage textures/common_lights/rect_light4_d.tga
+
+	bumpmap textures/common_lights/rect_light4_local.tga
+	diffusemap	textures/common_lights/rect_light4_d.tga
+	specularmap	textures/common_lights/rect_light4_s.tga
+
+	{
+		blend		add
+		map			textures/common_lights/rect_light4_g.tga
+		red		1
+		green		.27
+		blue		.02
+	}
+}
+
+
+

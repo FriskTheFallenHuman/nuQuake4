@@ -1,0 +1,128 @@
+
+
+sound turret_generic_fire
+{
+	minDistance	120
+	maxDistance	2000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/ambience/mcc_landing/landing_fire1
+	shakeData 0 zzzzvmjpjfdcccababaaaaaaa
+	sound/ambience/mcc_landing/landing_fire2
+	shakeData 1 vzyzzokpqedcccbdccaaaaaaaaaaaaa
+}
+
+
+sound turret_network_fire
+{
+	minDistance	120
+	maxDistance	2000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/turrets/network_turretfire01
+	shakeData 0 zzzxtrljhfeeddccbaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/turrets/network_turretfire02
+	shakeData 1 zzzystlmghfedeedcbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound turret_network_target
+{
+	minDistance	120
+	maxDistance	1000
+	volumeDb	0
+
+	sound/strogg/turrets/network_turret_target
+	shakeData 0 ttsuurwtsutuua
+}
+
+
+sound turret_network_move
+{
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+	looping
+
+	sound/strogg/turrets/network_turretmove
+	shakeData 0 ffffgffefffffffffgef
+}
+
+
+sound turret_convoy_cannon_fire
+{
+	minDistance	120
+	maxDistance	2000
+	volumeDb	0
+	frequentlyUsed
+
+	sound/strogg/turrets/convoy_cannonfire01
+	shakeData 0 yzuwtorqsqlnpqiihigegghfedccbbabaaaaaaaaaaaa
+}
+
+
+sound turret_convoy_fall
+{
+	minDistance	1968
+	maxDistance	9842
+	volumeDb	6
+
+	sound/ambience/convoy/falling_turret/falling1
+	shakeData 0 jplkklrnsnrqqstrvuxtxuwwxuwtsswsvvswrusyvuuqsqwvurwsvvtuvquvrvrqutqsvvvqpnlmjikiedbaaaa
+	sound/ambience/convoy/falling_turret/falling2
+	shakeData 1 jokjqnpppmpqmkpqqsstusrwwvqqvtttsruvrrsstssttsssrtrqtttttttrsqurutxttqqnqmlkkiggeedbbaa
+}
+
+
+sound turret_convoy_fall_loop
+{
+	minDistance	1968
+	maxDistance	9842
+	volumeDb	9
+	looping
+
+	sound/ambience/convoy/falling_turret/falling_loop
+	shakeData 0 mmkooummnmqnrsopopomoppmrplnpnrnmnmjlkllhgjjjjh
+}
+
+
+sound turret_convoy_land
+{
+	minDistance	1181
+	maxDistance	7874
+	volumeDb	6
+
+	sound/ambience/convoy/falling_turret/turret_land
+	shakeData 0 uttuwvuuqvssssqqsrrorpnnnonlknihlkliligffgjhggfhheidefjedffeccdccccfebbbaaabaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound turret_convoy_unfold
+{
+	minDistance	1181
+	maxDistance	3937
+	volumeDb	6
+
+	sound/ambience/convoy/falling_turret/turret_unfold
+	shakeData 0 lchccejnjkhhifgfeedeefdfeeeeeeeegggfc
+}
+
+
+sound turret_convoy_fire
+{
+	minDistance	120
+	maxDistance	2000
+	volumeDb	5
+	frequentlyUsed
+
+	sound/strogg/turrets/convoy_turretfire01
+	shakeData 0 zzwxtppjhgedccbbaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/turrets/convoy_turretfire02
+	shakeData 1 zzxvvuojihfeddccbbbcbbaaaaaaaaaaaaaa
+}
+
+
+
+

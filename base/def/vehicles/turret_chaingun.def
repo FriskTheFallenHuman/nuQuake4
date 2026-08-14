@@ -1,0 +1,75 @@
+//------------------------------------------------------------------------------
+// chaingun.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_turret_chaingun
+{
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Chaingun Mounted Turret."
+
+	"spawnclass"				"rvVehicleStatic"
+
+	"gui_hud"					"guis/hud.gui"//"guis/vehicles/turret_hud.gui"
+
+	"model"						"vehicle_acidgun"
+	"mins"						"-16 -16 0"
+	"maxs"						"16 16 32"
+
+	"def_position_driver"		"vehicle_chaingun_driver"
+	
+	"health"					"0"
+	"mass"						"100"	
+	
+	"notPushable"				"1"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_chaingun_driver
+{
+	"def_part_yaw"				"vehicle_acidgun_turret_yaw"
+	"def_part_pitch"			"vehicle_acidgun_turret_pitch"
+	
+	"def_part_weapon"			"vehicle_chaingun_weapon"
+	
+	"angles_offset"				"0 -90 0"
+	
+	"eyeJoint"					"eye"
+//	"eyeoffset"					"-25 0 2"
+	
+	"driverJoint"				"grunt_anchor"
+	"driverVisible"				"1"
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_chaingun_weapon
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"muzzle"
+	"launchfromjoint"			"1"
+	
+	"firedelay"					".06"
+	"def_hitscan"				"hitscan_bullet"
+	"fx_muzzleflash"			"effects/vehicles/walker/machinegun/muzzleflash.fx"
+	"snd_fire"					"vehicle_walker_machinegun" // weapon_machinegun_fire"	
+	"spread"					"5"
+	
+	"recoilTime"				"145"
+	"recoilAngles"				"-1 0 0"
+}
+

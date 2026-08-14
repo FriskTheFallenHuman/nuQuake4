@@ -1,0 +1,134 @@
+/***********************************************************************************************************************
+Hub2
+
+Unique entities created for Hub2
+*******
+*****************************************************************************************************************/
+
+
+
+/***********************************************************************
+Door for Makron cinematic
+***********************************************************************/
+export makron_door
+{
+	options  -scale .3937  
+mesh	work/models/mapobjects/strogg/hub2/door_idle.ma			-dest models/mapobjects/strogg/hub2/door_mesh
+anim	work/models/mapobjects/strogg/hub2/door_idle.ma			-dest models/mapobjects/strogg/hub2/door_idle
+anim	work/models/mapobjects/strogg/hub2/door_open.ma			-dest models/mapobjects/strogg/hub2/door_open
+anim	work/models/mapobjects/strogg/hub2/door_close.ma		-dest models/mapobjects/strogg/hub2/door_close
+}
+
+model env_makron_door
+{
+	mesh						models/mapobjects/strogg/hub2/door_mesh.md5mesh
+	anim idle					models/mapobjects/strogg/hub2/door_idle.md5anim	
+	anim open					models/mapobjects/strogg/hub2/door_open.md5anim
+	{
+		frame	34						sound		snd_open
+	}	
+//	{
+//		frame	156,215,430				sound		snd_impact
+//		frame	180,306					sound		snd_stress_light
+//		frame	291						sound		snd_break
+//		frame	369						sound		snd_stress_violent
+//	}
+	anim close					models/mapobjects/strogg/hub2/door_close.md5anim
+	{
+		frame	1						sound		snd_close
+	}	
+	
+}
+
+entityDef env_makron_door
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -12 0"
+	"editor_maxs"					"8 24 12"
+	"editor_menu"					"level"
+
+	"editor_usage"					"makron_door"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"env_makron_door"
+	
+	"snd_impact"					"guardian_door_pound"
+	"snd_stress_light"				"guardian_door_stress_light"
+	"snd_stress_violent"			"guardian_door_stress_violent"
+	"snd_break"						"guardian_door_break"
+	"snd_open"						"makron_door_open"
+	"snd_close"						"makron_door_close"
+}
+
+// -- Marine Named Kane ------------------------------------------------------------------------------------
+
+model model_hub2_kane_marine
+{
+	inherit											"model_char_marine"
+	
+	anim hub2_console_drop								models\characters\marine\hub2_console_drop.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim hub2_kane_pov								models\characters\marine\hub2_kane_pov.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim hub2_sp_pov								models\characters\marine\hub2_sp_pov.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim hub2_kane_180								models\characters\marine\hub2_kane_180.md5anim
+	{
+		ai_no_look
+	}
+}
+
+entityDef hub2_kane_marine
+{
+	"inherit"									"char_marine"
+	"editor_menu"									"level"
+	"model"										"model_hub2_kane_marine"
+}
+
+// Strauss
+
+model hub2_model_char_marine_tech
+{
+	inherit					model_char_marine_tech
+	
+	anim console_idle					models/characters/marine/console_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	use_gui_standing_start			models/characters/marine/standing_gui_start.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_loop			models/characters/marine/standing_gui_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_end			models/characters/marine/standing_gui_end.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+}
+
+entityDef hub2_char_marine_tech_strauss
+{
+	"inherit"				"char_marine_tech_armed"
+	
+	"model"					"hub2_model_char_marine_tech"
+	"editor_menu"				"level"	
+	
+}

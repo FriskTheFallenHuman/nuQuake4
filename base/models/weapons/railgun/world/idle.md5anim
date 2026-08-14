@@ -1,0 +1,30 @@
+MD5Version 10
+commandline "anim work/models/characters/marine/animation_mocap_cinematics/newMarine_oneframe_idle.ma -dest models/weapons/railgun/world/idle.md5anim -game Quake4 -prefix PLAYER_RG_ -scale .4 -keep ATTACHER -rename ATTACHER origin -clearorigin"
+
+numFrames 2
+numJoints 3
+frameRate 24
+numAnimatedComponents 0
+
+hierarchy {
+	"origin"	-1 0 0	//
+	"body"	0 0 0	// origin
+	"muzzle_flash"	1 0 0	// body
+}
+
+bounds {
+	( -1.414088726 -4.4812426567 2.581577301 ) ( 3.0610909462 4.4619522095 25.1396980286 )
+	( -1.414088726 -4.4812426567 2.581577301 ) ( 3.0610909462 4.4619522095 25.1396980286 )
+}
+
+baseframe {
+	( 0 0 0 ) ( 0 0 0 )
+	( 0.8235043287 1.0369070768 6.183321476 ) ( 0 0 0 )
+	( 0.0862947926 1.6206643581 18.4235343933 ) ( -0.7068566084 0.018805135 -0.706856668 )
+}
+
+frame 0 {
+}
+
+frame 1 {
+}

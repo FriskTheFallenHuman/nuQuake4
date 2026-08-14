@@ -1,0 +1,271 @@
+//----------------------------------
+//  strogg holo guis
+//----------------------------------
+
+textures/holo_guis/strogg_1_v
+{
+	qer_editorimage	gfx/guis/holo/strogg/1_v.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/guis/holo/strogg/1_v.tga
+		rgb guitable_random1  [ time * .2 ]
+	}	
+	{	//smalltext
+		blend		add
+		if ( ( time * .3 ) % 3 == 0 )
+		map		gfx/guis/holo/strogg/1a_v.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .3 ) % 3 == 1 )
+		map		gfx/guis/holo/strogg/1b_v.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .3 ) % 3 == 2 )
+		map		gfx/guis/holo/strogg/1c_v.tga
+	}
+}
+
+textures/holo_guis/strogg_2_h
+{
+	qer_editorimage	gfx/guis/holo/strogg/2_h.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/guis/holo/strogg/2_h.tga
+		rgb guitable_random1  [ time * .145 ]
+	}	
+	{	//smalltext
+		blend		add
+		if ( ( time * .4 ) % 2 == 0 )
+		map		gfx/guis/holo/strogg/2a_h.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .4 ) % 2 == 1 )
+		map		gfx/guis/holo/strogg/2b_h.tga
+	}
+	{
+		blend add
+		Map gfx/guis/holo/strogg/2_dots1_h.tga
+		rgb		guitable_10_0 [ time * .18 ]
+		scale 2,2
+		translate	0,-.5
+		zeroClamp
+	}
+		{
+		blend add
+		Map gfx/guis/holo/strogg/2_dots2_h.tga
+		rgb		guitable_10_0 [ time * .387 ]
+		scale 2,2
+		translate	0,-.5
+		zeroClamp
+	}
+	{	//bars
+		blend		add
+		if ( ( time * .67 ) % 3 == 0 )
+		map		gfx/guis/holo/strogg/2_bars1_h.tga
+		scale 2,1
+		zeroClamp
+	}
+
+	{	//bars
+		blend		add
+		if ( ( time * .67 ) % 3 == 1 )
+		map		gfx/guis/holo/strogg/2_bars2_h.tga
+		scale 2,1
+		zeroClamp
+	}
+	{	//bars
+		blend		add
+		if ( ( time * .67 ) % 3 == 2 )
+		map		gfx/guis/holo/strogg/2_bars3_h.tga
+		scale 2,1
+		zeroClamp
+	}
+}
+
+textures/holo_guis/strogg_3_v
+{
+	qer_editorimage	gfx/guis/holo/strogg/3_v.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/guis/holo/strogg/3_v.tga
+		rgb guitable_random1  [ time * .23 ]
+	}	
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .314 ) % 3 == 0 )
+		map		gfx/guis/holo/strogg/3a_v.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .314 ) % 3 == 1 )
+		map		gfx/guis/holo/strogg/3b_v.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .314 ) % 3 == 2 )
+		map		gfx/guis/holo/strogg/3c_v.tga
+	}
+}
+
+textures/holo_guis/strogg_4_v
+{
+	qer_editorimage	gfx/guis/holo/strogg/4_v.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/guis/holo/strogg/4_v.tga
+		rgb guitable_random1  [ time * .21 ]
+	}	
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .238 ) % 3 == 0 )
+		map		gfx/guis/holo/strogg/4a_v.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .238 ) % 3 == 1 )
+		map		gfx/guis/holo/strogg/4b_v.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .238 ) % 3 == 2 )
+		map		gfx/guis/holo/strogg/4c_v.tga
+	}
+}
+
+textures/holo_guis/strogg_5_h
+{
+	qer_editorimage	gfx/guis/holo/strogg/5_h.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/guis/holo/strogg/5_h.tga
+		rgb guitable_random1  [ time * .168 ]
+	}
+	{	//smalltext
+		blend		add
+		if ( ( time * .288 ) % 2 == 0 )
+		map		gfx/guis/holo/strogg/5a_h.tga
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .288 ) % 2 == 1 )
+		map		gfx/guis/holo/strogg/5b_h.tga
+	}	
+	{
+		blend add
+		map gfx/guis/holo/strogg/5_btns_h.tga
+		rgb		guitable_10_0 [ time * .427 ]
+	}
+}	
+
+textures/holo_guis/strogg_6_h
+{
+	qer_editorimage	gfx/guis/holo/strogg/6_h.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/guis/holo/strogg/6_h.tga
+		rgb guitable_random1  [ time * .128 ]
+	}
+	{	//smalltext
+		blend		add
+		if ( ( time * .294 ) % 3 == 0 )
+		map		gfx/guis/holo/strogg/6a_h.tga
+		scale 4,1
+		translate	-.75, 0
+		zeroClamp
+	}
+
+	{	//smalltext
+		blend		add
+		if ( ( time * .294) % 3 == 1 )
+		map		gfx/guis/holo/strogg/6b_h.tga
+		scale 4,1
+		translate	-.75, 0
+		zeroClamp
+	}	
+	
+	{	//smalltext
+		blend		add
+		if ( ( time * .294) % 3 == 2 )
+		map		gfx/guis/holo/strogg/6c_h.tga
+		scale 4,1
+		translate	-.75, 0
+		zeroClamp
+	}	
+	
+	{
+		blend add
+		map gfx/guis/holo/strogg/6_btns_h.tga
+		rgb		guitable_10_0 [ time * .378 ]
+	}
+		{
+		blend add
+		map gfx/guis/holo/strogg/6_btns2_h.tga
+		rgb		guitable_10_0 [ time * .627 ]
+	}
+}	
+
+textures/holo_guis/strogg_7_h
+{
+	qer_editorimage	gfx/guis/holo/strogg/7a_h.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{	
+		blend		add
+		if ( ( time * .347 ) % 3 == 0 )
+		map		gfx/guis/holo/strogg/7a_h.tga
+		rgb		guitable_random1 [ time * .179 ]
+	}
+
+	{	
+		blend		add
+		if ( ( time * .347) % 3 == 1 )
+		map		gfx/guis/holo/strogg/7b_h.tga
+		rgb		guitable_random1 [ time * .179 ]
+	}	
+	
+	{	
+		blend		add
+		if ( ( time * .347) % 3 == 2 )
+		map		gfx/guis/holo/strogg/7c_h.tga
+		rgb		guitable_random1 [ time * .179 ]
+	}	
+}	

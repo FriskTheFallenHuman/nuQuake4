@@ -1,0 +1,480 @@
+//------------------------------------------------
+
+gfx/effects/fire/fireline4
+{
+	qer_editorimage	gfx/effects/fire/fireline4.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fireline4.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fireline3
+{
+	qer_editorimage	gfx/effects/fire/fireline3.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fireline3.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fireline2
+{
+	qer_editorimage	gfx/effects/fire/fireline2.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fireline2.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fireline1
+{
+	qer_editorimage	gfx/effects/fire/fireline1.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fireline1.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire2b
+{
+	qer_editorimage	gfx/effects/fire/fire2b.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire2b.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire5b
+{
+	qer_editorimage	gfx/effects/fire/fire5b.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire5b.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire1a
+{
+	qer_editorimage	gfx/effects/fire/fire1a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire1a.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire1a_blue
+{
+	qer_editorimage	gfx/effects/fire/fire1a_blue.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire1a_blue.tga
+		vertexColor
+	}	
+}
+gfx/effects/fire/fire2a
+{
+	qer_editorimage	gfx/effects/fire/fire2a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire2a.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire2a_blue
+{
+	qer_editorimage	gfx/effects/fire/fire2a_blue.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire2a_blue.tga
+		vertexColor
+	}	
+}
+
+
+gfx/effects/fire/p_fire2a
+{
+	qer_editorimage	gfx/effects/fire/p_fire2a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/p_fire2a.tga
+		vertexColor
+	}	
+}
+
+
+gfx/effects/fire/fire3a
+{
+	qer_editorimage	gfx/effects/fire/fire3a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire3a.tga
+		vertexColor
+	}	
+}
+
+
+
+gfx/effects/fire/p_fire3a
+{
+	qer_editorimage	gfx/effects/fire/p_fire3a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/p_fire3a.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire4a
+{
+	qer_editorimage	gfx/effects/fire/fire4a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire4a.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/fire5a
+{
+	qer_editorimage	gfx/effects/fire/fire5a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/fire5a.tga
+		vertexColor
+	}	
+}
+
+
+gfx/effects/fire/p_fire5a
+{
+	qer_editorimage	gfx/effects/fire/p_fire5a.tga
+	noShadows
+	nonSolid
+	translucent
+	twoSided
+	{
+		blend add
+		map gfx/effects/fire/p_fire5a.tga
+		vertexColor
+	}	
+}
+
+gfx/effects/fire/embers
+{
+	qer_editorimage gfx/effects/fire/embers.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fire/embers.tga
+		vertexColor
+	}
+}
+
+gfx/effects/fire/impact_fire
+{
+	qer_editorimage gfx/effects/fire/impact_fire.tga
+	noshadows
+	twosided
+        {
+		blend	add
+		map gfx/effects/fire/impact_fire.tga
+		clamp
+		vertexColor   
+        }
+}
+
+gfx/effects/fire/fire_plume_additive
+{
+	qer_editorimage gfx/effects/fire/plume_additive.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fire/plume_additive.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/fire/fire_napalm
+{
+	qer_editorimage gfx/effects/fire/fire_napalm.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fire/fire_napalm.tga
+		scroll -1.5 * time ,0
+		vertexColor
+	}
+		{
+		blend add
+		map gfx/effects/fire/fire_napalm.tga
+		scroll time * -.5 ,0
+		scale 2, 2
+		vertexColor
+	}
+
+}
+
+gfx/effects/fire/fire_napalm_glob
+{
+	qer_editorimage gfx/effects/fire/fire_napalm_glob.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/fire/fire_napalm_glob.tga
+//		scroll -1.5 * time ,0
+		vertexColor
+	}
+	
+}
+
+
+gfx/effects/fire/firetest
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	nonsolid
+	noimpact
+
+	qer_editorimage gfx/effects/fire/flame.tga
+	{
+		if ( ( time * 6 ) % 6 == 0 )
+		blend	add
+		map		gfx/effects/fire/fire_a.tga
+		vertexcolor
+	}	
+	{
+		if ( ( time * 6 ) % 6 == 1 )
+		blend	add
+		map		gfx/effects/fire/fire_b.tga
+		vertexcolor
+	}	
+	{
+		if ( ( time * 6 ) % 6 == 2 )
+		blend	add
+		map		gfx/effects/fire/fire_c.tga
+		vertexcolor
+	}	
+	{
+		if ( ( time * 6 ) % 6 == 3 )
+		blend	add
+		map		gfx/effects/fire/fire_d.tga
+		vertexcolor
+	}	
+	{
+		if ( ( time * 6 ) % 6 == 4 )
+		blend	add
+		map		gfx/effects/fire/fire_e.tga
+		vertexcolor	
+	}	
+	{
+		if ( ( time * 6 ) % 6 == 5 )
+		blend	add
+		map		gfx/effects/fire/fire_f.tga
+		vertexcolor
+	}
+}
+
+
+
+gfx/effects/fire/burst
+{
+	qer_editorimage gfx/effects/fire/burst_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+	deform sprite
+	{
+		blend add
+		map gfx/effects/fire/burst_strip.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .8 ] , 0
+		clamp
+	}
+}
+
+
+gfx/effects/fire/burst_blue
+{
+	qer_editorimage gfx/effects/fire/burst_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+	deform sprite
+	{
+		blend add
+		map gfx/effects/fire/burst_strip_blue.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .8 ] , 0
+		clamp
+	}
+}
+
+
+gfx/effects/fire/flame1
+{
+	qer_editorimage gfx/effects/fire/flame_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+//	deform tube
+	{
+		blend add
+		map gfx/effects/fire/flame_strip.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .6 ] , 0
+//		rotate -90
+		clamp
+		vertexColor 
+	}
+}
+
+gfx/effects/fire/flame2
+{
+	qer_editorimage gfx/effects/fire/flame2_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+//	deform tube
+	{
+		blend add
+		map gfx/effects/fire/flame2_strip.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .8 ] , 0
+		clamp
+	}
+}
+
+gfx/effects/fire/flame3
+{
+	qer_editorimage gfx/effects/fire/flame3_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+//	deform tube
+	{
+		blend add
+		map gfx/effects/fire/flame3_strip.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .8 ] , 0
+		clamp
+	}
+}
+
+gfx/effects/fire/flame4
+{
+	qer_editorimage gfx/effects/fire/flame4_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+	//deform tube
+	{
+		blend add
+		map gfx/effects/fire/flame4_strip.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .8 ] , 0
+		clamp
+	}
+}
+
+gfx/effects/fire/flame5
+{
+	qer_editorimage textures/particles/flame5_strip.tga
+	noSelfShadow
+	translucent
+	noShadows
+	twosided
+	deform tube
+	{
+		blend add
+		map gfx/effects/fire/flame5_strip.tga
+		scale 1 / 32 , 1
+		scroll table32[ time * .8 ] , 0
+		clamp
+	}
+}

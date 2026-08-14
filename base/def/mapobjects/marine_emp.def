@@ -1,0 +1,70 @@
+//------------------------------------------------------------------------------
+// emp.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export marine_emp
+{
+	options -prefix EMP_ -align ALL -keep muzzle_flash -parent muzzle_flash extender -sourcedir work/models/mapobjects/marine/marine_emp/animations -destdir models/mapobjects/marine/marine_emp
+	mesh	emp_open_idle.ma		-dest emp_mesh
+	anim	emp_open_idle.ma		-dest emp_open_idle
+	anim	emp_closed_idle.ma		-dest emp_closed_idle
+	anim	hub1_emp_opens.ma		-dest hub1_emp_opens
+	anim	hub1_emp_closed.ma		-dest hub1_emp_closed
+	anim	HUB1_battle_master.ma		-sourcedir work/models/monsters/Harvester/animations -dest hub1_battle
+	anim	HUB1_battle_master.ma		-sourcedir work/models/monsters/Harvester/animations -range 1 2 	-dest hub1_battle_start_idle
+	anim	HUB1_battle_master.ma		-sourcedir work/models/monsters/Harvester/animations -range 544 545 -dest hub1_battle_end_idle
+}
+
+//------------------------------------------------------------------------------
+//								Model Defintion
+//------------------------------------------------------------------------------
+model model_marine_emp
+{
+	mesh						"models/mapobjects/marine/marine_emp/emp_mesh.md5mesh"
+	anim idle					"models/mapobjects/marine/marine_emp/emp_open_idle.md5anim"
+	anim open					"models/mapobjects/marine/marine_emp/emp_open_idle.md5anim"
+	anim closed					"models/mapobjects/marine/marine_emp/emp_closed_idle.md5anim"
+
+	anim hub1_emp_closed				"models/mapobjects/marine/marine_emp/hub1_emp_closed.md5anim"
+	anim hub1_emp_opens					"models/mapobjects/marine/marine_emp/hub1_emp_opens.md5anim"
+	{
+		frame	15							sound		snd_emp_raise
+		frame	108							sound		snd_emp_servo
+		frame	132							sound		snd_emp_open
+	}
+	anim hub1_battle					"models/mapobjects/marine/marine_emp/hub1_battle.md5anim"
+	{	
+		frame 1 						fx 		fx_charge	muzzle_flash
+	}
+	
+	anim hub1_battle_start_idle			"models/mapobjects/marine/marine_emp/hub1_battle_start_idle.md5anim"
+	anim hub1_battle_end_idle			"models/mapobjects/marine/marine_emp/hub1_battle_end_idle.md5anim"
+
+}
+
+entityDef env_marine_emp
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"A marine emp weapon"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_marine_emp"
+	"anim"						"open"
+	"start_anim"					"idle"
+	
+	"snd_emp_raise"					"stream_hub_emp_raise"
+	"snd_emp_servo"					"stream_hub_emp_servo"
+	"snd_emp_open"					"stream_hub_emp_open"
+	
+	"fx_charge"						"effects/levels/hub/emp_charge.fx"
+}
+
+
+
+	
+	

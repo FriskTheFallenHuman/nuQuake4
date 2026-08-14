@@ -1,0 +1,436 @@
+
+
+sound vo_3_1_5_1_1
+{
+	description	"HQ, this is Scorpion squad. We’ve taken heavy casualties and need an evac at the bridge extraction point."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_1_1
+}
+
+sound vo_3_1_5_1_2
+{
+	description	"Scorpion, no evac units are in your immediate area. Secure the bridge control room and sit tight."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_1_2
+}
+
+sound vo_3_1_5_1_3
+{
+	description	"Secure the bridge? What the hell with? There’s only two of us left."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_1_3
+}
+
+sound vo_3_1_5_1_4
+{
+	description	"Do the best you can, Scorpion. An evac unit is en route. HQ, out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_1_4
+}
+
+sound vo_3_1_5_2_1
+{
+	description	"Thanks for the assist, Kane. We were dropped into an ambush."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_2_1
+}
+
+sound vo_3_1_5_2_2
+{
+	description	"Yeah, you musta saw what the bastards did to the rest of our squad. Now we’re just trying to get out of here."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_2_2
+}
+
+sound vo_3_1_5_2_3
+{
+	description	"Kane, you’re probably looking to get to the next tower. Come with us. We have orders to secure the bridge control center – from there you should be able to find a tram."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_2_3
+}
+
+sound vo_3_1_5_2_4
+{
+	description	"Hear that . . . . that’s our ride out of this hell hole!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_2_4
+}
+
+sound vo_3_1_5_2_5
+{
+	description	"Shit! It’s a Strogg transport! Look out!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_2_5
+}
+
+sound vo_3_1_5_3_1
+{
+	description	"Here. I scavanged this off a dead Strogg. It'll make your lightning gun damage multiple targets. Give it a try."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_3_1
+}
+
+
+sound vo_3_1_5_5_1
+{
+	description	"Ready? Hit it!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_5_1
+}
+
+sound vo_3_1_5_6_1
+{
+	description	"Ha! We kicked their asses good!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_6_1
+}
+
+sound vo_3_1_5_6_2
+{
+	description	"Okay, Kane. Head upstairs and find a way to extend the bridge to the hub area. We’ll stay here and guard your back."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_6_2
+}
+
+sound vo_3_1_5_8_1
+{
+	description	"Let’s head back outside and sweep the area. We’ve gotta secure the bridge. Kane, you lead."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_8_1
+}
+
+sound vo_3_1_5_9_1
+{
+	description	"Thanks for the help, Kane. We’ve got orders to keep this bridge secured. You can go on to the processing tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_9_1
+}
+
+sound vo_3_1_5_9_1_alt
+{
+	description	"Thanks for the help, Kane. We’ve got orders to keep this area secured. You can go on to the processing tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_9_1_alt
+}
+
+
+sound vo_3_1_5_10_1
+{
+	description	"Lt. Morris, this is Cortez again. I am nearing the tram hub but it will still be a while before I make it to the Processing Tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/tram_1/3_1_5_10_1
+}
+
+
+sound vo_3_1_5_10_2
+{
+	description	"I copy that. Just get to there as soon as you can. Morris, out."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/tram_1/3_1_5_10_2
+}
+
+sound vo_3_1_5_20_1
+{
+	description	"93 . . .94 . . .95. Ha. Stroggos is proving to be a target rich planet."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_20_1
+}
+
+
+sound vo_3_1_5_30_1
+{
+	description	"Hello, Kane. You are quite lucky I didn’t shoot when I first had that Strogg face of yours in my crosshairs. But then, had I killed you, I would have lost the bet with Rhodes. And that would not do."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_30_1
+}
+
+
+sound vo_3_1_5_30_2
+{
+	description	"I am on my way to the Processing Tower, why don’t you accompany me? But before we can proceed this tram must be rotated in the proper direction."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_30_2
+}
+
+sound vo_3_1_5_30_3
+{
+	description	"Lead the way and let us see if we can find the Hub control room."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_30_3
+}
+
+
+
+sound vo_3_1_5_35_1
+{
+	description	"Many men died to get us this far, Kane. We must take control of the Processing Tower at all costs. "
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_35_1
+}
+
+
+sound vo_3_1_5_38_1
+{
+	description	"Excellent – this looks to be the hub control room. See if you can find some way to rotate the tram from here."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_38_1
+}
+
+
+sound vo_3_1_5_40_1
+{
+	description	"Very good, Kane. The tram is now facing the right direction – but it appears the track is damaged."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_40_1
+}
+
+
+sound vo_3_1_5_40_2
+{
+	description	"Perhaps we can use some of the strogg repair bots to fix the track.  There is a door leading to a construction site below the tram, you may be able to acqurie some repair bots there. I will remain here and guard the tram."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_40_2
+}
+
+sound vo_3_1_5_50_1
+{
+	description	"Excellent, Kane. The track has been repaired. Return to the tram and we can be on our way to the process tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/tram_1/3_1_5_50_1
+}
+
+sound vo_3_1_5_60_1
+{
+	description	"I must apologize for the condition of this tram. It has been damaged and will not run at full speed."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_60_1
+}
+
+sound vo_3_1_5_70_1
+{
+	description	"Stay sharp, Kane. We will no doubt have ‘issues’ getting through the hot zone on the way to the Processing Tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_70_1
+}
+
+
+sound vo_3_1_5_70_2
+{
+	description	"We have only a few miles to go, but there have been reports of Strogg in the area. Keep on your toes."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/3_1_5_70_2
+}
+
+
+sound vo_pa_tram1_10
+{
+	description	"Unknown entity, class human, detected on tram enroute to Hub 8. Tactical unit dispatched."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/pa_tram1_10
+}
+
+sound vo_pa_tram1_20
+{
+	description	"Tram rerouted. Destination, process facility 6."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/pa_tram1_20
+}
+
+sound vo_pa_tram1_30
+{
+	description	"Track malfunction."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/pa_tram1_30
+}
+
+sound vo_pa_tram1_40
+{
+	description	"Repair units dispatched to damaged track section."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/pa_tram1_40
+}
+
+sound vo_pa_tram1_50
+{
+	description	"Track repaired. Process route now functional. "
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/tram_1/pa_tram1_50
+}

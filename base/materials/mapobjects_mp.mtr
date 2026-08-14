@@ -1,0 +1,218 @@
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/multiplayer/mpBase_hard_edges
+{
+      	//noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/multiplayer/mpBase_hard_edges_local.tga work/models/mapobjects/multiplayer/mpBase_hard_edges2_high.lwo
+ 
+
+	diffusemap 	models/mapobjects/multiplayer/mpBase_hard_edges_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/mpBase_hard_edges_local.tga, heightmap (models/mapobjects/multiplayer/mpBase_hard_edges_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/mpBase_hard_edges_s.tga
+	{
+		blend add
+		red			parm0
+		green		parm1
+		blue		parm2
+		map models/mapobjects/multiplayer/mpBase_hard_edges_glow.tga
+	}
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/multiplayer/mpBase_round
+{
+      	//noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/multiplayer/mpBase_round_local.tga work/models/mapobjects/multiplayer/mpBase_round_high.lwo
+ 
+
+	diffusemap 	models/mapobjects/multiplayer/mpBase_round_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/mpBase_round_local.tga, heightmap (models/mapobjects/multiplayer/mpBase_round_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/mpBase_round_s.tga
+	{
+		blend add
+		map models/mapobjects/multiplayer/mpBase_round_glow.tga
+	}	
+}	
+	
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/multiplayer/acceleration_pad/acceleration_pad
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/multiplayer/acceleration_pad/acceleration_pad_local.tga work/models/mapobjects/multiplayer/acceleration_pad/pad_hi.lwo
+ 
+
+	diffusemap 	models/mapobjects/multiplayer/acceleration_pad/acceleration_pad_d.tga
+	bumpmap models/mapobjects/multiplayer/acceleration_pad/acceleration_pad_local.tga
+	specularMap	models/mapobjects/multiplayer/acceleration_pad/acceleration_pad_s.tga
+
+	{
+		blend add
+		map models/mapobjects/multiplayer/acceleration_pad/acceleration_pad_g.tga
+//		rgb 1.25 + sintable [time * 1]
+	}	
+
+	
+}		
+
+models/mapobjects/multiplayer/acceleration_pad/arrows
+{
+	translucent
+	
+	{ 
+		maskColor
+		map makealpha(models/mapobjects/multiplayer/acceleration_pad/acceleration_pad_mask.tga)
+//		centerScale .73, .73
+	}
+
+/*	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map models/mapobjects/multiplayer/acceleration_pad/arrows.tga
+		scroll 0, time * -3
+		
+		
+//		centerScale 2, 2
+
+	}
+*/	
+}		
+	
+
+//-----------------------------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/multiplayer/jump_pad/jump_pad
+{
+      	noselfShadow
+		unSmoothedTangents
+		nonSolid
+
+	renderbump  -size 512 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/multiplayer/jump_pad/jump_pad_local.tga work/models/mapobjects/multiplayer/jump_pad/jump_pad_hi.lwo
+ 
+
+	diffusemap 	models/mapobjects/multiplayer/jump_pad/jump_pad_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/jump_pad/jump_pad_local.tga, heightmap (models/mapobjects/multiplayer/jump_pad/jump_pad_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/jump_pad/jump_pad_s.tga
+
+	{
+		blend add
+		map models/mapobjects/multiplayer/jump_pad/jump_pad_g.tga
+		rgb 1.25 + sintable [time * 1]
+	}	
+	{
+		blend add
+		map models/mapobjects/multiplayer/jump_pad/jump_pad_g3.tga
+	}
+	
+}	
+	
+
+models/mapobjects/multiplayer/jump_pad/jump_pad_glow
+{
+	translucent
+	nonSolid
+
+	{ 
+		maskColor
+		map makealpha(models/mapobjects/multiplayer/jump_pad/jump_pad_mask.tga)
+		centerScale .73, .73
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map models/mapobjects/multiplayer/jump_pad/jump_pad_g2.tga
+		centerScale jumppadtable [time * 1], jumppadtable [time * 1]
+		clamp
+	}	
+
+	
+}	
+
+//flag_projector-----------------------------------------------------------------------------------------------------------------
+models/mapobjects/multiplayer/ctf_base/flag_projector
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 64 64 -trace 0.05 -aa 1 -mergehigh models/mapobjects/multiplayer/ctf_base/flag_projector_local.tga work/models/mapobjects/multiplayer/ctf_base/flag_projector_high.lwo
+	materialImage	models/mapobjects/multiplayer/ctf_base/flag_projector_hit.tga
+	
+
+	diffusemap 	models/mapobjects/multiplayer/ctf_base/flag_projector_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/ctf_base/flag_projector_local.tga, heightmap (models/mapobjects/multiplayer/ctf_base/flag_projector_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/ctf_base/flag_projector_s.tga
+	
+	
+	{ 	blend add
+		map models/mapobjects/multiplayer/ctf_base/flag_projector_glow.tga
+	}
+}
+
+//flag_node-----------------------------------------------------------------------------------------------------------------
+models/mapobjects/multiplayer/ctf_base/flag_node
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 256 256 -trace 0.05 -aa 1 -mergehigh models/mapobjects/multiplayer/ctf_base/flag_node_local.tga work/models/mapobjects/multiplayer/ctf_base/flag_node_high.lwo
+	materialImage	models/mapobjects/multiplayer/ctf_base/flag_node_hit.tga
+	
+
+	diffusemap 	models/mapobjects/multiplayer/ctf_base/flag_node_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/ctf_base/flag_node_local.tga, heightmap (models/mapobjects/multiplayer/ctf_base/flag_node_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/ctf_base/flag_node_s.tga
+	
+	
+	{ 	blend add
+		map models/mapobjects/multiplayer/ctf_base/flag_node_glow.tga
+	}
+	
+}
+//flag_stand_new-----------------------------------------------------------------------------------------------------------------
+models/mapobjects/multiplayer/flag_stand_new
+{
+    noselfshadow
+    unsmoothedtangents
+	renderbump  -size 128 256 -trace 0.05 -aa 1 -mergehigh models/mapobjects/multiplayer/flag_stand_new_local.tga work/models/mapobjects/multiplayer/flag_stand_new_hi.lwo
+	
+	
+
+	diffusemap 	models/mapobjects/multiplayer/flag_stand_new_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/flag_stand_new_local.tga, heightmap (models/mapobjects/multiplayer/flag_stand_new_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/flag_stand_new_s.tga
+	
+	
+	{ 	blend add
+		map models/mapobjects/multiplayer/flag_stand_new_glow.tga
+	}
+	
+}
+//flag_projector_pole-----------------------------------------------------------------------------------------------------------------
+models/mapobjects/multiplayer/ctf_base/flag_projector_pole
+{
+    noselfshadow
+    noshadows
+    unsmoothedtangents
+	renderbump  -size 64 128 -trace 0.05 -aa 1 -mergehigh models/mapobjects/multiplayer/ctf_base/flag_projector_pole_local.tga work/models/mapobjects/multiplayer/ctf_base/flag_projector_pole_high.lwo
+
+	
+
+	diffusemap 	models/mapobjects/multiplayer/ctf_base/flag_projector_pole_d.tga
+	bumpmap addnormals (models/mapobjects/multiplayer/ctf_base/flag_projector_pole_local.tga, heightmap (models/mapobjects/multiplayer/ctf_base/flag_projector_pole_h.tga, 2 ))
+	specularmap	models/mapobjects/multiplayer/ctf_base/flag_projector_pole_s.tga
+	
+	
+	{ 	blend add
+		map models/mapobjects/multiplayer/ctf_base/flag_projector_pole_glow.tga
+	}
+}

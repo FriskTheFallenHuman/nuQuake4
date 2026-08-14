@@ -1,0 +1,284 @@
+																		
+lights/fluid_fog1
+{
+
+	lightFalloffImage	_noFalloff		// by default, stay bright almost all the way to the end
+	
+
+	fogLight
+	noShadows
+	{
+		map gfx/lights/j_square.tga
+		zeroclamp				
+		colored					
+	}
+}
+
+
+textures/fluids/bloodpool
+{
+	materialType flesh
+	noSelfShadow
+	noShadows
+	nonSolid
+	translucent
+
+	qer_EditorImage textures/stroyent/foam_2a_d.tga
+	deform	turbulent	sintable .0155 time * .2 1
+
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		alpha			.98
+		
+		
+		
+		glslProgram		glsl/DisplacementCube.glsl
+		shaderParm		scrollX				time * 0.25
+		shaderParm		scrollY				time * 0.25
+		shaderParm		sizeX				1 
+		shaderParm		sizeY				0.1 
+		shaderParm		texCoordSize		0.045
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+		shaderTexture	Image				textures/stroyent/foam_2a_d.tga
+		shaderParm		EyeVector			viewOrigin
+		shaderTexture	CubeImage			cubemap gfx/env/waste
+	}
+//if no glsl
+
+	{
+		if ( glslPrograms )== 0
+		blend blend
+		map textures/stroyent/foam_2a_d.tga.tga
+	}
+	{
+		if ( glslPrograms )== 0
+		blend GL_ONE, gl_one
+       	cubeMap		gfx/env/waste
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+
+
+}
+
+
+textures/fluids/recomp_fizz
+{
+	materialType water
+	noSelfShadow
+	noShadows
+//	nonSolid
+	translucent
+
+	qer_EditorImage models/mapobjects/strogg/stroyent/dispersal/injector_arm/snot_water3.tga
+	deform	turbulent	sintable .06 time * .2 1
+
+	{
+		if ( glslPrograms )== 1
+		blend blend
+		alpha			.35
+		
+		
+		glslProgram		glsl/DisplacementCube.glsl
+		shaderParm		scrollX				time * 0.25
+		shaderParm		scrollY				time * 0.25
+		shaderParm		sizeX				1 
+		shaderParm		sizeY				0.1 
+		shaderParm		texCoordSize		0.045
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+		shaderTexture	Image				models/mapobjects/strogg/stroyent/dispersal/injector_arm/snot_water3.tga
+		shaderParm		EyeVector			viewOrigin
+		shaderTexture	CubeImage			cubemap gfx/env/gen1
+	}
+
+////if no GLSL
+
+	{
+		if ( glslPrograms )== 0
+		blend blend
+		map models/mapobjects/strogg/stroyent/dispersal/injector_arm/snot_water3.tga
+	}
+	{
+		if ( glslPrograms )== 0		
+		blend GL_ONE, gl_one
+       	cubeMap		gfx/env/recomp2
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+
+}
+
+
+////////////////////////////////////////////////////
+/////// blood for room//////////////////////////////
+////////////////////////////////////////////////////
+
+textures/fluids/bloodpump
+{
+	noShadows
+	translucent
+	nonSolid
+	twoSided	
+//	deform	turbulent	sintable .0295 time * .2 1
+
+	{
+		if Parm5 == 0 && glslPrograms == 1 
+//		if ( glslPrograms )== 1
+		blend blend	
+		rgba .9
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * .5
+		shaderParm		sizeX				sintable[time * .015]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/stroyent/foam_2a_d.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+	
+	
+	{
+		if Parm5 == 0 && glslPrograms == 1 
+//		If ( glslPrograms )== 1		
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+		rgba .3
+	}
+	{	
+		if Parm5 == 0 && glslPrograms == 1 
+		maskColor				
+	    map	makealpha(textures/glass/medlabs.tga)
+	}
+
+	{
+		if Parm5 == 0 && glslPrograms == 1 
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+      	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+
+	
+// move///////////////////////////////////////////
+	{
+		if (Parm5) == 1	&& glslPrograms == 1 
+//		if ( glslPrograms )== 1
+		blend blend	
+		
+		glslProgram	glsl/Displacement.glsl
+		shaderParm		scrollX				0
+		shaderParm		scrollY				time * 10
+		shaderParm		sizeX				sintable[time * .0552]
+		shaderParm		sizeY				.25
+		shaderParm		texCoordSize		.25
+		shaderTexture	Image				textures/stroyent/foam_2a_d.tga
+		shaderTexture	DisplacementMap		gfx/test/pnh3.tga
+	}
+
+	{
+		if (Parm5) == 1	&& glslPrograms == 1 
+//		If ( glslPrograms )== 1	
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * 3
+		rgba .3
+	}
+	{	
+		if (Parm5) == 1	&& glslPrograms == 1 
+		maskColor				
+	    map	makealpha(textures/glass/medlabs.tga)
+	}
+
+	{
+		if (Parm5) == 1	&& glslPrograms == 1 
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+      	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	
+
+//////////IF NO GLSL /////////////////////////////////////////////
+	
+	{
+		if (Parm5) == 0 && glslPrograms == 0 
+	
+		blend diffuseMap	
+		map			textures/stroyent/foam_2a_d.tga
+		scroll 0, time * .5
+	}
+	
+	{
+		if (Parm5) == 0 && glslPrograms == 0 
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * .015
+	}
+	
+	{	
+		if (Parm5) == 0 && glslPrograms == 0 
+		maskColor				
+	    map	makealpha(textures/glass/medlabs.tga)
+	}
+
+	{
+		if (Parm5) == 0 && glslPrograms == 0 
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+      	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+/////////////no GLSL move
+
+	
+	{
+		if (Parm5) == 0 && glslPrograms == 0 
+	
+		blend diffuseMap	
+		map			textures/stroyent/foam_2a_d.tga
+		scroll 0, time * 10
+	}
+	
+	{
+		if (Parm5) == 0 && glslPrograms == 0 
+		blend add
+		map textures/medlabs/fluid_green_bubble3.tga
+		scroll 0, time * 3
+	}
+	
+	{	
+		if (Parm5) == 0 && glslPrograms == 0 
+		maskColor				
+	    map	makealpha(textures/glass/medlabs.tga)
+	}
+
+	{
+		if (Parm5) == 0 && glslPrograms == 0 
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+      	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}		

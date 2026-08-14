@@ -1,0 +1,218 @@
+export e3mech
+{
+	options -prefix E3MECH -scale .3937
+
+	mesh	work/models/monsters/Harvester/animations/E3_harvester_e3mech.ma 		-dest models/vehicles/e3mech/mesh.md5mesh
+	
+	anim	work/models/monsters/Harvester/animations/E3_harvester_e3mech.ma 		-dest models/vehicles/e3mech/idle.md5anim
+
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Definition
+//------------------------------------------------------------------------------
+
+entityDef vehicle_e3mech
+{
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_usage"				"e3mech Vehicle."
+	"editor_rotatable"			"1"
+
+	//"spawnclass"				"rvVehicleWalker"
+	"spawnclass"				"idAnimated"
+
+	"model"						"model_vehicle_e3mech"
+
+	//"def_position_driver"			"e3mech_driver"
+
+	"gui"						"guis/vehicles/mdisp.gui"
+	/*"gui_hud"					"guis/vehicles/hud.gui"
+	
+	"hudid"						"1"
+
+	"crashSpeedSmall"			"1"
+	"crashSpeedMedium"			"2"
+	"crashSpeedLarge"			"3"
+	"def_crashDamage"			"damage_gev_crash"
+	
+	"def_stompDamage"			"damage_walkerCrush"
+	
+	"team"						"0"
+	"mass"						"1800"
+	"size"						"110 80 140"
+	"turnRate"					"90"
+	"stepheight"				"32"
+	"health"					"1000"
+	"lowhealth"					"150"
+	"nav_active"				"1"
+	"damageStaticChance"		".05"
+
+	"shieldMins"				"-90 -86 0"
+	"shieldMaxs"				"100 86 170"
+	"shieldSides"				"10"
+	"shieldHealth"				"100"
+	"shieldRegenDelay"			"6"
+	"shieldRegenTime"			"3"	
+	
+	"snd_footstep"				"vehicle_walker_steps"
+	"snd_servo"					"vehicle_walker_servo"
+	"snd_start"					"vehicle_walker_power_up"
+	"snd_stop"					"vehicle_walker_power_down"
+	"snd_voiceHazard"			"vehicle_walker_hazard1"
+	"snd_voiceSafe"				"vehicle_walker_hazard2"
+	"snd_voiceLowHealth"		"vehicle_walker_armor"
+	"snd_voiceNoExit"			"vehicle_walker_denied"
+	"snd_shieldWarning"			"vehicle_walker_shield_warning"
+	"snd_shieldRecharge"		"vehicle_walker_shield_recharge"
+	"snd_malfunction"			"vehicle_walker_malfunction"
+	"snd_incomingProjectile"	"ambient_incoming_klaxon"
+
+	"fx_death"					"effects/vehicles/walker/explosion.fx"
+	"fx_shield"					"effects/vehicles/walker/shield.fx"
+	"fx_electrical_stall"		"effects/monsters/lightning_death.fx"
+	*/
+	"fx_shatter"				"effects/levels/tube_shatter.fx"
+	"fx_gib"					"effects/monsters/gib2.fx"
+}
+
+
+
+//------------------------------------------------------------------------------
+//									Model
+//------------------------------------------------------------------------------
+
+model model_vehicle_e3mech
+{
+	mesh					"models/vehicles/e3mech/mesh.md5mesh"
+
+
+	anim	idle				"models/vehicles/e3mech/idle.md5anim"
+	{
+		frame	17,41,65,89,113,137,161,185,193,208,232,246,260,282,311	sound	vehicle_walker_steps_E3
+		frame	18,28,42,52,66,76,90,100,114,124,138,148,162,172,186,196,194,204,209,219,233,243,247,257,261,271,283,293,312,322	sound	vehicle_walker_servo_E3
+		frame	359		sound		cine_e3_harvester_glass_impact1
+		frame	377		sound		cine_e3_harvester_glass_impact2
+		frame	401		sound		cine_e3_harvester_glass_impact3
+
+		frame 3			call		map_walker::line1
+		frame 88		call		map_walker::line2
+		frame 114		call		map_walker::line3
+		frame 135		call		map_walker::line4
+		frame 170		call		map_walker::line5
+		
+		frame 	239		call		map_walker::tankBoom
+		frame 248		call		map_walker::fireGun
+		
+		frame 406		call		map_walker::kafoom
+		
+				frame 359				fx			fx_shatter		_glass_impact_1
+		frame 377				fx			fx_shatter		_glass_impact_2
+		frame 401				fx			fx_shatter		_glass_impact_3
+		
+		frame 359, 377, 401		fx			fx_gib			_blood_splat
+	}
+}
+
+entityDef projectile_e3_rocket
+{
+	"inherit" 				"projectile_walker_rocket"
+	
+	"spawnclass"				"idProjectile"
+}
+
+
+/*
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef e3mech_driver
+{
+	"internalSurface"			"models/vehicles/walker/console"
+
+//	"def_part_weapon_main"		"vehicle_walker_weapon_main"
+	"def_part_weapon_mgun"		"e3mech_weapon_mgun"
+	"def_part_weapon_rocket"	"e3mech_weapon_rocket"
+
+	"def_part_cockpit"			"vehicle_walker_cockpit"
+	"def_part_light"			"vehicle_walker_light"
+
+	"eyeJoint"					"eye"
+	"eyeoffset"					"-9 0 -1"
+
+	"snd_loop"					"vehicle_walker_engine"
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef e3mech_weapon_mgun
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"_cannon1"
+	"joint2"					"_cannon2"
+	
+	"firedelay"					".025"
+	"def_hitscan"				"hitscan_walker_bullet"
+	"spread"					"3"
+
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"400"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"0 0 0"
+	
+	"recoilTime"				"100"
+	"recoilAngles"				"-.5 .5 0"
+	
+	"fx_muzzleflash"			"effects/vehicles/walker/machinegun/muzzleflash.fx"
+	"snd_fire"					"vehicle_walker_machinegun"
+	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
+}
+
+entityDef e3mech_weapon_rocket
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"_Rocket1"
+	"joint2"					"_Rocket2"
+	"joint3"					"_Rocket3"
+	"joint4"					"_Rocket4"
+	"joint5"					"_Rocket5"
+	"joint6"					"_Rocket6"
+	
+	"firedelay"					".3"
+	"def_projectile"			"projectile_walker_rocket"
+	"spread"					"2"
+	"convergeRate"				".5"
+		
+	"launchFromJoint"			"1"
+		
+	"ammopercharge"				"6"
+	"chargetime"				"3"
+	
+//	"lockrange"					"4095"
+
+	"mtr_flashShader"			"lights/muzzleflash"
+	"flashColor"				"1 0.8 0.4"
+	"flashRadius"				"350"
+	"flashPointLight"			"1"
+	"flashTime"					".1"
+	"flashOffset"				"30 0 0"
+	
+	"shakeTime"					"400"
+	"shakeMagnitude"			"2"
+
+	"fx_muzzleflash"			"effects/vehicles/walker/rocket/muzzleflash.fx"
+	"snd_fire"					"vehicle_walker_rockets"	
+	"snd_reload"				"vehicle_walker_rocket_reload"
+	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_nailgun"
+	
+	"guideTowardsDir"			"1"
+}
+*/

@@ -1,0 +1,85 @@
+
+
+sound repair_bot_hover
+{
+	description	"repair bot floating around"
+
+	minDistance	40
+	maxDistance	900
+	volumeDb	-4
+	looping
+
+	sound/strogg/repair_bot/hover_loop
+	shakeData 0 ddefdddfedfeceefcdddceddeefddfededdddfddeegheegddfedeefeggeedddeddfeeec
+}
+
+
+sound repair_bot_chatter
+{
+	description	"chattering"
+
+	minDistance	40
+	maxDistance	700
+	volumeDb	-18
+
+	sound/strogg/repair_bot/chatter1
+	shakeData 0 deccccjkopjmjowujesypfedepururuvwwtkijkjhkilttrshgfdeeqrgeejedllgcitvlbeffbdedceeccbbacdd
+	sound/strogg/repair_bot/chatter2
+	shakeData 1 agfkmkmdgkkkjlhbihhceebiormfgggghllgsqnqhffllkjifimmgcddhmongcdcbcdabddaccbaddca
+	sound/strogg/repair_bot/chatter3
+	shakeData 2 dfjlkqnrnieklijmmncfgfxufcgjoqlllkmnnklookkjkoomilmmlmoknllifcbbaabaaa
+	sound/strogg/repair_bot/chatter4
+	shakeData 3 ababbdebcedbdddbdfdehhbdpuwrgfgiggfhhhkkiggghmmpecdfgfedbccdfhebbffmjmngcdedddccfeccccabbbaccbbddb
+}
+
+
+sound repair_bot_die
+{
+	description	"death"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+
+	sound/strogg/repair_bot/die
+	shakeData 0 efgggijigjijhjigiffhggiwyqmkomkkkjgba
+}
+
+
+sound repair_bot_servo
+{
+	description	"servos"
+
+	minDistance	40
+	maxDistance	700
+	volumeDb	-6
+
+	sound/strogg/repair_bot/servo1
+	shakeData 0 edcddddca
+	sound/strogg/repair_bot/servo2
+	shakeData 1 ccccccccea
+	sound/strogg/repair_bot/servo3
+	shakeData 2 cccccaa
+	sound/strogg/repair_bot/servo4
+	shakeData 3 dccddddda
+}
+
+
+sound repair_bot_charge
+{
+	description	"repair bot fixing stuff"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-6
+	looping
+
+	sound/strogg/repair_bot/charge_loop
+	shakeData 0 eefffeefeefffeeefeeeeeffeefeeeeeefeeef
+}
+
+
+
+
+
+

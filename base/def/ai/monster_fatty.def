@@ -1,0 +1,448 @@
+/*
+===============================================================================
+
+	Fatty
+
+===============================================================================
+*/
+
+export fatty  
+{		
+	options -prefix fty_ -align ALL -keep spray_1 spray_2 spray_3 spray_4
+	mesh	work/models/monsters/fatty/animation/fty_idle.ma				-dest models/monsters/fatty/mesh
+	anim	work/models/monsters/fatty/animation/fty_idle.ma				-dest models/monsters/fatty/idle
+	anim	work/models/monsters/fatty/animation/int_idle.ma				-dest models/monsters/fatty/intidle
+	anim	work/models/monsters/fatty/animation/feeding_1.ma				-dest models/monsters/fatty/feed1
+	anim	work/models/monsters/fatty/animation/feeding_1_finish.ma			-dest models/monsters/fatty/feed1end
+	anim	work/models/monsters/fatty/animation/feeding_1_loop.ma				-range 155 197 -dest models/monsters/fatty/feed1loop
+	anim	work/models/monsters/fatty/animation/feeding_2.ma				-dest models/monsters/fatty/feed2
+	anim	work/models/monsters/fatty/animation/feeding_2_finish.ma			-dest models/monsters/fatty/feed2end
+	
+	anim	work/models/monsters/fatty/animation/cinematic_death2.ma			-range 400 600 -dest models/monsters/fatty/deathidle
+	anim	work/models/monsters/fatty/animation/cinematic_death2.ma			-dest models/monsters/fatty/cindeath
+
+
+	anim	work/models/monsters/fatty/animation/door_cinematic.ma				-dest models/monsters/fatty/cindoor
+	anim	work/models/monsters/fatty/animation/breathing.ma				-dest models/monsters/fatty/breathing	
+	anim	work/models/monsters/fatty/animation/sleep.ma					-dest models/monsters/fatty/sleep
+	anim	work/models/monsters/fatty/animation/sleeppain.ma				-dest models/monsters/fatty/sleeppain
+	
+	anim	work/models/monsters/fatty/animation/attack_1a.ma				-dest models/monsters/fatty/attack1a
+	anim	work/models/monsters/fatty/animation/attack_1b.ma				-dest models/monsters/fatty/attack1b		
+	anim	work/models/monsters/fatty/animation/attack_2a.ma				-dest models/monsters/fatty/attack2a
+	anim	work/models/monsters/fatty/animation/attack_2b.ma				-dest models/monsters/fatty/attack2b
+	anim	work/models/monsters/fatty/animation/attack_3a.ma				-dest models/monsters/fatty/attack3a
+	anim	work/models/monsters/fatty/animation/attack_3b.ma				-dest models/monsters/fatty/attack3b
+	anim	work/models/monsters/fatty/animation/attack_4a.ma				-dest models/monsters/fatty/attack4a
+	anim	work/models/monsters/fatty/animation/attack_4b.ma				-dest models/monsters/fatty/attack4b
+	anim	work/models/monsters/fatty/animation/attack_5.ma				-dest models/monsters/fatty/attack5
+	anim	work/models/monsters/fatty/animation/attack_5l.ma				-dest models/monsters/fatty/attack5l
+	anim	work/models/monsters/fatty/animation/attack_5r.ma				-dest models/monsters/fatty/attack5r
+	anim	work/models/monsters/fatty/animation/attack_melee.ma				-dest models/monsters/fatty/melee
+	
+	anim	work/models/monsters/fatty/animation/attack_1glass.ma				-dest models/monsters/fatty/attack1glass	
+	anim	work/models/monsters/fatty/animation/attack_2glass.ma				-dest models/monsters/fatty/attack2glass
+	anim	work/models/monsters/fatty/animation/attack_3glass.ma				-dest models/monsters/fatty/attack3glass
+	anim	work/models/monsters/fatty/animation/attack_4glass.ma				-dest models/monsters/fatty/attack4glass
+	anim	work/models/monsters/fatty/animation/attack_5glass.ma				-dest models/monsters/fatty/attack5glass
+
+	
+	anim	work/models/monsters/fatty/animation/spit_1a.ma					-dest models/monsters/fatty/spit1a
+	anim	work/models/monsters/fatty/animation/spit_1b.ma					-dest models/monsters/fatty/spit1b		
+	anim	work/models/monsters/fatty/animation/spit_2a.ma					-dest models/monsters/fatty/spit2a
+	anim	work/models/monsters/fatty/animation/spit_2b.ma					-dest models/monsters/fatty/spit2b
+	anim	work/models/monsters/fatty/animation/spit_3a.ma					-dest models/monsters/fatty/spit3a
+	anim	work/models/monsters/fatty/animation/spit_3b.ma					-dest models/monsters/fatty/spit3b
+	anim	work/models/monsters/fatty/animation/spit_4a.ma					-dest models/monsters/fatty/spit4a
+	anim	work/models/monsters/fatty/animation/spit_4b.ma					-dest models/monsters/fatty/spit4b
+	anim	work/models/monsters/fatty/animation/spit_5.ma					-dest models/monsters/fatty/spit5
+	anim	work/models/monsters/fatty/animation/spit_5l.ma					-dest models/monsters/fatty/spit5l
+	anim	work/models/monsters/fatty/animation/spit_5r.ma					-dest models/monsters/fatty/spit5r
+
+}
+
+/*
+===============================================================================
+
+	Fatty Model
+
+===============================================================================
+*/
+
+// hooka is right, hookb is left
+// #a is high, #b is low
+
+model model_monster_fatty
+{	// MONSTER_MODEL
+	mesh								models/monsters/fatty/mesh.md5mesh
+
+	channel	torso						( *still )
+	channel legs						( *open_belly *closed_belly origin -*still)
+	
+//	anim intidle							models/monsters/fatty/intidle.md5anim
+	anim idle							models/monsters/fatty/idle.md5anim
+	{
+		ai_no_look
+	}
+	anim walk							models/monsters/fatty/idle.md5anim
+	{
+		ai_no_look
+	}
+	anim run							models/monsters/fatty/idle.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim feed							models/monsters/fatty/feed1.md5anim
+	{
+		ai_no_look
+		frame	12						sound_voice			snd_feed
+		frame	1,20,42,67				sound				snd_needle1
+		frame	82						sound				snd_needle2				
+	}
+	anim feed1end							models/monsters/fatty/feed1end.md5anim
+	{
+		ai_no_look
+		frame	1						sound_voice			snd_feed
+		frame	7						sound				snd_needle1			
+	}
+	anim feed1loop							models/monsters/fatty/feed1loop.md5anim
+	{
+		ai_no_look
+	}
+	anim feed2								models/monsters/fatty/feed2.md5anim
+	{
+		ai_no_look
+		frame	12						sound_voice			snd_feed
+		frame	1,20,42,67				sound				snd_needle1
+		frame	100						sound				snd_needle2				
+	}
+	anim feed2end							models/monsters/fatty/feed2end.md5anim
+	{
+		ai_no_look
+		frame	1						sound_voice			snd_feed
+		frame	8						sound				snd_needle1			
+	}
+	anim attackmelee						models/monsters/fatty/melee.md5anim
+	anim breathing							models/monsters/fatty/breathing.md5anim	
+	anim sleep								models/monsters/fatty/sleep.md5anim	
+	{
+		ai_no_look
+	}
+	anim sleeppain							models/monsters/fatty/sleeppain.md5anim	
+	{
+		ai_no_look
+	}
+	anim cindoor							models/monsters/fatty/cindoor.md5anim	
+	{
+		ai_no_look
+		frame 82						sound_voice		snd_pain
+		frame 180,240,245				sound_weapon	snd_tendrils
+		frame 193						trigger env_fattydoor_1
+		frame 1							fx		fx_acid				spray_2
+		frame 13						fx		fx_acid				spray_1
+		frame 30						fx		fx_acid_inv			spray_3
+		frame 44						fx		fx_acid_inv			spray_4
+		frame 1							fx		fx_ambient_acid		closed_belly
+	}
+	
+	anim cindeath							models/monsters/fatty/cindeath.md5anim	
+	{
+		ai_no_look
+		frame	24,45,63,84,106,148,170				sound		snd_needle1
+		frame	73,150,268							sound_voice		snd_pain
+		frame	200									sound			snd_needle2
+		frame	212									call map_putra::deathGui
+		frame 	213									fx		fx_stroy_choke	spit
+		frame	266									fx		fx_stroy_spit	spit
+		frame 	269									fx		fx_stroy_spray	needle_5
+		frame	290									trigger trigger_once_63		
+		frame	335									sound_voice		snd_die
+		frame	337									sound_weapon	snd_explode
+		frame	337									trigger func_fx_fattydeath
+		frame	343									fx		fx_blood_spit	spit	
+		frame	350									trigger func_fx_fattysteam
+		//frame	400									call map_putra::fattyLights
+	}
+
+	anim deathidle							models/monsters/fatty/deathidle.md5anim	
+	{
+		ai_no_look
+	}
+
+	anim spit1a							models/monsters/fatty/spit1a.md5anim
+	anim spit1b							models/monsters/fatty/spit1b.md5anim
+	anim spit2a							models/monsters/fatty/spit2a.md5anim
+	anim spit2b							models/monsters/fatty/spit2b.md5anim
+	anim spit3a							models/monsters/fatty/spit3a.md5anim
+	anim spit3b							models/monsters/fatty/spit3b.md5anim
+	anim spit4a							models/monsters/fatty/spit4a.md5anim
+	anim spit4b							models/monsters/fatty/spit4b.md5anim
+	
+	anim spit5							models/monsters/fatty/spit5.md5anim
+	{
+		frame	12					sound_voice					snd_roar
+	}
+	
+	anim spit5l							models/monsters/fatty/spit5l.md5anim
+	anim spit5r							models/monsters/fatty/spit5r.md5anim
+	
+	anim attack1a						models/monsters/fatty/attack1a.md5anim
+	{
+		frame	4						sound_voice				snd_growl
+		frame	16,22,28				sound_weapon			snd_tendrils						
+	}
+	anim attack1b						models/monsters/fatty/attack1b.md5anim
+	{
+		frame	4						sound_voice				snd_growl
+		frame	16,22,28				sound_weapon			snd_tendrils						
+		frame 16						object_call			Frame_RightChainOut
+		frame 21						object_call			Frame_RightChainIn
+
+		frame 20						ai_attack		hook		chaina3
+	}
+	anim attack2a						models/monsters/fatty/attack2a.md5anim
+	{
+		frame	4						sound_voice			snd_growl
+		frame	16,22,28				sound_weapon		snd_tendrils						
+	}
+	anim attack2b						models/monsters/fatty/attack2b.md5anim
+	{
+		frame 4							sound_voice			snd_growl
+		frame 16,22,28					sound_weapon		snd_tendrils						
+		frame 13						object_call		Frame_RightChainOut
+		frame 20						object_call		Frame_RightChainIn
+		frame 17						object_call		Frame_LeftChainOut
+		frame 22						object_call		Frame_LeftChainIn
+
+		frame 16						ai_attack		hook		chaina3
+		frame 20						ai_attack		hook		chainb3
+	}
+	anim attack3a						models/monsters/fatty/attack3a.md5anim
+	{
+		frame	4						sound_voice			snd_growl
+		frame	16,22,28				sound_weapon		snd_tendrils						
+	}
+	anim attack3b						models/monsters/fatty/attack3b.md5anim
+	{
+		frame 4							sound_voice			snd_growl
+		frame 16,22,28					sound_weapon		snd_tendrils						
+		frame 13						object_call		Frame_RightChainOut
+		frame 18						object_call		Frame_RightChainIn
+		frame 17						object_call		Frame_LeftChainOut
+		frame 23						object_call		Frame_LeftChainIn
+
+		frame 16						ai_attack		hook		chaina3
+		frame 20						ai_attack		hook		chainb3
+	}
+	anim attack4a						models/monsters/fatty/attack4a.md5anim
+	{
+		frame	4						sound_voice			snd_growl
+		frame	16,22,28				sound_weapon		snd_tendrils
+	}
+	anim attack4b						models/monsters/fatty/attack4b.md5anim
+	{
+		frame 4							sound_voice			snd_growl
+		frame 16,22,28					sound_weapon		snd_tendrils
+		frame 17						object_call		Frame_LeftChainOut
+		frame 22						object_call		Frame_LeftChainIn
+	
+		frame 20						ai_attack		hook		chainb3
+	}
+	anim attack5						models/monsters/fatty/attack5.md5anim
+	{
+		frame 4							sound_voice			snd_growl
+		frame 16,22,28					sound_weapon		snd_tendrils
+		frame 13						object_call		Frame_RightChainOut
+		frame 17						object_call		Frame_RightChainIn
+		frame 17						object_call		Frame_LeftChainOut
+		frame 22						object_call		Frame_LeftChainIn
+
+		frame 16						ai_attack		hook		chaina3
+		frame 20						ai_attack		hook		chainb3
+	}
+	anim attack5l						models/monsters/fatty/attack5l.md5anim
+	{
+		frame 4							sound_voice			snd_growl
+		frame 16,22,28					sound_weapon		snd_tendrils
+		frame 13						object_call		Frame_RightChainOut
+		frame 18						object_call		Frame_RightChainIn
+		frame 17						object_call		Frame_LeftChainOut
+		frame 22						object_call		Frame_LeftChainIn
+
+		frame 16						ai_attack		hook		chaina3
+		frame 20						ai_attack		hook		chainb3
+	}
+	anim attack5r						models/monsters/fatty/attack5r.md5anim
+	{
+		frame 4							sound_voice			snd_growl
+		frame 16,22,28					sound_weapon		snd_tendrils
+		frame 13						object_call		Frame_RightChainOut
+		frame 18						object_call		Frame_RightChainIn
+		frame 17						object_call		Frame_LeftChainOut
+		frame 22						object_call		Frame_LeftChainIn
+
+		frame 16						ai_attack		hook		chaina3
+		frame 20						ai_attack		hook		chainb3
+	}	
+	anim attack1glass						models/monsters/fatty/attack1glass.md5anim
+	anim attack2glass						models/monsters/fatty/attack2glass.md5anim
+	anim attack3glass						models/monsters/fatty/attack3glass.md5anim
+	anim attack4glass						models/monsters/fatty/attack4glass.md5anim
+	anim attack5glass						models/monsters/fatty/attack5glass.md5anim
+							
+						
+	
+
+}
+
+/*
+===============================================================================
+
+	Fatty Attacks
+
+===============================================================================
+*/
+
+entityDef hitscan_fatty_hook
+{
+	"inherit"							"hitscan_base"
+	"def_damage"						"damage_fatty_hook"
+	"push"								"50000"
+}
+
+entityDef projectile_fatty_chain
+{
+	"inherit"							"projectile_base"
+
+	"mins"								"-8 -8 -8"
+	"maxs"								"100 8 8"
+	"cone"								"0"
+	"noshadows"							"1"
+	"clipmask_largeshot"				"1"
+	"clipmask_rendermodel"				"0"
+
+	"mass"								"100"
+	
+	"def_damage"						"damage_fatty_hook"
+	"speed"								"0"
+
+	"fx_impact"							"effects/monsters/fatty/ground_impact.fx"
+}
+
+entityDef damage_fatty_hook
+{
+	"inherit"							"melee_monster_base"
+	"damage"							"50"
+	"knockback"							"200"
+	"push"								"50000"
+	"filter_fatty"						"1"						// can damage all entities with their damage_filter set to "fatty"
+}
+
+
+entityDef damage_acid_drip
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"2"
+}
+
+entityDef projectile_acid_drip
+{
+	"inherit"							"projectile_blaster_base"
+	"def_damage"						"damage_acid_drip"
+	"speed"								"0"
+	"mass"								"1"
+	"gravity"							".08"
+
+//	"fx_launch"							"effects/levels/putra/acid_drip_mflash.fx"
+	"fx_fly"							"effects/levels/putra/acid_drip_proj.fx"
+	"fx_impact"							"effects/levels/putra/acid_drip_impact.fx"
+}
+
+/*
+===============================================================================
+
+	Fatty Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_fatty
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterFatty"
+
+	// --------------------------------- General -----------------------------
+	"model"									"model_monster_fatty"
+	"editor_mins"							"-163 -299 -123"
+	"editor_maxs"							"434 299 525"
+	"size"									"300 150 500"
+	"use_aas"								""
+	"health"								"10000"
+	"nopain"								"1"
+	"noturn"								"1"
+	"noDamage"								"1"
+	"fov"									"180"
+	
+	"joint_leftChain"						"chainb3"
+	"joint_rightChain"						"chaina3"
+
+	"joint_chestOffset"						"shoulders"
+	"joint_eyeOffset"						"head"
+
+	// --------------------------------- Combat -----------------------------
+	"action_whipAttack"						"1"
+	"action_whipAttack_minRange"			"128"
+	"action_whipAttack_maxRange"			"700"
+	"action_whipAttack_rate"				"1.5"
+	
+	"tactical_rush"							"0"
+	"tactical_cover"						"0"
+	"tactical_ranged"						"0"
+		
+	"head_height"							"256"
+	"missHeight"							"70"
+
+//	"def_attack_hook"						"hitscan_fatty_hook"
+//	"attack_hook_hitscan"					"1"
+//	"attack_hook_lockToJoint"				"1"
+
+	"def_attack_hook"						"projectile_fatty_chain"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint neck_1"						"0.15 .3 0"
+	  "look_joint neck_2"					"0.15 .3 0"
+	    "look_joint head"					"0.15 .3 0"
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_tendrils"							"putra_fatguy_tendrils"
+	"snd_pain"								"putra_fatguy_pain"
+	"snd_feed"								"putra_fatguy_feed"
+	"snd_die"								"putra_fatguy_die"
+	"snd_growl"								"putra_fatguy_growl"
+	"snd_explode"							"putra_fatguy_explode"
+	
+	"snd_needle1"							"putra_fatguy_arm_extend"
+	"snd_needle2"							"putra_fatguy_needle_inject"
+	"snd_metalstress"						"ambient_metal_stress_violent"
+	"snd_metalthump"						"putra_deep_metal_thump"
+	
+	"snd_roar"							"putra_fatguy_roar"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"								"Putrafication Processing Slave"
+	"dbText"								"Description Text of the Putrafication Processing Slave"
+	"sg_name"								"Sir Fatty"
+	"sg_category"							"Bosses"
+	
+	//---------------------------------------fx-----------------------------------
+	
+	"fx_acid"								"effects/monsters/fatty/acid_spray.fx"
+	"fx_acid_inv"							"effects/monsters/fatty/acid_spray_inv.fx"
+	"fx_ambient_acid"						"effects/monsters/fatty/ambient_acid.fx"
+	"fx_stroy_spit"							"effects/monsters/fatty/stroy_spit.fx"
+	"fx_blood_spit"							"effects/monsters/fatty/blood_spit.fx"
+	"fx_stroy_spray"						"effects/monsters/fatty/stroy_spray.fx"
+	"fx_stroy_choke"						"effects/monsters/fatty/stroy_choke.fx"
+//	"fx_shield"								"effects/monsters/fatty/shieldhit.fx"
+}

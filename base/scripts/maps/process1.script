@@ -1,0 +1,2049 @@
+//------------------------------------------------------------------------------------
+// Process1.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_process1
+{
+
+//Global variables
+	float		SysStatus;
+	float		SecSpinner;		//Global trigger so that the spinner on the security pillar knows when to stop
+
+	float		g_elevatorReady = 0;	//checks if final elevator is ready to be called-- gotta turn off the defenses first.
+	float		g_platformShouldDescend = 1; //in case the player gets off the intro platform before it reaches the top.
+	float		g_maidenWave1Started = 0; //checks whether to trigger the first iron maiden casket
+	float		g_maidenWave2Started = 0; //checks whether to trigger one of the second set of iron maiden caskets
+	float		g_coreChanged = 0; //used for triggering things that should only happen when the player is backtracking
+	float 		deathCount = 0; //counts deaths back through maiden room--do not delete, see unlock_maiden_room()
+	float		climbOutCount = 0; //counts number of stream protectors to climb out of four pits in final room
+//	float		protectorDeathCount = 0;
+	
+	float		activeClimber = 0;
+
+//Prototypes
+	
+	//internal function for extending the north or south bridge
+	void _extendBridge(string strBridge);
+
+	//prepares the bridge arms for movement, rotates them in the right direction. 
+	void _prepareBridge(string strBridge);
+
+	//plays the clunk sounds from the bridge pieces connecting
+	void _playConnectBridgeSounds(string strBridge, entity entLeftHingeA, entity entLeftHingeB, entity entRightHingeA, entity entRightHingeB);
+
+	//activates the big stompy blocks
+	void activateStompies();
+
+	//Raises the elevator and introduces Sledge
+	void introduceSledge();
+
+	//checks to see if the final elevator sequence can begin
+	void finalElevatorCheck();
+
+	//down goes the elevator
+	void elevatorCountdownLoop();
+
+	//Activate the scrolling lights to the elevator
+	void elevatorLights();
+
+	//send the end-level elevator up
+	void elevatorUp();
+
+	//keeps sledge alive
+	void maintainSledge();
+
+	//The end of the countdown, and the elevator is open, good to go.
+	void elevatorEnd();
+
+	// Sledge talks about the elevator and how it will be a while before it arrives.
+	// called from finalElevatorCheck();
+	void sledgeElevatorCall();
+	void lockElevatorDoor(float locky);
+	
+	// When the boss comes down the elevator, here's what happens
+	void guardianElevator();
+
+	// Tells the intro platform to not go back down to get the player again
+	void playerSuccessfullyRodePlatform();
+
+	// Sends the platform back down to the bottom to get the player
+	//void lowerIntroPlatform(); UNUSED
+
+	// Turns on the big light at the beginning of the level after a delay
+	void turnOnBigLight();
+
+	// Morris says goodbye, Strauss says hello
+	void morrisHandsOverToStrauss();
+
+
+
+//-----------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------
+// void breakTeleporter()
+//
+// Function to turn a normal teleporter into a shot-up one.  
+//
+// gcarlson | Apr 2005
+//--------------------------------------------------------------------------------
+void breakTeleporter(entity tgr)
+{
+	// When the user shoots a teleporter, it should switch to the broken model and stop working
+	//sys.println("breakTeleporter called");
+
+	vector location = sys.getEntity(tgr.getKey("ball")).getOrigin();
+
+	// play an explosion effect to hide the model swap
+	sys.playWorldEffect("effects/explosions/surface/medium.fx", location, '0 0 1');
+
+	sys.trigger(sys.getEntity(tgr.getKey("breaknoise")));
+
+	// get rid of the not broken version
+	sys.getEntity(tgr.getKey("ball")).remove();
+	sys.getEntity(tgr.getKey("socket")).remove();
+
+	// show the broken version
+	sys.getEntity(tgr.getKey("broken")).show();
+
+	// set the gui to "teleporter inactive"
+	sys.getEntity(tgr.getKey("button")).guiEvent("destroyed"); 
+
+	// disable the teleporter 
+	sys.trigger(sys.getEntity((sys.getEntity(tgr.getKey("button")).getKey("target")))); // I apologize for this godawful line of code.
+
+	// swap out the effects
+//	sys.trigger(sys.getEntity(tgr.getKey("broken_effect"))); // on  Removing broken effect per design change 6/30/05 gc
+	sys.trigger(sys.getEntity(tgr.getKey("working_effect"))); // off
+	
+	// check for a failed teleport
+	if (tgr.getFloatKey("canTeleportFail") > 0)
+	{
+		if (sys.randomInt(10) == 0) // 10% chance
+		{
+			// wait a small random delay
+			sys.wait(sys.random(3));
+
+			// spawn a strogg marine
+			entity monster = sys.spawn("monster_strogg_marine");
+			vector orientation = sys.getEntity(tgr.getKey("broken")).getAngles();
+			location = sys.getEntity(tgr.getKey("broken")).getOrigin();
+			location_z -= 192;
+			orientation_y -= 90;
+			monster.setOrigin(location);
+			monster.setAngles(orientation);
+
+			// animate and die
+			sys.playWorldEffect("effects/monsters/teleport", location, '0 0 1');
+			sys.playWorldEffect("effects/monsters/teleport_malfunction", location, '0 1 1');
+			aiScriptedAnimWait(monster, "teleport_fail", 3, 1);
+			monster.kill();
+		}
+	}
+}
+
+void stroggTeleportingIn()
+{
+	// The teleporters that were previously inactive are now active, so teleport failures are now possible.
+	$tgr_tele_break_1.setKey("canTeleportFail", "1");
+	$tgr_tele_break_2.setKey("canTeleportFail", "1");
+	$tgr_tele_break_3.setKey("canTeleportFail", "1");
+	$tgr_tele_break_4.setKey("canTeleportFail", "1");
+}
+
+void InitSecurity()
+{		
+	//function to spin the spinner, so that it can stop...
+
+	$func_mover_SecurityBridge.hide();						//Start the bridge out hidden. Could probably do this as a keypair, but hey...
+	$func_static_SecurityCore.bindPosition($func_mover_SecurityPillarBottom);
+	$func_static_SecurityCoreCenter.bindPosition($func_mover_SecurityPillarBottom);
+	
+	$func_mover_SecuritySpinner.time(1);
+	$func_mover_SecuritySpinner.rotateOnce('0 45 0');		//Offset so that it is out of the way to begin with.
+	sys.waitFor($func_mover_SecuritySpinner);
+
+	while(SecSpinner == 0)
+	{
+		$func_mover_SecuritySpinner.time(1);
+		$func_mover_SecuritySpinner.rotateOnce('0 90 0');
+		sys.waitFor($func_mover_SecuritySpinner);
+	}
+	
+	SecSpinner = 2;
+}
+void cortezMoves()
+{
+	sys.wait(1);
+	aiScriptedAnimWait($CORTEZ, "idle_wrist_gui_start_fast", 4, 1);
+	aiScriptedAnimLoop($CORTEZ, "idle_wrist_gui_loop", 4);
+}
+void InitTram()
+{
+	$CORTEZ.setTalkState(TALK_WAIT);
+	
+	setNewTimes( $mvr_drag_tram, 5 , 0 , 3 );
+	$player_tram.bind($mvr_drag_tram);
+	$mvr_drag_tram.move( EAST, 328 );
+
+	// wait for the tram to carry the player into the level
+	sys.wait(1);
+	sys.trigger($tramStop);
+
+	entity tramCar = $player_tram;
+
+	entity driver = $player_tram.getDriver();
+	thread cortezMoves();
+	radioChatterPlayWait($radio_vo_morris_to_cortez_1, "");
+	aiSpeakWait($CORTEZ, "lipsync_talkToMorris1");
+	radioChatterPlayWait($radio_vo_morris_to_cortez_2, "");
+	$call_lift_bottom.setKey("gui_parm_floor", "1");
+	aiSpeakWait($CORTEZ, "lipsync_talkToMorris2");
+	radioChatterPlayWait($radio_vo_morris_to_cortez_3, "");
+	$CORTEZ.setTalkState ( TALK_OK );
+	aiSpeak($CORTEZ, "lipsync_talkToMorris3");
+	aiScriptedAnimWait($CORTEZ, "idle_wrist_gui_end_fast", 4, 1);
+	$CORTEZ.lookAt($player1);
+	aiScriptedFaceWait( $CORTEZ, $player1, 1 );
+	aiSpeakDone( $CORTEZ );	
+	sys.trigger($objective_totheroof);
+	
+	sys.wait(1);
+	tramCar_Scripts::OpenTramDoors($player_tram);
+}
+
+void InitTram2()
+{
+//	aiScriptedAnimLoop($npc_bahr, "tram_driving_idle", 4);
+
+	setNewTimes( $mvr_drag_tram, 5 , 0 , 3 );
+	$player_tram.bind($mvr_drag_tram);
+	$mvr_drag_tram.move( EAST, 328 );
+
+	tramCar_Scripts::OpenTramDoors($player_tram);
+}
+
+void InitGuardian()
+{
+	//$mon_guardian.setAnimRate(1.5); 
+	$fx_guardian_jet_pack_right.bindToJoint($mon_guardian, "r_jet", 1);
+	$fx_guardian_jet_pack_left.bindToJoint($mon_guardian, "l_jet", 1);
+	$tgt_launch_missle.bindToJoint($mon_guardian, "r_muzzle_flash", 1);
+	sys.trigger($mon_guardian);
+	$mon_guardian.setEnemy($player1);
+}
+
+
+//-----------------------------------------------------------------------
+
+// hacky bind of clip brushes to the bottom eggshell since it's not solid and should be
+void	BindEggshellClippies()
+{
+	$eggshell_clippy_1.bindToJoint($level_eggshellbottom_1, "bturn1", 1);
+	$eggshell_clippy_2.bindToJoint($level_eggshellbottom_1, "bturn2", 1);
+	$eggshell_clippy_3.bindToJoint($level_eggshellbottom_1, "bturn3", 1);
+	$eggshell_clippy_4.bindToJoint($level_eggshellbottom_1, "bturn4", 1);
+}
+
+void	ActivateSecurity()
+{		
+	//function to move stuff on the security pillar
+
+	//sys.println("ActivateSecurity begin!!");
+
+	BindEggshellClippies();	
+
+	$light_SecuritySpot.fadeOutLight(.5);					//Fade out the spot on the security pillar
+	sys.trigger($level_eggshelltop_1);							//Open the eggshell top
+	sys.trigger($level_eggshellbottom_1);						//Open the eggshell bottom
+	sys.wait(.5);												//Short wait for clamps/eggshell to start opening
+	$level_eggshellbottom_1.playEffect("fx_vent", "bend1", 0);	//Vent gas (fx) from the eggshell
+	$level_eggshellbottom_1.playEffect("fx_vent", "bend2", 0);
+	$level_eggshellbottom_1.playEffect("fx_vent", "bend3", 0);
+	$level_eggshellbottom_1.playEffect("fx_vent", "bend4", 0);
+	//Play hissing sound
+
+	$light_SecurityCore.fadeInLight(.3);						//Fade in the light (to avoid cracking before it opens)
+	sys.wait(.5);
+	$func_static_SecurityCore.setShaderParm(5,100);				//Expand glow of core (to avoid it poking through again)
+	$light_SecurityFill.fadeInLight(.25);						//Fade in filler light to get rid of black shadows
+	sys.wait(2);												//Wait for eggshell to open
+	sys.trigger($func_fx_SecurityCorePulse);					//Start FX for core pulse
+
+	$func_mover_SecurityPillarBottom.time(1);
+	$func_mover_SecurityPillarBottom.accelTime(.3);
+	$func_mover_SecurityPillarBottom.decelTime(.1);
+	$func_mover_SecurityPillarBottom.rotateOnce('0 180 0');		//Spin the platform
+	sys.trigger($spkr_heavy_machinery);							//Play machinery moving sound
+	sys.waitFor($func_mover_SecurityPillarBottom);				//Wait for the pillar to finish spinning
+	//Play sound for platform getting to destination- "bang" sound
+	sys.wait(.25);
+	//Vent gas (fx) from the platform vents
+	$func_mover_SecurityPillarBottom.time(.75);
+	$func_mover_SecurityPillarBottom.accelTime(.3);
+	$func_mover_SecurityPillarBottom.decelTime(.05);
+	//sys.println("Security bottom down!!");
+	$func_mover_SecurityPillarBottom.move(DOWN, 128);			//Sink the platform
+	//Play another machinery moving sound (same one?)
+	sys.waitFor($func_mover_SecurityPillarBottom);				//Wait for the platform to sink
+	//Play sound for platform getting to destination- Same "bang" sound?
+	sys.trigger($spkr_security_bridge_start);					//Play the start sound
+	sys.trigger($spkr_security_bridge_loop);					//Kick off the loop sound
+
+	$func_mover_SecurityBridge.show();							//Unhide the bridge
+	$func_mover_SecurityBridge.time(4);							//Open the bridge
+	$func_mover_SecurityBridge.move(NORTH, 256);
+	sys.waitFor($func_mover_SecurityBridge);					//Wait for the bridge to connect
+	sys.trigger($spkr_security_bridge_stop);					//Play the stop sound
+	sys.trigger($spkr_security_bridge_loop);					//Stop the loop sound
+
+	SecSpinner = 1;												//Trigger the spinner stopping
+	//Play some spin-down sound (Do we need a spinning sound?)
+	while(SecSpinner == 1)
+	{
+		sys.wait(.1);
+	}
+
+	$func_mover_SecurityGUI.time(2);
+	$func_mover_SecurityGUI.move(UP,512);
+	sys.trigger($spkr_security_console);
+
+}
+
+//-----------------------------------------------------------------------
+void	ChangeCore()
+{		
+	// Section that will happen after the player uses the console
+
+	g_coreChanged = 1;
+
+	//Power up anything else in the level that needs to be powered up
+	thread activateStompies();
+
+	//do this too
+	sys.trigger($trigger_relay_securityGui);
+
+	//sledge is on his way, so lower the elevator-- he'll move up later when the player gets to the middle again.
+	$mvr_platform_intro_new.setWorldOrigin( $tgt_plat_intro_1.getWorldOrigin() );
+
+	//Bring out the side probes
+	$func_mover_SecurityRimW.time(1);							//Rotate the probe rims
+	$func_mover_SecurityRimW.rotateOnce('0 0 180');
+	$func_mover_SecurityRimE.time(1);
+	$func_mover_SecurityRimE.rotateOnce('0 0 180');
+	sys.wait(1.5);
+	$func_mover_SecurityProbeW.time(.75);						//Extend the probes
+	$func_mover_SecurityProbeW.move(EAST, 128);
+	$func_mover_SecurityProbeW.rotateOnce('0 0 -180');
+	$func_mover_SecurityProbeE.time(.75);
+	$func_mover_SecurityProbeE.move(WEST, 128);
+	$func_mover_SecurityProbeE.rotateOnce('0 0 -180');
+	sys.waitFor($func_mover_SecurityProbeE);
+
+	//Play the electrical effect, as the side things change the power core.
+	//$target_null_SecurityCoreProbe.move(UP, 96);				//Move the effect target (so arcs move)
+	sys.trigger($func_fx_SecurityProbeW);
+	sys.trigger($func_fx_SecurityProbeE);
+	sys.wait(1);												//Wait till the lightning fires
+  
+	//Change colors in the security room
+	$func_static_SecurityCore.setColor(0.88, 0.97, 0.89);		//Change the core color
+	$light_SecurityCore.setColor(0.88, 0.97, 0.89);				//Change the color of surrounding lights
+	$light_SecuritySpinning.setColor(0.88, 0.97, 0.89);
+//	$light_SecuritySide1.setColor(0.88, 0.97, 0.89);
+//	$light_SecuritySide2.setColor(0.88, 0.97, 0.89);
+	$light_SecurityUnder.setColor(0.88, 0.97, 0.89);
+	$light_SecurityTSD1.setColor(0.88, 0.97, 0.89);
+	$light_SecurityTSD2.setColor(0.88, 0.97, 0.89);
+	$light_SecurityFog.setColor(0.88, 0.97, 0.89);				//Change the fog color
+
+	//Change the colors in the Energypipe area
+	$light_EP_Low.setColor(0.88, 0.97, 0.89);					//Change the light colors
+//	$light_EP_Underlight.setColor(0.88, 0.97, 0.89);
+//	$light_EP_MidNarow.setColor(0.88, 0.97, 0.89);
+	$main_shaft_orange_1.setColor(0.88, 0.97, 0.89);
+	$main_shaft_orange_2.setColor(0.88, 0.97, 0.89);
+	$main_shaft_orange_3.setColor(0.88, 0.97, 0.89);
+	$main_shaft_orange_4.setColor(0.88, 0.97, 0.89);
+	$EP_fixture_1.setColor(0.88, 0.97, 0.89);
+	$EP_fixture_2.setColor(0.88, 0.97, 0.89);
+	$EP_fixture_3.setColor(0.88, 0.97, 0.89);
+	$EP_fixture_4.setColor(0.88, 0.97, 0.89);
+	$light_EP_WallW.setColor(0.88, 0.97, 0.89);
+	$light_EP_LowFog.setColor(0.88, 0.97, 0.89);				//Change the fog color
+	
+	//Change the texture glows? (What has the core been set to? Is it "off?")
+	sys.terminate(SysStatus);
+	sys.setShaderParm(1,4);
+}
+
+
+//-----------------------------------------------------------------------
+void	ChangeLights()
+{		
+	//function to vary the lights in the terminal glow textures
+
+	float		badnumber;
+	float		goodnumber;
+
+	while(1)
+	{
+		badnumber = sys.random(10);
+		goodnumber = ((badnumber * 1000) % 3) + 1;
+		sys.setShaderParm(1 , goodnumber);
+		sys.wait(sys.random(2));
+	}
+}
+
+//-----------------------------------------------------------------------
+void StartHighArcs()
+{
+	float		arc;
+	
+	while(1)
+	{
+		arc = 1 + sys.random(4);
+		if((arc >= 1) && (arc < 2))
+		{
+			sys.trigger($func_fx_ArcL1);
+		}
+
+		if((arc >= 2) && (arc < 3))
+		{
+			sys.trigger($func_fx_ArcL3);
+		}
+
+		if((arc >= 3) && (arc < 4))
+		{
+			sys.trigger($func_fx_ArcR1);
+		}
+
+		if((arc >= 4) && (arc <= 5))
+		{
+			sys.trigger($func_fx_ArcR3);
+		}
+		
+		sys.wait(.2 + sys.random(.6));
+	}
+}
+
+
+//-----------------------------------------------------------------------
+void StartMidArcs()
+{
+	float		arc;
+	
+	while(1)
+	{
+		arc = 1 + sys.random(4);
+		if((arc >= 1) && (arc < 2))
+		{
+			sys.trigger($func_fx_MidArcL1);
+			sys.trigger($func_fx_MidArcR3);
+		}
+
+		if((arc >= 2) && (arc < 3))
+		{
+			sys.trigger($func_fx_MidArcL2);
+			sys.trigger($func_fx_MidArcR2);
+		}
+
+		if((arc >= 3) && (arc < 4))
+		{
+			sys.trigger($func_fx_MidArcL3);
+			sys.trigger($func_fx_MidArcR4);
+		}
+
+		if((arc >= 4) && (arc <= 5))
+		{
+			sys.trigger($func_fx_MidArcL4);
+			sys.trigger($func_fx_MidArcR1);
+		}
+		
+		sys.wait(.2 + sys.random(1));
+	}
+}
+
+//-----------------------------------------------------------------------
+void StartBaseArcs()
+{
+	float		arc;
+	
+	while(1)
+	{
+		arc = 1 + sys.random(6);
+		if((arc >= 1) && (arc < 2))
+		{
+			sys.trigger($func_fx_Arcbase1);
+		}
+
+		if((arc >= 2) && (arc < 3))
+		{
+			sys.trigger($func_fx_Arcbase2);
+		}
+
+		if((arc >= 3) && (arc < 4))
+		{
+			sys.trigger($func_fx_Arcbase3);
+		}
+
+		if((arc >= 4) && (arc <= 5))
+		{
+			sys.trigger($func_fx_Arcbase4);
+		}
+	
+		if((arc >= 5) && (arc <= 6))
+		{
+			sys.trigger($func_fx_Arcbase5);
+		}
+		
+		if((arc >= 6) && (arc <= 7))
+		{
+			sys.trigger($func_fx_Arcbase6);
+		}	
+		
+		sys.wait(.2 + sys.random(.5));
+	}
+}
+
+
+void extendNorthBridge()	{
+	_extendBridge("north");	}
+
+void extendSouthBridge()	{
+	_extendBridge("south");	}
+
+//-------------------------------------------------------------------------------
+// void _extendBridge()
+//
+// Used to extend the bridges in the opening
+//
+// jshepard | Dec 2004
+//-------------------------------------------------------------------------------
+void _extendBridge(string strBridge)
+{
+	//sys.println("void extendBridge::begin");
+	
+	//strBridge is either going to be North or South
+	if( strBridge != "south" && strBridge != "north")	
+		sys.error(" Can't call map_process1::_extendBridge without passing in 'north' or 'south'. Case matters. Get wise son.");
+	
+	entity entLeftPole = sys.getEntity("mvr_bridge_pole_" + strBridge + "_1");
+	entity entRightPole = sys.getEntity("mvr_bridge_pole_" + strBridge + "_2");
+	entity entLeftHingeA = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_a_1");
+	entity entLeftHingeB = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_b_1");
+	entity entRightHingeA = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_a_2");
+	entity entRightHingeB = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_b_2");
+
+	entity entPoleTargetLeft = sys.getEntity("tgt_pole_" + strBridge + "_1");
+	entity entPoleTargetRight = sys.getEntity("tgt_pole_" + strBridge + "_2");
+
+	//extend the poles
+	entLeftPole.time(.2);
+	entRightPole.time(.2);
+		
+	entLeftPole.moveTo(entPoleTargetLeft);
+	entRightPole.moveTo(entPoleTargetRight);
+
+	sys.waitFor(entLeftPole);
+	sys.wait(1);
+
+	//extend the bridge pieces.
+	entLeftHingeA.time(.25);
+	entLeftHingeB.time(.25);
+	entRightHingeA.time(.25);
+	entRightHingeB.time(.25);
+
+	entLeftHingeA.moveTo(sys.getEntity("tgt_bridge_" + strBridge + "_a_1"));
+	entRightHingeA.moveTo(sys.getEntity("tgt_bridge_" + strBridge + "_a_2"));
+	sys.waitFor(entLeftHingeA);
+
+	sys.wait(.5);
+
+	entLeftHingeB.moveTo(sys.getEntity("tgt_bridge_" + strBridge + "_b_1"));
+	entRightHingeB.moveTo(sys.getEntity("tgt_bridge_" + strBridge + "_b_2"));
+	sys.waitFor(entLeftHingeB);
+
+	sys.waitFrame();
+	thread _playConnectBridgeSounds(strBridge, entLeftHingeA, entLeftHingeB, entRightHingeA, entRightHingeB);
+	entLeftHingeA.rotateDownTo(0, 345);
+	sys.wait(.2);
+	entLeftHingeB.rotateDownTo(0, 345);
+	sys.wait(.2);
+	entRightHingeA.rotateDownTo(0, 345);
+	sys.wait(.2);
+	entRightHingeB.rotateDownTo(0, 345);
+	
+	//remove the AAS obstacle
+	sys.trigger( sys.getEntity( "aas_bridge_" + strBridge));
+
+	//sys.println("void extendBridge::end");
+
+} //-------------- End void _extendBridge ---------------
+
+
+void _playConnectBridgeSounds(string strBridge, entity entLeftHingeA, entity entLeftHingeB, entity entRightHingeA, entity entRightHingeB)
+{
+	// play the clunking sound as each piece finishes moving
+
+	sys.waitFrame(); // wait for the first hinge to start moving
+
+	// once the first hinge is moving, wait for each hinge to stop, then play the sound
+
+	sys.waitFor(entLeftHingeA);
+	sys.trigger(sys.getEntity("spkr_bridge_" + strBridge + "_connect_a_1")); // play the connect sound
+
+	sys.waitFor(entLeftHingeB);
+	sys.trigger(sys.getEntity("spkr_bridge_" + strBridge + "_connect_b_1"));
+
+	sys.waitFor(entRightHingeA);
+	sys.trigger(sys.getEntity("spkr_bridge_" + strBridge + "_connect_a_2"));
+
+	sys.waitFor(entRightHingeB);
+	sys.trigger(sys.getEntity("spkr_bridge_" + strBridge + "_connect_b_2"));
+}
+
+
+void _prepareBridge(string strBridge)	
+{
+	//rotate all the bridge hinges down 90 degrees.
+	entity entLeftHingeA = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_a_1");
+	entity entLeftHingeB = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_b_1");
+	entity entRightHingeA = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_a_2");
+	entity entRightHingeB = sys.getEntity("mvr_bridge_hinge_" + strBridge + "_b_2");
+
+	entLeftHingeA.time(.25);
+	entLeftHingeB.time(.25);
+	entRightHingeA.time(.25);
+	entRightHingeB.time(.25);
+
+	entLeftHingeA.rotateDownTo(0, 90);
+	entLeftHingeB.rotateDownTo(0, 90);
+	entRightHingeA.rotateDownTo(0, 90);
+	entRightHingeB.rotateDownTo(0, 90);
+}
+
+//-------------------------------------------------------------------------------
+// void _stompyMotion()
+//
+// Keeps a stompy moving, from up to down, with a locking motion at the bottom. 
+//
+// jshepard | Dec 2004
+//-------------------------------------------------------------------------------
+void _stompyMotion(entity entStompy, string interrupt)
+{
+	//sys.println("void _stompyMotion::begin");
+	sys.threadname(interrupt);
+	//from the "up" position, where a stompy starts, move it 64 units down, have it "click" into place, then
+	//64 units back up
+	
+	vector vUpPosition = entStompy.getWorldOrigin();
+	vector vDownPosition = entStompy.getWorldOrigin(); // z - 64
+	vector vSnapPosition = vDownPosition;
+	
+	vUpPosition_z += 160; //make this stomp higher so monsters can climb out 2/4/05 gc
+	vDownPosition_z -= 64;
+	vSnapPosition_z -= 66;
+
+	entStompy.time(6);
+	entStompy.accelTime(2);
+	entStompy.decelTime(2);
+
+	entity downSound = sys.getEntity(entStompy.getKey("downSound"));
+	entity effect = sys.getEntity(entStompy.getKey("effect"));
+	entity upSound = sys.getEntity(entStompy.getKey("upSound"));
+
+	while(1)	
+	{
+		//move it down
+		entStompy.moveToPos(vDownPosition);
+		sys.trigger(downSound); // play the going down sound
+		sys.waitFor(entStompy);
+
+		//smash it into place
+		entStompy.setWorldOrigin(vSnapPosition);
+		sys.trigger(effect); // play the steam effect
+		sys.wait(2);
+
+		//move it up
+		entStompy.moveToPos(vUpPosition);
+		sys.trigger(upSound); // play the going up sound
+		sys.waitFor(entStompy);
+
+		sys.wait(1);		// pause for protectors
+	}
+
+	//sys.println("void _stompyMotion::end");
+
+} //-------------- End void _stompyMotion ---------------
+
+void activateStompies()	
+{
+	//this will activate all four stompies.
+	thread _stompyMotion($mvr_stompy_1, "stomps1");
+	sys.wait(sys.random(2.5));
+	thread _stompyMotion($mvr_stompy_3, "stomps3");
+	sys.wait(sys.random(2.5));
+	thread _stompyMotion($mvr_stompy_2, "stomps2");
+	sys.wait(sys.random(2.5));
+	thread _stompyMotion($mvr_stompy_4, "stomps4");
+}
+
+void radioChatter1()
+{
+	// Morris first talks to the player
+	radioChatterPlayWait($radio_vo_1, "");
+	//  Trigger Obj after Morris talks to player.
+	sys.trigger($objective_shield);
+}
+
+void shieldObjective()
+{
+//  Trigger Obj after Morris talks to player.	
+//	sys.trigger($objective_shield);
+}
+
+/*void lowerIntroPlatform()		
+{
+  The intro platform is now an elevator, so this function is redundant.
+
+	$mvr_platform_intro.accelTime(3);
+	$mvr_platform_intro.time(8);
+	$mvr_platform_intro.decelTime(3);
+
+	$mvr_platform_intro.moveTo($tgt_intro_elevator_bottom);
+}*/
+
+//--------------------------------------------------------
+// Loads of stuff grabbed from Bob B.'s original script  (mrenner)
+//--------------------------------------------------------
+
+void shaftmover1( entity shaftpiece )
+{
+	// initialize cycle before looping
+
+		shaftpiece.time( 6 );
+		shaftpiece.accelTime( 1 );
+		shaftpiece.decelTime( 1 );
+
+		shaftpiece.rotateOnce( '0 90 0' );
+		sys.wait( 6 );
+
+	while( 1 )
+	{
+		shaftpiece.time( 4.5 );
+		shaftpiece.accelTime( 1 );
+		shaftpiece.decelTime( 1 );
+
+		shaftpiece.rotateOnce( '0 -135 0' );
+		sys.wait( 4.5 );
+
+		shaftpiece.rotateOnce( '0 135 0' );
+		sys.wait( 4.5 );
+	}
+}
+
+void shaftmover2( entity shaftpiece )
+{
+	// initialize cycle before looping
+
+	sys.wait( 6 );
+
+	shaftpiece.time( 6 );
+	shaftpiece.accelTime( 1 );
+	shaftpiece.decelTime( 1 );
+
+	shaftpiece.move( DOWN , 512 );
+
+	sys.wait( 12 );
+
+	while( 1 )
+	{
+		sys.wait( 1 );
+		shaftpiece.time( 5 );
+		shaftpiece.move( UP,512 );
+		sys.wait( 5 );
+
+		shaftpiece.time( 6 );
+		shaftpiece.move( DOWN,512 );
+		sys.wait( 12 );
+	}
+}
+
+void shaftmover3( entity shaftpiece , entity shaftpiece2 )
+{
+	// single piece moving, initialize cycle before looping
+
+	shaftpiece.time( 6 );
+	shaftpiece.accelTime( 1 );
+	shaftpiece.decelTime( 1 );
+
+	shaftpiece.rotateOnce( '0 90 0' );
+	sys.wait( 6 );
+
+	while( 1 )
+	{
+		// single piece moving
+
+		shaftpiece.time( 6 );
+		shaftpiece.accelTime( 1 );
+		shaftpiece.decelTime( 0 );
+
+		shaftpiece.rotateOnce( '0 -90 0' );
+		sys.wait( 6 );
+
+		// two pieces moving together
+
+		shaftpiece2.bind( shaftpiece );
+
+		shaftpiece.time( 3 );
+		shaftpiece.accelTime( 0 );
+		shaftpiece.decelTime( 1 );
+
+		shaftpiece.rotateOnce( '0 -45 0' );
+		sys.wait( 3 );
+
+		shaftpiece.time( 3 );
+		shaftpiece.accelTime( 1 );
+		shaftpiece.decelTime( 0 );
+
+		shaftpiece.rotateOnce( '0 45 0' );
+		sys.wait( 3 );
+
+		shaftpiece2.unbind();
+
+		// single piece moving
+
+		shaftpiece.time( 6 );
+		shaftpiece.accelTime( 0 );
+		shaftpiece.decelTime( 1 );
+
+		shaftpiece.rotateOnce( '0 90 0' );
+		sys.wait( 6 );
+	}
+}
+
+/* entity no longer exists in map -corey
+void rotatingLights_1()
+{
+	$func_mover_5.accelTime( 1 );
+	$func_mover_5.decelTime( 1 );
+
+	while(1)
+	{
+		$func_mover_5.time( 5 );
+		$func_mover_5.rotateOnce( '0 360 0' );
+		sys.wait( 11 );
+
+		$func_mover_5.time( 10 );
+		$func_mover_5.rotateOnce( '0 -720 0' );
+		sys.wait( 22 );
+	}
+}
+
+void rotatingLights_2()
+{
+	$func_mover_5.accelTime( 0 );
+	$func_mover_5.decelTime( 0 );
+
+	while(1)
+	{
+		$func_mover_5.time( 5 );
+		$func_mover_5.rotateOnce( '0 360 0' );
+		sys.wait( 5 );
+	}
+}
+*/
+
+/* entity no longer exists in map -corey
+void rotatingLights_2reverse()
+{
+	$func_mover_7.accelTime( 0 );
+	$func_mover_7.decelTime( 0 );
+
+	while(1)
+	{
+		$func_mover_7.time( 5 );
+		$func_mover_7.rotateOnce( '0 -360 0' );
+		sys.wait( 5 );
+	}
+}
+
+void rotatingLights_3()
+{
+	$func_mover_7.accelTime( 1 );
+	$func_mover_7.decelTime( 1 );
+
+	while(1)
+	{
+		$func_mover_7.time( 7 );
+		$func_mover_7.rotateOnce( '0 270 0' );
+		sys.wait( 7 );
+
+		$func_mover_7.time( 7 );
+		$func_mover_7.rotateOnce( '0 -180 0' );
+		sys.wait( 7 );
+	}
+}
+*/
+void rotatingPieces()
+{
+	entity mover;
+
+	thread shaftmover1( $rotatorA_1 );
+	thread shaftmover2( $rotatorB_1 );
+//	thread shaftmover3( $rotatorC_1 , $rotatorD_1 );
+
+	thread shaftmover1( $rotatorA_2 );
+	thread shaftmover2( $rotatorB_2 );
+//	thread shaftmover3( $rotatorC_2 , $rotatorD_2 );
+
+	//thread shaftmover1( $rotatorA_3 );
+	//thread shaftmover2( $rotatorB_3 );
+	//thread shaftmover3( $rotatorC_3 , $rotatorD_3 );
+
+//	thread shaftmover1( $rotatorA_4 );
+//	thread shaftmover2( $rotatorB_4 );
+//	thread shaftmover3( $rotatorC_4 , $rotatorD_4 );
+
+	thread shaftmover1( $rotatorA_5 );
+	thread shaftmover2( $rotatorB_5 );
+	thread shaftmover3( $rotatorC_5 , $rotatorD_5 );
+
+	thread shaftmover1( $rotatorA_6 );
+	thread shaftmover2( $rotatorB_6 );
+	thread shaftmover3( $rotatorC_6 , $rotatorD_6 );
+
+	thread shaftmover1( $rotatorA_7 );
+	thread shaftmover2( $rotatorB_7 );
+	thread shaftmover3( $rotatorC_7 , $rotatorD_7 );
+
+	thread shaftmover1( $rotatorA_8 );
+	thread shaftmover2( $rotatorB_8 );
+	thread shaftmover3( $rotatorC_8 , $rotatorD_8 );
+
+	thread shaftmover1( $rotatorA_9 );
+	thread shaftmover2( $rotatorB_9 );
+	thread shaftmover3( $rotatorC_9 , $rotatorD_9 );
+
+	thread shaftmover1( $rotatorA_10 );
+	thread shaftmover2( $rotatorB_10 );
+	thread shaftmover3( $rotatorC_10 , $rotatorD_10 );
+
+	//thread rotatingLights_2();
+	//thread rotatingLights_2reverse();
+}
+
+void elev()
+{
+	//$chase_elevator.hide();
+	playAnimWait($chase_elevator, ANIMCHANNEL_ALL, "process_ride");
+	// $mvr_dont_fall_off.hide(); // allow the player to walk off the back of the elevator now
+	$player1.unbind();
+}
+
+void Guardian_Chase()
+{
+	//thread rotatingPieces();
+	thread guardianElevator();
+	thread elev();	
+}
+
+void guardianWatch()	
+{
+	vector vOld;
+	vector vNew;
+		
+	while(1)
+	{
+		vNew = $mon_guardian.getWorldOrigin();
+		if( vNew != vOld)	
+		{
+			//sys.println(" X " + vNew_x + " Y " + vNew_y + " Z " + vNew_z);
+			vOld = vNew;
+		}
+		sys.waitFrame();
+	}
+}
+
+void guardianElevator()	
+{
+	//thread guardianWatch();
+
+	vector vStart = '0 0 0';
+	vector vMoveTo = '0 0 0';	
+
+	//when guardians attack!
+	//sys.println("begin");
+	//sys.trigger($elevator_music);
+	vStart = $mon_guardian.getWorldOrigin();
+	$env_guardian_door_1.playAnim(ANIMCHANNEL_ALL, "crumple");
+
+	$mon_guardian.becomePassive( 1 );	// stop targetting the player
+	$mon_guardian.setEnemy($tgt_guardian_shoots_here);	// lead the shots manually
+
+	aiScriptedAnimWait( $mon_guardian, "process_shaft_begin", 0, 0);
+	
+	////sys.println("fly");
+	//aiScriptedAnimWait( $mon_guardian, "process_shaft_fly", 0, 0);
+
+	//move to cable location
+	//sys.println("cables");
+
+	//--------------------------------------------------------------------
+	// Here is where I converted the data from the Maya anim to in-game movement.
+	// Remember that a doom unit is one inch. So the vector of travel in Maya from the initial anim 
+	// start to where the cables anim is supposed to begin is here"
+	//	
+	// '269.857 -4724.095 -1110.608'
+	//	
+	// Don't forget that Maya is Z forward, and Quake is Z up, so you've got to get your transpose on.
+	// Converting that vector to this:
+	//	
+	// '1110.608 -269.857 -4724.095'
+	//
+	// Brings a very good result, almost perfectly accurate-- but not quite, it's off by a foot in the Z.
+	// If you want to see, uncomment the three lines below and try it out.
+	//
+	// - Shepard
+
+	//y and z transposed  then x and y transposed, then x and y inverted... :(
+	//vStart = vStart + '1110.608 -269.857 -4724.095';
+	//$mon_guardian.setWorldOrigin( vStart);
+
+	aiScriptedAnimWait( $mon_guardian, "process_shaft_cables", 0, 0);
+
+	//sys.println("falling");
+	aiScriptedAnimWait( $mon_guardian, "process_shaft_falling", 0, 0);
+	$mon_guardian.unbind();
+	//sys.println("release");
+	aiScriptedAnimWait( $mon_guardian, "process_shaft_release", 0, 0);
+
+}
+void guardianGlassPunch()
+{
+	//sys.println("Glass punch");
+	$elevatorGlass.show();
+	sys.trigger($elevatorGlassFx);
+	$player1.damageEffect("dmg_shellshock_nohl" , $mon_guardian);
+}
+void guardianGlassRemove()
+{
+	$elevatorGlass.hide();
+	$elevator_glass.hide();
+	sys.trigger($elevatorGlassFx_shatter);
+	$player1.damageEffect("dmg_shellshock" , $mon_guardian);
+}
+void guardianGrabElevator()
+{
+	//sys.println("grabbing elevator");
+	$mon_guardian.bindToJoint($chase_elevator, "root", 1);
+	sys.trigger($climb_1);
+	
+	//$player1.bindToJoint($chase_elevator, "root", 0);
+
+	sys.wait(2.7);
+	sys.trigger($faildedBrakes_1);
+	sys.trigger($faildedBrakes_2);
+	sys.trigger($faildedBrakes_3);
+	sys.trigger($faildedBrakes_4);
+	
+	//sys.wait(1); 
+	//$player1.unbind(); 
+
+}
+
+void guardianReleaseElevator()
+{
+	//sys.println("releasing elevator");
+	$mon_guardian.unbind(); 
+	//sys.wait(6);
+	//$player1.bindToJoint($chase_elevator, "root", 0); // bind the player to the elevator so he won't fall out on impact
+}
+
+void guardianShootMissle()
+{
+	//sys.println("shooting missle");
+	sys.trigger($tgt_launch_missle);
+}
+
+void offTrack()
+{
+	//sys.println("Elevator breaks off the track");
+
+	$faildedBrakes_1.remove();
+	$faildedBrakes_2.remove();
+	$faildedBrakes_3.remove();
+	$faildedBrakes_4.remove();
+
+	sys.trigger($railExplosions_1);
+	sys.wait(.1);
+	sys.trigger($railExplosions_2);
+	sys.trigger($climb_1);
+	
+	sys.trigger($elevatorCrashedSnd);
+	sys.trigger($elevatorCrashedSnd_1);
+
+	sys.trigger($climb_1);
+}
+
+void elevatorBridgeWiggle()
+{
+	// wiggly!
+	while (1) {
+		$mvr_bridge_hinge_north_b_1.rotateOnce('3 0 0');
+		sys.wait( sys.random( 0.5 ) + 0.1 );
+		$mvr_bridge_hinge_north_b_1.rotateOnce('-3 0 0');
+		sys.wait( sys.random( 0.5 ) + 0.1 );
+	}
+}
+		
+void elevatorCrashLand()
+{
+	//sys.println("explosion here");
+	sys.trigger($fx_elevator_crashexplosion_1);
+	sys.trigger($fx_elevator_crashexplosion_2);
+	$player1.damageEffect("dmg_shellshock_nohl" , $fx_elevator_crashexplosion_2);
+	
+	$mon_guardian.remove();
+	
+	// bendy!
+	setNewTimes( $mvr_bridge_hinge_north_b_1, 0.2 , 0 , 0.1 );
+	setNewTimes( $mvr_bridge_north_b_1, 0.2 , 0 , 0.1 );
+	setNewTimes( $mvr_bridge_hinge_north_b_2, 0.2 , 0 , 0.1 );
+	setNewTimes( $mvr_bridge_north_b_2, 0.2 , 0 , 0.1 );
+
+	$mvr_bridge_hinge_north_b_1.rotateOnce('15 0 0');
+	$mvr_bridge_north_b_1.rotateOnce('-20 0 -6');
+
+	$mvr_bridge_hinge_north_b_2.rotateOnce('20 0 0');
+	$mvr_bridge_north_b_2.rotateOnce('-30 0 0');
+	sys.wait(1);
+	thread elevatorBridgeWiggle();
+}
+
+
+//--------------------------------------------------------
+// Loads of stuff grabbed from Bob B.'s original script (mrenner)
+//--------------------------------------------------------
+
+//introduces the npc sledge. 
+void goToSledge()
+{
+	sys.trigger($sledgeTetherNone);
+	sys.trigger($passiveSledge);
+
+	$npc_sledge.setLeader($player1);
+	aiSpeakWait( $npc_sledge, "lipsync_vo_3_1_14_50_1");	
+	
+	sys.trigger($objective_elevator);
+	lockElevatorDoor(0);
+
+	// have morris hand over immediately
+	sys.wait(2);
+	morrisHandsOverToStrauss();
+}
+
+void sledgeYells()
+{
+	//talk some jazz
+	aiSpeak( $npc_sledge, "lipsync_vo_3_1_14_40_1");
+	sys.wait(0.5);
+	aiScriptedAnim( $npc_sledge, "waste_over_here", 8, true);
+}
+
+void introduceSledge()	
+{
+	lockElevatorDoor(1);
+	//unhide sledge
+	$npc_sledge.show();
+	aiScriptedAnim($npc_sledge, "idle", 1, 1);
+
+	// kill lift GUIs so players can't send sledge back down
+	$stc_operate_lift_button.hide();
+	$call_lift_top.setKey( "gui_parm_disable", "1");
+	$stc_operate_lift_button_dead.show();
+	
+	//move the sledgevator up
+	$mvr_platform_intro_new.speed(208);
+	$mvr_platform_intro_new.moveTo($tgt_plat_intro_2);
+	sys.waitFor($mvr_platform_intro_new);	
+	//unbind sledge
+	$npc_sledge.unbind();
+
+	sys.waitFrame();
+	
+	thread sledgeYells();
+	
+	sys.trigger($toSledgeTrig);
+
+	//the elevator is ready
+	g_elevatorReady = 1;
+}
+
+void morrisHandsOverToStrauss()
+{
+	// have Morris say his last lines
+	radioChatterPlayWait($radio_morris_final, "");
+
+	sys.wait(1);
+
+	// have Strauss introduce himself
+	radioChatterPlayWait($radio_strauss_intro, "");
+
+	sys.wait(1);
+
+	// now let Strauss yak about stompies if/when player is close enough
+	sys.trigger($tgr_data_pump_vo); 
+}
+
+
+void lockElevatorDoor(float locky)
+{
+	$door_typical_21.lock(locky);
+	$func_static_14596.setShaderParm(7, (1-locky));
+}
+
+//-------------------------------------------------------------------------------
+// void finalElevatorCheck()
+//
+// Checks to see if the final elevator is ready to be summoned.
+//
+// jshepard | Dec 04
+//-------------------------------------------------------------------------------
+
+void finalElevatorCheck()
+{
+	if( g_elevatorReady == 0)	
+	{
+		//sys.println("Tower is in defense mode still.");
+		return;
+	}
+
+	$swap_gui_g.guiEvent("updateFloor");
+	$elevator_gui_1.guiEvent("updateFloor");
+	
+	//complete the objective
+	sys.trigger($complete_objective_elevator);
+
+	//switch all the targets of the tgt_change_gui to their other forms.
+	entity entGuiSwap;	
+	entity e_tgt_gui_swap = $tgt_gui_swap;
+	ForEachTargetOf( e_tgt_gui_swap, entGuiSwap )	
+	{
+		//hide the model
+		entGuiSwap.hide();
+		
+		//get and show the other one
+		sys.getEntity(entGuiSwap.getName() + "_1").show();
+	}	
+
+	//down goes the elevator
+	//thread elevatorCountdownLoop();
+
+	//have sledge catch up so he can say his thing
+//	sys.trigger($ai_trigger_once_2);
+//	sys.waitFrame();
+	sledgeElevatorCall();
+//	sys.trigger($tether_sledge_nearplayer);
+}
+
+
+void clearGuis ( ) {
+	entity entGuiSwap;	
+	entity e_tgt_gui_swap = $tgt_gui_swap;
+	ForEachTargetOf( e_tgt_gui_swap, entGuiSwap )	
+	{
+		entGuiSwap.show();
+		sys.getEntity(entGuiSwap.getName() + "_1").remove();
+	}
+	g_elevatorReady = 0;
+}
+
+//turns on climber trigger_facings
+void startProtectorClimb()
+{
+	sys.trigger($triggerClimb1);
+	sys.trigger($triggerClimb2);
+	sys.trigger($triggerClimb3);
+	sys.trigger($triggerClimb4);	
+
+	while ( climbOutCount < 2 ) {
+		sys.wait ( 1 );
+	}
+}
+
+//-----------------------------------------------------------------------------------
+// redo-ery of stream protector setup to get them out as rapidly as possible
+// mbreit | july 2005
+// original stuff pwilliams
+//-----------------------------------------------------------------------------------
+
+void protectorClimb(float protectorIndex)
+{
+	//sys.println("Protector " + protectorIndex + " climbing next");
+
+	entity entStompy = sys.getEntity("mvr_stompy_" + protectorIndex);
+	entity entProtector = sys.getEntity("mon_protector_climb_" + protectorIndex);
+	entity entPusher = sys.getEntity("func_climberpush_" + protectorIndex);
+
+	sys.killthread("stomps" + protectorIndex);
+	entStompy.stopMoving();
+	setNewTimes(entStompy, 1, 0.5, 0.5);
+	entStompy.moveTo(sys.getEntity(entStompy.getKey("top")));
+	sys.waitFor(entStompy);
+	//sys.println("Stompy " + protectorIndex + " is clear");
+
+	aiScriptedAnim( entProtector, "crawl_out", 0, 1);		// rise!
+	sys.wait(1.2);
+	sys.trigger(entPusher);
+	while ( entProtector.getHealth() > 0 ) sys.wait(1);		// wait for it to die
+}
+
+void knockdownGrate()	
+{
+	//sys.println("Knockdown Grate!");
+	
+	sys.trigger($spkr_mon_grate_drop);
+	$mov_protector_grate.unbind();
+	sys.waitFrame();
+	$mov_protector_grate.applyImpulse($mon_protector_drop, $mov_protector_grate.getWorldOrigin(), '200000 200000 -50000000');
+	sys.trigger($mov_protector_grate);
+	//sys.waitFrame();
+}
+
+void startClimbers()
+{
+	sys.wait(1);
+	//sys.println("Climbers starting ... ");
+	if (sys.random(1) > 0.5) {
+		protectorClimb(3);
+		protectorClimb(4);
+	} else {
+		protectorClimb(4);
+		protectorClimb(3);
+	}
+	//sys.println ( "All protectors dead" );
+	clearGuis();
+	elevatorEnd();
+
+}
+
+void protectorDrop()	
+{
+	//sys.println("Protector drop!");
+	aiScriptedAnimWait( $mon_protector_drop, "drop_grate", 0, 1);
+}
+
+void finalElevatorFight()
+{
+	// drop the stream protector and start the music
+	sys.wait(1);
+	sys.trigger($spkr_battle);
+	thread protectorDrop();
+
+	//open the teleporter door
+	sys.trigger($stc_racetrack_teleport_door_1);
+	sys.trigger($stc_racetrack_teleport_door_2);
+	sys.trigger($stc_racetrack_teleport_door_3);
+	sys.trigger( $spawn_racetrack_tactical );
+}
+//send the 1st stream protector down from the grate and into battle
+
+
+//void debugTestPrintln(entity protector)
+/*{
+	float counter = 0;
+	while (counter < 3)
+	{
+		aiScriptedAnim(protector, "idle", 2, 1);
+		counter++;
+	}
+	
+	//sys.println("init stream protector");
+	if (protector != $nullEntity)
+		//sys.println(protector.getName() + " spawned");
+
+	if (protector.getFloatKey("forceEnemy") > 0)
+		//sys.println("forceEnemy is set");
+	else
+		//sys.println("forceEnemy is not set");
+
+	aiScriptedMove(protector, $player1, 64, 1);
+}*/
+
+
+//-------------------------------------------------------------------------------
+// void elevatorCountdownLoop()
+//
+// Checks to see if the final elevator is ready to be summoned.
+//
+// jshepard | Dec 04
+//-------------------------------------------------------------------------------
+void elevatorCountdownLoop()	
+{
+	//starting floor
+	float fFloor = 342;
+	float fWaitSpeed = 0.3;
+	float fWaited = 0;
+
+	while( fFloor > 0)	
+	{
+		entity entGuiFloor;	
+		entity e_tgt_gui_floor = $tgt_gui_elevator;
+		ForEachTargetOf( e_tgt_gui_floor, entGuiFloor )	
+		{
+
+			if ( fFloor == 32 && fWaited == 0 )	
+			{
+				entGuiFloor.guiEvent("pause");
+			}
+			else 
+			{
+				//display the floor
+				entGuiFloor.setGuiParm( "floorNumber", fFloor );
+				entGuiFloor.guiEvent("changeFloor");
+			}			
+		}
+
+		//slow down near floor 33 and the bottom
+		if( ( fFloor < 50 && fFloor > 33) || fFloor < 10)	
+		{
+			fWaitSpeed += 0.03;
+		}
+		
+		
+		if (fFloor < 30 && fFloor > 15)	
+		{
+			fWaitSpeed -= 0.03;
+		}
+
+		////sys.println("Waitspeed = " + fWaitSpeed);
+		sys.wait( fWaitSpeed);
+		
+		if	(fFloor == 32 && fWaited == 0)	
+		{
+			sys.wait(21);
+			fWaited = 1;
+		}
+		else	
+		{
+			fFloor--;
+		}
+	}
+
+	thread elevatorEnd();
+}
+
+//The end of the countdown, and the elevator is open, good to go.
+//done proper-like with tethers july 2005
+void elevatorEnd()	
+{
+	$mvr_temp_elevator_door_1.lock(0);
+	$mvr_temp_elevator_door_1.setShaderParm(7, 1); // green lights
+	$gui_in_elevator.setGuiParm("floorNumber", "1" );
+	$gui_in_elevator.guiEvent("changeFloor");
+	
+	sys.trigger($tgr_end_level_alert_1);	// start the exity alerty thing
+	
+	//light the path to the elevator.
+	thread elevatorLights();
+	$elevator_arrival_light.fadeInLight(1);
+
+	sys.trigger($tether_sledge_end);
+	sys.trigger($ai_trigger_once_3);
+
+	lockElevatorDoor(0);
+
+	/*
+	//move slegde in, nothing else happens until he gets in.
+	aiScriptedMoveWait($npc_sledge, $tgt_sledge_end, 1, 1);
+	//HACK: this is bogus but whatever
+	$npc_sledge.setWorldOrigin($tgt_sledge_end.getWorldOrigin());
+	$npc_sledge.bind($tgt_sledge_end);
+	$npc_sledge.setLeader($null_entity);
+	//sys.println("Sledge is in the elevator");
+	//now activate the trigger that will allow the player to be registered as in the elevator.
+	sys.trigger($tgr_player_in_elevator);
+	*/
+}
+
+
+void maintainSledge()	
+{
+	// this works better.
+	$npc_sledge.setKey("undying", 1);
+
+/*
+	while(1)	
+	{
+		$npc_sledge.setHealth(500);
+		sys.wait(0.5);
+	}
+*/
+}
+
+// Fired only when the player has made it into the elevator.
+void playerInElevator()	
+{
+	sys.print("Player In Elevator");
+
+	//close the door.
+	$mvr_temp_elevator_door_1.lock(1);
+	$mvr_temp_elevator_door_1.setShaderParm(7, 0); // red lights
+
+	//start counting the elevator gui up
+	thread elevatorUp();
+
+	//bind sledge to the elevator so he doesn't bail through the bottom
+	$npc_sledge.unbind();
+	sys.trigger($sledgeTetherNone);
+	$npc_sledge.bind($process1_end_elevator);
+	sys.waitFrame();
+
+	//start the actual physical elevator up
+	$process1_end_elevator.gotoFloor(2);
+
+	sys.wait(2);
+	
+	//$npc_sledge.unbind();
+	aiScriptedFaceWait($npc_sledge, $player1, 1);
+	sys.trigger($passiveSledge);
+
+	//have sledge talk his jive
+	aiSpeakWait($npc_sledge, "lipsync_vo_3_1_14_100_1");
+
+	sys.wait(2);
+	sys.fadeOut('0 0 0', 6);
+	
+	sys.wait(6.5);
+	//end the level.
+	sys.trigger($target_endlevel_1);
+}
+
+// Sledge talks about the elevator and how it will be a while before it arrives.
+// called from finalElevatorCheck();
+void sledgeElevatorCall()	
+{
+	//move sledge to his location
+	sys.trigger($sledgeTetherNone);
+	aiScriptedMoveWait($npc_sledge, $tgt_sledge_nearplayer, 1, 1);
+//	aiScriptedFaceWait($npc_sledge, $player1, 1);
+
+	lockElevatorDoor(1);	// do this now because we know he's inside
+
+	//sledge looks up at the screen.
+	$npc_sledge.lookAt($Computers001);
+	//sledge hates waiting!
+	aiSpeak($npc_sledge, "lipsync_vo_3_1_14_90_1");
+	sys.wait(3);
+	$npc_sledge.lookAt($null_entity);
+	aiScriptedAnimWait($npc_sledge, "idle_checks_time", 4, 1);
+	aiSpeakDone( $npc_sledge );	
+	
+	finalElevatorFight();
+}
+
+//up with the elevator!
+void elevatorUp()	
+{
+	float fFloor = 1;
+	float fWaitTime = 1;	
+
+	while(1)	
+	{
+		sys.wait(fWaitTime);
+		fFloor++;
+		$gui_in_elevator.setGuiParm("floorNumber", fFloor );
+		$gui_in_elevator.guiEvent("changeFloor");
+		
+		if( fWaitTime > 0.4)	
+		{
+			fWaitTime -= 0.05;
+		}
+	}
+}
+
+//Activate the scrolling lights to the elevator
+void elevatorLights()	
+{
+	$elevator_main_light.On();
+	 
+	while(1)	
+	{
+		$elevator_light_a_1.On();
+		$elevator_light_a_2.On();
+		sys.wait(0.3);
+		$elevator_light_a_1.Off();
+		$elevator_light_a_2.Off();
+
+		$elevator_light_b_1.On();
+		$elevator_light_b_2.On();
+		sys.wait(0.3);
+		$elevator_light_b_1.Off();
+		$elevator_light_b_2.Off();
+
+		$elevator_light_c_1.On();
+		$elevator_light_c_2.On();
+		sys.wait(0.3);
+		$elevator_light_c_1.Off();
+		$elevator_light_c_2.Off();
+
+		$elevator_light_d_1.On();
+		$elevator_light_d_2.On();
+		sys.wait(0.3);
+		$elevator_light_d_1.Off();
+		$elevator_light_d_2.Off();
+
+		$elevator_light_e_1.On();
+		$elevator_light_e_2.On();
+		sys.wait(0.3);
+		$elevator_light_e_1.Off();
+		$elevator_light_e_2.Off();
+	}
+}
+
+
+
+void repair_bot_intro() 
+{		
+	//bot flies in player's face as soon as he enters the main shaft
+
+	thread turnOnBigLight();
+
+	//get the location of the player's head
+	vector vHead = $player1.getViewPos();
+		
+	//get his body facing, regardless of how his head tilts.
+	vector vAngles = $player1.getViewAngles();
+	
+	//get rid of vertical values on the ViewAngles
+	vAngles_z = 0;
+	vAngles_x = 0;
+	
+	//get a forward vector-- like a line coming out from between his eyes
+	vector vForward = sys.angToForward( vAngles);
+
+	//make the line 1 unit long
+	vForward = sys.vecNormalize( vForward);
+
+	//then make it 72 long, or however you feel works
+	vForward = vForward * 72;
+
+	//adjust the position you will set the tgtnull to
+	vHead += vForward;
+		
+	//put the null at the player's eye level
+	$playerFaceNull.setWorldOrigin( vHead );
+
+	//stick it
+	$playerFaceNull.bind( $player1);
+	
+	// bot moves in and repairs player's face
+	aiScriptedMoveWait ( $intro_repair_bot_1, $playerFaceNull, 2, 0 );
+	aiScriptedFace ( $intro_repair_bot_1, $player1, 0 );
+	//aiScriptedActionWait ( $intro_repair_bot_1, $playerFaceNull, 0 );
+	sys.wait(2);		
+
+	//remove the null
+	$playerFaceNull.remove();
+				
+	//Normal Routine
+
+//	sys.trigger($lights_on_sound);
+//	sys.trigger($orange_lights_on);
+//	sys.wait(0.3);
+//	sys.trigger($start_big_light);
+			
+	aiScriptedMoveWait ( $intro_repair_bot_1, $intro_repair_bot_1_spot_1, 2, 0 );
+	aiScriptedFace ( $intro_repair_bot_1, $intro_repair_bot_1_spot_1, 0 );
+	aiScriptedActionWait ( $intro_repair_bot_1, $intro_repair_bot_1_spot_1, 0 );
+}
+
+void turnOnBigLight()
+{
+	sys.wait(3);
+	sys.trigger($lights_on_sound);
+	sys.wait(0.3);
+	//sys.trigger($start_big_light); // this doesn't work for some reason
+	sys.trigger($orange_lights_on);
+	$main_shaft_spot_fill.On();
+	$main_shaft_spot.On();
+}
+
+void liftTop() {
+	thread turnOnBigLight();
+	thread repair_bot_intro();
+}
+
+void repair_bot_death() {
+	sys.killthread("map_process1::repair_bot_intro");
+	//sys.println("m33p");
+}
+
+// function that drops the pillars and spawns the maidens from the casket on the way back
+void maiden_pillar_attack ( entity m_trigger )
+{	
+	entity pillar = sys.getEntity( m_trigger.getKey ("pillar_name"));
+
+	entity endPos = sys.getEntity( m_trigger.getKey ("pillar_endpos")); 
+	entity p_sound = sys.getEntity( m_trigger.getKey ("pillar_sound")); 
+	entity p_casket = sys.getEntity( m_trigger.getKey ("pillar_casket")); 
+	entity p_maiden = sys.getEntity( m_trigger.getKey ("pillar_maiden")); 
+	entity p_drop_sound = sys.getEntity( m_trigger.getKey ("pillar_drop_sound"));
+
+	pillar.decelTime( 0.2 );
+	pillar.accelTime( 1 );				
+	pillar.speed( 512 );
+
+	pillar.moveTo( endPos );
+	sys.trigger( p_drop_sound );
+	sys.waitFor( pillar );
+
+	sys.trigger( p_sound );
+	sys.trigger( p_casket );
+	sys.trigger( p_maiden );
+	p_maiden.unbind();	
+	p_casket.hideSurface( "models/monsters/iron_maiden/base" );
+}
+
+
+void playerSuccessfullyRodePlatform()
+{
+/*  The intro platform is now an elevator, so this function is unnecessary.
+	g_platformShouldDescend = 0;
+*/
+}
+
+void pillar1attack()
+{
+	//sys.println("g_elevator ready = " + g_elevatorReady);
+	// only call this function if the player is backtracking
+	if (g_coreChanged == 0)
+		return;
+
+	// only call this function once
+	if (g_maidenWave1Started > 0)
+		return;
+
+	g_maidenWave1Started = 1;
+	maiden_pillar_attack($trigger_maiden_pillar_1);
+}
+
+void pillar2attack()
+{
+	// only call this function if the player is backtracking
+	if (g_coreChanged == 0)
+		return;
+
+	// don't drop the casket if this pillar or the one next to it is already open
+	if (g_maidenWave2Started > 0)
+		return; //if pillar 2 is activated, pillar 3 should never activate
+
+	g_maidenWave2Started = 1;
+	maiden_pillar_attack($trigger_maiden_pillar_2);
+}
+
+void pillar3attack()
+{
+	// only call this function if the player is backtracking
+	if (g_coreChanged == 0)
+		return;
+
+	// don't drop the casket if this pillar or the one next to it is already open
+	if (g_maidenWave2Started > 0)
+		return; //if pillar 3 is activated, pillar 2 should never activate
+
+	g_maidenWave2Started = 1;
+	maiden_pillar_attack($trigger_maiden_pillar_3);
+}
+
+//-------------------------------------------------------------------------------
+// Locks maiden room as maidens are triggered
+// pwilliams | feb 2005
+//-------------------------------------------------------------------------------
+void LockMaidenDoors()
+{	
+//	$new_glad_door.time( 0.25);
+	$new_glad_clip.show();
+	$new_glad_door.close();
+	$new_glad_door.lock(1);
+	$door_typical_31.lock(1);
+	$new_glad_door.setShaderParm(7, 0); // red lights on the gladiator door
+	$frame_new_glad_door.setShaderParm(7, 0);
+	$door_typical_31.setShaderParm(7, 0); // red lights on the other door
+	$frame_31.setShaderParm(7, 0);
+
+	//sys.println("Doors are locked");
+}
+
+//-------------------------------------------------------------------------------
+// Unlocks maiden room after 2 maidens, teleport_dropper, and lt_tank are dead
+// pwilliams | feb 2005
+//-------------------------------------------------------------------------------
+void UnlockMaidenDoors()
+{
+	deathCount = deathCount + 1;
+	
+	if (deathCount == 3) sys.trigger($ai_tether_none_1);	// let the tank loose
+	else if (deathCount == 4) 
+	{
+//		$new_glad_door.time( 1);
+		$new_glad_clip.hide();
+		$new_glad_door.lock(0);
+		$door_typical_31.lock(0);
+		$new_glad_door.setShaderParm(7, 1); // green lights on the gladiator door
+		$frame_new_glad_door.setShaderParm(7, 1);
+		$door_typical_31.setShaderParm(7, 1); // green lights on the other door
+		$frame_31.setShaderParm(7,1);
+		//sys.println("Doors are unlocked");
+		
+		sys.wait( 3 + sys.random(2) );		
+		sys.trigger($radio_sledge_arrive);	
+	}
+}
+
+void guardianJetsOff()
+{
+	$fx_guardian_jet_pack_left.stop();
+	$fx_guardian_jet_pack_right.stop();
+}
+
+void guardianJetsOn()
+{
+	$fx_guardian_jet_pack_left.start();
+	$fx_guardian_jet_pack_right.start();
+}
+void cortezRespect()
+{
+	//aiScriptedAnimWait($CORTEZ, "at_attention_start", 4, 1);		
+	//aiScriptedAnimLoop($CORTEZ, "at_attention_idle", 4);
+	$CORTEZ.lookAt($target_cortez_look_east);
+	aiScriptedFaceWait( $CORTEZ, $target_cortez_look_east, 16 );
+	aiScriptedAnimLoop($CORTEZ, "tram_driving_idle", 4);
+}
+
+void tramGateHack() {
+	$tramDoorSouth.move( SOUTH, 112 );
+	$tramDoorNorth.move( NORTH, 112 );
+	sys.waitFor($tramDoorNorth);
+	sys.wait(3);
+	$tramDoorSouth.move( NORTH, 112 );
+	$tramDoorNorth.move( SOUTH, 112 );
+}
+
+void cortezExit()
+{
+	// this mover is set to "movetime 3" at first to keep it being untriggerable within 12 seconds of map load
+	$mvr_platform_intro_new.speed(104);
+		
+	thread cortezRespect();
+	
+	tramCar_Scripts::CloseTramDoors($player_tram);
+	sys.trigger($tramStart);
+
+	$player_tram.bind($mvr_drag_tram);
+	setNewTimes( $mvr_drag_tram, 8 , 3 , 0 );
+
+	$mvr_drag_tram.move( EAST, 1500 );
+	sys.wait(2);
+	thread tramGateHack();
+	sys.waitFor($mvr_drag_tram);
+	sys.wait(5);
+	$player_tram.remove();
+}
+
+void endLevel()
+{
+	$player1.bind($mvr_drag_tram);
+	tramCar_Scripts::CloseTramDoors($player_tram);
+	sys.trigger($tramStart);
+	sys.trigger($tramGate);	
+	setNewTimes( $mvr_drag_tram, 8 , 3 , 0 );
+	$mvr_drag_tram.move( EAST, 1500 );
+	sys.fadeOut('0 0 0', 3);	
+	sys.wait(3.5);
+	// start the next level
+	sys.trigger($target_endlevel_2);
+}
+
+void setupDoorsSecond()
+{
+	$door_typical_22.lock(1);
+	$door_typical_22.setShaderParm(7, 0);
+	$frame_22.setShaderParm(7, 0);
+
+	lockElevatorDoor(1);
+	$frame_21.setShaderParm(7, 0);
+}
+
+
+float g_maintainBeamPulse = 0;
+
+//beam pulse in shaft
+void beamPulse()
+{
+	while(g_maintainBeamPulse == 0)
+	{
+		sys.trigger($beamBlastLight);
+		$beamBlastFlare.show();
+		setNewTimes($beamBlast, 3 , 0 , 0 );
+		$beamBlast.moveTo($target_null_beamBlastBottom);
+		sys.waitFor($beamBlast);
+
+		//return
+		sys.trigger($beamBlastFx);	// off		
+		$beamBlastFlare.hide();		
+		sys.trigger($beamBlastLight);
+		setNewTimes($beamBlast, .1 , 0 , 0 );
+		$beamBlast.moveTo($target_null_beamBlastTop);
+		sys.waitFor($beamBlast);
+		sys.wait(1);
+		sys.trigger($beamBlastFx);	// on
+	}
+
+	$beamBlastFlare.remove();
+	$target_null_beamBlastBottom.remove();
+	$beamBlastFx.remove();
+	$beamBlastLight.remove();	
+}
+
+void beamPulseStop()
+{
+	//sys.println("stop beam");
+	g_maintainBeamPulse = 1;
+	
+	sys.wait(2);
+	sys.trigger($func_fx_shaft_beam_top);
+	sys.trigger($speaker_beam_shutdown);
+
+	sys.wait(1);
+	sys.trigger($elevator_music);
+}
+
+void unbindFogLights()
+{
+	//sys.println("unbind fog lights");
+	$shaftcullfogtop_1.unbind(); //leave this behind to cull shaft
+	$shaftcullfogbottom_1.remove(); //remove this one, not needed any more
+}
+
+void guardiantDoorBustOut()
+{
+	sys.trigger($fx_guardiandoorbustout_1);
+	sys.trigger($fx_guardiandoorbustout_2);
+	sys.trigger($fx_guardiandoorbustout_3);
+}
+
+// for debugging only
+void playerEject()
+{
+	$player1.unbind();
+}
+void skipProcess()
+{
+	ActivateSecurity();
+	sys.wait(1);
+	ChangeCore();
+	sys.wait(1);
+	introduceSledge();
+}
+
+
+//-----------------------------------------------------------------------
+void main()
+{
+/*
+	//sys.println ( "Running map_process1::main" );
+	thread			StartHighArcs();
+	thread			StartMidArcs();
+	thread			StartBaseArcs();
+	SysStatus	=	thread	ChangeLights();
+	SecSpinner	=	0;	//initialize the variable to control if the security room spinner is going.
+	thread			InitSecurity();
+	thread			InitTram();
+
+	// make sure the locked doors have red lights
+	$door_typical_21.setShaderParm(7, 0);
+	$frame_21.setShaderParm(7, 0);
+
+	//lift that player up.
+	//thread liftIntroPlatform();
+	thread _prepareBridge("north");
+	thread _prepareBridge("south");
+
+	//unlock north bridge
+	$stc_bridge_gui_north.guiEvent("unlocked");
+
+	// When the boss comes down the elevator, here's what happens
+	if (sys.getcvar("si_entityFilter") == "second")
+	{
+		thread InitGuardian();
+		thread Guardian_Chase();
+		
+		_extendBridge("north");
+		_extendBridge("south");
+
+		$door_typical_22.lock(1);
+		$door_typical_22.setShaderParm(7, 0);
+		$frame_22.setShaderParm(7, 0);
+	}
+*/	
+	if(sys.getcvar("si_entityFilter") == "first")
+	{
+		//sys.println("Start Process1 First");
+		thread StartHighArcs();
+		thread StartMidArcs();
+		thread StartBaseArcs();
+		thread InitSecurity();
+		thread InitTram();
+		
+		SysStatus	=	thread	ChangeLights();
+		SecSpinner	=	0;	//initialize the variable to control if the security room spinner is going.
+
+		//lift that player up.
+		thread _prepareBridge("north");
+		thread _prepareBridge("south");
+	
+		// initial movetime 3 to keep it being untriggerable
+		$mvr_platform_intro_new.speed(400);	
+
+		//unlock north bridge
+		//$stc_bridge_gui_north.guiEvent("unlocked");
+	}
+	
+	// If no filter specified, or filter second, use this.
+	else
+	{
+		//sys.println("Start Process1 Second");
+		$main_shaft_spot_fill.On();
+		$main_shaft_spot.On();
+		
+		$player1.bindToJoint($chase_elevator, "root", 0);
+
+		thread InitGuardian();
+		
+		thread Guardian_Chase();
+
+		thread setupDoorsSecond();
+		
+		thread extendSouthBridge();
+		
+		thread extendNorthBridge();
+
+		thread InitTram2();
+		
+		//wait a second for level to start before starting music and removing the beam in the center.
+		thread beamPulseStop();
+	}
+
+	// This stuff will happen every time you visit process1.
+	thread beamPulse();
+	$vehicle_tram_reargun_1.lock(1);
+}
+
+}	//end namespace
+
+

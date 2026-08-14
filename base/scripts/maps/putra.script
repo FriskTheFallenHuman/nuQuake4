@@ -1,0 +1,1715 @@
+//------------------------------------------------------------------------------------
+// putra.script
+//
+// (C) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_putra
+{		//begining of namespace
+
+
+//Global variable definitiions ------------------------------------------
+
+	float		ActiveParts;
+	//float		fattyStatus = 0; // REMOVED FOR SINGLE-PRESS FATTY DEATH
+	float		conveyor = 0;
+	float		takingDamage = 0;
+	float		bettenburgerRoom1;		// Used to turn bettenburger scripts off after player has left the area
+	float		bettenburgerRoom2;
+	float		bettenburgerRoom3;
+	float		bettenburgerRoom4;
+
+//-----------------------------------------------------------------------
+
+/*
+void StartDrips()
+{		//Function to randomly fire off drips in the acidburn area
+	float 		randomNumber;
+	float 		dripNumber;
+	string		nameBase;
+	string		dripName;
+	entity		drip;
+
+	while(1)		//Eventually this should be set up to shut off when the player is gone...
+	{
+		nameBase = "func_fx_AcidDrip_";
+		randomNumber = (sys.random(10) * 1000);
+		dripNumber = (randomNumber % 24) + 1;
+		dripName = nameBase + dripNumber;
+
+		drip = sys.getEntity(dripName);
+		sys.trigger(drip);
+		sys.wait(.1);
+	}
+
+}
+*/
+
+/*------------------------------------------------------------------------
+moving barrels
+------------------------------------------------------------------------*/
+
+void start_barrels()
+{
+	entity entBarrel1 = $movingbarrel_1;
+	entity entBarrel2 = $movingbarrel_2;
+	
+	entity entDest1 = $barrel_target_1;
+	entity entDest2 = $barrel_target_2;
+	entity entDest3 = $barrel_target_3;
+	
+	entBarrel1.setOrigin(entDest1.getOrigin());
+	entBarrel2.setOrigin(entDest3.getOrigin());
+
+	entBarrel1.time(.50);
+	entBarrel2.time(.50);
+
+	while(1)
+	{
+		
+		entBarrel1.setLinearVelocity(calcMoveSpeedByEntity(entDest1,entDest2,3));
+		entBarrel2.setLinearVelocity(calcMoveSpeedByEntity(entDest3,entDest1,3));
+
+		sys.wait(3);
+
+		entBarrel1.setLinearVelocity('0 0 0');
+		entBarrel2.setLinearVelocity('0 0 0');
+
+		entBarrel1.setOrigin(entDest3.getOrigin());
+
+		entBarrel1.setLinearVelocity(calcMoveSpeedByEntity(entDest3,entDest1,3));
+		entBarrel2.setLinearVelocity(calcMoveSpeedByEntity(entDest1,entDest2,3));
+
+		sys.wait(3);
+
+		entBarrel1.setLinearVelocity('0 0 0');
+		entBarrel2.setLinearVelocity('0 0 0');
+
+		entBarrel2.setOrigin(entDest3.getOrigin());
+
+
+	}
+
+}
+
+/*-------------------------------------------------------------------------
+Berserker Elevator Bind Release
+--------------------------------------------------------------------------*/
+
+void unbindElevatorbeserk()
+ {     
+      $elevator_berserk.unbind();
+ }
+
+/*------------------------------------------------------------------------
+Intestines
+------------------------------------------------------------------------*/
+
+object putra_intestines
+{
+	void		init ( );
+
+	void		onDamage ( );
+
+	void		Idle();
+	void		Damage();
+};
+
+void Roar() {
+
+	if(takingDamage)
+		return;
+
+	takingDamage = 1;
+
+	sys.trigger($FG_roar);
+
+	sys.wait(5);
+
+	takingDamage = 0;
+}
+
+void putra_intestines::init ( ) {
+	setAnimState ( "Idle", 0 );
+}
+
+void putra_intestines::Idle ( ) {
+	playCycle ( ANIMCHANNEL_ALL, "idle" );
+	while ( 1 ) {
+		waitFrame ( );
+	}
+}
+
+void putra_intestines::Damage ( ) {
+
+	playAnim ( ANIMCHANNEL_ALL, "spaz" );
+
+	thread Roar();
+	
+	while ( !animDone ( ANIMCHANNEL_ALL, 4 ) ) {
+		waitFrame ( );
+	}
+	setAnimState ( "Idle", 4 );
+
+}
+
+void putra_intestines::onDamage ( ) {
+	setAnimState ( "Damage", 4 );
+}
+
+/*------------------------------------------------------------------------
+Arms
+------------------------------------------------------------------------*/
+
+object putra_arm
+{
+	void	init ( );
+	
+	void	FirstIdle ( );
+	void	Idle ( );
+	void	Attack ( );
+	
+	void	Hurt ( );
+	
+	float	attackDelay;
+	float	initialDelay;
+};
+
+void putra_arm::init ( ) {		
+	initialDelay = getFloatKey ( "initialDelay" );	
+	attackDelay = getFloatKey ( "attackDelay" );	
+	if ( attackDelay <= 0 ) {
+		attackDelay = 5;
+	}
+	setAnimState ( "FirstIdle", 0 );
+}
+
+void putra_arm::FirstIdle ( ) {
+	playCycle ( ANIMCHANNEL_ALL, "idle" );
+	sys.wait ( initialDelay );
+	setAnimState ( "Attack", 4 );
+}
+
+void putra_arm::Idle ( ) {
+	playCycle ( ANIMCHANNEL_ALL, "idle" );
+	sys.wait ( attackDelay );
+	setAnimState ( "Attack", 4 );
+}
+
+
+void putra_arm::Attack ( ) {
+	playAnim ( ANIMCHANNEL_ALL, "attack" );
+	while ( !animDone ( ANIMCHANNEL_ALL, 4 ) ) {
+		waitFrame ( );
+	}
+	setAnimState ( "Idle", 4 );
+}
+
+void putra_arm::Hurt ( ) {
+	activateTargets ( self );
+}
+
+
+
+
+
+//Commenting out the gib dropper stuff - kbanks Aug 5th 05
+/*
+//-----------------------------------------------------------------------
+void ChunkDoorOpen(entity Self)
+{
+	string		ToggleName;
+	entity		ToggleEntity;
+
+	ToggleName = Self.getKey("toggle");
+	ToggleEntity = sys.getEntity(ToggleName);
+//	ToggleEntity.startSound( "sound_klaxon", SND_CHANNEL_ANY);
+	ToggleEntity.setShaderParm(7, 1);
+
+}
+
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+void ChunkDoorClose(entity Self)
+{
+	string		ToggleName;
+	entity		ToggleEntity;
+
+	ToggleName = Self.getKey("toggle");
+	ToggleEntity = sys.getEntity(ToggleName);
+	ToggleEntity.setShaderParm(7, 0);
+	
+}
+
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+void KillAPart(entity Self)
+{	//Remove a gib part once it hits the kill trigger area.
+
+	string		ActivatorName;
+	entity		Activator;
+	string		PartName;
+	entity		Part;
+
+//sys.print("Killing ");
+
+	ActivatorName = Self.getKey("name");
+	Activator = sys.getEntity(ActivatorName);
+	PartName = Self.getKey("part");
+	Part = sys.getEntity(PartName);
+
+	Activator.remove();
+	//Delet any FXs it may have
+	Part.remove();
+	ActiveParts --;
+
+}
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+void DropAPart(entity Source, string PartName, string PartType)
+{
+
+//sys.print("Dropping body part ");
+//sys.println(PartName);
+	vector		SourceLoc;
+		SourceLoc = Source.getOrigin();
+	entity		BodyPart;
+	entity		Activator;
+
+	//Create the body part
+	sys.setSpawnArg("name", PartName);
+	BodyPart = sys.spawn (PartType);	
+	BodyPart.setOrigin(SourceLoc);
+
+	//Create the func_activate to bind to it
+	sys.setSpawnArg("part", PartName);
+	sys.setSpawnArg("name", (PartName + "_activator"));
+	sys.setSpawnArg("stay_on", "1");
+	Activator = sys.spawn ("func_activator");
+	Activator.setOrigin(SourceLoc);
+	Activator.bind(BodyPart);
+
+	// Add FX for falling bodypart- blood, goo, whatever
+	entity PartFX;
+	sys.setSpawnArg("fx", "effects/BlahBlahBlah.fx");
+	sys.setSpawnArg("rotation", "0.00 -0.00 1.00 1.00 0.00 0.00 -0.00 1.00 0.00" );
+	PartFX = sys.spawn ("func_fx");	
+	PartFX.setOrigin(SourceLoc);
+	PartFX.bind(BodyPart);
+	sys.trigger(PartFX);
+
+
+//	thread KillAPart(BodyPart, Activator);		//No longer used- make KillAPart triggers
+
+}
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+string PickAPart()
+{		//function to pick what type of part to drop
+	
+//sys.println("Picking a part to drop...");
+	
+	float		RandomNumber;
+		RandomNumber = sys.random(8);
+	string		PartType;
+
+
+	if(RandomNumber <= 1)
+	{
+		PartType = "moveable_gib_big_head_pork";
+		return PartType;
+	}
+
+
+	if(RandomNumber <= 2)
+	{
+		PartType = "moveable_gib_big_torso_pork";
+		return PartType;
+	}
+
+
+	if(RandomNumber <= 3)
+	{
+		PartType = "moveable_gib_big_rup_arm_pork";
+		return PartType;
+	}
+
+	if(RandomNumber <= 4)
+	{
+		PartType = "moveable_gib_big_left_waist_pork";
+		return PartType;
+	}
+
+
+	if(RandomNumber <= 5)
+	{
+		PartType = "moveable_gib_big_lup_leg_pork";
+		return PartType;
+	}
+
+	if(RandomNumber <= 6)
+	{
+		PartType = "moveable_gib_big_rup_leg_pork";
+		return PartType;
+	}
+
+
+	if(RandomNumber <= 7)
+	{
+		PartType = "moveable_gib_big_rup2_leg_pork";
+		return PartType;
+	}
+
+
+	if(RandomNumber <= 8)
+	{
+		PartType = "moveable_gib_big_pelvis_pork";
+		return PartType;
+	}
+
+}
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+void DropLoop(entity Source)
+{	// Loop to drop parts while the ActiveParts counter is below max
+	
+//sys.println("Starting the DropLoop function...");
+
+	string		SourceName;
+	float		PartCount;
+	string		PartType;
+	string		PartName;
+
+	ActiveParts = 0;
+	PartCount = 0;
+	SourceName = Source.getKey("name");
+
+	while(1)	//This could be eventually killed	
+	{
+		if(ActiveParts <= 15)
+		{
+			PartType = PickAPart();
+			PartName = SourceName + PartCount;
+			DropAPart(Source, PartName, PartType);
+			PartCount ++;
+			ActiveParts ++;
+		}
+		
+		sys.wait(sys.random(5) + 6);
+	}
+}
+//-----------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------
+void StartGibs ( )
+{
+	ActiveParts = 0;
+	thread DropLoop($target_null_PartDropper_1);
+	thread DropLoop($target_null_PartDropper_2);
+}
+//-----------------------------------------------------------------------
+
+
+*/
+
+
+
+
+
+/*------------------------------------------------------------------------
+Spawners for Acid Gun
+------------------------------------------------------------------------*/
+
+//void gruntfodder_1(entity a)
+//{
+//	aiScriptedMoveWait ( a, $target_null_14, 20, false  );
+//	aiScriptedMoveWait ( a, $target_null_15, 20, true );
+//}
+//
+//void gruntfodder_2(entity a)
+//{
+//	aiScriptedMoveWait ( a, $target_null_14, 20, false );
+//	aiScriptedMoveWait ( a, $target_null_15, 20, true );
+//}
+
+/*------------------------------------------------------------------------
+Strogg Marine jumps between catwalks
+------------------------------------------------------------------------*/
+void stroggjumper()
+{
+	$stroggjumper.show();
+	sys.trigger($stroggjumper);
+	aiScriptedMoveWait ( $stroggjumper, $target_null_16, 20, false );
+	aiScriptedMoveWait ( $stroggjumper, $target_null_17, 20, false );
+	aiScriptedAnimWait ( $stroggjumper, "catwalk_jump", 2, true );
+}
+
+
+//-------------------------------------------------------------------------------
+// void incinerator1()
+//
+// This makes the flames do their thing across the conveyor.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void incinerator1()
+{
+	float waitTime;
+
+	// All the time.
+	while(1)
+	{
+		playAnimWait( $putra_incinerator_1 , ANIMCHANNEL_ALL , "moveup");
+		//sys.wait(1);
+		//$putra_incinerator_1.playEffect("fx_flame", "muzzle_flash", 1);
+		sys.trigger($trigger_hurt_23);
+		$putra_incinerator_1.playCycle(ANIMCHANNEL_ALL, "burn");
+		sys.wait(1);
+		//$putra_incinerator_1.stopEffect("fx_flame");
+		sys.trigger($trigger_hurt_23);
+		playAnimWait( $putra_incinerator_1 , ANIMCHANNEL_ALL, "movedown");
+		$putra_incinerator_1.playCycle(ANIMCHANNEL_ALL, "idledown");
+
+		sys.wait(3);
+	}
+} 
+
+//-------------- End void incinerator1 ---------------
+
+//-------------------------------------------------------------------------------
+// void incinerator2()
+//
+// This makes the flames do their thing across the conveyor.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+
+void incinerator2()
+{
+	float waitTime;
+
+	// All the time.
+	while(1)
+	{
+		playAnimWait( $putra_incinerator_2 , ANIMCHANNEL_ALL , "moveup");
+		//sys.wait(1);
+		//$putra_incinerator_2.playEffect("fx_flame", "muzzle_flash", 1);
+		sys.trigger($trigger_hurt_24);
+		$putra_incinerator_2.playCycle(ANIMCHANNEL_ALL, "burn");
+		sys.wait(1);
+		//$putra_incinerator_2.stopEffect("fx_flame");
+		sys.trigger($trigger_hurt_24);
+		playAnimWait( $putra_incinerator_2 , ANIMCHANNEL_ALL, "movedown");
+		$putra_incinerator_2.playCycle(ANIMCHANNEL_ALL, "idledown");
+
+		sys.wait(3);
+	}
+
+} 
+
+//-------------- End void incinerator2 ---------------
+
+
+// Fat Guy Introduction
+void startFatty()
+{
+	sys.trigger($fatty_stinger);
+	aiScriptedAnimWait($monster_fatty, "feed1end", 10, 0);
+	aiScriptedAnimWait($monster_fatty, "spit5", 10, 1);
+	sys.trigger($fatty_music);
+}
+
+void prepFatty()
+{
+	aiScriptedAnimLoop($monster_fatty, "feed1loop", 4);
+}
+
+void fattyMusicOff()
+{
+	$fatty_music.fadeSound( SND_CHANNEL_ANY, -80, 6);
+	sys.wait(6);
+	$fatty_music.remove();
+}
+
+void fattyMusicUp()
+{
+	$fatty_music.fadeSound( SND_CHANNEL_ANY, 4, 4);
+}
+
+void fattyMusicDown()
+{
+	$fatty_music.fadeSound( SND_CHANNEL_ANY, -4, 4);
+}
+
+
+//-------------------------------------------------------------------------------
+// void fattyAcidBath()
+//
+// This baths fatty in acid and makes him tear the door down.
+//
+// mekberg | Dec 2004
+// kbanks  | Jul 2005
+//-------------------------------------------------------------------------------
+void cinematicPlayerReacts()	{
+	sys.trigger($cinPlayer);
+	$cinPlayer.becomePassive( 1 );
+	$cinPlayer.lookAt( $cinPlayerLook );
+	sys.wait( .25 );
+	aiScriptedAnimWait( $cinPlayer , "walk_backwards" , 10 , 0 );
+}
+
+void fattyDoorAnims()
+{
+	sys.wait(7.8);
+	
+	$fatty_glass.remove();
+	$func_door_174.remove();
+	
+	$env_fattydoor_1.show();
+	
+	playAnimWait($env_fattydoor_1, ANIMCHANNEL_ALL, "bust");
+	$env_fattydoor_1.playCycle(ANIMCHANNEL_ALL, "idlebust");
+	
+	// Remove the stopping clip for the first door and add the clip of the smashed door.
+	$fatty_door_clip_1.remove();
+	$fatty_door_clip_2.show();
+	
+}
+
+void fattyAcidBath()
+{
+	// Set up the wheel movement and move it.
+	$func_mover_wheel.time(3);
+	$func_mover_wheel.rotateOnce('0 0 180');
+	
+	// Tell the gui to update.
+	sys.wait(1);
+	$de_louse.guiEvent("acidshower");
+	
+	// Start the Cinematic
+	sys.trigger( $postLouseCin );
+	thread fattyDoorAnims();
+	thread cinematicPlayerReacts();
+	sys.trigger($cin_putra_doorsmash_cam_1);
+	aiScriptedAnimWait($monster_fatty, "cindoor", 10, 1);
+	$cinPlayer.remove();
+
+} //-------------- End void fattyAcidBath ---------------
+
+
+/*
+//-------------------------------------------------------------------------------
+// void fattyLights()
+//
+// This flickers the lights in the fatty room after his death to simulate the acid eating through the electrical system.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void fattyLights()
+{
+	float light;
+	float endTime = sys.getTime() + 3;
+	float lightColor;
+	lightColor = 1;
+
+	// While the end time is greater than the current time.
+	while(endTime > sys.getTime())
+	{
+		// Loop through all the lights and set them to the lightColor.
+		for(light = 0; light < $target_null_fattyLights.numTargets(); light++)
+		{
+			$target_null_fattyLights.getTarget(light).setColor(lightColor, lightColor, lightColor);
+		}
+		
+		sys.wait(.1);
+
+		// Loop through all the lights and set them to black.
+		for(light = 0; light < $target_null_fattyLights.numTargets(); light++)
+		{
+			$target_null_fattyLights.getTarget(light).setColor(0, 0, 0);
+		}
+
+		sys.wait(.1);
+
+		// Fade the lightColor.
+		lightColor -= .1;
+	}
+
+	// Loop through all the lights and remove them.
+	for(light = 0; light < $target_null_fattyLights.numTargets(); light++)
+	{
+		$target_null_fattyLights.getTarget(light).remove();
+	}
+
+} //-------------- End void fattyLights ---------------
+*/
+
+
+//-------------------------------------------------------------------------------
+// void deathGui()
+//
+// This updates the status gui of the fatty during the cinematic death. Called on a  cindeath frame command.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void deathGui()
+{
+	// Send the gui and update.
+	$fatty_status.guiEvent("feed1");
+	//$fatty_feed.guiEvent("feed2");
+
+} //-------------- End void deathGui ---------------
+
+
+//-------------------------------------------------------------------------------
+// void fattyDeath()
+//
+// Kills the fatty
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void fattyDeath()
+{
+	thread fattyMusicOff();
+	
+	// Kill the fat guy and make him play idle death.
+	aiScriptedAnimWait($monster_fatty, "cindeath", 15, 1);
+	aiScriptedAnimLoop($monster_fatty, "deathidle", 4);
+	$deathclip.show();
+	
+	// Set off the flickering lights using the global shader
+	sys.wait(.5);
+	sys.setShaderParm(1, sys.getTime());
+
+	takingDamage = 1;
+	
+//  This sends out strogg radio chatter alerting all strogg that the Fat Guy is dead.
+
+	sys.trigger ( $pa_6 );
+	
+	sys.wait (15);
+	
+	sys.trigger($pa_7);
+	
+//  This brings up the objective complete window.
+
+	sys.trigger ( $putra2_fattyobjectivecomplete );
+
+} //-------------- End void fattyDeath ---------------
+
+
+//-------------------------------------------------------------------------------
+// void feedFatty()
+//
+// Feeds the fat guy and ultimately makes him explode.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void feedFatty()
+{
+	/* He's only fed one time now
+	
+	// If we haven't fed yet.
+	if(!fattyStatus)
+	{
+		// Play feed anim and loop.
+		aiScriptedAnimWait($monster_fatty, "feed", 10, 1);
+		aiScriptedAnimLoop($monster_fatty, "feed1loop", 4);
+
+		// Send the gui an update.
+		$fatty_status.guiEvent("feed1");
+		$fatty_feed.guiEvent("feed1");
+		sys.wait(5);
+
+		// Feed ending anim.
+		aiScriptedAnimWait($monster_fatty, "feed1end", 10, 1);
+
+		// We've fed him once.
+		fattyStatus = 1;
+		$fatty_feed.guiEvent("feed_end");
+
+		// Lock the doors so the player is forced here.
+		$func_door_171.lock(1);
+		$func_static_12660.setShaderParm(7, 0);
+		$func_door_172.lock(1);
+		$func_static_12638.setShaderParm(7, 0);
+	}
+
+	// If we've fed him once.
+	else if(fattyStatus == 1)
+	{
+		// Play feed anim and loop.
+		aiScriptedAnimWait($monster_fatty, "feed2", 10, 1);
+
+		aiScriptedAnimLoop($monster_fatty, "feed1loop", 4);
+
+		// Send the gui an update.
+		$fatty_status.guiEvent("feed2");
+		$fatty_feed.guiEvent("feed2");
+		sys.wait(4);
+
+		// Feed ending anim and sleep (thanksgiving for him).
+		aiScriptedAnimWait($monster_fatty, "feed2end", 4, 1);
+		aiScriptedAnimLoop($monster_fatty, "sleep", 8);
+
+		// We've fed him twice.
+		fattyStatus = 2;
+		$fatty_feed.guiEvent("feed_end");
+	}
+	*/
+
+	// If we've fed him twice.
+	// else if(fattyStatus == 2)
+	//{
+		// Kill him.
+		thread fattyDeath();
+
+		// Trigger cinematic.
+		sys.trigger($cin_putra_explode_cam_1);
+
+		// We've fed him three times. Don't feed him again.
+		//fattyStatus = 3;
+	//}
+
+} //-------------- End void feedFatty ---------------
+
+
+
+
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+// Start of bettenburger scripts (rbettenberg)
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+// bettenburger track types, call from bettenburgerMAIN
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+// bettenburger track type 1 - straight, simple, big vats
+//-----------------------------------------------------------------------------------------
+
+void bettenburgerTrack_1B( vector startPoint , vector endPoint , float moveTime )
+{
+	entity mover;
+	//entity vat;
+	//entity doorA;
+	//entity doorB;
+	//entity clipper;
+
+	
+
+	// spawn mover
+
+	sys.setSpawnArg( "classname", "func_mover" );
+	sys.setSpawnArg( "origin", startPoint );
+	sys.setSpawnArg( "snd_move", "generic_machine_track" );
+	sys.setSpawnArg( "model", "models/mapobjects/strogg/stroyent/dispersal/vat_arm/vat_3.lwo" );
+	sys.setSpawnArg( "rotation", "3.42285e-008 -1 0 1 3.42285e-008 0 0 0 1" );
+	
+
+	mover = sys.spawn( "func_mover" );
+
+
+
+/*
+	// spawn vat
+
+	sys.setSpawnArg( "classname", "env_chemical_vat" );
+	sys.setSpawnArg( "origin", ((startPoint) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "-1.02686e-007 1 0 -1 -1.02686e-007 0 0 0 1" );
+	sys.setSpawnArg( "bindConstraint hinge1" , "hinge body hook 1000000" );
+
+	vat = sys.spawn( "env_chemical_vat" );
+
+	vat.bind( mover );
+
+
+
+	// spawn doorA
+
+	sys.setSpawnArg( "classname", "env_chemical_vat_door" );
+	sys.setSpawnArg( "origin", ((startPoint) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "3.42285e-008 -1 0 1 3.42285e-008 0 0 0 1" );
+
+	doorA = sys.spawn( "env_chemical_vat_door" );
+
+	doorA.bind( vat );
+
+
+
+	// spawn door B
+
+	sys.setSpawnArg( "classname", "env_chemical_vat_door" );
+	sys.setSpawnArg( "origin", ((startPoint) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "-1.53438e-007 1 0 -1 -1.53438e-007 0 0 0 1" );
+
+	doorB = sys.spawn( "env_chemical_vat_door" );
+
+	doorB.bind( vat );
+
+
+	// spawn clipper
+
+	sys.setSpawnArg( "classname", "func_mover" );
+	sys.setSpawnArg( "model", "models/mapobjects/strogg/stroyent/dispersal/vat_arm/vat.lwo" );
+	sys.setSpawnArg( "origin", ((startPoint) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "3.42285e-008 -1 0 1 3.42285e-008 0 0 0 1" );
+	sys.setSpawnArg( "clipmodel" , "models/mapobjects/strogg/stroyent/dispersal/vat_arm/vat.lwo" );
+
+	clipper = sys.spawn( "env_chemical_vat_door" );
+
+	clipper.bind( vat );
+*/
+
+
+	// movement
+
+	mover.accelTime( 0 );
+	mover.decelTime( 0 );
+	mover.time( moveTime );
+	mover.moveToPos( endPoint );
+	sys.waitFor( mover );
+
+
+
+	// despawn vat
+
+	mover.remove();
+	//vat.remove();
+	//doorA.remove();
+	//doorB.remove();
+	//clipper.remove();
+}
+
+
+
+
+void bettenburgerTrack_1A( vector startPoint, vector endPoint , float moveTime , float spawnTime )
+{
+	while( bettenburgerRoom2 == 1 )
+	{
+		thread bettenburgerTrack_1B( startPoint , endPoint , moveTime );
+
+		sys.wait( spawnTime );
+	}
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------------------
+// bettenburger track type 2 - straight, pauses, steam, big vats
+//-----------------------------------------------------------------------------------------
+
+
+void bettenburgerTrack_2B( vector pointA , vector pointB , vector pointC , vector pointD ,
+		      float moveTime , float pauseTime ,
+		      entity fxTriggerA , entity fxTriggerB )
+{
+	entity mover;
+	//entity vat;
+	//entity doorA;
+	//entity doorB;
+	//entity clipper;
+
+	
+
+	// spawn mover
+
+	sys.setSpawnArg( "classname", "func_mover" );
+	sys.setSpawnArg( "origin", pointA );
+	sys.setSpawnArg( "snd_move", "generic_machine_track" );
+	sys.setSpawnArg( "model", "models/mapobjects/strogg/stroyent/dispersal/vat_arm/vat_3.lwo" );
+	sys.setSpawnArg( "rotation", "3.42285e-008 -1 0 1 3.42285e-008 0 0 0 1" );
+
+	mover = sys.spawn( "func_mover" );
+
+
+
+/*
+	// spawn vat
+
+	sys.setSpawnArg( "classname", "env_chemical_vat" );
+	sys.setSpawnArg( "origin", ((pointA) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "-1.02686e-007 1 0 -1 -1.02686e-007 0 0 0 1" );
+	sys.setSpawnArg( "bindConstraint hinge1" , "hinge body hook 1000000" );
+
+	vat = sys.spawn( "env_chemical_vat" );
+
+	vat.bind( mover );
+
+
+
+	// spawn doorA
+
+	sys.setSpawnArg( "classname", "env_chemical_vat_door" );
+	sys.setSpawnArg( "origin", ((pointA) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "3.42285e-008 -1 0 1 3.42285e-008 0 0 0 1" );
+
+	doorA = sys.spawn( "env_chemical_vat_door" );
+
+	doorA.bind( vat );
+
+
+
+	// spawn door B
+
+	sys.setSpawnArg( "classname", "env_chemical_vat_door" );
+	sys.setSpawnArg( "origin", ((pointA) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "-1.53438e-007 1 0 -1 -1.53438e-007 0 0 0 1" );
+
+	doorB = sys.spawn( "env_chemical_vat_door" );
+
+	doorB.bind( vat );
+
+
+
+	// spawn clipper
+
+	sys.setSpawnArg( "classname", "func_mover" );
+	sys.setSpawnArg( "model", "models/mapobjects/strogg/stroyent/dispersal/vat_arm/vat.lwo" );
+	sys.setSpawnArg( "origin", ((pointA) - ('0 0 124')) );
+	sys.setSpawnArg( "rotation" , "3.42285e-008 -1 0 1 3.42285e-008 0 0 0 1" );
+	sys.setSpawnArg( "clipmodel" , "models/mapobjects/strogg/stroyent/dispersal/vat_arm/vat.lwo" );
+
+	clipper = sys.spawn( "env_chemical_vat_door" );
+
+	clipper.bind( vat );
+	
+*/
+
+
+
+	// movement
+
+	mover.time( moveTime );
+
+	mover.accelTime( 0.0 );
+	mover.decelTime( 1.5 );
+
+	mover.moveToPos( pointB );
+	sys.waitFor( mover );
+
+	sys.trigger( fxTriggerA );
+	sys.wait( pauseTime );
+	sys.trigger( fxTriggerA );
+
+	mover.accelTime( 0.5 );
+	mover.decelTime( 0.5 );
+
+	mover.moveToPos( pointC );
+	sys.waitFor( mover );
+
+	sys.trigger( fxTriggerB );
+	sys.wait( pauseTime );
+	sys.trigger( fxTriggerB );
+
+	mover.accelTime( 1.5 );
+	mover.decelTime( 0.0 );
+
+	mover.moveToPos( pointD );
+	sys.waitFor( mover );
+
+
+
+	// despawn vat
+
+	mover.remove();
+	//vat.remove();
+	//doorA.remove();
+	//doorB.remove();
+	//clipper.remove();
+}
+
+
+
+void bettenburgerTrack_2A( vector pointA , vector pointB , vector pointC , vector pointD ,
+		      float moveTime , float pauseTime ,
+		      entity fxTriggerA , entity fxTriggerB )
+
+{
+	while( bettenburgerRoom2 == 1 )
+	{
+		thread bettenburgerTrack_2B( pointA , pointB , pointC , pointD ,
+					   moveTime , pauseTime ,
+					   fxTriggerA , fxTriggerB );
+
+		sys.wait( (moveTime + pauseTime) );
+	}
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------
+// bettenburger track type 3 - grouped barrel machine
+//-----------------------------------------------------------------------------------------
+
+void bettenburgerTrack_3B( vector pointA , vector pointB , vector pointC ,
+		      float moveTime , float pauseTime ,
+		      entity frame , entity arm , entity hand )
+{
+	entity barrelGroup;
+
+
+
+	// spawn barrelGroup
+
+	sys.setSpawnArg( "classname", "func_mover" );
+	sys.setSpawnArg( "damage" , "999" );
+	sys.setSpawnArg( "origin", ((pointA) - ('0 0 100')) );
+	sys.setSpawnArg( "model", "models/mapobjects/strogg/barrels/stroyent_group_2.lwo" );
+
+	barrelGroup = sys.spawn( "func_mover" );
+
+	barrelGroup.bind( frame );
+
+
+
+	// movement
+
+	frame.time( moveTime );
+	frame.accelTime( 0.9 );
+	frame.decelTime( 0.9 );
+
+	arm.time( moveTime );
+	arm.accelTime( 0.4 );
+	arm.decelTime( 0.4 );
+
+	hand.time( moveTime / 2 );
+	hand.accelTime( 0.15 );
+	hand.decelTime( 0.15 );
+
+	//sys.trigger($barrel_arm_sound);
+
+	frame.moveToPos( pointB );
+	arm.moveToPos( pointB );
+
+	sys.wait( moveTime / 4 );
+
+	hand.rotateOnce( '0 0 -180' );
+
+	sys.waitFor( frame );
+
+	barrelGroup.unbind();
+	barrelGroup.bind( hand );
+
+	sys.wait( pauseTime );
+	
+	frame.moveToPos( pointA );
+	arm.moveToPos( pointC );
+
+	sys.wait( moveTime / 4 );
+
+	hand.rotateOnce( '0 0 180' );
+
+	sys.waitFor( frame );
+
+
+
+	// despawn barrelGroup
+
+	barrelGroup.unbind();
+	barrelGroup.remove();
+}
+
+
+
+void bettenburgerTrack_3A( vector pointA , vector pointB , vector pointC ,
+		      float moveTime , float pauseTime ,
+		      entity frame , entity arm , entity hand )
+{
+	//string diffLevel = getcvar( "difficulty" );
+
+	while( bettenburgerRoom4 == 1 )
+	{
+		thread bettenburgerTrack_3B( pointA , pointB , pointC ,
+					moveTime , pauseTime ,
+					frame , arm , hand );
+
+		sys.wait( ( (moveTime * 2) + pauseTime + 0.25 ) );
+	}
+
+	frame.remove( );
+	arm.remove( );
+	hand.remove( );
+}
+
+
+
+//-----------------------------------------------------------------------------------------
+// bettenburger track type 4 - U turn with small barrels
+//-----------------------------------------------------------------------------------------
+
+void bettenburgerTrack_4B( entity startPoint , float moveTime )
+{
+	// spawn barrel
+
+	entity barrel;
+
+	sys.setSpawnArg( "classname", "func_mover" );
+	sys.setSpawnArg( "damage" , "999" );
+	sys.setSpawnArg( "origin", startPoint.getWorldOrigin() );
+	sys.setSpawnArg( "model", "models/mapobjects/strogg/barrels/stroyent_barrel.lwo" );
+	sys.setSpawnArg( "s_shader", "generic_machine_track" );
+
+	barrel = sys.spawn( "func_mover" );
+
+
+
+	// movement
+
+	barrel.accelTime( 0 );
+	barrel.decelTime( 0 );
+	barrel.time( moveTime );
+
+	barrel.startSpline( startPoint );
+
+	sys.waitFor( barrel );
+
+	sys.wait( 1 ); // debug, remove later
+
+	// despawn barrel
+
+	barrel.remove();
+}
+
+
+
+void bettenburgerTrack_4A( entity startPoint , float moveTime , float pauseTime )
+{
+	while( bettenburgerRoom3 == 1 )
+	{
+		thread bettenburgerTrack_4B( startPoint , moveTime );
+		sys.wait( pauseTime );
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+// end of bettenburger track types, call from bettenburgerMAIN
+//-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------
+// bettenburger steam trap
+//-----------------------------------------------------------------------------------------
+
+void bettenburgerSteamFX( )
+{
+	while( bettenburgerRoom1 == 1 )
+	{
+		$bettenburgerSteamLight_1.setColor( 1 , 0 , 0 );
+		$bettenburgerSteamLight_4.setColor( 1 , 0 , 0 );
+
+		sys.wait( 1 );
+
+		sys.trigger( $bettenburgerSteam_1 );
+		sys.trigger( $bettenburgerSteam_4 );
+
+		sys.wait( 2 );
+
+		sys.trigger( $bettenburgerSteam_1 );
+		sys.trigger( $bettenburgerSteam_4 );
+
+		$bettenburgerSteamLight_1.setColor( 0.85 , 0.65 , 0.35 );
+		$bettenburgerSteamLight_4.setColor( 0.85 , 0.65 , 0.35 );
+
+
+
+		$bettenburgerSteamLight_2.setColor( 1 , 0 , 0 );
+		$bettenburgerSteamLight_3.setColor( 1 , 0 , 0 );
+
+		sys.wait( 1 );
+
+		sys.trigger( $bettenburgerSteam_2 );
+		sys.trigger( $bettenburgerSteam_3 );
+
+		sys.wait( 2 );
+
+		sys.trigger( $bettenburgerSteam_2 );
+		sys.trigger( $bettenburgerSteam_3 );
+
+		$bettenburgerSteamLight_2.setColor( 0.85 , 0.65 , 0.35 );
+		$bettenburgerSteamLight_3.setColor( 0.85 , 0.65 , 0.35 );
+	}
+
+	$bettenburgerSteam_1.remove( );
+	$bettenburgerSteam_2.remove( );
+	$bettenburgerSteam_3.remove( );
+	$bettenburgerSteam_4.remove( );
+}
+
+//-----------------------------------------------------------------------------------------
+// bettenburger gladiators
+//-----------------------------------------------------------------------------------------
+
+void bettenburger_move_glad_1( )
+{
+	sys.wait( 0.5 );
+	aiScriptedMoveWait( $bettenburger_gladiator_1 , $bettenburger_gladiator_loc , 20 , 1 );
+	sys.wait( 0.5 );
+	$bettenburger_gladiator_1.remove(  );
+}
+
+void bettenburger_move_glad_2( )
+{
+	sys.wait( 0.5 );
+	aiScriptedMoveWait( $bettenburger_gladiator_2 , $bettenburger_gladiator_loc , 20 , 1 );
+	sys.wait( 0.5 );
+	$bettenburger_gladiator_2.remove(  );
+}
+
+void bettenburger_move_glad_3( )
+{
+	sys.wait( 0.5 );
+	aiScriptedMoveWait( $bettenburger_gladiator_3 , $bettenburger_gladiator_loc , 20 , 1 );
+	sys.wait( 0.5 );
+	$bettenburger_gladiator_3.remove(  );
+}
+
+//-----------------------------------------------------------------------------------------
+// bettenburgerSTOPX
+//-----------------------------------------------------------------------------------------
+
+void bettenburgerSTOP1( )
+{
+	bettenburgerRoom1 = 0;
+
+	// Remove moving junk
+	$func_mover_1.remove( );
+	$func_mover_2.remove( );
+	$func_rotating_36.remove( );
+	$func_rotating_38.remove( );
+	$func_rotating_39.remove( );
+	$func_rotating_34.remove( );
+	$func_rotating_35.remove( );
+	$func_rotating_37.remove( );
+	$env_piston_16.remove( );
+	$env_piston_17.remove( );
+	$env_piston_18.remove( );
+	$env_piston_19.remove( );
+	$func_shaking_1.remove( );
+	$func_shaking_2.remove( );
+
+	// Remove green steam
+	$func_fx_130.remove( );
+	$func_fx_131.remove( );
+	$func_fx_132.remove( );
+	$func_fx_133.remove( );
+	$func_fx_134.remove( );
+	$func_fx_135.remove( );
+	$func_fx_136.remove( );
+	$func_fx_138.remove( );
+	$func_fx_139.remove( );
+	$func_fx_140.remove( );
+
+	// Remove drips
+	$func_fx_51.remove( );
+	$func_fx_52.remove( );
+	$func_fx_143.remove( );
+	$func_fx_144.remove( );
+	$func_fx_145.remove( );
+}
+
+void bettenburgerSTOP2( )
+{
+	bettenburgerRoom2 = 0;
+
+	$light_5403.setColor( 1 , 0 , 0 );
+
+	$Door_Amp_27.lock( 2 );
+	$Door_Amp_28.lock( 2 );
+
+	// Remove drips
+	$func_fx_146.remove( );
+	$func_fx_147.remove( );
+	$func_fx_148.remove( );
+	$func_fx_149.remove( );
+	$func_fx_150.remove( );
+	$func_fx_151.remove( );
+	$func_fx_152.remove( );
+
+	// Remove moving junk
+	$func_rotating_40.remove( );
+	$func_rotating_41.remove( );
+	$func_rotating_42.remove( );
+	$func_rotating_43.remove( );
+	$func_rotating_44.remove( );
+	$env_piston_20.remove( );
+	$env_piston_21.remove( );
+
+	// Remove vol light fx
+	$func_fx_49.remove( );
+	$func_fx_142.remove( );
+	$func_fx_153.remove( );
+	$func_fx_154.remove( );
+	$func_fx_155.remove( );
+}
+
+
+void bettenburgerSTOP3( )
+{
+	bettenburgerRoom3 = 0;
+
+	$light_5435.setColor( 1 , 0 , 0 );
+
+	$Door_Amp_29.lock( 2 );
+	$Door_Amp_30.lock( 2 );
+
+	// Remove moving junk
+	$func_rotating_45.remove( );
+	$func_rotating_46.remove( );
+	$func_rotating_47.remove( );
+	$func_rotating_48.remove( );
+	$func_rotating_49.remove( );
+	$putra_intestines_2.remove( );
+	$putra_intestines_3.remove( );
+
+	// Remove drips
+	$func_fx_156.remove( );
+	$func_fx_157.remove( );
+	$func_fx_158.remove( );
+	$func_fx_160.remove( );
+	$func_fx_161.remove( );
+	$func_fx_162.remove( );
+	$func_fx_167.remove( );
+	$func_fx_168.remove( );
+	$func_fx_169.remove( );
+	$func_fx_171.remove( );
+	$func_fx_172.remove( );
+	$func_fx_173.remove( );
+	$func_fx_175.remove( );
+	$func_fx_177.remove( );
+	$func_fx_178.remove( );
+	$func_fx_179.remove( );
+	$func_fx_182.remove( );
+	$func_fx_185.remove( );
+	$func_fx_189.remove( );
+	$func_fx_190.remove( );
+	$func_fx_191.remove( );
+}
+
+void bettenburgerSTOP4( )
+{
+	bettenburgerRoom4 = 0;
+
+	$light_5526.setColor( 1 , 0 , 0 );
+
+	$Door_Amp_33.lock( 2 );
+	$Door_Amp_34.lock( 2 );
+}
+
+//-----------------------------------------------------------------------------------------
+// bettenburgerSTARTx
+//-----------------------------------------------------------------------------------------
+
+void bettenburgerSTART1( )	// Room 1
+{
+	bettenburgerRoom1 = 1;
+
+	thread bettenburgerSteamFX( );
+}
+
+void bettenburgerSTART2( )	// Room 2
+{
+	bettenburgerRoom2 = 1;
+
+	// bettenburger track type 1 - straight, simple, big vats
+	thread bettenburgerTrack_1A
+		(
+			$bettenburgerTrackPointA_1.getWorldOrigin() ,		// startPoint
+			$bettenburgerTrackPointB_1.getWorldOrigin() ,		// endPoint
+			13.0 ,							// moveTime
+			3.0							// spawnTime
+		);
+
+
+	
+	// bettenburger track type 1 - straight, simple, big vats
+	thread bettenburgerTrack_1A
+
+		(
+			$bettenburgerTrackPointA_2.getWorldOrigin() ,		// startPoint
+			$bettenburgerTrackPointB_2.getWorldOrigin() ,		// endPoint
+			6.5 ,							// moveTime
+			4.5							// spawnTime
+		);
+
+
+
+	// bettenburger track type 2 - straight, pauses, steam, big vats
+	thread bettenburgerTrack_2A
+		(
+			$bettenburgerTrackPointA_4.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_4.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_4.getWorldOrigin() ,		// pointC
+			$bettenburgerTrackPointD_4.getWorldOrigin() ,		// pointD
+			3.0 ,							// moveTime
+			1.5 ,							// pauseTime
+			$bettenburgerTrackfxTriggerA_4 ,				// fxTriggerA
+			$bettenburgerTrackfxTriggerB_4				// fxTriggerB
+		);
+
+
+
+	// bettenburger track type 2 - straight, pauses, steam, big vats
+	thread bettenburgerTrack_2A
+		(
+			$bettenburgerTrackPointA_9.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_9.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_9.getWorldOrigin() ,		// pointC
+			$bettenburgerTrackPointD_9.getWorldOrigin() ,		// pointD
+			3.0 ,							// moveTime
+			1.5 ,							// pauseTime
+			$bettenburgerTrackfxTriggerA_9 ,				// fxTriggerA
+			$bettenburgerTrackfxTriggerB_9				// fxTriggerB
+		);
+}
+
+void bettenburgerSTART3( )	// Room 3
+{
+	bettenburgerRoom3 = 1;
+
+	// bettenburger track type 4 - U turn with small barrels
+	thread bettenburgerTrack_4A
+		(
+			$bettenburgerTrackPointA_6 ,					// startPoint
+			12 ,							// moveTime
+			4							// pauseTime
+		);
+
+
+
+	// bettenburger track type 4 - U turn with small barrels
+	thread bettenburgerTrack_4A
+		(
+			$bettenburgerTrackPointA_7 ,					// startPoint
+			10 ,							// moveTime
+			3							// pauseTime
+		);
+
+
+
+	// bettenburger track type 4 - U turn with small barrels
+	thread bettenburgerTrack_4A
+		(
+			$bettenburgerTrackPointA_8 ,					// startPoint
+			8 ,							// moveTime
+			5							// pauseTime
+		);
+
+
+
+	// bettenburger track type 4 - U turn with small barrels
+	thread bettenburgerTrack_4A
+		(
+			$bettenburgerTrackPointA_10 ,				// startPoint
+			7 ,							// moveTime
+			9							// pauseTime
+		);
+
+
+
+	// bettenburger track type 4 - U turn with small barrels
+	thread bettenburgerTrack_4A
+		(
+			$bettenburgerTrackPointA_11 ,				// startPoint
+			12 ,							// moveTime
+			4.5							// pauseTime
+		);
+
+
+
+	// bettenburger track type 4 - U turn with small barrels
+	thread bettenburgerTrack_4A
+		(
+			$bettenburgerTrackPointA_12 ,				// startPoint
+			9 ,							// moveTime
+			7							// pauseTime
+		);
+}
+
+void bettenburgerSTART4( )	// Room 4
+{
+	bettenburgerRoom4 = 1;
+
+	// bettenburger track type 3 - grouped barrel machine
+	thread bettenburgerTrack_3A
+		(
+			$bettenburgerTrackPointA_5.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_5.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_5.getWorldOrigin() ,		// pointC
+			3.0 ,							// moveTime
+			1.0 ,							// pauseTime
+			$bettenburgerTrackFrame_5 ,					// frame
+			$bettenburgerTrackArm_5,					// arm
+			$bettenburgerTrackHand_5					// hand
+		);
+
+
+
+	// bettenburger track type 3 - grouped barrel machine
+	thread bettenburgerTrack_3A
+		(
+			$bettenburgerTrackPointA_13.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_13.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_13.getWorldOrigin() ,		// pointC
+			2.5 ,							// moveTime
+			0.8 ,							// pauseTime
+			$bettenburgerTrackFrame_13 ,					// frame
+			$bettenburgerTrackArm_13,					// arm
+			$bettenburgerTrackHand_13					// hand
+		);
+
+
+
+	// bettenburger track type 3 - grouped barrel machine
+	thread bettenburgerTrack_3A
+		(
+			$bettenburgerTrackPointA_14.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_14.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_14.getWorldOrigin() ,		// pointC
+			3.2 ,							// moveTime
+			1.2 ,							// pauseTime
+			$bettenburgerTrackFrame_14 ,					// frame
+			$bettenburgerTrackArm_14,					// arm
+			$bettenburgerTrackHand_14					// hand
+		);
+
+
+
+	// bettenburger track type 3 - grouped barrel machine
+	thread bettenburgerTrack_3A
+		(
+			$bettenburgerTrackPointA_15.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_15.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_15.getWorldOrigin() ,		// pointC
+			2.7 ,							// moveTime
+			1.5 ,							// pauseTime
+			$bettenburgerTrackFrame_15 ,					// frame
+			$bettenburgerTrackArm_15 ,					// arm
+			$bettenburgerTrackHand_15					// hand
+		);
+
+
+
+	// bettenburger track type 3 - grouped barrel machine
+	thread bettenburgerTrack_3A
+		(
+			$bettenburgerTrackPointA_16.getWorldOrigin() ,		// pointA
+			$bettenburgerTrackPointB_16.getWorldOrigin() ,		// pointB
+			$bettenburgerTrackPointC_16.getWorldOrigin() ,		// pointC
+			3.0 ,							// moveTime
+			1.0 ,							// pauseTime
+			$bettenburgerTrackFrame_16 ,					// frame
+			$bettenburgerTrackArm_16,					// arm
+			$bettenburgerTrackHand_16					// hand
+		);
+}
+
+//-----------------------------------------------------------------------------------------
+// End of bettenburgerSTARTx
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+// End of bettenburger scripts (rbettenberg)
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//  End of Putra Chain Grunt Scripts (fdye)
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+
+/*
+//--
+// New and hopefully cheaper acid drip setup	aweldon Jun 05
+//--
+
+void randomDrip()	{
+	
+	float dripper;
+
+	while( 1 )	{
+	
+		for ( dripper=0; dripper<=41; dripper++ ) {
+			
+			// Trigger the drip projectile
+			sys.trigger( sys.getEntity( "nasty_drip_" + dripper ) );
+			
+			// Wait a little bit to make sure only a couple are active at any one time.
+			sys.wait( .25 + sys.random(1) );
+		}	
+	}	
+}
+
+//--
+// End acid burnination
+*/
+
+//-------------------------------------------------------------------------------
+// void main()
+//
+// Main function. Called on map execute.
+//
+// mekberg | Dec 2004
+//-------------------------------------------------------------------------------
+void main()
+{
+		// Hide the fatty door.
+		$env_fattydoor_1.hide();
+
+		// Flames across conveyor.
+		thread incinerator1();
+		sys.wait(3);
+		thread incinerator2();
+	
+		// Global shader parm set for the fat guy room
+		sys.setShaderParm(1, 0);
+		
+		// Hide the clip regardless
+		$fatty_door_clip_2.hide();
+
+		//start the hooked body loops-- don't worry, they're paused
+		vector hookedbodyorigin;
+	//	hookedbodyorigin = '1863 -640 263';		
+	//	hookedbodyorigin = '3168 -1286 -3479';				
+		hookedbodyorigin = '5152 1338 -279';				
+		thread hookedbodies::StartBodyHookingLoop(hookedbodyorigin, 90, 180, 3);
+	//	thread hookedbodies::StartBodyHookingLoop(hookedbodyorigin, 180, 90, 3);
+		sys.wait(sys.random(3));
+	//	hookedbodyorigin = '1863 -320 263';				
+	//	hookedbodyorigin = '3488 -1286 -3479';				
+		hookedbodyorigin = '5472 1338 -279';				
+		thread hookedbodies::StartBodyHookingLoop(hookedbodyorigin, 90, 180, 3);
+	//	thread hookedbodies::StartBodyHookingLoop(hookedbodyorigin, 180, 90, 3);
+
+
+} //-------------- End void main ---------------
+
+}		//end of namespace

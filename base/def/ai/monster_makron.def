@@ -1,0 +1,936 @@
+/*
+**********************************************************************
+
+Makron
+
+**********************************************************************
+*/
+
+export monster_makron
+{
+	options -prefix MAK_ -scale .3937 -keep thruster cannon_muzzle claw_muzzle bat_parentTorso bat_parentLegs legs_attacher -align ALL -sourcedir work/models/monsters/Makron/animations -destdir models/monsters/makron
+	mesh	idle.ma 	 						-dest makron_mesh
+	anim	idle.ma								-dest idle
+	anim	walk06.ma							-dest walk
+	anim	walk_right04.ma						-dest walk_right
+	anim	walk_left02.ma						-dest walk_left
+	anim	walk_backward.ma					-dest walk_backward
+	anim	turn_right_90.ma					-dest turn_right_90
+	anim	turn_left_90_2.ma					-rotate 90 -dest turn_left_90
+	anim	run05.ma							-dest run
+	anim	range_attack.ma						-dest range_attack
+	anim	ranged_sweep03.ma					-dest range_sweep
+	anim	claw_sweep.ma						-dest claw_sweep
+	anim	range_grenade04.ma					-dest range_arc
+	anim	range_charge02.ma					-range 1 38 -dest range_blast_start
+	anim	range_charge02.ma					-range 38 68 -dest range_blast_loop
+	anim	range_charge02.ma					-range 68 81 -dest range_blast_end
+	anim	range_blast03.ma					-range 29 60 -dest range_attack_start
+	anim	range_blast03.ma					-range 60 76 -dest range_attack_loop
+	anim	range_blast03.ma					-range 76 90 -dest range_attack_end
+	anim	ranged_shockwave03.ma				-dest ranged_shockwave
+	anim	melee03.ma							-dest melee
+	anim	pain_std.ma							-dest pain_std
+	anim	pain_std2.ma						-dest pain_std2
+	anim	pain_con.ma							-dest pain_con
+	anim	pain_strm.ma						-range 1 4 -dest pain_strm_start
+	anim	pain_strm.ma						-range 4 12 -dest pain_strm_loop
+	anim	pain_strm.ma						-range 12 15 -dest pain_strm_end
+	anim	separation04.ma						-range 1 298 -dest separation_start
+	anim	separation04.ma						-range 298 340 -dest separation_rise
+	anim	separation04.ma						-range 340 400 -dest idle_fly
+	anim	absorb_battery.ma					-range 1 17 -dest absorb_battery_start
+	anim	absorb_battery.ma					-range 17 47 -dest absorb_battery_loop
+	anim	absorb_battery.ma					-range 47 60 -dest absorb_battery_end
+	anim	idle_legs.ma						-dest idle_legs
+	anim	cinematic04.ma						-dest cinematic
+	anim	verification_monitor.ma				-dest verification_monitor
+	anim	verification_monitor_idle.ma		-dest verification_monitor_idle
+	anim	pickup_kane.ma						-dest pickup_kane
+	anim	death.ma							-range 1 60 -dest death_start
+	anim	death.ma							-range 60 65 -dest death_loop
+	anim	death.ma							-range 65 95 -dest death_end
+	anim	boss_fight_intro.ma					-dest boss_fight_intro
+}
+
+model model_monster_makron
+{
+	mesh										models/monsters/makron/makron_mesh.md5mesh
+	channel torso										( *origin -*hip )
+	channel legs										( *hip )
+	anim	idle								models/monsters/makron/idle.md5anim
+	{
+	//	rate  1.75
+		frame	9									sound_weapon	snd_claw_open
+	}
+
+	anim	walk								models/monsters/makron/walk.md5anim
+	{
+	//	rate  1.75
+		frame	1,8,19,29,40,53,58,67			sound	snd_footstep
+	}
+
+	anim	walk_right							models/monsters/makron/walk_right.md5anim
+	{
+	//	rate  1.75
+		frame	1,10,12,20,22,33,35				sound	snd_footstep
+	}
+
+	anim	walk_left							models/monsters/makron/walk_left.md5anim
+	{
+	//	rate  1.75
+		frame	1,10,12,20,22,33,35				sound	snd_footstep
+	}
+
+	anim	walk_backwards						models/monsters/makron/walk_backward.md5anim
+	{
+	//	rate  1.75
+		frame	1,10,21,32,37,49,60,71			sound	snd_footstep
+	}
+	
+	anim	run									models/monsters/makron/run.md5anim
+	{
+		frame 10,16,22,28,32,38							ai_attack_melee	melee
+		frame 18,21,23,26,28,29,32,36,39		sound	snd_footstep
+	}
+
+	anim	pain_std							models/monsters/makron/pain_std.md5anim
+	{
+		frame	1									sound_voice	snd_pain
+	}
+	anim	pain_std2							models/monsters/makron/pain_std2.md5anim
+	{
+		frame	1									sound_voice	snd_pain
+	}
+	anim	pain_con							models/monsters/makron/pain_con.md5anim
+	{
+		frame	1									sound_voice	snd_pain
+		frame	6,8,10,12							footstep
+	}
+	anim	pain_strm_start						models/monsters/makron/pain_strm_start.md5anim
+	{
+		frame	1									sound_voice	snd_pain
+	}
+	anim	pain_strm_loop						models/monsters/makron/pain_strm_loop.md5anim
+	anim	pain_strm_end						models/monsters/makron/pain_strm_end.md5anim
+
+	anim	turn_left_90						models/monsters/makron/turn_right_90.md5anim, models/monsters/makron/turn_right_90.md5anim	{
+		anim_turn
+	//	rate  1.5
+		frame	10,11,21,27,28,29				sound	snd_footstep
+
+	}
+	anim	turn_right_90						models/monsters/makron/turn_left_90.md5anim, models/monsters/makron/turn_left_90.md5anim
+	{
+		anim_turn
+	//	rate  1.5
+		frame	7,20,21,29					sound	snd_footstep
+
+	}
+
+	anim	range_attack_dmg					models/monsters/makron/range_attack.md5anim
+	{
+		frame	1								sound_voice			snd_taunt_DMG
+		frame	30								ai_attack		DMG				cannon_muzzle
+		frame	30								fx				fx_dmg_flash	cannon_muzzle
+		frame	30								sound_weapon			snd_dmg_fire
+	}
+	anim	range_cannon_start			models/monsters/makron/range_attack_start.md5anim
+	{
+		frame	1								sound_voice			snd_voice
+	}
+	anim	range_cannon_fire			models/monsters/makron/range_attack_loop.md5anim
+	{
+		//rate  1.25
+		frame 1											ai_attack			cannon				cannon_muzzle
+		frame 1											ai_attack			cannonswerve		cannon_muzzle
+		frame 1											ai_attack			cannonswerve2		cannon_muzzle
+
+		frame 1											fx					fx_blaster_flash	cannon_muzzle
+	}
+
+	anim	range_cannon_fire_fast		models/monsters/makron/range_attack_loop.md5anim
+	{
+		rate  3
+		frame 1											ai_attack			cannonswerve		cannon_muzzle
+		frame 1											fx					fx_blaster_flash	cannon_muzzle
+	}
+	anim	range_cannon_end				models/monsters/makron/range_attack_end.md5anim
+
+	anim	range_blast_start				models/monsters/makron/range_blast_start.md5anim
+	{
+		frame	1										sound_voice				snd_taunt_sweep_1
+		frame	27										sound_weapon				snd_claw_open
+	}
+	anim	range_blast_loop				models/monsters/makron/range_blast_loop.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	}
+
+	anim	range_blast_loop_killplayer		models/monsters/makron/range_blast_loop.md5anim
+	{
+		frame	1										call				boss_makron_jr::endBattle
+		frame 2,6,10,14,18,22,26,28						ai_attack			lightningPattern3			claw_muzzle
+		frame 2											fx					fx_sweep_muzzle				claw_muzzle
+
+	}
+	anim	range_blast_end					models/monsters/makron/range_blast_end.md5anim
+
+	anim	range_attack_cannonsweep		models/monsters/makron/range_sweep.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+
+		frame	1								sound_voice			snd_voice
+		frame	9,24									footstep
+		frame 16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50		ai_attack			cannonsweep			cannon_muzzle
+		frame 16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50		fx					fx_blaster_flash	cannon_muzzle
+	}
+	
+	anim	claw_sweep						models/monsters/makron/claw_sweep.md5anim
+	{	
+		ai_no_look
+		ai_no_turn
+
+		rate 0.75
+		frame	1										sound_voice			snd_taunt_sweep_2
+		frame 7											sound_weapon			snd_claw_open
+		frame 23										object_call		Frame_BeginLightningSweep2
+		frame 50										object_call		Frame_EndLightningSweep2
+	
+	}
+
+	anim	shockwave_stomp					models/monsters/makron/ranged_shockwave.md5anim
+	{	
+		//stompage on frames 38 and 40
+		frame	1										sound_voice				snd_taunt_stomp
+		frame	7										sound_weapon				snd_rear_up
+		frame 	45										sound_item				snd_stomp
+		frame 	45										object_call			Frame_StompAttack
+		frame	46										sound	snd_footstep
+
+	}
+
+	anim	teleport_stomp					models/monsters/makron/ranged_shockwave.md5anim
+	{	
+		frame	1										sound_voice				snd_taunt_teleport
+		frame	7										sound_weapon			snd_rear_up
+		frame	45										call					boss_makron::makronTeleportEffect
+		frame	50										object_call				Frame_Teleport
+
+	
+	}
+
+	anim	range_attack_grenade_dm			models/monsters/makron/range_arc.md5anim
+	{
+		frame	1										sound_voice				snd_taunt_DMG_grenades
+		frame	10,15,52,57								footstep
+		frame	29										sound_weapon				snd_dmg_fire
+		frame	29										ai_attack			grenadeDM			cannon_muzzle
+		frame	29										ai_attack			grenadeDM			cannon_muzzle
+		frame	29										ai_attack			grenadeDM			cannon_muzzle
+		frame	29										ai_attack			grenadeDM			cannon_muzzle
+		frame	29										ai_attack			grenadeDM			cannon_muzzle
+		frame	29										ai_attack			grenadeDM			cannon_muzzle
+	}
+
+	anim	range_attack_grenade_spawn		models/monsters/makron/range_arc.md5anim
+	{
+		frame	1										sound_voice				snd_taunt_spawn
+		frame	11,18,57								footstep
+		frame	29										sound_weapon				snd_dmg_fire
+		frame	30										ai_attack			grenadeSpawn_small		cannon_muzzle
+		frame	30										ai_attack			grenadeSpawn_small		cannon_muzzle
+		frame	30										ai_attack			grenadeSpawn_large		cannon_muzzle
+	}
+
+	anim	melee_attack					models/monsters/makron/melee.md5anim
+	{
+		frame	1							sound_weapon				snd_claw_open
+		frame	21							sound_item				snd_claw_swing
+		frame	22							ai_attack_melee		melee
+	}
+	anim	separation_start				models/monsters/makron/separation_start.md5anim
+	{
+		frame	8,19,30,46,65,70,75,91					footstep
+		frame	21,81						sound_voice		snd_pain
+		frame	27,97						sound		generic_creature_fall_metal
+		frame	279,284,288					sound		snd_clasp
+	}
+	anim	separation_rise					models/monsters/makron/separation_rise.md5anim
+	{
+		frame	1							sound_weapon		snd_separation
+		frame	10							sound_voice		snd_taunt_rebirth
+	}
+
+	anim	idle_fly						models/monsters/makron/idle_fly.md5anim
+//	anim	fly_idle						models/monsters/makron/idle_fly.md5anim
+//	anim	fly_idle						models/monsters/makron/idle.md5anim
+
+	anim	absorb_battery_start			models/monsters/makron/absorb_battery_start.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	
+		frame	1							sound_voice	snd_taunt_healing
+	}
+	anim	absorb_battery_loop				models/monsters/makron/absorb_battery_loop.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	}
+	anim	absorb_battery_end				models/monsters/makron/absorb_battery_end.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	}
+	anim	death_start				models/monsters/makron/death_start.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	}
+	anim	death_loop				models/monsters/makron/death_loop.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	}
+	anim	death_end				models/monsters/makron/death_end.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+	}
+	anim	cinematic						models/monsters/makron/cinematic.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+		frame	1							event 	disableClip
+		frame	1							event	disableGravity
+		frame 	170							event	enableClip
+		frame 	170							event	enableGravity
+		frame	90							fx		fx_camshake
+		frame	61							sound			snd_rear_up
+		frame	102							sound			snd_taunt_rebirth
+		frame	126							fx		fx_camshake
+		frame	126							sound_item		snd_stomp
+		frame 	90							sound_weapon	snd_impact
+		frame 	35							fx		fx_spark	claw_muzzle
+	}	
+	anim	verification_monitor			models/monsters/makron/verification_monitor.md5anim
+	anim	verification_monitor_idle		models/monsters/makron/verification_monitor_idle.md5anim
+	anim	pickup_kane						models/monsters/makron/pickup_kane.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+		frame 	6							sound_weapon	snd_claw_open
+		frame	7 							sound_item	snd_claw_swing
+		frame 	9,19,29,40,53,58,67,78,81	sound	snd_footstep
+		frame 	117							sound	player_gear_movement
+		frame	122							sound	player_sounds_medlabs_gasp
+		frame   162                         sound_voice	snd_voice
+	}
+	anim	boss_fight_intro				models/monsters/makron/boss_fight_intro.md5anim	
+	{
+	frame 1							disableGravity
+	frame 54						enableGravity
+	frame 12,30,33,50,52,54			sound	snd_footstep
+	}
+}
+/*
+===============================================================================
+
+	Makron Damage Defs
+
+===============================================================================
+*/
+entityDef damage_makron_lightninggun	
+{
+	"inherit"					"damage_lightninggun"
+	"damage"					"20"
+
+}
+
+entityDef damage_makron_dmg_fly
+{
+	"inherit"					"damage_bossbuddy_dmg_fly"
+
+	"damage"					"12"
+	"radius"					"96"
+	"knockback"					"-200 -200 -200"
+	"push"						"-400000"
+	"gib"						"1"
+
+}
+
+entityDef damage_makron_cannon
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"10"
+	"kickdir"							"1 0 0"
+}
+
+entityDef damage_makron_stomp_damage
+{
+	"inherit"					"damage_monster_base"
+	"kickDir"					"0 1 0"
+	"knockback"					"400"
+	"damage"					"35"
+	"push"						"2000"
+
+}
+
+entityDef damage_makron_grenade_splash
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"55"
+	"radius"					"256"
+	"push"						"-20000"
+
+	"tv_scale"					"0.7"
+	"tv_time"					"4200"
+
+	// Hearing Loss
+	"hl_volumeDB"				"-25"
+	"hl_fadeOutTime"			".5"
+	"hl_time"					"2.5"
+	"hl_fadeInTime"				"1"
+	"snd_hl"					"player_sounds_ringing"
+}
+
+/*
+===============================================================================
+
+	Makron Melee Attacks
+
+===============================================================================
+*/
+
+entityDef melee_makron_stab
+{
+	"inherit"								"melee_monster_base"
+	"damage"								"40"
+	"knockback"								"350"
+}
+
+/*
+===============================================================================
+
+	Makron Ranged Attacks
+
+===============================================================================
+*/
+
+
+entityDef projectile_makron_spawner_small
+{
+	"inherit"					"projectile_teleportDropper_spawner"
+	"spawner"					"spawnerMakron_small"
+
+	"speed"						"1000"
+	"angular_velocity"			"10 -10 10"			
+	"linear_friction"			"0.99"
+	"angular_friction"			"0.4"
+	"contact_friction"			"0.99"
+	"bounce"					"0.1"
+	"gravity"					"1"		
+
+}
+
+entityDef projectile_makron_spawner_large
+{
+	"inherit"					"projectile_teleportDropper_spawner"
+	"spawner"					"spawnerMakron_large"
+
+	"speed"						"1000"
+	"angular_velocity"			"10 -10 10"			
+	"linear_friction"			"0.99"
+	"angular_friction"			"0.4"
+	"contact_friction"			"0.99"
+	"bounce"					"0.1"
+	"gravity"					"1"		
+
+}
+
+
+entityDef projectile_makron_dmg
+{
+	"inherit"					"projectile_bossbuddy_dmg"
+	
+	"def_radius_damage"			"damage_makron_dmg_fly"
+	"damageRate"				".05"
+	
+	"speed"						"750"
+	"mins"						"-24 -24 -24"
+	"maxs"						"24 24 24"
+
+	"fx_fly"					"effects/monsters/makron/dmg_makron_fly.fx"
+
+}
+
+
+entityDef hitscan_makron_lightninggun
+{
+	"range"						"10000"
+	"push"						"10000"
+	
+	"def_damage"				"damage_makron_lightninggun"
+	
+	"attack_spread_horizontal"	"0"
+	"attack_spread_vertical"	"0"
+	
+	"fx_impact"					"effects/monsters/bossbuddy/lightning_impact.fx"
+	"fx_path"					"effects/monsters/makron/lightning_trail.fx"
+}
+
+entityDef projectile_makron_cannon
+{
+	"inherit"					"projectile_gladiator_blaster"
+	
+	"def_damage"				"damage_makron_cannon"
+
+	"detonate_on_world"			"0"
+	"bounce"					"1"
+	"bounce_count"				"3"
+	"bounce_center"				"1"
+
+	"fx_fly"					"effects/monsters/makron/blaster_fly.fx"
+}
+entityDef projectile_makron_cannon_swerve
+{
+	"inherit"							"projectile_makron_cannon"
+/*	"spawnclass"						"rvDriftingProjectile"
+
+	"def_damage"						"damage_makron_cannon"
+
+	"driftOffset"						"400"
+	"driftSpeed"						"800"
+	"driftTime"							"4" */
+//	"speed"								"350"
+}
+
+entityDef projectile_makron_dm_grenade
+{
+	"inherit"							"projectile_gunner_grenade"
+	"fx_fly"							"effects/monsters/makron/grenade_fly.fx"
+	"fx_detonate"						"effects/monsters/makron/dmg_makron_implode.fx"
+	"fx_impact"							"effects/monsters/makron/dmg_makron_implode.fx"
+
+	"gravity"							"1"
+	"bounce"							"0.05"
+
+	"def_splash_damage"					"damage_makron_grenade_splash"
+
+	"fuse"								"2"
+	"fuse_random"						"2"
+}
+
+entityDef monster_makron
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterBossMakron"
+
+	// --------------------------------- Actions ------------------------------------
+
+	"action_DMGAttack"					"1"
+	"action_DMGAttack_rate"				"6"
+	"action_DMGAttack_minRange"			"512"
+	"action_DMGAttack_maxRange"			"12"
+
+	"action_cannonAttack"					"1"
+	"action_cannonAttack_rate"				"1"
+	"action_cannonAttack_minRange"			"500"
+	"action_cannonAttack_maxRange"			"1800"
+	"action_cannonAttack_chance"			".75"
+	"action_cannonAttack_overrideLegs"		"0"
+
+
+	"action_cannonsweepAttack"				"1"
+	"action_cannonsweepAttack_rate"			"1"
+	"action_cannonsweepAttack_minRange"		"0"
+	"action_cannonsweepAttack_maxRange"		"512"
+	"action_cannonsweepAttack_lockToJoint"	"1"
+	
+
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_rate"				"0"
+	"action_meleeAttack_maxrange"			"128"	
+
+	"action_grenadeAttack"					"0"	
+	"action_grenadeAttack_rate"				"3"
+	"action_grenadeAttack_minRange"			"800"
+	"action_grenadeAttack_maxRange"			"2400"
+
+	"action_lightningPattern1Attack"				"1"
+	"action_lightningPattern1Attack_rate"			"4"
+	"action_lightningPattern1Attack_minRange"		"256"
+	"action_lightningPattern1Attack_maxRange"		"1200"
+
+	"action_lightningPattern2Attack"				"1"
+	"action_lightningPattern2Attack_rate"			"4"
+	"action_lightningPattern2Attack_minRange"		"256"
+	"action_lightningPattern2Attack_maxRange"		"1200"
+	"action_lightningPattern2Attack_anim"			"claw_sweep"
+
+	"action_stompAttack"							"1"
+	"action_stompAttack_rate"						"1"
+	"action_stompAttack_minRange"					"0"
+	"action_stompAttack_maxRange"		"256"
+
+	
+
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_makron"
+	"size"									"48 48 80"
+	"use_aas"								"aas48"
+	
+	"health"								"2000"
+	"health_flying"							"4000"
+
+	"directionalMovement"					"1"
+
+	"painThreshold"							"0"
+	"painThresholdBig"						"0"
+	"forceWalk"								"1"
+
+	//ur...
+	"ignore_obstacles"						"1"
+
+	"surface_legs"							"models/monsters/makron/makron_legs"
+
+	"fly_speed"											"360"
+	"fly_offset"										"0"
+	"fly_turnRate"										"180"
+
+	"joint_hover"										"thruster"
+
+	// --------------------------------- Combat ------------------------------------
+
+	"def_attack_DMG"						"projectile_makron_dmg"	
+	"attack_DMG_accuracy"					"1"
+
+	"def_attack_cannon"						"projectile_makron_cannon"	
+	"attack_cannon_accuracy"				"1"
+	"attack_cannon_predict"					"1"
+
+	"def_attack_cannonswerve"				"projectile_makron_cannon_swerve"	
+	"attack_cannonswerve_accuracy"			".5"
+
+	"def_attack_cannonswerve2"				"projectile_makron_cannon_swerve"	
+	"attack_cannonswerve2_predict"			"-1"
+	"attack_cannonswerve2_accuracy"			"1"
+
+	"def_attack_cannonsweep"				"projectile_makron_cannon"	
+	"attack_cannonsweep_lockToJoint"		"1"
+
+	"def_attack_grenadeSpawn_small"			"projectile_makron_spawner_small"
+	"attack_grenadeSpawn_small_spread"		"100"
+
+	"def_attack_grenadeSpawn_large"			"projectile_makron_spawner_large"
+	"attack_grenadeSpawn_large_spread"		"100"
+
+	"def_attack_grenadeDM"					"projectile_makron_dm_grenade"
+	"attack_grenadeDM_spread"				"100"
+
+	"def_attack_lightningPattern1"			"hitscan_makron_lightninggun"
+	"attack_lightningPattern1_hitscan"		"1"
+	"attack_lightningPattern1_accuracy"		"2"
+	"attack_lightningPattern1_lockToJoint"	"1"
+
+	"def_attack_lightningPattern2"			"hitscan_makron_lightninggun"
+	"attack_lightningPattern2_hitscan"		"1"
+	"attack_lightningPattern2_accuracy"		"2"
+	"attack_lightningPattern2_anim"			"claw_sweep"
+
+	"def_attack_lightningPattern3"			"hitscan_makron_lightninggun"
+	"attack_lightningPattern3_hitscan"		"1"
+	"attack_lightningPattern3_accuracy"		"1"
+
+	"def_attack_melee"						"melee_makron_stab"
+
+	"def_makron_sweep_damage"				"damage_makron_lightninggun"
+
+
+	"def_makron_stomp_damage"				"damage_makron_stomp_damage"
+
+	
+	"tactical_rush"							"1"
+	"tactical_ranged"						"1"
+	"tactical_cover"						"0"
+	"tactical_hide"							"0"
+
+	
+	"attackRange"							"256 1200"
+	"meleerange"							"0	 1200"
+
+
+	"joint_eyeOffset"						"head"
+	"joint_chestOffset"						"chest"
+	
+	// --------------------------------- Look Joints -----------------------------
+	//"look_joint hip"						".3 .3 0"
+	 "look_joint waist"						".3 .3 0"
+	  "look_joint chest"					".2 .2 0"
+	   "look_joint shoulders"				".1 .1 0"
+
+	// --------------------------------- FX -----------------------------
+	"fx_dmg_flash"							"effects/monsters/bossbuddy/dmg_muzzleflash.fx"	
+	"fx_blaster_flash"						"effects/monsters/gladiator/blaster_mflash.fx"
+
+	"fx_sweep_fly"								"effects/monsters/makron/lightning_trail.fx"
+	"fx_sweep_impact"							"effects/monsters/makron/lightning_mflash.fx"
+	"fx_sweep_muzzle"							"effects/monsters/makron/lightning_mflash.fx"
+
+	"fx_stomp_wave"								"effects/monsters/makron/ground_impact.fx"
+
+	"fx_teleport"								"effects/monsters/teleport_makron.fx"
+
+	"fx_hover"								"effects/monsters/makron/jetwash.fx"
+	
+	"fx_spark"								"effects/sparks/generic_large4.fx"
+	"fx_draw_muzzle"						"effects/monsters/teleport_ball.fx"
+	"fx_restore"							"effects/monsters/makron/health_charge.fx"
+	"fx_recharge"							"effects/monsters/makron/health_charge.fx"
+
+	"fx_raise"								"effects/monsters/makron/lightning_mflash.fx"
+	"fx_camshake"							"effects/monsters/camerashakelarge.fx"
+	
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"removeDelay"							"2"
+	"burnaway"								"2"
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death_makron.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport_makron2.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport_makron2.fx"
+	
+	// --------------------------------- Sounds -----------------------------
+	
+	"lipsync_sight"							"vo_3_2_9_30_10"
+	"lipsync_rush"							"vo_3_2_9_30_9"
+	"snd_voice"								"vo_3_2_9_30_9"
+	
+	"snd_fly"								"makron_hover"
+	"snd_separation"						"makron_separation"
+	"snd_clasp"								"makron_clasp"
+	
+	"snd_pain"								"makron_pain"
+	"snd_death"								"makron_death"
+	
+	"snd_rear_up"							"makron_rear_up"
+	"snd_claw_open"							"makron_blade_arm"
+	"snd_claw_swing"						"makron_blade_swing"
+	"snd_dmg_fire"							"makron_dmg_fire"
+	"snd_stomp"								"makron_stomp"
+	"snd_impact"							"ambient_metal_pound"
+	"snd_laser_start"						"core_laser_ignite"
+	"snd_laser_end"						"core_laser_disengage"
+	
+	"snd_footstep"							"makron_steps"
+	"snd_footstep_sand"						"makron_steps"
+	"snd_footstep_dirt"						"makron_steps"
+	"snd_footstep_hollowmetal"				"makron_steps"
+	"snd_footstep_rock"						"makron_steps"
+
+	"snd_taunt_sweep_1"						"vo_3_2_9_30_2"
+	"snd_taunt_sweep_2"						"vo_3_2_9_30_6"
+	"snd_taunt_stomp"						"vo_3_2_9_30_1"
+	"snd_taunt_DMG"							"vo_3_2_9_30_7"
+	"snd_taunt_DMG_grenades"				"vo_3_2_9_30_4"
+	"snd_taunt_charge"						"vo_3_2_9_30_5"
+	"snd_taunt_spawn"						"vo_3_2_9_30_3"
+
+	"snd_taunt_teleport"					"vo_3_2_9_30_9"
+
+	"snd_taunt_rebirth"						"vo_3_2_9_30_11"
+	"snd_taunt_healing"						"vo_3_2_9_30_12"
+
+	
+	"sound_bone"							"waist"
+
+
+	
+
+	// --------------------------------- Stomp Attack -----------------------------
+	
+	"stomp_max_range"						"1600"
+	"stomp_start_size"						"32"
+	"stomp_width"							"32"
+	"stomp_speed"							"12"
+
+	// --------------------------------- Double Lightning Sweep -----------------------------
+
+	"lightningsweep_sweep_time"				"2"
+	"lightningsweep_wait_time"				"0.75"
+
+	// --------------------------------- Healing -----------------------------
+	"script_recharge"						"makronRecharge"
+	"script_teleport"						"makronTeleport"
+
+}
+
+
+model model_monster_makron_legs	{
+
+	inherit						model_monster_makron
+	
+	anim	idle				models/monsters/makron/idle_legs.md5anim
+
+
+}
+
+
+entityDef monster_makron_legs
+{
+	"inherit"								"monster_makron"
+	"model"									"model_monster_makron_legs"
+
+	"passive"								"1"
+	"no_target"								"1"
+	"furniture"								"1"
+	"undying"								"1"
+	"noDamage"								"1"
+
+	"hidesurface1"							"models/monsters/makron/makron_torso"
+	"hidesurface2"							"models/monsters/failed_transfer/ft_eye"
+}
+
+entityDef monster_makron_jr
+{
+	"inherit"								"monster_makron"
+
+	"health"								"1400"
+	"junior"								"1"
+
+	"size"									"96 96 96"
+	"mins"									"-47 -47 0"
+	"maxs"									"47 47 96"
+
+	"use_aas"								"aas96"
+
+	//disable the stomp.
+	"action_stompAttack"					"0"
+	"action_DMGAttack"						"0"
+	"action_cannonAttack"					"1"
+	"action_cannonsweepAttack"				"0"
+	"action_meleeAttack"					"1"
+	"action_grenadeAttack"					"0"	
+	"action_lightningPattern1Attack"		"0"
+	"action_lightningPattern2Attack"		"0"
+
+	//there's no need to turn off ALL the attacks the Makron already has, because they just won't be 
+	//called from script. We should add a pair of "gentler" attacks, simple grenades and
+	//non bouncing blaster shots.
+	"def_attack_grenadeDM"					"projectile_makron_jr_grenade"
+	"attack_grenadeDM_spread"				"100"
+
+	"def_attack_cannon"						"projectile_makron_jr_cannon"	
+	"attack_cannon_accuracy"				"1"
+	"attack_cannon_predict"					"1"
+
+	"def_attack_cannonswerve"				"projectile_makron_jr_cannon"	
+	"attack_cannonswerve_accuracy"			".5"
+
+	"def_attack_cannonswerve2"				"projectile_makron_jr_cannon"	
+	"attack_cannonswerve2_accuracy"			"-1"
+
+	"def_attack_lightningPattern3"			"hitscan_makron_lightninggun_jr"
+	"attack_lightningPattern3_hitscan"		"1"
+	"attack_lightningPattern3_accuracy"		".2"
+	"attack_lightningPattern3_predict"		"1"
+
+}
+
+entityDef projectile_makron_jr_cannon
+{
+	"inherit"					"projectile_gladiator_blaster"
+	
+	"def_damage"				"damage_makron_jr_cannon"
+
+	"fx_fly"					"effects/monsters/makron/blaster_fly.fx"
+
+	"detonate_on_world"			"0"
+	"bounce"					"1"
+	"bounce_count"				"2"
+	"bounce_center"				"1"
+}
+
+entityDef damage_makron_jr_cannon
+{
+	"inherit"							"damage_bullet_base"
+	"damage"							"12"
+	"kickdir"							"1 0 0"
+}
+
+entityDef projectile_makron_jr_grenade
+{
+	"inherit"							"projectile_gunner_grenade"
+//	"def_splash_damage"					"damage_makron_grenade_splash"
+	"fuse"								"2"
+	"fuse_random"						"6"
+}
+
+entityDef damage_makron_lightninggun_jr	
+{
+	"inherit"					"damage_lightninggun"
+	"damage"					"0"
+
+}
+
+entityDef hitscan_makron_lightninggun_jr
+{
+	"range"						"10000"
+	"push"						"10000"
+	
+	"def_damage"				"damage_makron_lightninggun_jr"
+	
+	"attack_spread_horizontal"	"0"
+	"attack_spread_vertical"	"0"
+	
+	"fx_impact"					"effects/monsters/makron/impact.fx"
+	"fx_path"					"effects/monsters/makron/lightning_trail.fx"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+export makron {
+	options -scale .4
+	mesh	models/bounding_boxes/bb_makron.ma	-dest models/monsters/makron/bb_makron
+	anim	models/bounding_boxes/bb_makron.ma	-dest models/monsters/makron/bb_idle_makron
+}
+
+entityDef monster_bb_makron
+{
+	"inherit"						"actor_default"
+}
+*/

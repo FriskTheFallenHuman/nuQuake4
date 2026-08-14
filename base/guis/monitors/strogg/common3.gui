@@ -1,0 +1,355 @@
+windowDef Desktop
+{
+	comment	"gui_parm_broken = 1 adds broken glass cracks to the gui, gui_parm_stroyent = 1 adds stroyent junk on the screen"
+	visible	1
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	definevec4	"sq_off"	0.913,0.411,0.0784,0.6
+	definevec4	"sq_on"	0.913,0.411,0.0784,1
+	windowDef data
+	{
+		rect	239,-5,438,480
+		visible	1
+		background	"gfx/guis/common/strogg/data"
+		matcolor	1,1,1,0.12
+		shear	0, -.38
+		matscalex	-1
+	}
+	windowDef circ1
+	{
+		rect	214,0,470,370
+		visible	1
+		background	"gfx/guis/doors/strogg/open_bgcirc"
+		matcolor	1,1,1,0.2
+		rotate	time*0.01
+	}
+	windowDef circ2
+	{
+		rect	214,108,470,370
+		visible	1
+		background	"gfx/guis/doors/strogg/open_bgcirc"
+		matcolor	1,1,1,0.2
+		rotate	time*-0.02
+	}
+	windowDef data_grad
+	{
+		rect	180,-7,395,480
+		visible	1
+		shear	0, -.38
+		background	"gfx/guis/common/gradient2"
+		matcolor	0,0,0,1
+		matscalex	-1
+	}
+	windowDef bg_grad
+	{
+		rect	-85,-120,726,731
+		visible	1
+		background	"gfx/guis/common/gradient2"
+		matcolor	0.894,0.501,0.0666,0.2
+		matscalex	-1
+	}
+	windowDef bg
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/common3_bg"
+		matcolor	0.901,0.509,0.0745,.88*guitable_8_10[time*0.0003]
+	}
+	windowDef decal
+	{
+		rect	29,-3,107,104
+		visible	1
+		background	"gfx/guis/common/strogg/decal"
+		matcolor	0,0,0,0.8
+	}
+	windowDef t_top
+	{
+		rect	149,32,294,30
+		visible	1
+		forecolor	0.976,0.866,0.490,1
+		text	"sector 3 readout"
+		textscale	0.74
+		font	"fonts/strogg"
+	}
+	windowDef t_top2
+	{
+		rect	384,65,55,22
+		visible	1
+		forecolor	0.976,0.866,0.490,1
+		text	5465
+		textscale	0.52
+		font	"fonts/strogg"
+	}
+	windowDef p_sq1
+	{
+		rect	69,126,1,126
+		visible	1
+
+		onTime 0 {
+			transition "p_sq1::rect" "$p_sq1::rect" "$d_sq1::rect" "300" ;
+		}
+
+		onTime 300 {
+			transition "sq1::matcolor" "$desktop::sq_on" "$desktop::sq_off" "300" ;
+		}
+
+		onTime 8000 {
+			transition "p_sq1::rect" "$d_sq1::rect" "$p_sq1::rect" "300" ;
+		}
+
+		onTime 10000 {
+			resettime "0" ;
+		}
+
+		windowDef sq1
+		{
+			rect	15,-2,142,129
+			visible	1
+			background	"gfx/guis/common/strogg/sq1"
+			matcolor	0.913,0.411,0.0784,0.6
+			shear	0, -.38
+		}
+		windowDef sq1_t
+		{
+			rect	157,9,92,106
+			visible	1
+			background	"gfx/guis/common/strogg/nonscrolltext3"
+			matcolor	0.976,0.866,0.490,1
+			shear	0, -.38
+		}
+		windowDef sq1_l
+		{
+			rect	70,40,48,76
+			visible	1
+			forecolor	0.972,0.862,0.486,.2
+			text	"4"
+			textscale	2
+			font	"fonts/strogg"
+		}
+	}
+	windowDef p_sq2
+	{
+		rect	323,126,1,126
+		visible	1
+
+		onTime 1500 {
+			transition "p_sq2::rect" "$p_sq2::rect" "$d_sq2::rect" "300" ;
+		}
+
+		onTime 1800 {
+			transition "sq2::matcolor" "$desktop::sq_on" "$desktop::sq_off" "300" ;
+		}
+
+		onTime 13000 {
+			transition "p_sq2::rect" "$d_sq2::rect" "$p_sq2::rect" "300" ;
+		}
+
+		onTime 14500 {
+			resettime "0" ;
+		}
+
+		windowDef sq2
+		{
+			rect	19,-2,142,129
+			visible	1
+			background	"gfx/guis/common/strogg/sq1"
+			matcolor	0.913,0.411,0.0784,0.6
+			shear	0, -.38
+		}
+		windowDef sq2_t
+		{
+			rect	156,5,103,114
+			visible	1
+			background	"gfx/guis/common/strogg/nonscrolltext1"
+			matcolor	0.976,0.866,0.490,.66
+			shear	0, -.4
+		}
+		windowDef sq2_l
+		{
+			rect	75,39,48,76
+			visible	1
+			forecolor	0.972,0.862,0.486,.2
+			text	5
+			textscale	2
+			font	"fonts/strogg"
+		}
+	}
+	windowDef p_sq3
+	{
+		rect	11,269,1,126
+		visible	1
+
+		onTime 250 {
+			transition "p_sq3::rect" "$p_sq3::rect" "$d_sq3::rect" "300" ;
+		}
+
+		onTime 550 {
+			transition "sq3::matcolor" "$desktop::sq_on" "$desktop::sq_off" "300" ;
+		}
+
+		onTime 7400 {
+			transition "p_sq3::rect" "$d_sq3::rect" "$p_sq3::rect" "300" ;
+		}
+
+		onTime 9550 {
+			resettime "0" ;
+		}
+
+		windowDef sq3
+		{
+			rect	18,0,142,129
+			visible	1
+			background	"gfx/guis/common/strogg/sq1"
+			matcolor	0.913,0.411,0.0784,0.6
+			shear	0, -.38
+		}
+		windowDef sq3_t
+		{
+			rect	155,7,103,114
+			visible	1
+			background	"gfx/guis/common/strogg/nonscrolltext1"
+			matcolor	0.976,0.866,0.490,.66
+			shear	0, -.4
+			matscaley	-1
+		}
+		windowDef sq3_l
+		{
+			rect	75,41,48,76
+			visible	1
+			forecolor	0.972,0.862,0.486,.2
+			text	8
+			textscale	2
+			font	"fonts/strogg"
+		}
+	}
+	windowDef p_sq4
+	{
+		rect	265,269,1,126
+		visible	1
+
+		onTime 950 {
+			transition "p_sq4::rect" "$p_sq4::rect" "$d_sq4::rect" "300" ;
+		}
+
+		onTime 1250 {
+			transition "sq4::matcolor" "$desktop::sq_on" "$desktop::sq_off" "300" ;
+		}
+
+		onTime 10200 {
+			transition "p_sq4::rect" "$d_sq4::rect" "$p_sq4::rect" "300" ;
+		}
+
+		onTime 12800 {
+			resettime "0" ;
+		}
+
+		windowDef sq4
+		{
+			rect	22,0,142,129
+			visible	1
+			background	"gfx/guis/common/strogg/sq1"
+			matcolor	0.913,0.411,0.0784,0.6
+			shear	0, -.38
+		}
+		windowDef sq4_t
+		{
+			rect	164,5,98,115
+			visible	1
+			background	"gfx/guis/common/strogg/nonscrolltext2"
+			matcolor	0.976,0.866,0.490,.8
+			shear	0, -.38
+		}
+		windowDef sq4_l
+		{
+			rect	87,36,48,76
+			visible	1
+			forecolor	0.972,0.862,0.486,.2
+			text	3
+			textscale	2
+			font	"fonts/strogg"
+		}
+	}
+	windowDef d_sq1
+	{
+		rect	69,126,289,126
+		visible	0
+	}
+	windowDef d_sq2
+	{
+		rect	323,126,265,126
+		visible	0
+	}
+	windowDef d_sq3
+	{
+		rect	11,269,289,126
+		visible	0
+	}
+	windowDef d_sq4
+	{
+		rect	265,269,291,126
+		visible	0
+	}
+	windowDef nonscrolltext1
+	{
+		rect	316,117,260,301
+		visible	1
+		background	"gfx/guis/common/strogg/nonscrolltext1"
+		matcolor	0.976,0.866,0.490,.14
+		shear	0, -.38
+	}
+	windowDef nonscrolltext2
+	{
+		rect	49,117,260,301
+		visible	1
+		background	"gfx/guis/common/strogg/nonscrolltext2"
+		matcolor	0.976,0.866,0.490,.14
+		shear	0, -.38
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	1,-204,640,906
+			background	"gfx/guis/common/monitor_line3"
+			matcolor	1,1,1,1
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	-11,-24,667,514
+			background	"gfx/guis/common/gradient"
+			matcolor	0.635,0.8,0.792,0.14*guitable_8_10[time*0.008]
+		}
+		windowDef dirt_stroyent
+		{
+			visible	"gui::gui_parm_stroyent"
+			rect	0,0,640,480
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.337,0.380,0.0862,1
+		}
+		windowDef broken_glass_b
+		{
+			visible	"gui::gui_parm_broken"
+			rect	2,5,640,480
+			background	"gfx/guis/common/broken_glass3"
+			matcolor	0,0,0,1
+		}
+		windowDef broken_glass
+		{
+			visible	"gui::gui_parm_broken"
+			rect	0,0,640,480
+			background	"gfx/guis/common/broken_glass3"
+			matcolor	0.819,0.905,0.921,1
+		}
+		windowDef monitor_darkedge
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

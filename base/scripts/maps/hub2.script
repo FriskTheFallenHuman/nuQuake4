@@ -1,0 +1,762 @@
+//------------------------------------------------------------------------------------
+// Hub2.script
+//
+// (c) Raven Software 2005
+//------------------------------------------------------------------------------------
+#include "scripts/maps/boss_makron_jr.script"
+
+namespace map_hub2	{
+
+//------------------------------------------------------------------------------------
+// Prototypes
+
+
+//------------------------------------------------------------------------------------
+// Globals
+
+float g_killCount = 0;
+
+float s_killCount = 0;
+
+//------------------------------------------------------------------------------------
+// Functions
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////Additions by Chad/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void tetranode_move()
+{
+	$tetranode.playCycle(ANIMCHANNEL_ALL, "open" );
+	$env_crucified_1.playCycle(ANIMCHANNEL_ALL, "idle" );
+	sys.wait(1);
+	$tetranode_2.playCycle(ANIMCHANNEL_ALL, "open" );
+	$env_crucified_2.playCycle(ANIMCHANNEL_ALL, "idle" );
+	//sys.wait(.5);
+	//$env_crucified_3.playCycle(ANIMCHANNEL_ALL, "idle" );
+}
+
+void makron_hurtme()
+{
+	$makron.remove();
+	$cinematic_makron.show();
+	$makron_light_1.show();
+	$makron_light_2.show();
+	sys.trigger($cinematic_makron);
+	sys.fadeOut('0 0 0', 0 );
+	sys.wait(2);
+	sys.fadeIn('0 0 0', 5 );
+	//sys.wait(3);
+	sys.trigger($cin_hub2cam_1);
+	aiScriptedAnim($cinematic_makron,"pickup_kane", 4, true);
+	sys.wait(4);
+	sys.fadeOut('0 0 0', 5 );
+	sys.wait(9);
+	sys.trigger($endlevel);
+}
+
+void door_sparks()
+{
+	sys.wait(2);
+	sys.trigger($door_sparks_1);
+	sys.trigger($door_sparks_2);
+	sys.trigger($door_sparks_3);
+	sys.wait(2);
+	sys.trigger($door_steam);
+	$door_sparks_2.remove();
+	sys.wait(.5);
+	$door_sparks_3.remove();
+	sys.wait(.5);
+	$door_sparks_1.remove();
+}
+
+void strauss_babble()
+{
+	sys.trigger($strauss_chatter_20);
+	sys.wait(9);
+	sys.trigger($strauss_chatter_21);
+	sys.wait(7);
+	sys.trigger($strauss_chatter_22);
+	sys.wait(4);
+	//sys.trigger($strauss_chatter_23);
+	
+}
+
+void makronLights()
+{
+	sys.wait(5);
+	
+	sys.trigger($stomp_shake);
+	sys.setShaderParm(1, sys.getTime());
+	sys.wait(4);
+	sys.setShaderParm(1, 0);
+	
+	sys.wait(2);
+	
+	sys.trigger($stomp_shake);
+	sys.setShaderParm(1, sys.getTime());
+	sys.wait(4);
+	sys.setShaderParm(1, 0);
+	
+	/*
+	sys.wait(3);
+	
+	sys.trigger($stomp_shake);
+	sys.setShaderParm(1, sys.getTime());
+	sys.wait(4);
+	sys.setShaderParm(1, 0);	
+	*/
+}
+
+
+void makron_cometh()
+{
+	//$makron_clip_1.show();
+	//$makron_clip_2.show();
+	//sys.trigger($makron_obstacle_1);
+	//sys.trigger($makron_obstacle_2);
+
+	//don't allow the Makron to be killed while he's hoofing into the battle.
+	$makron.setHealth(10000);
+
+	sys.wait(1.5);
+	thread strauss_babble();
+	
+	thread makronLights();
+	
+	sys.wait(9);
+	
+	$makron.show();
+	aiScriptedAnim($makron,"cinematic", 4, true);
+	//sys.trigger( $tgt_boss_makron);
+
+	$big_door.playAnim(ANIMCHANNEL_ALL, "open");
+	sys.trigger($makron_music);
+	thread door_sparks();
+	//sys.wait(4);
+	//wait until vic makron is done animating
+	aiScriptedWait( $makron);
+
+	aiScriptedMoveWait($makron, $makron_point_1, 20, true);
+	$big_door.playAnim(ANIMCHANNEL_ALL, "close");
+	sys.wait(1);
+	sys.trigger($door_dust_1);
+	sys.wait(2);
+
+	//wait for this to return.
+	boss_makron_jr::maintainMakronJr( $makron);
+	sys.awardAchievement("completedAct1");
+	thread makron_hurtme();
+	
+	//sys.trigger($makron_tether_trigger_1);
+	//sys.trigger($makron_tether_trigger_2);
+	//sys.trigger($makron_tether_trigger_3);
+	//sys.trigger($makron_tether_trigger_4);
+}
+
+void stream_protectors()
+{
+	sys.trigger($cin_hub2cam2);
+	sys.trigger($protector_music);
+	$plant_sp1.show();
+	$plant_sp2.show();
+	aiScriptedAnim($plant_sp1,"hub2_cinematic", 4, true);
+	aiScriptedAnim($plant_sp2,"hub2_cinematic_02", 4, true);
+}
+
+
+void remove_steps()
+{
+	$step_1.time(3);
+	$step_1.moveTo($step_point_1);
+	
+	$step_2.time(3);
+	$step_2.moveTo($step_point_2);
+	
+	$step_3.time(3);
+	$step_3.moveTo($step_point_3);
+	
+	$step_4.time(3);
+	$step_4.moveTo($step_point_4);
+}
+
+void call_growl()
+{
+	sys.wait(9);
+	sys.trigger($growl);
+}
+
+void kane_anims()
+{
+	aiScriptedAnimWait($kane,"hub2_console_drop", 4, true);
+	$kane.remove();
+	aiScriptedAnimWait($kane_2,"hub2_kane_pov", 4, true);
+	$kane_2.remove();
+	aiScriptedAnimWait($kane_3,"hub2_sp_pov", 4, true);
+	$kane_3.remove();
+	aiScriptedAnimWait($kane_4,"hub2_kane_180", 4, true);
+	$kane_4.remove();
+	
+	sys.trigger($objective_3_complete);
+}
+
+void lower_console_1()
+{
+	thread kane_anims();
+	thread call_growl();
+	thread stream_protectors();
+	thread remove_steps();
+	
+	sys.trigger($console_move);
+	$lower_console.time(5);
+	$lower_console.moveTo($lower_here_1);
+	sys.waitFor($lower_console);
+	
+	$seal.time(1);
+	sys.trigger($cover_move);
+	$seal.moveTo($close_point_1);
+	sys.waitFor($seal);
+	
+	$seal.time(1);
+	sys.trigger($cover_close);
+	$seal.moveTo($close_point_2);
+	sys.waitFor($seal);
+	
+	$console.remove();
+	
+	
+	
+}
+
+void kill_count_2()
+{
+	s_killCount = s_killCount + 1;
+	
+	if ( s_killCount == 2 )
+	{
+		thread makron_cometh();
+	}
+}
+
+
+void go_router_1()
+{
+	sys.trigger($router_start);
+	sys.trigger($router_move_1);
+	$spline_binder_1.setSpeed( 100 );
+	$spline_binder_1.setAccel( 50 );
+	$spline_binder_1.setDecel( 50 );
+	$spline_binder_1.setSpline( $data_router_path_1);
+	sys.waitFor($spline_binder_1);
+	$router_move_1.remove();
+	sys.trigger($router_stop);
+	
+	
+	sys.wait(.5);
+	$spline_binder_1.bind($track_switch_1);
+	$track_switch_1.setSpeed( 20 );
+	$track_switch_1.setAccel( 20 );
+	$track_switch_1.setDecel( 20 );
+	sys.trigger($router_pivot);
+	$track_switch_1.rotateOnce('0 -90 0');
+	sys.waitFor($track_switch_1);
+	$spline_binder_1.unbind();
+	
+	sys.trigger($router_start);
+	sys.trigger($router_move_2);
+	$spline_binder_1.setSpeed( 100 );
+	$spline_binder_1.setAccel( 100 );
+	$spline_binder_1.setDecel( 90 );
+	$spline_binder_1.setSpline( $data_router_path_2);
+	sys.waitFor($spline_binder_1);
+	$router_move_2.remove();
+	sys.trigger($router_stop);
+	
+	sys.wait(.5);
+	$spline_binder_1.bind($track_switch_3);
+	$track_switch_3.setSpeed( 20 );
+	$track_switch_3.setAccel( 20 );
+	$track_switch_3.setDecel( 20 );
+	sys.trigger($router_pivot);
+	$track_switch_3.rotateOnce('0 -90 0');
+	sys.waitFor($track_switch_3);
+	$spline_binder_1.unbind();
+	
+	sys.trigger($router_start);
+	sys.trigger($router_move_3);
+	$spline_binder_1.setSpeed( 100 );
+	$spline_binder_1.setAccel( 50 );
+	$spline_binder_1.setDecel( 50 );
+	$spline_binder_1.setSpline( $data_router_path_3);
+	sys.waitFor($spline_binder_1);
+	$router_move_3.remove();
+	sys.trigger($router_stop);
+	
+	$data_router_plat_1.guiEvent("splice");
+	sys.trigger($strauss_chatter_15);	
+}
+
+void go_arms_1()
+{
+	//sys.println("blah");
+	$splice_point.playAnim(ANIMCHANNEL_ALL, "bend");
+	$env_data_router_arms_1.playAnim(ANIMCHANNEL_ALL, "clamp");
+	
+	sys.wait(10);
+	sys.trigger($objective_3_complete);
+	sys.trigger($strauss_chatter_16);
+	sys.wait(6);
+	sys.trigger($objective_5);
+	
+}
+
+void go_router_2()
+{
+	sys.trigger($router_start);
+	sys.trigger($router_move_4);
+	$spline_binder_2.setSpeed( 90 );
+	$spline_binder_2.setAccel( 50 );
+	$spline_binder_2.setDecel( 50 );
+	$spline_binder_2.setSpline( $data_router_path_4);
+	sys.waitFor($spline_binder_2);
+	$router_move_4.remove();
+	sys.trigger($router_stop);
+}
+
+void go_router_3()
+{
+	sys.trigger($router_move_5);
+	$spline_binder_3.startSpline( $data_router_overpass);
+	sys.waitFor($spline_binder_3);
+	$router_move_5.remove();
+	$data_router_plat_3.remove();
+	$env_data_router_arms_3.remove();
+	$data_router_mid_3.remove();
+	$data_router_base_3.remove();
+	$func_mover_14.remove();
+	$light_8166.remove();
+	$light_8165.remove();
+	$func_mover_15.remove();
+}
+
+void go_arms_2()
+{
+	$env_data_router_arms_2.playAnim(ANIMCHANNEL_ALL, "clamp");
+}
+
+void router_1_start()
+{
+	sys.trigger($start_router_1);
+}
+
+void router_2_start()
+{
+	sys.trigger($start_router_2);
+}
+
+
+void VPUScreens()
+{
+	//$VPU_Screen_1.show();
+	//sys.trigger($VPU_Light_1);
+	//sys.wait(1);
+	sys.trigger($VPU_Fade_In);
+	$VPU_Screen_4.show();
+	sys.wait(.9);
+	$VPU_Screen_2.show();
+	sys.wait(.8);
+	$VPU_Screen_5.show();
+	sys.trigger($VPU_Light_5);
+	sys.wait(.5);
+	$VPU_Screen_3.show();
+}
+
+void VPU()	
+{
+	$strauss.setKey("allowPlayerPush", 1);
+	$strauss.setLeader($null_entity);
+	aiScriptedStop($strauss);
+	$strauss.lookAt($null_entity);
+	aiScriptedMoveWait($strauss, $strauss_point_2, 1, 0);
+	aiScriptedFaceWait($strauss, $strauss_face_1, 0);
+	$strauss.lookAt($strauss_face_1);
+	aiScriptedAnimLoop($strauss,"console_idle", 4);
+	sys.trigger($objective_2_complete);
+	thread VPUScreens();
+	aiSpeakWait($strauss, "lipsync_remain_here");
+	sys.wait(1);
+	aiSpeakWait($strauss, "lipsync_final_task");
+	sys.trigger($objective_3);
+}
+
+
+void secondPass()
+{
+	//Prepare the map for the return from the powerhouse
+	
+	//lights in tetranode
+	$tetra_light_green_1.hide();
+	$tetra_light_red_1.show();
+	$tetra_light_green_2.show();
+	$tetra_light_red_2.hide();
+			
+	//activate triggers for the return trip
+	sys.trigger($PH_Second_TrigOnce_1);
+	sys.trigger($PH_Second_TrigOnce_2);
+	sys.trigger($PH_Second_TrigOnce_3);
+	sys.trigger($PH_Second_TrigOnce_4);
+	
+	//unlock the door to the VPU
+	sys.trigger($vpu_unlock);
+	
+}
+
+void lockPHDoor()
+{
+	$func_door_79.setKey("locked", 1);
+}
+
+void powerFXOn()
+{
+	sys.trigger($power_fx_1);
+	sys.wait(.4);
+	sys.trigger($power_fx_2);
+	sys.wait(.2);
+	sys.trigger($power_fx_3);
+	sys.wait(.5);
+	sys.trigger($power_fx_4);
+	sys.wait(.3);
+	sys.trigger($power_fx_5);
+	sys.wait(1);
+	sys.trigger($power_fx_6);
+	sys.wait(.5);
+}
+
+void powerFXOn2()
+{
+	sys.trigger($power_up_1);
+	sys.wait(.5);
+	sys.trigger($power_up_2);
+	sys.wait(.5);
+	sys.trigger($power_up_3);
+	sys.wait(.5);
+	sys.trigger($power_up_4);
+}
+
+void powerUp()
+{
+	sys.trigger($door_lock);
+	aiSpeakWait($strauss, "lipsync_raise_output");
+	sys.wait(1);
+	sys.trigger($objective_1_complete);
+	thread powerFXOn();
+	thread powerFXOn2();
+	aiScriptedAnimWait($strauss, "console_stand_end", 4, 1);
+	aiScriptedFace($strauss, $player1, 1 );
+	$strauss.lookAt($player1);
+	$strauss.setLeader($player1);
+	aiSpeakWait($strauss, "lipsync_disable_shutoff");
+	$strauss.lookAt($null_entity);
+	sys.trigger($objective_2);
+	thread secondPass();			
+	sys.wait(.5);
+	sys.trigger($door_unlock);
+	sys.trigger($gladiator_tether);	
+	$strauss.enableHeal();
+}
+
+void startPowerUp()
+{
+	$strauss.disableHeal();	
+	$strauss.setLeader($null_entity);	
+	aiScriptedMoveWait($strauss, $strauss_point_1, 4, 1);
+	aiScriptedFace($strauss, $power_console, 1 );
+	$strauss.lookAt($power_console);		
+	aiScriptedAnimWait($strauss, "console_stand_start", 4, 0);
+	aiScriptedAnimLoop($strauss, "console_stand_loop", 4);	
+	//turn on trigger that allows the sequence to start
+	sys.trigger($powerup_start_trigger);
+}
+
+void meet_strauss()
+{
+	// disable heal during the sequence
+	//sys.println("disableHeal");
+	//$strauss.disableHeal();
+	
+	$strauss.becomePassive(1);
+	
+	sys.trigger($strauss_tether_none);
+	
+	//sys.trigger($objective_from_hub1_complete);
+	$strauss.lookAt($player1);
+	sys.wait(.8);
+	aiSpeakWait($strauss, "lipsync_long_ago");
+	sys.wait(.4);
+	aiScriptedAnim($strauss, "point_left", 4, 1);
+	aiSpeakWait($strauss, "lipsync_that_tetranode");
+	sys.wait(.2);
+	aiSpeakWait($strauss, "lipsync_three_steps");
+	aiScriptedStop($strauss);
+	sys.trigger($objective_1);
+	sys.wait(.3);
+	$strauss.lookAt($null_entity);
+	
+	$strauss.becomeAggressive();
+	
+	$strauss.setLeader($player1);
+	
+	// sequence is done, enable heal
+	//sys.println("enableHeal");
+	$strauss.enableHeal();
+}
+
+void objectiveFromHub1()
+{
+	sys.wait(5);
+	sys.trigger($objective_from_hub1);
+}
+
+void hideLights()
+{
+	$tetra_light_red_1.hide();
+	$tetra_light_green_2.hide();
+}
+
+
+
+//--
+// Tetranode Maintenance Bay Lightning		kbanks June 05
+//--
+void lightningTest()
+{
+	sys.trigger($lightning_1);
+}
+
+/*
+void swampStorm()
+{
+	if(isOn){
+		isOn = 0;
+	}
+	
+	else {
+		
+	}
+	
+}
+*/
+
+void vpuLift()
+{
+	// Once strauss steps on the lift, this is called, enabling the gui
+	//sys.println("Calling vpuLift()");
+	$lift_to_vp_gui.setGuiParm( "noninteractive", "0" );
+}
+
+void showLiftClipStrauss()
+// This had to be put in a function, triggering directly didn't work from the activate lift gui
+{
+	//sys.println("showing clip for strauss");
+	$vpu_lift_clip_strauss.show();
+	//no pushing struass!
+	$strauss.setKey("allowPlayerPush", 0);
+}
+
+void showLiftClip()
+// This had to be put in a function, triggering directly didn't work from the activate lift gui
+{
+	//sys.println("showing clip for player");
+	$vpu_lift_clip.show();
+}
+
+void main()	
+{
+	thread objectiveFromHub1();
+	thread tetranode_move();
+	thread hideLights();
+	
+	// Set lift up to the VPU to nonineractive until strauss steps on
+	$lift_to_vp_gui.setGuiParm( "noninteractive", "1" );
+	
+	//anything that you want to occur at the start of the map should be called or threaded
+	//from here.
+
+}
+
+//--
+// Repair Bot ambience 		aweldon Feb 05
+//--
+
+// The following functions allow placement of random/ambient repair bot paths from either monster_repair_bot
+// entities or Repair Bots spawned from func_spawners.
+
+// To use this feature, place a series of target_nulls at all the points you want the Repair Bot to move to.
+// These will form your "Move Targets." Each move target should target a second target_null, the "Action Target."
+// From each Move Target, target the appropriate Action target. The script function will pull this information to
+// determine facing for each action.
+
+// On each Move Target, add the following keys:
+//	KEY:		VALUE:
+//	action		repair		(defines the action for this move target)
+//	duration	X		(defines the length of time, X, to perform the action)
+//	occupied	0		(sets the initial occupied status)
+
+// Add another target_null in a convenient location. This will form the list from which random move targets will
+// be selected. From this target_null, target all Move Targets in the area.
+
+// On a func_spawner, this script can be called by setting the "spawn_script" key to the value "map_hub2::randomBots"
+// An additional key, "spawn_list" is required to allow Repair Bots to select targets from the proper list. Set this key
+// to match the name of the target_null you created in the previous step. Finally, make sure you have more Move Targets
+// than Repair Bots.
+
+// When triggered, the Repair Bots will spawn in, fire the randomBots function which, in turn, threads the function
+// botActions for that bot. botActions will pull the name of the list from the Repair Bot (set with spawn_list as seen 
+// above), select a random Move Target, and begin the cycle.
+
+// In some cases, you may want to keep fresh repair bots cycling in over time. This function includes support for
+// "Kill Targets" which will remove the Repair Bot from the game and spawn a new one if the spawner is able.
+// Kill Targets are set up as normal move targets, but do not have an action target specified. They should be placed
+// out of view to prevent badness.
+
+// If a list has Kill Targets available, toggling a spawner off will cause the Repair Bots to gradually trickle out of
+// the area as they come across the kill targets. This can be triggered the same time as a combat trigger and used with 
+// a high number of kill targets to simulate Repair Bots clearing an area when combat is active.
+
+void setOccupied( entity target )	{
+	
+	//sys.println( target.getName() + " occupied status is starting at " + target.getKey( "occupied" ) );
+	
+	if( target.getKey( "occupied" ) == "1" )	{
+		
+		// Set the occupied key to the appropriate value
+		target.setKey( "occupied" , "0" );
+		//sys.println( target.getName() + " occupied status is now " + target.getKey( "occupied" ) );
+	}
+	
+	else	{
+		
+		// Set the occupied key to the appropriate value
+		target.setKey( "occupied" , "1" );
+		//sys.println( target.getName() + " occupied status is now " + target.getKey( "occupied" ) );
+	}
+}
+
+void botActions( entity botName )	{
+	
+	// Define the entities that will be used for random target selection
+	entity repairTarget = $null_entity;
+	entity oldTarget = $null_entity;
+	
+	// Pull the name of the correct list passed to this repair bot from the spawner.
+	entity botList = botName.getEntityKey("list");
+	
+	// Perform these actions as long as the Repair Bot lives.
+	while ( isValidEntity ( botName ) ) {
+	
+		// Select a new move target at random from the list of target_nulls
+		repairTarget = qListRandom( botList );
+						
+		// Check against the previous target, and select a new one if the old target repeats itself.
+		while ( repairTarget.getKey( "occupied" ) == "1" )	{
+			//sys.println("Found repeated/occupied Target, re-setting.");
+			repairTarget = qListRandom( botList );
+			sys.waitFrame();
+		}
+		
+		// We found a non-repeated unoccupied target! Huzzah!
+		//sys.println( "Found Valid Target: " + repairTarget.getName() );
+		
+		// Pull the target from the move target to define
+		entity repairAction = repairTarget.getTarget(0);
+		
+		// Set target as occupied to prevent other repair bots from using it
+		thread setOccupied( repairTarget );
+	
+		// Identify action type (repair target or kill target).
+		if( isValidEntity ( repairAction ) )	{
+		
+			// Move targets targetting an action target are valid repair targets.
+			//sys.println( "Found Valid Repair Target." );
+									
+			// Move to the target.
+			aiScriptedMoveWait( botName, repairTarget , 32 , 0 );
+			sys.waitFrame();
+			
+				// Run check to ensure bot is still valid.
+				if( isValidEntity ( botName ) )	{
+							
+					// Look at the target.
+					aiScriptedFaceWait( botName, repairAction, 0 );
+					sys.waitFrame();
+	
+					// Run another check to ensure bot is still valid.
+					if( isValidEntity ( botName ) )	{
+						
+						// Perform the scripted action.
+						//sys.println( "Performing Action" );
+						aiScriptedActionWait( botName, repairTarget , 0 );
+						sys.waitFrame();
+	
+						// Run yet another check to ensure bot is still valid.
+						//if( isValidEntity ( botName ) )	{
+	
+							// Confirm the action is complete.
+							//sys.println( "Action Completed!" );
+						//}
+					}
+				}
+			
+			// Set target as unoccupied once action is completed.
+			thread setOccupied( repairTarget );
+		}
+					
+		else	{
+			
+			// Move targets with no target are kill zones which should remove the repair bot.
+			//sys.println( "Found Kill Target." );
+			
+			// Move to the target.
+			aiScriptedMoveWait( botName, repairTarget , 64 , 0 ); 
+			sys.waitFrame();
+			
+			// Run check to ensure bot is still valid.
+			if( isValidEntity ( botName ) )	{
+			
+				// Kill the repair bot.
+				//sys.println( "Hit kill zone, terminating entity." );
+
+				// Set target as unoccupied once action is completed.
+				thread setOccupied( repairTarget );
+				
+				//fix this later if needed
+				botName.kill();
+				break;
+			}
+		}
+		
+		// Define the old target for comparison against the new target.
+		oldTarget = repairTarget;
+			
+	}
+	
+		
+}	
+
+void randomBots( entity repairBot )	{
+
+	thread botActions( repairBot );
+	//sys.println( "USING OLD REPAIR BOT CODE; UPDATE WITH NEW SCRIPTS/COMMON/ VERSION!");
+}
+
+//--
+// End Repair Bot ambience
+//--
+
+void vpRouteWindow()	{
+
+	aiScriptedMove( $vproute_windowGrunt , $vp_windowTarget , 1 , 0);
+
+}
+
+}	//end namespace

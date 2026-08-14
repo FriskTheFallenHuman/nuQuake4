@@ -1,0 +1,393 @@
+//----------------------------------
+//	model gui test
+//----------------------------------
+
+models/mapobjects/test/modelgui_bound
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+	{
+		blend add
+		map models/mapobjects/test/modelgui_bound.tga
+		red .8 *	guitable_1_92 [ time * 3 ]
+		green .2 *	guitable_1_92 [ time * 3 ]
+		blue 0 *	guitable_1_92 [ time * 3 ]
+		alpha		parm3
+	}	
+
+}
+//----------------------------------
+//	decal tests
+//----------------------------------
+
+gfx/guis/test/areadecal1
+{
+	qer_editorimage gfx/guis/test/areadecal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+ 
+		diffuseMap   gfx/guis/test/areadecal1.tga 	//for light decals
+
+}
+
+gfx/guis/test/testdecal1
+{	
+	DECAL_MACRO
+	{
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map gfx/guis/test/testdecal1.tga
+		clamp
+		colored
+	}
+}
+
+gfx/guis/test/testdecal2
+{	
+	DECAL_MACRO
+	{
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map gfx/guis/test/testdecal2.tga
+		clamp
+		colored
+	}
+}
+
+gfx/guis/test/testdecal3
+{	
+	DECAL_MACRO
+	{
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map gfx/guis/test/testdecal3.tga
+		clamp
+		colored
+	}
+}
+
+gfx/guis/test/testdecal4
+{	
+	DECAL_MACRO
+	{
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map gfx/guis/test/testdecal4.tga
+		clamp
+		colored
+	}
+}
+
+gfx/guis/test/testdecal5
+{	
+	DECAL_MACRO
+	{
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map gfx/guis/test/testdecal5.tga
+		clamp
+		colored
+	}
+}
+
+gfx/guis/test/testdecal6
+{	
+	DECAL_MACRO
+	{
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		Map gfx/guis/test/testdecal6.tga
+		clamp
+		colored
+	}
+}
+
+gfx/guis/test/testdecal7
+{
+	qer_editorimage gfx/guis/test/testdecal7.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+
+	{
+       		blend	filter					//for dark decals
+		Map gfx/guis/test/testdecal7.tga
+	}
+}
+
+
+gfx/guis/test/testdecal8
+{
+	qer_editorimage gfx/guis/test/testdecal8.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+ 
+		diffuseMap   gfx/guis/test/testdecal8.tga 	//for light decals
+
+}
+
+gfx/guis/test/testdecal9
+{
+	qer_editorimage gfx/guis/test/testdecal9.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+ 
+
+	{
+       		blend	diffuseMap			//for light decals
+		Map gfx/guis/test/testdecal9.tga
+		red	.9
+		green	1
+		blue	.3
+		alpha	1
+	}
+
+}
+
+gfx/guis/test/testdecal9a
+{
+	qer_editorimage gfx/guis/test/testdecal9a.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+
+	{
+       		blend	filter					//for dark decals
+		Map gfx/guis/test/testdecal9a.tga
+	}
+}
+
+
+gfx/guis/test/testdecal10
+{
+	qer_editorimage gfx/guis/test/testdecal10.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+       		blend	diffuseMap			//for light decals
+		Map gfx/guis/test/testdecal10.tga
+		red	.9
+		green	1
+		blue	.3
+		alpha	1
+	}
+
+}
+
+//----------------------------------
+
+// PSD files
+/*
+textures/common/halfgray
+generic_shader( "textures/common/halfgray" )
+*/
+textures/common/halfgray
+{
+	{
+		map textures/common/flatgray
+	}
+}
+
+textures/common/grid
+{
+	translucent
+	noshadows
+	twosided
+	{
+		blend blend
+		map textures/common/grid
+	}
+}
+
+textures/common/blue
+{
+	translucent
+	noshadows
+	twosided
+	{
+		map textures/common/white
+		Red		.2
+		Blue	1
+		Green	.2
+		Alpha   .5
+	}
+}
+
+textures/common/red
+{
+	translucent
+	noshadows
+	twosided
+	{
+		map textures/common/white
+		Red		1
+		Blue	.2
+		Green	.2
+		Alpha   .5
+	}
+}
+
+textures/common/black
+{
+	translucent
+	noshadows
+	twosided
+	{
+//		maskcolor
+		blend blend
+		map textures/common/white
+		Red		0
+		Blue	0
+		Green	0
+		Alpha   .5
+	}
+}
+
+/////////////////////////
+// COMMON
+/////////////////////////
+
+
+gfx/guis/console/medic_gui_left2_back
+
+{
+	translucent
+	noshadows
+	sort almostnearest
+
+	{
+	 	blend blend
+		map gfx/guis/test/black.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/medic_dull
+		texgen		reflect
+	}
+
+
+	{
+	 	blend blend
+		map gfx/guis/test/console/gui_screen_noise.tga
+	}
+
+}
+
+gfx/guis/console/medic_gui_left1_back
+
+{
+	translucent
+	noshadows
+	sort almostnearest
+
+	{
+	 	blend blend
+		map gfx/guis/test/black.tga
+	}
+
+
+	{
+		blend add
+		cubeMap		gfx/env/medic_dull
+		texgen		reflect
+	}
+
+
+	{
+	 	blend blend
+		map gfx/guis/test/console/gui_screen_noise.tga
+	}
+
+}
+
+gfx/guis/console/medic_gui_back
+
+{
+	translucent
+	noshadows	
+	sort almostnearest
+
+	{
+	 	blend blend
+		map gfx/guis/test/black.tga
+	}
+
+
+	{
+		blend add
+		cubeMap		gfx/env/medic_dull
+		texgen		reflect
+	}
+
+
+	{
+	 	blend blend
+		map gfx/guis/test/console/gui_screen_noise.tga
+	}
+
+}
+
+gfx/guis/console/medic_gui_right1_back
+
+{
+	translucent
+	noshadows	
+	sort almostnearest
+
+	{
+	 	blend blend
+		map gfx/guis/test/black.tga
+	}
+
+
+	{
+		blend add
+		cubeMap		gfx/env/medic_dull
+		texgen		reflect
+	}
+
+
+	{
+	 	blend blend
+		map gfx/guis/test/console/gui_screen_noise.tga
+	}
+
+}
+
+gfx/guis/console/medic_gui_right2_back
+
+{
+	translucent
+	noshadows
+	sort almostnearest
+
+	{
+	 	blend blend
+		map gfx/guis/test/black.tga
+	}
+
+
+	{
+		blend add
+		cubeMap		gfx/env/medic_dull
+		texgen		reflect
+	}
+
+
+	{
+	 	blend blend
+		map gfx/guis/test/console/gui_screen_noise.tga
+	}
+
+}
+

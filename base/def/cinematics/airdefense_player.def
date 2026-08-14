@@ -1,0 +1,21 @@
+export cin_airdefense_player_cam
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/air_defense_INTRO -destdir models/cinematics/airdefense
+	camera	level2.ma			-dest airdefense_player
+}
+
+camera cin_airdefense_player_cam
+{
+	anim airdefense_player					"models/cinematics/airdefense/airdefense_player.md5camera"
+}
+entityDef cin_airdefense_player_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_airdefense_player_cam"
+}

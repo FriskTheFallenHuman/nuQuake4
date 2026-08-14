@@ -1,0 +1,28 @@
+/***********************************************************************
+MARINE DROP POD
+***********************************************************************/
+
+export marine_drop_pod
+{
+	options -prefix DROP_POD_ -align ALL	-sourcedir work/models/vehicles/marine_drop_pod/animations		 -destdir models/mapobjects/marine/drop_pod
+	mesh drop_pod_idle.ma		-dest drop_pod  
+	anim drop_pod_idle.ma		-dest idle
+}
+entityDef env_marine_drop_pod
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted marine drop pod"
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_marine_drop_pod"
+	"anim"						"idle"
+}
+
+model model_marine_drop_pod
+{
+	mesh					models/mapobjects/marine/drop_pod/drop_pod.md5mesh
+	anim idle				models/mapobjects/marine/drop_pod/idle.md5anim
+}

@@ -1,0 +1,66 @@
+export cin_camera_mcc1_briefing
+{
+	options -scale .3937 -nomesh -sourcedir work/models/characters/marine/animation_mocap_cinematics -destdir models/cinematics/mcc1
+	camera	mcc1_room_mesh2.ma		-dest mcc1_camera
+}
+
+camera cin_mcc1_camera
+{
+	anim mcc1_camera			"models/cinematics/mcc1/mcc1_camera.md5camera"
+	{
+		frame	1			call map_mcc_1::test
+	}
+	
+/*
+
+	{
+		frame	48				call map_mcc::briefingPlayer
+		frame	200				call map_mcc::briefingMorrisAnim
+		frame	322				call map_mcc::briefingMorris1
+ 		frame	383				call map_mcc::briefingRhodes1
+		frame	430				call map_mcc::briefingVossHarperDoor
+		frame	451				call map_mcc::briefingVossHarperEnter
+		frame	452				call map_mcc::briefingAllSalute
+		frame	556				call map_mcc::briefingVossHarperAnims
+		frame	558				call map_mcc::briefingHarper1
+		frame	621				call map_mcc::briefingHarper2
+		frame	645				call map_mcc::briefingVossSitsChair
+		frame	793				call map_mcc::briefingHarper3
+		frame	964				call map_mcc::briefingVossAnim
+
+		frame	964			call map_mcc::briefingVossTalksChair
+		frame	1088			call map_mcc::briefingHarperSitsChair
+		frame	1153			call map_mcc::briefingVoss1
+		frame	1153			call map_mcc::briefingVossAnim2
+		
+		frame	1509			call map_mcc::briefingTableOpen
+		frame	1556			call map_mcc::briefingStartGui	
+		frame	1561			call map_mcc::briefingVoss2
+		frame	1672			call map_mcc::briefingVoss3
+		frame	1818			call map_mcc::briefingVoss4
+		frame	2037			call map_mcc::briefingTableClose
+		frame	2043			call map_mcc::briefingVoss5
+		frame	2303			call map_mcc::briefingKaneReaction
+		frame	2365			call map_mcc::briefingStrassa1
+		frame	2498			call map_mcc::briefingStrassa2
+		frame	2504			call map_mcc::briefingVossLeaves
+		frame	2535			call map_mcc::briefingVoss6
+		frame	2585			call map_mcc::briefingVoss7
+		frame	2619			call map_mcc::briefingHarperLeaves
+		frame	2660			call map_mcc::briefingHarperLeavesChair
+		frame	2718			call map_mcc::briefingMorrisReacts
+	}
+*/
+}
+
+entityDef  cin_camera_mcc1_briefing 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_mcc1_camera"	
+}

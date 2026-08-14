@@ -1,0 +1,326 @@
+//Common trim shaders
+
+guide textures/common_trims/c_trim2b generic_shader("common_trims/c_trim2b")
+
+guide textures/common_trims/mechtrim1_1 generic_shader("common_trims/mechtrim1_1")
+
+guide textures/common_trims/trim1_1 generic_shader("common_trims/trim1_1")
+guide textures/common_trims/trim1_2 generic_shader("common_trims/trim1_2")
+guide textures/common_trims/trim1_3 generic_shader("common_trims/trim1_3")
+guide textures/common_trims/trim1_4 generic_shader("common_trims/trim1_4")
+guide textures/common_trims/trim1_6 generic_shader("common_trims/trim1_6")
+guide textures/common_trims/trim1_7 generic_shader("common_trims/trim1_7")
+guide textures/common_trims/trim2_1 generic_shader("common_trims/trim2_1")
+guide textures/common_trims/trim2_2 generic_shader("common_trims/trim2_2")
+guide textures/common_trims/trim3_1 generic_shader("common_trims/trim3_1")
+guide textures/common_trims/trim3_2 generic_full_noheight("common_trims/trim3_2")
+guide textures/common_trims/trim5_1 generic_shader("common_trims/trim5_1")
+guide textures/common_trims/trim5_2 generic_shader("common_trims/trim5_2")
+guide textures/common_trims/trim5_3 generic_shader("common_trims/trim5_3")
+guide textures/common_trims/trim6_1 generic_shader("common_trims/trim6_1")
+guide textures/common_trims/trim7_1 generic_shader("common_trims/trim7_1")
+
+textures/common_trims/trim5_2_to_smolder
+{
+	qer_editorimage		textures/common_misc/smolder_d.tga
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//VertexColor
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+	{
+		blend bumpmap
+		map addnormals ( textures/common_trims/trim5_2_local.tga, heightmap ( textures/common_trims/trim5_2_h.tga, 1 ) )
+		vertexcolor
+	}
+	{
+		blend diffusemap
+		map textures/common_trims/trim5_2_d.tga
+		vertexcolor
+	}
+	{
+		blend specularmap
+		map textures/common_trims/trim5_2_s.tga
+		vertexcolor
+	}
+}
+
+textures/common_trims/trim7_2
+{
+	qer_EditorImage		textures/common_trims/trim7_2_d.tga
+
+	bumpMap	addnormals		(textures/common_trims/trim7_2_local.tga, heightmap (textures/common_trims/trim7_2_h.tga, 3))
+	diffuseMap		textures/common_trims/trim7_2_d.tga
+	specularMap		textures/common_trims/trim7_2_s.tga
+
+	{
+		blend		add
+		map		textures/common_trims/trim7_2_add.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+textures/common_trims/trim1_5
+{
+	qer_EditorImage		textures/common_trims/trim1_5_d.tga
+
+	bumpMap	addnormals	(textures/common_trims/trim1_5_local.tga, heightmap (textures/common_trims/trim1_5_h.tga, 3))
+	diffuseMap		textures/common_trims/trim1_5_d.tga
+	specularMap		textures/common_trims/trim1_5_s.tga
+
+	{
+		blend		add
+		map		textures/common_trims/trim1_5_g.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+textures/common_trims/trim3_1_smolder
+
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_editorimage textures/common_trims/trim3_1_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_trims/trim3_1_local.tga, heightmap ( textures/common_trims/trim3_1_h.tga, 1 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_trims/trim3_1_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_trims/trim3_1_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+
+
+
+
+guide textures/common_trims/walltrim1_1 generic_shader("common_trims/walltrim1_1")
+
+textures/common_trims/walltrim1_2
+{
+	qer_EditorImage	textures/common_trims/walltrim1_2_d.tga
+	bumpMap			textures/common_trims/walltrim1_2_local.tga
+	diffuseMap		textures/common_trims/walltrim1_2_d.tga
+	specularMap		textures/common_trims/walltrim1_2_s.tga
+	{
+		blend		add
+		map			textures/common_trims/walltrim1_2_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/common_trims/walltrim1_3 generic_shader("common_trims/walltrim1_3")
+guide textures/common_trims/c_walltrim_1 generic_materialimageshader("common_trims/c_walltrim_1")
+guide textures/common_trims/c_trim2 generic_shader("common_trims/c_trim2")
+guide textures/common_trims/c_trim2_slime generic_shader("common_trims/c_trim2_slime")
+
+textures/common_trims/c_trim2_noshadows
+{
+	qer_EditorImage		textures/common_trims/c_trim2_noshadows.tga
+	noShadows
+	bumpMap			addnormals (textures/common_trims/c_trim2_local.tga, heightmap (textures/common_trims/c_trim2_h.tga, 1))
+	diffuseMap		textures/common_trims/c_trim2_d.tga
+	specularMap		textures/common_trims/c_trim2_s.tga
+}
+
+
+textures/common_trims/c_trim2_smolder
+
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_editorimage textures/common_trims/c_trim2_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_trims/c_trim2_local.tga, heightmap ( textures/common_trims/c_trim2_h.tga, 1 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_trims/c_trim2_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_trims/c_trim2_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+
+guide textures/common_trims/c_trim03 generic_materialimageshader("common_trims/c_trim03")
+guide textures/common_trims/c_trim04 generic_materialimageshader("common_trims/c_trim04")
+guide textures/common_trims/c_trim04_slime generic_materialimageshader("common_trims/c_trim04_slime")
+guide textures/common_trims/c_trim05 generic_materialimageshader("common_trims/c_trim05")
+guide textures/common_trims/c_beam32t generic_shader2sidedalpha_mi("common_trims/c_beam32t")
+guide textures/common_trims/c_beam32t_red generic_shader2sidedalpha_miv("common_trims/c_beam32t_red", "common_trims/c_beam32t")
+guide textures/common_trims/c_beam32t_sil generic_shader2sidedalpha_miv("common_trims/c_beam32t_sil", "common_trims/c_beam32t")
+
+textures/common_trims/c_beam32t_onesided
+{
+	qer_EditorImage		textures/common_trims/c_beam32t_d.tga
+
+	bumpMap			addnormals (textures/common_trims/c_beam32t_local.tga, heightmap (textures/common_trims/c_beam32t_h.tga, 1))
+	specularMap		textures/common_trims/c_beam32t_s.tga
+	
+	{
+	blend diffuseMap
+	map		textures/common_trims/c_beam32t_d.tga
+	alphaTest .5
+	}
+}
+
+textures/common_trims/trim3_1_ut
+
+{
+	qer_editorimage textures/common_trims/trim3_1_d.tga
+	unSmoothedTangents
+
+	bumpmap addnormals ( textures/common_trims/trim3_1_local.tga, heightmap ( textures/common_trims/trim3_1_h.tga, 1 ) )
+	diffusemap	textures/common_trims/trim3_1_d.tga
+	specularmap	textures/common_trims/trim3_1_s.tga
+
+}
+
+
+textures/common_trims/trim5_3_ut
+{
+	qer_EditorImage textures/common_trims/trim5_3_d.tga
+	unSmoothedTangents
+
+	bumpmap addnormals ( textures/common_trims/trim5_3_local.tga, heightmap ( textures/common_trims/trim5_3_h.tga, 1 ) )
+	diffusemap	textures/common_trims/trim5_3_d.tga
+	specularmap	textures/common_trims/trim5_3_s.tga
+
+}
+
+textures/common_trims/walltrim1_1_ut
+{
+	qer_EditorImage textures/common_trims/walltrim1_1_d.tga
+	unSmoothedTangents
+
+	bumpmap addnormals ( textures/common_trims/walltrim1_1_local.tga, heightmap ( textures/common_trims/walltrim1_1_h.tga, 1 ) )
+	diffusemap	textures/common_trims/walltrim1_1_d.tga
+	specularmap	textures/common_trims/walltrim1_1_s.tga
+
+}

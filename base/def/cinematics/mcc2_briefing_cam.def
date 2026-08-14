@@ -1,0 +1,85 @@
+export cin_camera_mcc2_briefing
+{
+	options -scale .3937 -nomesh -sourcedir work/mocap/cinematics_scripted -destdir models/cinematics/mcc2
+	camera	mcc2_room_mesh.ma		-dest mcc2_camera
+}
+
+camera cin_mcc2_camera
+{
+	anim mcc2_camera				"models/cinematics/mcc2/mcc2_camera.md5camera"
+	{
+		frame	1			call map_mcc_2::test2
+	}
+/*
+	{
+ 		frame	1				call map_mcc::sledgeEscorts
+ 		frame	321				call map_mcc::kane2Sits
+		frame	321				call map_mcc::rhodesLeans
+		frame	321				call map_mcc::sledge2sits
+		frame	479				call map_mcc::morris2Scolds
+		frame	504				call map_mcc::openHarper2Door
+		frame	519				call map_mcc::harper2Enters
+		frame	520				call map_mcc::cortez2Stands
+		frame	521				call map_mcc::morrisIdle		
+
+		frame	534				call map_mcc::marines2Salute
+
+		frame	576				call map_mcc::harper2Talks
+		frame	576				call map_mcc::marines2Idle
+				
+		frame	775				call map_mcc::sledge2Responds
+		frame 	802				call map_mcc::kane2Standing
+		frame	910				call map_mcc::morris2Sits
+		frame	992				call map_mcc::sledgeIdle
+		frame	1047				call map_mcc::morrisIdle		
+		frame	1106				call map_mcc::openTact2
+		frame	1118				call map_mcc::straussIdle
+		frame	1154				call map_mcc::tact2StartGui
+		frame	1653				call map_mcc::strauss2Talks1
+		frame	1688				call map_mcc::closeTact2
+		frame	2000				call map_mcc::strauss2Talks2
+		frame	2092				call map_mcc::morris2Talks
+		frame	2275				call map_mcc::straussIdle
+		frame	2370				call map_mcc::harper2Chair
+		frame	2831				call map_mcc::mcc2FadeOut
+
+		// audio
+		frame	395				call map_mcc::rhodes2Talk1
+		frame	473				call map_mcc::morris2Talk1
+		frame	514				call map_mcc::cortez2Talk1
+		frame	681				call map_mcc::harper2Talk1
+		frame	800				call map_mcc::sledge2Talk1
+		frame	881				call map_mcc::harper2Talk2
+		frame	928				call map_mcc::harper2Talk3
+		frame	1134				call map_mcc::harper2Talk4
+		frame	1227				call map_mcc::harper2Talk5
+		frame	1534				call map_mcc::harper2Talk6
+		frame	1581				call map_mcc::harper2Talk7
+		frame	1617				call map_mcc::harper2Talk8
+		frame	1644				call map_mcc::strauss2Talk1
+		frame	1712				call map_mcc::harper2Talk9
+		frame	2013				call map_mcc::harper2Talk10
+		frame	2111				call map_mcc::strauss2Talk2
+		frame	2251				call map_mcc::harper2Talk11
+		frame	2383				call map_mcc::morris2Talk2
+		frame	2497				call map_mcc::morris2Talk3
+		frame	2628				call map_mcc::pa2Talk1
+		frame	2748				call map_mcc::morris2Talk4
+	}
+*/
+
+}
+
+entityDef  cin_camera_mcc2_briefing
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_mcc2_camera"
+}
+
+

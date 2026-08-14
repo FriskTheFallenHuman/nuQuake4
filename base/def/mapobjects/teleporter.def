@@ -1,0 +1,30 @@
+/***********************************************************************
+TELEPORTER 
+***********************************************************************/
+export env_teleporter
+{
+	options -prefix TELE_  -scale .3937 -sourcedir work/models/mapobjects/strogg/terminal/teleporter/animations -destdir models/mapobjects/strogg/terminal/teleporter
+	mesh	idle_temp.ma				-dest mesh
+	anim	idle_temp.ma				-dest idle
+	anim	teleporter_idle.ma			-dest idle
+	anim	teleporter_malf.ma			-dest malfunction
+	anim	teleporter_malf_idle.ma		-dest malfunction_idle
+}
+model model_env_teleporter
+{
+	mesh						models/mapobjects/strogg/terminal/teleporter/mesh.md5mesh
+	anim idle					models/mapobjects/strogg/terminal/teleporter/idle.md5anim
+	anim malfunction			models/mapobjects/strogg/terminal/teleporter/malfunction.md5anim
+	anim malfunction_idle		models/mapobjects/strogg/terminal/teleporter/malfunction_idle.md5anim
+}
+
+entityDef	env_teleporter
+{
+	"spawnClass"					"idAnimated"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"terminal teleporter"
+	"model"							"model_env_teleporter"
+	"anim"							"idle"
+}

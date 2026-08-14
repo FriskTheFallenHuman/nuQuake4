@@ -1,0 +1,1631 @@
+//new glass---------------------------------------------------------------------------
+//		blend GL_DST_COLOR, GL_SRC_ALPHA //close, but the solid alpha is transparent
+//		blend GL_ONE_MINUS_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA// inverts color inverts alpha
+//		blend GL_SRC_ALPHA, GL_SRC_COLOR //uses source color and alpha (nice color)
+
+textures/glass/glass1_cracked
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	materialType glass
+	forceoverlays
+
+	qer_editorimage textures/glass/ID/glass1
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/harv_crack_mask)
+	}	
+	{
+	    blend gl_dst_alpha, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+			red		Parm0
+	        green   Parm1
+	        blue	Parm2
+        texgen		reflect
+
+	}
+	{
+	    blend add
+       	map		textures/glass/harv_crack.tga
+	}
+	
+	
+	
+	
+}
+
+
+
+textures/glass/marineglass3
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	bpglass
+
+	qer_EditorImage textures/glass/marineglass3_e
+
+    	{
+      	blend	add
+		map	textures/glass/patternglass6.tga
+		red Parm0 
+		green Parm1 
+		blue  Parm2
+	}
+	{
+	    blend blend
+	   	map textures/glass/marineglass3.tga
+	   	scale	 32 , 32
+	}
+	{
+		blend specularMap	
+		map	textures/glass/marineglass3_s.tga
+		scale	 32 , 32
+	}
+}
+
+
+textures/glass/marineglass5
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/marineglass5
+
+	{
+      	blend	add
+		map	textures/glass/marineglass5.tga
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+		specularMap		textures/glass/marineglass5_s.tga
+		bumpMap		textures/glass/marineglass5_local.tga
+		
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   .5 * Parm0
+		green .5 * Parm1
+		blue  .5 * Parm2
+	}		
+}
+
+textures/glass/dirty_6_fattybreak
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialImage textures/glass/fattyglass_brokenmask.tga
+	qer_editorimage		textures/glass/dirty4_d.tga
+
+	{
+		blend blend
+		map textures/glass/dirty4_fatty_d.tga
+	}
+
+	{
+	    blend add
+       	map		textures/glass/fattyglass_broken.tga
+	}
+	
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/fattyglass_brokenmask.tga)
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		cubeMap		gfx/env/dispersal_dull
+		texgen		reflect
+	}
+}
+
+
+
+textures/glass/terminal2a
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		textures/glass/terminal2_d.tga
+
+	bumpmap heightmap ( textures/glass/terminal_h.tga, 7 )
+	specularmap	 textures/glass/terminal_s.tga
+
+	{
+	 	uncompressed
+		blend blend
+		map textures/glass/terminal2_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/terminal1
+		texgen		reflect
+	}	
+
+}
+
+textures/glass/dirty2
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		textures/glass/dirty2_d.tga
+
+	bumpmap heightmap ( textures/glass/dirty2_h.tga, 3 )
+	specularmap	 textures/glass/dirty2_s.tga
+
+	{
+	 	uncompressed
+		blend blend
+		map textures/glass/dirty2_d.tga
+	}
+
+/*	{
+		blend add
+		cubeMap		gfx/env/terminal1
+		texgen		reflect
+	}	
+*/
+}
+
+
+///for the harvester cinematic e3//////////////////////
+textures/glass/black
+
+{
+	noSelfShadow
+	noshadows
+	translucent
+	forceoverlays
+	materialType glass
+		{ 
+			blend add
+			map _black	
+		}
+
+}
+
+textures/glass/black_cracked
+
+{
+	noSelfShadow
+	noshadows
+	translucent
+	forceoverlays
+	materialType glass
+		{ 
+			blend add
+			map textures/glass/cracked_add2.tga
+		}
+
+}
+
+///end//////////////////////////////////////////////////
+//NEW TERMINAL GLASS
+textures/glass/terminal2
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	materialType glass
+	forceoverlays
+	sort decal
+
+
+	qer_editorimage textures/glass/patternglass4
+
+	{
+      	blend	add
+		map	textures/glass/patternglass4.tga
+		red .75 * 	Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+		specularMap		textures/glass/patternglass4_s.tga
+		bumpMap		textures/glass/patternglass4_local.tga	
+
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+}
+
+textures/glass/clean_terminal02
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	forceOverlays
+	sort decal
+	materialType glass
+	qer_editorimage		textures/glass/terminal_glass.tga
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass6.tga)
+	}
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+		cubeMap		gfx/env/gen4
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+
+//----------------------------------
+//  generic marine glass
+//----------------------------------
+
+textures/glass/marineglass1
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	materialType	glass
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass1.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/glass/marineglass2
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/marineglass2
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass2.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	{
+	    blend blend
+	   	map textures/glass/marineglass2_d.tga
+	}
+	
+}
+
+textures/glass/marineglass4
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	materialType	glass
+	
+	qer_editorimage textures/glass/marineglass4
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass4.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/glass/marineglass4a
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/marineglass4a
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass4a.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+
+
+textures/glass/marineglass6
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/marineglass6
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass6.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+
+textures/glass/marineglass9
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+
+	qer_EditorImage textures/glass/marineglass9
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/marineglass9.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+}
+
+
+//----------------------------------
+//  generic strogg glass
+//----------------------------------
+
+textures/glass/patternglass1
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	materialType	bpglass
+	
+	qer_editorimage	textures/glass/patternglass1.tga
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass1_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_f.tga
+		scale	 32 , 32
+	}
+}
+
+textures/glass/patternglass1_dirt
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	materialType	bpglass
+	
+	qer_editorimage	textures/glass/patternglass1_dirte.tga
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass1_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_f.tga
+		scale	 32 , 32
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_dirt.tga
+	}
+}
+
+textures/glass/patternglass2
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass2
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass2.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/glass/patternglass3
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass3
+
+		{
+      	blend	add
+		map	textures/glass/patternglass3.tga
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+		specularMap		textures/glass/patternglass3_s.tga
+		bumpMap		textures/glass/patternglass3_local.tga
+		
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}		
+}
+
+textures/glass/patternglass3a
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass3a
+
+	{
+      	blend	add
+		map	textures/glass/patternglass3a.tga
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+		specularMap		textures/glass/patternglass3_s.tga
+		bumpMap		textures/glass/patternglass3_local.tga
+		
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/glass/patternglass4
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass4
+
+	{
+      	blend	add
+		map	textures/glass/patternglass4.tga
+		red .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+		specularMap		textures/glass/patternglass4_s.tga
+		bumpMap		textures/glass/patternglass4_local.tga	
+
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue Parm2
+	}
+}
+
+textures/glass/patternglass4_dirt
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass4_dirte
+
+    {	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass4.tga)
+	}
+	{
+	    blend GL_DST_ALPHA, gl_one
+//      	blend	blend
+      		   	maskalpha
+		map	textures/glass/patternglass4.tga
+		red Parm0
+		green Parm1
+		blue  Parm2
+
+	}
+		specularMap		textures/glass/patternglass4_s.tga
+		bumpMap		textures/glass/patternglass4_local.tga	
+
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1	
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_dirt.tga
+	}
+
+}
+
+
+textures/glass/patternglass5
+ {
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_EditorImage textures/glass/patternglass5
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass5.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+}
+
+textures/glass/patternglass5_dirt
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass5_dirte
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass5.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass5_dirt.tga
+	}
+}
+
+textures/glass/patternglass6
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass6
+
+	{
+      	blend	add
+		map	textures/glass/patternglass6.tga
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+		bumpMap		addnormals(textures/glass/patternglass6_local.tga, heightmap(textures/glass/patternglass6_h.tga, 2 ) )
+		specularMap		textures/glass/patternglass6_s.tga
+		
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+textures/glass/patternglass7
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass7
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass7.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+}
+
+textures/glass/anderson_ofc
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass7
+
+	{	
+
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass7.tga)
+
+
+	}
+
+	{
+
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+	
+	{
+		if Parm6 == 1
+		blend filter
+//		map _black	
+		map 	textures/glass/patternglass7.tga
+		rgb		linear [Parm6 - time]
+	}
+}
+
+textures/glass/patternglass7_tube
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass7.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+}
+
+
+textures/glass/patternglass7_dirt
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/patternglass7_dirte
+
+   	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass7.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/gen1
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass5_dirt.tga
+	}
+}
+
+textures/glass/patternglass9
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	materialType	bpglass
+	
+	qer_editorimage	textures/glass/patternglass9.tga
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass9_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass9_f.tga
+		scale	 32 , 32
+	}
+}
+
+textures/glass/patternglass9dirt
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	materialType	bpglass
+	
+	qer_editorimage	textures/glass/patternglass9_dirte.tga
+
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass9_d.tga)
+	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass9_f.tga
+		scale	 32 , 32
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_dirt.tga
+	}
+}
+
+
+textures/glass/patternglass9dirt_melt
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+//	glass
+//	forceOverlays
+//	sort decal
+	nonSolid
+	
+	materialType	bpglass
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass9_d_melt.tga)
+//	    scale	 32 , 32
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass9_f_melt.tga
+//		scale	 32 , 32
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_melt.tga
+	}
+	{
+	    blend add
+		map textures/glass/patternglass1_melt_g.tga
+		rgb ember1 [time * .05]
+	}
+}
+
+
+
+textures/glass/outdoorglass1
+ {
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/outdoorglass1_mask
+
+	{
+		blend		GL_ZERO,GL_ZERO
+		map	_black
+	}
+		
+	{
+	    blend add
+       	cubeMap		gfx/env/core/outsideglass1
+        texgen		reflect
+		red Parm0
+		green Parm1
+		blue  Parm2
+	}
+	
+	{
+		blend filter
+		map textures/glass/outdoorglass1_mask.tga
+	}
+	
+}
+
+textures/glass/outdoorglass1_solid
+ {
+	forceOverlays
+	sort decal
+	
+	materialType	glass
+	
+	qer_editorimage textures/glass/outdoorglass1_mask
+//
+// Solid glass, do not use heathaze on this glass as you can't see through it and it makes it leak to the world.
+//
+	{
+		blend		GL_ZERO,GL_ZERO
+		map	_black
+	}
+		
+	{
+	    blend add
+       	cubeMap		gfx/env/core/outsideglass1
+        texgen		reflect
+		red .1
+		green .06
+		blue  .06
+	}
+	
+	{
+		blend filter
+		map textures/glass/outdoorglass1_mask.tga
+	}
+	
+}
+//----------------------------------
+
+textures/glass/putra_glass
+
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+		
+	materialType glass
+
+	{
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA //blend blend
+		map textures/glass/putra_glass.tga
+	}
+
+	{
+		blend bumpMap
+		map heightmap (textures/glass/putra_glass_h.tga, 3) 
+	}
+	
+	{
+		blend specularMap
+		map textures/glass/putra_glass_s.tga
+	}
+	{
+		blend add
+		cubeMap		gfx/env/putra2
+		texgen		reflect
+	}	
+
+}
+
+
+textures/glass/cracked
+{
+	materialType glass
+	DECAL_MACRO
+
+	{       
+      	blend add
+		map			textures/glass/cracked_add.tga
+		clamp			// we don't want it to tile if the projection extends past the bounds
+		rgba		decalFade[ DecalLife ]
+		vertexColor		// oblique projections will be slightly faded down
+	}
+}
+
+
+textures/glass/forcefield
+{
+//	materialType 
+	translucent
+	twoSided
+
+/*	
+	{
+		blend blend
+		map _white	
+		red 	.58
+		green	.66
+		blue	.79
+//		alpha	.1
+//		vertexColor
+	}
+*/	
+
+	{
+		blend add
+		map _white	
+		red 	.008 *  guitable_random1 [ time * .25 ]
+		green	.02	*  guitable_random1 [ time * .25 ]
+		blue	.06 *  guitable_random1 [ time * .25 ]
+//		vertexColor
+	}
+	{
+		blend add
+		map textures/glass/specs2
+		centerScale 2, 2		
+		scroll .02 *(2 + time), 0
+		rgb		hologram3atable2 [ time * .6 ]
+	}
+
+	{
+		blend add
+		map textures/glass/specs2
+		centerScale 3, 3		
+		scroll .03 *(time), 0
+		rgb		hologram3atable2 [ time * .4]
+	}
+
+	{
+		blend add
+		map textures/glass/static
+//		map gfx/effects/electricity/electric.tga
+		centerScale 4, 4		
+		scroll LaserFenceStatic[(time * 5) + 3], LaserFenceStatic[time * 2]
+		rgb		forcestatic [ time * .07]
+	}
+
+}
+
+		
+		
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+//ALL GLASS BELOW IS TEMP AND OLD//////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+textures/glass/acid_glass2
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		textures/glass/acid_glass.tga
+
+	{
+	blend specularMap
+	map	 textures/glass/acid_glass2_s.tga
+	}
+
+	{ 
+	blend bumpMap
+	map heightmap (textures/glass/acid_glass2_h.tga, 2) 
+	}
+	
+	{
+	 	uncompressed
+//		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		blend diffuseMap
+		map textures/glass/acid_glass2_d.tga
+//		rgb .5
+
+	}
+
+}
+
+
+textures/glass/clean_dispersal_dull
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass	
+	qer_editorimage		gfx/env/dispersal_glass_ed.tga
+
+	{
+	 	uncompressed
+		blend add
+		map textures/glass/clean_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/dispersal_dull
+		texgen		reflect
+	}	
+
+}
+
+textures/glass/clean_core
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		gfx/env/core_glass_ed.tga
+
+	{
+	 	uncompressed
+		blend add
+		map textures/glass/clean_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/core
+		texgen		reflect
+	}	
+
+}
+
+
+textures/glass/clean_medlabs
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		textures/glass/medlabs_d.tga
+
+	{
+	 	uncompressed
+		blend blend
+		map textures/glass/medlabs_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/core
+		texgen		reflect
+	}	
+
+}
+
+
+textures/glass/clean_core2
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		gfx/env/core_glass_ed.tga
+
+	{
+	 	uncompressed
+		blend add
+		map textures/glass/clean_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/core_eyestalk
+		texgen		reflect
+	}	
+
+}
+
+
+
+textures/glass/clean_terminal3
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		gfx/env/terminal_glass_ed.tga
+
+	{
+	 	uncompressed
+		blend add
+		map textures/glass/clean_d.tga
+	}
+
+	{
+		blend add
+		cubeMap		gfx/env/terminal3
+		texgen		reflect
+	}	
+
+}
+
+
+
+
+
+textures/glass/dirty_3
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_editorimage		textures/glass/dirty_d.tga
+	bumpMap addnormals	( textures/glass/clean_local.tga, heightmap ( textures/glass/dirty_h.tga, 3 ) )
+	specularMap	 textures/glass/dirty_s.tga
+
+	{
+		blend add
+		cubeMap		gfx/env/dispersal_dull
+		texgen		reflect
+	}	
+
+	{
+	 	uncompressed
+		blend add
+		map textures/glass/clean_d.tga
+	}
+
+	{
+	 	uncompressed
+//		blend blend
+		blend		gl_zero, GL_ONE_MINUS_SRC_COLOR
+//		blend GL_DST_COLOR, GL_ONE
+
+		map textures/glass/dirty3_d.tga
+	}
+}
+
+
+
+//from terminal-------------------------------------------------
+
+
+
+
+//this glass is more see thru than tglass----------------------------------------------------------
+
+lights/frostlight
+{
+	lightFalloffImage	makeIntensity( gfx/lights/Falloff_waterbounce.tga )
+	spectrum 1	
+
+	{
+	map gfx/lights/Rav_Squarebevel_02.tga
+	colored
+	zeroClamp
+	}
+}
+//----------------------------------------------------------------------------------
+
+//acid gun glass------------------------------------------------------------------------
+
+textures/glass/acidgun
+{
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	glass
+	forceoverlays
+	sort decal
+	materialType glass
+	qer_EditorImage		gfx/env/dispersal_glass_ed.tga
+	
+	
+	bumpmap addnormals (models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_glass_local.tga, heightmap (models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_glass_h.tga,3))
+	specularMap		models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_glass_s.tga
+
+	{
+		blend blend
+		map models/mapobjects/strogg/stroyent/dispersal/acid_gun/ag_glass_d.tga
+	}
+
+
+/*	{
+		blend add
+		cubeMap		gfx/env/dispersal_dull
+		texgen		reflect
+	}	
+*/
+}
+
+textures/glass/tramglass
+{
+	
+	noSelfShadow
+	noShadows
+	twosided
+	translucent
+	glass
+	forceOverlays
+	sort decal
+	
+	materialType	bpglass
+	
+	qer_editorimage	textures/glass/patternglass1_dirte.tga
+	bumpMap addnormals	( models/vehicles/tramcar/tram_local.tga, heightmap ( textures/glass/dirty_h.tga, 3 ) )
+	specularMap	 textures/glass/dirty_s.tga
+		{
+                Program           heatHaze.vfp
+                vertexParm              0       time * 0 , time * 0 // texture scrolling
+                vertexParm              1       .4         // magnitude of the distortion
+                fragmentProgram			heatHaze.vfp
+                fragmentMap             0       _currentRender
+                fragmentMap             1       gfx/env/vp1   // the normal map for distortion			
+             
+    }
+    
+	{	
+		maskcolor				
+	    map	makealpha(textures/glass/patternglass1_d.tga)
+	    scale	80 , 80
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	   	maskalpha
+       	cubeMap		gfx/env/gen2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_f.tga
+		scale	80 , 80
+	}
+	
+	{
+	    blend filter
+	   	maskalpha
+		map textures/glass/patternglass1_dirt.tga
+	}
+}

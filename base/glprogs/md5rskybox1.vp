@@ -1,0 +1,70 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_SKY_BOX_1_BONE
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+# attrib[1]		blend (transform) index
+# attrib[3]		vertex.color (diffuse)
+# attrib[8]		3D texture coordinate
+#
+# program.env[0]-program.env[2]		Blend-space (skin space) to model transform 0
+# program.env[3]-program.env[6]		Blend-space (skin space) to model transform 1
+# program.env[7]-program.env[9]		Blend-space (skin space) to model transform 2
+# program.env[10]-program.env[11]	Blend-space (skin space) to model transform 3
+# ...
+# program.env[72]-program.env[74]	Blend-space (skin space) to model transform 24
+# program.env[75]-program.env[78]	Model-view-projection transform
+# program.env[80]					viewOrigin
+# program.env[81]					texGenTransform0
+# program.env[82]					texGenTransform1
+# program.env[83]					texGenTransform2
+# program.env[91]					Color modulate
+# program.env[92]					Color add
+# 
+# output:
+# 
+
+ADDRESS A0;
+
+TEMP	R0, R1, R11;
+
+PARAM	c94 = { 1., 1., 1., 765.005859 };
+PARAM	transformPalette[75] = { program.env[0..74] };
+
+#
+# load the first matrix
+#
+MUL R11, vertex.attrib[1].xyzw, c94.w;
+ARL A0.x, R11.x;
+
+#
+# Transform the vertex position from skin-space to model-space, store model position in R0
+#
+DP4 R0.x, transformPalette[A0.x], vertex.position;
+DP4 R0.y, transformPalette[A0.x+1], vertex.position;
+DP4 R0.z, transformPalette[A0.x+2], vertex.position;
+MOV R0.w, c94.x;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], R0;
+DP4 result.position.y, program.env[76], R0;
+DP4 result.position.z, program.env[77], R0;
+DP4 result.position.w, program.env[78], R0;
+
+# generate a vector from the view origin to the vertex
+SUB R1, R0, program.env[80];
+
+# transform the vector and put the result in the texture coordinate output
+DP3 result.texcoord[0].x, R1, program.env[81];
+DP3 result.texcoord[0].y, R1, program.env[82];
+DP3 result.texcoord[0].z, R1, program.env[83];
+
+# store the material color
+MAD	result.color, vertex.color, program.env[91], program.env[92];
+
+END
+

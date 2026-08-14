@@ -1,0 +1,519 @@
+//----------------------------------
+//	MECH DISPLAY
+//----------------------------------
+
+gfx/guis/vehicles/mdisp_mech
+{	
+	noShadows
+	translucent
+	nonSolid
+	{
+		blend add
+		Map gfx/guis/vehicles/mdisp_mech.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	MCC HOLO MAP
+//----------------------------------
+
+textures/holo_guis/marine/mcc_holomap
+{	
+	noShadows
+	translucent
+	nonSolid
+	{
+		blend add
+		Map gfx/guis/holo/marine/mcc_holomap.tga
+		colored
+		clamp
+	}
+}
+
+textures/holo_guis/marine/mcc_holoblack
+{	
+	noShadows
+	translucent
+	nonSolid
+	{
+		blend blend
+		Map _black
+		colored
+		clamp
+	}
+}
+
+textures/holo_guis/marine/mcc_holobase
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/holo/marine/mcc_holobase.tga
+		colored
+		rgb guitable_random2 [time * 2 ]
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/noise.tga
+		scale	3 * guitable_10_5[time * 0.5], 3 * guitable_10_5[time * 0.5]
+		scroll 0, time * -1
+		red		.1
+		green	.1
+		blue	.05
+	}
+}
+
+//----------------------------------
+//	MCCMED
+//----------------------------------
+
+gfx/guis/monitors/marine/mccmed5_line1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/marine/mccmed5_line1.tga
+		colored
+		scroll time * -.08, 0
+	}
+}
+
+gfx/guis/monitors/marine/mccmed5_line2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/marine/mccmed5_line2.tga
+		colored
+		scroll time * -.14, 0
+	}
+}
+
+gfx/guis/monitors/marine/mccmed5_line3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/marine/mccmed5_line3.tga
+		colored
+		scroll time * -.11, 0
+	}
+}
+
+gfx/guis/monitors/marine/mccmed3_grunt
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/marine/mccmed3_grunt.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/monitors/marine/mccmed3_sm
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/marine/mccmed3_sm.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	SCROLLING DNA GEL
+//----------------------------------
+
+gfx/guis/monitors/marine/mccmed1_gel
+{
+	qer_editorimage gfx/guis/monitors/marine/mccmed1_gel.tga
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	nonSolid
+
+	{	
+		maskcolor				
+	    map	makealpha(gfx/guis/monitors/marine/mccmed1_gel_mask.tga)
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/monitors/marine/mccmed1_gel.tga
+		rgb guitable_random2 [time * 2 ]
+		scroll 0, time * -.08
+	}
+}
+
+//----------------------------------
+//	BRIEFING 1
+//----------------------------------
+
+gfx/guis/maps/mcc/brf_car_side
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/mcc/brf_car_side.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/maps/mcc/brf_car_top
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/mcc/brf_car_top.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/maps/mcc/brf_flash
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/mcc/brf_flash.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/maps/mcc/brf_arrows
+{	
+	noShadows
+	translucent
+	
+	{	
+		blend		add
+		if ( ( time * 6 ) % 5 == 0 )
+		map		gfx/guis/maps/mcc/brf_arr1.tga
+		colored
+		clamp
+	}
+
+	{	
+		blend		add
+		if ( ( time * 6 ) % 5 == 1 )
+		map		gfx/guis/maps/mcc/brf_arr2.tga
+		colored
+		clamp
+	}
+
+	{	
+		blend		add
+		if ( ( time * 6 ) % 5 == 2 )
+		map		gfx/guis/maps/mcc/brf_arr3.tga
+		colored
+		clamp
+	}
+	
+	{	
+		blend		add
+		if ( ( time * 6 ) % 5 == 3 )
+		map		gfx/guis/maps/mcc/brf_arr3.tga
+		colored
+		clamp
+	}
+	
+	{	
+		blend		add
+		if ( ( time * 6 ) % 5 == 4 )
+		map		gfx/guis/maps/mcc/brf_arr4.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/marine/indicator
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/indicator.tga
+		colored
+		clamp
+		centerScale guitable_1_92 [ time * .4 ],guitable_1_92 [ time * .4 ]
+		rotate .1 * time
+	}
+}
+
+gfx/guis/maps/mcc/brf_grid
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/mcc/brf_grid.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	HOLO SIGN
+//----------------------------------
+
+textures/holo_guis/marine/holo_sign1
+{
+	qer_editorimage gfx/guis/holo/marine/holo_sign1.tga
+	noSelfShadow
+	noshadows
+	twosided
+	translucent
+	nonSolid
+
+	{	
+		maskcolor				
+	    map	makealpha(gfx/guis/holo/marine/holo_sign1_mask.tga)
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/holo/marine/holo_sign1.tga
+		rgb guitable_random2 [time * 2 ]
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/noise.tga
+		scale	3, 3 * guitable_10_5[time * 0.5]
+		scroll 0, time * -1
+		red		.2
+		green	.2
+		blue	.1
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -1
+		red		.05
+		green	.05
+		blue	0
+	}
+
+	
+}	
+
+//----------------------------------
+//	HANDSCAN1
+//----------------------------------
+
+
+
+gfx/guis/common/marine/handscan_bg1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/handscan_bg1.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/marine/handscan_bg2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/handscan_bg2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/marine/handscan_bg3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/handscan_bg3.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	KEYPAD1
+//----------------------------------
+
+gfx/guis/common/marine/keypad_bg2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/keypad_bg2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/marine/keypad_key1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/keypad_key1.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/marine/keypad_key0
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/marine/keypad_key0.tga
+		colored
+		clamp
+	}
+}
+
+
+//----------------------------------
+//	SCROLLING TEXT
+//----------------------------------
+
+
+gfx/guis/common/marine/scrolltext1faster
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext1.tga
+		scroll 0, 2 * time
+	}
+}
+
+gfx/guis/common/marine/scrolltext1fast
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext1.tga
+		scroll 0, .35 * time
+	}
+}
+
+gfx/guis/common/marine/scrolltext1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext1.tga
+		scroll 0, .1 * time
+	}
+}
+
+gfx/guis/common/marine/nonscrolltext1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext1.tga
+	}
+}
+
+gfx/guis/common/marine/scrolltext2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext2.tga
+		scroll 0, .084 * time
+	}
+}
+
+gfx/guis/common/marine/nonscrolltext2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext2.tga
+	}
+}
+
+gfx/guis/common/marine/scrolltext3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext3.tga
+		scroll 0, .13 * time
+	}
+}
+
+gfx/guis/common/marine/nonscrolltext3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/marine/scrolltext3.tga
+	}
+}
+
+
+//----------------------------------
+//	AMMO BELT
+//----------------------------------
+
+gfx/guis/monitors/marine/mcc2_belt
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/monitors/marine/mcc2_belt.tga
+		scroll .264 * time, 0
+	}
+}

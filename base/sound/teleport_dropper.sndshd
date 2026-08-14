@@ -1,0 +1,276 @@
+
+
+sound teleportdropper_breath
+{
+	description	"breathing"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	0
+	no_dups
+
+	sound/strogg/teleportdropper/breath1
+	shakeData 0 bbbbgfehkhnlihifceefkffifhccceehksokrrpmmrlljmihfedccccbbaaaaaaaaaaaaa
+	sound/strogg/teleportdropper/breath2
+	shakeData 1 aaaabbbddefjjmlkjlikhkskloiofpgfmhjilfqkqhgjmmpklogefeefkjkeefddfcddcabaaaaaaaaaa
+	sound/strogg/teleportdropper/breath3
+	shakeData 2 aabbcccccegedeeegedddfdgeeggfdfefgggdeegfefhhgklnmutvqmmqlhejihigifffgiffefeddbccbaaaaaaaaaaaaaa
+	sound/null
+	shakeData 3 aaaaaaaaaaaa
+}
+
+
+sound teleportdropper_alert
+{
+	description	"I must bite you now."
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/strogg/teleportdropper/alert1
+	shakeData 0 dexzyzzzzzzzzzzzzyzzzzzxxwyzzzzzzzzzzzzzzzyzzzzvxxztzzvqymqnjhedcbbaaa
+	sound/strogg/teleportdropper/alert2
+	shakeData 1 dilqyyzzzzzzzzzzzzzzzzzzzzzzzzzyzzzyzzzzzzzzzzyxquxwusrvuyxyosptqyutysgaa
+}
+
+
+sound teleportdropper_growl
+{
+	description	"I don't like you."
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/teleportdropper/growl1
+	shakeData 0 belzzzzzzzzzzzzxzzxvxvmmrmoppnmlsniiijkkihillhiiedcdccdcbbbaaaaaaaaaaa
+	sound/strogg/teleportdropper/growl2
+	shakeData 1 bbpypzyyzzzzzzzzwtnnmjihfffggfffdeddcccccbaaaaaaaaaaa
+	sound/strogg/teleportdropper/growl3
+	shakeData 2 evzzzzzzzzzxqnkrqliiijliliiiihgeffdddcbbbbbbaaaaaa
+	sound/strogg/teleportdropper/growl4
+	shakeData 3 bekuyzyzxzzzyzxzttvrsonmijingkifcdfeddecdcbbbaaaaaaaaa
+}
+
+
+sound teleportdropper_sniff
+{
+	description	"Sniffing"
+
+	minDistance	39
+	maxDistance	787
+	volumeDb	-5
+	no_dups
+
+	sound/strogg/teleportdropper/sniff1
+	shakeData 0 adlwuyxlhchgmhhjdedcdcbcbbbaaa
+	sound/strogg/teleportdropper/sniff2
+	shakeData 1 bgnnkbbgihhgfdkpkebdihfggecaaa
+	sound/strogg/teleportdropper/sniff3
+	shakeData 2 dmstukiebbbdkpkdfggfgecaaa
+}
+
+
+sound teleportdropper_pain
+{
+	description	"Yip!"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	0
+
+	sound/strogg/teleportdropper/pain1
+	shakeData 0 cmoyzzzywzvmiihddcbaaaa
+	sound/strogg/teleportdropper/pain2
+	shakeData 1 cwzzzzzzzxxqtkcdccbaaaaa
+	sound/strogg/teleportdropper/pain3
+	shakeData 2 dozzzzzywzzxpolddbaa
+}
+
+
+sound teleportdropper_death
+{
+	description	"That's so sad."
+
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/teleportdropper/death1
+	shakeData 0 nqpflrmoxzzwxzyyyzzvtstsmlkkklkkkjjjjijhcaa
+	sound/strogg/teleportdropper/death2
+	shakeData 1 bcbeeeiilosvvwvwzzyzzzyzzzzwvtuyutmdcbbaa
+}
+
+
+sound teleportdropper_steps
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/animal/default1
+	shakeData 0 xkkmnlokmgffeecbcbaaaaaaaaa
+	sound/strogg/footsteps/animal/default2
+	shakeData 1 xpnigeddfebbccbaaaaaaa
+	sound/strogg/footsteps/animal/default4
+	shakeData 2 tllijjihfeeddccbbaaaaaaaaaaaa
+}
+
+
+sound teleportdropper_steps_dirt
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/animal/dirt1
+	shakeData 0 yqptropijfedddbbbbaaaaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/dirt2
+	shakeData 1 xqnjppefhfbcccbaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/dirt3
+	shakeData 2 ulmlolhhicdcccabbbbbbbaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/dirt4
+	shakeData 3 srihhjjhffedccbbaaaaaaaaaaaaa
+}
+
+
+sound teleportdropper_steps_hollow_metal
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	frequentlyUsed
+	no_dups
+
+	sound/strogg/footsteps/animal/h_metal1
+	shakeData 0 xnkihfgefddcbbbabaaaaaaaa
+	sound/strogg/footsteps/animal/h_metal2
+	shakeData 1 ymjkgkfeeccbbbbaaaaaaaaa
+	sound/strogg/footsteps/animal/h_metal3
+	shakeData 2 ugjiiifeeddccbbbbabaaaaaaaa
+	sound/strogg/footsteps/animal/h_metal4
+	shakeData 3 wmqljghffeedccbbbaaaaaaaaaa
+}
+
+
+sound teleportdropper_steps_water
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-4
+	frequencyshift	0.8,1.2
+	no_dups
+
+	sound/strogg/footsteps/animal/water1
+	shakeData 0 wxpqpknjmhfgfeecdbbbaaaaaaaaaaaa
+	sound/strogg/footsteps/animal/water2
+	shakeData 1 ywilgihgkjeedddbbaaaaaaaaaa
+	sound/strogg/footsteps/animal/water3
+	shakeData 2 wzpnnjjhkddefecccccbccbbaaaaaaaaaa
+	sound/strogg/footsteps/animal/water4
+	shakeData 3 uykmijkkolhgeeedcbbaaaaaaaaaaaaa
+}
+
+
+sound teleportdropper_servo
+{
+	description	"random choice of footstep sounds"
+
+	minDistance	39
+	maxDistance	984
+	volumeDb	-9
+	frequentlyUsed
+
+	sound/strogg/teleportdropper/servo1
+	shakeData 0 eeddba
+	sound/strogg/teleportdropper/servo2
+	shakeData 1 ccdccccea
+	sound/strogg/teleportdropper/servo3
+	shakeData 2 ddddddda
+	sound/strogg/teleportdropper/servo4
+	shakeData 3 fdeeefda
+}
+
+
+sound teleportdropper_bite
+{
+	description	"biting sound"
+
+	minDistance	120
+	maxDistance	600
+	volumeDb	6
+
+	sound/strogg/teleportdropper/bite1
+	shakeData 0 zzzzyxyztvhmlkjccccba
+	sound/strogg/teleportdropper/bite2
+	shakeData 1 zzzzzzzzzzwrkkddbbaaa
+}
+
+
+sound teleportdropper_ambient_steps
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	no_occlusion
+	no_dups
+
+	sound/strogg/ambient/td_steps1
+	shakeData 0 bjmkigiiilklklkmimtlmpkklghgjmnlikmljlkkjiiqppkkijhjgfgfgfghkkjjhhggfgefdkkkhhiifedddcehhgeeegeedcbbcdedbcbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/ambient/td_steps2
+	shakeData 1 clmmkkjllnmokkkslntmlsplomjghkggomoljkmljljrltlkljpihkjhgkgkrpnlkmokmllihmpqlmhjihgfeddcccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/ambient/td_steps3
+	shakeData 2 aabgfgffmiijjnpkjnqnmnnpqmmmnolsvqoqnjjkkiiihwnnmlmmmojghfhfedqmlkghgdedddcccbbbcbbbbbaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound teleportdropper_ambient_breath
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+	no_occlusion
+	no_dups
+
+	sound/strogg/ambient/td_breath1
+	shakeData 0 aaaaababbbcbbbbbcbbbbbbcccddcbbbcccbbbccccccccdegeifhggfffdcdfcecdccccccccdbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/ambient/td_breath2
+	shakeData 1 aaaaaaabbbcddfeededecegdegefcfcdeddcecgehdddefgdefccccbcedecccbbcbbcbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/ambient/td_breath3
+	shakeData 2 aaaaccbcdcfedcdcbbbceccdccbbbbbcdgeehhgeegeeeeccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/ambient/td_sniff1
+	shakeData 3 abdgghhecbccdcccbbbbbbaaaaaaaaabedcaabccbbbbcedbabcbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/ambient/td_sniff2
+	shakeData 4 acedcaabccbcbaaabcfggedbbaabcedcccccbbbaaabcgehhedccccccdbbcbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound teleportdropper_ambient_launch
+{
+	minDistance	196
+	maxDistance	1181
+	volumeDb	0
+
+	sound/strogg/ambient/td_launch
+	shakeData 0 xzyzxuvpkqpjmkhfedmhgmkediffdfcccjebbfbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+

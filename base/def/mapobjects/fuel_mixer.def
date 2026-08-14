@@ -1,0 +1,43 @@
+
+/***********************************************************************
+FUEL MIXER
+
+***********************************************************************/
+
+export fuel_mixer
+{		
+	options -prefix AT_ -align ALL 
+         
+	mesh	work/models/mapobjects/strogg/machines/fuel_mixer/animation/idle.ma		-dest models/mapobjects/strogg/machines/fuel_mixer/mesh
+	anim	work/models/mapobjects/strogg/machines/fuel_mixer/animation/idle.ma		-dest models/mapobjects/strogg/machines/fuel_mixer/idle
+	
+}
+
+entityDef env_fuel_mixer
+{
+	"model"							"model_env_fuel_mixer"
+	"spawnclass"					"idAnimated"
+	"editor_usage"					"animated_fuel_mixer"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"
+	
+	"snd_sequence"					"generic_fuel_mixer"
+		
+}
+
+model model_env_fuel_mixer
+
+{
+	mesh					models/mapobjects/strogg/machines/fuel_mixer/mesh.md5mesh
+	anim idle	 			models/mapobjects/strogg/machines/fuel_mixer/idle.md5anim
+	{
+		frame	1				sound	snd_sequence
+	}
+	
+
+}

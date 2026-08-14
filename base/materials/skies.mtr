@@ -1,0 +1,166 @@
+textures/skies/stars
+{
+	noFragment
+	forceOpaque
+	noshadows
+	noimpact
+	{
+		blend		add		// so transparent windows can draw on top of it
+		cameraCubeMap	gfx/env/stars
+		texgen		skybox
+	}
+}
+textures/skies/blacksky
+{
+	noFragment
+	forceOpaque
+	noshadows
+	noimpact
+	{
+		blend		add		// so transparent windows can draw on top of it
+		cameraCubeMap	gfx/env/blacknight
+		texgen		skybox
+	}
+}
+
+//------------------------------------------------------------------------------------------
+textures/skies/CanyonClouds_Sky
+{	//Dark canyon sky - steel grey coloring
+	noFragment
+	forceOpaque
+	noimpact
+	noshadows
+	{
+		blend			add			// so transparent windows can draw on top of it
+		cameraCubeMap	gfx/env/CanyonClouds
+		texgen		skybox
+//		RGB			.5 + ((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+	}
+}
+
+//------------------------------------------------------------------------------------------
+textures/skies/Canyonken_Sky
+{	//Grey variant of the CanyonFog_Sky
+	noFragment
+	forceOpaque
+	noimpact
+	noshadows
+	{
+		blend			add			// so transparent windows can draw on top of it
+		cameraCubeMap	gfx/env/Canyonken
+		texgen		skybox
+	}
+}
+
+//------------------------------------------------------------------------------------------
+textures/skies/Red_Sky
+{	//red sky from Raffel
+	qer_editorimage	textures/editor/sky.tga
+	noFragment
+	forceOpaque
+	noimpact
+	noshadows
+	{
+		blend			add			// so transparent windows can draw on top of it
+		cameraCubeMap	gfx/env/red
+		texgen		skybox
+	}
+}
+
+//------------------------------------------------------------------------------------------
+textures/skies/CanyonClouds_Sky2
+{	//rotated orange part for canyon demo map
+	qer_editorimage	textures/editor/sky.tga
+	noFragment
+	forceOpaque
+	noimpact
+	noshadows
+	{
+		blend			add			// so transparent windows can draw on top of it
+		cameraCubeMap	gfx/env/CanyonClouds2
+		texgen		skybox
+		RGB			.5 + ((Canyon_lightning[time]) * (Canyon_timeout[time / 10]))
+	}
+}
+
+//------------------------------------------------------------------------------------------
+// New act 3 matte paintings
+
+textures/skies/act_3_network
+{
+	qer_editorimage textures/editor/sky.tga
+	noFragment
+	forceOpaque
+	noimpact
+	noShadows
+
+	      		 
+
+	{
+			noPicMip
+		blend		add
+		cameraCubeMap	gfx/env/act_3/network
+		texgen		skybox
+	}
+}
+
+//------------------------------------------------------------------------------------------
+// Act 2 sky
+
+textures/skies/act_2
+{	
+	qer_editorimage	textures/editor/sky.tga
+	noFragment
+	forceOpaque
+	noimpact
+	noShadows
+
+
+	{
+		noPicMip
+		blend			add
+		cameraCubeMap	gfx/env/act_2/act2
+		texgen		skybox
+		
+//		RGB			.5
+	}
+}
+
+//------------------------------------------------------------------------------------------
+// MP/space sky
+
+textures/skies/spaaaaace
+{	
+	qer_editorimage	textures/editor/sky.tga
+	noFragment
+	forceOpaque
+	noimpact
+	noshadows
+	{
+		blend			add
+		cameraCubeMap	gfx/env/mp_sky/mp
+		texgen		skybox
+		
+//		RGB			.5
+	}
+}
+
+//------------------------------------------------------------------------------------------
+
+textures/skies/portal_sky_terrain_1
+{
+	qer_editorimage textures/skies/portal_sky_terrain_1_d.tga
+	nonSolid
+	bumpmap		textures/skies/portal_sky_terrain_1_local.tga
+	specularmap	_black
+	diffusemap	textures/skies/portal_sky_terrain_1_d.tga
+}
+
+textures/skies/portal_sky_ring_1
+{
+	qer_editorimage textures/skies/portal_sky_terrain_1_d.tga
+	nonSolid
+	bumpmap		textures/skies/portal_sky_ring_local.tga
+	specularmap	_black
+	diffusemap	textures/skies/portal_sky_terrain_1_d.tga
+}

@@ -1,0 +1,147 @@
+
+
+
+sound vo_2_2_3_25_1
+{
+	description	"To any Marines... Head to the Waste Facility. Just outside is your extraction point."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/2_2_3_25_1
+}
+
+sound vo_2_2_3_130_1
+{
+	description	"This is Private Sasaki. The Strogg are attempting to corner me at the Dispersal facility. Please, I need immediate assistance."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/2_2_3_130_1
+}
+
+sound vo_pa_dispersal_10
+{
+	description	"Stroyent transfer process initiated."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_10
+}
+
+sound vo_pa_dispersal_20
+{
+	description	"Tactical units dispatched to dispersal facility."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_20
+}
+
+sound vo_pa_dispersal_30
+{
+	description	"Warning! Pulminary system failure. Drainage malfunction."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_30
+}
+
+sound vo_pa_dispersal_40
+{
+	description	"Facility breech. Hostile entity at access point Five."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_40
+}
+
+sound vo_pa_dispersal_50
+{
+	description	"Digestive conduit array at ninety percent capacity. Auxiliary infusion units, online."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_50
+}
+
+sound vo_pa_dispersal_60
+{
+	description	"Matter Intake levels, normal."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_60
+}
+
+sound vo_pa_dispersal_70
+{
+	description	"Anomaly detected in Stabilization Injection Chamber."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_70
+}
+
+sound vo_pa_dispersal_80
+{
+	description	"Stroyent Dispersal Systems online. Maintain full capacity."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_80
+}
+
+sound vo_pa_dispersal_90
+{
+	description	"Bio-chemical Fluidic Transfer Station Three has been breached."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_90
+}
+
+sound vo_pa_dispersal_100
+{
+	description	"Critical fluctuation detected in matter intake levels. Investigate Transfer Station Three."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/dispersal_1/pa_dispersal_100
+}
+

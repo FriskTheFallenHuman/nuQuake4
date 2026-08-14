@@ -1,0 +1,880 @@
+ /*
+===============================================================================
+
+	Network Guardian
+
+===============================================================================
+*/
+
+export network_guardian {
+	options -prefix NET_ -scale .3937 -align ALL -keep l_jet r_jet Rwing_fx Lwing_fx l_muzzle_flash r_muzzle_flash -skipmesh GD_straight -skipmesh GD_curved
+	mesh	work/models/monsters/network_guardian/animations/idle.ma				-dest models/monsters/network_guardian/mesh
+	anim	work/models/monsters/network_guardian/animations/idle.ma				-dest models/monsters/network_guardian/idle
+	anim	work/models/monsters/network_guardian/animations/walk.ma				-dest models/monsters/network_guardian/walk
+	anim	work/models/monsters/network_guardian/animations/turn_right04.ma		-dest models/monsters/network_guardian/turn_right
+	anim	work/models/monsters/network_guardian/animations/turn_left.ma			-rotate 90 -dest models/monsters/network_guardian/turn_left
+	anim	work/models/monsters/network_guardian/animations/melee.ma				-dest models/monsters/network_guardian/melee01
+	anim	work/models/monsters/network_guardian/animations/liftoff.ma				-dest models/monsters/network_guardian/liftoff
+	anim	work/models/monsters/network_guardian/animations/idle_air.ma			-dest models/monsters/network_guardian/idle_air
+	anim	work/models/monsters/network_guardian/animations/air_range_1.ma			-dest models/monsters/network_guardian/air_range_1
+	anim	work/models/monsters/network_guardian/animations/range_attack_ion.ma	-dest models/monsters/network_guardian/air_range_2
+	anim	work/models/monsters/network_guardian/animations/pound08.ma				-dest models/monsters/network_guardian/melee02
+	anim	work/models/monsters/network_guardian/animations/stomp05.ma				-dest models/monsters/network_guardian/stomp
+	anim	work/models/monsters/network_guardian/animations/attack_threeshot.ma	-dest models/monsters/network_guardian/range_attack2
+	anim	work/models/monsters/network_guardian/animations/af_pose.ma				-dest models/monsters/network_guardian/af_pose
+	anim	work/models/monsters/network_guardian/animations/fly_descend.ma			-range 1 6  -dest models/monsters/network_guardian/fly_descend_start
+	anim	work/models/monsters/network_guardian/animations/fly_descend.ma			-range 6 7  -dest models/monsters/network_guardian/fly_descend_loop
+	anim	work/models/monsters/network_guardian/animations/fly_descend.ma			-range 7 36 -dest models/monsters/network_guardian/fly_descend_end
+	//anim	work/models/monsters/Network_Guardian/animations/process_shaft_export.ma	-dest models/monsters/network_guardian/process_shaft
+	anim	work/models/monsters/Network_Guardian/animations/begin_test_alt.ma			-dest models/monsters/network_guardian/process_shaft_begin
+	anim	work/models/monsters/Network_Guardian/animations/process_shaft_fly17.ma		-dest models/monsters/network_guardian/process_shaft_fly
+	anim	work/models/monsters/Network_Guardian/animations/process_shaft_cables11.ma	-dest models/monsters/network_guardian/process_shaft_cables
+	anim	work/models/monsters/Network_Guardian/animations/process_shaft_falling15.ma	-dest models/monsters/network_guardian/process_shaft_falling
+	anim	work/models/monsters/Network_Guardian/animations/process_shaft_release016.ma	-dest models/monsters/network_guardian/process_shaft_release
+	anim	work/models/monsters/Network_Guardian/animations/pod_wreckage.ma		-range 1 107	-dest models/monsters/network_guardian/pod_wreckage_idle
+	anim	work/models/monsters/Network_Guardian/animations/pod_wreckage.ma		-range 107 450	-dest models/monsters/network_guardian/pod_wreckage
+	anim	work/models/monsters/Network_Guardian/animations/break_floor03.ma		-dest models/monsters/network_guardian/break_floor
+	anim	work/models/monsters/Network_Guardian/animations/pain_air_std3.ma		-dest models/monsters/network_guardian/pain_air_std
+	anim	work/models/monsters/Network_Guardian/animations/pain_air_std4.ma		-dest models/monsters/network_guardian/pain_air_std2
+	anim	work/models/monsters/Network_Guardian/animations/pain_air_con2.ma		-dest models/monsters/network_guardian/pain_air_con
+	anim	work/models/monsters/Network_Guardian/animations/pain_air_strm2.ma		-range 1 5 -dest models/monsters/network_guardian/pain_air_strm_start
+	anim	work/models/monsters/Network_Guardian/animations/pain_air_strm2.ma		-range 5 20 -dest models/monsters/network_guardian/pain_air_strm_loop
+	anim	work/models/monsters/Network_Guardian/animations/pain_air_strm2.ma		-range 20 24 -dest models/monsters/network_guardian/pain_air_strm_end
+	anim	work/models/monsters/Network_Guardian/animations/Network2_flyby.ma		-dest models/monsters/network_guardian/window_flyby
+	anim	work/models/monsters/Network_Guardian/animations/pain_grnd_std3.ma		-dest models/monsters/network_guardian/pain_grnd_std
+	anim	work/models/monsters/Network_Guardian/animations/pain_grnd_std4.ma		-dest models/monsters/network_guardian/pain_grnd_std2
+	anim	work/models/monsters/Network_Guardian/animations/pain_grnd_con2.ma		-dest models/monsters/network_guardian/pain_grnd_con
+	anim	work/models/monsters/Network_Guardian/animations/pain_grnd_strm2.ma		-range 1 5 -dest models/monsters/network_guardian/pain_grnd_strm_start
+	anim	work/models/monsters/Network_Guardian/animations/pain_grnd_strm2.ma		-range 5 20 -dest models/monsters/network_guardian/pain_grnd_strm_loop
+	anim	work/models/monsters/Network_Guardian/animations/pain_grnd_strm2.ma		-range 20 24 -dest models/monsters/network_guardian/pain_grnd_strm_end
+	anim	work/models/monsters/Network_Guardian/animations/uppercutb.ma			-dest models/monsters/network_guardian/uppercut
+	anim	work/models/monsters/Network_Guardian/animations/roof_landing5.ma		-rotate 90 -dest models/monsters/network_guardian/roof_landing
+	anim	work/models/monsters/Network_Guardian/animations/ac_fall_start.ma		-dest models/monsters/network_guardian/ac_fall_start
+	anim	work/models/monsters/Network_Guardian/animations/ac_fall_loop.ma		-dest models/monsters/network_guardian/ac_fall_loop
+	anim	work/models/monsters/Network_Guardian/animations/ac_fall_end.ma			-dest models/monsters/network_guardian/ac_fall_end
+	anim	work/models/monsters/Network_Guardian/animations/engine_wash.ma			-dest models/monsters/network_guardian/engine_wash
+	anim	work/models/monsters/Network_Guardian/animations/pod_position.ma			-dest models/monsters/network_guardian/pod_position
+	anim	work/models/monsters/Network_Guardian/animations/attack_vert.ma			-dest models/monsters/network_guardian/attack_vert
+	anim	work/models/monsters/Network_Guardian/animations/attack_blaster.ma		-range 1 10 -dest models/monsters/network_guardian/attack_blaster_start
+	anim	work/models/monsters/Network_Guardian/animations/attack_blaster.ma		-range 10 18 -dest models/monsters/network_guardian/attack_blaster_loop
+	anim	work/models/monsters/Network_Guardian/animations/attack_blaster.ma		-range 18 32 -dest models/monsters/network_guardian/attack_blaster_end
+	anim	work/models/monsters/Network_Guardian/animations/attack_spray_grd.ma	-dest models/monsters/network_guardian/attack_spray_grd
+	anim	work/models/monsters/Network_Guardian/animations/attack_spray_air.ma	-dest models/monsters/network_guardian/attack_spray_air
+	anim	work/models/monsters/Network_Guardian/animations/evade_right.ma			-dest models/monsters/network_guardian/evade_right
+	anim	work/models/monsters/Network_Guardian/animations/evade_left.ma			-dest models/monsters/network_guardian/evade_left
+}
+
+/*
+===============================================================================
+
+	Network Guardian Model Definition
+
+===============================================================================
+*/
+
+model model_monster_network_guardian
+{
+	mesh								models/monsters/network_guardian/mesh.md5mesh
+	anim af_pose						models/monsters/network_guardian/af_pose.md5anim
+
+	anim idle							models/monsters/network_guardian/idle.md5anim
+	anim walk							models/monsters/network_guardian/walk.md5anim
+	{
+		frame 10,31						footstep
+		frame 10,31						fx					fx_ng_walkshake
+	}
+	anim turn_right						models/monsters/network_guardian/turn_right.md5anim	
+	anim turn_left						models/monsters/network_guardian/turn_left.md5anim
+	anim melee_attack1					models/monsters/network_guardian/melee01.md5anim
+	{
+		frame 17						fx					fx_swipe				l_middle_2
+		frame 19						ai_attack_melee		meleeSwipe
+		frame 19						sound_voice				snd_growl
+		frame 19						sound_item				snd_voice_stereo
+	}
+	anim melee_attack2					models/monsters/network_guardian/melee02.md5anim
+	{
+		frame 18						sound_voice				snd_growl
+		frame 18						sound_item				snd_voice_stereo
+		frame 18						fx					fx_swipe				l_middle_2
+		frame 8,50						footstep
+		frame 26						fx					fx_camshake
+		frame 26						ai_attack_melee		meleeSlam
+	}	
+	anim melee_attack3					models/monsters/network_guardian/stomp.md5anim
+	{
+		frame 24						sound_weapon				snd_stomp_attack
+		frame 26						fx					fx_camshake	
+		frame 26						ai_attack_melee		meleeStomp
+		frame 55						footstep
+	}
+	anim liftoff						models/monsters/network_guardian/liftoff.md5anim
+	{
+		frame 13						sound_voice			snd_growl
+		frame 13						sound_item			snd_voice_stereo
+		frame 16,27						sound_weapon			snd_wing_unfold
+		frame 47,73 					fx 				fx_flame_muzzle		r_jet
+		frame 47,73						fx				fx_flame_muzzle		l_jet
+		frame 46						sound_weapon			snd_engine_blast
+		frame 42,70, 98					fx 				fx_hover			Rwing_fx
+		frame 42,70, 98					fx				fx_hover			Lwing_fx
+	}
+	
+//	anim range_attack1					models/monsters/network_guardian/air_range_1.md5anim
+//	{
+//		frame 1 						fx 				fx_flame_muzzle		r_jet	//replace
+//		frame 5							fx				fx_flame_muzzle		l_jet	//replace
+//	}
+	anim shotgunRocket_attack			models/monsters/network_guardian/range_attack2.md5anim
+	{
+		ai_no_turn
+	
+		//fire rockets shotgun style
+		frame 9,22,36					ai_attack			rocket				r_muzzle_flash
+		frame 9,22,36					ai_attack			rocket				r_muzzle_flash
+		frame 9,22,36					ai_attack			rocket				r_muzzle_flash
+		frame 9,22,36					ai_attack			rocket				r_muzzle_flash
+		frame      36					ai_attack			rocket				r_muzzle_flash
+		
+		frame 9,22,36					fx					fx_rocket_flash		r_muzzle_flash
+
+		frame 9,22,36					sound_weapon				snd_rocket_launch
+
+
+	}
+
+	anim fly_idle						models/monsters/network_guardian/idle_air.md5anim
+	{
+		frame 1,28 						fx 				fx_flame_muzzle		r_jet
+		frame 1,28						fx				fx_flame_muzzle		l_jet		
+		frame 1,28 						fx 				fx_hover			Rwing_fx
+		frame 1,28						fx				fx_hover			Lwing_fx
+	}
+	anim flyingRanged_attack			models/monsters/network_guardian/air_range_1.md5anim
+	{
+		
+		frame 35						sound_voice				snd_growl
+		frame 35						sound_item				snd_voice_stereo
+		
+		//fire rocket on right wrist
+		frame 19						ai_attack			rocket				r_muzzle_flash
+		frame 19						ai_attack			rocket				r_muzzle_flash
+		frame 19						ai_attack			rocket				r_muzzle_flash
+		frame 19						ai_attack			rocket				r_muzzle_flash
+		frame 19						ai_attack			rocket				r_muzzle_flash
+		frame 19						ai_attack			rocket				r_muzzle_flash
+		frame 1,28 						fx 				fx_hover			Rwing_fx
+		frame 1,28						fx				fx_hover			Lwing_fx
+
+		//other blast on left
+		frame 35						ai_attack			rocket_big			l_muzzle_flash
+
+		frame 19,35						sound_weapon				snd_rocket_launch
+
+	}
+	anim fly_range_attack2				models/monsters/network_guardian/air_range_2.md5anim
+	{
+		frame 6							sound_voice				snd_growl
+		frame 6							sound_item				snd_voice_stereo
+		frame 1 						fx 				fx_hover			Rwing_fx
+		frame 1							fx				fx_hover			Lwing_fx
+	}
+	anim fly_walk						models/monsters/network_guardian/idle_air.md5anim
+	{
+		frame 1,30 						fx 				fx_flame_muzzle		r_jet
+		frame 1,30						fx				fx_flame_muzzle		l_jet
+		frame 1,28 						fx 				fx_hover			Rwing_fx
+		frame 1,28						fx				fx_hover			Lwing_fx
+	}
+	anim fly_descend_start				models/monsters/network_guardian/fly_descend_start.md5anim
+	anim fly_descend_loop				models/monsters/network_guardian/fly_descend_loop.md5anim
+	anim fly_descend_end				models/monsters/network_guardian/fly_descend_end.md5anim
+	{
+		//frame 1							disableClip
+		//frame 1							disableGravity
+		frame 1,4										footstep
+		frame 1							fx				fx_landing			origin
+		frame 14,19						sound_weapon			snd_wing_unfold
+	}
+	
+	anim	process_shaft_begin			models/monsters/network_guardian/process_shaft_begin.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 82,186,384				sound_weapon		snd_ng_metal_tear	
+		frame 186, 384					fx				fx_camshake
+		frame 78						sound_voice			snd_alert
+		frame 78						sound_item			snd_voice_stereo
+		frame 85, 190					sound_voice			snd_growl
+		frame 85, 190					sound_item			snd_voice_stereo	
+		frame 15, 28, 78, 186, 383		sound_weapon			snd_impact
+		frame 153, 155					sound_weapon			snd_wing_unfold
+		frame 286,299,314				fx				fx_rocket_flash		r_muzzle_flash
+		frame 286,299,314				ai_attack		rocket				r_muzzle_flash
+		frame 229,231,233,235,237,239,241	ai_attack		blaster				l_muzzle_flash
+		frame 229,231,233,235,237,239,241	fx				fx_rocket_flash		l_muzzle_flash
+		frame 148,363						sound_weapon			snd_engine_blast
+		frame 148						call			map_process1::guardianJetsOn
+		frame 343						call			map_process1::guardianJetsOff
+		frame 363						call			map_process1::guardianJetsOn
+		frame 417						call			map_process1::guardianJetsOff
+	}
+	
+	anim	process_shaft_fly			models/monsters/network_guardian/process_shaft_fly.md5anim
+	{
+		frame 1								disableClip
+		frame 1								disableGravity
+		frame 1,1340						sound_weapon			snd_engine_blast
+		frame 1,550							call			map_process1::guardianJetsOn
+		frame 1								sound_item			snd_wing_unfold
+		frame 150,1068						call			map_process1::guardianJetsOff
+		frame 929,941,955					fx			fx_rocket_flash		r_muzzle_flash
+		frame 929,941,955					ai_attack		rocket			r_muzzle_flash
+		frame 890, 1064						fx			fx_camshake
+		frame 1174,1190 					footstep
+		frame 1064							sound_item			snd_impact
+		frame 1064							sound_voice			snd_ng_body_land
+		frame 692,775,890					sound_voice			snd_growl
+		frame 692,775,890					sound_item			snd_voice_stereo
+		frame 1065, 1072					sound_weapon		snd_wing_unfold		
+		frame 1340							call			map_process1::guardianJetsOn
+		frame 1600							call			map_process1::guardianJetsOff
+	}
+	
+	anim	process_shaft_cables			models/monsters/network_guardian/process_shaft_cables.md5anim
+	{
+	//	frame 1							disableClip
+	//	frame 1							disableGravity
+		frame 1 						call			map_process1::guardianJetsOn
+		frame 25						call			map_process1::guardianJetsOff
+		frame 6,103,144,198				fx			fx_camshake
+		frame 68,103,144,198					footstep
+	//	frame 160						sound_voice		snd_pain
+		frame 6,103,144,198				sound			snd_impact
+		frame 6,103,144,198				sound_weapon		snd_ng_body_land
+		frame 31,146					sound_voice			snd_growl
+		frame 31,146					sound_item			snd_voice_stereo
+	}
+	anim	process_shaft_falling			models/monsters/network_guardian/process_shaft_falling.md5anim
+	{
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 16						sound_voice			snd_alert
+		frame 16						sound_weapon		snd_voice_stereo
+		frame 91,166,246					fx			fx_camshake
+		frame 91,166,246					sound		snd_impact
+		frame 91,166,246					sound_item		snd_ng_body_land
+	//	frame 170						call			map_process1::guardianGrabElevator
+		frame 144,169,209					sound_voice		snd_growl
+		frame 144,169,209					sound_weapon		snd_voice_stereo
+		frame 166,246					sound			snd_punch
+		frame 166						sound_item			snd_ng_glass_crack
+		frame 246						sound			snd_ng_glass_break
+		frame 166						call			map_process1::guardianGlassPunch
+		frame 246						call			map_process1::guardianGlassRemove
+	}
+	anim	process_shaft_release		models/monsters/network_guardian/process_shaft_release.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 5							sound_voice			snd_growl
+		frame 5,40,95					sound_item			snd_voice_stereo
+		frame 10,13						sound_weapon			snd_wing_unfold
+		frame 40						sound_voice			snd_growl
+		frame 32						sound_weapon			snd_engine_blast
+		frame 32						call			map_process1::guardianJetsOn
+		frame 69						call			map_process1::guardianJetsOff
+		frame 65						sound			snd_ng_body_land
+		frame 65							fx			fx_camshake
+		frame 80							fx			fx_swipe				l_middle_2
+		frame 95						sound_voice			snd_alert
+		
+	//	frame 1							call			map_process1::guardianReleaseElevator
+	
+	}
+	anim	pod_wreckage				models/monsters/network_guardian/pod_wreckage.md5anim
+	{
+		ai_no_look
+	//	rate	1.45
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 25						sound			snd_footstep
+		frame 25,180					sound			snd_metal_stress
+		frame 125						sound_weapon			snd_engine_blast
+		frame 125						call			map_network2::guardianJetsOn
+		frame 343						call			map_network2::guardianJetsOff
+		frame 67						sound			snd_impact
+		frame 67						call			map_network2::hitGlass
+		frame 67						fx				fx_camshake
+		frame 63						sound_voice			snd_growl
+		frame 108						sound_voice			snd_growl
+		frame 63,212					sound_item			snd_voice_stereo
+		frame 212						sound_weapon		snd_alert
+	}
+	anim	pod_wreckage_idle			models/monsters/network_guardian/pod_wreckage_idle.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 1,50						sound					snd_metal_stress
+		frame 30,65						sound			snd_impact
+	}
+	
+	anim	break_floor					models/monsters/network_guardian/break_floor.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+		frame 72,94										footstep
+		//frame 25,45,150				sound			snd_growl
+		frame 45,150					sound_voice			snd_growl
+		frame 45,150					sound_item			snd_voice_stereo
+		frame 45						fx			fx_camshake
+		frame 25,45						sound			snd_impact
+		frame 63,73						sound_weapon			snd_wing_unfold
+		frame 77,180					sound_item			snd_engine_blast
+		frame 90						ai_attack		rocket			r_muzzle_flash
+		frame 90						fx			fx_rocket_flash		r_muzzle_flash		
+		frame 92						call			map_storage1::tossMarines
+		frame 104						fx			fx_rocket_flash		r_muzzle_flash
+		frame 104						ai_attack		rocket			r_muzzle_flash
+		frame 118						fx			fx_rocket_flash		r_muzzle_flash
+		frame 118						ai_attack		rocket			r_muzzle_flash
+		frame 120						call			map_storage1::tossMarines2
+		frame 158						call			map_storage1::swapCatwalk
+		frame 159						fx			fx_camshake
+		frame 159						sound			snd_impact
+		frame 45						call			map_storage1::guardianJetsOn
+		frame 259						call			map_storage1::guardianJetsOff
+	}
+
+	anim pain_air_std					models/monsters/network_guardian/pain_air_std.md5anim
+	{
+		frame 1							sound_voice			snd_pain
+	}
+	anim pain_air_std2					models/monsters/network_guardian/pain_air_std2.md5anim
+	{
+		frame 1							sound_voice			snd_pain
+	}
+	anim pain_air_con					models/monsters/network_guardian/pain_air_con.md5anim
+	{
+		frame 1							sound_voice			snd_pain
+	}
+	anim pain_air_strm_start			models/monsters/network_guardian/pain_air_strm_start.md5anim
+	anim pain_air_strm_loop				models/monsters/network_guardian/pain_air_strm_loop.md5anim
+	anim pain_air_strm_end				models/monsters/network_guardian/pain_air_strm_end.md5anim
+	
+	anim window_flyby					models/monsters/network_guardian/window_flyby.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity	
+		frame 1							call			map_network2::guardianJetsOn
+		frame 140						sound_voice			snd_growl
+		frame 140						sound_item			snd_voice_stereo
+		frame 279						call			map_network2::guardianJetsOff
+	}
+	
+	anim uppercut						models/monsters/network_guardian/uppercut.md5anim
+	anim roof_landing					models/monsters/network_guardian/roof_landing.md5anim
+	{
+		ai_no_look
+		frame 	1						sound_voice			snd_growl
+		frame	1						sound_item			snd_voice_stereo
+		frame 	1,25,50,75,100,125				fx 			fx_flame_muzzle		r_jet
+		frame 	1,25,50,75,100,125				fx			fx_flame_muzzle		l_jet
+		
+		frame 	1						call			map_network2::guardianJetsOn
+		frame 	125						call			map_network2::guardianJetsOff
+		frame 	140						fx			fx_camshake
+		frame 	140						sound_weapon			snd_ng_body_land
+		frame	140						call			map_network2::buckleFloor
+		frame 	155,160					sound_voice			snd_wing_unfold
+	}
+	anim ac_fall_start					models/monsters/network_guardian/ac_fall_start.md5anim
+	{
+			ai_no_look
+			ai_no_turn
+
+		//	frame	1					call				boss_networkguardian::prepFall
+	}
+	anim ac_fall_loop					models/monsters/network_guardian/ac_fall_loop.md5anim
+	{
+			ai_no_look
+			ai_no_turn
+	}
+	anim ac_fall_end					models/monsters/network_guardian/ac_fall_end.md5anim
+	{
+			ai_no_look
+			ai_no_turn
+
+		frame 1							fx				fx_landing			origin
+	}
+
+	anim engine_wash					models/monsters/network_guardian/engine_wash.md5anim
+	{
+		frame 1,28						fx				fx_thruster_wash		r_jet
+		frame 1,28						fx				fx_thruster_wash		l_jet
+	}
+	
+	anim pain_grnd_std					models/monsters/network_guardian/pain_grnd_std.md5anim
+	{
+		frame 1							sound_voice			snd_pain
+	}
+	anim pain_grnd_std2					models/monsters/network_guardian/pain_grnd_std2.md5anim
+	{
+		frame 1							sound_voice			snd_pain
+	}
+	anim pain_grnd_con					models/monsters/network_guardian/pain_grnd_con.md5anim
+	{
+		frame 1							sound_voice			snd_pain
+	}
+	anim pain_grnd_strm_start			models/monsters/network_guardian/pain_grnd_strm_start.md5anim
+	anim pain_grnd_strm_loop			models/monsters/network_guardian/pain_grnd_strm_loop.md5anim
+	anim pain_grnd_strm_end				models/monsters/network_guardian/pain_grnd_strm_end.md5anim
+	anim pod_position					models/monsters/network_guardian/pod_position.md5anim
+
+	//MIRV missiles
+	anim attack_vert					models/monsters/network_guardian/attack_vert.md5anim
+	{
+		frame	1						sound_voice				snd_growl
+		frame	1						sound_item				snd_voice_stereo
+
+		frame	24						ai_attack			MIRV				r_muzzle_flash
+		frame	24						fx					fx_rocket_flash		r_muzzle_flash
+		frame	24						sound_weapon				snd_rocket_launch
+	}
+
+	//Blaster fire loop
+	anim attack_blaster_start			models/monsters/network_guardian/attack_blaster_start.md5anim
+	anim attack_blaster_loop			models/monsters/network_guardian/attack_blaster_loop.md5anim
+	{
+		frame 2,6						ai_attack			blaster				l_muzzle_flash
+		frame 2,6						fx					fx_rocket_flash		l_muzzle_flash
+
+	}
+	anim attack_blaster_end				models/monsters/network_guardian/attack_blaster_end.md5anim
+
+	//walking sweep
+	anim attack_spray_grd				models/monsters/network_guardian/attack_spray_grd.md5anim
+	{
+		frame 14,16,18,20,22,24,26,28,30,32,34			ai_attack			blaster_locked		l_muzzle_flash
+		frame 14,16,18,20,22,24,26,28,30,32,34			fx					fx_rocket_flash		l_muzzle_flash
+
+	}
+	anim attack_spray_air				models/monsters/network_guardian/attack_spray_air.md5anim
+	{
+		frame 	1,25									fx 				fx_flame_muzzle			r_jet
+		frame 	1,25									fx				fx_flame_muzzle			l_jet
+
+		frame 18,16,18,20,22,24,26,28,30,32,34			ai_attack			blaster_locked		l_muzzle_flash
+		frame 18,16,18,20,22,24,26,28,30,32,34			fx					fx_rocket_flash		l_muzzle_flash
+
+	}
+	
+	anim evade_right					models/monsters/network_guardian/evade_right.md5anim
+	anim evade_left						models/monsters/network_guardian/evade_left.md5anim
+			
+	channel	torso										( *waist )
+	channel	legs										( *hip body origin)
+}
+
+/*
+===============================================================================
+
+	Network Guardian Attacks
+
+===============================================================================
+*/
+
+entityDef melee_networkGuardian_swipe
+{
+	"inherit"											"melee_monster_base"
+	"damage"											"50"
+	"kickDir"											"0 -1 1"
+	"knockback"											"180"
+	"snd_hit"											"gunner_punch"
+	"snd_miss"											"network_guardian_growl"
+}
+
+entityDef melee_networkGuardian_slam
+{
+	"inherit"											"melee_monster_base"
+	"damage"											"80"
+	"radius"											"300"
+	"kickDir"											"1 0 1"
+	"knockback"											"240"
+	"snd_hit"											"gunner_punch"
+	"snd_miss"											"network_guardian_growl"
+}
+
+entityDef melee_networkGuardian_stomp
+{
+	"inherit"											"melee_monster_base"
+	"damage"											"80"
+	"radius"											"300"
+	"kickDir"											"1 0 1"
+	"knockback"											"240"
+	"snd_hit"											"gunner_punch"
+	"snd_miss"											"network_guardian_growl"
+}
+
+entityDef projectile_networkGuardian_rocket
+{
+	"inherit"					"projectile_base"
+//	"spawnclass"				"idGuidedProjectile"
+	"spawnclass"				"idProjectile"
+
+	"speed"						"900"
+	
+	//"turn_max"				"180"
+
+	"def_damage"				"damage_network_guardian_rocket_direct"
+	"def_splash_damage"			"damage_network_guardian_rocket_splash"
+
+	"fx_fly"					"effects/monsters/network_guardian/fly.fx"
+	"fx_impact"					"effects/monsters/network_guardian/impact.fx"
+}
+
+entityDef projectile_networkGuardian_rocket_warhead
+{
+	"inherit"					"projectile_base"
+	"spawnclass"				"idGuidedProjectile"
+//	"spawnclass"				"idProjectile"
+
+	"speed"						"600"
+	"speed_end"					"2200"
+	"speed_duration"			"10"
+
+	"delayGuide"				"0.5"
+	"delayGuide_random"			"1.5"
+
+	"remove_time"				"30"
+	"fuse"						"30"
+
+	"turn_max"					"145"
+
+//	"def_damage"				"damage_network_guardian_rocket_direct"
+//	"def_splash_damage"			"damage_network_guardian_rocket_splash"
+
+	"def_damage"				"damage_network_guardian_rocket_guided_direct"
+	"def_splash_damage"			"damage_network_guardian_rocket_guided_splash"
+
+	"fx_fly"					"effects/monsters/network_guardian/fly.fx"
+	"fx_impact"					"effects/monsters/network_guardian/impact.fx"
+}
+
+
+entityDef projectile_networkGuardian_death_head
+{
+	"inherit"					"projectile_big_htank_rocket"
+	
+	"spawnclass"				"idProjectile"
+	
+	"speed"						"150"
+	"speed_end"					"1000"
+	"speed_duration"			"7"
+
+	"fx_impact"					"effects/monsters/network_guardian/big_blast.fx"
+	"fx_fly"					"effects/monsters/network_guardian/fly_mirv.fx"
+
+
+}
+
+entityDef damage_network_guardian_jetwash
+{
+	"inherit"					"damage_monster_base"
+	"knockback"					"0"
+	"damage"					"1"
+
+	//we'll play this damage from a single point under the NG
+	"radius"					"300"
+	"push"						"12500"
+
+	"dot_duration"				"4"
+	"dot_interval"				"1"
+
+	"fx_dot"					"effects/damage/dot_fire.fx"
+
+}	
+entityDef damage_network_guardian_rocket_guided_direct
+{
+	"damage"							"10"
+	"push"								"300"
+	"knockback"							"120"
+	"mtr_splat"							""
+	"gib"								"1"
+
+
+}
+entityDef damage_network_guardian_rocket_guided_splash
+{
+	"damage"							"20"	
+	"radius"							"48"
+	"knockback"							"180"
+	"push"								"0"
+	"gib"								"1"
+}
+
+entityDef damage_network_guardian_rocket_direct
+{
+	"damage"							"15"
+	"push"								"300"
+	"mtr_splat"							""
+	"gib"								"1"
+}
+
+entityDef damage_network_guardian_rocket_splash
+{
+	"damage"							"30"	// 50
+	"radius"							"75"
+	"knockback"							"60"
+	"push"								"0"
+	"gib"								"1"
+}
+
+entityDef projectile_networkGuardian_blaster
+{
+	"inherit"							"projectile_lightTank_fireball"
+
+	"speed"								"800"
+	
+	"def_damage"						"damage_network_guardian_rocket_direct"
+	"def_splash_damage"					"damage_network_guardian_rocket_splash"
+
+	"fx_fly"							"effects/monsters/network_guardian/fireball_fly.fx"
+
+}
+
+entityDef projectile_networkGuardian_MIRV
+{
+	"inherit"							"projectile_networkGuardian_death_head"
+	
+	"spawnclass"						"rvMIRVProjectile"
+
+	"def_warhead"						"projectile_networkGuardian_rocket_warhead"
+	
+	"warhead_count"						"12"
+	"warhead_fuse"						"3"
+
+	"speed"								"800"
+	"speed_end"							"1200"
+	"speed_duration"					"8"
+}
+
+
+/*
+===============================================================================
+
+	Network Guardian Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_network_guardian
+{
+	"inherit"											"actor_default"
+	"spawnclass"										"rvMonsterNetworkGuardian"
+
+	// --------------------------------- Actions ------------------------------------
+	"action_shotgunRocket"								"1"
+	"action_shotgunRocket_minRange"						"400"
+	"action_shotgunRocket_maxRange"						"-1"
+	"action_shotgunRocket_rate"							"1"
+
+	"action_FlyingRangedAttack"							"1"
+	"action_FlyingRangedAttack_minRange"				"256"
+	"action_FlyingRangedAttack_maxRange"				"-1"
+	"action_FlyingRangedAttack_rate"					"2"
+
+	"action_blasterSweepGroundAttack"					"1"
+	"action_blasterSweepGroundAttack_minRange"			"300"
+	"action_blasterSweepGroundAttack_maxRange"			"1000"
+	"action_blasterSweepGroundAttack_rate"				"3"
+
+	"action_blasterSweepAirAttack"						"1"
+	"action_blasterSweepAirAttack_minRange"				"0"
+	"action_blasterSweepAirAttack_maxRange"				"4000"
+	"action_blasterSweepAirAttack_rate"					"3"
+	
+	"action_blasterAttack"								"1"
+	"action_blasterAttack_minRange"						"300"
+	"action_blasterAttack_maxRange"						"32000"
+	"action_blasterAttack_rate"							"2"
+
+	"action_MIRVAttack"									"1"
+	"action_MIRVAttack_minRange"						"-1"
+	"action_MIRVAttack_maxRange"						"32000"
+	"action_MIRVAttack_rate"							"4"
+
+	
+	"action_meleeAttack"								"1"
+	"action_meleeAttack_minRange"						"0"
+	"action_meleeAttack_maxRange"						"350"
+	"action_meleeAttack_rate"							".5"
+	"action_meleeAttack_diversity"						".25"
+
+	"action_evadeRight"									"1"
+	"action_evadeLeft"									"1"
+
+
+	// --------------------------------- Body ------------------------------------
+	"model"												"model_monster_network_guardian"
+	"ragdoll"											"monster_network_guardian"
+	"size"												"48 48 88"
+	"use_aas"											"aas48"
+	"joint_eyeOffset"									"head"
+	"joint_chestOffset"									"chest"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"											"6000"
+	"attackRange"										"0 32000"
+	"melee_range"										"300"	
+	"bone_focus"										"eye_target"
+	"missile_visibility_joint"							"r_bigShield_nadeLauncher"
+	"painThreshold"										"0"
+	"painBigThreshold"									"0"
+
+	//for evades
+	"strafeSpeed"										"1000"
+
+	//"tactical"										"ranged"
+	//"forceWalk"										"1"
+	
+	//"tactical_ranged"									"1"
+
+	"def_attack_meleeSwipe"								"melee_networkGuardian_swipe"
+	"def_attack_meleeSlam"								"melee_networkGuardian_slam"
+	"def_attack_meleeStomp"								"melee_networkGuardian_stomp"
+
+	"def_attack_rocket"									"projectile_networkGuardian_rocket"
+
+	"def_attack_rocket_big"								"projectile_networkGuardian_death_head"
+	//"def_attack_rocket_big"								"projectile_networkGuardian_MIRV"
+
+	"def_attack_blaster"								"projectile_networkGuardian_blaster"
+	"attack_blaster_spread"								"4"
+	
+	"def_attack_blaster_locked"							"projectile_networkGuardian_blaster"
+	"attack_blaster_locked_lockToJoint"					"1"
+	
+	"def_attack_MIRV"									"projectile_networkGuardian_MIRV"
+	"attack_MIRV_lockToJoint"							"1"
+	
+	"attack_shotgunRocket_accuracy"						"2"
+	"attack_shotgunRocket_spread"						"14"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"									"0.4 0.4 0"
+	  "look_joint chest"								"0.2 0.2 0"
+	    "look_joint shoulders"							"0.2 0.2 0"
+		    "look_joint neck1"							"0.2 0.2 0"
+
+	// --------------------------------- Combat ----------------------------------
+	"fly_speed"											"400"
+	"fly_offset"										"100"
+	"fly_roll_max"										"3"
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_alert"										"network_guardian_alert"
+	"snd_voice_stereo"								"storage_network_guardian_distance"
+	"lipsync_sight"									"network_guardian_alert"						
+	"snd_growl"										"network_guardian_growl"
+	"snd_impact"									"ambient_metal_pound"		
+	"snd_punch"										"gunner_punch"		
+	
+	"snd_metal_stress"								"guardian_door_stress_light"		
+	
+	"snd_footstep"									"network_guardian_stomp"
+	"snd_footstep_sand"								"network_guardian_stomp_dirt"
+	"snd_footstep_dirt"								"network_guardian_stomp_dirt"
+	"snd_footstep_hollowmetal"						"network_guardian_stomp_hollow_metal"
+	"snd_footstep_rock"								"network_guardian_stomp"
+	
+	"snd_stomp_attack"								"network_guardian_stomp_attack"
+		
+	"snd_bounce"									"network_guardian_stomp"
+	"snd_pain"										"network_guardian_pain"
+	"snd_death"										"network_guardian_death"
+	
+	"snd_wing_unfold"								"network_guardian_wing_unfold"
+	"snd_engine_blast"								"network_guardian_engine_blast"
+	"snd_fly"										"network_guardian_fly_loop"		
+
+	"snd_rocket_launch"								"network_guardian_rocket_fire"
+	
+	"sound_bone"									"body"
+	
+	"snd_ng_glass_crack"							"network_guardian_glass_crack"
+	"snd_ng_glass_break"							"network_guardian_glass_break" 
+	"snd_ng_elevator_crash"							"network_guardian_elevator_crash"
+	"snd_ng_body_land"								"network_guardian_body_land"
+	"snd_ng_metal_tear"								"network_guardian_metal_tear"
+
+	
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_rocket_flash"									"effects/monsters/network_guardian/muzzleflash.fx"
+	"fx_swipe"											"effects/monsters/grunt/swipe_attack.fx"	
+	"fx_destroy_arm"									"effects/monsters/light_tank/destroy_arm.fx"
+	"fx_destroy_arm_trail"								"effects/monsters/light_tank/destroy_arm_trail.fx"
+	"fx_flame_muzzle"									"effects/monsters/network_guardian/thruster.fx"
+	"fx_flame_muzzle2"									"effects/monsters/network_guardian/jet_mflash.fx"
+	"fx_camshake"										"effects/monsters/camerashakelarge.fx"
+	"fx_ng_walkshake"									"effects/monsters/ng_walkshake.fx"
+	"fx_thruster"										"effects/monsters/network_guardian/thruster.fx"	
+	"fx_thruster_wash"									"effects/monsters/network_guardian/thruster_wash.fx"	
+
+	"fx_landing"										"effects/monsters/network_guardian/landing_stomp.fx"
+	"fx_hover"											"effects/monsters/network_guardian/hover.fx"
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"removeDelay"							"5"
+	"burnaway"								"2"
+	"snd_burn_lightning"				"effects_sparks02"
+	"fx_burn_lightning"					"effects/monsters/lightning_death_netguardian.fx"	
+	"fx_burn_particles"					"effects/monsters/teleport_netguardian.fx"
+	"fx_burn_particles_chest"			"effects/monsters/teleport_netguardian.fx"
+
+	// --------------------------------- DB Info   -------------------------------
+	"dbTitle"											"Network Guardian"
+	"dbText"											"Description Text of the Network Guardian"
+	"sg_name"											"network_guardian"
+	"sg_category"										"MiniBosses"
+}
+
+entityDef monster_network_guardian_process	{
+
+	"inherit"											"monster_network_guardian"
+
+	"def_attack_rocket"									"projectile_networkGuardian_rocket_fake"
+	"def_attack_blaster"								"projectile_networkGuardian_blaster_fake"
+
+}
+
+entityDef dmg_nodamage	{
+
+	"damage"							"0"
+	"push"								"0"
+	"radius"							"0"
+	"dv_time"							"250"
+	"dv_scale"							".04"
+
+}
+
+entityDef projectile_networkGuardian_rocket_fake
+{
+	"inherit"					"projectile_networkGuardian_rocket"
+	
+	"def_damage"				"dmg_nodamage"
+	"def_splash_damage"			"dmg_nodamage"
+}
+
+entityDef projectile_networkGuardian_blaster_fake
+{
+	"inherit"					"projectile_networkGuardian_blaster"
+	
+	"def_damage"				"dmg_nodamage"
+	"def_splash_damage"			"dmg_nodamage"
+}

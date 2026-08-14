@@ -1,0 +1,98 @@
+//////////////////////////////////////
+// singleplayer flags
+//////////////////////////////////////
+
+skin skins/mapobjects/strogg/flags/side1
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/side1"
+}
+
+skin skins/mapobjects/strogg/flags/side1_ripped
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/side1_ripped"
+}
+
+skin skins/mapobjects/strogg/flags/flag1_tall
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/1_tall"
+}
+
+skin skins/mapobjects/strogg/flags/flag1_tall_ripped
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/1_tall_ripped"
+}
+
+skin skins/mapobjects/strogg/flags/flag2_tall
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/2_tall"
+}
+
+skin skins/mapobjects/strogg/flags/flag2_tall_ripped
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/2_tall_ripped"
+}
+
+skin skins/mapobjects/strogg/flags/flag3_tall
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/3_tall"
+}
+
+skin skins/mapobjects/strogg/flags/flag3_tall_ripped
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/3_tall_ripped"
+}
+
+skin skins/mapobjects/strogg/flags/flag4_tall
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/4_tall"
+}
+
+skin skins/mapobjects/strogg/flags/flag4_tall_ripped
+{
+	"models/items/banner_flags/strogg_flag_long"		"textures/banners/4_tall_ripped"
+}
+
+skin skins/mapobjects/strogg/flags/flag1_short
+{
+	"models/items/banner_flags/strogg_flag_short"		"textures/banners/1_short"
+}
+
+skin skins/mapobjects/strogg/flags/flag2_short
+{
+	"models/items/banner_flags/strogg_flag_short"		"textures/banners/2_short"
+}
+
+skin skins/mapobjects/strogg/flags/flag3_short
+{
+	"models/items/banner_flags/strogg_flag_short"		"textures/banners/3_short"
+}
+
+skin skins/mapobjects/strogg/flags/flag4_short
+{
+	"models/items/banner_flags/strogg_flag_short"		"textures/banners/4_short"
+}
+
+
+//////////////////////////////////////
+// multiplayer flags
+//////////////////////////////////////
+
+skin skins/mapobjects/strogg/flags/flag_mp_strogg_long
+{
+	"models/items/banner_flags/strogg_flag_long"		"models/items/banner_flags/strogg_flag_long"
+}
+
+skin skins/mapobjects/strogg/flags/flag_mp_strogg_short
+{
+	"models/items/banner_flags/strogg_flag_long"		"models/items/banner_flags/strogg_flag_short"
+}
+
+skin skins/mapobjects/strogg/flags/flag_mp_marine_long
+{
+	"models/items/banner_flags/strogg_flag_long"		"models/items/banner_flags/marine_flag_long"
+}
+
+skin skins/mapobjects/strogg/flags/flag_mp_marine_short
+{
+	"models/items/banner_flags/strogg_flag_long"		"models/items/banner_flags/marine_flag_short"
+}

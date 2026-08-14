@@ -1,0 +1,16 @@
+export cin_camera_test
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/camera_testing/animations -destdir models/test/cinematic_cameras
+	camera	egnew_test_00_b.ma		-dest test_camera
+}
+
+entityDef  cin_camera_test {
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"anim test_camera"			"models/test/cinematic_cameras/test_camera.md5camera"
+}

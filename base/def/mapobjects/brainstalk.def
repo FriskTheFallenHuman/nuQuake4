@@ -1,0 +1,71 @@
+/***********************************************************************
+BrainStalk
+***********************************************************************/
+
+export brainstalk
+{
+	options -prefix brainstalk_ -scale 1 -keep front_joint1 -keep _fx1 -keep _fx2 -keep _fx3 -keep _fx4 -keep _fx5 -keep _fx6 -keep _fx7 -keep front_joint2 -keep front_joint3 -keep front_joint4 -keep _left_rear_tube -keep _Right_Lower_LOB -keep _left_rear_tube2 -keep _right_rear_tube -keep _right_rear_tube02 -keep _left_front_tube2 -keep _left_front_tube -keep _right_front_tube -keep _right_front_tube02
+
+	mesh	work/models/mapobjects/strogg/terminal/brainstalk/animations/death.ma			-dest models/mapobjects/strogg/terminal/brainstalk/brainstalk
+	anim	work/models/mapobjects/strogg/terminal/brainstalk/animations/idle.ma			-dest models/mapobjects/strogg/terminal/brainstalk/idle
+	anim	work/models/mapobjects/strogg/terminal/brainstalk/animations/charge.ma			-dest models/mapobjects/strogg/terminal/brainstalk/charge
+	anim	work/models/mapobjects/strogg/terminal/brainstalk/animations/death.ma			-dest models/mapobjects/strogg/terminal/brainstalk/death
+	anim	work/models/mapobjects/strogg/terminal/brainstalk/animations/spasm.ma			-dest models/mapobjects/strogg/terminal/brainstalk/spasm
+}
+
+model model_env_brainstalk
+{
+	mesh			"models/mapobjects/strogg/terminal/brainstalk/brainstalk.md5mesh"
+	anim idle		"models/mapobjects/strogg/terminal/brainstalk/idle.md5anim"
+	anim charge		"models/mapobjects/strogg/terminal/brainstalk/charge.md5anim"
+	{
+		frame 1,4,8,12,16,20,24,26,31,33,36,39,42,44		sound	snd_sparks
+		frame 2,5,9,13,17,21,25,27,31,34,37,40,43,45		sound	snd_squirm
+		frame 1												fx		fx_brain_node			_fx1
+		frame 4												fx		fx_brain_node			_fx2
+		frame 8												fx		fx_brain_node			_fx3
+		frame 12											fx		fx_brain_node			_fx4
+		frame 16											fx		fx_brain_node			_fx5
+		frame 20											fx		fx_brain_node			_fx6
+		frame 24											fx		fx_brain_node			_fx7
+//		frame 26											fx		fx_brain_pin_ambient	_right_rear_tube02
+	}
+
+	anim death		"models/mapobjects/strogg/terminal/brainstalk/death.md5anim"
+	{
+		frame 8 											fx		fx_asplosion			_brain_stock
+		frame	1											sound	snd_bellow
+	}
+	anim spasm		"models/mapobjects/strogg/terminal/brainstalk/spasm.md5anim"
+	{
+		frame	1											sound	snd_bellow
+	}
+
+}
+
+entityDef env_brainstalk
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	"editor_usage"			"scripted brainstalk for terminal"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_brainstalk"
+	"anim"					"idle"
+
+	"snd_squirm"			"core_brainstalk_squirm"
+	"snd_sparks"			"core_brainstalk_sparks"
+	"snd_bellow"			"brain_bellow"
+	
+	"fx_brain_node"					"effects/levels/terminal/brain_nodes.fx"
+	"fx_brain_electricity"			"effects/levels/terminal/brain_electricity.fx"
+	"fx_brain_pin_ambient"			"effects/levels/terminal/brain_charge_pin.fx"
+	"fx_brain_laser"				"effects/levels/terminal/brain_laser.fx"
+	"fx_brain_heat"					"effects/levels/terminal/brain_heat.fx"
+	"fx_brain_gen"					"effects/levels/terminal/brain_gen.fx"
+	"fx_brain_shield"				"effects/levels/terminal/brain_shield.fx"
+	"fx_asplosion"					"effects/levels/terminal/brain_explosion.fx"
+}

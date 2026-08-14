@@ -1,0 +1,34 @@
+/***********************************************************************
+DATA ROUTER
+***********************************************************************/
+
+export data_router
+{
+	options -prefix DATA_ -scale 1 
+	mesh	work/models/mapobjects/strogg/core/Data_Router/Anims/idle.ma				-dest models/mapobjects/strogg/stream_hub/data_router/data_router
+	anim	work/models/mapobjects/strogg/core/Data_Router/Anims/idle.ma				-dest models/mapobjects/strogg/stream_hub/data_router/idle
+	anim	work/models/mapobjects/strogg/core/Data_Router/Anims/clamping_down.ma			-dest models/mapobjects/strogg/stream_hub/data_router/clamp_down
+}
+
+
+model model_env_data_router
+{
+	mesh			"models/mapobjects/strogg/stream_hub/data_router/data_router.md5mesh"
+	anim idle		"models/mapobjects/strogg/stream_hub/data_router/idle.md5anim"
+	anim charge		"models/mapobjects/strogg/stream_hub/data_router/clamp_down.md5anim"
+}
+
+entityDef env_data_router
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_data_router"
+	"anim"					"idle"
+}
+
+

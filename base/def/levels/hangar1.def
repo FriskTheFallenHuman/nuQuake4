@@ -1,0 +1,240 @@
+/***********************************************************************************************************************
+Hangar1
+
+Unique entities created for the hangar level
+************************************************************************************************************************/
+
+// ModelDef for hangar1 marine
+model hangar1_model_char_marine
+{
+	inherit					model_char_marine
+	
+	// Player for intro	-----------------------------------------------------------------------------------------
+	anim	gun_intro_walk			models/characters/marine/gun_intro_walk.md5anim
+	{
+		ai_no_look
+		frame 1							disableClip
+		frame 1							disableGravity
+	}
+	
+	// Stretch for Mahler	-----------------------------------------------------------------------------------------
+	anim idle_stretching_3				models/characters/marine/idle_stretching_3.md5anim
+	{
+	rate 	1.25	
+	}
+	
+	// Mahler accosts the glass	---------------------------------------------------------------------------------
+	anim hangar1_mahler_glass				models/characters/marine/hub_mahler_glass.md5anim
+	{
+		ai_no_look
+		frame	4,42,99					sound		snd_gear
+		frame	59,93					sound		snd_glass_tap2
+		frame	151					sound		snd_gun_ready
+		//frame	166,169,172				sound		snd_gun
+		//frame	166,169,172				ai_attack	muzzledir		MG_muzzle_flash
+		frame	163,165,167				sound		snd_gun
+		frame	163,165,167				ai_attack	muzzledir		MG_muzzle_flash
+		frame	163,165,167				fx		fx_base_flash		MG_muzzle_flash
+		frame	170					sound		snd_casing
+	}
+	
+	// Wrist Comm	-------------------------------------------------------------------------------------------------
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+	
+	// Weapon check 	-----------------------------------------------------------------------------------------
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_gear
+		frame	42						sound	snd_gun_ready 
+	}
+	
+	// GUI interaction	-----------------------------------------------------------------------------------------		
+	anim	use_gui_standing_start			models/characters/marine/standing_gui_start.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_loop			models/characters/marine/standing_gui_loop.md5anim
+	{
+		ai_look_head_only
+		frame	1,5,7,9,13,19,25				sound	snd_console
+	}
+	anim	use_gui_standing_end			models/characters/marine/standing_gui_end.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	// Console interaction	-----------------------------------------------------------------------------------------		
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+
+	
+	// Hand over the goods!	-----------------------------------------------------------------------------------------		
+	anim	player_gift_start					models/characters/marine/player_gift_start.md5anim					
+	anim	player_gift_loop					models/characters/marine/player_gift_loop.md5anim			
+	anim	player_gift_end						models/characters/marine/player_gift_end.md5anim
+	
+	anim	player_gift2_start					models/characters/marine/player_gift2_start.md5anim					
+	anim	player_gift2_loop					models/characters/marine/player_gift2_loop.md5anim			
+	anim	player_gift2_end					models/characters/marine/player_gift2_end.md5anim
+	
+	// Scripted Stands/Crouches--------------------------------------------------------------------------------------		
+	anim crouch_to_stand_scripted						models/characters/marine/knee_to_idle.md5anim
+	anim stand_to_crouch_scripted						models/characters/marine/drop_to_knee.md5anim
+	
+}
+
+// ModelDef for hangar1 tech
+model hangar1_model_char_marine_tech
+{
+	inherit					hangar1_model_char_marine
+	mesh					models/characters/marine_tech/marine_tech.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	// Re-define Heal anims	-----------------------------------------------------------------------------------------		
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+// modelDef for hangar1 medic
+model hangar1_model_char_marine_medic
+{
+	inherit							hangar1_model_char_marine
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+}
+
+// Custom hangar1 marine
+entityDef hangar1_char_marine
+{
+	"inherit"					"char_marine"
+	"model"						"hangar1_model_char_marine"
+	"editor_menu"					"level"
+	"def_attack_muzzledir"			"hitscan_marine_bullet"
+	"attack_muzzledir_lockToJoint"			"1"
+	"attack_muzzledir_hitscan"			"1"
+	"attack_muzzledir_accuracy"			"1"
+	"attack_muzzledir_spread"			".25"
+	"attack_muzzledir_cone"				"0"
+}
+
+// Custom hangar1 tech
+entityDef hangar1_char_marine_tech
+{
+	"inherit"					"char_marine_tech_armed"
+	"model"						"hangar1_model_char_marine_tech"
+	"editor_menu"					"level"
+}
+
+// Custom hangar1 medic
+entityDef hangar1_char_marine_medic
+{
+	"inherit"					"char_marine_medic_armed"
+	"model"						"hangar1_model_char_marine_medic"
+	"editor_menu"					"level"
+}
+
+// Custom gunner animation for intro cinematic.
+entityDef hangar1_monster_gunner
+{
+	"inherit"					"monster_gunner"
+	"model" 					"model_hangar1_monster_gunner"
+	"editor_menu"					"level"
+	
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_hangar1"				"projectile_gunner_grenade_hangar1"
+
+}
+
+// ModelDef for custom gunner
+model model_hangar1_monster_gunner
+{
+	inherit						model_monster_gunner
+	
+	// Gunner Intro		-----------------------------------------------------------------------------------------
+	anim gunner_intro						models/monsters/gunner/gunner_intro.md5anim
+	{
+		frame	2,16,39,46,61,77,92,111			sound	snd_servo
+		frame	11,22							sound	guisound_beep2
+		frame	38								sound	snd_breathe
+		frame	70,86,98						footstep
+		frame 	55								sound	snd_growl
+		frame	96								sound	snd_intro_yell
+		frame	105								sound	snd_grenade_prepare
+		
+		frame 143					ai_attack	hangar1				muzzle
+		frame 143					fx		fx_grenade_flash		muzzle
+		frame 143					sound_weapon	snd_grenade_launch
+		
+		frame 156					call		map_hangar1::feedGunnerBackup
+				
+		frame 201					call		map_hangar1::spawnPlayer
+	}
+}
+
+entityDef projectile_gunner_grenade_hangar1
+{
+	"inherit"					"projectile_gunner_grenade"
+	
+	"cone"						"0"
+
+	"speed"						"800"
+	"angular_velocity"				"10 -10 10"			
+
+	"linear_friction"			"0"
+	"angular_friction"			"0"
+	"contact_friction"			"10"
+	
+	"bounce"					"0.4"
+	"gravity"					"1"
+	
+	//"bounce_count"				"4"	
+	
+	//"velocity"					"0 0 -100"
+	
+	"def_splash_damage"			""
+	"def_damage"				""
+	
+	"fuse"						"3.5"
+	
+}

@@ -1,0 +1,190 @@
+windowDef Desktop
+{
+	comment	"gui_parm_text value sets name of area you want on the sign"
+	rect	0,0,640,480
+	backcolor	0.0470,0.0470,0.0470,1
+	visible	1
+	definevec4	"arrow_on"	0.749,0.886,0.462,1
+	definevec4	"arrow_off"	0.478,0.596,0.345,1
+	windowDef top
+	{
+		rect	0,-250,640,400
+		visible	1
+		background	"gfx/guis/common/128_sqsolid"
+		matcolor	0.149,0.156,0.117,1
+		matscalex	-1
+		matscaley	-1
+	}
+	windowDef btm
+	{
+		rect	0,330,640,400
+		visible	1
+		background	"gfx/guis/common/128_sqsolid"
+		matcolor	0.149,0.156,0.117,1
+		matscalex	-1
+		matscaley	-1
+	}
+	windowDef squares
+	{
+		rect	22,39,118,92
+		visible	1
+		background	"gfx/guis/common/marine/squares1"
+		matcolor	0.619,0.839,0.486,.1
+	}
+	windowDef squares2
+	{
+		rect	123,39,118,92
+		visible	1
+		background	"gfx/guis/common/marine/squares1"
+		matcolor	0.619,0.839,0.486,.1
+	}
+	windowDef tl
+	{
+		rect	0,-8,45,240
+		visible	1
+		background	"gfx/guis/common/marine/dir_arrow3"
+		matcolor	0.478,0.596,0.345,1
+		matscalex	-1
+	}
+	windowDef bl
+	{
+		rect	0,253,45,239
+		visible	1
+		background	"gfx/guis/common/marine/dir_arrow3"
+		matcolor	0.478,0.596,0.345,1
+		matscaley	-1
+		matscalex	-1
+	}
+	windowDef tr
+	{
+		rect	596,-9,45,240
+		visible	1
+		background	"gfx/guis/common/marine/dir_arrow3"
+		matcolor	0.478,0.596,0.345,1
+	}
+	windowDef br
+	{
+		rect	596,253,45,239
+		visible	1
+		background	"gfx/guis/common/marine/dir_arrow3"
+		matcolor	0.478,0.596,0.345,1
+		matscaley	-1
+	}
+	windowDef m_arrow
+	{
+		rect	321,-13,50,507
+		visible	1
+		background	"gfx/guis/common/marine/dir_arrow2"
+		matcolor	0.749,0.886,0.462,0
+
+		onTime 0 {
+			transition "m_arrow::rect" "$m_arrow::rect" "$d_arrow::rect" "500" ;
+			transition "m_arrow::matcolor_w" ".1" "0" "500" ;
+		}
+
+		onTime 1500 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef m_arrow2
+	{
+		rect	269,-12,50,507
+		visible	1
+		background	"gfx/guis/common/marine/dir_arrow2"
+		matcolor	0.749,0.886,0.462,0
+		matscalex	-1
+
+		onTime 0 {
+			transition "m_arrow2::rect" "$m_arrow2::rect" "$d_arrow2::rect" "500" ;
+			transition "m_arrow2::matcolor_w" ".1" "0" "500" ;
+		}
+
+		onTime 1500 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef d_arrow
+	{
+		rect	641,-13,51,508
+		visible	0
+		background	"gfx/guis/common/marine/dir_arrow2"
+		matcolor	0.749,0.886,0.462,1
+	}
+	windowDef d_arrow2
+	{
+		rect	-52,-12,51,508
+		visible	0
+		background	"gfx/guis/common/marine/dir_arrow2"
+		matcolor	0.749,0.886,0.462,1
+		matscalex	-1
+	}
+	windowDef smalltext
+	{
+		rect	0,0,640,480
+		visible	1
+		forecolor	0.933,0.933,0.858,0.156
+		text	"#str_200325"
+		textscale	0.3
+		font	"fonts/marine"
+		textspacing	-2
+		forceaspectheight	80
+		textalignx	-30
+		textaligny	57
+		textalign	2
+	}
+	windowDef label
+	{
+		rect	0,0,640,480
+		visible	1
+		forecolor	0.843,0.886,0.752,1
+		text	"gui::gui_parm_text"
+		textscale	0.83
+		font	"fonts/marine"
+		textspacing	-6
+		forceaspectheight	80
+		textaligny	10.5
+		textalign	1
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	0,-169,640,867
+			background	"gfx/guis/common/monitor_line8"
+			matcolor	0.321,0.325,0.243,1
+		}
+		windowDef scratches
+		{
+			rect	0,-241,640,991
+			visible	1
+			background	"gfx/guis/common/screen_scratches5"
+			matcolor	0.654,0.847,0.807,.32
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-76,640,558
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.407,0.478,0.278,1
+		}
+		windowDef monitor_darkedge
+		{
+			visible	1
+			rect	-62,0,750,480
+			background	"gfx/guis/common/monitor_darkedge"
+			matcolor	0,0,0,1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

@@ -1,0 +1,587 @@
+
+/////////////////////////
+/////////////////////////
+///genric strogg console
+/////////////////////////
+
+
+
+models/mapobjects/strogg/console/proto/middlepiece
+{
+      noselfShadow
+//check path	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/console/middlepiece_local.tga models/mapobjects/console/middlepiece_hi.lwo
+
+	bumpmap	addnormals	( models/mapobjects/strogg/console/proto/middlepiece_local.tga, heightmap ( models/mapobjects/strogg/console/proto/middlepiece_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/console/proto/middlepiece_d.tga
+	specularmap		models/mapobjects/strogg/console/proto/middlepiece_s.tga
+	{
+	blend add
+	map models/mapobjects/strogg/console/proto/middlepiece_g.tga
+	}
+
+
+}
+
+
+models/mapobjects/strogg/console/proto/side_l
+{
+      noselfShadow
+//check path	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/console/side_l_local.tga models/mapobjects/console/side_l_hi.lwo
+
+	bumpmap	addnormals	( models/mapobjects/strogg/console/proto/side_l_local.tga, heightmap ( models/mapobjects/strogg/console/proto/side_l_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/console/proto/side_l_d.tga
+	specularmap		models/mapobjects/strogg/console/proto/side_l_s.tga
+	{
+	blend add
+	map models/mapobjects/strogg/console/proto/side_l_g.tga
+	}
+
+}
+
+
+
+models/mapobjects/strogg/console/proto/side_r
+{
+      noselfShadow
+//chedck path	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/console/side_r_local.tga models/mapobjects/console/side_r_hi.lwo
+
+	bumpmap	addnormals	( models/mapobjects/strogg/console/proto/side_l_local.tga, heightmap ( models/mapobjects/strogg/console/proto/side_l_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/console/proto/side_l_d.tga
+	specularmap		models/mapobjects/strogg/console/proto/side_l_s.tga
+	{
+	blend add
+	map models/mapobjects/strogg/console/proto/side_l_g.tga
+	}
+}
+
+
+models/mapobjects/strogg/console/proto/corner_l
+{
+      noselfShadow
+//check path	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/strogg/console_2/corner_l_local.tga models/mapobjects/console/corner_l_hi.lwo
+
+	bumpmap	addnormals	( models/mapobjects/strogg/console/proto/corner_l_local.tga, heightmap ( models/mapobjects/strogg/console/proto/corner_l_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/console/proto/corner_l_d.tga
+	specularmap		models/mapobjects/strogg/console/proto/corner_l_s.tga
+	{
+	blend add
+	map models/mapobjects/strogg/console/proto/corner_l_g.tga
+	}
+}
+
+
+
+models/mapobjects/strogg/console/proto/corner_r
+{
+      noselfShadow
+//check path	renderbump  -size 512 512 -trace .5 -aa 2  models/mapobjects/strogg/console_2/corner_r_local.tga models/mapobjects/console/corner_r_hi.lwo
+
+
+	bumpmap	addnormals	( models/mapobjects/strogg/console/proto/corner_l_local.tga, heightmap ( models/mapobjects/strogg/console/proto/corner_l_h.tga, 1 ) )
+	diffusemap		models/mapobjects/strogg/console/proto/corner_l_d.tga
+	specularmap		models/mapobjects/strogg/console/proto/corner_l_s.tga
+	{
+	blend add
+	map models/mapobjects/strogg/console/proto/corner_l_g.tga
+	}
+}
+
+////generic strogg console end
+
+
+//-------------this is a Strogg arcade machine-----------------------------
+
+models/mapobjects/strogg/console/arcade_machine/a_machine
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/strogg/arcade_machine/arcade_local.tga models/mapobjects/strogg/arcade_machine/arcade_main_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_s.tga
+
+}
+
+models/mapobjects/strogg/console/arcade_machine/a_machine_c
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_c_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_c_s.tga
+
+}
+// it deosn't like this and _e strange?---------------------
+
+
+models/mapobjects/strogg/console/arcade_machine/a_machine_f
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/console/arcade_machine/a_machine_f_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_f_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_f_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_f_s.tga
+
+}
+
+
+//-------------Strogg arcade macnine 2-----------------------------
+
+models/mapobjects/strogg/console/arcade_machine/a_machine_02
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage	models/mapobjects/strogg/console/arcade_machine/a_machine_02_hit
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/strogg/console/arcade_machine/a_machine_02_local.tga work/models/mapobjects/strogg/console/arcade_machine_02/arcade_machine_02_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_02_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_02_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_02_s.tga
+
+}
+
+
+models/mapobjects/strogg/console/arcade_machine/a_machine_02_c
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage	models/mapobjects/strogg/console/arcade_machine/a_machine_02_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_02_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_02_c_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_02_b_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/console/arcade_machine/a_machine_03
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage	models/mapobjects/strogg/console/arcade_machine/a_machine_03_hit
+
+	renderbump  -size 512 512 -aa 2 -trace .07 -MergeHigh models/mapobjects/strogg/console/arcade_machine/a_machine_03_local.tga work/models/mapobjects/strogg/console/arcade_machine_03/arcade_machine_03_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_03_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_03_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_03_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_03_s.tga
+
+}
+models/mapobjects/strogg/console/arcade_machine/a_machine_03_d
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage	models/mapobjects/strogg/console/arcade_machine/a_machine_03_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_03_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_03_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_03_d_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_03_b_s.tga
+
+}
+
+//arcade machine plus 6 .skin entries end-----------
+
+// arcade machine 4----------------------------------------------------------------------------
+
+models/mapobjects/strogg/console/arcade_machine/a_machine_04
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/console/arcade_machine/a_machine_04_hit
+
+	renderbump  -size 512 512 -aa 2 -trace .09 -MergeHigh models/mapobjects/strogg/console/arcade_machine/a_machine_4_local.tga work/models/mapobjects/strogg/console/arcade_machine_04/arcade_machine_04_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/arcade_machine/a_machine_04_local.tga, heightmap (models/mapobjects/strogg/console/arcade_machine/a_machine_04_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/arcade_machine/a_machine_04_d.tga
+	specularmap		models/mapobjects/strogg/console/arcade_machine/a_machine_04_s.tga
+	{
+		blend add
+		map models/mapobjects/strogg/console/arcade_machine/a_machine_04_g.tga
+		red		parm0
+		green	parm1
+		blue	parm2
+	}
+
+}
+
+//dispersal consoles in generic sets----------------------------------------------------------------
+
+models/mapobjects/strogg/console/generic/set1_e
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/console/generic/set1_e_local.tga work/models/mapobjects/strogg/console/generic/set1_e_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1_e_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1_e_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1_e_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1_e_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/console/generic/set1_d
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/console/generic/set1_d_local.tga work/models/mapobjects/strogg/console/generic/set1_d_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1_d_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1_d_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1_d_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1_d_s.tga
+
+}
+
+
+models/mapobjects/strogg/console/generic/set1_c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 512 512 -aa 2 -MergeHigh -trace .07  models/mapobjects/strogg/console/generic/set1_c_local.tga work/models/mapobjects/strogg/console/generic/set1_c_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1_c_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1_c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1_c_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1_c_s.tga
+
+}
+
+
+
+models/mapobjects/strogg/console/generic/set1_b
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/console/console_set1_b_local.tga work/models/mapobjects/strogg/console/console_set1_b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1_b_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1_b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1_b_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1_b_s.tga
+
+}
+
+/// console set1a------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/console/generic/set1a_base
+{
+      noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .07 models/mapobjects/strogg/console/console_set1a_base_local.tga models/mapobjects/strogg/console/console_set1a_base_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1a_base_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1a_base_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1a_base_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1a_base_s.tga
+
+}
+
+
+models/mapobjects/strogg/console/generic/set1a_arm
+{
+      noselfShadow
+	unsmoothedtangents
+
+//check paths	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/console/console_set1a_arm_local.tga models/mapobjects/strogg/console/console_set1a_arm_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1a_pieces_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1a_pieces_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1a_pieces_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1a_pieces_s.tga
+
+}
+
+
+models/mapobjects/strogg/console/generic/set1a_monitor
+{
+      noselfShadow
+	unsmoothedtangents
+
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/console/console_set1a_monitor_local.tga models/mapobjects/strogg/console/console_set1a_monitor_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/set1a_pieces_local.tga, heightmap (models/mapobjects/strogg/console/generic/set1a_pieces_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/set1a_pieces_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/set1a_pieces_s.tga
+
+}
+
+//-------------Security Consoles - 11 Parts-----------------------------
+
+models/mapobjects/strogg/console/security/part_01a
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01a_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01a_local.tga models/mapobjects/strogg/security_consoles/sec_console01a_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01a_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01a_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01a_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01a_s.tga
+
+}
+
+models/mapobjects/strogg/console/security/part_01b
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01b_hit
+	
+//check path	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01b_local.tga models/mapobjects/strogg/security_consoles/sec_console01b_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01b_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01b_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01b_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01b_s.tga
+
+}
+
+models/mapobjects/strogg/console/security/part_01c
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01c_hit
+	
+//check path	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01c_local.tga models/mapobjects/strogg/security_consoles/sec_console01c_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01c_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01c_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01c_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01c_s.tga
+
+}
+
+models/mapobjects/strogg/console/security/part_01d
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/console/security/part_01d_hit
+//check path	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01d_local.tga models/mapobjects/strogg/security_consoles/sec_console01d_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01d_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01d_dirty_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01d_dirty_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01d_dirty_s.tga
+
+}
+
+models/mapobjects/strogg/console/security/part_01d_dirty
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/console/security/part_01d_dirty_hit
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01d_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01d_dirty_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01d_dirty_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01d_dirty_s.tga
+
+}
+models/mapobjects/strogg/console/security/part_01f
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01f_hit
+//check path	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01f_local.tga models/mapobjects/strogg/security_consoles/sec_console01f_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01f_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01f_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01f_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01f_s.tga
+
+}
+models/mapobjects/strogg/console/security/part_01h
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01h_hit
+//check path	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01h_local.tga models/mapobjects/strogg/security_consoles/sec_console01h_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01h_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01h_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01h_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01h_s.tga
+
+}
+
+
+models/mapobjects/strogg/console/security/part_01i
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01i_hit
+//check path	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01i_local.tga models/mapobjects/strogg/security_consoles/sec_console01i_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01i_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01i_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01i_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01i_s.tga
+
+}
+
+models/mapobjects/strogg/console/security/part_01j
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01j_hit
+//check path	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01j_local.tga models/mapobjects/strogg/security_consoles/sec_console01j_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01j_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01j_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01j_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01j_s.tga
+
+}
+
+models/mapobjects/strogg/console/security/part_01k
+{
+      noselfShadow
+	unsmoothedtangents
+	materialImage models/mapobjects/strogg/console/security/part_01k_hit
+	
+//check path	renderbump  -size 512 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/strogg/security_consoles/sec_console01k_local.tga models/mapobjects/strogg/security_consoles/sec_console01k_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/security/part_01k_local.tga, heightmap (models/mapobjects/strogg/console/security/part_01k_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/security/part_01k_d.tga
+	specularmap		models/mapobjects/strogg/console/security/part_01k_s.tga
+
+}
+models/mapobjects/strogg/console/pillar/screen_02
+{
+      noselfShadow
+	unsmoothedtangents
+	
+	bumpmap		addnormals (models/mapobjects/strogg/console/pillar/screen_02_local.tga, heightmap (models/mapobjects/strogg/console/pillar/screen_02_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/pillar/screen_02_d.tga
+	specularmap		models/mapobjects/strogg/console/pillar/screen_02_s.tga
+
+}
+
+
+//core skin entry------------------------------------------------
+models/mapobjects/strogg/console/pillar/screen_02_core
+{
+      noselfShadow
+	unsmoothedtangents
+	
+	bumpmap		addnormals (models/mapobjects/strogg/console/pillar/screen_02_local.tga, heightmap (models/mapobjects/strogg/console/pillar/screen_02_core_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/pillar/screen_02_core_d.tga
+	specularmap		models/mapobjects/strogg/console/pillar/screen_02_core_s.tga
+
+}
+
+// small standing monitor ----------------------------------------------------
+
+models/mapobjects/strogg/console/pillar/screen_02_small
+{
+      noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 256 256 -aa 2 -MergeHigh -trace .05 -unweld models/mapobjects/strogg/screens/monitor_small_02_local.tga models/mapobjects/strogg/screens/monitor_small_02_high.lwo
+
+	bumpmap			models/mapobjects/strogg/console/pillar/screen_02_small_local.tga
+	diffusemap		models/mapobjects/strogg/console/pillar/screen_02_small_d.tga
+	specularmap		models/mapobjects/strogg/console/pillar/screen_02_small_s.tga
+
+}
+
+//console/generic/data_bank1--------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/console/generic/data_bank1
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .05 models/mapobjects/strogg/console/generic/data_bank1_local.tga  work/models/mapobjects/strogg/console/generic/data_bank1_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/data_bank1_local.tga, heightmap
+(models/mapobjects/strogg/console/generic/data_bank1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/data_bank1_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/data_bank1_s.tga
+	
+
+
+}
+
+//grey .skin file for the stroggdata console-------------------------------------------------------
+models/mapobjects/strogg/console/generic/data_bank1a
+{
+      noselfShadow
+	unsmoothedtangents
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/data_bank1_local.tga, heightmap
+(models/mapobjects/strogg/console/generic/data_bank1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/data_bank1a_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/data_bank1_s.tga
+	
+/*	{ 
+		blend add
+		map models/mapobjects/strogg/console/generic/data_bank1_g1.tga
+	}
+	*/
+}
+
+//console/generic/data_bank2--------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/console/generic/data_bank2
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -mergeHigh -trace .05 models/mapobjects/strogg/console/generic/data_bank2_local.tga  work/models/mapobjects/strogg/console/generic/data_bank2_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/data_bank2_local.tga, heightmap
+(models/mapobjects/strogg/console/generic/data_bank2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/data_bank2_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/data_bank2_s.tga
+}
+
+//.skin file for data_bank2 (grey)------------------------------------------------------------
+
+
+models/mapobjects/strogg/console/generic/data_bank2a
+{
+      noselfShadow
+	unSmoothedTangents
+	
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/data_bank2_local.tga, heightmap
+(models/mapobjects/strogg/console/generic/data_bank2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/data_bank2a_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/data_bank2_s.tga
+}
+
+
+
+
+//console/generic/data_bank3--------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/console/generic/data_bank3
+{
+      noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -mergeHigh -trace .5 models/mapobjects/strogg/console/generic/data_bank3_local.tga  work/models/mapobjects/strogg/console/generic/data_bank3_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/generic/data_bank3_local.tga, heightmap
+(models/mapobjects/strogg/console/generic/data_bank3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/generic/data_bank3_d.tga
+	specularmap		models/mapobjects/strogg/console/generic/data_bank3_s.tga
+}
+
+
+
+//WallUnitGuy--------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/strogg/console/guiguy/WallUnitGuy
+{
+      noselfShadow
+	unSmoothedTangents
+	materialImage models/mapobjects/strogg/console/guiguy/WallUnitGuy_hit
+	
+	renderbump  -size 512 512 -aa 2 -mergeHigh -trace .5 models/mapobjects/strogg/console/guiguy/WallUnitGuy_local.tga  work/models/mapobjects/strogg/console/guiguy/WallUnitGuy_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/console/guiguy/WallUnitGuy_local.tga, heightmap
+(models/mapobjects/strogg/console/guiguy/WallUnitGuy_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/console/guiguy/WallUnitGuy_d.tga
+	specularmap		models/mapobjects/strogg/console/guiguy/WallUnitGuy_s.tga
+}

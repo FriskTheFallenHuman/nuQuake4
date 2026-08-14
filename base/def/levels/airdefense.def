@@ -1,0 +1,1092 @@
+/***********************************************************************************************************************
+Air Defense
+
+Unique entities created for the airdefense level
+************************************************************************************************************************/
+
+model model_airdefense_char_marine
+{
+	inherit												model_char_marine
+//	inherit												char_marinehead_helmet
+
+	anim ad_marine_dragged								models/characters/marine/ad_marine_dragged.md5anim
+	{	
+		frame 1											disableClip
+	//	frame 4,6,8,10,12,14,16,18,20,22				ai_attack			base				MG_muzzle_flash
+		frame 4,6,10,12,18,20,22						ai_attack			fromJoint			MG_muzzle_flash
+		frame 4,6,10,12,18,20,22						sound_weapon		npc_machinegun_fire
+		frame 4,6,10,12,18,20,22						fx					fx_base_flash		MG_muzzle_flash
+
+		frame 2											sound				snd_grunt_drag_1
+		frame 60										sound				snd_grunt_drag_2
+
+	}
+	anim ad_berserker_intro           					models/characters/marine/ad_berserker_intro.md5anim
+	{
+		frame 1											disableClip
+		frame 14										call				map_airdefense1::openSkewerDoors
+		frame 8											sound_voice			snd_call_player
+		frame 33										sound_voice			snd_skewer_scream
+		frame 41										sound				snd_bloody_body_fall
+		frame 44										fx					fx_bloody_hit		chest
+		frame 70										sound				snd_body_fall
+		frame 72										sound				snd_bloody_body_fall
+	}
+	anim	ad_pinned_down					models/characters/marine/ad_pinned_down.md5anim
+	{
+		ai_no_look
+	}
+	anim	ad_bidwell_wave					models/characters/marine/ad_bidwell_wave.md5anim
+	anim trench_fire            						models/characters/marine/trench_fire.md5anim
+	anim roll_trench									models/characters/marine/roll_trench.md5anim
+	{
+		frame	1										disableClip
+		frame	8										enableClip
+	}
+	anim injured_arm            						models/characters/marine/injured_arm.md5anim   
+	anim remove_debris          						models/characters/marine/remove_debris.md5anim 
+	anim shielding              						models/characters/marine/shielding.md5anim                      
+	
+	/* UNREFERENCED
+	anim ad_miller_death        						models/characters/marine/ad_miller_death.md5anim                  
+	anim ad_miller_death_wchain 						models/characters/marine/ad_miller_death_wchain.md5anim 
+	*/
+	
+	anim wounded_treated								models/characters/marine/wounded_treated.md5anim
+	anim wounded_loop									models/characters/marine/wounded_loop.md5anim
+	anim medic_treating									models/characters/marine/medic_treating.md5anim             
+	{
+		ai_no_look
+	}
+	
+	anim wave_over										models/characters/marine/bld_b_morris_rescue.md5anim
+	anim crouch_popup_shoot								models/characters/marine/crouch_right_popup.md5anim
+	{
+		frame 14,16,18,20,22,24,26,28,30,32,34			ai_attack			fromJoint			MG_muzzle_flash
+		frame 14,16,18,20,22,24,26,28,30,32,34			sound_weapon		npc_machinegun_fire
+		frame 14,16,18,20,22,24,26,28,30,32,34			fx					fx_base_flash		MG_muzzle_flash
+
+	}
+
+	anim ad_fights_grunt_1      						models/characters/marine/ad_fights_grunt_1.md5anim
+	{
+		frame  	1										disableClip
+		frame	16										sound			generic_creature_fall_small
+		frame	41,128									sound			snd_ready_shotgun
+		frame 	42										fx				fx_base_flash			SG_muzzle_flash
+		frame 	42										sound_weapon	snd_shotgun_fire
+		frame	64,90,115								sound			snd_gear
+		frame 	43										enableClip
+		frame	62,107,116								footstep
+	}
+	anim ad_fights_grunt_2      						models/characters/marine/ad_fights_grunt_2.md5anim
+	{
+		frame	3,107									sound			snd_gear
+		frame	15										footstep
+	}
+
+	anim ad_morris_intro								models/characters/marine/ad_morris_intro.md5anim
+	{
+		ai_look_head_only
+	}
+	anim ad_miller										models/characters/marine/ad_miller.md5anim
+	
+// these were previously used for when kovitch could die.  This is no longer being done	
+//	anim miller_shuffle									models/characters/marine/miller_shuffle.md5anim	
+//	anim miller_talk_kovitch							models/characters/marine/miller_talk_kovitch.md5anim
+//	anim miller_talk_player								models/characters/marine/miller_talk_player.md5anim
+	
+	anim ad_door_marine									models/characters/marine/ad_door_marine.md5anim
+	anim ad_door_marine_idle							models/characters/marine/ad_door_marine_idle.md5anim	
+	
+	anim	and_stimpack2b					models/characters/marine/and_stimpack2b.md5anim
+	{
+		ai_no_look
+	}
+	anim	and_stimpack2b_loop				models/characters/marine/and_stimpack2b_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim 	mhstrom_wounded_a				models/characters/marine/mhstrom_wounded_a.md5anim
+	anim	mhstrom_loop_a					models/characters/marine/mhstrom_loop_a.md5anim
+	anim	mhstrom_wounded_b				models/characters/marine/mhstrom_wounded_b.md5anim
+	anim	mhstrom_loop_b					models/characters/marine/mhstrom_loop_b.md5anim
+	
+	anim	ad_trench_fire					models/characters/marine/ad_trench_fire.md5anim
+	
+	anim	ad_cover_1						models/characters/marine/ad_cover_1.md5anim
+	anim	ad_cover_2						models/characters/marine/ad_cover2.md5anim
+	
+	/* UNREFERENCED
+	anim	ad_cover3_loop					models/characters/marine/ad_cover3_loop.md5anim
+	anim	ad_cover3_guistart				models/characters/marine/ad_cover3_guistart.md5anim
+	anim	ad_cover3_guiloop				models/characters/marine/ad_cover3_guiloop.md5anim
+	anim	ad_cover3_guiend				models/characters/marine/ad_cover3_guiend.md5anim
+	*/
+	
+	// Copies of stuff from base marine
+	anim working_wall_panel				models/characters/marine/working_wall_panel.md5anim
+	{
+		ai_look_head_only
+	}
+	anim working_wall_panel_3			models/characters/marine/working_wall_panel_3.md5anim
+	{
+		ai_look_head_only
+	}
+
+	anim aim_snappy_2					models/characters/marine/m_stand_aim_snappy_2.md5anim	
+	anim idle_scan_2					models/characters/marine/idle_scan_2.md5anim
+	
+	anim idle_reclined_3				models/characters/marine/idle_reclined_3.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	cowering_start				models/characters/marine/cowering_start.md5anim
+	anim	cowering_idle				models/characters/marine/cowering_idle.md5anim
+	anim	cowering_end				models/characters/marine/cowering_end.md5anim
+	
+	anim	lay_loop_1a					models/characters/marine/lay_loop_1a.md5anim
+	{
+		ai_no_look
+	}
+	anim	kneel_loop_1b					models/characters/marine/kneel_loop_1b.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	liftlegs_a					models/characters/marine/liftlegs_a.md5anim
+	{
+		ai_no_look
+	}
+	anim	liftlegs_b					models/characters/marine/liftlegs_b.md5anim
+	{
+		ai_no_look
+	}
+	anim	drag_loop_a					models/characters/marine/drag_loop_a.md5anim
+	{
+		ai_no_look
+	}
+	anim	drag_loop_b					models/characters/marine/drag_loop_b.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	treat_talk						models/characters/marine/treat_talk.md5anim
+	anim	treat_talk_loop					models/characters/marine/treat_talk_loop.md5anim
+	anim	treat_to_stand					models/characters/marine/treat_to_stand.md5anim
+	anim	stand_to_treat					models/characters/marine/stand_to_treat.md5anim
+	
+	anim	idle_weapon_3_start				models/characters/marine/idle_weapon_3_start.md5anim
+	anim	idle_weapon_3_loop				models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3					models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3_end				models/characters/marine/idle_weapon_3_end.md5anim
+	
+	anim	com_link_start				models/characters/marine/com_link_start.md5anim
+	{
+		frame	27							sound	snd_comm
+	}
+	anim	com_link_loop				models/characters/marine/com_link_loop.md5anim
+	anim	com_link_end				models/characters/marine/com_link_end.md5anim
+	
+	anim wrist_gui_2					models/characters/marine/wrist_gui_2.md5anim
+
+}
+
+entityDef airdefense_char_marine
+{
+	"inherit"											"char_marine"
+	"model"												"model_airdefense_char_marine"
+	"editor_menu"										"level"
+
+	"sg_category"										"None"
+
+	"def_attack_fromJoint"								"hitscan_marine_bullet"
+
+	"attack_fromJoint_hitscan"							"1"
+	"attack_fromJoint_lockToJoint"						"1"
+
+	"snd_grunt_drag_1"									"vo_1_1_1_80_1"
+	"snd_grunt_drag_2"									"vo_1_1_1_80_2"
+	"snd_skewer_scream"									"vo_9_15_270_2"
+	"snd_body_fall"										"npc_bodyfall"
+	"snd_bloody_body_fall"								"effects_gib"
+
+	// Come On!	
+	"lipsync_vo_1_1_1_43_1"								"vo_1_1_1_43_1"
+	// Corp Kane
+	//"snd_call_player"									"vo_1_1_2_09_1"
+	"snd_call_player"									"vo_1_1_2_09_1_global"
+	
+	// we're clear , go on and find your squad
+	"lipsync_vo_1_1_1_44_1"								"vo_1_1_1_44_1"
+	"lipsync_vo_1_1_1_45_1"								"vo_1_1_1_45_1"
+	
+	"snd_gear"											"npc_gear_movement"
+	"snd_shotgun_fire"									"tacticaltransfer_sbotgun_fire"
+	"snd_ready_shotgun"									"tacticaltransfer_shotgun_pump"
+	"snd_footstep"										"npc_steps_solid_metal"
+	"snd_footstep_sand"									"player_steps_dirt"
+	"snd_footstep_dirt"									"player_steps_dirt"
+	"snd_footstep_hollowmetal"							"player_steps_hollow_metal"
+	"snd_footstep_rock"									"player_sounds_footstep"
+
+	"fx_bloody_hit"										"effects/monsters/berserker/gut_hit.fx"
+}
+
+entityDef airdefense_char_marine_shotgun
+{	
+	"inherit"											"char_marine_shotgun"
+	"model"												"model_airdefense_char_marine"
+	"editor_menu"										"level"
+
+	"sg_category"										"None"
+
+	"def_attack_fromJoint"								"hitscan_marine_bullet"
+
+	"attack_fromJoint_hitscan"							"1"
+	"attack_fromJoint_lockToJoint"						"1"
+
+	"snd_grunt_drag_1"									"vo_1_1_1_80_1"
+	"snd_grunt_drag_2"									"vo_1_1_1_80_2"
+
+	"snd_gear"											"npc_gear_movement"
+	"snd_shotgun_fire"									"tacticaltransfer_sbotgun_fire"
+	"snd_ready_shotgun"									"tacticaltransfer_shotgun_pump"
+	"snd_footstep"										"npc_steps_solid_metal"
+	"snd_footstep_sand"									"player_steps_dirt"
+	"snd_footstep_dirt"									"player_steps_dirt"
+	"snd_footstep_hollowmetal"							"player_steps_hollow_metal"
+	"snd_footstep_rock"									"player_sounds_footstep"
+
+	"fx_bloody_hit"										"effects/monsters/berserker/gut_hit.fx"
+}
+
+entityDef airdefense_char_marine_hyperblaster
+{	
+	"inherit"						"char_marine_hyperblaster"
+	"model"							"model_airdefense_char_marine"
+	"editor_menu"						"level"
+}
+
+
+// -- NPC Cortez (AirDefense) ------------------------------------------------------------------------------------
+
+model model_char_marine_npc_cortez_airdefense
+{
+	inherit												model_airdefense_char_marine
+												
+	anim	ad_cortez_intro								models/characters/marine/ad_cortez_intro.md5anim
+	{
+		//ai_no_look
+		frame 5,12,58									ai_attack			fromJoint			MG_muzzle_flash
+		frame 5,12,58									sound_weapon		npc_cortez_fire
+		frame 5,12,58									fx					fx_base_flash		MG_muzzle_flash
+	
+		frame 5											call				map_airdefense1::cortezVictim1 
+		frame 12										call				map_airdefense1::cortezVictim2
+		frame 58										call				map_airdefense1::cortezVictim3
+
+	}
+}
+
+entityDef char_marine_npc_cortez_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"model"												"model_char_marine_npc_cortez_airdefense"
+	"editor_menu"										"char_npc_airdefense"
+
+	//play these sounds when speaking to the player
+	"lipsync_1_1_2_55_1"								"vo_1_1_2_55_1"
+	"lipsync_1_1_2_55_2"								"vo_1_1_2_55_2"
+	
+	"lipsync_talk_primary"								"vo_9_3_20_1"
+	"lipsync_talk_secondary"							"vo_9_3_20_2"
+	"lipsync_talk_loop1"								"vo_9_3_20_3"
+	
+	"def_persona"										"persona_rhino_cortez_cpl"
+
+}
+// -- NPC Ripkey and Judkins (AirDefense) ------------------------------------------------------------------------------------
+// Trench guys fighting off the strogg
+
+entityDef char_marine_npc_ripkey_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	//smack talk in the trench
+	"lipsync_trench_jive_1"								"vo_1_1_3_60_1"
+	"lipsync_trench_jive_2"								"vo_1_1_3_60_2"
+	"lipsync_trench_jive_3"								"vo_1_1_3_60_3"
+	"lipsync_trench_jive_4"								"vo_1_1_3_60_4"
+	"lipsync_trench_jive_5"								"vo_1_1_3_60_5"
+
+	//use talk
+	"lipsync_vo_1_1_3_62_1"								"vo_1_1_3_62_1"
+	"lipsync_vo_1_1_3_62_2"								"vo_1_1_3_62_2"
+	"lipsync_vo_1_1_3_62_3"								"vo_1_1_3_62_3"
+	
+}
+
+entityDef char_marine_npc_judkins_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	//smack talk in the trench
+	"lipsync_trench_jive_1"								"vo_1_1_3_40_1"
+	"lipsync_trench_jive_2"								"vo_1_1_3_40_2"
+	"lipsync_trench_jive_3"								"vo_1_1_3_40_3"
+	"lipsync_trench_jive_4"								"vo_1_1_3_40_4"
+	"lipsync_trench_jive_5"								"vo_1_1_3_40_5"
+
+	//use talk
+	"lipsync_vo_1_1_3_42_1"								"vo_1_1_3_42_1"
+	"lipsync_vo_1_1_3_42_2"								"vo_1_1_3_42_2"
+	"lipsync_vo_1_1_3_42_3"								"vo_1_1_3_42_3"
+	
+}
+/* underwood was cut
+// -- NPC Underwood (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_underwood_airdefense
+{
+	"inherit"											"char_marine_hyperblaster"
+	"editor_menu"										"char_npc_airdefense"
+
+	"lipsync_intro"										"vo_1_1_3_20_1"
+	
+	"lipsync_joinParty"									"vo_1_1_3_21_1"
+	"lipsync_leaveParty"								"vo_1_1_3_21_2"
+
+	//underwood should stick close by to you
+	"followRange"										"70 150"
+}
+*/
+// -- NPC Sledge (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_sledge_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	"def_head"											"char_marinehead_sledge"
+	
+	"comrade"											"da"
+	"def_persona"										"persona_rhino_sledge_lcpl"
+
+}
+
+// -- NPC Bidwell (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_bidwell_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	"def_persona"										"persona_rhino_bidwell_sgt"
+
+	// "We're just getting started. We've gotta take out that air defense cannon but the 
+	// Strogg fliers are keeping us pinned us down. There's no way to..."
+	"lipsync_vo_1_1_3_80_3"								"vo_1_1_3_80_3"
+
+	// "He's right here, sir."
+	"lipsync_vo_1_1_3_80_5"								"vo_1_1_3_80_5"
+	
+	// "You heard the man, Kane. Get to the hangars. Morris, you're with him. Move out!"
+	"lipsync_vo_1_1_3_80_7"								"vo_1_1_3_80_7"
+}
+
+
+// -- NPC Voss (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_voss_airdefense
+{
+	"inherit"											"char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	"def_persona"										"persona_rhino_voss_lt"
+
+	
+}
+
+// -- NPC Rhodes (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_rhodes_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	//"def_persona"										"persona_rhino_rhodes_cpl"
+	"inherit1"					"persona_rhino"
+
+	"npc_name"					"#str_107516"
+		
+	"def_head"					"char_marinehead_rhodes"
+
+
+	// "So you are alive. Damn, Cortez won the bet."
+	"lipsync_vo_1_1_3_80_1"								"vo_1_1_3_80_1"
+
+	"lipsync_busy_1"									""
+}
+	
+// -- NPC Sgt Miller (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_miller_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	"npc_name"											"#str_400289"
+	"npc_description"									"#str_400207"
+	
+	"ammo"												"60"
+	"weaponPrefix"										"hyperblaster"
+	"minShots"											"5"	
+	"maxShots"											"15"
+
+// There is no Miller head yet!
+//	"def_head"											"char_marinehead_miller"
+
+	// Miller calling for a medic
+	"lipsync_1_1_1_170_2"								"vo_1_1_1_170_2"
+	"lipsync_1_1_1_170_3"								"vo_1_1_1_170_3"
+	"lipsync_1_1_1_170_3_1"								"vo_1_1_1_170_3_1"
+
+	// Miller telling the player what to do-- go back and grab a medic.
+	"lipsync_1_1_1_180_1"								"vo_1_1_1_180_1"
+//	"lipsync_1_1_1_180_2"								"vo_1_1_1_180_2"
+//	"lipsync_1_1_1_180_3"								"vo_1_1_1_180_3"
+
+	// Miller yelling at the player to get a medic
+	"lipsync_talk_primary"								"vo_1_1_1_190_1"
+	"lipsync_talk_secondary"							"vo_1_1_1_190_2"
+	"lipsync_talk_loop1"								"vo_1_1_1_190_3"
+
+	//when medic arrives
+ 	"lipsync_1_1_2_50_1"								"vo_1_1_2_50_1"
+ 	"lipsync_1_1_2_50_5"								"vo_1_1_2_50_5"
+//	"lipsync_1_1_2_50_6"								"vo_1_1_2_50_6"
+ 	
+	"lipsync_9_12_20_2"									"vo_9_12_20_2"
+//	"lipsync_9_12_30_1"									"vo_9_12_30_1"
+//	"lipsync_9_12_30_3"									"vo_9_12_30_3"
+}
+
+
+
+// -- NPC Morris (AirDefense) ------------------------------------------------------------------------------------
+
+entityDef char_marine_npc_morris_airdefense
+{
+	"inherit"											"airdefense_char_marine"
+	"editor_menu"										"char_npc_airdefense"
+
+	"look_min"											"-80 -45 0"
+	"look_max"											"80 45 0"
+
+	"def_persona"										"persona_rhino_morris_sgt"
+	
+	// Intro VO-----------------------------------------------------------------------
+
+	// Talking to voss over the radio
+	"lipsync_vo_1_1_1_28_2"								"vo_1_1_1_28_2"
+
+	// trying to maintain contact with HQ
+	"lipsync_vo_1_1_1_30_1"								"vo_1_1_1_30_1"
+	"lipsync_vo_1_1_1_30_2"								"vo_1_1_1_30_2"
+	"lipsync_vo_1_1_1_30_3"								"vo_1_1_1_30_3"
+
+	//talking to the player-- giving orders
+	"lipsync_vo_1_1_1_40_1"								"vo_1_1_1_40_1"
+	"lipsync_vo_1_1_1_40_2"								"vo_1_1_1_40_2"
+	"lipsync_vo_1_1_1_40_3"								"vo_1_1_1_40_3"
+
+	// Trench VO-----------------------------------------------------------------------
+	//	"Hello, ladies. I ran as fast as I could - what have I missed?"
+	"lipsync_vo_1_1_3_80_2"								"vo_1_1_3_80_2"
+	
+	//Morris should stick close by to you
+	"followRange"										"70 150"
+
+
+}
+
+model model_airdefense_char_marine_medic	{
+	
+	inherit							model_airdefense_char_marine
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+	
+}
+
+
+entityDef char_marine_npc_metcalf_airdefense
+{
+	"inherit"											"char_marine_unarmed"
+	
+	"editor_menu"										"char_npc_airdefense"
+	"model"												"model_airdefense_char_marine_medic"
+
+	"anim_idle"											"idle_reclined_3"
+	"anim_talk"											"idle_reclined_3"
+}
+
+// -- NPC Anderson (AirDefense) ------------------------------------------------------------------------------------
+model model_airdefense_specialty_anderson
+{
+	"inherit"									"model_airdefense_char_marine_medic"
+
+	anim	unarmed_idle					models/characters/marine/weaponless_idle_1.md5anim	
+	{
+		ai_no_look
+	}
+
+	// this is just a short placeholder anim of sorts which needs to be there for when the medic ai goes to play this anim
+	anim	medic_treating_player_start		models/characters/marine/ad_medic_still.md5anim
+	{
+		ai_no_look
+	}
+	anim	medic_treating_player			models/characters/marine/ad_medic_treating_player.md5anim
+	{
+		rate 1.5
+		ai_no_look
+		frame	1							sound	snd_med_gun_heal
+	}
+	// this is just a short placeholder anim of sorts which needs to be there for when the medic ai goes to play this anim
+	anim	medic_treating_player_end		models/characters/marine/ad_medic_still.md5anim
+	{
+		ai_no_look
+	}
+	anim	ad_medic_treating_player			models/characters/marine/ad_medic_treating_player.md5anim
+	{
+		ai_look_head_only
+		frame	1							sound	snd_med_gun_heal
+	}
+
+	
+	anim	stand_to_treat						models/characters/marine/stand_to_treat.md5anim
+	{
+		ai_no_look
+		frame	14								attachment_hide		medic_vaccinegun
+	}
+	anim	treat_to_stand						models/characters/marine/treat_to_stand.md5anim
+	{
+		ai_no_look
+		frame	20								attachment_show		medic_vaccinegun
+	}
+	anim	treat_talk							models/characters/marine/treat_talk.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	treat_talk_loop						models/characters/marine/treat_talk_loop.md5anim
+	{
+		ai_look_head_only
+	}
+}
+
+model model_airdefense_anderson
+{
+	"inherit"									"model_char_marine_medic"
+
+	anim	and_stimpack2a					models/characters/marine/and_stimpack2a.md5anim
+	{
+		ai_no_look
+		frame 	1							disableClip
+		frame 	1							disableGravity
+		frame	8,18,27						footstep
+		frame	270							attachment_show		medic_vaccinegun
+		frame   303							sound				med_gun_heal
+		frame 	470							enableClip
+	}
+	anim	and_stimpack2a_loop				models/characters/marine/and_stimpack2a_loop.md5anim
+	{
+		ai_no_look
+	}
+}
+
+entityDef char_marine_npc_anderson_airdefense_intro
+{
+	"inherit"										"char_marine_medic"
+	
+	"editor_menu"										"char_npc_airdefense"
+	"model"											"model_airdefense_specialty_anderson"
+	"def_persona"										"persona_rhino_anderson_pfc"
+
+	"melee_range"										"200"
+	// 	description	"And I've got a Marine here with a collapsed lung." / "well he'll have to wait"
+	"lipsync_vo_1_1_1_15_2"								"vo_1_1_1_15_2"
+	"lipsync_vo_1_1_1_15_4"								"vo_1_1_1_15_4"
+
+	// talking to the wounded Metcalf
+	"lipsync_vo_1_1_1_18_4"								"vo_1_1_1_18_4"
+	"lipsync_vo_1_1_1_18_5"								"vo_1_1_1_18_5"
+	"lipsync_vo_1_1_1_18_6"								"vo_1_1_1_18_6"
+	"lipsync_vo_1_1_1_18_7"								"vo_1_1_1_18_7"
+
+	//talking to Kane, giving him orders
+	"lipsync_vo_1_1_1_20_1"								"vo_1_1_1_20_1"
+	"lipsync_vo_1_1_1_20_2"								"vo_1_1_1_20_2"
+	"lipsync_vo_1_1_1_20_3"								"vo_1_1_1_20_3"
+
+	"lipsync_vo_1_1_1_21_1"								"vo_1_1_1_21_1"
+	"lipsync_vo_1_1_1_21_2"								"vo_1_1_1_21_2"
+
+	//Use chat
+	"lipsync_talk_primary"								"vo_1_1_1_21_3"
+//	"lipsync_talk_secondary"							"vo_1_1_1_21_3"
+//	"lipsync_talk_loop1"								"vo_1_1_1_21_3"
+
+	"anim_idle"											"medic_treating"
+	"anim_talk"											"medic_treating"
+
+	//too close
+	"lipsync_canihelpyou1"								"vo_1_1_1_22_1"
+	"lipsync_canihelpyou2"								"vo_1_1_1_22_2"
+}
+
+entityDef char_marine_npc_anderson_airdefense
+{
+//	"inherit"											"char_marine_medic"
+	"inherit"											"char_marine_medic_armed"
+	"editor_menu"										"char_npc_airdefense"
+	"model"												"model_airdefense_anderson"
+	"def_persona"										"persona_rhino_anderson_pfc"
+	
+	//give this guy a machine gun
+	"hidesurface5"										""
+
+
+	//Anderson should stick very close to you.
+	"followRange"										"80 150"
+
+	// MEDIC lipsyncs for medic script
+/*	// Let the persona fill these in. In any case, these sounds	no longer exist!
+	"lipsync_call_marine_1"								"vo_1_1_1_26_1"
+	"lipsync_call_marine_2"								"vo_1_1_1_26_2"
+	"lipsync_call_marine_3"								"vo_1_1_1_26_3"
+
+	"lipsync_call_player_1"								"vo_1_1_1_27_1"
+	"lipsync_call_player_2"								"vo_1_1_1_27_2"
+	"lipsync_call_player_3"								"vo_1_1_1_27_2"
+	"lipsync_call_player_4"								"vo_1_1_1_27_1"
+	"lipsync_call_player_5"								"vo_1_1_1_27_2"
+	
+	"lipsync_heal_start_1"								"vo_1_1_1_24_1"
+	"lipsync_heal_start_2"								"vo_1_1_1_24_2"
+	"lipsync_heal_start_3"								"vo_1_1_1_24_3"
+	"lipsync_heal_start_4"								"vo_1_1_1_24_4"
+	
+	"lipsync_heal_end_1"								"vo_1_1_1_25_1"
+	"lipsync_heal_end_2"								"vo_1_1_1_25_2"
+	"lipsync_heal_end_3"								"vo_1_1_1_25_3"
+	"lipsync_heal_end_4"								"vo_1_1_1_25_4"
+*/
+	"lipsync_heal_busy_1"								"vo_9_1_30_2"
+	"lipsync_heal_busy_2"								"vo_9_1_30_3"
+
+	"lipsync_heal_noheal_1"								"vo_9_1_250_1"
+	"lipsync_heal_noheal_2"								"vo_9_1_250_3"
+
+	"snd_med_gun_heal"									"med_gun_heal"
+	
+	//there's a man in trouble? Yeah, I can go...
+	"lipsync_vo_1_1_2_10_1"								"vo_1_1_2_10_1"
+
+	//so many lives pwned
+	"lipsync_vo_1_1_2_40_1"								"vo_1_1_2_40_1"
+
+	//meeting up with the injured team
+	"lipsync_1_1_2_50_2"								"vo_1_1_2_50_2"
+	"lipsync_1_1_2_50_3"								"vo_1_1_2_50_3"
+	"lipsync_1_1_2_50_4"								"vo_1_1_2_50_4"
+
+	"lipsync_talk_primary"								"vo_1_1_2_12_1"
+	"lipsync_talk_secondary"							"vo_1_1_2_12_2"
+//	"lipsync_talk_loop1"								"vo_1_1_2_12_2"
+
+	//too close
+	"lipsync_canihelpyou1"								"vo_1_1_1_22_1"
+	"lipsync_canihelpyou2"								"vo_1_1_1_22_2"
+}
+
+/*
+entityDef e3_char_marine_npc_peterson
+{
+	"inherit"											"char_marine_medic_armed"
+	"editor_menu"										"char_npc_airdefense"
+	"model"												"model_char_marine_medic"
+	
+	//give this guy a machine gun
+	"hidesurface5"										""
+
+	//Anderson should stick very close to you.
+	"followRange"										"80 150"
+
+	// MEDIC lipsyncs for medic script
+	"lipsync_call_marine_1"								"vo_1_1_1_26_1"
+	"lipsync_call_marine_2"								"vo_1_1_1_26_2"
+	"lipsync_call_marine_3"								"vo_1_1_1_26_3"
+
+	"lipsync_call_player_1"								"vo_1_1_1_27_1"
+	"lipsync_call_player_2"								"vo_1_1_1_27_2"
+	"lipsync_call_player_3"								"vo_1_1_1_27_2"
+	"lipsync_call_player_4"								"vo_1_1_1_27_1"
+	"lipsync_call_player_5"								"vo_1_1_1_27_2"
+	
+	"lipsync_heal_start_1"								"vo_1_1_1_24_1"
+	"lipsync_heal_start_2"								"vo_1_1_1_24_2"
+	"lipsync_heal_start_3"								"vo_1_1_1_24_3"
+	"lipsync_heal_start_4"								"vo_1_1_1_24_4"
+	
+	"lipsync_heal_end_1"								"vo_1_1_1_25_1"
+	"lipsync_heal_end_2"								"vo_1_1_1_25_2"
+	"lipsync_heal_end_3"								"vo_1_1_1_25_3"
+	"lipsync_heal_end_4"								"vo_1_1_1_25_4"
+
+	"lipsync_heal_busy_1"								"vo_9_1_30_2"
+	"lipsync_heal_busy_2"								"vo_9_1_30_3"
+
+	"lipsync_heal_noheal_1"								"vo_9_1_250_1"
+	"lipsync_heal_noheal_2"								"vo_9_1_250_3"
+
+	"snd_med_gun_heal"									"med_gun_heal"
+	
+	//there's a man in trouble? Yeah, I can go...
+	"lipsync_vo_1_1_2_10_1"								"vo_1_1_2_10_1"
+
+	//so many lives pwned
+	"lipsync_vo_1_1_2_40_1"								"vo_1_1_2_40_1"
+
+	//meeting up with the injured team
+	"lipsync_1_1_2_50_2"								"vo_1_1_2_50_2"
+	"lipsync_1_1_2_50_3"								"vo_1_1_2_50_3"
+	"lipsync_1_1_2_50_4"								"vo_1_1_2_50_4"
+
+	"lipsync_talk_primary"								"vo_1_1_2_12_1"
+	"lipsync_talk_secondary"							"vo_1_1_2_12_2"
+	"lipsync_talk_loop1"								"vo_1_1_2_12_2"
+
+	//too close
+	"lipsync_canihelpyou1"								"vo_1_1_1_22_1"
+	"lipsync_canihelpyou2"								"vo_1_1_1_22_2"
+}
+*/
+
+// -- Specialty Grunt ------------------------------------------------------------------------------------
+
+
+model model_airdefense_monster_grunt {
+
+	inherit													model_monster_grunt
+
+	anim ad_jump											models/monsters/grunt/ad_jump.md5anim
+	{	
+		frame 	1											disableClip
+		frame	3,44										sound			snd_wiff
+		frame	5											sound			snd_fall_special
+		frame	19											sound			snd_anger
+		frame 	41											enableClip
+		frame 	42											call			map_airdefense1::gruntBlasted
+		frame	49											sound			snd_pain
+	}
+	anim ad_grunt_drags										models/monsters/grunt/ad_grunt_drags.md5anim
+	{
+		frame	13,26,38,47,58,69							footstep
+		frame	3,35,56										sound				snd_breathe
+	}
+	anim ad_bustin_pipes									models/monsters/grunt/ad_bustin_pipes.md5anim
+	{
+		frame 	1											disableClip
+		frame	3											sound				snd_pipe_bust
+		frame	8											sound				snd_rush
+		frame	21,29,60									sound				snd_breathe
+		frame	42											sound				snd_wiff
+		frame 	6											call				map_airdefense1::playerKnockback
+		frame 	65											enableClip
+	}
+}
+
+entityDef airdefense_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"model"												"model_airdefense_monster_grunt"
+	"editor_menu"										"level"
+
+	"sg_category"										"None"
+
+	"snd_music_stinger"									"generic_music_stinger"
+	"snd_music_marine_attack"							"grunt_marine_attack"
+	
+	"snd_pipe_bust"										"grunt_poundground"
+	"snd_growl"											"grunt_growl"
+	"snd_rush"											"grunt_rush"
+	"snd_fall_special"									"grunt_fall_special_noshakes"
+	"snd_death"											"grunt_death"
+	"snd_breathe"										"grunt_breathe"
+	"snd_wiff"											"grunt_wiff"
+	"snd_anger"											"grunt_anger_noshakes"
+	"snd_pain"											"grunt_pain"
+	
+	"snd_footstep"										"grunt_footsteps"
+	"snd_footstep_sand"									"grunt_footsteps_dirt"
+	"snd_footstep_dirt"									"grunt_footsteps_dirt"
+	"snd_footstep_hollowmetal"							"grunt_footsteps_hollow_metal"
+	"snd_footstep_rock"									"grunt_footsteps"
+}
+
+// -- AirDefense Big Gun ------------------------------------------------------------------------------------
+
+export airdefense_big_gun
+{
+	options -prefix DELETE_ -keep eye -sourcedir work/models/monsters/air_defense_cannon/animation -destdir models/monsters/air_defense_cannon
+	mesh	ver2_idle.ma			-dest mesh
+	anim	ver2_idle.ma			-dest idle
+	anim	ver2_fire.ma			-dest fire
+}
+
+model model_airdefense_big_gun
+{
+	mesh												models/monsters/air_defense_cannon/mesh.md5mesh
+
+	anim	idle										models/monsters/air_defense_cannon/idle.md5anim
+	anim	fire										models/monsters/air_defense_cannon/fire.md5anim 
+	{
+		frame	1,6										sound	snd_fire	
+	}
+}
+
+entityDef airdefense_big_gun
+{
+	"spawnclass"										"idAnimated"
+	"model"												"model_airdefense_big_gun"
+	"editor_menu"										"level"
+
+	"editor_color"										"0 .5 .25"
+	"editor_mins"										"-64 -64 0"
+	"editor_maxs"										"64 64 360"
+	"editor_usage"										"Big gun in airdefense"
+	
+	"snd_fire"											"airdefense_cannon_fire"
+}
+
+entityDef projectile_airdefense_rocket
+{
+	"inherit"											"projectile_walker_rocket"
+
+	"cinematic"											"1"
+	"fx_fly"											"effects/vehicles/walker/rocket/trail_world.fx"
+	"fx_impact"											"effects/explosions/surface/medium2.fx"	
+	"fx_impact_rock"									"effects/explosions/surface/medium2.fx"
+	"fx_impact_concrete"								"effects/explosions/surface/medium2.fx"		
+}
+
+entityDef projectile_airdefense_rocket_splode
+{
+	"inherit"											"projectile_walker_rocket"
+
+	"fx_fly"											"effects/vehicles/walker/rocket/trail_world.fx"
+	"fx_impact"											"effects/explosions/surface/medium2.fx"	
+}
+
+entityDef projectile_strafe_flyer
+{
+	"inherit"		"projectile_walker_rocket"
+	
+	"speed"			"2000"
+	"fx_fly"											"effects/vehicles/walker/rocket/trail2.fx"
+	"fx_trail"											"effects/vehicles/walker/rocket/trail2.fx"	
+}
+
+// ---------------------------------------------------------------------------------------
+//	Air Defense Sizzle Barrel
+// ---------------------------------------------------------------------------------------
+
+entityDef damage_ad_sizzle_explosion 
+{
+	"damage"					"60"
+	"radius"					"256"
+	"push"						"9000"
+}
+
+entityDef debris_ad_barrel_top 
+{
+	"model" 					"models/mapobjects/fuel_barrel/exp_barrel2b.lwo"
+	"density"					"0.02"
+	"friction"					"0.5"
+	"angular_friction"			"0.1"
+	"bouncyness"				"0.2"
+	"trailAttenuateSpeed"		"150"
+
+	"fx_trail"					"effects/moveables/barrel/debris_fly.fx"
+	"snd_bounce"				"generic_barrelpart_impact"
+}
+
+entityDef airdefense_sizzle_barrel_burn {
+	"fx_impact"					"effects/moveables/barrel/burn2.fx"		// Plays effect at impact
+	"end_time"					"1.25" 
+}
+
+entityDef airdefense_sizzle_barrel_ignite {
+	"fx_loop"					"effects/moveables/barrel/ignite2.fx"
+	"dir_fx_loop"				"0 0 -1"
+	"end_health"				"1"
+	"end_time"					"1.25"									// Duration the stage is active for
+}
+
+entityDef airdefense_sizzle_barrel_explode 
+{
+	"fx_explode"				"effects/moveables/barrel/explode.fx"	// on off effect to play
+	"def_splash_damage"			"damage_ad_sizzle_explosion"			// Splash damage
+	"remove"					"1"										// Remove entity on this stage
+	"triggerTargets"			"1"
+	
+	// just a single chunk for now
+	"vel_def_debris1_min"		"-100 -100 200"
+	"vel_def_debris1_max"		"100   100 450"
+	"offset_def_debris1"		"0 0 10"
+	"def_debris1"				"debris_ad_barrel_top"
+}
+
+
+// airdefense sizzle barrels
+entityDef airdefense_sizzle_barrel
+{
+	"inherit"					"moveable_barrel_medium1c"
+	"editor_menu"				"level"
+
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 48"
+
+	"offset_fx_loop"			"0 0 0"
+	"offset_fx_explode"			"0 0 0"
+	"offset_force"				"0 0 0"
+
+	"axis_fx_loop"				"-2"
+
+	"explode"					"1"
+	"fx_burn"					"effects/moveables/barrel/burn2.fx"
+	"fx_explode"				"effects/explosions/barrel.fx"
+	"def_splash_Damage"			"damage_ad_sizzle_explosion"
+
+	"health"					"50"
+
+	"density"					"0.005"
+	"friction"					"0.05"
+	"bouncyness"				"0.15"
+
+	"def_stage1"				"airdefense_sizzle_barrel_burn"
+	"def_stage2"				"airdefense_sizzle_barrel_ignite"
+	"def_stage3"				"airdefense_sizzle_barrel_explode"			
+}
+
+entityDef airdefense_projectile_bullet
+{
+	"inherit"					"projectile_bullet"
+
+	"fuse"						"0"
+	"fx_impact"					""
+	"fx_impact_concrete"		""
+	"snd_ricochet"				""
+}
+// ---------------------------------------------------------------------------------------
+
+model model_monster_harvester_ad
+{
+	inherit												model_monster_harvester_combat
+	
+	// wanted a cheaper version of the normal spray
+	anim	fire_forward_spray_loop		models/monsters/harvester/fire_spray_loop.md5anim
+	{
+		frame 1,5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77		fx					fx_muzzleflash  		lft_muzzle_flash
+		frame 1,5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77		ai_attack			nail_spray				lft_muzzle_flash
+		frame 2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78		fx					fx_muzzleflash  		rt_muzzle_flash
+		frame 2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78		ai_attack			nail_spray				rt_muzzle_flash
+	}
+}
+
+entityDef monster_harvester_ad
+{
+	"inherit"						"monster_harvester"
+	"spawnclass"					"rvMonsterHarvester"
+
+	"model"							"model_monster_harvester_ad"
+}
+
+entityDef ad_damage_strogg_flyer_bomb_splash 
+{
+	"damage"						"0"
+	"radius"						"100"
+	"push"							"500"
+}
+
+entityDef ad_damage_strogg_flyer_bomb_direct
+{
+	"inherit"						"damage_monster_base"
+	"damage"						"0"
+	"push"							"500"
+}
+
+entityDef ad_projectile_strogg_flyer_bomb
+{
+	"inherit"						"projectile_strogg_flyer_bomb"
+	"fx_fly"						"effects/monsters/strogg_flyer/bomb_fly_nolock.fx"
+	"fx_impact"						"effects/monsters/strogg_flyer/bomb_burst_long.fx"
+	"def_damage"					"ad_damage_strogg_flyer_bomb_direct"
+	"def_splash_damage"				"ad_damage_strogg_flyer_bomb_splash"
+}
+
+entityDef damage_flyer_rocket
+{
+	"inherit"			"damage_bullet"
+	"damage"			"0"
+	"push"				"500"
+	"gib"				"1"
+}
+
+entityDef damage_flyer_rocket_splash
+{
+	"inherit"			"damage_walker_rocket"
+	
+	"damage"			"0"
+	"radius"			"180"
+}
+
+entityDef ad_projectile_strafe_flyer_gravity
+{
+	"inherit"			"projectile_walker_rocket"
+	
+	"speed"				"2000"
+	"gravity"			"1.2"		
+	
+	"def_damage"		"damage_flyer_rocket"
+	"def_splash_damage"	"damage_flyer_rocket_splash"
+
+	"fx_fly"			"effects/vehicles/walker/rocket/trail2.fx"
+	"fx_trail"			"effects/vehicles/walker/rocket/trail2.fx"	
+	
+	"fx_impact"					"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_rock"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_dirt"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_sand"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_gravel"			"effects/vehicles/walker/rocket/impact2.fx"
+	"fx_impact_concrete"		"effects/vehicles/walker/rocket/impact2.fx"
+}

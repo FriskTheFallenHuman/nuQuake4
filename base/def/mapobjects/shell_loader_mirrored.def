@@ -1,0 +1,49 @@
+
+/***********************************************************************
+shell_loader_mirrored
+
+***********************************************************************/
+
+export shell_loader_mirrored
+{		
+	options -prefix SLM_ -align ALL 
+		  
+	mesh	work/models/mapobjects/strogg/machines/shell_loader/shell_loader_anim_mirrored.ma	-dest models/mapobjects/strogg/machines/shell_loader_mirrored/mesh
+	anim	work/models/mapobjects/strogg/machines/shell_loader/shell_loader_anim_mirrored.ma	-dest models/mapobjects/strogg/machines/shell_loader_mirrored/idle
+	anim	work/models/mapobjects/strogg/machines/shell_loader/shell_loader_anim_mirrored.ma	-range 33 34 -dest models/mapobjects/strogg/machines/shell_loader_mirrored/idleoff
+}
+
+entityDef env_shell_loader_mirrored
+{
+	"model"							"model_env_shell_loader_mirrored"
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+	"editor_usage"					"animated_shell_loader_mirrored"
+
+	"animate_z"						"1"
+	"floats"						"1"
+	"anim"							"idleoff"
+	"start_anim"					"idleoff"	
+	
+	"snd_load"						"generic_shell_loader"
+	
+	"combatModel"					"1"
+	
+
+}
+
+model model_env_shell_loader_mirrored
+{						
+	mesh					models/mapobjects/strogg/machines/shell_loader_mirrored/mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/machines/shell_loader_mirrored/idle.md5anim
+	{
+		frame	1						sound	snd_load
+	}
+	anim idleoff 				models/mapobjects/strogg/machines/shell_loader_mirrored/idleoff.md5anim
+	
+}
+
+

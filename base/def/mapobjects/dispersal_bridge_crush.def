@@ -1,0 +1,37 @@
+/*
+===============================================================================
+	Dispersal Bridge Crushed From Harvester
+===============================================================================
+*/
+
+
+export env_bridge_crush
+{
+	options -scale .3937 -prefix BRDG_ -align ALL -sourcedir work/models/monsters/Harvester/animations -destdir models/mapobjects/strogg/stroyent/dispersal/bridge_crushed
+	mesh	bridge_mesh.ma							-dest mesh
+	anim	bridge_mesh.ma							-dest idle
+	anim	bridge_crush.ma			-range 1 23 -dest crushed
+	anim	bridge_crush.ma			-range 22 23 -dest crushed_idle
+}
+model model_env_bridge_crush
+{
+	mesh				models/mapobjects/strogg/stroyent/dispersal/bridge_crushed/mesh.md5mesh	
+	anim idle			models/mapobjects/strogg/stroyent/dispersal/bridge_crushed/idle.md5anim
+	anim crush			models/mapobjects/strogg/stroyent/dispersal/bridge_crushed/crushed.md5anim
+	anim crush_idle		models/mapobjects/strogg/stroyent/dispersal/bridge_crushed/crushed_idle.md5anim
+}
+entityDef env_bridge_crush
+{
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"don't use"
+	"model"							"model_env_bridge_crush"
+	"anim"							"idle"
+	"noDamage"						"1"
+	
+}
+
+

@@ -1,0 +1,177 @@
+//------------------------------------------------------------------------------
+// data_router.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export data_router
+{		
+	options -prefix DATA_ -scale .3937 -align ALL -keep eye eye2 driver -sourcedir work\models\vehicles\data_router\animations -destdir models\vehicles\data_router
+	mesh	idle.ma					-dest data_router
+	anim	idle.ma					-dest idle
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_data_router
+{
+	"spawnclass"					"rvVehicleSpline"
+
+	"model"							"model_vehicle_data_router"
+	"anim"							"idle"
+
+	"mins"							"-64 -32 0"
+	"maxs"							"64 32 128"
+
+	"def_position_driver"			"vehicle_data_router_driver"
+
+	"accel_strafe"					"-1"
+	"enter_script"					"map_hub2::router_enter"
+	"exit_script"					"map_hub2::router_exit"
+
+	"editor_usage"					"Data Router for hub2 level."
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_data_router_driver
+{
+	"spawnclass"					"rvVehiclePosition"
+
+	"def_part_yaw"					"vehicle_data_router_yaw"
+	"def_part_pitch"				"vehicle_data_router_pitch"
+
+	"eyeJoint"						"eye2"
+	"depthHack"						"0"
+	//"eyeOffset"						"0 90 0"
+	
+	"angles_offset"				"0 90 0"
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_data_router_yaw
+{
+	"spawnclass"					"rvVehicleTurret"
+	"turnrate"						"1000"
+	"joint"							"eye2"
+	"yaw"							"1"
+}
+
+entityDef vehicle_data_router_pitch
+{
+	"spawnclass"					"rvVehicleTurret"
+	"turnrate"						"1000"
+	"joint"							"eye"
+	"pitch"							"0"
+	"minpitch"						"-50"
+	"maxpitch"						"50"
+}
+
+
+//------------------------------------------------------------------------------
+//								Model Defintion
+//------------------------------------------------------------------------------
+
+model model_vehicle_data_router
+{
+	mesh							models\vehicles\data_router\data_router.md5mesh
+	anim idle 						models\vehicles\data_router\idle.md5anim
+}
+
+
+
+/***********************************************************************
+Data Router Arms
+***********************************************************************/
+export  data_router_arms
+{
+	options -prefix DATA_ -scale .3937 -align ALL -keep c_effect -sourcedir work\models\vehicles\data_router\data_router_arms\animations -destdir models\vehicles\data_router\data_router_arms
+	  
+	mesh	idle.ma					-dest data_router_arms
+	anim	idle.ma					-dest idle
+	anim	clamp.ma				-dest clamp
+}
+
+model env_data_router_arms
+{
+	mesh							models\vehicles\data_router\data_router_arms\data_router_arms.md5mesh
+	anim idle 						models\vehicles\data_router\data_router_arms\idle.md5anim
+	anim clamp 						models\vehicles\data_router\data_router_arms\clamp.md5anim
+	{
+		frame	1,73,110					sound	snd_arms1
+		frame	20,59,251					sound	snd_arms2
+		frame	23,228,129,294				sound	snd_arms3
+		frame	75							sound	snd_metal
+		frame 152, 163, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215				fx		fx_DR_sparks		c_effect
+	}
+}
+
+entityDef env_data_router_arms
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -12 0"
+	"editor_maxs"					"8 24 12"
+
+	"editor_usage"					"arms for the data router"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"env_data_router_arms"
+	
+	"articulatedFigure"				"env_data_router_arms"
+	
+	"fx_DR_sparks"					"effects/sparks/weld_sparks_inv.fx"
+	
+	"snd_arms1"						"hub_data_router_arms1"
+	"snd_arms2"						"hub_data_router_arms2"
+	"snd_arms3"						"hub_data_router_arms3"
+	"snd_metal"						"ambient_metal_stress_violent"
+
+}
+
+
+
+/***********************************************************************
+Data Router Cables
+***********************************************************************/
+export  data_router_cables
+{
+	options -prefix CABLE_ -scale .3937 -align ALL -sourcedir work\models\vehicles\data_router\data_router_cables\animations -destdir models\vehicles\data_router\data_router_cables
+	  
+	mesh	idle.ma					-dest data_router_cables
+	anim	idle.ma					-dest idle
+	anim	bend.ma					-dest bend
+}
+
+model env_data_router_cables
+{
+	mesh							models\vehicles\data_router\data_router_cables\data_router_cables.md5mesh
+	anim idle 						models\vehicles\data_router\data_router_cables\idle.md5anim
+	anim bend 						models\vehicles\data_router\data_router_cables\bend.md5anim
+}
+
+entityDef env_data_router_cables
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -12 0"
+	"editor_maxs"					"8 24 12"
+
+	"editor_usage"					"Cables used with the data router"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"env_data_router_cables"
+	
+	"articulatedFigure"				"env_data_router_cables"
+}
+

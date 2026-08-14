@@ -1,0 +1,879 @@
+
+
+guide textures/stroyent/stroy_wall_31 generic_shader("stroyent/stroy_wall_31")
+
+
+guide textures/stroyent/artery_a generic_shader("stroyent/artery_a")
+guide textures/stroyent/artery_b generic_shader("stroyent/artery_b" )
+guide textures/stroyent/blast_door1 generic_typeshader("stroyent/blast_door1", "solidmetal")
+guide textures/stroyent/blast_door2 generic_typeshader("stroyent/blast_door2", "solidmetal")
+guide textures/stroyent/stroy_ceiling_01 generic_shader("stroyent/stroy_ceiling_01")
+guide textures/stroyent/stroy_ceiling_03 generic_shader("stroyent/stroy_ceiling_03")
+guide textures/stroyent/stroy_floor_03_rusty generic_shader("stroyent/stroy_floor_03_rusty")
+guide textures/stroyent/stroy_floor_03_rusty2 generic_shader("stroyent/stroy_floor_03_rusty2")
+guide textures/stroyent/stroy_floor_03_rusty2sided generic_shader2sidedalpha("stroyent/stroy_floor_03_rusty2sided")
+guide textures/stroyent/stroy_floor_03a generic_alpha("stroyent/stroy_floor_03a")
+guide textures/stroyent/stroy_floor_06 generic_shader("stroyent/stroy_floor_06")
+guide textures/stroyent/stroy_floor_06a generic_alpha("stroyent/stroy_floor_06a")
+guide textures/stroyent/stroy_floor_06a2sided generic_shader2sidedalpha("stroyent/stroy_floor_06a")
+
+guide textures/stroyent/gorefloor_a generic_full_noheight_type("stroyent/gorefloor_a", "flesh")
+guide textures/stroyent/gorefloor_b generic_full_noheight_type("stroyent/gorefloor_b", "flesh")
+guide textures/stroyent/gorefloor_c generic_full_noheight_type("stroyent/gorefloor_c", "flesh")
+guide textures/stroyent/stroy_light_2 generic_shader("stroyent/stroy_light_2")
+guide textures/stroyent/stroy_steel generic_shader("stroyent/stroy_steel")
+guide textures/stroyent/stroy_steel_02 generic_shader("stroyent/stroy_steel_02")
+guide textures/stroyent/stroy_steel_04 generic_shader("stroyent/stroy_steel_04")
+guide textures/stroyent/stroy_steel_05 generic_shader("stroyent/stroy_steel_05")
+guide textures/stroyent/stroy_steelcopper generic_full_noheight("stroyent/stroy_steelcopper")
+guide textures/stroyent/stroy_trim08 generic_shader("stroyent/stroy_trim_08")
+guide textures/stroyent/stroy_trim_11 generic_shader("stroyent/stroy_trim_11")
+guide textures/stroyent/stroy_trim_13 generic_shader("stroyent/stroy_trim_13")
+guide textures/stroyent/stroy_trim_15 generic_shader("stroyent/stroy_trim_15")
+guide textures/stroyent/stroy_trim_16 generic_shader("stroyent/stroy_trim_16")
+guide textures/stroyent/stroy_trim_18 generic_shader("stroyent/stroy_trim_18")
+guide textures/stroyent/stroy_trim_19 generic_shader("stroyent/stroy_trim_19")
+guide textures/stroyent/stroy_trim_22 generic_shader("stroyent/stroy_trim_22")
+guide textures/stroyent/stroy_vat_3 generic_shader("stroyent/stroy_vat_3")
+guide textures/stroyent/stroy_vatb_01 generic_shader("stroyent/stroy_vatb_01")
+guide textures/stroyent/stroy_vatb_02 generic_shader("stroyent/stroy_vatb_02")
+
+guide textures/stroyent/stroy_vatb_01b generic_Localvariant ("stroyent/stroy_vatb_01", "stroyent/stroy_vatb_01b")
+guide textures/stroyent/stroy_vatb_02b generic_Localvariant ("stroyent/stroy_vatb_02", "stroyent/stroy_vatb_02b")
+
+guide textures/stroyent/stroy_bloodfloor generic_nonormal_height ("stroyent/stroy_bloodfloor","2")
+guide textures/stroyent/stroy_wall_04 generic_shader("stroyent/stroy_wall_04")
+guide textures/stroyent/stroy_wall_05 generic_shader("stroyent/stroy_wall_05")
+guide textures/stroyent/stroy_wall_06 generic_shader("stroyent/stroy_wall_06")
+guide textures/stroyent/stroy_wall_20 generic_shader("stroyent/stroy_wall_20")
+guide textures/stroyent/stroy_wall_21 generic_shader("stroyent/stroy_wall_21")
+guide textures/stroyent/stroy_wall_22 generic_shader("stroyent/stroy_wall_22")
+guide textures/stroyent/stroy_wall_23 generic_shader("stroyent/stroy_wall_23")
+guide textures/stroyent/stroy_wall_25a generic_shader("stroyent/stroy_wall_25a")
+guide textures/stroyent/stroy_wall_26 generic_shader("stroyent/stroy_wall_26")
+guide textures/stroyent/stroy_wall_27 generic_shader("stroyent/stroy_wall_27")
+guide textures/stroyent/stroy_wall_28 generic_shader("stroyent/stroy_wall_28")
+guide textures/stroyent/stroy_walltrim_02 generic_shader("stroyent/stroy_walltrim_02")
+guide textures/stroyent/stroy_walltrim_04 generic_shader("stroyent/stroy_walltrim_04")
+guide textures/stroyent/stroy_walltrim_07 generic_shader("stroyent/stroy_walltrim_07")
+guide textures/stroyent/stroy_walltrim_08 generic_shader("stroyent/stroy_walltrim_08")
+guide textures/stroyent/stroy_walltrim_09 generic_shader("stroyent/stroy_walltrim_09")
+guide textures/stroyent/stroy_walltrim_10 generic_shader("stroyent/stroy_walltrim_10")
+guide textures/stroyent/stroy_walltrim_11 generic_shader("stroyent/stroy_walltrim_11")
+guide textures/stroyent/stroy_walltrim_12 generic_shader("stroyent/stroy_walltrim_12")
+guide textures/stroyent/stroy_walltrim_13 generic_shader("stroyent/stroy_walltrim_13")
+guide textures/stroyent/stroy_walltrim_14 generic_shader("stroyent/stroy_walltrim_14")
+guide textures/stroyent/stroy_walltrim_16 generic_shader("stroyent/stroy_walltrim_16")
+guide textures/stroyent/stroy_tun1 generic_shader("stroyent/stroy_tun1")
+guide textures/stroyent/stroy_tun3 generic_shader("stroyent/stroy_tun3")
+guide textures/stroyent/stroy_tun4 generic_shader("stroyent/stroy_tun4")
+guide textures/stroyent/stroy_tun5 generic_shader("stroyent/stroy_tun5")
+guide textures/stroyent/stroy_stroy_tun2 generic_shader("stroyent/stroy_tun2")
+guide textures/stroyent/stroy_stroy_tun6 generic_shader("stroyent/stroy_tun6")
+guide textures/stroyent/stroy_tunfloor generic_shader("stroyent/stroy_tunfloor")
+
+guide textures/stroyent/stroy_pillar1 generic_shader("stroyent/stroy_pillar1")
+guide textures/stroyent/stroy_pillar1a generic_shader("stroyent/stroy_pillar1a")
+guide textures/stroyent/stroy_pillar2 generic_shader("stroyent/stroy_pillar2")
+guide textures/stroyent/stroy_pillar2a generic_shader("stroyent/stroy_pillar2a")
+guide textures/stroyent/d_door3 generic_shader_heightmap("stroyent/d_door3", "2")
+
+textures/stroyent/stroy_pillar2alight
+{
+	qer_EditorImage		textures/stroyent/stroy_pillar2alight_d.tga
+	
+	bumpMap addnormals	(textures/stroyent/stroy_pillar2a_local.tga, heightmap (textures/stroyent/stroy_pillar2alight_h, 2))
+	diffuseMap		textures/stroyent/stroy_pillar2alight_d.tga
+	specularMap		textures/stroyent/stroy_pillar2a_s.tga
+	{
+		blend		add
+		map			textures/stroyent/stroy_pillar2alight_add.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+textures/stroyent/stroy_pillar2a_noshadows
+{
+	qer_EditorImage		textures/stroyent/stroy_pillar2a_d.tga
+	noShadows
+	
+	bumpMap addnormals	(textures/stroyent/stroy_pillar2a_local.tga, heightmap (textures/stroyent/stroy_pillar2a_h, 2))
+	diffuseMap		textures/stroyent/stroy_pillar2a_d.tga
+	specularMap		textures/stroyent/stroy_pillar2a_s.tga
+}
+
+
+guide textures/stroyent/tunpipe generic_shader("stroyent/tunpipe")
+
+textures/stroyent/tunpipe1_nonsolid
+{
+	qer_EditorImage textures/stroyent/tunpipe_d.tga
+	
+	nonSolid
+	bumpMap addnormals ( textures/stroyent/tunpipe_local.tga, heightmap ( textures/stroyent/tunpipe_h.tga, 1 ) )
+	diffusemap	textures/stroyent/tunpipe_d.tga
+	specularmap	textures/stroyent/tunpipe_s.tga
+}
+
+textures/stroyent/tunpipe1_noshadows
+{
+	qer_EditorImage textures/stroyent/tunpipe_d.tga
+	
+	noShadows
+//	nonSolid
+	bumpMap addnormals ( textures/stroyent/tunpipe_local.tga, heightmap ( textures/stroyent/tunpipe_h.tga, 1 ) )
+	diffusemap	textures/stroyent/tunpipe_d.tga
+	specularmap	textures/stroyent/tunpipe_s.tga
+}
+
+
+
+guide textures/stroyent/tunpipe2 generic_shader("stroyent/tunpipe2")
+
+textures/stroyent/tunpipe2_nonsolid
+{
+	qer_EditorImage textures/stroyent/tunpipe2_d.tga
+	
+	nonSolid
+	bumpMap addnormals ( textures/stroyent/tunpipe2_local.tga, heightmap ( textures/stroyent/tunpipe2_h.tga, 1 ) )
+	diffusemap	textures/stroyent/tunpipe2_d.tga
+	specularmap	textures/stroyent/tunpipe2_s.tga
+}
+
+textures/stroyent/tunpipe2_noshadows
+{
+	qer_EditorImage textures/stroyent/tunpipe2_d.tga
+	
+	noShadows
+//	nonSolid
+	bumpMap addnormals ( textures/stroyent/tunpipe2_local.tga, heightmap ( textures/stroyent/tunpipe2_h.tga, 1 ) )
+	diffusemap	textures/stroyent/tunpipe2_d.tga
+	specularmap	textures/stroyent/tunpipe2_s.tga
+}
+
+guide textures/stroyent/tungrate generic_shader("stroyent/tungrate")
+guide textures/stroyent/stroy_tun7 generic_shader("stroyent/stroy_tun7")
+guide textures/stroyent/tunwall4 generic_shader("stroyent/tunwall4")
+guide textures/stroyent/tunwall6 generic_shader("stroyent/tunwall6")
+guide textures/stroyent/tunwall7 generic_shader("stroyent/tunwall7")
+guide textures/stroyent/tunwall8 generic_shader("stroyent/tunwall8")
+guide textures/stroyent/tunwall11 generic_shader("stroyent/tunwall11")
+guide textures/stroyent/tunwall12 generic_shader("stroyent/tunwall12")
+guide textures/stroyent/tunwall15 generic_shader("stroyent/tunwall15")
+guide textures/stroyent/tuntech generic_shader("stroyent/tuntech")
+guide textures/stroyent/tun6small generic_shader("stroyent/tun6small")
+guide textures/stroyent/tunmid generic_shader("stroyent/tunmid")
+guide textures/stroyent/tun2_plain generic_shader("stroyent/tun2_plain")
+guide textures/stroyent/tunbump generic_shader("stroyent/tunbump")
+guide textures/stroyent/tunsvent generic_shader("stroyent/tunsvent")
+guide textures/stroyent/tuntrim generic_shader("stroyent/tuntrim")
+guide textures/stroyent/tunwall22 generic_shader("stroyent/tunwall22")
+guide textures/stroyent/pipes generic_shader("stroyent/pipes")
+guide textures/stroyent/panel2 generic_shader("stroyent/panel2")
+
+
+// one sided
+guide textures/stroyent/tunx generic_alpha("stroyent/tunx")
+// two sided
+guide textures/stroyent/tunx_twosided generic_shader2sidedalpha("stroyent/tunx")
+guide textures/stroyent/tunceiltop generic_shader("stroyent/tunceiltop")
+guide textures/stroyent/tunzig_ceiling generic_shader("stroyent/Tunzig_ceiling")
+
+textures/stroyent/stroy_conveyor
+{
+	qer_EditorImage textures/stroyent/stroy_conveyor_d.tga
+	noOverlays
+
+	{
+	blend bumpMap	
+	map addnormals ( textures/stroyent/stroy_conveyor_local.tga, heightmap ( textures/stroyent/stroy_conveyor_h.tga, 2 ) )
+	scroll 0, time * .66
+	}
+	
+	{
+	blend diffuseMap
+	map	textures/stroyent/stroy_conveyor_d.tga
+	scroll 0, time * .66
+	}
+	
+	{
+	blend specularMap
+	map	textures/stroyent/stroy_conveyor_s.tga
+	scroll 0, time * .66
+	}
+}
+
+textures/stroyent/stroy_conveyor_stopped
+{
+	qer_EditorImage textures/stroyent/stroy_conveyor_d.tga
+	
+	bumpMap addnormals ( textures/stroyent/stroy_conveyor_local.tga, heightmap ( textures/stroyent/stroy_conveyor_h.tga, 2 ) )
+	diffusemap			textures/stroyent/stroy_conveyor_d.tga
+	specularmap			textures/stroyent/stroy_conveyor_s.tga
+}
+
+textures/stroyent/stroy_conveyor2
+{
+	qer_EditorImage textures/stroyent/stroy_conveyor2_d.tga
+	noOverlays
+
+	{
+	blend bumpMap	
+	map addnormals ( textures/stroyent/stroy_conveyor_local.tga, heightmap ( textures/stroyent/stroy_conveyor2_h.tga, 2 ) )
+	scroll 0, time * .66
+	}
+	
+	{
+	blend diffuseMap
+	map	textures/stroyent/stroy_conveyor2_d.tga
+	scroll 0, time * .66
+	}
+	
+	{
+	blend specularMap
+	map	textures/stroyent/stroy_conveyor2_s.tga
+	scroll 0, time * .66
+	}
+}
+
+//steps
+guide textures/stroyent/stroy_steptop16 generic_shader("stroyent/stroy_steptop16")
+guide textures/stroyent/stroy_steptop16a generic_shader("stroyent/stroy_steptop16a")
+
+/*
+textures/stroyent/stroy_steptop16
+{
+	qer_EditorImage		textures/stroyent/stroy_steptop16_d
+	bumpMap			textures/stroyent/stroy_steptop16_local
+	diffuseMap		textures/stroyent/stroy_steptop16_d
+	specularMap		textures/stroyent/stroy_steptop16_s
+}
+
+textures/stroyent/stroy_steptop16a
+{
+	qer_EditorImage		textures/stroyent/stroy_steptop16a_d
+	bumpMap			textures/stroyent/stroy_steptop16a_local
+	diffuseMap		textures/stroyent/stroy_steptop16a_d
+	specularMap		textures/stroyent/stroy_steptop16a_s
+}
+*/
+
+textures/stroyent/stroy_steptop16_noshadows
+{
+	qer_EditorImage		textures/stroyent/stroy_steptop16_noshadows
+	noShadows
+	bumpMap			textures/stroyent/stroy_steptop16_local
+	diffuseMap		textures/stroyent/stroy_steptop16_d
+	specularMap		textures/stroyent/stroy_steptop16_s
+}
+
+textures/stroyent/stroy_steptop16a_noshadows
+{
+	qer_EditorImage		textures/stroyent/stroy_steptop16a_noshadows
+	noShadows
+	bumpMap			textures/stroyent/stroy_steptop16a_local
+	diffuseMap		textures/stroyent/stroy_steptop16a_d
+	specularMap		textures/stroyent/stroy_steptop16a_s
+}
+
+// added this to replace old light (blinky version) -corey
+
+textures/stroyent/tunlight
+{
+	qer_EditorImage		textures/stroyent/tunlight_d
+	nonSolid
+	noShadows
+	bumpMap			textures/stroyent/tunlight_local
+	diffuseMap		textures/stroyent/tunlight_d
+	specularMap		textures/stroyent/tunlight_s
+	{
+		blend		add
+		map			textures/stroyent/tunlight_add
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+textures/stroyent/tunlight_ut
+{
+	qer_EditorImage		textures/stroyent/tunlight_d
+	nonSolid
+	noShadows
+	unSmoothedTangents
+
+	bumpMap			textures/stroyent/tunlight_local
+	diffuseMap		textures/stroyent/tunlight_d
+	specularMap		textures/stroyent/tunlight_s
+	{
+		blend		add
+		map			textures/stroyent/tunlight_add
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+textures/stroyent/tunlightred
+{
+	qer_EditorImage		textures/stroyent/tunlightred_d
+	nonSolid
+	noShadows
+	bumpMap			textures/stroyent/tunlight_local
+	diffuseMap		textures/stroyent/tunlight_d
+	specularMap		textures/stroyent/tunlight_s
+	{
+		blend		add
+		map			textures/stroyent/tunlight_add
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+//following lights for stroyent will blink when combined with light.
+
+textures/stroyent/stroyent_flare_6
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	6
+	qer_editorimage	textures/editor/qer_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red	parm0 
+		green	parm1 
+		blue	parm2 
+		alpha	parm3 
+
+
+		colored
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flare_12
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	12
+	qer_editorimage	textures/editor/qer_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red	parm0 
+		green	parm1 
+		blue	parm2 
+		alpha	parm3 
+
+
+		colored
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flare_20
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	20
+	qer_editorimage	textures/editor/qer_flare.tga
+
+
+	{
+
+		blend add
+		map _quadratic
+		
+		red	parm0 
+		green	parm1 
+		blue	parm2 
+		alpha	parm3 
+
+
+		colored
+		vertexcolor
+	}
+
+}
+
+//end new blinky flares.
+
+
+textures/stroyent/stroyent_flare1
+
+// large green flare
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		20
+
+
+
+	{
+
+		blend add
+		map _quadratic
+		red .8
+		green 1
+		blue	.8
+		alpha	.8
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flare2
+
+// small green flare
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	{
+
+		blend add
+		map _quadratic
+		red .8
+		green 1
+		blue	.8
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flare2a
+
+// small green flare
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+	{
+
+		blend add
+		map _quadratic
+		red .8
+		green 1
+		blue	.8
+		alpha	parm6
+		vertexcolor
+	}
+
+}
+
+// small orange flare
+textures/stroyent/stroyent_flare3
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+
+	{
+		blend add
+		map _quadratic
+		red 1
+		green .7
+		blue	.4
+		alpha	.5
+		vertexcolor
+	}
+}
+
+
+// small orange flare
+textures/stroyent/stroyent_flare3a
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+
+	{
+		blend add
+		map _quadratic
+		red 1
+		green .7
+		blue	.4
+		alpha	parm6
+		vertexcolor
+	}
+}
+
+
+textures/stroyent/stroyent_flareg
+
+// thinner, nicer looking green flare
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare		12
+
+
+	{
+
+		blend add
+		map _quadratic
+
+					//rgb	flickerblink[ time * 2] * .7
+
+		red 		.8	//(.1 * sintable [.1 + time ]) +.8	//flickerblink[ time * 10] * .8
+		green 		1	//(.1 * sintable [.1 + time ]) +1	//flickerblink[ time * 10] * 1
+		blue 		.8	//(.1 * sintable [.1 + time ]) +.8	//flickerblink[ time * 10] * .8
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flareo
+
+// thinner, nicer looking orange flare
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		12
+
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		1
+		green		.7
+		blue		.4
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flare_red
+
+// red flare
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		1
+		green		.1
+		blue		.1
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+textures/stroyent/stroyent_flare_green
+
+// green flare
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		6
+
+
+
+	{
+
+		blend add
+		map _quadratic
+		red 		.1
+		green		1
+		blue		.1
+		alpha	.5
+		vertexcolor
+	}
+
+}
+
+
+textures/stroyent/belt
+{
+	qer_editorimage textures/stroyent/belt_local.tga
+
+
+
+	{
+		blend	bumpmap
+		map		addnormals( textures/stroyent/belt_local.tga, heightmap ( textures/stroyent/belt_h.tga, 1 ) )
+		scroll	0, time * 3
+	}
+	
+	
+	
+	{
+		blend	diffusemap
+		map		textures/stroyent/belt_d.tga
+		scroll	0, time * 3
+	}
+	{
+		blend	specularmap
+		map		textures/stroyent/belt_s.tga
+		scroll	0, time * 3
+	}
+
+
+
+
+}
+
+
+
+textures/stroyent/thinwavy
+{
+	noSelfShadow
+	noShadows
+	translucent
+	
+	qer_EditorImage textures/stroyent/thinwavy_d.tga
+
+	{       
+      	blend		diffuseMap
+		map			textures/stroyent/thinwavy_d.tga
+	}
+	
+	{
+		
+		blend blend
+		map	textures/stroyent/foam_2_d.tga 	//for light decals
+		translate	.025 * ( sinTable[time * .02 ]),.025 * (sintable[time * .02])
+		scale		1 - ( halfsinTable[(time * .03) + 5 ] * .1 ),1 - ( halfsinTable[(time * .05) ] * .1 )
+		rotate		.03 * (sinTable [time * .01 ])
+
+	}
+}
+
+textures/stroyent/chunky
+{
+	noSelfShadow
+	noShadows
+	
+	qer_EditorImage textures/stroyent/chunky_d.tga
+	
+	{
+		blend diffuseMap
+		map textures/stroyent/chunky_d.tga
+	}
+	{
+		blend specularMap
+		map textures/stroyent/chunky_s.tga
+	}
+}
+
+
+//uses a local from the terminal wad-----------------------------------------------
+
+textures/stroyent/window_alpha_rust
+{
+	qer_editorimage textures/stroyent/window_alpha_rust_d.tga
+	twoSided
+	noShadows
+	nonSolid
+
+	bumpmap addnormals	( textures/terminal/t_window_alpha_01_local.tga, heightmap ( textures/stroyent/window_alpha_rust_h.tga, 1 ) )
+	specularMap		textures/stroyent/window_alpha_rust_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/stroyent/window_alpha_rust_d.tga
+	 alphaTest .5
+	}
+
+}
+
+textures/stroyent/window_alpha_rust_onesided
+{
+	qer_editorimage textures/stroyent/window_alpha_rust_d.tga
+	noShadows
+	nonSolid
+
+	bumpmap addnormals	( textures/terminal/t_window_alpha_01_local.tga, heightmap ( textures/stroyent/window_alpha_rust_h.tga, 1 ) )
+	specularMap		textures/stroyent/window_alpha_rust_s.tga       
+
+	{       
+      	 blend	diffuseMap 
+	 map	textures/stroyent/window_alpha_rust_d.tga
+	 alphaTest .5
+	}
+
+}
+
+//-----------------------------------------------------------------------------------
+
+
+//----NoShadow Railing Texture-------------------------------------------------------
+
+textures/stroyent/c_railing02_noshadows
+{
+		qer_EditorImage textures/common_misc/c_railing02_d.tga
+		noShadows
+		
+		{
+			blend	diffuseMap	
+			map		textures/common_misc/c_railing03_d.tga
+		}
+		
+		{
+			blend	specularMap
+			map		textures/common_misc/c_railing02_s.tga
+		}
+		
+		{
+			blend	bumpMap
+			map		heightmap	( textures/common_misc/c_railing02_h.tga, 3 )
+		}
+}
+//-----------------------------------------------------------------------------------
+
+textures/stroyent/intestine_a
+{
+	noselfShadow
+	unsmoothedtangents
+
+	qer_EditorImage textures/stroyent/intestine_a_d.tga
+	materialType flesh
+
+	{
+	blend bumpMap	
+	map addnormals ( textures/stroyent/intestine_a_local.tga, heightmap ( textures/stroyent/intestine_a_h.tga, 2 ) )
+	scroll 0, cosine [time * .01 ]
+	}
+	
+	{
+	blend diffuseMap
+	map	textures/stroyent/intestine_a_d.tga
+	scroll 0, cosine [time * .01 ]
+	}
+	
+	{
+	blend specularMap
+	map	textures/stroyent/intestine_a_s.tga
+	scroll 0, cosine [time * .01 ]
+	}
+}
+
+textures/stroyent/intestine_b
+{
+	noselfShadow
+	unsmoothedtangents
+
+	qer_EditorImage textures/stroyent/intestine_b_d.tga
+	materialType flesh
+	
+	{
+	blend bumpMap	
+	map textures/stroyent/intestine_b_local.tga
+	//Scale 1, intestinescale [time*0.125]
+	scroll 0, time*.125
+	}
+	
+	{
+	blend diffuseMap
+	map	textures/stroyent/intestine_b_d.tga
+	//Scale 1, intestinescale [time*0.125]
+	scroll 0, time*.125
+	}
+	
+	{
+	blend specularMap
+	map	textures/stroyent/intestine_b_s.tga
+	//Scale 1, intestinescale [time*0.125]
+	scroll 0, time*.125
+	}
+}
+
+textures/stroyent/intestine_collision
+{
+	noShadows
+	collision
+	materialType flesh
+}	
+
+// Darker versions of the common outdoor textures
+
+
+textures/stroyent/stroy_steel_ut
+{
+	qer_editorimage textures/stroyent/stroy_steel_d.tga
+	unSmoothedTangents
+	
+	bumpmap addnormals	( textures/stroyent/stroy_steel_local.tga, heightmap ( textures/stroyent/stroy_steel_h.tga, 1 ) )
+	specularmap			textures/stroyent/stroy_steel_s.tga       
+ 	diffusemap 			textures/stroyent/stroy_steel_d.tga
+}
+
+
+textures/stroyent/stroy_tun3_ut
+{
+	qer_EditorImage		textures/stroyent/stroy_tun3_d
+	nonSolid
+	noShadows
+	unSmoothedTangents
+	
+	bumpMap	addnormals		(textures/stroyent/stroy_tun3_local, heightmap (textures/stroyent/stroy_tun3_h, 3))
+	diffuseMap				textures/stroyent/stroy_tun3_d
+	specularMap				textures/stroyent/stroy_tun3_s
+}
+textures/stroyent/tungrate_ut
+{
+	qer_EditorImage		textures/stroyent/tungrate_d
+	nonSolid
+	noShadows
+	unSmoothedTangents
+	
+	bumpMap	addnormals		(textures/stroyent/tungrate_local, heightmap (textures/stroyent/tungrate_h, 3))
+	diffuseMap				textures/stroyent/tungrate_d
+	specularMap				textures/stroyent/tungrate_s
+}
+
+//Big Dispersal Door at Beginning of Dispersal 1------------------------------------------------------------------------------------ 
+
+textures/stroyent/can_dispersal_door
+{
+	qer_EditorImage		textures/stroyent/can_dispersal_door_local.tga
+	bumpMap addnormals	( textures/stroyent/can_dispersal_door_local.tga, heightmap ( textures/stroyent/can_dispersal_door_h.tga, 2 ) )
+	diffuseMap			textures/stroyent/can_dispersal_door_d.tga
+	specularMap			textures/stroyent/can_dispersal_door_s.tga
+}

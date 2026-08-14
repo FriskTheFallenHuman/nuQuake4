@@ -1,0 +1,12 @@
+
+sound vo_2_1_2_70_1_full
+{
+	description	"The above 3 all together."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_2/2_1_2_70_1_full
+}

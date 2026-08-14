@@ -1,0 +1,146 @@
+/***********************************************************************************************************************
+Walker
+
+Unique entities created for the walker level
+************************************************************************************************************************/
+
+/*
+model model_char_marine_npc_remitz_walker
+{
+	inherit									model_char_marine
+
+	anim	wlk_remitz_idle					models/characters/marine/wlk_remitz_idle.md5anim
+	anim	wlk_remitz_death				models/characters/marine/wlk_remitz_death.md5anim
+	{
+		frame 71							fx	fx_blood_cough1		legs_channel
+		frame 71							fx	fx_blood_cough2		legs_channel
+		frame 114							fx	fx_blood_cough2		legs_channel
+	}
+
+}
+
+entityDef char_marine_npc_remitz_walker
+{
+	"inherit"								"char_marine_unarmed"
+	"editor_menu"							"char_npc_walker"
+	"annoyed"								"0"
+	"model"									"model_char_marine_npc_remitz_walker"
+	"fx_blood_cough1"						"effects/player/blood_cough1"
+	"fx_blood_cough2"						"effects/player/blood_cough2"
+}
+*/
+
+
+// Added for flyer strafe runs
+entityDef projectile_strafe_rocket
+{
+	"inherit" 				"projectile_walker_rocket"
+	
+	"spawnclass"				"idProjectile"
+		
+	"model" 				"models/vehicles/strogg_flyer/rocket_scaled.lwo"
+	
+	"def_damage"				"damage_strafe_rocket"
+	"def_splash_damage"			"damage_strafe_rocket_splash"
+	
+	"speed"						"2000"
+	"mass"						"3"
+	"gravity"					".5"
+	"fuse"						"5"
+	
+	"cone"						"20"
+	
+	"fx_fly"				"effects/monsters/strogg_flyer/rocket_trail1.fx"
+	//"fx_trail"				"effects/cinematics/intro/rocket_trail1.fx"
+	
+	"guideTowardsDir"			"0"
+	
+}
+
+entityDef damage_strafe_rocket
+{
+	"inherit"			"damage_walker_rocket"
+	"damage"			"40"
+	"knockback"			"100"
+	"push"				"5000"
+}
+
+entityDef damage_strafe_rocket_splash
+{
+	"inherit"			"damage_strafe_rocket"
+	
+	"damage"			"20"
+	"radius"			"128"
+	"knockback"			"50"
+	"push"				"2500"
+}
+
+// Damage for gas cloud o' doom
+
+entityDef damage_toxin_novehicle_25	{
+
+	"inherit"			"damage_triggerhurt_toxin"	
+	
+	"damage"			"25"
+	"ignore_vehicles"		"1"
+}
+
+entityDef damage_toxin_novehicle_1000	{
+
+	"inherit"			"damage_triggerhurt_toxin"	
+	
+	"damage"			"1000"
+	"ignore_vehicles"		"1"
+}
+
+// custom harvester
+
+entityDef walker_monster_harvester
+{
+	"inherit"					"monster_harvester_combat"
+	
+	"action_whipAttack"						"1"
+	"action_whipAttack_rate"				".5"
+	"action_whipAttack_minRange"			"0"
+	"action_whipAttack_maxRange"			"400"
+	"action_whipAttack_noTurn"				"0"
+	
+	"action_grenadeAttack"					"1"
+	"action_grenadeAttack_rate"				"1"
+	"action_grenadeAttack_minRange"			"0"
+	"action_grenadeAttack_maxRange"			"2000"
+	"action_grenadeAttack_anim"				"attack_grenade"
+
+	"action_rocketAttack"					"1"
+//	"action_rocketAttack_rate"				"15"
+	"action_rocketAttack_rate"				"5"
+	"action_rocketAttack_minRange"			"1500"
+	"action_rocketAttack_maxRange"			"30000"
+	"action_rocketAttack_anim"				"attack_rocket"
+	"action_rocketAttack_state"				"Torso_RocketAttack"
+
+	"action_meleeAttack"					"1"
+	"action_meleeAttack_rate"				"2"
+	"action_meleeAttack_minRange"			"400"
+	"action_meleeAttack_maxRange"			"800"
+	"action_meleeAttack_anim"				"attack_rleg_fw"
+	"action_meleeAttack_state"				"Torso_ClawAttack"
+
+	"action_rangedAttack"					"1"
+	"action_rangedAttack_rate"				"1"
+	"action_rangedAttack_minRange"			"800"
+	"action_rangedAttack_maxRange"			"5000"
+	"action_rangedAttack_anim"				"fire_forward"
+	"action_rangedAttack_state"				"Torso_RangedAttack"
+	"action_rangedAttack_overrideLegs"		"0"
+	
+	"minShots"								"10"
+	"maxShots"								"40"
+
+	"action_sprayAttack"					"1"
+	"action_sprayAttack_state"				"Torso_SprayAttack"
+	"action_sprayAttack_minRange"			"800"
+	"action_sprayAttack_maxRange"			"1500"
+	"action_sprayAttack_rate"				"2"
+
+}

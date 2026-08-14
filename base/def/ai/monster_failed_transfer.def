@@ -1,0 +1,453 @@
+/*
+===============================================================================
+
+	Failed Transfer
+
+===============================================================================
+*/
+
+export failed_transfer {
+	options -prefix FT_ -keep Body -scale .3937 -align ALL -keep muzzleflash -parent gun_point_weighting_bone rWrist -parent hip_joint Body -parent waist Body -sourcedir work/models/monsters/Failed_Transfer/animations -destdir models/monsters/failed_transfer
+	
+	mesh	FT_idle_norm.ma 			-dest mesh
+	anim	FT_idle_norm.ma				-dest idle_norm
+	anim	FT_idle_norm_to_walk.ma		-dest idle_norm_to_walk
+	anim	FT_idle_torso_only.ma		-dest idle_torso_only
+	anim	FT_idle_alert1B.ma			-dest idle_alert	
+	anim	FT_idle_alert_to_walk.ma	-dest idle_alert_to_walk
+	anim	FT_idle_sleepy.ma			-dest idle_sleepy
+	anim	FT_walk_a.ma				-dest walk_a
+	anim	FT_walk_b.ma				-dest walk_b
+	anim	FT_walk_c.ma				-dest walk_c
+	anim	FT_walk_d.ma				-dest walk_d
+	anim	FT_shotgun_a.ma				-dest shotgun_a
+	anim	FT_shotgun_b.ma				-dest shotgun_b
+	anim	FT_shotgun_c.ma				-dest shotgun_c
+	anim	FT_big_recoil_B.ma			-dest shotgun_recoil
+	anim	FT_pain_stomach.ma			-dest pain_stomach
+	anim	FT_pain_lft_shoulder.ma		-dest pain_l_shoulder
+	anim	FT_pain_head.ma				-dest pain_head
+	anim	FT_pain_torso.ma			-dest pain_torso
+	anim	FT_falldown_B.ma			-dest falldown
+	anim	FT_melee_a.ma				-dest melee_a
+	anim	FT_melee_b.ma				-dest melee_b
+	anim	FT_ragdoll_pose.ma			-dest ragdoll
+
+	anim	SPLIT_leg.ma				-dest split_leg
+	
+	anim	TORSO_shot_in_half.ma		-dest split_torso
+	anim	TORSO_crawl_fast_loop.ma			-dest split_torso_crawl_fast	
+	anim	TORSO_attack_a.ma			-dest torso_leap_attack_a
+	anim	TORSO_pain_a.ma				-dest torso_pain_a
+	anim	TORSO_pain_b.ma				-dest torso_pain_b
+	anim	TORSO_pain_c.ma				-dest torso_pain_c
+	anim	TORSO_evade_left.ma			-dest torso_evade_left
+	anim	TORSO_evade_right.ma		-dest torso_evade_right
+	anim	TORSO_push_back.ma			-dest torso_push_back
+	anim	TORSO_crawl_back.ma			-dest torso_crawl_back
+	anim	TORSO_idle.ma				-dest torso_idle
+
+//	anim	FT_melee_kick.ma			-dest melee_kick
+//	anim	FT_one_handed_shoot.ma		-dest shotgun_onehanded
+//	anim	FT_shoot_fullauto.ma		-dest shoot_automatic	
+	anim	FT_pain_std.ma			-dest pain_std
+	anim	FT_pain_std2.ma			-dest pain_std2
+	anim	FT_pain_strm.ma			-range 1 4 -dest pain_strm_start
+	anim	FT_pain_strm.ma			-range 4 12 -dest pain_strm_loop
+	anim	FT_pain_strm.ma			-range 12 15 -dest pain_strm_end
+	
+}
+
+/*
+===============================================================================
+
+	Failed Transfer Model
+
+===============================================================================
+*/
+
+model model_monster_failed_transfer
+{
+	mesh												models/monsters/failed_transfer/mesh.md5mesh
+
+	channel	torso										( *waist )
+	channel	legs										( *hip_joint Body origin -*waist )
+
+	anim af_pose										models/monsters/failed_transfer/ragdoll.md5anim
+	anim ik_pose										models/monsters/failed_transfer/ragdoll.md5anim
+
+	anim idle											models/monsters/failed_transfer/idle_alert.md5anim
+	anim walk											models/monsters/failed_transfer/walk_c.md5anim
+	{
+		frame 1, 21										sound		snd_flesh
+		frame 14, 34									footstep
+	}
+
+	anim walk2											models/monsters/failed_transfer/walk_d.md5anim
+	{
+		frame 1, 21										sound		snd_flesh
+		frame 7, 24										footstep
+	}
+
+
+	anim run											models/monsters/failed_transfer/walk_b.md5anim
+	{
+		frame 1, 21										sound		snd_flesh
+		frame 10, 25									footstep
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Attack Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim melee_attack1						models/monsters/failed_transfer/melee_a.md5anim
+	{
+		frame 	1,30						sound				snd_flesh
+		frame	12,26						footstep
+		frame	16							fx					fx_swipe						lWrist
+		frame	20							ai_attack_melee 	melee
+	}
+	anim melee_attack2						models/monsters/failed_transfer/melee_b.md5anim
+	{
+		frame 	1, 15						sound				snd_flesh
+		frame	16							fx					fx_swipe						lWrist
+		frame	17,27						footstep
+		frame	20							ai_attack_melee		melee
+	}
+
+	anim range_attack1						models/monsters/failed_transfer/shotgun_recoil.md5anim
+	{
+		frame 1								ai_attack			shotgun					muzzleflash
+		frame 1								fx					fx_shotgun_flash		muzzleflash
+		frame 1								sound_weapon		snd_shotgun
+	}
+	anim range_attack2						models/monsters/failed_transfer/shotgun_a.md5anim
+	{
+		frame 1								ai_attack			shotgun					muzzleflash
+		frame 1								fx					fx_shotgun_flash		muzzleflash
+		frame 1								sound_weapon		snd_shotgun
+	}
+	anim range_attack3						models/monsters/failed_transfer/shotgun_b.md5anim
+	{
+		frame 1								ai_attack			shotgun					muzzleflash
+		frame 1								fx					fx_shotgun_flash		muzzleflash
+		frame 1								sound_weapon		snd_shotgun
+	}
+	anim range_attack4						models/monsters/failed_transfer/shotgun_c.md5anim
+	{
+		frame 1								ai_attack			shotgun					muzzleflash
+		frame 1								fx					fx_shotgun_flash		muzzleflash
+		frame 1								sound_weapon		snd_shotgun
+	}
+
+	// ------------------------------------------------------------------------------------------
+	//
+	//									Pain Animations
+	//
+	// ------------------------------------------------------------------------------------------
+
+	anim pain1								models/monsters/failed_transfer/pain_std.md5anim
+	{
+		frame 1								sound_voice			snd_pain
+		frame 2								sound				snd_flesh
+	}
+	anim pain2								models/monsters/failed_transfer/pain_std2.md5anim
+	{
+		frame 1								sound_voice			snd_pain
+		frame 2								sound				snd_flesh
+	}
+	anim pain_concussive					models/monsters/failed_transfer/falldown.md5anim
+	{
+		ai_no_turn
+		frame 1								sound_voice			snd_pain
+		frame 8								sound				snd_slam
+		frame 19,28,40,55					sound				snd_flesh
+	}
+
+	anim pain_stream_start					models/monsters/failed_transfer/pain_strm_start.md5anim
+	anim pain_stream						models/monsters/failed_transfer/pain_strm_loop.md5anim
+	anim pain_stream_end					models/monsters/failed_transfer/pain_strm_end.md5anim
+	
+
+	// --------- ANIMS THAT AREN'T CURRENTLY BEGIN REFERENCED GO BELOW HERE --------------
+	// (NOTE: MAKE THESE WORK)
+	anim split_torso									models/monsters/failed_transfer/split_torso.md5anim
+	{
+		frame	1										sound_voice	effects_gib
+	}
+	anim torso_move_back								models/monsters/failed_transfer/torso_push_back.md5anim
+	anim torso_crawl_back								models/monsters/failed_transfer/torso_crawl_back.md5anim
+	anim split_leg										models/monsters/failed_transfer/split_leg.md5anim
+}
+
+/*
+===============================================================================
+
+	Failed Transfer Full body Attacks
+
+===============================================================================
+*/
+
+entityDef damage_failed_transfer_bullet
+{
+	"inherit"								"damage_bullet_base"
+	"damage"								"5"
+}
+
+entityDef hitscan_failed_transfer_shotgun
+{
+	"inherit"								"hitscan_shotgun_base"
+	"fx_tracer"								"effects/monsters/grunt/bullet_tracer.fx"
+	"def_damage"							"damage_failed_transfer_bullet"
+}
+
+entityDef melee_failed_transfer
+{
+	"inherit"								"melee_monster_base"
+	"damage"								"30"
+	"knockback"								"20"
+	"snd_miss"								"failedtransfer_swing"
+	"snd_hit"								"failedtransfer_punch"
+}
+
+entityDef misc_failed_transfer_light
+{
+	"inherit"								"light"
+	"noshadows"								"1"
+	"nospecular"							"0"
+	"nodiffuse"								"0"
+	"falloff"								"0"
+	"texture"								"lights/rav_squarebevel"
+	"_color"								"0.8 0.9 1"
+	"light_radius"							"32 32 32"
+}
+
+/*
+===============================================================================
+
+	Failed Transfer Full body Entity Def
+
+===============================================================================
+*/
+
+entityDef monster_failed_transfer
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterFailedTransfer"
+	
+	// --------------------------------- Actions ------------------------------------
+	"action_meleeAttack"					"1"
+	"action_rangedAttack"					"1"
+	
+	// --------------------------------- Body ------------------------------------
+	"model"									"model_monster_failed_transfer"
+	"ragdoll"								"monster_failed_transfer"
+	"ragdoll_legs"							"monster_failed_transfer_legs"
+	"has_weapon"							"1"
+	"start_split"							"0"
+	"size"									"32 32 72"
+	"use_aas"								"aas32"
+	"joint_eyeOffset"						"r_eyeball_jt"
+
+	"chatter_idle_rate"						"8"
+	"chatter_combat_rate"					"8"	
+
+	"deathhidesurface1"						"models/weapons/mp_guns/w_sg"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"70"
+	"split_health"							"30"
+	"painThreshold"							"5"
+	"painThresholdBig"						"30"
+	"torso_leap_range"						"128"
+	"missile_visibility_joint"				"muzzleflash"
+
+	"tactical_rush"							"1"
+	"tactical_ranged"						"0"
+	"tactical_cover"						"0"
+	"tactical_hide"							"0"
+
+	"def_attack_shotgun"					"hitscan_failed_transfer_shotgun"
+	"attack_shotgun_hitscan"				"1"
+	"attack_shotgun_spread"					"10"
+	"attack_shotgun_count"					"10"
+	"attack_shotgun_accuracy"				"1"
+	"attack_shotgun_predict"				".5"
+	"attack_shotgun_missFirstShot"			"1"
+	
+	"def_attack_melee"						"melee_failed_transfer"
+
+	// --------------------------------- Damage Zones -----------------------------
+	"damage_zone head"						"*neck_1"
+	"damage_zone legs"						"*hip_joint Body origin -*waist"
+	"damage_scale head"						"2"	
+	"damage_scale legs"						".75"	
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_torso"								"monster_failed_transfer_torso"
+	"def_drops"								"moveable_item_shotgun"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"						".2 .2 0"
+	  "look_joint chest"					".2 .2 0"
+	    "look_joint shoulders"				".2 .2 0"
+	      "look_joint neck_1"				".2 .2 0"
+	        "look_joint head_1"				".2 .2 0"
+
+	// --------------------------------- IK --------------------------------------
+/*	"ik_numLegs"							"2"
+	"ik_footSize"							"4"
+	"ik_waist"								"Body"
+	"ik_hip1"								"r_thigh"
+	"ik_hip2"								"l_thigh"
+	"ik_knee1"								"r_knee"
+	"ik_knee2"								"l_knee"
+	"ik_ankle1"								"r_ankle"
+	"ik_ankle2"								"l_ankle"
+	"ik_foot1"								"r_ball"
+	"ik_foot2"								"l_ball"
+*/
+
+	// --------------------------------- Sounds ----------------------------------
+	"lipsync_sight"							"failedtransfer_sight"
+	"lipsync_rush"							"failedtransfer_rush"	
+	"lipsync_chatter_idle"					"failedtransfer_chatter"
+	"lipsync_chatter_combat"				"failedtransfer_chatter"
+
+	"snd_alert"								"failedtransfer_alert"
+	"snd_pain"								"failedtransfer_pain"
+	"snd_death"								"failedtransfer_death"
+	"snd_swing"								"failedtransfer_swing"
+	"snd_slam"								"failedtransfer_body_slam"
+	"snd_growl"								"failedtransfer_growl"
+	
+	"snd_shotgun"							"tacticaltransfer_sbotgun_fire"					
+
+	"snd_footstep"							"failedtransfer_step"
+	"snd_footstep_sand"						"failedtransfer_step_dirt"
+	"snd_footstep_dirt"						"failedtransfer_step_dirt"
+	"snd_footstep_hollowmetal"				"failedtransfer_step_hollow_metal"
+	"snd_footstep_rock"						"failedtransfer_step"
+	"snd_footstep_flesh"					"failedtransfer_step_flesh"				
+	
+	"snd_flesh"								"failedtransfer_flesh"
+
+	"skin_legs"								"skins/monsters/failed_transfer/legs"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_shotgun_flash"						"effects/weapons/shotgun/muzzleflash_world.fx"
+	"fx_swipe"								"effects/monsters/grunt/swipe_attack.fx"
+	"fx_bloody_explosion"					"effects/monsters/failed_transfer/bloody_explosion.fx"
+	"fx_bloody_drag"						"effects/monsters/failed_transfer/bloody_drag.fx"
+	"fx_bloodyburst"						"effects/monsters/failed_transfer/ft_bloodyburst.fx"
+	"fx_torsolight"							"effects/monsters/failed_transfer/ft_light.fx"
+	"fx_smear"								"effects/monsters/failed_transfer/smear.fx"
+	
+	//-----------------------------------burn out--------------------------------------------------
+	
+	"snd_burn_lightning"					"effects_sparks02"
+	"fx_burn_lightning"						"effects/monsters/lightning_death.fx"	
+	"fx_burn_particles"						"effects/monsters/teleport3.fx"
+	"fx_burn_particles_chest"				"effects/monsters/teleport4.fx"
+}
+
+/*
+===============================================================================
+
+	Failed Transfer Torso
+
+===============================================================================
+*/
+
+model model_monster_failed_transfer_torso
+{
+	mesh							models/monsters/failed_transfer/mesh.md5mesh
+
+	channel	torso					( *waist )
+	channel	legs					( *hip_joint Body origin -*waist )
+
+	anim af_pose					models/monsters/failed_transfer/ragdoll.md5anim
+	anim ik_pose					models/monsters/failed_transfer/ragdoll.md5anim
+
+	anim idle						models/monsters/failed_transfer/torso_idle.md5anim
+	anim walk						models/monsters/failed_transfer/split_torso_crawl_fast.md5anim
+	{
+		frame 1						fx					fx_smear	chest
+//		frame	1,13,25,35,47		sound				snd_flesh
+//		frame	10,23,41,52			footstep
+	}
+	anim leap_attack				models/monsters/failed_transfer/torso_leap_attack_a.md5anim
+	{
+		frame	1					ai_disablePain
+		frame	1,23,27,41,55		sound				snd_flesh
+		frame	15					sound				snd_growl
+		frame	16					fx					fx_swipe	rWrist
+		frame	20					ai_attack_melee 	melee
+		frame	34					sound				snd_body_splat
+	}
+	anim pain1						models/monsters/failed_transfer/torso_pain_a.md5anim
+	{
+		frame 1						ai_disablePain
+	}
+	anim pain2						models/monsters/failed_transfer/torso_pain_b.md5anim
+	{
+		frame 1						ai_disablePain
+	}
+	anim pain3						models/monsters/failed_transfer/torso_pain_c.md5anim
+	{
+		frame 1						ai_disablePain
+	}
+	anim evade_left					models/monsters/failed_transfer/torso_evade_left.md5anim
+	{
+		frame	1,12				sound	snd_flesh
+		frame	6					footstep
+	}
+	anim evade_right				models/monsters/failed_transfer/torso_evade_right.md5anim
+	{
+		frame	1,12				sound	snd_flesh
+		frame	6					footstep
+	}
+}
+
+entityDef monster_failed_transfer_torso
+{
+	"inherit"						"monster_failed_transfer"
+	"def_drops"						""
+	
+	"spawnclass"					"idAI"
+	
+	"action_meleeAttack"			"0"
+	"action_rangedAttack"			"0"
+	"action_leapAttack"				"1"
+	"action_leapAttack_maxrange"	"150"
+	"action_leapAttack_rate"		"0.5"
+	
+	"snd_footstep"							"failedtransfer_step_flesh"
+	"snd_footstep_sand"						"failedtransfer_step_flesh"
+	"snd_footstep_dirt"						"failedtransfer_step_flesh"
+	"snd_footstep_hollowmetal"				"failedtransfer_step_flesh"
+	"snd_footstep_rock"						"failedtransfer_step_flesh"	
+	"snd_footstep_flesh"					"failedtransfer_step_flesh"			
+	
+	"snd_flesh"								"failedtransfer_flesh2"
+	
+	"snd_growl"								"failedtransfer_growl"
+	"snd_body_splat"						"failedtransfer_body_splat"
+	
+	"size"							"32 32 20"
+	"skin"							"skins/monsters/failed_transfer/torso"
+	"model"							"model_monster_failed_transfer_torso"
+	"forcewalk"						"1"	
+	"ragdoll"						"monster_failed_transfer_torso"
+	"turn_rate"						"60"
+	"health"						"30"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint waist"						"0 0 0"
+	  "look_joint chest"					"0 0 0"
+	    "look_joint shoulders"				"0 0 0"
+	      "look_joint neck_1"				".2 .2 0"
+	        "look_joint head_1"				".2 .2 0"
+}

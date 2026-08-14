@@ -1,0 +1,160 @@
+//------------------------------------------------------------------------------
+// acid_gun.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export acid_gun
+{
+	options  -prefix AG_ -scale .4 -keep eye muzzle grunt_anchor
+	mesh	work/models/mapobjects/strogg/stroyent/dispersal/acid_gun/idle.ma	-dest models/vehicles/acidgun/acidgun.md5mesh
+	anim	work/models/mapobjects/strogg/stroyent/dispersal/acid_gun/idle.ma	-dest models/vehicles/acidgun/idle.md5anim
+	anim	work/models/monsters/Grunt/animations/gnt_acid_gun03.ma				-dest models/vehicles/acidgun/dispersal_cine.md5anim
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_acidgun
+{
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Acid Gun Mounted Turret."
+
+	"spawnclass"				"rvVehicleStatic"
+
+	"gui_hud"					"guis/hud.gui"//"guis/vehicles/turret_hud.gui"
+
+	"model"						"vehicle_acidgun"
+	"mins"						"-16 -16 0"
+	"maxs"						"16 16 32"
+
+	"def_position_driver"		"vehicle_acidgun_driver"
+	
+	"health"					"1000"
+	"mass"						"100"	
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_acidgun_driver
+{
+	"def_part_yaw"				"vehicle_acidgun_turret_yaw"
+	"def_part_pitch"			"vehicle_acidgun_turret_pitch"
+	
+	"def_part_weapon"			"vehicle_acidgun_weapon"
+	
+	"eyeJoint"					"eye"
+//	"eyeoffset"					"-25 0 2"
+	
+	"driverJoint"				"grunt_anchor"
+	"driverVisible"				"1"
+}
+
+//------------------------------------------------------------------------------
+//								Model Defintion
+//------------------------------------------------------------------------------
+
+model vehicle_acidgun
+{
+	mesh						"models/vehicles/acidgun/acidgun.md5mesh"
+
+	channel legs				( *origin )
+
+	anim idle					"models/vehicles/acidgun/idle.md5anim"
+	anim dispersal_cine					"models/vehicles/acidgun/dispersal_cine.md5anim"
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_acidgun_turret_yaw
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"origin"
+	
+	"yaw"						"0"
+	
+	"snd_move"					"vehicle_turret_move"
+	"moveMinVolume"				"-4"
+	"moveMaxVolume"				"8"
+	
+	"turnrate"					"180"
+}
+
+entityDef vehicle_acidgun_turret_pitch
+{
+	"spawnclass"				"rvVehicleTurret"
+
+	"joint"						"joint2"
+
+	"pitch"						"1"
+	"minpitch"					"-20"
+	"maxpitch"					"20"
+	"pitchinvert"				"1"
+
+	"snd_move"					"vehicle_turret_move"
+	"moveMinVolume"				"-4"
+	"moveMaxVolume"				"6"
+}
+
+entityDef vehicle_acidgun_weapon
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"muzzle"
+	"launchfromjoint"			"1"
+	
+	"firedelay"					".05"
+	"def_projectile"			"projectile_acidgun"
+	"fx_muzzleflash"			"effects/vehicles/acidgun/muzzleflash.fx"
+	//"fx_muzzleflash"			"effects/monsters/slimy_transfer/vomit_flash.fx"
+	"snd_fire"					"failedtransfer_vomit" //"vehicle_walker_machinegun"
+	"spread"					"10"
+}
+
+//------------------------------------------------------------------------------
+//								Projectiles
+//------------------------------------------------------------------------------
+
+entityDef projectile_acidgun
+{
+	//"spawnclass"				"idProjectile"
+	"inherit"					"projectile_blaster_base"
+
+	"mins"						"-4 -4 -4"
+	"maxs"						"4 4 4"
+	"cone"						"1"
+
+	"velocity"					"1200 0 0"
+	"gravity"					"1"
+	
+	"def_damage"				"damage_acidgun"
+
+	//"fx_fly"					"effects/vehicles/acidgun/fly.fx"
+	//"fx_trail"					"effects/vehicles/acidgun/trail.fx"
+	//"fx_impact"					"effects/monsters/spiderhead/acid_impact.fx"
+	
+	"fx_fly"					"effects/monsters/slimy_transfer/vomit_fly.fx"
+	"fx_impact"					"effects/monsters/slimy_transfer/vomit_burst.fx"
+	
+	"mass"						"1"		
+
+}
+
+//------------------------------------------------------------------------------
+//								Damage Defs
+//------------------------------------------------------------------------------
+
+entityDef damage_acidgun
+{
+	"inherit"					"damage_bullet"
+	"damage"					"55"
+}

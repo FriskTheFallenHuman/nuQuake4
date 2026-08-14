@@ -1,0 +1,1001 @@
+
+
+sound vo_2_1_1_01_1
+{
+	description	"(Screams of pain for varying durations)"
+
+	minDistance	600
+	maxDistance	2500
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_01_1
+	sound/vo/medlabs_1/2_1_1_01_2
+	sound/vo/medlabs_1/2_1_1_01_3
+	sound/vo/medlabs_1/2_1_1_01_4
+	sound/vo/medlabs_1/2_1_1_01_5
+	sound/vo/medlabs_1/2_1_1_01_6
+	sound/vo/medlabs_1/2_1_1_01_7
+	sound/vo/medlabs_1/2_1_1_01_8
+}
+
+
+sound vo_2_1_1_05_1
+{
+	description	"Behavioral program downloaded to neurocyte."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	global
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_05_1
+}
+
+sound vo_2_1_1_10_1
+{
+	description	"Take 'em down!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_1
+}
+
+
+sound vo_2_1_1_10_10
+{
+	description	"Lieutenant! According to the med-chip, this is Matthew Kane."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_10
+}
+
+
+sound vo_2_1_1_10_11
+{
+	description	"Is he Strogg?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_11
+}
+
+
+sound vo_2_1_1_10_12
+{
+	description	"No. The neurocyte in his head hasn't been activated - the Strogg don't control him."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_12
+}
+
+
+sound vo_2_1_1_10_13
+{
+	description	"How do we know the neurocyte isn't gonna suddenly switch on and he winds up fully Strogg?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_13
+}
+
+
+sound vo_2_1_1_10_14
+{
+	description	"He won't. I guarantee it."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_14
+}
+
+
+sound vo_2_1_1_10_15
+{
+	description	"HQ, this is Rhino squad. We've got an injured Marine who needs immediate evac."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_15
+}
+
+
+sound vo_2_1_1_10_16
+{
+	description	"Rhino squad, meet Falcon 5 at the coordinates being sent."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_16
+}
+
+
+sound vo_2_1_1_10_17
+{
+	description	"Roger that, HQ. Rhino squad, out."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_17
+}
+
+
+sound vo_2_1_1_10_18
+{
+	description	"Welcome back to the land of the living, Kane."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_18
+}
+
+
+sound vo_2_1_1_10_19
+{
+	description	"C'mon. Let's move out."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_19
+}
+
+
+sound vo_2_1_1_10_2
+{
+	description	"Flank left! Flank left!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_2
+}
+
+
+sound vo_2_1_1_10_3
+{
+	description	"I'm on it!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_3
+}
+
+
+sound vo_2_1_1_10_4
+{
+	description	"All clear!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_4
+}
+
+
+sound vo_2_1_1_10_5
+{
+	description	"We're too late for this one."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_5
+}
+
+
+sound vo_2_1_1_10_7
+{
+	description	"I'm doin' you a favor, Marine."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_7
+}
+
+
+sound vo_2_1_1_10_8
+{
+	description	"Wait!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_8
+}
+
+
+sound vo_2_1_1_10_9
+{
+	description	"Take a reading on him."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_10_9
+}
+
+
+sound vo_2_1_1_11_1
+{
+	description	"You can't go running around unarmed - grab Moore's weapons."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_11_1
+}
+
+
+sound vo_2_1_1_12_1
+{
+	description	"Yeah... the Strogg really did a number on you."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_12_1
+}
+
+
+sound vo_2_1_1_13_1
+{
+	description	"You have to keep up with us, Kane."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_13_1
+}
+
+
+sound vo_2_1_1_13_2
+{
+	description	"What are you waitin' for? The Strogg? Let's go!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_13_2
+}
+
+
+sound vo_2_1_1_13_3
+{
+	description	"C'mon, Kane. Keep up with us."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_13_3
+}
+
+
+sound vo_2_1_1_13_4
+{
+	description	"Stick with the group, Kane. There's no telling when Strogg might show up."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_13_4
+}
+
+
+sound vo_2_1_1_21_1
+{
+	description	"Kane, you look like hell."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_21_1
+}
+
+
+sound vo_2_1_1_21_2
+{
+	description	"You're damn lucky we happened to be in the neighborhood."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_21_2
+}
+
+
+sound vo_2_1_1_21_3
+{
+	description	"If we'd been a couple minutes later, you'd be a squib."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_21_3
+}
+
+
+sound vo_2_1_1_22_1
+{
+	description	"You better say a lot of prayers tonight because someone's sure watchin' over you."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_22_1
+}
+
+
+sound vo_2_1_1_22_2
+{
+	description	"We were passing through this building trying to get to the extraction point. Never thought we'd find you here."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_22_2
+}
+
+
+sound vo_2_1_1_22_3
+{
+	description	"We all thought you died back at the hub along with Strauss."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_22_3
+}
+
+
+sound vo_2_1_1_23_1
+{
+	description	"If we'd been five or ten seconds later, you be a full Strogg right now."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_23_1
+}
+
+
+sound vo_2_1_1_23_2
+{
+	description	"It's a lucky thing Voss recognized you, because no one else would underneath all that Strogg gear."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_23_2
+}
+
+
+sound vo_2_1_1_23_3
+{
+	description	"They're gonna have a heck of a time getting all the Strogg implants off you."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_23_3
+}
+
+
+sound vo_2_1_1_31_1
+{
+	description	"Did you want something?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_31_1
+}
+
+
+sound vo_2_1_1_31_2
+{
+	description	"You okay?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_31_2
+}
+
+
+sound vo_2_1_1_31_3
+{
+	description	"You feelin' all right, Kane?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_31_3
+}
+
+
+sound vo_2_1_1_40_1
+{
+	description	"It's locked."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_1
+}
+
+
+sound vo_2_1_1_40_12
+{
+	description	"Okay, Anderson. You escort Kane to Falcon 5. We'll get this door open and proceed without you."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_12
+}
+
+
+sound vo_2_1_1_40_13
+{
+	description	"I'm supposed to escort him alone?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_13
+}
+
+
+sound vo_2_1_1_40_14
+{
+	description	"You did guarantee he wouldn't turn Strogg, didn't you?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_14
+}
+
+
+sound vo_2_1_1_40_15
+{
+	description	"Yeah, but..."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_15
+}
+
+
+sound vo_2_1_1_40_16
+{
+	description	"It'll be fine, Anderson."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_16
+}
+
+
+sound vo_2_1_1_40_17
+{
+	description	"C'mon, Kane. This way."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_17
+}
+
+
+sound vo_2_1_1_40_2
+{
+	description	"Let me see what I can do."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_2
+}
+
+
+sound vo_2_1_1_40_3
+{
+	description	"Rhino, this is HQ. What is your status?"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_3
+}
+
+
+sound vo_2_1_1_40_4
+{
+	description	"We should be at the evac coordinates in 10 minutes."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_4
+}
+
+
+sound vo_2_1_1_40_5
+{
+	description	"There's a medic with Falcon 5. Take the injured marine to them - the rest of your men will have to continue on to the original extraction point."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_5
+}
+
+
+sound vo_2_1_1_40_6
+{
+	description	"Copy that. Rhino, out."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_40_6
+}
+
+
+sound vo_2_1_1_50_1
+{
+	description	"Hey, stick with me."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_50_1
+}
+
+
+sound vo_2_1_1_50_2
+{
+	description	"We can't split up like this."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_50_2
+}
+
+
+sound vo_2_1_1_50_3
+{
+	description	"Don't go running off."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_50_3
+}
+
+
+sound vo_2_1_1_50_4
+{
+	description	"It's safer if we stay together."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_50_4
+}
+
+
+sound vo_2_1_1_60_1
+{
+	description	"Anderson, this is Falcon 5. Get to the LZ on the double. Radar shows a Strogg force is headed our way."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_60_1
+}
+
+
+sound vo_2_1_1_60_2
+{
+	description	"Don't leave without us."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_60_2
+}
+
+
+sound vo_2_1_1_60_3
+{
+	description	"We'll stay as long as possible. Falcon 5 out."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_60_3
+}
+
+
+sound vo_2_1_1_65_1
+{
+	description	"Hey, Kane, looks. There's our ticket out of here."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_65_1
+}
+
+
+sound vo_2_1_1_67_1
+{
+	description	"Anderson, this is Falcon 5. Sorry but we have to dust off now, there's an entire squadron of fliers inbound."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_67_1
+}
+
+
+sound vo_2_1_1_67_2
+{
+	description	"Shit! HQ... HQ this is Falcon 5. We request..."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_67_2
+}
+
+
+sound vo_2_1_1_67_2_5
+{
+	description	"Holy shit . . . that was our ticket out of here."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_67_2_5
+}
+
+sound vo_2_1_1_67_3
+{
+	description	"Anderson, this is Lt.Voss. Things are looking seriously fubared. Rendezvous back with us at the medlab storage facility - we'll head to the primary extraction point."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/medlabs_1/2_1_1_67_3
+}
+
+
+sound vo_2_1_1_67_4
+{
+	description	"I copy, Lieutenant. Anderson, out."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_67_4
+}
+
+sound vo_2_1_1_67_5
+{
+	description	"C'mon, Kane. Let's get going."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_67_4
+}
+
+
+sound vo_2_1_1_80_1
+{
+	description	"You try that door over there, I'll try this one."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_80_1
+}
+
+
+sound vo_2_1_1_80_2
+{
+	description	"This is disgusting!"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_80_2
+}
+
+
+sound vo_2_1_1_90_1
+{
+	description	"Kane, this Lt.Voss. HQ just told me about Anderson's death. I'm sorry to hear about that - he was one of the best medics I've ever known."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/medlabs_1/2_1_1_90_1
+}
+
+
+sound vo_2_1_1_90_2
+{
+	description	"But let's focus on getting you to safety. You're gonna to have to catch up with the squad, Kane. Meet us at the medlabs storage facility. We'll wait for you there."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/medlabs_1/2_1_1_90_2
+}
+
+
+sound vo_2_1_1_90_3
+{
+	description	"Kane? Kane is that you? This section caved in. I'm not sure where the rest of the squad is. My comlink is damaged. Find your way around this mess and we'll figure out a way to get out of here."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/2_1_1_90_3
+}
+
+sound vo_pa_med_10
+{
+	description	"Transfer, approved."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_10
+}
+
+sound vo_pa_med_20
+{
+	description	"Warning: Scanning system breech detected."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_20
+}
+
+sound vo_pa_med_30
+{
+	description	"Neurocyte registration disrupted. Deploy service unit."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_30
+}
+
+sound vo_pa_med_40
+{
+	description	"Hostile units in possession of rogue transfer. Deploy tactical intercepts."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_40
+}
+
+sound vo_pa_med_50
+{
+	description	"Enemy transport destroyed. "
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_50
+}
+
+sound vo_pa_med_60
+{
+	description	"Deliver new prisoners to prototype testing and assembly"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_60
+}
+
+sound vo_pa_med_70
+{
+	description	"Tactical units at full readiness. Beginning deployment."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_70
+}
+
+sound vo_pa_med_80
+{
+	description	"Flyer squadrons dispatched."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	onDemand
+
+	sound/vo/medlabs_1/pa_med_80
+}

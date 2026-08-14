@@ -1,0 +1,319 @@
+//------------------------------------------------------------------------------
+// tramgun.def
+//
+// Copyright 2002-2004 Raven Software
+//------------------------------------------------------------------------------
+
+export tram_gun
+{
+	options  -prefix SBM_ -keep muzzle_flash -scale .3937
+	mesh	work/models/mapobjects/marine/weapons/sb_machinegun/animations/tramgun_idle.ma	-dest models/mapobjects/marine/weapons/sb_machinegun/tram_machinegun.md5mesh
+	anim	work/models/mapobjects/marine/weapons/sb_machinegun/animations/tramgun_idle.ma	-dest models/mapobjects/marine/weapons/sb_machinegun/tram_idle.md5anim
+	anim	work/models/mapobjects/marine/weapons/sb_machinegun/animations/tramgun_idle_to_fire.ma	-dest models/mapobjects/marine/weapons/sb_machinegun/tram_idle_to_fire.md5anim
+	anim	work/models/mapobjects/marine/weapons/sb_machinegun/animations/tramgun_fire_to_idle.ma	-dest models/mapobjects/marine/weapons/sb_machinegun/tram_fire_to_idle.md5anim
+}
+
+export tram_gun_rear
+{
+	options  -prefix SBMP_ -keep muzzle_flash -scale .3937
+	mesh	work/models/mapobjects/marine/weapons/sb_machinegun_post/animations/tramgun_post_idle.ma	-dest models/mapobjects/marine/weapons/sb_machinegun/tramgun_rear.md5mesh
+	anim	work/models/mapobjects/marine/weapons/sb_machinegun_post/animations/tramgun_post_idle.ma	-dest models/mapobjects/marine/weapons/sb_machinegun/tramgun_rear_idle.md5anim
+}
+
+//------------------------------------------------------------------------------
+//							Vehicle Defintion
+//------------------------------------------------------------------------------
+
+entityDef vehicle_tramgun {
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Tram Gun Mounted Turret."
+	"editor_ignore"				"1"
+
+	"spawnclass"				"rvVehicleStatic"
+
+	"gui_hud"					"guis/hud_strogg.gui"
+
+	"mins"						"-28 -32 0"
+	"maxs"						"-5 0 25"
+
+
+	
+	"health"					"0"
+	"mass"						"100"
+	
+	"focusLength_enter"			"-1"
+	
+	"noDamage"					"1"	// Do we want to be able to destroy tram guns?
+}
+
+entityDef vehicle_tram_doorgun {
+	"inherit"					"vehicle_tramgun"
+	"editor_ignore"				"0"
+
+	"model"						"vehicle_tram_doorgun"
+	
+	"def_position_driver"		"vehicle_tram_doorgun_driver"
+}
+
+entityDef vehicle_tram_reargun {
+	"inherit"					"vehicle_tramgun"
+	"editor_ignore"				"0"
+	
+//	"mins"						"-128 -64 -50"
+//	"maxs"						"128 64 50"
+
+	"mins"						"-10 -40 35"
+	"maxs"						"10 35 70"
+	
+	"model"						"vehicle_tram_reargun"
+	
+	"focusLength_enter"			"1000"
+	
+	"def_position_driver"		"vehicle_tram_reargun_driver"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_tramgun_driver {
+	"def_part_weapon"			"vehicle_tramgun_weapon"
+	
+	"angles_offset"				"0 -90 0"
+	"depthHack"					"0"
+	
+	"exitPosOffset"				"-30 0 -5"
+	"exitAxisOffset"			"0 180 0"
+	
+	"deltaEyeAxisScale"			"1 1 0" //"0.2 0.6 0"
+	"deltaDriverAxisScale"		"0 1 0" //"0 0.4 0"
+	
+	"eyeoffset"					"-60 0 33"
+	"driveroffset"				"-60 0 -35"
+	
+	"eyeJointAxisMap"			"0 1 2"
+	"driverJointAxisMap"		"0 1 2"
+	
+	"driverVisible"				"1"
+}
+
+entityDef vehicle_tram_doorgun_driver {
+	"inherit"					"vehicle_tramgun_driver"
+	
+	"def_part_turret_yaw"		"vehicle_tram_doorgun_yaw"
+	"def_part_turret_pitch"		"vehicle_tram_doorgun_pitch"
+	
+	"eyejoint"					"gun"
+	"driverjoint"				"gun"
+	
+	"eyeJointDirMap"			"1 1 1"
+	"driverJointDirMap"			"1 1 1"
+}
+
+entityDef vehicle_tram_reargun_driver {
+	"inherit"					"vehicle_tramgun_driver"
+	
+	"def_part_turret_yaw"		"vehicle_tram_reargun_yaw"
+	"def_part_turret_pitch"		"vehicle_tram_reargun_pitch"
+	
+	"angles_offset"				"0 0 0"
+	
+	"eyejoint"					"pivot"
+	"driverjoint"				"pivot"
+	
+	"eyeJointDirMap"			"1 1 1"
+	"driverJointDirMap"			"1 1 1"
+}
+
+entityDef damage_vehicle_tramgun_bullet
+{
+	"inherit"					"damage_bullet"
+	"damage"					"55"
+}
+
+entityDef hitscan_vehicle_tramgun
+{
+	"inherit"					"hitscan_walker_bullet"
+	"def_damage"				"damage_vehicle_tramgun_bullet"
+	"tracerchance"				"1"
+//	"fx_tracer"					"effects/vehicles/gev/machinegun/tracer.fx"
+
+	"push"						"75000"
+}
+
+//------------------------------------------------------------------------------
+//								Model Defintion
+//------------------------------------------------------------------------------
+
+model vehicle_tram_doorgun
+{
+	mesh						"models/mapobjects/marine/weapons/sb_machinegun/tram_machinegun.md5mesh"
+
+	channel legs				( *base )
+
+	anim idle					"models/mapobjects/marine/weapons/sb_machinegun/tram_idle.md5anim"
+	anim toFire					"models/mapobjects/marine/weapons/sb_machinegun/tram_fire_to_idle.md5anim" {
+		frame 1					event		enableClip
+		frame 1					sound_body	snd_close
+		frame 29				sound		snd_closed
+	}
+	
+	anim toIdle					"models/mapobjects/marine/weapons/sb_machinegun/tram_idle_to_fire.md5anim" {
+		frame 1					sound_body	snd_open
+		frame 29				sound		snd_opened
+		frame 29				event		disableClip
+	}
+}
+
+model vehicle_tram_reargun
+{
+	mesh						"models/mapobjects/marine/weapons/sb_machinegun/tramgun_rear.md5mesh"
+
+	channel legs				( *base )
+
+	anim idle					"models/mapobjects/marine/weapons/sb_machinegun/tramgun_rear_idle.md5anim"
+}
+
+//------------------------------------------------------------------------------
+//									Parts
+//------------------------------------------------------------------------------
+
+entityDef vehicle_tramgun_yaw {
+	"spawnclass"				"rvVehicleTurret"
+
+	"minyaw"					"0"
+	"maxyaw"					"0"
+	
+	"snd_move"					"vehicle_turret_move"
+	"moveMinVolume"				"-4"
+	"moveMaxVolume"				"8"
+	
+	"turnrate"					"480"
+}
+
+entityDef vehicle_tram_doorgun_yaw {
+	"inherit"					"vehicle_tramgun_yaw"
+	
+	"joint"						"gun_mount"
+	"yaw"						"1"
+}
+
+entityDef vehicle_tram_reargun_yaw {
+	"inherit"					"vehicle_tramgun_yaw"
+	
+	"joint"						"base"
+	"yaw"						"1"
+	"minyaw"					"-130"
+	"maxyaw"					"130"
+}
+
+entityDef vehicle_tramgun_pitch {
+	"spawnclass"				"rvVehicleTurret"
+
+	"minpitch"					"-15"
+	"maxpitch"					"38"
+	"pitchinvert"				"0"
+	
+	"snd_move"					"vehicle_turret_move"
+	"moveMinVolume"				"-4"
+	"moveMaxVolume"				"8"
+	
+	"turnrate"					"240"
+}
+
+entityDef vehicle_tram_doorgun_pitch {
+	"inherit"					"vehicle_tramgun_pitch"
+	
+	"joint"						"gun"
+	"pitch"						"0"
+}
+
+entityDef vehicle_tram_reargun_pitch {
+	"inherit"					"vehicle_tramgun_pitch"
+	
+	"minpitch"					"-35"
+	"maxpitch"					"6"
+	
+	"joint"						"pivot"
+	"pitch"						"0"
+}
+
+entityDef vehicle_tramgun_weapon
+{
+	"spawnclass"				"rvVehicleWeapon"
+
+	"joint"						"muzzle_flash"
+	"launchfromjoint"			"1"
+	
+	"firedelay"					"0.05"
+	
+	"def_hitscan"				"hitscan_vehicle_tramgun"	
+	
+	"fx_muzzleflash"			"effects/vehicles/tramgun/muzzleflash.fx"
+	"spread"					"3"
+	
+	"snd_fire"					"vehicle_walker_machinegun"
+	
+	"recoilTime"				"50"
+	"recoilAngles"				"-1 0 0"
+
+	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
+	"crosshairOffsetX"			"0"
+	"crosshairOffsetY"			"0"
+
+	// Gun overheating variables	
+//	"heat_per_second"			"10"	// can shoot continuously for 10 seconds
+//	"max_heat"					"100"	// heat level when gun becomes overheated
+//	"cooldown_delay"			".5"		// if gun overheated or no shots done in this amount of time, gun starts cooldown
+//	"cooldown_rate"				"30"	// how many heat points dropped per second once cooldown has begun
+}
+
+//------------------------------------------------------------------------------
+//								Projectiles
+//------------------------------------------------------------------------------
+
+entityDef projectile_tramgun
+{
+	"inherit"					"projectile_blaster_base"
+	"mins"						"-4 -4 -4"
+	"maxs"						"4 4 4"
+	"cone"						"1"
+
+	"velocity"					"7800 0 0"
+	"gravity"					"0"
+	
+	"def_damage"				"damage_tramgun"
+
+	"fx_fly"					"effects/vehicles/tramgun_fly.fx"
+/*	
+	"fx_impact"					"effects/vehicles/walker/machinegun/impact_default.fx"
+	"fx_impact_water"			"effects/ambient/splash_smll.fx"
+	"fx_impact_concrete"		"effects/vehicles/walker/machinegun/impact_concrete.fx"
+	"fx_impact_electronics"		"effects/vehicles/walker/machinegun/impact_electronics.fx"
+	"fx_impact_flesh"			"effects/vehicles/walker/machinegun/impact_flesh.fx"						
+	"fx_impact_glass"			"effects/vehicles/walker/machinegun/impact_glass.fx"
+	"fx_impact_monstermetal"	"effects/vehicles/walker/machinegun/impact_monstermetal.fx"
+	"fx_impact_rock"			"effects/vehicles/walker/machinegun/impact_rock.fx"
+*/	
+	"push"						"75000"
+	
+	"mass"						"1"
+}
+
+//------------------------------------------------------------------------------
+//								Damage Defs
+//------------------------------------------------------------------------------
+
+entityDef damage_tramgun
+{
+	"inherit"					"damage_bullet"
+	"damage"					"50"
+	"gib"						"1"
+	
+	//"deathPush"					"5000"
+	//"deathPushMins"				"100000 100000"
+	//"deathPushMaxs"				"100000 100000"
+}

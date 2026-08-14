@@ -1,0 +1,256 @@
+
+namespace boss_makron_jr	{
+
+entity	entMakronJr;
+
+//if the player is outside of these ranges ( Y < north || Y > south) then the Makron won't use his charge attack.
+//this will keep him from clipping into the pipes all stupidlike.
+float	chargeBoundsNorth;
+float	chargeBoundsSouth;
+
+//when this flag is true, the Makron's lightning attack will end the battle for the player.
+float g_endBattle;
+
+//when this is over, we return to Hub2 script
+float g_waitForBattle;
+
+//when this is over, we return to Hub2 script
+float g_notEndingCinema;
+
+//the fight pattern for the makronJr.
+void makronJrBattlePattern();
+
+//keeps an eye on the Makron health
+void maintainMakronHealth();
+
+//do this when he dies.
+void makronJrDies();
+
+//decide whether or not the Makron should use his charge attack.
+float shouldCharge()	{
+
+	float fLoc;
+	vector v;
+	v = $player1.getWorldOrigin();
+	fLoc = v_y;
+	sys.println("fLoc = " + fLoc + " north = " + chargeBoundsNorth + " south = " + chargeBoundsSouth);
+	if( fLoc < chargeBoundsNorth && fLoc > chargeBoundsSouth )	{
+		sys.println("Player in bounds, should charge.");
+		return 1;
+	} else {
+		sys.println("Player not in bounds, should not charge.");
+		return 0;
+	}
+
+}
+
+void loopEndDamage()	{
+
+	while( $player1.getHealth() > 5 && g_notEndingCinema )	{
+		entMakronJr.directDamage( $player1, "damage_triggerhurt_1");
+		sys.wait( sys.random(0.2));
+	}
+
+}
+
+void makronMovement()	{
+
+	while( 1)	{
+		sys.trigger( $tether_boss_1);
+		sys.println("Move to tether 1");
+		sys.wait(10);
+		sys.trigger( $tether_boss_2);
+		sys.println("Move to tether 2");
+		sys.wait(10);
+	}
+
+}
+
+void actuallyEndBattle()	{
+	
+	//suffering
+	sys.trigger( $spkr_lightning);
+
+	//bind the player in place, and slowly fade out.
+	$tgt_bind_player.setWorldOrigin( $player1.getWorldOrigin() );
+	sys.waitFrame();
+	$player1.bind( $tgt_bind_player );
+
+	//loop the damage
+	thread loopEndDamage();
+
+	//slowly lift the player and bring him closer to the Makron.
+	vector vTowardsMakron;
+
+	vTowardsMakron = entMakronJr.getWorldOrigin() - $tgt_bind_player.getWorldOrigin();
+	vTowardsMakron = sys.vecNormalize( vTowardsMakron);
+	vTowardsMakron_z = .75;
+
+	float fTime = sys.getTime();
+	float fGoalTime = sys.getTime() + 3;
+	vector vNewOrigin;
+
+//	sys.println("Moving player");
+	while( fTime < fGoalTime )	{
+		float fDelta = sys.getTime() - fTime;
+		fTime += fDelta;
+//		sys.println("fDelta + " + fDelta );
+//		sys.print("Origin: ");
+		printVector( $tgt_bind_player.getWorldOrigin() );
+		//move towards the Makron
+		vNewOrigin = $tgt_bind_player.getWorldOrigin() + (vTowardsMakron * (fDelta * 100));
+		$tgt_bind_player.setWorldOrigin( vNewOrigin );
+
+
+		sys.waitFrame();
+		
+	} 
+	sys.killthread("loopEndDamage");
+	g_notEndingCinema = 0;
+
+	//kick the player up
+	sys.trigger( $spkr_argh );
+	$player1.unbind();
+	sys.waitFrame();
+
+	//we're actually going AWAY from the Makron here...
+	vTowardsMakron_z *= -1;
+	vTowardsMakron *= - 50000;
+	$player1.applyImpulse( $player1, $player1.getWorldOrigin(), vTowardsMakron);
+	$player1.setUndying(1);
+
+
+//	sys.println("Waiting for the fade out...");
+	sys.wait(.25);	
+	sys.fadeOut('0 0 0', .5 );
+	sys.wait(0.5);
+	$player1.bind( $tgt_bind_player );
+
+
+	sys.wait(3);
+
+	//sys.println("The wait is over, screen should be faded and player dead.");
+	//back to Hub2 script. Make sure the player is still alive. This sequence won't kill him,
+	//but if a grenade launched before the sequence start kills him, then the lightning hits him, we don't want to play the 
+	//next cinematic
+	if( $player1.getHealth() > 0)	{
+		g_waitForBattle = 0;
+	}
+	//map_hub2::makron_hurtme();
+
+}
+void endBattle()	{
+	
+	//sys.println("Trying to end battle with Player 1");
+	if( g_endBattle == 0)	{
+		return;
+	}
+	g_endBattle = 0;
+	//sys.println("Success!");
+	thread actuallyEndBattle();
+
+}
+
+//Makes sure the Makron executes an attack. Returns false if something weird happens,
+//like if Makron dies or some other bullocks.
+float enforceMakronAttack( string strAttack )	{
+
+	float fAttackOK = 0;
+
+	while ( isValidEntity( entMakronJr ) && (fAttackOK == 0) )	{
+		fAttackOK = entMakronJr.setNextAction( strAttack );
+		sys.wait(0.1);
+	}
+	return fAttackOK;
+}
+
+//keeps an eye on the Makron health
+void maintainMakronHealth()	{
+
+	g_notEndingCinema = 1;
+	entMakronJr.setHealth( 1200 );
+
+	//he won't die.
+	while(1 && g_notEndingCinema)	{	
+		if( entMakronJr.getHealth() < 1)	{
+			entMakronJr.takeDamage( 0);
+			sys.killthread( "makronJrBattlePattern");
+			sys.killthread( "makronMovement");
+		
+			entMakronJr.setHealth( 2000);
+			break;
+			//thread makronJrDies();	
+		}
+		sys.waitFrame();
+	}
+
+}
+
+void makronJrDies()	{
+
+	//sys.println("MakronJr dies!!");
+	g_endBattle = 1;
+
+
+}
+
+//the fight pattern for the makronJr.
+void makronJrBattlePattern()	{
+
+	thread makronMovement();
+
+	while (1)	{
+		entMakronJr.enablePatternMode();
+
+		enforceMakronAttack("actionDMGrenades");
+		sys.wait(2);
+		if( shouldCharge() == 1 )	{
+		//	enforceMakronAttack("actionCharge");
+			sys.wait(2);
+		}
+		enforceMakronAttack("actionCannon");
+		sys.wait(2);
+		if( shouldCharge() == 1)	{
+		//	enforceMakronAttack("actionCharge");
+			sys.wait(2);
+		}
+		//sys.wait(2);
+		//enforceMakronAttack("actionCharge");
+		sys.wait(2);
+		enforceMakronAttack("actionCannon");
+		sys.wait(2);
+	}
+}
+
+
+void maintainMakronJr( entity e)	{
+
+	entMakronJr = e;
+
+	//set ranges up
+	vector v;
+	v = $tgt_chargerange_north.getWorldOrigin();
+	chargeBoundsNorth = v_y;
+	v = $tgt_chargerange_south.getWorldOrigin();
+	chargeBoundsSouth = v_y;
+
+	//thread it's battle pattern
+	thread makronJrBattlePattern();
+
+	//thread it's health
+	thread maintainMakronHealth();
+
+	g_waitForBattle = 1;
+	while( g_waitForBattle )	{
+		sys.waitFrame();
+	}
+	//sys.println(" battle should be over?!");
+}
+
+void main()	{
+
+	thread maintainMakronJr( $makron_jr);
+
+}
+
+}

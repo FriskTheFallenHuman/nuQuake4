@@ -1,0 +1,45 @@
+/***********************************************************************
+DOOR GETTING SMASHED FROM OTHER SIDE
+***********************************************************************/
+
+export door_smash
+{
+	options -prefix DOOR -sourcedir work/models/mapobjects/strogg/doors/dispersal/animation -destdir models/mapobjects/strogg/doors/dispersal
+
+	mesh	door_smash_from_other_side.ma					-dest door_smash_mesh
+	anim	door_smash_from_other_side_idle_start.ma		-dest door_idle
+	anim	door_smash_from_other_side.ma					-dest door_smash
+	anim	door_smash_from_other_side_idle_end.ma			-dest door_idle_end
+}
+
+model model_env_door_smash
+{
+	mesh			"models/mapobjects/strogg/doors/dispersal/door_smash_mesh.md5mesh"
+	anim idle			"models/mapobjects/strogg/doors/dispersal/door_idle.md5anim"
+	anim smash		"models/mapobjects/strogg/doors/dispersal/door_smash.md5anim"
+	{
+		frame	1									sound 			ambient_deep_metal_thump
+		frame	1									call			map_building_b::door_sparks_2
+		frame	80									sound 			ambient_deep_metal_thump
+		frame	80									call			map_building_b::door_sparks_1
+		frame	127									sound 			ambient_deep_metal_thump
+		frame	127									call			map_building_b::door_sparks_3
+	}
+	anim idle_end		"models/mapobjects/strogg/doors/dispersal/door_idle_end.md5anim"
+}
+
+entityDef env_door_smash
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 16"
+
+	"editor_usage"			"this script copied from pump for convoy"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_env_door_smash"
+	"anim"					"idle"
+	
+	"snd_smash"						"ambient_deep_metal_thump"
+}

@@ -1,0 +1,478 @@
+//----------------------------------
+//  strogg wall banners
+//----------------------------------
+
+////////// sideways //////////////
+
+
+textures/banners/side1
+{
+	qer_editorimage	textures/banners/side1.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/side1_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 1)
+	}
+	{
+		blend 	add
+		map	textures/banners/side1_d.tga
+		rgb .4
+	}
+	
+	specularMap		textures/banners/side1_s.tga
+}
+
+textures/banners/side1_ripped
+{
+	qer_editorimage	textures/banners/side1_ripped.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/side1_ripped_d.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 1)
+	}
+	{
+		blend 	add
+		map	textures/banners/side1_ripped_d.tga
+		rgb .4
+	}
+	
+	specularMap		textures/banners/side1_s.tga
+}
+
+////////// tall //////////////
+
+
+textures/banners/1_tall
+{
+	qer_editorimage	textures/banners/1_tall.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/1_tall.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 3)
+	}
+	
+	specularMap		textures/banners/1_tall_s.tga
+}
+
+textures/banners/1_tall_ripped
+{
+	qer_editorimage	textures/banners/1_tall_r.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/1_tall_r.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 3)
+	}
+	
+	specularMap		textures/banners/1_tall_r_s.tga
+}
+
+textures/banners/2_tall
+{
+	qer_editorimage	textures/banners/2_tall.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/2_tall.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 3)
+		scale -1, 1
+	}
+	
+	specularMap		textures/banners/2_tall_s.tga
+}
+
+textures/banners/2_tall_ripped
+{
+	qer_editorimage	textures/banners/2_tall_r.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/2_tall_r.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 3)
+		scale -1, 1
+	}
+	
+	specularMap		textures/banners/2_tall_r_s.tga
+}
+
+textures/banners/3_tall
+{
+	qer_editorimage	textures/banners/3_tall.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/3_tall.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/2_h.tga, 3)
+	}
+	
+	specularMap		textures/banners/3_tall_s.tga
+}
+
+textures/banners/3_tall_ripped
+{
+	qer_editorimage	textures/banners/3_tall_r.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/3_tall_r.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/2_h.tga, 3)
+	}
+	
+	specularMap		textures/banners/3_tall_r_s.tga
+}
+
+textures/banners/4_tall
+{
+	qer_editorimage	textures/banners/4_tall.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/4_tall.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/2_h.tga, 3)
+		scale -1, 1
+	}
+	
+	specularMap		textures/banners/4_tall_s.tga
+}
+
+textures/banners/4_tall_ripped
+{
+	qer_editorimage	textures/banners/4_tall_r.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/4_tall_r.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/2_h.tga, 3)
+		scale -1, 1
+	}
+	
+	specularMap		textures/banners/4_tall_r_s.tga
+}
+
+////////// short //////////////
+
+
+textures/banners/1_short
+{
+	qer_editorimage	textures/banners/1_short.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/1_short.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 3)
+	}
+	
+	specularMap		textures/banners/1_short_s.tga
+}
+
+textures/banners/2_short
+{
+	qer_editorimage	textures/banners/2_short.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/2_short.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/1_h.tga, 3)
+		scale -1, 1
+	}
+	
+	specularMap		textures/banners/2_short_s.tga
+}
+
+textures/banners/3_short
+{
+	qer_editorimage	textures/banners/3_short.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/3_short.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/2_h.tga, 3)
+	}
+	
+	specularMap		textures/banners/3_short_s.tga
+}
+
+textures/banners/4_short
+{
+	qer_editorimage	textures/banners/4_short.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/banners/4_short.tga
+		alphaTest 0.5
+	}	
+	{
+		blend 	bumpMap
+		map		heightmap (textures/banners/2_h.tga, 3)
+		scale -1, 1
+	}
+	
+	specularMap		textures/banners/4_short_s.tga
+}
+
+
+
+//----------------------------------
+//  strogg wall banner shadows
+//----------------------------------
+
+////////// tall //////////////
+
+textures/banners/1_tall_shadow
+{
+	qer_editorimage	textures/banners/1_tall_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/1_tall_shd.tga
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/1_tall_ripped_shadow
+{
+	qer_editorimage	textures/banners/1_tall_r_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/1_tall_r_shd.tga
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/2_tall_shadow
+{
+	qer_editorimage	textures/banners/2_tall_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/2_tall_shd.tga
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/2_tall_ripped_shadow
+{
+	qer_editorimage	textures/banners/2_tall_r_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/2_tall_r_shd.tga
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/3_tall_shadow
+{
+	qer_editorimage	textures/banners/3_tall_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/1_tall_shd.tga
+		scale -1, 1
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/3_tall_ripped_shadow
+{
+	qer_editorimage	textures/banners/3_tall_r_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/1_tall_r_shd.tga
+		scale -1, 1
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/4_tall_shadow
+{
+	qer_editorimage	textures/banners/4_tall_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/2_tall_shd.tga
+		scale -1, 1
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/4_tall_ripped_shadow
+{
+	qer_editorimage	textures/banners/4_tall_r_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/2_tall_r_shd.tga
+		scale -1, 1
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+////////// short //////////////
+
+textures/banners/1_short_shadow
+{
+	qer_editorimage	textures/banners/1_short_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/1_short_shd.tga
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/2_short_shadow
+{
+	qer_editorimage	textures/banners/2_short_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/2_short_shd.tga
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/3_short_shadow
+{
+	qer_editorimage	textures/banners/3_short_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/1_short_shd.tga
+		scale -1, 1
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}
+
+textures/banners/4_short_shadow
+{
+	qer_editorimage	textures/banners/4_short_shd.tga
+	noShadows
+	nonSolid
+	{
+       	blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR								//inverse multiplicative blend
+		Map textures/banners/2_short_shd.tga
+		scale -1, 1
+		red Parm4
+		green Parm4
+		blue Parm4
+	}
+}

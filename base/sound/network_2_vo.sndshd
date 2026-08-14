@@ -1,0 +1,243 @@
+
+sound vo_3_1_32_30_1
+{
+	description	"The Guardian has landed on the side of the tower."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/network_2/3_1_32_30_1
+}
+
+
+sound vo_3_1_34_10_1
+{
+	description	"Ah, the Core security station is finally deactivated. I won't bother asking what took you so long. Quickly make your way to the Core Teleporter."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_10_1
+}
+
+
+sound vo_3_1_34_20_0
+{
+	description	"Gaaaaagh!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/network_2/3_1_34_20_0
+}
+
+
+sound vo_3_1_34_20_1
+{
+	description	"He's dead! Barrister's dead!"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/network_2/3_1_34_20_1
+}
+
+
+sound vo_3_1_34_20_2
+{
+	description	"I told him not to go through."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/network_2/3_1_34_20_2
+}
+
+
+sound vo_3_1_34_20_3
+{
+	description	"HQ, we have a Marine down at the Core teleporter."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/network_2/3_1_34_20_3
+}
+
+
+sound vo_3_1_34_20_4
+{
+	description	"Perhaps he should have listened to me rather than trying to play the hero."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_20_4
+}
+
+
+sound vo_3_1_34_20_5
+{
+	description	"He just wanted to get in there and battle the Strogg."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+
+	sound/vo/network_2/3_1_34_20_5
+}
+
+
+sound vo_3_1_34_20_6
+{
+	description	"That proved to be a mistake, didn't it?"
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_20_6
+}
+
+
+sound vo_3_1_34_20_7
+{
+	description	"Kane, ignore the unfortunate soul laying dead on the ground. Because of your Strogg physiology you will be able to use the teleporter. Go now, it is the only way into the Core, and that houses the Nexus."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_20_7
+}
+
+
+sound vo_3_1_34_30_1
+{
+	description	"Corporal Kane, why do you hesitate to use the teleporter? Trust me when I say it is completely safe for you."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_30_1
+}
+
+
+sound vo_3_1_34_30_2
+{
+	description	"Please, Corporal - use the teleporter. Men are dying as you hesitate to enter the Core."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_30_2
+}
+
+
+sound vo_3_1_34_30_3
+{
+	description	"Corporal Kane, it is imperative you use the teleporter now. The Nexus must be destroyed."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	voForPlayer
+
+	sound/vo/network_2/3_1_34_30_3
+}
+
+sound vo_pa_network2_10
+{
+	description	"Breech on decks 72 through 85.  Deploying repair units."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	
+
+	sound/vo/network_2/pa_network2_10
+}
+
+sound vo_pa_network2_20
+{
+	description	"Communication terminal 9C, destroyed."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	
+
+	sound/vo/network_2/pa_network2_20
+}
+
+
+sound vo_pa_network2_30
+{
+	description	"Exterior damage sustained. TG-014 report to defenses on deck 12."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	
+
+	sound/vo/network_2/pa_network2_30
+}
+
+
+sound vo_pa_network2_40
+{
+	description	"Interface disabled. Core teleport activated."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	
+
+	sound/vo/network_2/pa_network2_40
+}
+
+
+sound vo_pa_network2_50
+{
+	description	"Warning! Nexus perimeter is compromised."
+
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+	onDemand
+	
+
+	sound/vo/network_2/pa_network2_50
+}

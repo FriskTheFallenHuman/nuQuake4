@@ -1,0 +1,200 @@
+/*
+===============================================================================
+
+	Convoy Ground Creature
+
+===============================================================================
+*/
+export convoy_ground_creature
+{
+	options -prefix ROLL_ -scale .3937 -align All -sourcedir work/models/monsters/convoy_ground_creature/animations -destdir models/monsters/convoy_ground_creature
+	
+	mesh	idle.ma					-dest mesh
+	anim	idle.ma					-dest idle
+	anim	roll_forward.ma			-dest roll_forward
+	anim	extend_legs.ma			-dest extend_legs
+	anim	retract_legs.ma			-dest retract_legs
+	anim	idle_open.ma			-dest idle_open
+	anim	attack.ma				-dest attack
+	anim	ball_roll_in_place.ma		-range 1 18 -dest ball_roll_in_place
+	anim	ball_land.ma			-range 1 24 -dest ball_land
+	anim	ball_hit.ma			-range 1 24 -dest ball_hit
+}
+
+/*
+===============================================================================
+
+	Convoy Ground Creature Model
+
+===============================================================================
+*/
+
+model model_monster_convoy_ground
+{
+	mesh									models/monsters/convoy_ground_creature/mesh.md5mesh
+	anim	idle							models/monsters/convoy_ground_creature/idle.md5anim
+	anim	idle_open						models/monsters/convoy_ground_creature/idle_open.md5anim
+	anim	run								models/monsters/convoy_ground_creature/roll_forward.md5anim
+
+	anim	ball_roll_in_place				models/monsters/convoy_ground_creature/ball_roll_in_place.md5anim
+	anim	land							models/monsters/convoy_ground_creature/ball_land.md5anim
+	anim	pain							models/monsters/convoy_ground_creature/ball_hit.md5anim
+
+	anim	extend_legs						models/monsters/convoy_ground_creature/extend_legs.md5anim
+	{
+		rate	2
+		frame	1							sound_voice		snd_open
+	}
+	anim	retract_legs					models/monsters/convoy_ground_creature/retract_legs.md5anim
+	{
+		rate	2
+		frame	1							sound_voice		snd_close
+	}
+	anim	range_attack					models/monsters/convoy_ground_creature/attack.md5anim
+	{
+		frame	2							ai_attack		blaster				shoot_1
+		frame	2							fx				fx_blaster_flash	shoot_1
+		frame	2							sound_weapon			snd_gun
+
+		frame	5							ai_attack		blaster				shoot_4
+		frame	5							fx				fx_blaster_flash	shoot_4
+		frame	5							sound_weapon			snd_gun
+
+		frame	9							ai_attack		blaster				shoot_2
+		frame	9							fx				fx_blaster_flash	shoot_2
+		frame	9							sound_weapon			snd_gun
+
+		frame	12							ai_attack		blaster				shoot_3
+		frame	12							fx				fx_blaster_flash	shoot_3
+		frame	12							sound_weapon			snd_gun
+	}
+
+
+	channel	torso							( *axis )
+	channel	legs							( *origin -*axis )
+
+	// probably doesn't want to use ragdoll?  Does this need to be here then?
+	anim af_pose							models/monsters/convoy_ground_creature/idle.md5anim
+}
+
+/*
+===============================================================================
+
+	Convoy Ground Creature Attacks (CGC)
+
+===============================================================================
+*/
+
+entityDef damage_cgc_shot
+{
+	"inherit"											"damage_bullet_base"
+	"damage"											"30"
+}
+
+entityDef projectile_cgc_shot
+{
+	"inherit"											"projectile_blaster_base"
+	"def_damage"										"damage_cgc_shot"
+	"velocity"											"1500 0 0"
+	"fx_fly"											"effects/monsters/convoy_rolly/projectile.fx"
+	"fx_impact"											"effects/monsters/convoy_rolly/impact.fx"
+	"snd_fly"											"weapon_energy_projectile_loop"
+}
+
+/*
+===============================================================================
+
+	Convoy Ground Creature Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_convoy_ground
+{
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterConvoyGround"
+
+	"ragdoll"							"monster_convoy_ground"	
+
+	// --------------------------------- Actions ------------------------------------
+	"action_blasterAttack"				"1"
+	"action_blasterAttack_minrange"		"200"
+	"action_blasterAttack_maxrange"		"5000"
+	"action_blasterAttack_rate"			"0.5"
+	
+	"actiontimer_pain"					"0"
+
+	// --------------------------------- Body ------------------------------------
+	"model"								"model_monster_convoy_ground"
+	"mins"								"-45 -45 3"
+	"maxs"								"45 45 93"
+	"dodecahedron"						"1"
+	"use_aas"							"aas96"
+	
+	"directionalMovement"				"0"
+	"noRangedInterrupt"					"1"
+	"turnRate"							"10"
+	
+	"moveAccelRate"						".1"
+		
+	"searchRange"						"768 2048"
+	"attackRange"						"1024 2048"
+	"attackPositionRange"				"100"
+
+	"tactical_ranged"					"1"
+	"tactical_rush"						"1"
+	
+	"joint_chestOffset"					"axis"
+	"joint_eyeOffset"					"axis"
+//	"joint_orientation"					"body"
+
+	"painThreshold"						"25"
+	"remove_on_death"					"1"
+
+	//NOTE: this is damage done to the impacting vehicle, not to me by the vehicle
+	"vehicle_impact_damage"				"150"
+	//how much to scale up damage from vehicles
+	"vehicle_damage_scale"				"10"
+
+	// --------------------------------- Look Joints -----------------------------
+	"look_joint axis"					"0 1 0"
+
+	"fov"								"360"
+
+	"look_min"							"0 -720 0"
+	"look_max"							"0 720 0"
+
+	// --------------------------------- Combat ----------------------------------
+//	"health"							"500"
+	"health"							"250"
+
+	"def_attack_blaster"				"projectile_cgc_shot"
+	"attack_blaster_accuracy"			"1"
+	"attack_blaster_spread"				"1"
+	"attack_blaster_cone"				"0"
+	
+	"minshots"							"5"
+	"maxshots"							"20"
+	
+	"maxLostVisTime"					"2"
+
+
+	// --------------------------------- FX --------------------------------------
+
+	"fx_blaster_flash"					"effects/monsters/convoy_rolly/mflash.fx"
+	"fx_landing"						"effects/vehicles/roller/crash_land.fx"
+	"fx_shieldHit"						"effects/monsters/convoy_rolly/shieldhit.fx"
+	"fx_shieldHit_joint"				"axis"
+	"fx_death"							"effects/explosions/surface/roller.fx"
+	"orient_death_fx"					"1"
+
+	// --------------------------------- Sound --------------------------------------
+	"snd_bounce"						"vehicle_crash_small"
+	"lipsync_sight"						"roller_alert"
+	"snd_open"							"roller_unfold"
+	"snd_close"							"roller_unfold2"
+	"snd_move"							"roller_move"
+	"snd_gun"							"roller_gun"
+	"snd_prepare"						"roller_prepare"
+}
+

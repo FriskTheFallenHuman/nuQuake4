@@ -1,0 +1,796 @@
+// multiplayer textures
+
+models/quaddamage_overlay
+{
+	noSelfShadow
+	translucent	
+	noShadows
+	noSelfShadow
+	
+//	deform expand .2 // ember1[time * 0.2] * 10
+	deform	turbulent	sintable .09 time * .2 3
+	{	
+		maskcolor				
+	    map	makealpha(textures/mptextures/invis_mask3.tga)
+	    scroll 0, time * .25
+	    scale 2, 2
+	}
+
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+	    map	gfx/mp/invis_d.tga
+	    scroll 0, time * -.3
+	}
+		{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha	
+//		blend		add
+		map			gfx/mp/quaddamage_d.tga
+		translate	time * 0.2 , time * 0.3
+	}
+	
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map gfx/effects/weapons/lgun.tga
+	    scroll 0, time * .5
+	    red 0
+	    green 0 
+	    blue .5
+	    
+	}
+
+}
+
+models/haste_overlay
+{
+	noselfShadow
+	unsmoothedTangents
+	translucent
+	
+//	deform expand .2 // ember1[time * 0.2] * 10
+	
+	
+		deform	turbulent	sintable .09 time * .2 3
+	{	
+		maskcolor				
+	    map	makealpha(textures/mptextures/invis_mask3.tga)
+	    scroll 0, time * .25
+	    scale 2, 2
+	}
+
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+	    map	gfx/mp/invis_d.tga
+	    scroll 0, time * -.3
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha	
+//		blend		add
+		map			gfx/mp/haste_d.tga
+		translate	time * 0.2 , time * 0.3
+	}
+	
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map gfx/effects/weapons/lgun.tga
+	    scroll 0, time * .5
+	    red	.55
+	    green .61
+	    blue	.23
+	    
+	}
+
+}
+
+models/regeneration_overlay
+{
+	noselfShadow
+	unsmoothedTangents
+	translucent
+	
+//	deform expand .2 // ember1[time * 0.2] * 10	
+	deform	turbulent	sintable .09 time * .2 3
+	{	
+		maskcolor				
+	    map	makealpha(textures/mptextures/invis_mask3.tga)
+	    scroll 0, time * .25
+	    scale 2, 2
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha	
+//		blend		add
+		map			gfx/mp/regen_d.tga
+		translate	time * 0.2 , time * 0.3
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+	    map	gfx/mp/invis_d.tga
+	    scroll 0, time * -.3
+	}
+
+	
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map gfx/effects/weapons/lgun.tga
+	    scroll 0, time * .5
+	    red		1
+	    green 	0
+	    blue	0
+	    
+	}
+
+}
+
+models/invisibility_overlay
+{
+	noselfShadow
+	unsmoothedTangents
+	translucent
+	
+	deform expand .2 // ember1[time * 0.2] * 10
+	
+	{
+		blend		add
+		map			gfx/mp/invis_d.tga
+		translate	time * 0.2 , time * 0.3
+	}
+}
+
+textures/mp/strogg_icon
+{
+	twoSided
+	deform sprite
+	translucent
+	noShadows
+	nonSolid	
+	{
+		blend add
+		map gfx/2d/strogg_icon.tga
+	}
+}
+
+textures/mp/marine_icon
+{
+	twoSided
+	deform sprite
+	translucent
+	noShadows
+	nonSolid	
+	{
+		blend add
+		map gfx/2d/marine_icon.tga
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///HOLOGRAM STUFF///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+textures/mp/ctf_flag
+{
+	// todo this can be a generic flag
+	{
+		map _white
+	}
+}
+
+textures/mp/ctf_marine_flag
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid	
+	deform tube
+
+	{	
+		maskcolor				
+	    map	makealpha(gfx/mp/ctf_mask_flag.tga)
+	}
+	{
+		blend blend
+		maskAlpha
+		map gfx/mp/ctf_marine_flagstrip2.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/mp/ctf_marine_flagstrip.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_orange_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		red  .2 * flickerblink [time * .25]
+		green  .6 * flickerblink [time * .25]
+		blue  0 * flickerblink [time * .25]
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static4.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+}	
+
+textures/mp/ctf_marine_flag_world
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid
+	noselfshadow	
+
+	{	
+		maskcolor				
+	    map	makealpha(gfx/mp/ctf_mask_flag.tga)
+	}
+	{
+		blend blend
+		maskAlpha
+		map gfx/mp/ctf_marine_flagstrip2.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/mp/ctf_marine_flagstrip.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_orange_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		red  .2 * flickerblink [time * .25]
+		green  .6 * flickerblink [time * .25]
+		blue  0 * flickerblink [time * .25]
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static4.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+}	
+
+textures/mp/ctf_strogg_flag
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid	
+	deform tube
+	
+	{	
+		maskcolor				
+	    map	makealpha(gfx/mp/ctf_mask_flag.tga)
+	}
+	{
+		blend blend
+		maskAlpha
+		map gfx/mp/ctf_strogg_flagstrip2.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/mp/ctf_strogg_flagstrip.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_orange_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		rgb  .6 * flickerblink [time * .25]
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static4.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+}	
+
+textures/mp/ctf_strogg_flag_world
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid	
+	
+	{	
+		maskcolor				
+	    map	makealpha(gfx/mp/ctf_mask_flag.tga)
+	}
+	{
+		blend blend
+		maskAlpha
+		map gfx/mp/ctf_strogg_flagstrip2.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/mp/ctf_strogg_flagstrip.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_orange_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		rgb  .6 * flickerblink [time * .25]
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static4.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+}	
+
+
+textures/mp/ctf_neutral_flag
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid	
+	deform tube
+
+	{	
+		maskcolor				
+	    map	makealpha(gfx/mp/ctf_mask_flag.tga)
+	}
+	{
+		blend blend
+		maskAlpha
+		map gfx/mp/ctf_neutral_flagstrip2.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/mp/ctf_neutral_flagstrip.tga
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_orange_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		red  .2 * flickerblink [time * .25]
+		green  .6 * flickerblink [time * .25]
+		blue  0 * flickerblink [time * .25]
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static4.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map gfx/guis/common/img_static3.tga
+		scale	1, guitable_10_5[time * 0.5]
+		scroll 0, time * -6
+		red		.2
+		green	.2
+		blue	.1
+	}
+}	
+
+textures/mp/ctf_strogg_flag_disp
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid	
+	deform rectsprite
+
+	{
+		If ( glslPrograms )== 1
+		blend GL_DST_ALPHA, GL_ONE
+		glslProgram	glsl/Displacement2.glsl
+		shaderParm		OffsetScrollSpeed	time * 0.45
+		shaderParm		EffectAScrollSpeed	time * .75
+		shaderParm		EffectBScrollSpeed	time * .5
+		shaderParm		OffsetScale			0.05
+		shaderParm		EffectAScale		flickerblink [time * .0125]	
+		shaderParm		EffectBScale		flickerblink [time * .00125]
+		shaderParm		BaseFlicker			grunttable [time * .25 ]
+		shaderParm		EffectAFlicker		flickerblink [time * .25]
+		shaderParm		EffectBFlicker		0.5
+		shaderTexture	Image				gfx/effects/energy_sparks/ctf_strogg_flag.tga
+		shaderTexture	DisplacementMap		gfx/effects/energy_sparks/ctf_deform.tga
+		shaderTexture	EffectA				gfx/effects/energy_sparks/ctf_mask_flag5.tga
+		shaderTexture	EffectB				gfx/effects/energy_sparks/ctf_orange_lines.tga
+		shaderTexture	Mask				gfx/effects/energy_sparks/ctf_mask_flag.tga
+	}
+
+	{
+		If ( glslPrograms ) == 0
+		maskColor
+		map makealpha(gfx/effects/energy_sparks/ctf_mask_flag.tga)
+	}
+
+	{
+		If ( glslPrograms ) == 0
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_strogg_flag.tga
+		rgb grunttable [time * .25 ]
+	}
+
+
+	{
+		If ( glslPrograms ) == 0
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_orange_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		rgb flickerblink [time * .25]
+	}
+	{
+		If ( glslPrograms ) == 0
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha				
+		map gfx/effects/energy_sparks/ctf_mask_flag5.tga
+		scroll 0, time * .5
+		scale 0, flickerblink [time * .00125]	
+	}
+
+}
+
+textures/mp/ctf_marine_flag_disp
+{
+	translucent
+	twoSided	
+	noShadows
+	nonSolid	
+	deform rectsprite
+		
+	{
+		If ( glslPrograms )== 1
+		blend GL_DST_ALPHA, GL_ONE
+		glslProgram	glsl/Displacement2.glsl
+		shaderParm		OffsetScrollSpeed	time * 0.45
+		shaderParm		EffectAScrollSpeed	time * .75
+		shaderParm		EffectBScrollSpeed	time * .5
+		shaderParm		OffsetScale			0.05
+		shaderParm		EffectAScale		flickerblink [time * .0125]	
+		shaderParm		EffectBScale		flickerblink [time * .00125]
+		shaderParm		BaseFlicker			grunttable [time * .25 ]
+		shaderParm		EffectAFlicker		flickerblink [time * .25]
+		shaderParm		EffectBFlicker		0.5
+		shaderTexture	Image				gfx/effects/energy_sparks/ctf_marine_flag.tga
+		shaderTexture	DisplacementMap		gfx/effects/energy_sparks/ctf_deform.tga
+		shaderTexture	EffectA				gfx/effects/energy_sparks/ctf_mask_flag5.tga
+		shaderTexture	EffectB				gfx/effects/energy_sparks/ctf_green_lines.tga
+		shaderTexture	Mask				gfx/effects/energy_sparks/ctf_mask_flag.tga
+	}
+
+
+
+
+	{
+		If ( glslPrograms ) == 0
+		maskColor
+		map makealpha(gfx/effects/energy_sparks/ctf_mask_flag.tga)
+	}
+
+	{
+		If ( glslPrograms ) == 0
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_marine_flag.tga
+		rgb grunttable [time * .25 ]
+	}
+
+
+	{
+		If ( glslPrograms ) == 0
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha
+		map gfx/effects/energy_sparks/ctf_green_lines.tga
+		scroll 0, time * .75
+		scale 0, flickerblink [time * .0125]	
+		rgb flickerblink [time * .25]
+	}
+	{
+		If ( glslPrograms ) == 0
+		blend GL_DST_ALPHA, GL_ONE
+		maskAlpha				
+		map gfx/effects/energy_sparks/ctf_mask_flag5.tga
+		scroll 0, time * .5
+		scale 0, flickerblink [time * .00125]	
+	}
+
+}
+	
+textures/mp/awards/capture
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/capture.tga
+	}
+}
+
+textures/mp/awards/humiliation
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/humiliation.tga
+	}
+}
+
+textures/mp/awards/impressive
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/impressive.tga
+	}
+}
+
+textures/mp/awards/excellent
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/excellent.tga
+	}
+}
+
+textures/mp/awards/assist
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/assist.tga
+	}
+}
+
+textures/mp/awards/defense
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/defense.tga
+	}
+}
+
+textures/mp/awards/combo_kill
+{
+	twoSided
+	deform sprite
+	{
+		blend blend
+		map gfx/mp/awards/combo_kill.tga
+	}
+}
+
+textures/mp/awards/rampage
+{
+	twoSided
+	deform sprite
+	nonsolid
+	{
+		blend blend
+		map gfx/mp/awards/rampage.tga
+	}
+}
+
+textures/mp/awards/holy_shit
+{
+	twoSided
+	deform sprite
+	nonsolid
+	{
+		blend blend
+		map gfx/mp/awards/holy_shit.tga
+	}
+}
+
+textures/mp/invisibility_player
+{
+	noSelfShadow
+	translucent	
+	noShadows
+	noSelfShadow
+	deform	turbulent	sintable .1 time * .2 3
+	{	
+		maskcolor				
+	    map	makealpha(textures/mptextures/invis_mask2.tga)
+	    scroll 0, time * .25
+	    scale 2, 2
+	}
+
+	{
+		blend GL_DST_ALPHA, GL_ONE
+		maskalpha
+	    map	gfx/mp/invis_d.tga
+	    scroll 0, time * -.3
+	}
+}
+
+textures/mp/invisibility_player2
+
+{
+	noSelfShadow
+	translucent	
+	noShadows
+	noSelfShadow
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/mptextures/invis_mask2.tga)
+	    scroll time * .5 , time * .5
+	}
+	{
+	    blend GL_DST_ALPHA, gl_one
+//		blend blend
+		maskAlpha
+		Map			models/monsters/strogg_marine/smv_bodylegs_lo_d.tga
+//		rgb 		random [time * .125]
+	}
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+		cubeMap		gfx/env/gen4
+        texgen		reflect
+		rgba .6
+	}	
+}
+
+textures/mp/invisibility_player3
+{
+	noSelfShadow
+	translucent	
+	noShadows
+	
+	{	
+		maskcolor				
+	    map	makealpha(textures/mptextures/invis_mask2.tga)
+	    scroll time * .5, 0
+	}
+	{
+		blend GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA	
+		maskAlpha
+		Map			models/monsters/strogg_marine/smv_bodylegs_lo_d.tga
+//		rgb 		0.25	
+	}
+}
+
+textures/mptextures/lagometer
+{
+	translucent
+	noShadows
+	
+	{
+		forceHighQuality
+		nearest
+		nopicmip
+		colored
+		blend add
+		map textures/mptextures/lagometer.tga
+	}
+}

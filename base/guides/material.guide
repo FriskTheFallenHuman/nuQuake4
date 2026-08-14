@@ -1,0 +1,834 @@
+// Simple guides used to simplify material creation
+
+guide generic_shader(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+guide generic_variant_noheight(LocalParm, TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap 	textures/LocalParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+guide generic_variant_nh_alpha(LocalParm, TextureParm)
+{
+	qer_editorimage textures/LocalParm_d
+	
+
+	bumpmap 	textures/LocalParm_local
+	specularmap	textures/LocalParm_s
+	{	
+		diffusemap	textures/TextureParm_d
+		alphatest .5
+	}
+}
+
+
+
+guide generic_full_noheight(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap 	textures/TextureParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+
+//editor image is used for textures that are flat colors./////////////////////////////////////////////
+
+guide generic_shader_ed (EditorParm, TextureParm)
+{
+	qer_editorimage textures/EditorParm
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+//---------------------------------------------------------------------------------------------------
+
+//the next shader is for basic glow passes, 
+// #1 is the name of the shader
+//#2 is the name of the glowmap.tga
+
+guide generic_glow(TextureParm, Glowparm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+	{
+		blend		GL_ONE, GL_ONE
+		map			textures/Glowparm
+
+		red			Parm0  
+		green		Parm1  
+		blue		Parm2  
+	}
+
+}
+
+guide generic_terminal_replaceglow2(TextureParm, Glowparm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+
+}
+
+//----------------------------------------------------------------------------------------------
+
+//The next material uses the same local map over a number of different texture sets. 
+//#1 is a different local map 
+//#2 is a the rest of the texture
+
+guide generic_Localvariant(LocalParm, TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/LocalParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+
+//------------------------------------------------------------------------------------------------
+
+
+//The next material uses different diffuse maps and maintains the _s, _h, and _local maps
+//#1 is a different diffuse map
+//#2 is the rest of the texture;
+
+
+guide generic_colorvariant(VariantParm, TextureParm)
+{
+	qer_editorimage textures/VariantParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/VariantParm_d
+	specularmap	textures/TextureParm_s
+}
+
+//------------------------------------------------------------------------------------------------
+
+
+//The next material is for Alpha test channels
+
+
+guide generic_alpha(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+		blend			diffusemap 
+		map				textures/TextureParm_d.tga
+		alphaTest		.5
+	}
+}
+
+guide generic_alpha_noheight(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap 		textures/TextureParm_local
+	specularmap		textures/TextureParm_s
+
+	{       
+		blend			diffusemap 
+		map				textures/TextureParm_d.tga
+		alphaTest		.5
+	}
+}
+
+
+
+//alpha shader with editor image----------------------------------------------------------------------
+
+
+guide generic_alpha_ed(EditorParm, TextureParm)
+{
+	qer_editorimage textures/EditorParm
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+		blend			diffusemap 
+		map				textures/TextureParm_d.tga
+		alphaTest		.5
+	}
+}
+
+
+// the next material is a generic alpha that doesnt block light for grates, etc, it is one sided
+
+guide generic_alpha_noshadows (TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	noshadows
+
+
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+		blend			diffusemap 
+		map				textures/TextureParm_d.tga
+		alphaTest		.5
+	}
+}
+
+
+
+//The next material is for Alpha test channels
+
+
+guide generic_alpha_lv(TextureParm, LocalParm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/LocalParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+		blend			diffusemap 
+		map				textures/TextureParm_d.tga
+		alphaTest		.5
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------
+//this is a 2 sided texture with alpha
+
+guide generic_shader2sidedalpha(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+		
+	twosided	
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+//------------------------------------------------------------------------------------------------
+//this is a 2 sided texture with alpha local variant
+
+guide generic_shader2sidedalpha_lv(TextureParm, LocalParm)
+{
+	qer_editorimage textures/TextureParm_d
+		
+	twosided	
+
+	bumpmap addnormals ( textures/LocalParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      		blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+
+
+//--------------------------------------------------
+//this is a generic 2 sided no alpha
+
+guide generic_shader2sided(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	twosided
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+//---------------------------------------------------------------------------------------------------
+guide generic_glowflicker(TextureParm, Glowparm, Flickerparm)
+{	//This shader has a flickering glow pass.
+	//#1 is the name of the shader
+	//#2 is the name of the glowmap.tga
+	//#3 is the rate that the glowpass flickers
+
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+
+	{		//flickering glowpass
+		blend		add
+		map			textures/Glowparm
+		rgb			Flickerparm
+	}
+
+}
+//----------------------------------------------------------------------------------------------
+guide generic_glowflicker2(TextureParm, Glowparm1, Flickerparm1, Glowparm2, Flickerparm2)
+{	//This shader has two flickering glow passes.
+	//#1 is the name of the shader
+	//#2, #4 are the names of the glowmaps
+	//#3, #5 are the rates that the glowpasses flicker
+
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+
+	{		//flickering glowpass #1
+		blend		add
+		map			textures/Glowparm1
+		rgb			Flickerparm1
+	}
+
+	{		//flickering glowpass #2
+		blend		add
+		map			textures/Glowparm2
+		rgb			Flickerparm2
+	}
+
+}
+//----------------------------------------------------------------------------------------------
+guide generic_alphaNoShadow2S(TextureParm)
+{	//This shader is 2-sided, uses an alphatest, but does not cast shadows two sided.
+
+	qer_editorimage textures/TextureParm_d
+	noshadows
+	twosided
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+     	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+
+}
+//------------------------------------------------------------------------------------------------
+
+
+//The next material is for Alpha test channels with glow
+
+guide generic_alphaglow(TextureParm, Glowparm)
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+		blend		diffusemap 
+		map			textures/TextureParm_d
+		alphaTest	.5
+	}
+
+	{
+		blend		GL_ONE, GL_ONE
+		map			textures/Glowparm
+		red			Parm0  
+		green		Parm1  
+		blue		Parm2 
+		
+	}
+}
+
+//material with no normal---------------------------------------------------------------------
+
+
+guide generic_nonormal(TextureParm)
+{
+
+	qer_editorimage textures/TextureParm_d	
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/TextureParm_h.tga, 2)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/TextureParm_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/TextureParm_s.tga
+	}
+}
+
+
+// Has and additonal field for a heightmap
+
+
+
+
+
+guide generic_nonormal_height(TextureParm, Heightparm)
+
+{
+
+	qer_editorimage textures/TextureParm_d	
+
+	{
+	blend		bumpmap
+	map		heightmap (textures/TextureParm_h.tga, Heightparm)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/TextureParm_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/TextureParm_s.tga
+	}
+
+}
+
+
+guide generic_nonormal_height_type(TextureParm, Heightparm, TypeParm )
+
+{
+	qer_editorimage textures/TextureParm_d	
+	materialType TypeParm
+	
+	{
+	blend		bumpmap
+	map		heightmap (textures/TextureParm_h.tga, Heightparm)
+	}
+
+	{
+	blend		diffusemap
+	map		textures/TextureParm_d.tga
+	}
+
+	{
+	blend		specularmap
+	map		textures/TextureParm_s.tga
+	}
+
+}
+
+//------------------------------------------------------------------------------------------------
+// regular shader with heightmap field
+
+
+
+guide generic_shader_heightmap(TextureParm, Heightparm)
+
+{
+	qer_editorimage textures/TextureParm_d
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, Heightparm ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+//material attributes shaders here all shaders parms.
+
+
+guide generic_shader_heightmap_typeshader(TextureParm, Heightparm, TypeParm )
+
+{
+	qer_editorimage textures/TextureParm_d
+	materialType TypeParm
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, Heightparm ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+guide generic_typeshader(TextureParm, TypeParm )
+{
+	qer_editorimage textures/TextureParm_d
+	materialType TypeParm
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+guide generic_typeshader_rock(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialType Rock
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 4 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+guide generic_materialimageshader(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+//The next material uses the same local map over a number of different texture sets using materialimage map. 
+//#1 is a different local map 
+//#2 is a the rest of the texture
+
+guide generic_Localvariant_mi(LocalParm, TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit
+
+	bumpmap addnormals ( textures/LocalParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+//The next material uses the same local map over a number of different texture sets using materialimage map. Added a typeshader instead of hit image.
+//#1 is a different local map 
+//#2 is a the rest of the texture
+//#3 is the type of material the shader is made of
+
+guide generic_Localvariant_typeshader(LocalParm, TextureParm, TypeParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialType TypeParm
+
+	bumpmap addnormals ( textures/LocalParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+//------------------------------------------------------------------------------------------------
+//this is a 2 sided texture with alpha with materialtype
+
+guide generic_shader2sidedalpha_mi(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit	
+	
+	twosided	
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+/// 2 sided alpha with a color variant using a different matrerial image
+
+guide generic_shader2sidedalpha_miv(TextureParm, ImageParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/ImageParm_hit	
+	
+	twosided	
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+guide generic_shader2sidedalpha_type(TextureParm,TypeParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialtype TypeParm
+	
+	twosided	
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+//alpha with a  material image.
+
+guide generic_alpha_mi(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit	
+	
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+//alpha with a  material image.
+
+guide generic_alpha_type(TextureParm, TypeParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialType TypeParm	
+	
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{       
+      	blend		diffusemap 
+		map			textures/TextureParm_d.tga
+		alphaTest	.5
+	}
+}
+
+
+
+//the next shader is for basic glow passes, 
+// #1 is the name of the shader and hit material
+//#2 is the name of the glowmap.tga
+
+guide generic_glow_mi(TextureParm, Glowparm)
+{
+	qer_editorimage textures/TextureParm_d
+	MaterialImage textures/TextureParm_hit
+	
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+	{
+		blend		GL_ONE, GL_ONE
+		map			textures/Glowparm
+
+		red			Parm0  
+		green		Parm1  
+		blue			Parm2  
+	}
+
+}
+
+guide generic_terminal_replaceglow(TextureParm, Glowparm)
+{
+	qer_editorimage textures/TextureParm_d
+	MaterialImage textures/TextureParm_hit
+	
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+
+}
+
+
+guide generic_glow_noheight_mi(TextureParm, Glowparm)
+{
+	qer_editorimage textures/TextureParm_d
+	MaterialImage textures/TextureParm_hit
+	
+	bumpmap 	textures/TextureParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+	{
+		blend		GL_ONE, GL_ONE
+		map			textures/Glowparm
+
+		red		Parm0  
+		green		Parm1  
+		blue		Parm2  
+	}
+
+}
+
+
+
+guide generic_shader_mi(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+guide generic_shader_mi2s(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit
+	twosided
+
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+guide generic_colorvariant_mi(VariantParm, TextureParm)
+{
+	qer_editorimage textures/VariantParm_d
+	materialimage textures/TextureParm_hit
+	
+	bumpmap addnormals ( textures/TextureParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	diffusemap	textures/VariantParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+
+//local wariant with alpha 2 sided----------------------------------------------------------
+
+guide generic_Localvalpha2(LocalParm, TextureParm)
+{
+
+	qer_editorimage textures/TextureParm_d
+	Twosided
+
+	bumpmap addnormals ( textures/LocalParm_local, heightmap ( textures/TextureParm_h, 1 ) )
+	specularmap	textures/TextureParm_s
+
+	{
+		blend 	diffusemap	
+		map	textures/TextureParm_d
+		alphaTest .5
+	}
+}
+
+// Inline guides - used inside material definitions
+
+inlineGuide corpseBurnEffect(textureParm)
+{
+	{											
+		if	parm7								
+		blend gl_one, gl_one		
+//		highQuality		
+		map textureParm	
+		rgb sintable [.25 * (time - parm7)]
+	}	
+
+	{											
+		if	parm7								
+		blend	gl_zero, gl_one					
+//		highQuality								
+		map textureParm	
+		alphaTest 0.09 + 0.3 * (time - parm7)	
+	}						
+
+	{											
+		if parm7								
+		privatePolygonOffset	-1				
+   		blend add								
+		blend gl_one, gl_zero					
+//		highQuality								
+		map textureParm	
+		alphaTest 0.3 * (time - parm7)			
+	}											
+	forceOverlays								
+}
+
+
+guide generic_variant_nh_alpha_mi(LocalParm, TextureParm)
+{
+	qer_editorimage textures/LocalParm_d
+	materialimage textures/TextureParm_hit
+
+	bumpmap 	textures/LocalParm_local
+	specularmap	textures/LocalParm_s
+	{	
+		diffusemap	textures/TextureParm_d
+		alphatest .5
+	}
+}
+
+guide generic_variant_noheight_mi(LocalParm, TextureParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialimage textures/TextureParm_hit
+
+	bumpmap 	textures/LocalParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+guide generic_variant_nh_alpha_type(LocalParm, TextureParm, TypeParm)
+{
+	qer_editorimage textures/LocalParm_d
+	materialtype TypeParm
+
+	bumpmap 	textures/LocalParm_local
+	specularmap	textures/LocalParm_s
+	{	
+		diffusemap	textures/TextureParm_d
+		alphatest .5
+	}
+}
+
+guide generic_variant_noheight_type(LocalParm, TextureParm, TypeParm)
+{
+	qer_editorimage textures/TextureParm_d
+	materialtype TypeParm
+
+	bumpmap 	textures/LocalParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}	
+
+
+guide generic_full_noheight_mi(TextureParm)
+{
+	qer_editorimage textures/TextureParm_d	
+	materialimage textures/TextureParm_hit
+
+	bumpmap 	textures/TextureParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}
+
+
+guide generic_full_noheight_type(TextureParm, TypeParm)
+{
+	qer_editorimage textures/TextureParm_d	
+	materialType 	TypeParm
+
+	bumpmap 	textures/TextureParm_local
+	diffusemap	textures/TextureParm_d
+	specularmap	textures/TextureParm_s
+}

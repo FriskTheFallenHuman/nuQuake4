@@ -1,0 +1,414 @@
+//------------------------------------------------------------------------------
+// Hub1.def
+//
+// Copyright 2005 Raven Software
+//------------------------------------------------------------------------------
+
+// Custom Marine
+model model_hub1_char_marine
+{
+	inherit						model_char_marine
+
+	anim Hub_elev_1					models/characters/marine/Hub_elev_1.md5anim
+	anim Hub_elev_2					models/characters/marine/Hub_elev_2.md5anim
+	anim Hub_elev_3					models/characters/marine/Hub_elev_3.md5anim
+	anim Hub_scan_1					models/characters/marine/Hub_scan_1.md5anim
+	anim Hub_scan_3					models/characters/marine/Hub_scan_3.md5anim
+	anim Hub_scan_4					models/characters/marine/Hub_scan_4.md5anim
+	anim Hub_scan_5					models/characters/marine/Hub_scan_5.md5anim
+	anim Hub_scan_6					models/characters/marine/Hub_scan_6.md5anim
+	/*
+	{
+		frame	4,42,99					sound		snd_gear
+		frame	18,53					sound		snd_glass_tap
+		frame	107						sound		snd_gun_ready
+		frame	128,132,137				sound		snd_gun
+		frame	135						sound		snd_casing
+	}
+	*/
+
+	anim	hub1_bidwell_idle_emp					models/characters/marine/hub1_bidwell_idle_emp.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_bidwell_emp						models/characters/marine/hub1_bidwell_emp.md5anim
+	{
+		ai_no_look
+		ai_no_turn
+		frame 322								fx					fx_gut_hit		chest
+		frame 322								fx					fx_smear		chest
+		frame 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84	fx	fx_base_flash	MG_muzzle_flash
+		frame 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132 	fx	fx_base_flash	MG_muzzle_flash
+		frame 135, 138, 141, 144, 147, 150, 153, 156, 159									fx	fx_base_flash	MG_muzzle_flash
+		frame 195, 198, 201, 204, 207, 210, 213, 216, 219, 222, 225, 227					fx	fx_base_flash	MG_muzzle_flash
+		frame 250, 253, 256, 259, 262, 265, 268, 271, 274, 277, 280, 283, 286, 289, 292		fx	fx_base_flash	MG_muzzle_flash
+		frame 295, 298, 301, 304, 307, 310, 314												fx	fx_base_flash	MG_muzzle_flash
+		
+		frame 30, 33, 39, 43, 45, 48, 51, 57, 59, 63, 67, 69, 71, 75, 78, 82, 84			sound	snd_gun
+		frame 87, 91, 93, 99, 103, 105, 108, 112, 114, 118, 120, 123, 127, 129, 132 		sound	snd_gun
+		frame 135, 139, 144, 148, 150, 153, 155, 159										sound	snd_gun
+		frame 195, 199, 201, 204, 211, 213, 216, 219, 223, 225, 227							sound	snd_gun
+		frame 250, 252, 256, 259, 262, 265, 268, 271, 274, 281, 283, 286, 288, 292			sound	snd_gun
+		frame 294, 298, 302, 304, 307, 310, 314												sound	snd_gun
+		
+		frame 315							disableClip
+		frame 315							disableGravity
+		
+		frame 386							enableClip
+		frame 386							enableGravity
+		
+		frame 321					call		map_hub1::attackBidwellBlood
+	}
+		
+	anim	hub1_bidwell_death						models/characters/marine/hub1_bidwell_death.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_morris_emp							models/characters/marine/hub1_morris_emp.md5anim
+	{
+		ai_no_look
+		frame 58, 61, 64, 67, 70, 73, 76, 79, 82, 85, 88, 91, 94, 97, 100, 103, 106		fx	fx_base_flash	MG_muzzle_flash
+		frame 109, 111, 114																fx	fx_base_flash	MG_muzzle_flash
+		frame 156, 159, 161, 164, 167, 170, 173, 176, 179, 182, 185, 188, 191, 194 		fx	fx_base_flash	MG_muzzle_flash
+		frame 197, 200, 204																fx	fx_base_flash	MG_muzzle_flash	
+		frame 238, 241, 244, 247, 250, 253, 256, 259, 262, 265, 268, 271, 274, 277		fx	fx_base_flash	MG_muzzle_flash
+		frame 280, 283, 286, 289, 292, 295, 298, 301, 304, 307, 310, 313, 316, 319		fx	fx_base_flash	MG_muzzle_flash
+		frame 322, 326																	fx	fx_base_flash	MG_muzzle_flash
+		frame 390, 393, 396, 399, 402, 405, 408, 411, 414, 417, 420, 423, 426, 429	 	fx	fx_base_flash	MG_muzzle_flash
+		frame 432, 435, 438, 441, 444, 447, 450, 454									fx	fx_base_flash	MG_muzzle_flash
+		frame 480, 483, 486, 489, 492, 495, 498, 501, 504, 507, 510, 513, 516, 519		fx	fx_base_flash	MG_muzzle_flash
+		frame 522, 524, 527, 530, 533, 536												fx	fx_base_flash	MG_muzzle_flash
+		
+		frame 58, 61, 63, 67, 70, 76, 79, 82, 85, 88, 90, 94, 97, 101, 103, 107			sound	snd_gun
+		frame 109, 112, 114																sound	snd_gun
+		frame 156, 159, 162, 167, 170, 173, 175, 179, 182, 185, 189, 191, 194 			sound	snd_gun
+		frame 197, 200, 204																sound	snd_gun	
+		frame 238, 241, 244, 246, 250, 256, 259, 262, 265, 268, 271, 274, 277			sound	snd_gun
+		frame 280, 283, 286, 289, 292, 295, 298, 301, 305, 310, 313, 317, 319			sound	snd_gun
+		frame 323, 326																	sound	snd_gun
+		frame 390, 393, 396, 399, 402, 405, 408, 411, 414, 418, 420, 423, 426, 429	 	sound	snd_gun
+		frame 430, 435, 438, 445, 447, 450, 454											sound	snd_gun
+		frame 480, 483, 486, 489, 492, 495, 498, 501, 504, 507, 510, 517, 519			sound	snd_gun
+		frame 522, 524, 528, 530, 533, 536												sound	snd_gun
+	}
+	anim	hub1_morris_idle_emp					models/characters/marine/hub1_morris_idle_emp.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_morris_mourn_start					models/characters/marine/hub1_morris_mourn_start.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_morris_mourn_loop					models/characters/marine/hub1_morris_mourn_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_idle_emp						models/characters/marine/hub1_voss_idle_emp.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_emp							models/characters/marine/hub1_voss_emp.md5anim
+	{
+		ai_no_look
+	frame 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 141, 144, 147, 150, 153, 156 		fx	fx_base_flash	MG_muzzle_flash	
+	frame 159, 161, 164, 167, 170, 173, 176, 179, 181, 184, 187, 190, 193 							fx	fx_base_flash	MG_muzzle_flash
+	frame 223, 226, 229, 231, 234, 237, 240, 243, 246, 249, 251, 254, 257, 260, 263, 266, 269, 271, 274, 277, 280		fx	fx_base_flash	MG_muzzle_flash
+	frame 283, 286, 289, 291, 294, 297, 301, 304, 307, 310, 313, 316, 319, 321, 324, 327, 330, 333, 336, 339, 341	 	fx	fx_base_flash	MG_muzzle_flash
+	frame 344, 347, 350, 353, 356, 359, 361, 364, 367, 370, 373, 376, 379, 381, 384, 387, 390, 393, 396, 399, 401	 	fx	fx_base_flash	MG_muzzle_flash
+	frame 404, 407, 410, 413, 416, 419, 421, 424, 427, 430, 433, 436, 439, 441, 444, 447, 450, 453, 456, 459, 461	 	fx	fx_base_flash	MG_muzzle_flash
+	frame 464, 467, 470, 473, 476, 479, 481, 484, 487, 490, 493, 496, 499							fx	fx_base_flash	MG_muzzle_flash
+	
+	frame 100, 102, 107, 109, 111, 116, 117, 122, 126, 131, 134, 137, 139, 140, 145, 147, 149, 154, 156 			sound	snd_gun
+	frame 159, 161, 164, 166, 171, 173, 176, 178, 182, 184, 193 								sound	snd_gun
+	frame 223, 227, 229, 230, 235, 237, 240, 243, 245, 250, 251, 254, 257, 261, 263, 266, 269, 273, 277, 280		sound	snd_gun
+	frame 282, 287, 292, 294, 297, 302, 306, 311, 313, 316, 321, 324, 327, 331, 333, 336, 338, 342	 			sound	snd_gun
+	frame 344, 348, 350, 354, 356, 358, 362, 363, 368, 370, 373, 376, 379, 380, 385, 390, 393, 397, 399, 401	 	sound	snd_gun
+	frame 404, 406, 411, 413, 419, 426, 428, 430, 433, 436, 438, 442, 444, 447, 450, 452, 457, 459, 461	 		sound	snd_gun
+	frame 464, 471, 473, 475, 479, 481, 484, 488, 490, 496, 499								sound	snd_gun
+	}
+	anim	hub1_voss_mourn_start					models/characters/marine/hub1_voss_mourn_start.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_mourn_loop					models/characters/marine/hub1_voss_mourn_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_mourn_end						models/characters/marine/hub1_voss_mourn_end.md5anim
+	{
+		//anim_turn
+		ai_no_look
+	}
+	anim	hub1_voss_com_start						models/characters/marine/hub1_voss_com_start.md5anim
+	{
+		ai_no_look
+		frame	25										sound	snd_comm
+	}
+	anim	hub1_voss_com_loop						models/characters/marine/hub1_voss_com_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_com_end						models/characters/marine/hub1_voss_com_end.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_voss_grate							models/characters/marine/hub1_voss_grate.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+	
+	anim console_idle					models/characters/marine/console_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	hub1_tech_idle_emp			models/characters/marine/hub1_tech_idle_emp.md5anim
+	{
+		ai_no_look
+	}
+	anim	hub1_tech_emp				models/characters/marine/hub1_tech_emp.md5anim
+	{
+		ai_no_look
+	}
+
+	anim 	weld_loop				models/characters/marine/weld_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim 	weld_loop_short				models/characters/marine/weld_loop_short.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim wrist_gui_2					models/characters/marine/wrist_gui_2.md5anim
+	
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast						models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+
+}
+
+entityDef hub1_char_marine
+{
+	
+	"inherit"					"char_marine"
+	"model"						"model_hub1_char_marine"
+	
+	"editor_menu"					"level"
+}
+
+// Custom tech
+
+model model_hub1_char_marine_tech
+{
+	inherit							model_hub1_char_marine
+	
+	mesh						models/characters/marine_tech/marine_tech.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	// Re-define Heal anims	-----------------------------------------------------------------------------------------		
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+	
+
+
+}
+
+entityDef hub1_char_marine_tech
+{
+	"inherit"						"char_marine_tech"
+	"model"							"model_hub1_char_marine_tech"
+	
+	"editor_menu"						"level"
+}	
+	
+entityDef hub1_char_marine_tech_armed
+{
+	"inherit"						"char_marine_tech_armed"
+	"model"							"model_hub1_char_marine_tech"
+	
+	"editor_menu"						"level"
+}	
+
+//Flatbed
+
+entityDef vehicle_hub1_flatbed
+{
+	"editor_color"				"1 .5 0"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	"editor_usage"				"Flatbed."
+	//"editor_menu"				"level"
+
+	"spawnclass"				"rvVehicleRigid"
+
+	"model"						"vehicle_flatbed"
+	"mins"						"-176 -96 0"
+	"maxs"						"186 96 128"
+
+	"def_position_driver"		"vehicle_hub1_driver"
+
+	"health"					"1000"
+	"mass"						"3500"
+	"team"						"0"
+	"friction_linear"			"1"
+	"friction_contact"			".75"
+	"bouncyness"				".08"
+	"nav_active"				"1"
+	
+	"shieldMins"				"-176 -96 0"
+	"shieldMaxs"				"176 96 128"
+	"shieldSides"				"10"
+	"shieldHealth"				"100"
+	"shieldRegenDelay"			"6"
+	"shieldRegenTime"			"3"
+
+	"crashSpeedSmall"			"150"
+	"crashSpeedMedium"			"300"
+	"crashSpeedLarge"			"400"
+	"def_crashDamage"			"damage_gev_crash"
+
+	"snd_crash_small"			"vehicle_crash_small"
+	"snd_crash_medium"			"vehicle_crash_medium"
+	"snd_crash_large"			"vehicle_crash_large"
+	"snd_cannon_kickback"		"vehicle_gev_cannon_kickback"	
+	"snd_shieldWarning"			"vehicle_walker_shield_warning"
+	"snd_shieldRecharge"		"vehicle_walker_shield_recharge"
+		
+	"fx_death"					"effects/vehicles/explosion.fx"
+	"fx_shield"					"effects/vehicles/walker/shield.fx"	
+	"fx_crash"					"effects/vehicles/crash.fx"
+}
+
+//------------------------------------------------------------------------------
+//								Positions
+//------------------------------------------------------------------------------
+
+entityDef vehicle_hub1_driver
+{
+	"def_part_hover_fl"			"vehicle_hub1_hoverpad_fl"
+	"def_part_hover_bl"			"vehicle_hub1_hoverpad_bl"
+	"def_part_hover_fr"			"vehicle_hub1_hoverpad_fr"
+	"def_part_hover_br"			"vehicle_hub1_hoverpad_br"
+				
+	"def_part_yaw"				"vehicle_gev_turret_yaw"
+	"def_part_pitch"			"vehicle_gev_turret_pitch"
+	
+	"def_part_light"			"vehicle_gev_light"
+
+	"eyeJoint"					"still"
+	"eyeOffset"					"-64 -32 32"
+	
+	"driverJoint"				"origin"
+	"driverVisible"				"0"
+
+	// Global sounds when position is enabled
+	"snd_loop"					"vehicle_gev_engine_start"
+	"volume"					"-4 5.5"
+	"freqShift"					"1 2.7"
+	"maxSoundSpeed"				"600"	
+}
+
+entityDef vehicle_hub1_hoverpad
+{
+	"inherit"					"vehicle_gev_hoverpad"
+	"height"					"20"
+
+	"force"						"300"
+	"forceTable"				"vehicle_flatbed_hover"
+	"forceUpTime"				"2"
+	"forceDownTime"				"1"	
+	"forceRandom"				"20"
+
+	"thrustForward"				"150"
+	"thrustLeft"				"200"
+	
+	"fx_dust"					"effects/vehicles/hover_hub1.fx"
+	"fx_dust_concrete"			"effects/vehicles/hover_hub1.fx"
+	"fx_dust_rock"				"effects/vehicles/hover_hub1.fx"	
+}
+
+entityDef vehicle_hub1_hoverpad_fl
+{
+	"inherit"					"vehicle_hub1_hoverpad"
+	"offset"					"100 60 0"
+	"mins"						"0 -100 -60"
+	"maxs"						"1 20 20"
+}
+
+entityDef vehicle_hub1_hoverpad_fr
+{
+	"inherit"					"vehicle_hub1_hoverpad"
+	"offset"					"100 -60 0"
+	"mins"						"0 -100 -20"
+	"maxs"						"1 20 60"
+}
+
+entityDef vehicle_hub1_hoverpad_bl
+{
+	"inherit"					"vehicle_hub1_hoverpad"
+	"offset"					"-100 60 0"
+	"mins"						"0 -20 -60"
+	"maxs"						"1 100 20"
+}
+
+entityDef vehicle_hub1_hoverpad_br
+{
+	"inherit"					"vehicle_hub1_hoverpad"
+	"offset"					"-100 -60 0"
+	"mins"						"0 -20 -20"
+	"maxs"						"1 100 60"	
+}
+
+// Custom hover truck
+model hub1_model_env_hover_truck
+{
+	inherit						model_env_hover_truck
+	
+	// Harvester Attack	-----------------------------------------------------------------------------------------
+	anim hub_truck1					models/vehicles/hover_truck/hub_truck1.md5anim
+	anim hub_truck1_begin_idle			models/vehicles/hover_truck/hub_truck1_begin_idle.md5anim
+	anim hub_truck1_end_idle			models/vehicles/hover_truck/hub_truck1_end_idle.md5anim
+	anim hub_truck2					models/vehicles/hover_truck/hub_truck2.md5anim
+	anim hub_truck2_begin_idle			models/vehicles/hover_truck/hub_truck2_begin_idle.md5anim
+	anim hub_truck2_end_idle			models/vehicles/hover_truck/hub_truck2_end_idle.md5anim
+	anim hub_truck3					models/vehicles/hover_truck/hub_truck3.md5anim
+	anim hub_truck3_begin_idle			models/vehicles/hover_truck/hub_truck3_begin_idle.md5anim
+	anim hub_truck3_end_idle			models/vehicles/hover_truck/hub_truck3_end_idle.md5anim
+}
+
+entityDef hub1_env_hover_truck
+{
+	"inherit"					"env_hover_truck"
+	"editor_menu"					"level"
+	"model"						"hub1_model_env_hover_truck"
+
+	"hideSurface1"					"models/mapobjects/marine/weapons/sb_machine_gun_lo"
+	"hideSurface2"					"models/vehicles/marine_hover_flatbed/turret"
+}

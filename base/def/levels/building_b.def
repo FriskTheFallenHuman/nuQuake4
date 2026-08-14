@@ -1,0 +1,764 @@
+/***********************************************************************************************************************
+Building_B
+
+Unique entities created for the Building_B level
+************************************************************************************************************************/
+
+entityDef building_b_spawnOverrides
+{
+	"def_char_marine"									"building_b_char_marine"
+	"def_monster_grunt"									"dispersal_monster_grunt"
+	"def_monster_grunt_mgun"							"dispersal_monster_grunt"
+	"def_monster_grunt_melee"							"dispersal_monster_grunt"
+
+	"def_monster_strogg_marine"							"dispersal_monster_strogg_marine"
+	"def_monster_strogg_marine_sgun"					"dispersal_monster_strogg_marine"
+	"def_monster_strogg_marine_mgun"					"dispersal_monster_strogg_marine"
+}
+
+// -- Specialty Grunt ------------------------------------------------------------------------------------
+
+model building_b_model_monster_grunt
+{
+	inherit												model_monster_grunt
+
+	anim building_b										models/monsters/grunt/building_b.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	10										fx					fx_swipe						rt_wrist
+		frame	10										fx					fx_swipe						lft_wrist
+		frame	11										fx					fx_crack_glass1					rt_wrist
+		frame	10										sound				snd_alert
+		frame	11										sound				snd_music_stinger
+		frame	12										call				gruntFunctions::SmashGlassBody
+		frame	85										sound				snd_growl
+		frame	12,89										sound				snd_glass_hit
+		frame	88										call				gruntFunctions::SmashGlassRightHand
+	}
+	anim attack_mar										models/monsters/grunt/attack_mar.md5anim
+	{
+		frame	1										ai_disablePain
+		frame   1 										event				disableClip
+		frame   1										event				disableGravity
+		frame	10										sound				snd_music_stinger
+		frame	11,41										sound				snd_fall
+		frame	33										sound				snd_anger
+		frame	70,81,100,111,118						footstep
+		frame	118										event				enableGravity
+		frame	118										event				enableClip
+	}
+	anim body_digging									models/monsters/grunt/body_digging.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	1										event				show
+		frame	10										fx					fx_bloodburst					rt_wrist
+		frame	40										fx					fx_bloodburst					jaw
+		frame	2,11										sound				snd_feeding
+		frame	23										sound				snd_breathe
+	}
+
+	anim jump_building_b								models/monsters/grunt/jump_building_b.md5anim
+	{
+		frame	1										ai_disablePain
+		frame	1										event				disableGravity
+		frame	30										ai_enablePain
+		frame	30										event				enableGravity
+	}
+	anim slamming_mar_glass								models/monsters/grunt/slamming_mar_glass.md5anim
+	{
+ 		frame	96										sound			snd_synth_high
+ 		frame	99,128,147,221,260,273,299,316,326						sound				snd_breathe
+		frame	102,115,129,140,152,195,200,398,410						footstep
+		frame	162										sound				snd_rush
+//		frame	347										sound				snd_anger
+		frame	315										sound				snd_anger
+
+		frame	211										sound				snd_crack_glass
+	}
+}
+
+entityDef building_b_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"model"												"building_b_model_monster_grunt"
+	"editor_menu"										"level"
+
+	"sg_category"										"None"
+
+	"snd_music_stinger"									"generic_music_stinger"
+	"snd_music_marine_attack"							"grunt_marine_attack"
+	"snd_synth_high"									"synth_sweep2"
+}
+
+// -- Specialty Marine ------------------------------------------------------------------------------------
+
+model building_b_model_char_marine
+{
+	inherit												model_char_marine
+
+	anim	bld_b_shellshocked_talk		models/characters/marine/bld_b_shellshocked_talk.md5anim
+
+	anim	bld_b_shellshocked			models/characters/marine/bld_b_shellshocked.md5anim
+	
+	/* UNREFERENCED
+	anim	bld_b_morris_rescue			models/characters/marine/bld_b_morris_rescue.md5anim
+	*/
+	
+	anim	conversation_01				models/characters/marine/conversation_01.md5anim
+	{
+		frame	1						speak 			lipsync_vo_1_2_8_10_1
+	}
+
+	anim bld_b_ride_on_truck			models/characters/marine/bld_b_ride_on_truck.md5anim
+
+	/* UNREFERENCED
+	anim bld_b_jump_off_truck			models/characters/marine/bld_b_jump_off_truck.md5anim
+	{
+		frame	1						event			disableGravity
+		frame	1						event			disableClip
+		frame	80						event			enableGravity
+		frame	80						event			enableClip
+	}
+	*/
+
+	anim bld_b_jump_off_truck_fast			models/characters/marine/bld_b_jump_off_truck.md5anim
+	{
+		rate	1.5
+		frame	1						event			disableGravity
+		frame	1						event			disableClip
+		frame	80						event			enableGravity
+		frame	80						event			enableClip
+	}
+
+	/* UNREFERENCED
+	anim bld_b_comm_link				models/characters/marine/bld_b_comm_link.md5anim
+	{
+		frame 1							event			disableGravity
+		frame 100 						event			disableClip
+		frame 128						speak 			lipsync_vo_1_1_5_0001		
+	}*/
+	
+	anim bld_b_marine_entrance_L		models/characters/marine/bld_b_marine_entrance_L.md5anim
+	{
+		frame	45						speak 			lipsync_vo_1_1_1_0001		
+	}
+	
+	/* UNREFERENCED
+	anim bld_b_marine_entrance_M		models/characters/marine/bld_b_marine_entrance_M.md5anim
+	{
+		frame	35						speak 			lipsync_vo_1_1_1_0001		
+	}
+	*/
+	
+	/* UNREFERENCED
+	anim bld_b_marine_entrance_S		models/characters/marine/bld_b_marine_entrance_S.md5anim
+	{
+		frame	205						speak 			lipsync_vo_1_1_1_0001		
+	}
+	*/
+	
+	anim bld_b_medic_loop_a				models/characters/marine/bld_b_medic_loop_a.md5anim
+	anim bld_b_medic_yells				models/characters/marine/bld_b_medic_yells.md5anim
+	{
+		frame	115						call		map_building_b::medicYell01
+	}
+	anim bld_b_medic_loop_b				models/characters/marine/bld_b_medic_loop_b.md5anim
+
+	anim bld_b_third_room2				models/characters/marine/bld_b_third_room2.md5anim
+	
+	anim bld_b_third_room3				models/characters/marine/bld_b_third_room3.md5anim
+
+	anim bld_b_third_room_sarge			models/characters/marine/bld_b_third_room_sarge.md5anim
+	{
+		frame	24						speak 			lipsync_vo_1_1_4_0003	
+		frame	120						speak 			lipsync_vo_1_1_4_0004	
+	}
+	anim bld_b_defense_grid				models/characters/marine/bld_b_defense_grid.md5anim
+	{
+		frame	45						speak 			lipsync_vo_1_1_6_0001		
+	}
+	
+	/* UNREFERENCED
+	anim bld_b_soldier1					models/characters/marine/bld_b_soldier1.md5anim
+	anim bld_b_soldier2					models/characters/marine/bld_b_soldier2.md5anim
+	anim bld_b_soldier3					models/characters/marine/bld_b_soldier3.md5anim
+	*/
+	
+	anim bld_b_dragged					models/characters/marine/bld_b_dragged.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame 6,16,26,36,45,56,86,92,110			sound			npc_gear_movement
+		frame 50									sound 			vo_marine_dragged		
+	}	
+	anim bld_b_gui_guy_loop				models/characters/marine/bld_b_gui_guy_loop.md5anim
+	
+	/* UNREFERENCED
+	anim bld_b_gui_guy_wave				models/characters/marine/bld_b_gui_guy_wave.md5anim
+	*/
+
+	anim bld_b_lights_out1				models/characters/marine/bld_b_lights_out1.md5anim
+	{
+		frame	80						speak 			lipsync_vo_1_1_12_0001
+	}	
+	anim bld_b_lights_out2				models/characters/marine/bld_b_lights_out2.md5anim
+	{			
+		frame	130						speak 			lipsync_vo_1_1_12_0002
+		frame	230						speak 			lipsync_vo_1_1_12_0004				
+	}
+	anim bld_b_lights_out3				models/characters/marine/bld_b_lights_out3.md5anim
+	{
+		frame	200						speak 			lipsync_vo_1_1_12_0003
+		frame	250						speak 			lipsync_vo_1_1_12_0005
+		frame	300						speak 			lipsync_vo_1_1_12_0006
+	}
+
+	anim bld_b_startled_gnt_button		models/characters/marine/bld_b_startled_gnt.md5anim
+	{
+		frame	168						speak			lipsync_vo_1_1_3_0003
+	}
+	anim bld_b_startled_gnt2			models/characters/marine/bld_b_startled_gnt2.md5anim
+	{
+		frame	50						speak 			lipsync_vo_1_1_3_0002
+		frame	200						speak			lipsync_vo_1_1_3_0004
+	}
+	/* UNREFERENCED
+	anim	bld_b_idle_weapon_3_loop				models/characters/marine/idle_weapon_3_loop.md5anim
+	{
+		frame 1							event				disableGravity
+		frame 1 						event				disableClip
+	}
+	*/
+	anim bld_b_smashed_againt_glass		models/characters/marine/bld_b_smashed_againt_glass.md5anim
+	{
+		frame 1							event				disableGravity
+		frame 1 						event				disableClip
+		frame 51,57						sound				generic_glass_tap
+		frame 75						speak 				lipsync_vo_1_1_11_0001
+//		frame 75						speak 				lipsync_grid_down
+		frame 207						sound				buildingB_marine_death_glass
+		frame 211						sound				generic_music_stinger
+		frame 212						sound				npc_bodyfall
+	}
+	anim bld_b_tackled_by_grnt			models/characters/marine/bld_b_tackled_by_grnt.md5anim
+	{
+		frame	358						sound				snd_synth_low
+		frame 700						event				disableGravity
+		frame 700 						event				disableClip
+//		frame	693						call				map_building_b::Weld_guard
+		frame 693			trigger		monster_grunt_3
+
+		frame	692						call				map_building_b::testPrint
+		frame 718,724,728,732			fx					fx_base_attack_flash			MG_muzzle_flash
+		frame	731						sound				npc_bodyfall
+		frame	734						sound				buildingB_various_marinedeath
+	}
+	anim bld_b_wounded_marine_loop_a				models/characters/marine/bld_b_wounded_marine_loop_a.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}
+	anim bld_b_wounded_marine_reaching			models/characters/marine/bld_b_wounded_marine_reaching.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+		frame	1						speak 			lipsync_vo_1_1_2_0001
+	}
+	anim bld_b_wounded_marine_loop_b				models/characters/marine/bld_b_wounded_marine_loop_b.md5anim
+	{
+		frame	1						event			disableClip
+		frame	1						event			disableGravity
+	}	
+	anim bld_b_gun_jam							models/characters/marine/bld_b_gun_jam.md5anim
+	{
+		rate 	1.5
+	//	frame   20,24,28,32,36,40,44,48,50,54				fx				fx_base_attack_flash			MG_muzzle_flash
+	//	frame   100,106,112,114,115,116,117,118				fx				fx_base_attack_flash			MG_muzzle_flash
+		
+		//jammage
+		frame	116,118,120									sound			weapon_machinegun_clipin
+		
+		frame	144											sound			weapon_machinegun_clipout
+		frame	148											sound			weapon_machinegun_bolt
+
+	//	frame   180,184,188,192,196,200						fx				fx_base_attack_flash			MG_muzzle_flash
+	//	frame   204,208,212,216,218,220,222,224,226			fx				fx_base_attack_flash			MG_muzzle_flash
+	//	frame   228,230,232,234,236,238						fx				fx_base_attack_flash			MG_muzzle_flash
+
+//		frame	236									call 			"map_building_b::rail_shot"
+	}
+	anim bld_b_over_here							models/characters/marine/bld_b_over_here.md5anim
+	{
+		frame	6									sound 			snd_jones_001_overhere		
+	}
+
+	anim 	idle_wrist_gui_start_fast					models/characters/marine/idle_wrist_gui_start.md5anim
+	{
+		rate 1.4
+	}
+	anim 	idle_wrist_gui_loop					models/characters/marine/idle_wrist_gui_loop.md5anim
+	anim 	idle_wrist_gui_end_fast					models/characters/marine/idle_wrist_gui_end.md5anim
+	{
+		rate 1.4
+	}
+	
+	// Adding scripted anims from base char_marine:
+	
+	anim	player_gift_start					models/characters/marine/player_gift_start.md5anim					
+	anim	player_gift_loop					models/characters/marine/player_gift_loop.md5anim			
+	anim	player_gift_end						models/characters/marine/player_gift_end.md5anim
+	
+	anim	player_gift2_start					models/characters/marine/player_gift2_start.md5anim					
+	anim	player_gift2_loop					models/characters/marine/player_gift2_loop.md5anim			
+	anim	player_gift2_end					models/characters/marine/player_gift2_end.md5anim
+
+	
+	anim weaponless_idle2_loop			models/characters/marine/weaponless_idle2_loop.md5anim
+	anim weaponless_idle3_start			models/characters/marine/weaponless_idle3_start.md5anim
+	anim weaponless_idle3_loop			models/characters/marine/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3				models/characters/marine/weaponless_idle3_loop.md5anim
+	anim weaponless_idle3_end			models/characters/marine/weaponless_idle3_end.md5anim
+	anim weaponless_idle5_start			models/characters/marine/weaponless_idle5_start.md5anim
+	anim weaponless_idle5_loop			models/characters/marine/weaponless_idle5_loop.md5anim
+	anim weaponless_idle5				models/characters/marine/weaponless_idle5_loop.md5anim
+	anim weaponless_idle5_end			models/characters/marine/weaponless_idle5_end.md5anim
+	
+	anim idle_stretching_1				models/characters/marine/idle_stretching_1.md5anim
+	anim idle_stretching_2				models/characters/marine/idle_stretching_2.md5anim
+	anim idle_stretching_3				models/characters/marine/idle_stretching_3.md5anim
+	
+	anim weapon_check_1					models/characters/marine/weapon_check_1.md5anim
+	{
+
+		frame	37,53						sound	snd_gear
+	}
+	anim weapon_check_2					models/characters/marine/weapon_check_2.md5anim
+	{
+		frame	30						sound	snd_gear
+		frame	42						sound	snd_gun_ready 
+	}
+	anim weapon_check_3					models/characters/marine/weapon_check_3.md5anim
+	{
+		ai_no_look	
+		frame	14,78					sound	snd_gear
+	}
+	
+	anim aim_snappy_1					models/characters/marine/m_stand_aim_snappy_1.md5anim
+	anim aim_snappy_2					models/characters/marine/m_stand_aim_snappy_2.md5anim
+
+}
+
+entityDef building_b_char_marine
+{
+	"inherit"											"char_marine"
+	"model"												"building_b_model_char_marine"
+	"editor_menu"										"level"
+
+	"crouch_time"										"200000"
+
+	// This was on for all guys everywhere?  Huh?  Very slow.  Someone should take a look at this...
+//	"flashlight"										"1"
+
+	"mtr_flashlight"									"gfx/lights/flashlight"
+	"joint_flashlight"									"lElbo"		
+	"flashlightColor"									"1 1 .9"
+	"flashlightRadius"									"400"
+	"flashlightTarget"									"100 0 0"
+	"flashlightUp"										"0 350 0"
+	"flashlightRight"									"0 0 -350"
+	"flashlightPointLight"								"0"
+	"flashlightOffset"									"100 10 10"
+
+	"snd_marine_writhe"									"buildingB_various_marinewrithe_loop"
+	
+	"snd_synth_low"										"synth_sweep1"
+
+//	"snd_torch_marine_012"								"buildingB_torch_marine_012_jones"
+	
+	"snd_jones_001_overhere"							"vo_001overhere"
+
+	"sg_category"										"None"
+
+	// Precache for building b voice over. Consult doc for lines.
+	// Some are preceded with snd_ because they are done over the radio and thus require no lipsync.
+	
+/*
+	// HEAD VENT...
+	"lipsync_vo_1_1_4_0003"									"vo_1_1_4_0003"
+	"lipsync_vo_1_1_4_0004"									"vo_1_1_4_0004"
+	"lipsync_vo_1_1_4_0006"									"vo_1_1_4_0006"
+*/
+
+	// TORCH CUTTING DOOR
+
+	// CUT THE MAIN POWER
+
+
+	// SLEDGE VO
+	"lipsync_vo_1_2_8_10_1"									"vo_1_2_8_10_1"
+	"lipsync_vo_1_2_8_11_1"									"vo_1_2_8_11_1"
+	"lipsync_vo_1_2_8_11_2"									"vo_1_2_8_11_2"
+	"lipsync_vo_1_2_8_11_3"									"vo_1_2_8_11_3"
+	
+	// VOSS/STRAUSS CONTROL ROOM
+//	"lipsync_vo_1_2_8_20_1"									"vo_1_2_8_20_1"
+	"lipsync_vo_1_2_8_20_2"									"vo_1_2_8_20_2"
+	"lipsync_vo_1_2_8_20_3"									"vo_1_2_8_20_3"
+//	"lipsync_vo_1_2_8_20_4"									"vo_1_2_8_20_4"
+	"lipsync_vo_1_2_8_20_5"									"vo_1_2_8_20_5"
+	
+	// VOSS 'USE'
+	"lipsync_vo_1_2_8_21_1"									"vo_1_2_8_21_1"
+	"lipsync_vo_1_2_8_21_2"									"vo_1_2_8_21_2"
+	"lipsync_vo_1_2_8_21_3"									"vo_1_2_8_21_3"
+
+	// RODRIGUEZ/SINGER FOLLOW
+	"lipsync_vo_1_2_8_30_1"									"vo_1_2_8_30_1"
+	"lipsync_vo_1_2_8_30_2"									"vo_1_2_8_30_2"
+	"lipsync_vo_1_2_8_30_5"									"vo_1_2_8_30_5"
+	"lipsync_vo_1_2_8_30_6"									"vo_1_2_8_30_6"
+
+	"snd_vo_1_2_8_30_6"									"vo_1_2_8_30_6"
+	
+	// HIT THAT CONSOLE
+	"lipsync_vo_1_2_8_40_1"									"vo_1_2_8_40_1"
+	
+	// SINGER, IT'S LOCKED
+	"lipsync_vo_1_2_8_50_1"									"vo_1_2_8_50_1"
+	"snd_vo_1_2_8_50_2"									"vo_1_2_8_50_2"
+	
+	// RODRIGUEZ, LET'S GO
+	"lipsync_vo_1_2_8_51_1"									"vo_1_2_8_51_1"
+
+	// VOSS, HOLD UP?
+	"snd_vo_1_2_8_61_1"										"vo_1_2_8_61_1"
+	
+	// STRAUSS, SUB-ENTRANCE
+	"snd_vo_1_2_8_70_1"										"vo_1_2_8_70_1"
+	"snd_vo_1_2_8_70_2"										"vo_1_2_8_70_2"
+	"snd_vo_1_2_8_80_1"										"vo_1_2_8_80_1"
+	"snd_vo_1_2_8_90_1"										"vo_1_2_8_90_1"
+	"snd_vo_1_2_8_90_2"										"vo_1_2_8_90_2"
+	
+	// HOVER TRUCK RADIO, MARINES
+	"snd_vo_1_2_8_100_1"									"vo_1_2_8_100_1"
+	"snd_vo_1_2_8_100_2"									"vo_1_2_8_100_2"
+	"snd_vo_1_2_8_100_3"									"vo_1_2_8_100_3"
+	"lipsync_vo_1_2_8_100_4"								"vo_1_2_8_100_4"
+	"lipsync_vo_1_2_8_100_6"								"vo_1_2_8_100_6"
+
+	// SHAW 'USE'
+	"lipsync_vo_1_2_8_102_1"								"vo_1_2_8_102_1"
+	"lipsync_vo_1_2_8_102_2"								"vo_1_2_8_102_2"
+	"lipsync_vo_1_2_8_102_3"								"vo_1_2_8_102_3"
+
+	// MEDIC! MEDIC!
+	"lipsync_vo_1_1_0_0001"									"vo_1_1_0_0001"
+	"lipsync_vo_1_1_0_0002"									"vo_1_1_0_0002"
+	"lipsync_vo_1_1_0_0003"									"vo_1_1_0_0003"
+	
+	// TORCH IS HERE
+	"lipsync_vo_1_1_1_0001"									"vo_1_1_1_0001"
+	
+	// I NEED A MEDIC!
+	"lipsync_vo_1_1_2_0001"									"vo_1_1_2_0001"
+	"lipsync_vo_1_1_2_0002"									"vo_1_1_2_0002"
+	"lipsync_vo_1_1_2_0003"									"vo_1_1_2_0003"
+
+	// SEAL IT!
+	"lipsync_vo_1_1_3_0002"									"vo_1_1_3_0002"
+	"lipsync_vo_1_1_3_0003"									"vo_1_1_3_0003"
+	"lipsync_vo_1_1_3_0004"									"vo_1_1_3_0004"
+
+	// HEAD VENTILATED
+	"lipsync_vo_1_1_4_0001"									"vo_1_1_4_0001"
+	"lipsync_vo_1_1_4_0002"									"vo_1_1_4_0002"
+	"lipsync_vo_1_1_4_0003"									"vo_1_1_4_0003"
+	"lipsync_vo_1_1_4_0004"									"vo_1_1_4_0004"
+	"lipsync_vo_1_1_4_0006"									"vo_1_1_4_0006"
+
+	// TURN ON YOU COMM
+	"lipsync_vo_1_1_5_0001"									"vo_1_1_5_0001"
+
+	// THERE'S YOUR OBJ
+	"lipsync_vo_1_1_6_0001"									"vo_1_1_6_0001"
+
+	// GATES ARE DOWN
+	"snd_vo_1_1_7_0001"									"vo_1_1_7_0001"
+	"snd_vo_1_1_7_0002"									"vo_1_1_7_0002"
+	"snd_vo_1_1_7_0003"									"vo_1_1_7_0003"
+	"snd_vo_1_1_7_0004"									"vo_1_1_7_0004"
+	"snd_vo_1_1_7_0005"									"vo_1_1_7_0005"
+	"snd_vo_1_1_7_0006"									"vo_1_1_7_0006"
+
+	// WE'RE GONNA LOSE 
+	"lipsync_vo_1_1_9_0001"									"vo_1_1_9_0001"	
+	"lipsync_vo_1_1_9_0002"									"vo_1_1_9_0002"	
+	"lipsync_vo_1_1_9_0003"									"vo_1_1_9_0003"	
+	"lipsync_vo_1_1_9_0004"									"vo_1_1_9_0004"	
+
+	// REMOVE ORGANS
+	"lipsync_vo_1_1_10_0001"								"vo_1_1_10_0001"	
+	"lipsync_vo_1_1_10_0002"								"vo_1_1_10_0002"	
+	"lipsync_vo_1_1_10_0003"								"vo_1_1_10_0003"	
+
+	// PERIMETER SECURED?
+	"lipsync_vo_1_1_11_0001"								"vo_1_1_11_0001"	
+
+	// WHO'S GOT A SCANNER?
+	"lipsync_vo_1_1_12_0001"								"vo_1_1_12_0001"	
+	"lipsync_vo_1_1_12_0002"								"vo_1_1_12_0002"	
+	"lipsync_vo_1_1_12_0003"								"vo_1_1_12_0003"	
+	"lipsync_vo_1_1_12_0004"								"vo_1_1_12_0004"	
+	"lipsync_vo_1_1_12_0005"								"vo_1_1_12_0005"	
+	"lipsync_vo_1_1_12_0006"								"vo_1_1_12_0006"	
+
+	// LEAD PIPE?
+	"lipsync_vo_1_2_10_15_1"								"vo_1_2_10_15_1"	
+	"lipsync_vo_1_2_10_15_2"								"vo_1_2_10_15_2"	
+
+/*
+	Don't think any of this is use.  It was mostly when the player 
+	visited the lower level for the second time.  Which is now cut.		-mrenner
+
+	// Doesn't exist yet
+	//"lipsync_vo_1_2_8_110_1"								"vo_1_2_8_110_1"
+	//"lipsync_vo_1_2_8_110_2"								"vo_1_2_8_110_2"
+	"lipsync_vo_1_2_8_110_3"								"vo_1_2_8_110_3"
+	"lipsync_vo_1_2_8_111_1"								"vo_1_2_8_111_1"
+	"lipsync_vo_1_2_8_111_2"								"vo_1_2_8_111_2"
+	"lipsync_vo_1_2_8_111_3"								"vo_1_2_8_111_3"
+	"lipsync_vo_1_2_10_10_1"								"vo_1_2_10_10_1"
+	"lipsync_vo_1_2_10_10_2"								"vo_1_2_10_10_2"
+	"lipsync_vo_1_2_10_10_3"								"vo_1_2_10_10_3"
+	"lipsync_vo_1_2_10_10_4"								"vo_1_2_10_10_4"
+	"lipsync_vo_1_2_10_20_1"								"vo_1_2_10_20_1"
+	"lipsync_vo_1_2_10_20_3"								"vo_1_2_10_20_3"
+	"lipsync_vo_1_2_10_20_5"								"vo_1_2_10_20_5"
+	"lipsync_vo_1_2_10_20_7"								"vo_1_2_10_20_7"
+	"lipsync_vo_1_2_10_21_1"								"vo_1_2_10_21_1"
+	"lipsync_vo_1_2_10_21_2"								"vo_1_2_10_21_2"
+	"lipsync_vo_1_2_10_21_3"								"vo_1_2_10_21_3"
+	"lipsync_vo_1_2_10_22_1"								"vo_1_2_10_22_1"
+	"lipsync_vo_1_2_10_22_2"								"vo_1_2_10_22_2"
+	"lipsync_vo_1_2_10_22_3"								"vo_1_2_10_22_3"
+	"lipsync_vo_1_2_10_30_1"								"vo_1_2_10_30_1"
+	"lipsync_vo_1_2_10_31_1"								"vo_1_2_10_31_1"
+	"lipsync_vo_1_2_10_31_2"								"vo_1_2_10_31_2"
+	"lipsync_vo_1_2_10_31_3"								"vo_1_2_10_31_3"
+	"lipsync_vo_1_2_10_32_1"								"vo_1_2_10_32_1"
+	"lipsync_vo_1_2_10_32_2"								"vo_1_2_10_32_2"
+	"lipsync_vo_1_2_10_32_3"								"vo_1_2_10_32_3"
+	"lipsync_vo_1_2_10_33_1"								"vo_1_2_10_33_1"
+	"lipsync_vo_1_2_10_33_2"								"vo_1_2_10_33_2"
+	"lipsync_vo_1_2_10_33_3"								"vo_1_2_10_33_3"
+	"lipsync_vo_1_2_10_34_1"								"vo_1_2_10_34_1"
+	"lipsync_vo_1_2_10_34_2"								"vo_1_2_10_34_2"
+	"lipsync_vo_1_2_10_34_3"								"vo_1_2_10_34_3"
+	"lipsync_vo_1_2_10_40_1"								"vo_1_2_10_40_1"
+	"lipsync_vo_1_2_10_41_1"								"vo_1_2_10_41_1"
+	"lipsync_vo_1_2_10_41_2"								"vo_1_2_10_41_2"
+	"lipsync_vo_1_2_10_41_3"								"vo_1_2_10_41_3"
+	"lipsync_vo_1_2_10_60_1"								"vo_1_2_10_60_1"
+	"lipsync_vo_1_2_10_60_2"								"vo_1_2_10_60_2"
+	"snd_vo_1_2_10_70_1"									"vo_1_2_10_70_1"
+	"lipsync_vo_1_2_10_90_1"								"vo_1_2_10_90_1"
+	"lipsync_vo_1_2_10_90_2"								"vo_1_2_10_90_2"
+	"snd_vo_1_2_10_100_1"									"vo_1_2_10_100_1"
+	"snd_vo_1_2_10_110_1"									"vo_1_2_10_110_1"
+	"snd_vo_1_2_10_110_2"									"vo_1_2_10_110_2"
+	"lipsync_vo_1_2_10_120_1"								"vo_1_2_10_120_1"
+	"lipsync_vo_1_2_10_130_1"								"vo_1_2_10_130_1"
+	"lipsync_vo_1_2_10_131_1"								"vo_1_2_10_131_1"
+	// Doesn't exist yet
+	//"lipsync_vo_1_2_10_131_2"								"vo_1_2_10_131_2"
+	"lipsync_vo_1_2_10_131_3"								"vo_1_2_10_131_3"
+	"lipsync_vo_1_2_10_132_1"								"vo_1_2_10_132_1"
+	"lipsync_vo_1_2_10_132_2"								"vo_1_2_10_132_2"
+	"lipsync_vo_1_2_10_132_3"								"vo_1_2_10_132_3"
+*/	
+
+}
+/*
+===============================================================================
+
+	Medic Model Definition
+
+===============================================================================
+*/
+model building_b_model_char_marine_medic
+{
+	inherit							building_b_model_char_marine
+	
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+}	
+
+entityDef building_b_char_marine_medic
+{
+	"inherit"								"building_b_char_marine"
+	"model"									"building_b_model_char_marine_medic"
+
+	"editor_menu"								"level"
+
+}
+
+/*
+===============================================================================
+
+	Tech Model Definition
+
+===============================================================================
+*/
+model building_b_model_char_marine_tech
+{
+	inherit							building_b_model_char_marine
+	
+	mesh							models/characters/marine_tech/marine_tech.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+
+	anim bld_b_ride_on_truck			models/characters/marine/bld_b_ride_on_truck.md5anim
+
+	anim bld_b_jump_off_truck_fast			models/characters/marine/bld_b_jump_off_truck.md5anim
+	{
+		rate	1.5
+		frame	1						event			disableGravity
+		frame	1						event			disableClip
+		frame	80						event			enableGravity
+		frame	80						event			enableClip
+	}
+
+	anim bld_b_welder					models/characters/marine/bld_b_welder.md5anim
+	{
+		frame	17						call			map_building_b::giveTorch
+		frame	128						call			map_building_b::cuttingDoorSnd				
+		frame	395						call			map_building_b::takeTorch
+	}
+
+}	
+entityDef building_b_char_marine_tech
+{
+	"inherit"								"char_marine_tech_armed"
+	"model"									"building_b_model_char_marine_tech"
+
+	"editor_menu"								"level"
+
+	// VOSS/STRAUSS CONTROL ROOM
+	"lipsync_vo_1_2_8_20_1"									"vo_1_2_8_20_1"
+	"lipsync_vo_1_2_8_20_4"									"vo_1_2_8_20_4"
+
+	// STRAUSS 'USE'
+	"lipsync_vo_1_2_8_22_1"									"vo_1_2_8_22_1"
+	"lipsync_vo_1_2_8_22_2"									"vo_1_2_8_22_2"
+	"lipsync_vo_1_2_8_22_3"									"vo_1_2_8_22_3"
+
+	// NEWBERRY, CUTTING THROUGH DOOR
+	"lipsync_vo_1_1_8_5_0002"								"vo_1_1_8_5_0002"
+	"lipsync_vo_1_1_8_5_0003"								"vo_1_1_8_5_0003"
+	"lipsync_vo_1_1_8_5_0004"								"vo_1_1_8_5_0004"
+	"lipsync_vo_1_1_8_5_0005"								"vo_1_1_8_5_0005"
+	"lipsync_vo_1_1_8_0005"									"vo_1_1_8_0005"
+
+	// NEWBERRY 'USE'
+	"lipsync_vo_1_2_8_101_1"								"vo_1_2_8_101_1"
+	"lipsync_vo_1_2_8_101_2"								"vo_1_2_8_101_2"
+	"lipsync_vo_1_2_8_101_3"								"vo_1_2_8_101_3"
+
+}
+
+entityDef building_b_char_marine_unarmed
+{
+	"inherit"								"char_marine_unarmed"
+	"editor_ignore"								"0"
+	
+	"model"									"building_b_model_char_marine"
+	"editor_menu"								"level"
+}
+
+
+export hover_truck
+{
+
+	options -rotate 180 -prefix PLAYER_ -align all -keep emp_connection eye_1 eye_2 yaw_2 -parent eye_1 pitch -parent eye_2 yaw_2 -sourcedir work/models/vehicles/marine_hover_flatbed/animations -destdir models/vehicles/hover_truck
+
+	mesh	hover_stop_1.ma				-dest hover_truck
+	anim	idle.ma						-dest idle
+	anim	hover_stop_1.ma				-dest hover_stop_1
+	anim	idle_stationary.ma			-dest idle_stationary
+	anim	vehicle_idle_stationary.ma	-dest idle_inplace
+	anim	vehicle_rotated_idle.ma		-dest vehicle_entity_rotated
+	anim	convoy_ride.ma				-dest convoy_ride1
+	anim	convoy_ride2.ma				-dest convoy_ride2
+	anim	convoy_ride2.ma				-range 3539 5040 -dest convoy_loop
+	anim 	HUB1_battle_truck1.ma		-sourcedir work/models/monsters/Harvester/animations -dest hub_truck1
+	anim 	HUB1_battle_truck1.ma		-sourcedir work/models/monsters/Harvester/animations -range 0 1 	-dest hub_truck1_begin_idle
+	anim 	HUB1_battle_truck1.ma		-sourcedir work/models/monsters/Harvester/animations -range 544 545 -dest hub_truck1_end_idle
+	anim 	HUB1_battle_truck2.ma		-sourcedir work/models/monsters/Harvester/animations -dest hub_truck2
+	anim 	HUB1_battle_truck2.ma		-sourcedir work/models/monsters/Harvester/animations -range 0 1 	-dest hub_truck2_begin_idle
+	anim 	HUB1_battle_truck2.ma		-sourcedir work/models/monsters/Harvester/animations -range 544 545 -dest hub_truck2_end_idle
+	anim 	HUB1_battle_truck3.ma		-sourcedir work/models/monsters/Harvester/animations -dest hub_truck3
+	anim 	HUB1_battle_truck3.ma		-sourcedir work/models/monsters/Harvester/animations -range 0 1 	-dest hub_truck3_begin_idle
+	anim 	HUB1_battle_truck3.ma		-sourcedir work/models/monsters/Harvester/animations -range 544 545 -dest hub_truck3_end_idle
+}
+
+model model_env_hover_truck
+{
+	mesh							models/vehicles/hover_truck/hover_truck.md5mesh	
+	anim idle						models/vehicles/hover_truck/idle_stationary.md5anim		//idle.md5anim
+	anim hover_stop_1				models/vehicles/hover_truck/hover_stop_1.md5anim
+	{
+		frame	1				sound		buildingb_hover_stop
+	}
+	/*
+	anim convoy_ride1				models/vehicles/hover_truck/convoy_ride1.md5anim
+	{
+		rate						.8
+		frame 1						disableGravity
+		frame 1						disableClip
+	}
+	anim convoy_ride2				models/vehicles/hover_truck/convoy_ride2.md5anim
+	{
+		rate						.8
+	}
+	anim convoy_loop				models/vehicles/hover_truck/convoy_loop.md5anim
+	*/
+	anim idle_stationary			models/vehicles/hover_truck/idle.md5anim				//idle_stationary.md5anim
+	
+	/*
+	anim hub_truck1					models/vehicles/hover_truck/hub_truck1.md5anim
+	anim hub_truck1_begin_idle		models/vehicles/hover_truck/hub_truck1_begin_idle.md5anim
+	anim hub_truck1_end_idle		models/vehicles/hover_truck/hub_truck1_end_idle.md5anim
+	anim hub_truck2					models/vehicles/hover_truck/hub_truck2.md5anim
+	anim hub_truck2_begin_idle		models/vehicles/hover_truck/hub_truck2_begin_idle.md5anim
+	anim hub_truck2_end_idle		models/vehicles/hover_truck/hub_truck2_end_idle.md5anim
+	anim hub_truck3					models/vehicles/hover_truck/hub_truck3.md5anim
+	anim hub_truck3_begin_idle		models/vehicles/hover_truck/hub_truck3_begin_idle.md5anim
+	anim hub_truck3_end_idle		models/vehicles/hover_truck/hub_truck3_end_idle.md5anim
+	*/
+	anim rotated					models/vehicles/hover_truck/vehicle_entity_rotated.md5anim
+	anim idle_inplace				models/vehicles/hover_truck/idle_inplace.md5anim
+}
+
+entityDef	env_hover_truck_gun
+{
+	"spawnclass"					"idAnimated"
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"	
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"don't use"
+	"model"							"model_env_hover_truck"
+	"anim"							"idle"
+}
+
+entityDef	env_hover_truck
+{
+	"inherit"						"env_hover_truck_gun"
+
+	"hideSurface1"					"models/mapobjects/marine/weapons/sb_machine_gun_lo"
+	"hideSurface2"					"models/vehicles/marine_hover_flatbed/turret"
+}

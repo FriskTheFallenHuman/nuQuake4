@@ -1,0 +1,427 @@
+windowDef Desktop
+{
+	comment	"gui_parm_floor = to 1 or 2 to indicate the floor the liftcall gui itself (not the lift) is on. 1 for the bottom floor, 2 for the top floor. gui_parm_strogg == 1 sets the lift gui to use non readable strogg text. Can also run a 'gui_parm_script' set to the name of your script and/or activate a trigger."
+	rect	0,0,640,480
+	backcolor	0.0156,0.0392,0.0117,1
+	visible	1
+	float	"pressed"	0
+
+	onInit {
+		//	namedEvent "updateFloor";
+		
+		if ( "gui::floor" == "gui::gui_parm_floor" ) {
+			namedevent "greyout_first" ;
+		}
+		
+		if ( "gui::gui_parm_strogg" == 1 ) {
+			set "t_call_r::visible" "0";
+			set "t_call::visible" "1";
+		} else {
+			set "t_call_r::visible" "1";
+			set "t_call::visible" "0";
+		}
+	}
+
+	onNamedEvent updateFloor {
+		
+		// If we are already on the floor for this call gui then just grey out the buttons
+		if ( "gui::floor" == "gui::gui_parm_floor") {
+			
+			if ( "desktop::pressed" == "0") {	
+				namedevent "greyout" ;		
+			} else {
+				set "desktop::pressed" "0" ;
+			} 	
+			
+		} else {
+			
+			if ( "desktop::pressed" == "0") {	
+				namedevent "reset" ;	
+			} 	
+			
+		} 
+	}
+
+	onNamedEvent greyout_first {	
+		nonInteractive 1;
+		set "button::visible" "0" ;
+		set "t_edge2::matcolor" "0.370,0.323,0.178,1" ;
+		set "b_edge2::matcolor" "0.370,0.323,0.178,1" ;
+		set "t_btn::matcolor" "0.370,0.273,0.148,1" ;	
+		set "b_btn::matcolor" "0.370,0.273,0.148,1" ;
+		
+		set "t_btn::rect" "92,82,457,173" ;	
+		set "b_btn::rect" "92,226,457,173" ;		
+		
+		set "t_call::forecolor" "0.752,0.780,0.819,0" ;
+		set "t_call_r::forecolor" "0.752,0.780,0.819,0" ;
+		
+		set "l_bracket::matcolor" "0.843,1,1,0" ;
+		set "r_bracket::matcolor" "0.843,1,1,0" ;
+		
+		set "l_side::matcolor" "0.627,0.529,0.321,0.2" ;
+		set "r_side::matcolor" "0.627,0.529,0.321,0.2" ;
+		
+		stoptransitions "side_anim" ;
+		set "side_anim::notime" "1" ;
+		
+		set "l_side2::matcolor_w" "0" ;
+		set "r_side2::matcolor_w" "0" ;
+	}
+
+	onNamedEvent greyout {	
+		resettime "anim_greyout" "0" ;	
+	}
+
+	onNamedEvent reset {	
+		resettime "anim_reset" "0" ;
+	}
+
+	windowDef t_btn
+	{
+		rect	92,37,457,173
+		visible	1
+		background	"gfx/guis/movers/strogg/call_btn"
+		matcolor	0.862,0.517,0.137,1
+		matscaley	-1
+		matscalex	-1
+	}
+	windowDef b_btn
+	{
+		rect	92,268,457,173
+		visible	1
+		background	"gfx/guis/movers/strogg/call_btn"
+		matcolor	0.862,0.517,0.137,1
+	}
+	windowDef d_t_btn
+	{
+		rect	92,82,457,173
+		visible	0
+		background	"gfx/guis/movers/strogg/call_btn"
+		matcolor	0.862,0.517,0.137,1
+		matscaley	-1
+		matscalex	-1
+	}
+	windowDef d_b_btn
+	{
+		rect	92,226,457,173
+		visible	0
+		background	"gfx/guis/movers/strogg/call_btn"
+		matcolor	0.862,0.517,0.137,1
+	}
+	windowDef outer
+	{
+		rect	106,78,434,321
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_outer_r"
+		matcolor	0.0745,0.0705,0.0509,1
+	}
+	windowDef inner
+	{
+		rect	138,100,371,278
+		visible	1
+		background	"gfx/guis/common/strogg/doorgui_inner_r"
+		matcolor	0.0745,0.0705,0.0509,1
+	}
+	windowDef t_edge2
+	{
+		rect	167,0,306,61
+		visible	1
+		background	"gfx/guis/movers/strogg/call_edge2"
+		matcolor	0.674,0.156,0.101,1
+		matscaley	-1
+	}
+	windowDef b_edge2
+	{
+		rect	167,418,306,62
+		visible	1
+		background	"gfx/guis/movers/strogg/call_edge2"
+		matcolor	0.674,0.156,0.101,1
+	}
+	windowDef l_bracket
+	{
+		rect	92,197,29,83
+		visible	1
+		background	"gfx/guis/common/bracket1"
+		matcolor	0.843,1,1,.4
+	}
+	windowDef r_bracket
+	{
+		rect	519,197,29,83
+		visible	1
+		background	"gfx/guis/common/bracket1"
+		matcolor	0.843,1,1,.4
+		matscalex	-1
+	}
+	windowDef t_call
+	{
+		rect	129,205,386,71
+		visible	0
+		forecolor	0.752,0.780,0.819,1
+		text	"#str_200384"
+		textscale	1.8
+		font	"fonts/strogg"
+	}
+	windowDef t_call_r
+	{
+		rect	118,196,407,77
+		visible	0
+		forecolor	0.752,0.780,0.819,1
+		text	"#str_200384"
+		textscale	1.4
+		font	"fonts/r_strogg"
+		textspacing	-2
+	}
+	windowDef arrow1
+	{
+		rect	273,4,98,64
+		visible	1
+		background	"gfx/guis/common/arrow6"
+		matcolor	0,0,0,0.4
+		matscaley	-1
+	}
+	windowDef arrow2
+	{
+		rect	273,411,98,64
+		visible	1
+		background	"gfx/guis/common/arrow6"
+		matcolor	0,0,0,0.4
+	}
+	windowDef l_side
+	{
+		rect	5,12,166,456
+		visible	1
+		background	"gfx/guis/movers/strogg/call_side"
+		matcolor	0.945,0.396,0.0274,0.4
+	}
+	windowDef p_l_side2
+	{
+		rect	5,240,166,1
+		visible	1
+		windowDef l_side2
+		{
+			rect	0,-228,166,456
+			visible	1
+			background	"gfx/guis/movers/strogg/call_side"
+			matcolor	0.945,0.396,0.0274,0
+		}
+	}
+	windowDef r_side
+	{
+		rect	469,12,166,456
+		visible	1
+		background	"gfx/guis/movers/strogg/call_side"
+		matcolor	0.945,0.396,0.0274,0.4
+		matscalex	-1
+	}
+	windowDef p_r_side2
+	{
+		rect	469,240,166,1
+		visible	1
+		windowDef r_side2
+		{
+			rect	0,0,166,455
+			visible	1
+			background	"gfx/guis/movers/strogg/call_side"
+			matcolor	0.945,0.396,0.0274,0
+			matscalex	-1
+		}
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	0,-243,640,953
+			background	"gfx/guis/common/monitor_line8"
+			matcolor	0.101,0.0901,0.0745,0.0980
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches"
+			matcolor	0.886,0.929,0.952,0.4
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-84,640,566
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.521,0.435,0.227,1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef side_anim
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	0
+
+		onTime 0 {
+			transition "p_l_side2::rect" "5,240,166,1" "5,12,166,456" "1000" ;
+			transition "l_side2::rect" "0,-228,166,456" "0,0,166,456" "1000" ;
+			transition "l_side2::matcolor_w" "0" "0.4" "500" ;
+			
+			transition "p_r_side2::rect" "469,240,166,1" "469,12,166,456" "1000" ;
+			transition "r_side2::rect" "0,-228,166,456" "0,0,166,456" "1000" ;
+			transition "r_side2::matcolor_w" "0" "0.4" "500" ;
+		}
+
+		onTime +1000 {
+			transition "l_side2::matcolor_w" "0.4" "0" "500" ;
+			transition "r_side2::matcolor_w" "0.4" "0" "500" ;
+		}
+
+		onTime +2000 {
+			resettime "0";
+		}
+
+	}
+	windowDef anim
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			stoptransitions "side_anim" ;
+			set "side_anim::notime" "1" ;
+			
+			set "l_side2::matcolor_w" "0" ;
+			set "r_side2::matcolor_w" "0" ;
+			
+			transition "l_side::matcolor" "1,0.584,0.0156,1" "0.627,0.529,0.321,0.2" "1000" ;
+			transition "r_side::matcolor" "1,0.584,0.0156,1" "0.627,0.529,0.321,0.2" "1000" ;
+			
+			transition "t_btn::matcolor" "0.996,0.815,0.396,1" "0.370,0.273,0.148,1" "1000" ;
+			transition "b_btn::matcolor" "0.996,0.815,0.396,1" "0.370,0.273,0.148,1" "1000" ;
+			
+			transition "t_call::forecolor" "1,1,1,1" "0.752,0.780,0.819,0" "500" ;
+			transition "t_call_r::forecolor" "1,1,1,1" "0.752,0.780,0.819,0" "500" ;
+			
+			transition "l_bracket::matcolor" "1,1,1,1" "1,1,1,0" "200" ;
+			transition "r_bracket::matcolor" "1,1,1,1" "1,1,1,0" "200" ;
+			
+			transition "t_btn::rect" "$t_btn::rect" "$d_t_btn::rect" "1000" ;
+			transition "b_btn::rect" "$b_btn::rect" "$d_b_btn::rect" "1000" ;
+			
+			transition "t_edge2::matcolor" "0.674,0.156,0.101,1" "0.370,0.323,0.178,1" "1000" ;
+			transition "b_edge2::matcolor" "0.674,0.156,0.101,1" "0.370,0.323,0.178,1" "1000" ;
+		}
+
+		onTime 50 {
+			//	set "desktop::pressed" "0" ;
+		}
+
+		onTime 1000 {
+			nonInteractive 1;
+			set "button::visible" "0" ;
+			set "side_anim::notime" "0" ;
+			resettime "side_anim" "0" ;
+		}
+
+	}
+	windowDef anim_reset
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			nonInteractive 0;
+			set "button::visible" "1" ;
+			
+			set "l_side2::matcolor_w" "0" ;
+			set "r_side2::matcolor_w" "0" ;
+			
+			transition "l_side::matcolor" "0.627,0.529,0.321,0.2" "1,0.584,0.0156,1" "200" ;
+			transition "r_side::matcolor" "0.627,0.529,0.321,0.2" "1,0.584,0.0156,1" "200" ;
+			
+			transition "t_btn::matcolor" "0.370,0.273,0.148,1" "0.996,0.815,0.396,1" "200" ;
+			transition "b_btn::matcolor" "0.370,0.273,0.148,1" "0.996,0.815,0.396,1" "200" ;
+			
+			transition "t_call::forecolor" "0.752,0.780,0.819,0" "1,1,1,1" "500" ;
+			transition "t_call_r::forecolor" "0.752,0.780,0.819,0" "1,1,1,1" "500" ;
+			
+			transition "l_bracket::matcolor" "1,1,1,0" "1,1,1,1" "200" ;
+			transition "r_bracket::matcolor" "1,1,1,0" "1,1,1,1" "200" ;
+			
+			transition "t_btn::rect" "$d_t_btn::rect" "$t_btn::rect" "200" ;
+			transition "b_btn::rect" "$d_b_btn::rect" "$b_btn::rect" "200" ;
+			
+			transition "t_edge2::matcolor" "0.370,0.323,0.178,1" "0.674,0.156,0.101,1" "200" ;
+			transition "b_edge2::matcolor" "0.370,0.323,0.178,1" "0.674,0.156,0.101,1" "200" ;	
+			
+			set "side_anim::notime" "0" ;
+			resettime "side_anim" "0" ;
+		}
+
+		onTime 50 {
+			//	set "desktop::pressed" "0" ;
+		}
+
+	}
+	windowDef anim_greyout
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			nonInteractive 1;
+			set "button::visible" "0" ;
+			
+			transition "l_side::matcolor" "1,0.584,0.0156,1" "0.627,0.529,0.321,0.2" "200" ;
+			transition "r_side::matcolor" "1,0.584,0.0156,1" "0.627,0.529,0.321,0.2" "200" ;
+			
+			transition "t_btn::matcolor" "0.996,0.815,0.396,1" "0.370,0.273,0.148,1" "200" ;
+			transition "b_btn::matcolor" "0.996,0.815,0.396,1" "0.370,0.273,0.148,1" "200" ;
+			
+			transition "t_call::forecolor" "1,1,1,1" "0.752,0.780,0.819,0" "200" ;
+			transition "t_call_r::forecolor" "1,1,1,1" "0.752,0.780,0.819,0" "200" ;
+			
+			transition "l_bracket::matcolor" "1,1,1,1" "1,1,1,0" "200" ;
+			transition "r_bracket::matcolor" "1,1,1,1" "1,1,1,0" "200" ;
+			
+			transition "t_btn::rect" "$t_btn::rect" "$d_t_btn::rect" "200" ;
+			transition "b_btn::rect" "$b_btn::rect" "$d_b_btn::rect" "200" ;
+			
+			transition "t_edge2::matcolor" "0.674,0.156,0.101,1" "0.370,0.323,0.178,1" "200" ;
+			transition "b_edge2::matcolor" "0.674,0.156,0.101,1" "0.370,0.323,0.178,1" "200" ;
+			
+			stoptransitions "side_anim" ;
+			set "side_anim::notime" "1" ;
+			
+			set "l_side2::matcolor_w" "0" ;
+			set "r_side2::matcolor_w" "0" ;
+		}
+
+		onTime 50 {
+			//	set "desktop::pressed" "0" ;
+		}
+
+	}
+	windowDef button
+	{
+		rect	0,0,640,480
+		visible	1
+
+		onAction {
+			set "cmd" "play guisound_beep2 ; changefloor" "$gui::gui_parm_floor" ;
+			set "cmd" "activate ; runscript" "$gui::gui_Parm_script";	
+			set "button::visible" "0" ;
+			resettime "anim" "0" ;
+			set "desktop::pressed" "1" ;
+		}
+
+	}
+}

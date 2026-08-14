@@ -1,0 +1,36 @@
+//******************************	generic green barrel		*************************************//
+
+export env_green_barrel
+{
+	options  -prefix BARL_ -scale .3937 -keep effects -sourcedir work/models/cinematics/recomp_lt_tank/animations 	-destdir models/mapobjects/strogg/barrels
+	mesh	recomp_tank_and_barrels.ma			-range 1 2 -dest green_barrel
+	anim	recomp_tank_and_barrels.ma			-range 1 2 -dest green_barrel_idle
+	anim	recomp_tank_and_barrels.ma			-dest green_barrel_crush
+}
+model model_env_green_barrel
+{
+	mesh				models/mapobjects/strogg/barrels/green_barrel.md5mesh
+	anim idle			models/mapobjects/strogg/barrels/green_barrel_idle.md5anim
+	anim crush			models/mapobjects/strogg/barrels/green_barrel_crush.md5anim
+	{
+		frame 174 		fx	fx_explode	effects
+	}	
+}
+
+entityDef	env_green_barrel
+{
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	"editor_usage"					"don't use"
+	
+	"model"							"model_env_green_barrel"
+	"anim"							"idle"
+	
+	"skin"							"skins/mapobjects/strogg/barrels/stroyent_c"
+	
+	"fx_explode"					"effects/moveables/barrel/explode.fx"
+}
+

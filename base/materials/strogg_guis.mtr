@@ -1,0 +1,1078 @@
+//----------------------------------
+//	RAILGUN CHARGE INDICATORS
+//----------------------------------
+
+gfx/guis/weapons/railgun/charge
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/weapons/railgun/charge.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	DISPERSAL HEART	
+//----------------------------------
+
+gfx/guis/maps/dispersal/heart_ctrl_wave1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/dispersal/heart_ctrl_wave1.tga
+		colored
+		scroll  0, 1 * time
+		centerScale guitable_random1 [ time * 0.8 ] , 1
+	}
+}
+
+gfx/guis/maps/dispersal/heart_ctrl_wave2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/dispersal/heart_ctrl_wave1.tga
+		colored
+		scroll  0, 1.4 * time
+		centerScale guitable_random1 [ time * 0.4 ] , 1
+	}
+}
+
+gfx/guis/maps/dispersal/heart_ctrl_wave3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/dispersal/heart_ctrl_wave3.tga
+		colored
+		scroll  0, 1 * time
+		centerScale guitable_random1 [ time * 0.8 ] , 1
+	}
+}
+
+gfx/guis/maps/dispersal/heart_ctrl_wave4
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/dispersal/heart_ctrl_wave3.tga
+		colored
+		scroll  0, 1.4 * time
+		centerScale guitable_random1 [ time * 0.4 ] , 1
+	}
+}
+
+gfx/guis/maps/dispersal/heart_ctrl_heartadd
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/dispersal/heart_ctrl_heartadd.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	MEDLABS CHANGEOVER 
+//----------------------------------
+
+gfx/guis/hud/medchange_hex
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/hud/medchange_hex.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/hud/medchange_edge
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/hud/medchange_edge.tga
+		colored
+		clamp
+	}
+}
+
+
+//----------------------------------
+//	TRAM INDICATOR
+//----------------------------------
+
+gfx/guis/maps/tram1/call_cursor
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/tram1/call_cursor.tga
+		colored
+		centerScale guitable_10_20 [ time * .5 ] , guitable_10_20 [ time * .5 ]
+		clamp
+	}
+}
+
+//----------------------------------
+//	STORAGE TSD DEVICE
+//----------------------------------
+gfx/guis/maps/storage2/tsd_torso1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/maps/storage2/tsd_torso.tga
+		scroll 0, -.8 * time
+	}
+}
+
+gfx/guis/maps/storage2/tsd_torso2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/maps/storage2/tsd_torso.tga
+		scroll 0, -1.25 * time
+	}
+}
+
+
+//----------------------------------
+//	MEDLABS 1 ELEVATOR
+//----------------------------------
+
+gfx/guis/maps/medlabs1/route_switch_bg
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/medlabs1/route_switch_bg.tga
+		colored
+	}
+}
+
+//----------------------------------
+//	FATGUY PUZZLE
+//----------------------------------
+
+gfx/guis/maps/putra/fattyfeed_warnbar
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/putra/fattyfeed_warnbar.tga
+		colored
+	}
+}
+
+gfx/guis/maps/putra/fattystat_needlearrows
+{	
+	noShadows
+	translucent
+	{	
+		maskcolor				
+	    map	makealpha(gfx/guis/maps/putra/fattystat_needle2.tga)
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		Map gfx/guis/maps/putra/fattystat_arrows.tga
+		scroll 0, time * -1.6
+		colored
+	}
+}
+
+gfx/guis/maps/putra/fattystat_stom1w
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/putra/fattystat_stom1w.tga
+		colored
+	}
+}
+
+gfx/guis/maps/putra/fattystat_stom2w
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/putra/fattystat_stom2w.tga
+		colored
+	}
+}
+
+gfx/guis/maps/putra/fattystat_stom3w
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/putra/fattystat_stom3w.tga
+		colored
+	}
+}
+
+//----------------------------------
+//	SCROLLTEXT
+//----------------------------------
+
+gfx/guis/common/strogg/nonscrolltext1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext1.tga
+	}
+}
+
+gfx/guis/common/strogg/nonscrolltext2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext2.tga
+	}
+}
+
+gfx/guis/common/strogg/nonscrolltext3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext3.tga
+	}
+}
+
+gfx/guis/common/strogg/scrolltext2faster
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext2.tga
+		scroll 0, 2 * time
+	}
+}
+
+
+gfx/guis/common/strogg/scrolltext2fast
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext2.tga
+		scroll 0, .35 * time
+	}
+}
+
+
+gfx/guis/common/strogg/scrolltext2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext2.tga
+		scroll 0, .12 * time
+	}
+}
+
+gfx/guis/common/strogg/scrolltext1faster
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext1.tga
+		scroll 0, 2 * time
+	}
+}
+
+gfx/guis/common/strogg/scrolltext1fast
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext1.tga
+		scroll 0, .35 * time
+	}
+}
+
+gfx/guis/common/strogg/scrolltext1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext1.tga
+		scroll 0, .1 * time
+	}
+}
+
+gfx/guis/common/strogg/scrolltext3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/scrolltext3.tga
+		scroll 0, .12 * time
+	}
+}
+
+
+//----------------------------------
+//	HUB 5
+//----------------------------------
+
+gfx/guis/monitors/strogg/streamhub/hub5_line1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/monitors/strogg/streamhub/hub5_line1.tga
+		colored
+		scroll -.4 * time ,0
+	}
+}
+
+gfx/guis/monitors/strogg/streamhub/hub5_line2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/monitors/strogg/streamhub/hub5_line2.tga
+		colored
+		scroll -.8 * time ,0
+	}
+}
+
+//----------------------------------
+//	HUB 4
+//----------------------------------
+
+gfx/guis/monitors/strogg/streamhub/hub4_img1a
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/strogg/streamhub/hub4_img1a.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/monitors/strogg/streamhub/hub4_img1b
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/strogg/streamhub/hub4_img1b.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/monitors/strogg/streamhub/hub4_img2a
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/strogg/streamhub/hub4_img2a.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/monitors/strogg/streamhub/hub4_img2b
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/monitors/strogg/streamhub/hub4_img2b.tga
+		colored
+		clamp
+	}
+}
+
+
+//----------------------------------
+//	DOOR GUIS
+//----------------------------------
+
+gfx/guis/common/strogg/doorgui_bg
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_bg.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/doorgui_bg2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_bg2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/doorgui_inner
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_inner.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/doorgui_outer
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_outer.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/doorgui_inner_r
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_inner.tga
+		colored
+		clamp
+		rotate .1 * time
+	}
+}
+
+gfx/guis/common/strogg/doorgui_outer_r
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_outer.tga
+		colored
+		clamp
+		rotate -.1 * time
+	}
+}
+
+gfx/guis/common/strogg/doorgui_edge
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_edge.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/doorgui_x
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/doorgui_x.tga
+		colored
+		clamp
+	}
+}
+
+
+
+//----------------------------------
+//	TERMINAL1 MONITOR DISC	
+//----------------------------------
+
+gfx/guis/monitors/strogg/terminal/term1_disc
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/monitors/strogg/terminal/term1_disc.tga
+		rotate .87 * time
+		clamp
+	}
+}
+
+gfx/guis/monitors/strogg/terminal/term1_disc2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/monitors/strogg/terminal/term1_disc.tga
+		rotate .41 * time
+		clamp
+	}
+}
+
+gfx/guis/monitors/strogg/terminal/term1_disc3
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/monitors/strogg/terminal/term1_disc.tga
+		rotate .64 * time
+		clamp
+	}
+}
+
+
+//----------------------------------
+//	DIRECTIONAL SIGN 1
+//----------------------------------
+
+gfx/guis/common/strogg/dirsign1_bg
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign1_bg.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/dirsign1_arrow1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign1_arrow1.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/dirsign1_arrow2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign1_arrow2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/dirsign1_arrow3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign1_arrow3.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	DIRECTIONAL SIGN 2
+//----------------------------------
+
+gfx/guis/common/strogg/dirsign2_arrow1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign2_arrow1.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/dirsign2_arrow2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign2_arrow2.tga
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/dirsign2_bg
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/common/strogg/dirsign2_bg.tga
+		colored
+		clamp
+	}
+}
+
+//----------------------------------
+//	SIDESCROLL ARROWS
+//----------------------------------
+
+gfx/guis/common/strogg/lf_arrow_scroll
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/lf_arrow_scroll.tga
+		scroll .264 * time, 0
+	}
+}
+
+gfx/guis/common/strogg/rt_arrow_scroll
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/lf_arrow_scroll.tga
+		scroll .264 * time, 0
+		rotate .5
+	}
+}
+
+//----------------------------------
+//	TRAM/LISTSCROLL
+//----------------------------------
+
+gfx/guis/monitors/strogg/tram/listscroll_1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/listscroll_1.tga
+		translate	0, guitable_snapscroll[time*.053]
+	}
+}
+
+gfx/guis/monitors/strogg/tram/listscroll_2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/listscroll_2.tga
+		translate	0, guitable_snapscroll[time*.125]
+	}
+}
+
+gfx/guis/monitors/strogg/tram/listscroll_3
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/listscroll_1.tga
+		translate	0, guitable_snapscroll[time*.029]
+	}
+}
+
+gfx/guis/monitors/strogg/tram/listscroll_4
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/listscroll_2.tga
+		translate	0, guitable_snapscroll[time*.084]
+	}
+}
+
+//----------------------------------
+//	TRAM/MARQUEE
+//----------------------------------
+
+gfx/guis/monitors/strogg/tram/marquee_scroll1
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/marquee_scroll1.tga
+		scroll -.43 * time, 0
+	}
+}
+
+gfx/guis/monitors/strogg/tram/marquee_scroll2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/marquee_scroll2.tga
+		scroll -.67 * time, 0
+	}
+}
+
+gfx/guis/monitors/strogg/tram/marquee_btmscroll
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/monitors/strogg/tram/marquee_btmscroll.tga
+		scroll -.08 * time, 0
+	}
+}
+
+
+//----------------------------------
+//	DATA STREAM BEHIND GUIS
+//----------------------------------
+
+gfx/guis/common/strogg/data
+{
+	noShadows
+	translucent
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data1.tga
+		scroll 0, time * -1
+		colored
+	}
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data2.tga
+		scroll 0, time * -1.5
+		colored
+	}
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data3.tga
+		scroll 0, time * -.5
+		colored
+	}
+}
+
+gfx/guis/common/strogg/data_b
+{
+	noShadows
+	translucent
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data1.tga
+		scroll 0, time * -.3
+		colored
+	}
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data2.tga
+		scroll 0, time * -.1
+		colored
+	}
+}
+
+gfx/guis/common/strogg/data_c
+{
+	noShadows
+	translucent
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data3.tga
+		scroll 0, time * -.3
+		colored
+	}
+	
+	{
+ 		blend blend
+		map gfx/guis/common/strogg/data3.tga
+		scroll 0, time * .5
+		scale -1,-1
+		colored
+	}
+}
+
+//----------------------------------
+//	RAISE_LOWER ARROWS
+//----------------------------------
+
+gfx/guis/common/strogg/dn_arrow_scroll
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/dn_arrow_scroll.tga
+		scroll 0, -.264 * time
+	}
+}
+
+gfx/guis/common/strogg/up_arrow_scroll
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		colored
+		Map gfx/guis/common/strogg/dn_arrow_scroll.tga
+		scroll 0, -.264 * time
+		rotate .5
+	}
+}
+
+
+//----------------------------------
+// wide sign stuff
+//----------------------------------
+
+gfx/guis/common/strogg/wsign_map
+{
+	noshadows
+	translucent
+	{
+		blend add
+		map gfx/guis/common/strogg/wsign_map.tga
+		colored
+	}	
+}
+
+//----------------------------------
+// warning stripes
+//----------------------------------
+
+gfx/guis/common/strogg/warnstripe1
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/strogg/warnstripe1
+		scroll -.08 * time, 0 * time
+		colored
+	}
+}
+
+gfx/guis/common/strogg/warnstripe2
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/strogg/warnstripe2
+		scroll .05 * time, 0 * time
+		colored
+	}
+}
+
+//----------------------------------
+//	CIRCLE MARKERS
+//----------------------------------
+gfx/guis/common/strogg/circlemarker
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+
+	{
+		blend add
+		map gfx/guis/common/strogg/circlemarker.tga
+		centerscale guitable_10_20 [ time * .5 ] , guitable_10_20 [ time * .5 ]
+		clamp
+		colored
+	}	
+}
+
+gfx/guis/common/strogg/circlemarker2
+{
+	noshadows
+	translucent
+	twosided
+	nonsolid
+
+	{
+		blend blend
+		map gfx/guis/common/strogg/circlemarker2.tga
+		centerscale guitable_10_20 [ time * .35 ] , guitable_10_20 [ time * .35 ]
+		clamp
+		colored
+	}	
+}
+
+
+//----------------------------------
+//	RANDOM
+//----------------------------------
+
+gfx/guis/common/strogg/scrollh.tga
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		colored
+		Map gfx/guis/common/strogg/scrollh.tga
+		scroll -.08 * time, 0
+	}
+}
+
+gfx/guis/common/strogg/r_pointarrows
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/strogg/pointarrows.tga
+		rotate .2 *time
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/dualcircle
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/strogg/dualcircle.tga
+		rotate .2 *time
+		colored
+		clamp
+	}
+	{
+		blend blend
+		Map gfx/guis/common/strogg/dualcircle.tga
+		rotate -.5 *time
+		colored
+		clamp
+	}
+}
+
+
+gfx/guis/common/strogg/128_circle
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/strogg/128_circle.tga
+		rotate .02 *time
+		colored
+		clamp
+	}
+}
+
+gfx/guis/common/strogg/128_circleb
+{	
+	noShadows
+	translucent
+	{
+		blend blend
+		Map gfx/guis/common/strogg/128_circle.tga
+		rotate -.04 *time
+		colored
+		clamp
+	}
+}
+
+gfx/guis/maps/process2/brain_overlay
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/process2/brain_overlay.tga
+		colored
+	}
+}
+
+gfx/guis/maps/process2/brain_overlay2
+{	
+	noShadows
+	translucent
+	{
+		blend add
+		Map gfx/guis/maps/process2/brain_overlay2.tga
+		colored
+	}
+}

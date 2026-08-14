@@ -1,0 +1,64 @@
+/*
+===============================================================================
+
+	Doctor (char_doctor)
+
+===============================================================================
+*/
+
+export char_doctor
+{
+	options -prefix PLAYER_ -align ALL -scale .394	-keep l_elbo_tweak r_elbo_tweak SG_stock MG_clip_joint MG_stock_joint r_ring_03 l_ring_03 body shoulders neckcontrol legs_channel head_channel SG_muzzle_flash MG_muzzle_flash HB_muzzle_flash -parent SG_stock r_wrist -parent MG_stock_joint r_wrist -parent HB_base r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/doctor/anims -destdir models/characters/doctor
+	mesh	doctor_mesh.ma								-dest doctor
+	anim	doctor_deepthought_bentover_1.ma			-dest deepthought_bentover_1
+	anim	doctor_operating_loopable_1.ma				-rotate 90 -dest operating_loopable_1
+	anim	doctor_operating_loopable_2.ma				-rotate -90 -dest operating_loopable_2
+	anim	doctor_operating_loopable_3.ma				-rotate -90 -dest operating_loopable_3
+	anim	doctor_walking_tablegui_1.ma				-dest walking_tablegui_1
+	anim	doctor_thinking.ma					-dest thinking
+}
+
+/*
+===============================================================================
+
+	Doctor Model Definition
+
+===============================================================================
+*/
+
+model model_char_doctor
+{
+	inherit							model_char_marine
+
+	mesh							models/characters/doctor/doctor.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+}
+
+/*
+===============================================================================
+
+	Doctor Entity Definition
+
+===============================================================================
+*/
+
+entityDef char_doctor
+{
+	"inherit"									"char_marine_base"
+	"editor_ignore"								"0"
+
+	// --------------------------------- Body ------------------------------------
+	"model"										"model_char_doctor"
+	"action_relax"								"0"
+	"directionalMovement"						"0"
+	"animPrefix"								"unarmed"
+	"def_head"									"char_marinehead_doctor_masked"
+		
+	"hidesurface1"								"models/monsters/maya_texture/maya_surface"
+	"hidesurface2"								"models/monsters/maya_texture/maya_surface3"
+
+	//doctors need to stay _really_ close by. 
+	"followRange"										"46 95"
+}

@@ -1,0 +1,165 @@
+/*
+===============================================================================
+
+	Strogg Fighter
+
+===============================================================================
+*/
+
+export strogg_fighter
+{
+	options -prefix SMFL_ -rotate 90 -scale .3937 -keep exhaust -keep muzzle_flash_l -keep muzzle_flash_r
+	mesh	work/models/vehicles/sm_flyer/animation/sm_flyer_idle.ma	-dest models/monsters/strogg_fighter/mesh.md5mesh
+	anim	work/models/vehicles/sm_flyer/animation/sm_flyer_idle.ma	-dest models/monsters/strogg_fighter/idle.md5anim
+}
+
+/*
+===============================================================================
+
+	Strogg Fighter Model
+
+===============================================================================
+*/
+
+model model_monster_strogg_fighter
+{
+	mesh												models/monsters/strogg_fighter/mesh.md5mesh	
+	anim idle											models/monsters/strogg_fighter/idle.md5anim
+}
+
+/*
+===============================================================================
+
+	Strogg Fighter Attacks
+
+===============================================================================
+*/
+
+entityDef damage_strogg_fighter_blaster
+{
+	"inherit"											"damage_bullet_base"
+	"damage"											"1"
+}
+
+entityDef projectile_strogg_fighter_blaster
+{
+	"inherit"											"projectile_blaster_base"
+	"velocity"											"2200 0 0"
+	"fx_impact"											"effects/monsters/strogg_flyer/blaster_collide.fx"
+	"fx_fly"											"effects/weapons/rocketlauncher/fly.fx"
+	"def_damage"										"damage_strogg_fighter_blaster"
+}
+
+/*
+===============================================================================
+
+	Strogg Fighter Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_strogg_fighter	
+{
+	"inherit"								"actor_default"
+	"spawnclass"							"rvMonsterStroggFlyer"
+
+	// --------------------------------- Actions ------------------------------------
+	
+	"action_blasterAttack"					"1"
+	"action_blasterAttack_rate"				"3"
+	"action_blasterAttack_maxRange"			"3000"
+	"action_blasterAttack_minRange2d"		"500"
+	"action_blasterAttack_maxRange2d"		"1500"
+	"action_blasterAttack_noturn"			"0"
+	"action_blasterAttack_overrideLegs"		"0"
+
+	// --------------------------------- General ------------------------------------
+
+	"use_aas"								"aas48"
+	"editor_usage"							"A smaller strogg flyer. Not so big. Kinda tiny. !large."
+	"flying"								"1"
+
+	"remove_on_death"						"1"
+
+	"size"									"42 42 42"
+	"model"									"model_monster_strogg_fighter"
+	"mass"									"2000"
+	"suppress_range"						"3200"
+
+	"joint_gun_right"						"muzzle_flash_r"
+	"joint_gun_left"						"muzzle_flash_l"
+	"joint_thruster"						"exhaust"
+
+	// --------------------------------- Combat ----------------------------------
+	"health"								"80"				// hard to kill?  Not sure how high this should be
+	"damaged_threshold"						"80"
+	"flee_threshold"						"50"
+	"painThreshold"							"10"
+	"bleed"									"0"
+	"startdamaged"							"0"
+	"flee_not_die"							"0"
+	"suppress_rate"							"0"
+	"turn_rate"								"640"
+	"fov"									"90"
+	"attackRange"							"0 3000"
+
+	// --------------------------------- Defs   ----------------------------------
+	"def_attack_blaster"					"projectile_strogg_flyer_blaster"
+	"attack_blaster_accuracy"				"1"
+	"attack_blaster_cone"					"90"
+	"def_attack_bomb"						"projectile_strogg_flyer_bomb"
+	"attack_bomb_accuracy"					"1"
+	"attack_bomb_cone"						"90"
+
+	// --------------------------------- Sounds ----------------------------------
+	"snd_flyloop"							"convoy_large_ship_loop3"
+
+	// --------------------------------- Effects ---------------------------------
+	"fx_muzzleflash"						"effects/monsters/strogg_flyer/blaster_burst.fx"
+	"fx_exhaust"							"effects/monsters/strogg_flyer/smoke_trail.fx"
+	"fx_exhaust_damaged"					"effects/monsters/strogg_flyer/smoke_trail_damaged.fx"
+	"fx_damaged"							"effects/monsters/strogg_flyer/smoke_ribbons.fx"
+	"fx_base_attack_flash"					"effects/monsters/turret/f_flash.fx"						// FX_REPLACE
+	"fx_damage_transition"					"effects/monsters/turret/d_death.fx"						// FX_REPLACE
+	"fx_bombflash"							""
+	"fx_death"								"effects/monsters/turret/d_death.fx"						// FX_REPLACE
+	
+	"fx_laser"								"effects/test/nathan/laserline.fx"
+
+	// --------------------------------- Playbacks -------------------------------
+
+	"playback_fighter_1"					"playbacks/canyon_test_fighter_1.playback"
+	"playback_fighter_2"					"playbacks/canyon_test_fighter_2.playback"
+	"playback_fighter_3"					"playbacks/canyon_test_fighter_3.playback"
+	"playback_fighter_4"					"playbacks/canyon_test_fighter_4.playback"
+	"playback_fighter_5"					"playbacks/canyon_test_fighter_5.playback"
+
+	"playback_fighter_canyon_left"			"playbacks/fighter_canyon_left.playback"			
+	"playback_fighter_canyon_mid"			"playbacks/fighter_canyon_mid.playback"
+	"playback_fighter_canyon_right"			"playbacks/fighter_canyon_right.playback"
+	
+	"playback_old_convoy_1"					"playbacks/fighter/fighter_oldcanyon_1.playback"
+	"playback_old_convoy_2"					"playbacks/fighter/fighter_oldcanyon_2_right.playback"
+	"playback_old_convoy_3"					"playbacks/fighter/fighter_oldcanyon_2_left.playback"
+	"playback_old_convoy_4"					"playbacks/fighter/fighter_oldcanyon_3.playback"
+	"playback_old_convoy_5"					"playbacks/fighter/fighter_oldcanyon_4.playback"
+	"playback_old_convoy_6"					"playbacks/fighter/fighter_oldcanyon_5.playback"
+
+	"playback_ad_trench_1"					"playbacks/fighter/fighter_airdefense_1.playback"
+	"playback_ad_trench_2"					"playbacks/fighter/fighter_airdefense_2.playback"
+	"playback_ad_trench_3"					"playbacks/fighter/fighter_airdefense_3.playback"
+
+	"playback_flyer_high"					"playbacks/canyon_test_high.playback"
+	
+	"playback_medlabs2_fighter_1"			"playbacks/medlabs2_fighter_1.playback"
+	
+	"playback_convoy_canyon_1_fighter_1"	"playbacks/convoy_canyon_1_fighter_1.playback"
+	"playback_convoy_canyon_1_fighter_2"	"playbacks/convoy_canyon_1_fighter_2.playback"
+	"playback_convoy_canyon_1_fighter_3"	"playbacks/convoy_canyon_1_fighter_3.playback"
+
+
+	// --------------------------------- Database -------------------------------
+
+	"dbTitle"								"Strogg Fighter"
+	"dbText"								"Description Text of the Strogg Flyer"
+}

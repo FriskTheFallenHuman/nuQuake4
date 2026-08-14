@@ -1,0 +1,186 @@
+/*
+===============================================================================
+
+	Repair Bot
+
+===============================================================================
+*/
+
+export repairbot
+{		
+	options -prefix RB2_ -align ALL -rotate 180 -keep L_fx R_fx -sourcedir work/models/monsters/repair_bot/animation -destdir models/monsters/repair_bot
+	mesh	RB_idle.ma				-dest models/monsters/repair_bot/mesh
+	anim	RB_idle.ma				-dest idle
+	anim	RB_wakeup.ma			-dest wakeup
+	anim	RB_awake.ma				-dest awakeidle
+	anim	RB_start_move.ma		-dest startmove
+	anim	RB_stop_move.ma			-dest stopmove
+	anim	RB_move_forward.ma		-dest move_forward
+	anim	RB_repair.ma			-dest repair
+	anim	RB_pain.ma			-dest pain
+	anim	RB_forward_pain.ma		-dest fwdpain
+	anim	RB_explode.ma			-dest death
+	anim	death_idle.ma			-dest deadidle
+	anim	RB_storage_level.ma		-dest storage_level
+}
+
+/*
+===============================================================================
+
+	Repair Bot Model Definition
+
+===============================================================================
+*/
+
+model model_monster_repair_bot
+{
+	mesh						models/monsters/repair_bot/mesh.md5mesh
+
+	channel	torso				( *still )
+	channel	legs				( *origin -*still )
+
+	offset						( 0 0 -24 )
+
+	anim idle					models/monsters/repair_bot/awakeidle.md5anim
+	{
+	}
+	anim idle_sleepy			models/monsters/repair_bot/idle.md5anim
+	{
+	}
+	anim idle_to_run			models/monsters/repair_bot/startmove.md5anim
+	{
+			frame	10				sound	snd_beeps
+	}
+	anim run					models/monsters/repair_bot/move_forward.md5anim
+	{
+	}
+	anim run_to_idle			models/monsters/repair_bot/stopmove.md5anim
+	{
+		frame	5					sound	snd_beeps
+	}
+	anim repair					models/monsters/repair_bot/repair.md5anim
+	{
+		frame	5					sound	snd_beeps
+//		frame 16,24,32,38,46	ai_attack		repair		l_fx
+//		frame 20,28,34,42,50	ai_attack		repair		r_fx
+	}
+	anim wakeup					models/monsters/repair_bot/wakeup.md5anim
+	{
+		frame	4					sound	snd_beeps
+	}
+	anim pain					models/monsters/repair_bot/pain.md5anim
+	{
+		frame 1					ai_disablePain
+	}
+	anim fwdpain				models/monsters/repair_bot/fwdpain.md5anim
+	{
+		frame 1					ai_disablePain
+	}
+
+	
+	anim death					models/monsters/repair_bot/death.md5anim
+	anim deadidle					models/monsters/repair_bot/deadidle.md5anim
+
+
+/*
+	anim storage				models/monsters/repair_bot/storage_level.md5anim
+	{
+		frame	22,56,64,118,126,141,151,180,209,218,226		sound	snd_servo
+	}
+*/
+}
+
+/*
+===============================================================================
+
+	Repair Bot Attacks
+
+===============================================================================
+*/
+
+entityDef damage_repairbot_repair
+{
+	"inherit"									"damage_bullet_base"
+	"damage"									"0"
+}
+
+entityDef hitscan_repairbot_repair
+{
+	"inherit"							"hitscan_bullet_base"
+	"def_damage"						"damage_repairbot_repair"
+	"range"								"128"	
+	
+	"fx_impact"							"effects/monsters/repair_bot/gen_laser_impact.fx"
+	"fx_path"							"effects/monsters/repair_bot/gen_laser.fx"
+}
+
+/*
+===============================================================================
+
+	Repair Bot Entity Definition
+
+===============================================================================
+*/
+
+entityDef monster_repair_bot
+{
+	"inherit"							"actor_default"
+	"spawnclass"						"rvMonsterRepairBot"
+
+	// --------------------------------- Body ------------------------------------
+	"model"								"model_monster_repair_bot"
+	"remove_on_death"					"1"
+	"size"								"32 32 32"
+	"use_aas"							"aas32"
+	"flying"							"1"
+
+	"look_joint still"					"1.0 0.0 0"
+	"look_min"							"-90 -75 0"
+	"look_max"							"90 75 0"
+
+	"joint_eyeOffset"					"still"
+	"joint_chestOffset"					"still"
+
+	"chatter_idle_rate"					"8"
+	"chatter_combat_rate"				"8"	
+
+
+	// --------------------------------- Combat ----------------------------------
+	"painThreshold"						"0"
+	"health"							"50"
+	"bleed"								"0"
+	"passive"							"1"
+
+	"def_attack_repair"					"hitscan_repairbot_repair"
+	"attack_repair_hitscan"				"1"
+	"attack_repair_accuracy"			"2"
+	"attack_repair_lockToJoint"			"1"
+
+	// --------------------------------- Movement ----------------------------------
+	"fly_bob_strength"					"0"
+	"fly_offset"						"0"
+	"fly_pitch_scale"					"-25"
+	"fly_roll_scale"					"25"
+	"walkRange"							"32"
+	"directionalMovement"				"1"
+	"forceRun"							"1"
+
+	// --------------------------------- Effects -------------------------------
+	"repairEffectDist"					"128"
+	"fx_repair"							"effects/monsters/repair_bot/gen_laser.fx"
+	"fx_repair_impact"					"effects/monsters/repair_bot/gen_laser_impact.fx"
+	//"fx_repair_impact_periodic"			""
+	//"impact_fx_delay_range"				""
+	"fx_death"							"effects/monsters/sentry/explosion.fx"
+
+	// --------------------------------- Sounds   -------------------------------
+	"snd_fly"							"repair_bot_hover"
+	"snd_servo"							"repair_bot_servo"
+	"snd_death"							"repair_bot_die"
+	"snd_beeps"							"repair_bot_chatter"
+	"lipsync_chatter_idle"				"repair_bot_chatter"
+	"lipsync_chatter_combat"			"repair_bot_chatter"
+	
+	"sound_bone"						"flap"
+}
+

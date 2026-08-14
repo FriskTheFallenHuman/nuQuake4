@@ -1,0 +1,34 @@
+export cin_camera_outro_cin
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/game_outro/animation   -destdir models/cinematics/outro
+	camera	outro_boss_level.ma		-dest outro_cin_camera
+}
+
+camera outro_cin_camera
+{
+	anim outro_cin_camera				"models/cinematics/outro/outro_cin_camera.md5camera"
+	{
+
+		frame	1							call  map_core::animateKane_kain_glory
+		frame	275							trigger outro_speaker_1
+		frame	370							trigger outro_speaker_2
+		frame	418							trigger outro_speaker_3
+		frame	586							call  map_core::cinFadeout
+
+	}
+
+}
+
+entityDef  cin_camera_outro_cin
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"outro_cin_camera"
+}
+
+

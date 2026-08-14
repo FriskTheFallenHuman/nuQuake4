@@ -1,0 +1,353 @@
+
+
+sound stream_hub_chamber1
+{
+	minDistance	118
+	maxDistance	1771
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/stream_hub/chamber1
+	shakeData 0 edddcdccddddcddccdddcdeccccddddcccccddeedddccdededcddddccccdeededcdccdddeddccdddcdecdcdbcccccdccccccbddddccedcddddcdedcdccdccdddcddddbccdccdddcccdceccccccbbbccbbbbbbbbccccdcbcbcccbbbbcbbccccccccbcccccccccccccccccccccccdedddddcdccdddd
+}
+
+
+sound stream_hub_chamber2
+{
+	minDistance	118
+	maxDistance	1771
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/stream_hub/chamber2
+	shakeData 0 gggggfffefeefefgfggffegfghghhgggfeffeeeeeegfeeefefgffeefeeeffeeeeefffffegffgfeegfefeeegefeeffeefefffeeefeeffeedfeddededdddddeedddeeeddededdeeeefdeededeeeeedefefeeeeeedeeedeeeddeeddeeefefefefffeeeeeeeeeeeeeegfhfggffgfgfhffhffffffffgfggffhfggfc
+}
+
+
+sound stream_hub_chamber3
+{
+	minDistance	118
+	maxDistance	1771
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/stream_hub/chamber3
+	shakeData 0 dfedcdeeffedbeeeffeddddeeegghiiifcffggffddggfdcceeffeedbcdffeeeccbbccccdeefffffeeeefefffecccceeedbegggfdcdeffddbccdedcbeeeefecdfgfeccdefffeddeghfeddfgggebceeeeedcdefffeecccdeeeefddbcdggfeecccdeeeeeeffffedcdffegfghhgfdcdghhgfeecc
+}
+
+
+sound stream_hub_storm
+{
+	minDistance	118
+	maxDistance	1771
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/stream_hub/storm
+	shakeData 0 uqvmpklplqqnhrqtppspwxxvyxtuoorotttxqsvsxyutpsstrkwrqtwutrxxqrnjmmmsppvumnuynlqkoqvhlqlltlnonkllnpssqqphosqqtuurpqslnklqmqklmqntvltpmrursrkpvuvqokmlnkqoqklommolfjnklppksllonkmlipmjnppolqsijimnljnrrpnpqlotqqqnuqnjoonruloormkmmmrmplpppmrtoqpmopmlkmmjqllopnqnklmipjmnmlmoloilsnqklrjoknnkmrnllorrrvrqolnqvqorpppsrppmmsnrsqljjjqi
+}
+
+
+sound stream_hub_thunder
+{
+	minDistance	900
+	maxDistance	2000
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/thunder1
+	shakeData 0 bdccceeddeeefegjlqpoosvqnlnnqkqjjhkjgllkmlmiknjmjkpnknmolnjmljloonjlkojooimqoliilljgjjkjjijlglnghihjhefihfiggehfheceeeeegfgecddfddccdedddcccddcccdcccbccbcbccbbbbbbabbbaaaaaaaaaaaaaaaa
+	sound/ambience/stream_hub/thunder2
+	shakeData 1 aabbcceeddeehilklpmomplrlkpkmlsoklnnkjjkonkollkopmrmllowoqolnmnrppmomkklppnnnmlklmokkjllqkikmliojkjjjkiinjljijhjghhhgighfffhhgdfghefgdefgeddfddeececcdcdccccccbcbccbbbbbbabaaaaaaaaa
+}
+
+
+sound stream_hub_laser_shaft
+{
+	minDistance	118
+	maxDistance	1771
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/stream_hub/laser_shaft
+	shakeData 0 eceedddddggfgigiggfffgfeededccddcddefghggeghigghhhhiiijjjijjjiigfgghgiifggjiihghhhggfddddefeeeggghgeffehfffgehgihji
+}
+
+
+sound stream_hub_emp_blast1
+{
+	minDistance	600
+	maxDistance	1800
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/emp1
+	shakeData 0 aaaaaaabbbcdeghhhlllmlqntqvpqrvrrrquwrsovwjieeedcbcbbbbbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound stream_hub_emp_blast2
+{
+	minDistance	600
+	maxDistance	1800
+	volumeDb	0
+	shakes		0.5
+	soundClass	1
+
+	sound/ambience/stream_hub/emp2
+	shakeData 0 zzzvzuxxuxxxwwvwstvvvorponrpurpqpolpjilljmhhhkjjhjhjihfgfgefecdcccccbabbaaaaaa
+}
+
+
+sound stream_hub_emp_raise
+{
+	minDistance	80
+	maxDistance	1200
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/emp_raise
+	shakeData 0 aacdcdeffnqkmmghggdghfiiggieggggeiggdggfdghhhiigijjihjlkmkggggghgiihiheiifhmoyqllkkiihgeeeeedeedccdcccbccbcbbbbbbbbbbabbbaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound stream_hub_emp_servo
+{
+	minDistance	80
+	maxDistance	1200
+	volumeDb	-9
+	soundClass	1
+
+	sound/ambience/stream_hub/emp_servo
+	shakeData 0 bhklspoqorilkknopmpqopnjdcbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound stream_hub_emp_open
+{
+	minDistance	80
+	maxDistance	1200
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/emp_open
+	shakeData 0 cdwjhjmhlhgfeghjhjhhijghihhggggeefeededddccccbbbaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hub_data_router_start
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/med_labs/gurney/start
+	shakeData 0 fkkjkomkjjlkljmjlkmspoimmlnkkmlmknjlkllmilmjjjjhjgihghgfgfihd
+}
+
+
+sound hub_data_router_move
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/med_labs/gurney/move
+	shakeData 0 ggefehigfgfhihgfffggghfgffegfhgegfgkgfgfhjgfefgggghghffffghfhifhfgegegehffgieffefged
+}
+
+
+sound hub_data_router_stop
+{
+	minDistance	39
+	maxDistance	590
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/med_labs/gurney/stop
+	shakeData 0 npptptrqpoooqkkokkkkklijiihhijgheeeeddcccdcbbbaaaaaaaaaaaa
+}
+
+
+sound hub_data_router_arms1
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/data_router/arms1
+	shakeData 0 aaghyzyywttqooonqmmlonlypnrqklooonkmkoomkihhgccdcbbbbaaaaaaaaaaaa
+}
+
+
+sound hub_data_router_arms2
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/data_router/arms2
+	shakeData 0 fjimtxtyqvvqqpqquvupswpuwwuvtuwvtysvstuvtrrrplojhfgffddcccbbaaaaaa
+}
+
+
+sound hub_data_router_arms3
+{
+	minDistance	40
+	maxDistance	600
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/data_router/arms3
+	shakeData 0 kuztvswwxrxvutqsqsnqmmomqrkjjiighhifgeeddcccccbbbbaaaaaaaaaaaa
+}
+
+
+sound hub_pivot_point
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/pivot_point1
+	shakeData 0 gdddeededhjjjiklklnpmlqwvryoslrssyyysrtqptrsqxsoqswzpwuqrpwxyywpyvunllgilijeegfdeecdcccbbbbbabaaabaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/stream_hub/pivot_point2
+	shakeData 1 fccddcddfgjjllpiljitrmmprqrvskkorsrqoqnnkmprlkmqpsrorprqpommpohjinifjheedccdcbbcbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/stream_hub/pivot_point3
+	shakeData 2 ageeeefggiinpmnqnkkknlosrpnmypmqsqqrmsmllklnpqrponstqopnklkqiikjhmljmjhihifddcccccbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hub_console_down
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	-3
+	soundClass	1
+
+	sound/ambience/stream_hub/console_down
+	shakeData 0 erwyuojlonoptpnomnlonlrmsqnllnlpmpnnpmrnooqmmrnsnppmpprpsnsonlopsppnmnqqsoopnupsqqopqsqrprqoqrputqsqrttprrqrpupppprrrtqqrrqrrrqqppnppsoqponqqromopmrnnrxtyvxrhifgeededdccdccccbccccbbbbbbabbbbaaabaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hub_cover_plate_move
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	-3
+	soundClass	1
+
+	sound/ambience/stream_hub/cover_plate_move
+	shakeData 0 aboxzzntqponrollnlmlmllkjsljkklyzoqnifeddbbbbaaaa
+}
+
+
+sound hub_cover_plate_seal
+{
+	minDistance	100
+	maxDistance	900
+	volumeDb	-4
+	soundClass	1
+
+	sound/ambience/stream_hub/cover_plate_seal
+	shakeData 0 ahszyyurmpqomqotqrqlppnmkrmlihcdcbbbaaaaaaa
+}
+
+
+sound hub_pillar_outer_shell_move
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/pillar_move1
+	shakeData 0 eddeffhifjnpnkkhnpohhjjihjhhighhgjgihhhhijhhihhiiiijhjlhhjiiiikikjiiiijhjjklikiijiiljihijiiiiihihjhhmjjjghhhjjiiiokitrkkpnihgfebbbaaaa
+}
+
+
+sound hub_pillar_inner_shell_move
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/pillar_move3
+	shakeData 0 bbbejnrjswtvstusrstqqsutqqqrqrtorptqrsprpoqprrmooonpssutsnqpmnnqmnmppnmonmlmkklmnpmkmmjjjmkklkjnmkiijhjkgheffgfeeefejonmifeeddfgjnklkhhgipqmjlfeeccbbbbbaaaaaaaaaa
+}
+
+
+sound hub_gladiator_platform
+{
+	minDistance	120
+	maxDistance	1200
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/stream_hub/pillar_move2
+	shakeData 0 luxvorrusuokopjkqmkkkljlnjjjkmlkjkjjjkjkjjijlmlmmmilopnljmnpoomopommnqomloqpqnmoprrrpoolopsrrsqqmmmnmonnqqnqnnpomqllmmllklkijkjlmvuxrjonkilkmljhlfgiffigdfdfiidffgihedbaaaaaaa
+}
+
+
+sound hub_light_pulse
+{
+	minDistance	80
+	maxDistance	900
+	volumeDb	0
+
+	sound/ambience/stream_hub/light_pulse1
+	shakeData 0 sywvspnnnnlmkjkkjiiggfgggfhhiiiiihhghgffeefggghihhhggfgfggfffffffffeeeeefefffggghiijjjjjjkjkkkjiihhggfeeedddddddeeffgfgghghggggggggflyuvwptvkrofooholhkjhihghgfggfgeffeefefgffgdeebedcdddcdecefdffdeedffcgfdfeceebedbddcddcddbddcddccdccccccbccbbbbbbbaaaaaaaaaaaa
+	sound/ambience/stream_hub/light_pulse2
+	shakeData 1 nyxrmronjjjjjjmmmjjnnnkklkigggeccddedeffdgfgfefdeeefffeffffffffffffffffffjzvptrnkiggghgggikmljhkjjjhffffeeeeeedddddccdeffhiihhhhgfffeeeeeceeeeeeeeeeedeeeeeeddddddeddddddcccccbbbbbbbbbaaaaaaaaaaaaaa
+	sound/ambience/stream_hub/light_pulse3
+	shakeData 2 lzuvwpsqiljchgdhgehhgjjgkjhkhhhfffdeebdccccccddcdbcccccdddecddceecgtqmusmsqllmgikjhkmgmlijjgehfefedeedeeedeeeefeegdeeeccddcddddddbdeedefgzvxsstkoleihdgfefgefgdhieijeiifhfefeedcddbccbccbccbbccbccbccbccbccbcbabbabbabbabbabbabbabbaaaaaaaaaa
+}
+
+
+sound hub_moving_light
+{
+	minDistance	20
+	maxDistance	400
+	volumeDb	-4
+	looping
+
+	sound/ambience/stream_hub/moving_light
+	shakeData 0 qlootnprplmomnqrpqpsprppmnpopollspnonromssuuqssttttpompmmnlnrkortmnunnqrpmmjiklnqnpkkkrjomornqnmrllmnlolllonormmlmmlmpsuttsqpnkkkjjjklihlmlpnlkighhijljjikjjikjlhkkoqoqrrttxrmnnmqnrrqmlknoqppol
+}
+
+
+sound hub_harvester_ambient
+{
+	minDistance	20
+	maxDistance	400
+	volumeDb	0
+	global
+
+	sound/strogg/ambient/harvester
+	shakeData 0 aaaaaaaaaababbboqpusspsrmqsrpqnqnjjhhjgiiggggfffgffcdffgfihfgghhggggiioupusnxopkrpqnnmmpqmmnlmrolonlnpjlpnmokoorolmosroososuvsxuwuwsvvvyuwuuwutqvsstuspwwtutvpqtuuuusqqutusvsqqstwrrsttuvsuuprsptttvustuvtqpppmnqlmkmkkikkjjgkiiigijihhhfffgfffgeddcdccccccbcbccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound hub2_tetranode_powerup
+{
+	minDistance	78
+	maxDistance	1377
+	volumeDb	0
+
+	sound/ambience/recomp/lt_pwr_up2
+	shakeData 0 aabbceeefjhijifikiiimjpkoonljjlkjnmomlnplmqtpposqnmmjljliklomonlnnknprmotrquvvstwtoprmkjhgfeedccbaaaaaaaaaa
+}
+
+

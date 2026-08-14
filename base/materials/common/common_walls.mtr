@@ -1,0 +1,596 @@
+//Common wall shaders
+
+guide textures/common_walls/ba_wall1_5c generic_shader("common_walls/ba_wall1_5c")
+guide textures/common_walls/wall1_1bv generic_colorvariant("common_walls/wall1_1bv", "common_walls/wall1_1b")
+
+guide textures/common_walls/wall1_1 generic_shader("common_walls/wall1_1")
+guide textures/common_walls/wall1_1v generic_Localvariant("common_walls/wall1_1", "common_walls/wall1_1v")
+guide textures/common_walls/wall1_1a generic_shader("common_walls/wall1_1a")
+guide textures/common_walls/wall1_1b generic_shader("common_walls/wall1_1b")
+guide textures/common_walls/wall1_2 generic_shader("common_walls/wall1_2")
+guide textures/common_walls/wall1_4 generic_shader("common_walls/wall1_4")
+guide textures/common_walls/wall1_5 generic_shader("common_walls/wall1_5")
+guide textures/common_walls/wall1_6 generic_shader("common_walls/wall1_6")
+guide textures/common_walls/wall1_7 generic_shader("common_walls/wall1_7")
+guide textures/common_walls/c_45_wall_dusty_mp generic_shader("common_walls/c_45_wall_dusty")
+guide textures/common_walls/wall2_1 generic_shader("common_walls/wall2_1")
+guide textures/common_walls/wall2_1a generic_shader("common_walls/wall2_1a")
+guide textures/common_walls/wall2_1b generic_shader("common_walls/wall2_1b")
+guide textures/common_walls/wall2_2 generic_shader("common_walls/wall2_2")
+guide textures/common_walls/wall2_3 generic_shader("common_walls/wall2_3")
+guide textures/common_walls/wall2_3a generic_shader("common_walls/wall2_3a")
+guide textures/common_walls/wall2_4 generic_shader("common_walls/wall2_4")
+guide textures/common_walls/wall2_5 generic_shader("common_walls/wall2_5")
+guide textures/common_walls/wall2_5a generic_shader("common_walls/wall2_5a")
+guide textures/common_walls/wall3_1 generic_shader("common_walls/wall3_1")
+guide textures/common_walls/wall4_1 generic_shader("common_walls/wall4_1")
+guide textures/common_walls/wall4_1a generic_shader("common_walls/wall4_1a")
+guide textures/common_walls/wall5_1 generic_shader("common_walls/wall5_1")
+guide textures/common_walls/wall5_3 generic_shader("common_walls/wall5_3")
+guide textures/common_walls/wall5_4 generic_shader("common_walls/wall5_4")
+guide textures/common_walls/wall6_1 generic_shader("common_walls/wall6_1")
+guide textures/common_walls/wall7_1 generic_shader("common_walls/wall7_1")
+guide textures/common_walls/wall7_2 generic_shader("common_walls/wall7_2")
+guide textures/common_walls/wall7_3 generic_shader("common_walls/wall7_3")
+guide textures/common_walls/miscpanel1_1 generic_shader("common_walls/miscpanel1_1")
+guide textures/common_walls/miscpanel1_2 generic_shader("common_walls/miscpanel1_2")
+guide textures/common_walls/miscpanel1_3 generic_shader("common_walls/miscpanel1_3")
+guide textures/common_walls/miscpanel2_1 generic_shader("common_walls/miscpanel2_1")
+guide textures/common_walls/miscpanel2_2 generic_shader("common_walls/miscpanel2_2")
+guide textures/common_walls/miscpanel2_3 generic_shader("common_walls/miscpanel2_3")
+guide textures/common_walls/wall1_2v generic_Localvariant("common_walls/wall1_2", "common_walls/wall1_2v")
+//vents
+guide textures/common_walls/vent1_1 generic_shader("common_walls/vent1_1")
+guide textures/common_walls/c_wall_plates4 generic_shader("common_walls/c_wall_plates4")
+guide textures/common_walls/c_p1_walltrim2 generic_materialimageshader("common_walls/c_p1_walltrim2")
+guide textures/common_walls/c_p4_beam_2 generic_materialimageshader("common_walls/c_p4_beam_2")
+guide textures/common_walls/c_trim03_label generic_materialimageshader("common_walls/c_trim03_label")
+guide textures/common_walls/c_bunker_w_d generic_materialimageshader("common_walls/c_bunker_w_d")
+guide textures/common_walls/c_bunker_w_a generic_materialimageshader("common_walls/c_bunker_w_a")
+guide textures/common_walls/c_pipecap01 generic_shader("common_walls/c_pipecap01")
+guide textures/common_walls/c_walltrim2 generic_shader("common_walls/c_walltrim2")
+guide textures/common_walls/c_walltrim02 generic_shader("common_walls/c_walltrim02")
+guide textures/common_walls/c_walltrim02a generic_shader("common_walls/c_walltrim02a")
+guide textures/common_walls/c_wall_7 generic_shader("common_walls/c_wall_7")
+guide textures/common_walls/c_wall_8 generic_shader("common_walls/c_wall_8")
+guide textures/common_walls/c_ribwall generic_shader("common_walls/c_ribwall")
+guide textures/common_walls/c_wall_9 generic_shader("common_walls/c_wall_9")
+guide textures/common_walls/c_wall_10 generic_shader("common_walls/c_wall_10")
+guide textures/common_walls/c_support01 generic_alpha_type("common_walls/c_support01", "solidmetal")
+guide textures/common_walls/c_support01_twosided generic_shader2sidedalpha("common_walls/c_support01")
+guide textures/common_walls/c_vent_outside_02 generic_materialimageshader("common_walls/c_vent_outside_02")
+guide textures/common_walls/c_45_wall_dusty generic_alpha_type("common_walls/c_45_wall_dusty", "solidmetal")
+guide textures/common_walls/c_wall_outside_01 generic_materialimageshader("common_walls/c_wall_outside_01")
+guide textures/common_walls/c_wall_outside_04 generic_materialimageshader("common_walls/c_wall_outside_04")
+
+
+
+
+
+textures/common_walls/ctech_wall1_1
+{
+	qer_EditorImage		textures/common_walls/ctech_wall1_1_d.tga
+	materialImage 	textures/common_walls/ctech_wall1_1_hit
+	
+	bumpMap			addnormals (textures/common_walls/ctech_wall1_1_local.tga, heightmap (textures/common_walls/ctech_wall1_1_h.tga, 1))
+	diffuseMap		textures/common_walls/ctech_wall1_1_d.tga
+	specularMap		textures/common_walls/ctech_wall1_1_s.tga
+	{
+		blend		add
+		map		textures/common_walls/ctech_wall1_1_add.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+
+textures/common_walls/ctech_wall1_1_smolder
+
+{
+        noselfshadow
+	materialType solidmetal       
+	qer_editorimage textures/common_walls/ctech_wall1_1_d.tga
+
+	{ 
+		blend	bumpmap
+		map	addnormals ( textures/common_walls/ctech_wall1_1_local.tga, heightmap ( textures/common_walls/ctech_wall1_1_h.tga, 1 ) )
+		//VertexColor
+	}
+
+	{
+		blend	diffusemap
+		map	textures/common_walls/ctech_wall1_1_d.tga
+		VertexColor
+	}
+
+	{
+		blend 	specularmap
+		map	textures/common_walls/ctech_wall1_1_s.tga
+		VertexColor
+	}
+
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//inverseVertexColor
+	}
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+
+}
+
+
+textures/common_walls/ctech_wall1_2
+{
+	qer_EditorImage		textures/common_walls/ctech_wall1_2_d.tga
+	materialImage textures/common_walls/ctech_wall1_2_hit
+	
+	bumpMap			textures/common_walls/ctech_wall1_2_local.tga
+	diffuseMap		textures/common_walls/ctech_wall1_2_d.tga
+	specularMap		textures/common_walls/ctech_wall1_2_s.tga
+	{
+		blend		add
+		map		textures/common_walls/ctech_wall1_2_add.tga
+		red		parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+//outdoor structure materials
+
+guide textures/common_walls/outdoor_wall1_1 generic_typeshader("common_walls/outdoor_wall1_1","solidmetal")
+
+textures/common_walls/outdoor_wall1_1a
+{
+	qer_EditorImage		textures/common_walls/outdoor_wall1_1a_d.tga
+	bumpMap addnormals	( textures/common_walls/outdoor_wall1_1_local.tga, heightmap ( textures/common_walls/outdoor_wall1_1_h.tga, 1 ) )
+	diffuseMap			textures/common_walls/outdoor_wall1_1a_d.tga
+	specularMap			textures/common_walls/outdoor_wall1_1a_s.tga
+}
+
+guide textures/common_walls/outdoor_wall1_2 generic_typeshader("common_walls/outdoor_wall1_2","solidmetal")
+guide textures/common_walls/outdoor_wall1_3 generic_typeshader("common_walls/outdoor_wall1_3","solidmetal")
+
+textures/common_walls/outdoor_wall1_3a //removed decal version uses same normal/height/specular as outdoor_wall1_3
+{
+	qer_EditorImage		textures/common_walls/outdoor_wall1_3a_d.tga
+	bumpMap			addnormals	( textures/common_walls/outdoor_wall1_3_local.tga, heightmap ( textures/common_walls/outdoor_wall1_3_h.tga, 1 ) )
+	diffuseMap		textures/common_walls/outdoor_wall1_3a_d.tga
+	specularMap		textures/common_walls/outdoor_wall1_3_s.tga
+}
+
+guide textures/common_walls/outdoor_wall1_4 generic_typeshader("common_walls/outdoor_wall1_4","solidmetal")
+
+textures/common_walls/outdoor_wall1_4_burn
+{
+	noShadows
+	
+	qer_EditorImage		textures/common_walls/outdoor_wall1_4_d.tga
+	bumpMap addnormals 	( textures/common_walls/outdoor_wall1_4_local.tga, heightmap ( textures/common_walls/outdoor_wall1_4_h.tga, 2 ) )
+	diffuseMap			textures/common_walls/outdoor_wall1_4_d.tga
+	specularMap			textures/common_walls/outdoor_wall1_4_s.tga
+	
+	inlineGuide corpseBurnEffect(models/monsters/burnout_misc.tga)
+}
+guide textures/common_walls/outdoor_wall1_5 generic_typeshader("common_walls/outdoor_wall1_5","solidmetal")
+guide textures/common_walls/outdoor_wall1_6 generic_typeshader("common_walls/outdoor_wall1_6","solidmetal")
+
+textures/common_walls/outdoor_wall1_6a
+{
+	qer_EditorImage	textures/common_walls/outdoor_wall1_6a_d.tga
+	bumpMap			textures/common_walls/outdoor_wall1_6a_local.tga
+	diffuseMap		textures/common_walls/outdoor_wall1_6a_d.tga
+	specularMap		textures/common_walls/outdoor_wall1_6a_s.tga
+	{
+		blend		add
+		map			textures/common_walls/outdoor_wall1_6a_add.tga
+		red			parm0
+		green		parm1
+		blue		parm2
+	}
+}
+
+guide textures/common_walls/outdoor_wall1_7 generic_typeshader("common_walls/outdoor_wall1_7","solidmetal")
+guide textures/common_walls/outdoor_wall1_8 generic_typeshader("common_walls/outdoor_wall1_8","solidmetal")
+
+textures/common_walls/outdoor_wall1_8a //removed sripe version uses same normal/height/specular as outdoor_wall1_8
+{
+	qer_EditorImage		textures/common_walls/outdoor_wall1_8a_d.tga
+	bumpMap addnormals	( textures/common_walls/outdoor_wall1_8_local.tga, heightmap ( textures/common_walls/outdoor_wall1_8_h.tga, 1 ) )
+	diffuseMap			textures/common_walls/outdoor_wall1_8a_d.tga
+	specularMap			textures/common_walls/outdoor_wall1_8_s.tga
+}
+
+guide textures/common_walls/outdoor_wall1_9 generic_typeshader("common_walls/outdoor_wall1_9","solidmetal")
+guide textures/common_walls/outdoor_wall1_10 generic_typeshader("common_walls/outdoor_wall1_10","solidmetal")
+
+textures/common_walls/outdoor_wall1_10a //removed stripe version uses same normal/height/specular as outdoor_wall1_10
+{
+	qer_EditorImage		textures/common_walls/outdoor_wall1_10a_d.tga
+	bumpMap			addnormals	( textures/common_walls/outdoor_wall1_10_local.tga, heightmap ( textures/common_walls/outdoor_wall1_10_h.tga, 1 ) )
+	diffuseMap		textures/common_walls/outdoor_wall1_10a_d.tga
+	specularMap		textures/common_walls/outdoor_wall1_10_s.tga
+
+}
+
+guide textures/common_walls/outdoor_wall1_11 generic_typeshader("common_walls/outdoor_wall1_11","solidmetal")
+guide textures/common_walls/outdoor_wall1_12 generic_typeshader("common_walls/outdoor_wall1_12","solidmetal")
+guide textures/common_walls/outdoor_wall1_13 generic_typeshader("common_walls/outdoor_wall1_13","solidmetal")
+guide textures/common_walls/outdoor_wall2_1 generic_typeshader("common_walls/outdoor_wall2_1","solidmetal")
+guide textures/common_walls/outdoor_wall2_2 generic_typeshader("common_walls/outdoor_wall2_2","solidmetal")
+
+guide textures/common_walls/c_t10_wall_2 generic_typeshader("common_walls/c_t10_wall_2","solidmetal")
+guide textures/common_walls/c_t10_wall_3 generic_typeshader("common_walls/c_t10_wall_3","solidmetal")
+guide textures/common_walls/c_t10_walltrim_1 generic_typeshader("common_walls/c_t10_walltrim_1","solidmetal")
+guide textures/common_walls/c_t10_walltrim_2 generic_typeshader("common_walls/c_t10_walltrim_2","solidmetal")
+guide textures/common_walls/c_t10_wall_4 generic_typeshader("common_walls/c_t10_wall_4","solidmetal")
+guide textures/common_walls/c_t10_wall_5a generic_typeshader("common_walls/c_t10_wall_5a","solidmetal")
+guide textures/common_walls/c_t10_wall_5b generic_typeshader("common_walls/c_t10_wall_5b","solidmetal")
+guide textures/common_walls/c_t10_wall_6 generic_typeshader("common_walls/c_t10_wall_6","solidmetal")
+guide textures/common_walls/c_t10_wall_7b generic_typeshader("common_walls/c_t10_wall_7b","solidmetal")
+guide textures/common_walls/c_t10_wall_10 generic_typeshader("common_walls/c_t10_wall_10","solidmetal")
+guide textures/common_walls/c_t10_wall_9 generic_typeshader("common_walls/c_t10_wall_9","solidmetal")
+guide textures/common_walls/c_t10_floor_1 generic_typeshader("common_walls/c_t10_floor_1","solidmetal")
+
+
+// building a tiles 
+
+
+guide textures/common_walls/ba_wall_small1 generic_shader("common_walls/ba_wall_small1_1")
+guide textures/common_walls/ba_wall1_1 generic_shader("common_walls/ba_wall1_1")
+guide textures/common_walls/ba_wall1_2 generic_shader("common_walls/ba_wall1_2")
+guide textures/common_walls/ba_wall1_3 generic_shader("common_walls/ba_wall1_3")
+guide textures/common_walls/ba_wall1_4 generic_shader("common_walls/ba_wall1_4")
+guide textures/common_walls/ba_wall1_5 generic_shader("common_walls/ba_wall1_5")
+guide textures/common_walls/ba_wall1_5b generic_shader("common_walls/ba_wall1_5b")
+
+guide textures/common_walls/ba_wall1_5d generic_shader("common_walls/ba_wall1_5d")
+
+guide textures/common_walls/ba_panel1_1 generic_shader("common_walls/ba_panel1_1")
+guide textures/common_walls/ba_panel1_2 generic_shader("common_walls/ba_panel1_2")
+
+guide textures/common_walls/ba_smalltrim1_1 generic_shader("common_walls/ba_smalltrim1_1")
+guide textures/common_walls/ba_smalltrim1_2 generic_shader("common_walls/ba_smalltrim1_2")
+guide textures/common_walls/ba_smalltrim1_3 generic_shader("common_walls/ba_smalltrim1_3")
+
+guide textures/common_walls/ba_techtrim1_1 generic_shader("common_walls/ba_techtrim1_1")
+
+
+guide textures/common_walls/wall1_2av generic_Localvariant("common_walls/wall1_2", "common_walls/wall1_2v" )
+guide textures/common_walls/wall4_2v generic_shader("common_walls/wall4_2v")
+guide textures/common_walls/wall4_1v generic_shader("common_walls/wall4_1v")
+
+
+textures/common_walls/ba_panel1_1_ut
+{
+	qer_EditorImage textures/common_walls/ba_panel1_1_d.tga
+	unSmoothedTangents
+
+	bumpmap addnormals ( textures/common_walls/ba_panel1_1_local.tga, heightmap ( textures/common_walls/ba_panel1_1_h.tga, 1 ) )
+	diffusemap	textures/common_walls/ba_panel1_1_d.tga
+	specularmap	textures/common_walls/ba_panel1_1_s.tga
+
+}
+
+
+textures/common_walls/outdoor_wall1_4_ut
+{
+	qer_EditorImage textures/common_walls/outdoor_wall1_4_d.tga
+	unSmoothedTangents
+
+	bumpmap addnormals ( textures/common_walls/outdoor_wall1_4_local.tga, heightmap ( textures/common_walls/outdoor_wall1_4_h.tga, 1 ) )
+	diffusemap	textures/common_walls/outdoor_wall1_4_d.tga
+	specularmap	textures/common_walls/outdoor_wall1_4_s.tga
+
+}
+
+textures/common_walls/wall1_4_to_smolder
+{
+	qer_editorimage		textures/common_misc/smolder_d.tga
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//VertexColor
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+	{
+		blend bumpmap
+		map addnormals ( textures/common_walls/wall1_4_local.tga, heightmap ( textures/common_walls/wall1_4_h.tga, 1 ) )
+		vertexcolor
+	}
+	{
+		blend diffusemap
+		map textures/common_walls/wall1_4_d.tga
+		vertexcolor
+	}
+	{
+		blend specularmap
+		map textures/common_walls/wall1_4_s.tga
+		vertexcolor
+	}
+}
+
+textures/common_walls/wall1_5_to_smolder
+{
+	qer_editorimage		textures/common_misc/smolder_d.tga
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//VertexColor
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+	{
+		blend bumpmap
+		map addnormals ( textures/common_walls/wall1_5_local.tga, heightmap ( textures/common_walls/wall1_5_h.tga, 1 ) )
+		vertexcolor
+	}
+	{
+		blend diffusemap
+		map textures/common_walls/wall1_5_d.tga
+		vertexcolor
+	}
+	{
+		blend specularmap
+		map textures/common_walls/wall1_5_s.tga
+		vertexcolor
+	}
+}
+
+textures/common_walls/wall2_5a_to_smolder
+{
+	qer_editorimage		textures/common_misc/smolder_d.tga
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//VertexColor
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+	{
+		blend bumpmap
+		map addnormals ( textures/common_walls/wall2_5a_local.tga, heightmap ( textures/common_walls/wall2_5a_h.tga, 1 ) )
+		vertexcolor
+	}
+	{
+		blend diffusemap
+		map textures/common_walls/wall2_5a_d.tga
+		vertexcolor
+	}
+	{
+		blend specularmap
+		map textures/common_walls/wall2_5a_s.tga
+		vertexcolor
+	}
+}
+
+textures/common_walls/miscpanel1_1_to_smolder
+{
+	qer_editorimage		textures/common_misc/smolder_d.tga
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//VertexColor
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+	{
+		blend bumpmap
+		map addnormals ( textures/common_walls/miscpanel1_1_local.tga, heightmap ( textures/common_walls/miscpanel1_1_h.tga, 1 ) )
+		vertexcolor
+	}
+	{
+		blend diffusemap
+		map textures/common_walls/miscpanel1_1_d.tga
+		vertexcolor
+	}
+	{
+		blend specularmap
+		map textures/common_walls/miscpanel1_1_s.tga
+		vertexcolor
+	}
+}
+
+textures/common_walls/miscpanel1_3_to_smolder
+{
+	qer_editorimage		textures/common_misc/smolder_d.tga
+	
+	{
+		blend 	bumpmap
+		map	addnormals ( textures/common_misc/smolder_local.tga, heightmap ( textures/common_misc/smolder_h.tga, 1 ) )
+		//VertexColor
+	}
+	
+	{
+		blend 	diffusemap
+		map	textures/common_misc/smolder_d.tga
+		inverseVertexColor
+	}
+	
+	{
+		blend	specularmap
+		map	textures/common_misc/smolder_s.tga
+		inverseVertexColor
+	}
+	
+	{
+		maskcolor
+		map makealpha(textures/common_misc/smolder_g_alpha.tga)
+		inverseVertexColor
+		//AlphaZeroClamp
+	}
+	
+	{
+		blend	GL_DST_ALPHA, GL_ONE
+		maskalpha
+		map	textures/common_misc/smolder_g.tga
+		rotate	sintable[time * 0.0007]
+		rgb	ember1[time * 0.077]
+		scale	0.1, 0.1
+		scroll	sintable[time * 0.00625], costable[time * 0.0187]
+		inverseVertexColor
+	}
+	
+	{
+		blend bumpmap
+		map addnormals ( textures/common_walls/miscpanel1_3_local.tga, heightmap ( textures/common_walls/miscpanel1_3_h.tga, 1 ) )
+		vertexcolor
+	}
+	{
+		blend diffusemap
+		map textures/common_walls/miscpanel1_3_d.tga
+		vertexcolor
+	}
+	{
+		blend specularmap
+		map textures/common_walls/miscpanel1_3_s.tga
+		vertexcolor
+	}
+}

@@ -1,0 +1,56 @@
+/***********************************************************************
+DESTROYER_LOD
+***********************************************************************/
+
+export destroyer_lod
+{
+	options -scale .3937 -prefix DESTROYERLOD_ -align ALL -sourcedir work/models/vehicles/destroyer_lod  -destdir models/vehicles/destroyer_lod
+	
+	mesh idle.ma			-dest destroyer_lod
+	anim idle.ma			-dest idle
+
+	options -scale .3937 -prefix DESTROYERLOD: -align ALL -sourcedir work/models/cinematics/GAME_INTRO  -destdir models/vehicles/destroyer_lod
+	anim intro_level_ships.ma					-range 1200 1570 -dest intro
+	anim intro_level_ships_shot10.ma			-dest shot10
+}
+
+entityDef env_destroyer_lod
+{
+	"editor_usage"					"animated_destroyer_lod"
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_destroyer_lod"
+	"anim"						"idle"
+	
+	"fx_exp_lg"				"effects/cinematics/intro/alg_ship_exp2.fx"
+	"fx_fire_med"			"effects/cinematics/intro/amed_ship_fire.fx"
+	"fx_exp_sm"				"effects/cinematics/intro/asm_ship_exp.fx"
+	
+	
+}
+
+model model_destroyer_lod
+{
+	mesh					models/vehicles/destroyer_lod/destroyer_lod.md5mesh
+	anim idle				models/vehicles/destroyer_lod/idle.md5anim
+	anim intro				models/vehicles/destroyer_lod/intro.md5anim
+	{
+	frame 100				fx		fx_fire_med			joint10 			
+	frame 100				fx		fx_fire_med			joint22
+	frame 200				fx		fx_fire_med		joint30
+	frame 140 				fx		fx_fire_med		joint68
+	frame 110				fx		fx_fire_med		joint51
+	frame 200				fx		fx_fire_med		joint44
+	frame 150				fx		fx_fire_med		joint59
+	frame 200				fx		fx_exp_sm		joint76
+	frame 150				fx		fx_exp_sm		joint86
+	}
+
+anim shot10				models/vehicles/destroyer_lod/shot10.md5anim
+
+}	
+	

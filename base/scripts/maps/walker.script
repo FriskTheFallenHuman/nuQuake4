@@ -1,0 +1,750 @@
+//------------------------------------------------------------------------------------
+// Walker.script
+//
+// (C) Raven Software 2005
+//------------------------------------------------------------------------------------
+
+namespace map_walker
+{
+
+//float gvar_deadTurretCount = 0;
+
+//--
+// Save someone the trouble of adding script_death support to vehicles
+//--
+
+float playerInWalker=0;
+
+void mostHorrendousHackEver()	{
+	
+	// I feel dirty.
+	while( !playerInWalker )	{
+		if( !isValidEntity( $playerWalker ) )	{
+			sys.trigger( $walkerDestroyed );
+			return;
+		}
+		sys.wait( 1 );
+	}
+}
+
+//--
+// Marine flyover at map start		aweldon Jul 05
+//--
+
+// Start fighter #1
+void initFighter1()	{
+
+	//sys.wait( .5 );
+	setNewTimes( $introMarineFighter_1 , 2 , .5 , .5 );
+	$introMarineFighter_1.rotateOnce( '-75 0 0' );
+	sys.waitFor( $introMarineFighter_1 );
+	//sys.wait( .5 );
+	setNewTimes( $introMarineFighter_1 , 1.5 , .25 , .25 );
+	$introMarineFighter_1.rotateOnce( '75 0 0' );
+	sys.wait( .5 );
+		
+	//$introMarineFighterBase_1.accelTo( 1024 , 2 );
+	$fighterRoar_1.unbind();
+	sys.trigger( $fighterRoar_1 );
+	
+	sys.waitFor( $introMarineFighterBase_1 );
+	$introMarineFighterBase_1.remove();
+	
+}
+
+// Start fighter #2
+void initFighter2()	{
+
+	setNewTimes( $introMarineFighter_2 , 1 , .25 , .25 );
+	$introMarineFighter_2.rotateOnce( '-75 0 0' );
+	sys.waitFor( $introMarineFighter_2 );
+	//sys.wait( .5 );
+	setNewTimes( $introMarineFighter_2 , 1.5 , .25 , .25 );
+	$introMarineFighter_2.rotateOnce( '75 0 0' );
+	sys.wait( .5 );
+	
+	sys.wait(.25);
+	//$introMarineFighterBase_2.accelTo( 1024 , 2 );
+	//$fighterRoar_2.unbind();
+	sys.trigger( $fighterRoar_2 );
+	
+	sys.waitFor( $introMarineFighterBase_2 );
+	$introMarineFighterBase_2.remove();
+}
+
+// Start the full sequence (thread this from main() )
+void initFlyby()	{
+	
+	sys.wait( .5 );
+	$introMarineFighterBase_1.startSpline( $introFighterPath_1 );
+	$introMarineFighterBase_2.startSpline( $introFighterPath_2 );
+	
+	thread initFighter1();
+	sys.wait(.5);
+	thread initFighter2();
+}
+
+//--
+// Radio chatter signaling the retreat to Waste
+//-- 
+
+void initialRetreatMessage()	{
+	radioChatterPlayWait( $radio_retreat_1 , "");
+	//sys.trigger( $item_objective_1 );
+	sys.wait( .5 );
+	radioChatterPlayWait( $radio_retreat_2 , "");
+	sys.wait( .25 );
+	radioChatterPlayWait( $radio_retreat_3 , "");
+}
+
+//--
+// Fade the combat loop after a while
+//--
+
+void fadeOutMusic()	{
+	$combatLoop.fadeSound( SND_CHANNEL_ANY, -80, 10);
+	sys.wait(10);
+	$combatLoop.remove();
+}
+
+//--
+// Stuff that happens when you enter and exit the walker
+//--
+
+void setObjective()	{
+	playerInWalker=1;
+	sys.sendNamedEvent( GUI_VEHICLEHUD, "showLockMessage" );
+	$playerWalker.lock(1);
+	sys.wait( 1 );
+	sys.trigger($item_objective_2);
+	
+	$openMusic.fadeSound( SND_CHANNEL_ANY, -80, 1);
+	sys.trigger( $combatLoop );
+}
+
+void exitWalker()	{
+	// Hackery so the player won't get stuck back in the walker at level end if they get back into it.
+	if( $playerWalker.getHealth() > 0 )	{
+		sys.fadeOut( '0 0 0', .5);	
+		sys.wait( .5 );
+		sys.fadeIn( '0 0 0', .5);	
+		sys.wait( .1 );
+		$playerWalker.lock(1);
+	} else	{
+		$player1.exitVehicle(1);
+	}
+}
+
+//--
+// Hornets and such		aweldon Jul 05
+//--
+
+// Stole this bit from Renner in convoy2, but modified it into a generic multi-use function
+
+void hornetDropOff( entity hornetBase , entity hornet , entity roller , entity spline )		{
+	
+	float hornetTime = hornetBase.getFloatKey( "move_time" );
+	
+	// Set this between 0 and 1; it will be used as a percentage of the total move time
+	float releaseAt = hornetBase.getFloatKey( "releaseAt" );
+
+	// Trigger the roller and hornet	
+	sys.trigger( hornet );
+	hornet.show();
+	sys.trigger( roller );
+	roller.show();
+
+	// Start the spline
+	hornetBase.startSpline( spline );
+	
+	
+	// Wait until the designated release time, then release the roller and set it to aggressive
+	sys.wait( hornetTime * releaseAt );
+	roller.unbind();
+	roller.becomeAggressive();	
+		
+	// Wait for the base mover, then unbind the hornet and set it to aggressive
+	sys.waitFor( hornetBase );
+	sys.waitFrame();
+	hornet.unbind();
+	sys.waitFrame();
+	hornet.becomeAggressive();
+}
+
+// Individual uses of this function follow
+
+void firstHornetAmbush()	{
+	
+	thread hornetDropOff( $hornetBase_1 , $hornetCarrier_1 , $dropRoller_1 , $feedHornet_1 );
+	sys.wait( 3 );
+	thread hornetDropOff( $hornetBase_2 , $hornetCarrier_2 , $dropRoller_2 , $feedHornet_2 );
+	
+}
+
+void secondHornetAmbush()	{
+	
+	thread hornetDropOff( $hornetBase_3 , $hornetCarrier_3 , $dropRoller_3 , $feedHornet_3 );
+	sys.wait( 5 );
+	thread hornetDropOff( $hornetBase_4 , $hornetCarrier_4 , $dropRoller_4 , $feedHornet_4 );
+	
+}
+
+// Specific one-off Hornets
+
+// At the bridge
+void bridgeHornet()	{
+	sys.trigger( $bridgeHornet );
+	$bridgeHornetBase.startSpline( $bridgeHornetSpline );
+	sys.waitFor( $bridgeHornetBase );
+	$bridgeHornet.unbind();
+	sys.waitFrame();
+	$bridgeHornet.becomeAggressive();
+}
+
+// At the tunnel, post-flyers
+void tunnelHornet()	{
+	sys.wait( 3 );
+	sys.trigger( $tunnelHornet );
+	sys.trigger( $tunnelHornetLight );
+	$tunnelHornetBase.startSpline( $tunnelHornetSpline );
+	sys.waitFor( $tunnelHornetBase );
+	$tunnelHornet.unbind();
+	$tunnelHornetLight.remove();
+	sys.waitFrame();
+	$tunnelHornet.becomeAggressive();
+}
+
+//--
+// End Hornets
+//--
+
+
+//--
+// Feed Heavy Hover tanks into the combat areas		aweldon Jul 05
+//--
+
+void feedHeavyHover( entity hoverTank )	{
+	
+	entity mover = hoverTank.getBindMaster();
+	entity spline = hoverTank.getEntityKey( "spline" );
+	
+	mover.startSpline( spline );
+	sys.waitFor( mover );
+	hoverTank.unbind();
+	sys.waitFrame();
+	hoverTank.becomeAggressive();		
+}
+
+//--
+// End hover tank feeding
+//--
+
+//--
+// Unlock the walker at the end of the map
+//--
+
+void unlockWalker()	{
+	sys.trigger($trigger_multiple_1);
+	$playerWalker.lock(0);
+	sys.sendNamedEvent( GUI_VEHICLEHUD, "hideLockMessage" );
+	//sys.sendNamedEvent( GUI_VEHICLEHUD, "showJumpMessage" );
+}
+
+//--
+// Gladiators in tunnel section		aweldon Jun 05
+//--
+
+void lowerLifts()	{
+	// This is threaded from main to get stuff down where it will start.
+	$gladLiftControl_1.time( .1 );
+	$gladLiftControl_2.time( .1 );
+	$gladLiftControl_1.move( DOWN , 384 );	
+	$gladLiftControl_2.move( DOWN , 384 );
+}
+
+void raiseGladiator( float gladNum )	{
+	entity glad = sys.getEntity( "liftGlad_" + gladNum );
+	entity tether = sys.getEntity( "liftGladTether_" + gladNum );
+	entity gladLift = sys.getEntity( "gladLiftControl_" + gladNum );
+	
+	sys.trigger( glad );
+	setNewTimes( gladLift , 3 , 1 , .5 );
+	gladLift.move( UP , 384 );
+	sys.waitFor( gladLift );
+	glad.unbind();
+	sys.waitFrame();
+	glad.becomeAggressive();
+	sys.trigger( tether );
+}
+
+void startGladiators()	{
+	
+	vector playerCheck = $checkForGladiatorLifts.getWorldOrigin();
+	vector playerPos = $player1.getWorldOrigin();
+	
+	if( playerCheck_x > playerPos_x )	{
+		thread raiseGladiator( 2 );
+		sys.wait( 1 );
+		thread raiseGladiator( 1 );
+	}
+	
+	else	{
+		thread raiseGladiator( 1 );
+		sys.wait( 1 );
+		thread raiseGladiator( 2 );	
+	}
+}
+
+//--
+// End gladiators
+
+//--
+// Strafing runs for third section	aweldon Mar 05
+//--
+
+void letLooseTheDogsOfWar( entity fighter , entity projectileOne , entity projectileTwo , float burst )	{
+
+	entity tempTarget = $null_entity;
+	
+	// Master function for firing volleys of missiles at the player.
+	
+	// Declare counter
+	float burstCount = 0;
+	
+	// Check counter against total volleys and valid entity status
+	while( burstCount < burst && isValidEntity( fighter ) )	{
+
+		vector guessLead = $player1.getLinearVelocity();
+		//guessLead_x = guessLead_x * 2;
+		//guessLead_y = guessLead_y * 2;
+		vector playerLeading = $player1.getWorldOrigin() + guessLead;
+		
+	
+		sys.setSpawnArg( "classname", "target_null" );
+		sys.setSpawnArg( "origin", playerLeading );
+		tempTarget = sys.spawn( "target_null" );
+	
+		projectileOne.appendTarget( tempTarget );
+		projectileTwo.appendTarget( tempTarget );
+				
+		// Fire away!
+		sys.trigger( projectileOne );
+		sys.wait( .1 );
+		sys.trigger( projectileTwo );
+		sys.wait( .3 );
+		
+		// Increment burst counter
+		burstCount++;
+		
+		tempTarget.remove();
+		
+		projectileOne.removeTarget( tempTarget );
+		projectileTwo.removeTarget( tempTarget );
+	}
+	
+	if( !isValidEntity( fighter ) )	{
+		
+		// Quick check for correctly terminating the function
+		//sys.println( "Caught flyer death, ignoring weapons fire call" );
+		tempTarget.remove();	
+	}
+}
+
+float lastFighterTookPath = 0;
+
+void strafingRun( entity flyer , float activePath )	{
+	
+	// Add functions for each flyer path here
+	
+	if( activePath == 1 )	{
+	
+		// Banking and firing for path 1
+		setNewTimes( flyer , 1.5 , .5 , .5 );
+		flyer.rotateOnce( '45 0 0' );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '-60 0 0' );
+		sys.waitFor( flyer );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 3 );
+		flyer.rotateOnce( '30 0 0' );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '-75 0 0' );
+	}	
+	
+	else if( activePath == 2 )	{
+	
+		// Banking and firing for path 2
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '-45 0 0' );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 2 , .5 , .5 );
+		flyer.rotateOnce( '60 0 0' );
+		sys.waitFor( flyer );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 2 );
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '-40 0 0' );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '75 0 0' );		
+	}
+	
+	else	{
+	
+		// Banking and firing for path 3
+		setNewTimes( flyer , 1.5 , .5 , .5 );
+		flyer.rotateOnce( '-45 0 0' );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 2 , .5 , .5 );
+		flyer.rotateOnce( '60 0 0' );
+		sys.wait( 1.5 );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 2 );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 1 , .5 , .5 );
+		flyer.rotateOnce( '-45 0 0' );
+		sys.wait( .5 );
+		thread letLooseTheDogsOfWar( flyer , flyer.getTarget(0) , flyer.getTarget(1), 1 );
+		sys.waitFor( flyer );
+		setNewTimes( flyer , 1.5 , .5 , .5 );
+		flyer.rotateOnce( '75 0 0' );			
+	}
+}
+
+// Base function to run a strafing run on a random spline
+void startStrafingRun( string basePrefix, string flyPrefix , float numero , float numSplines , string splPrefix )	{
+	
+	// Takes in number of flyer to start on one of the selection of splines
+	
+	float randomPath;
+	entity flyer = sys.getEntity( flyPrefix + numero );
+	entity flyerBase = sys.getEntity( basePrefix + numero );
+	
+	// Grab a first attempt at a spline path
+	randomPath = sys.random( 1337 ) * 10000 % numSplines + 1;
+	//sys.println( "Will attempt to path down spline " + randomPath );
+	
+	while( randomPath == lastFighterTookPath )	{
+		
+		// Re-set random path selection
+		randomPath = sys.random( 1337 ) * 10000 % numSplines + 1;
+		//sys.println( "First attempt failed, will now attempt spline " + randomPath );
+		sys.waitFrame();
+	}
+	
+	// Mark this as the most recently used spline
+	lastFighterTookPath = randomPath;
+	
+	entity spline = ( sys.getEntity( splPrefix + randomPath ) );
+	flyerBase.startSpline( spline );
+	
+	// Start rotations and rocket volleys
+	thread strafingRun( flyer , randomPath );
+	
+	sys.waitFor( flyerBase );
+	
+	if( isValidEntity( flyer ) )	{
+		flyer.remove();
+	}
+}
+
+void stroggStrafingMayhem( )	{
+		
+	// Define the number of splines to use here:
+	float numSplines = 3;
+	
+	// Define all entity prefixes... prefixi... whatever.
+	string basePrefix = "strafeBase_";
+	string flyPrefix = "strafingFlyer_";
+	string splPrefix = "flyerStrafe_";
+	
+	// Start each strafing run, in this case with a slight random wait time added between each
+	thread startStrafingRun( basePrefix, flyPrefix , 1 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(2) );
+	thread startStrafingRun( basePrefix, flyPrefix , 2 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(1) );
+	thread startStrafingRun( basePrefix, flyPrefix , 3 , numSplines , splPrefix );
+	sys.wait( 2 + sys.random(2) );
+	thread startStrafingRun( basePrefix, flyPrefix , 4 , numSplines , splPrefix );	
+}
+
+void stroggFlyerExplosion( entity flyer , entity explosion )	{
+
+	// Define variables for function
+	entity pilot;
+	vector old;
+	vector new;
+	vector flingPilot;
+	
+	// Calculate velocity vector
+	old = flyer.getWorldOrigin();
+	sys.waitFrame();
+	new = flyer.getWorldOrigin();
+
+	// Nuke flyer and trigger explosion
+	flyer.hide();
+	flingPilot = new - old;
+	sys.trigger( explosion );
+	sys.waitFrame();
+	
+	// Spawn ragdoll pilot and remove flyer
+	sys.setSpawnArg( "classname", "monster_strogg_marine" );
+	sys.setSpawnArg( "origin", explosion.getWorldOrigin() + '0 0 64');
+	pilot = sys.spawn( "monster_strogg_marine" );
+	pilot.kill();
+	flyer.remove();
+	sys.waitFrame();
+
+	// Establish velocity for flinging pilot
+	flingPilot_x = 300*flingPilot_x;
+	flingPilot_y = 300*flingPilot_y;
+	flingPilot_z = 3000;
+	//sys.println( flingPilot );
+	
+	// Make that ragdoll fly!
+	pilot.setLinearVelocity( flingPilot );			
+}
+
+
+void stroggExplode_1()	{	
+	thread stroggFlyerExplosion( $strafingFlyer_1 , $flyerStrafeExplode_1 );	
+}
+
+void stroggExplode_2()	{	
+	thread stroggFlyerExplosion( $strafingFlyer_2 , $flyerStrafeExplode_2 );	
+}
+
+void stroggExplode_3()	{	
+	thread stroggFlyerExplosion( $strafingFlyer_3 , $flyerStrafeExplode_3 );
+}
+
+void stroggExplode_4()	{	
+	thread stroggFlyerExplosion( $strafingFlyer_4 , $flyerStrafeExplode_4 );	
+}
+
+// these two aren't used anymore.
+// they are in convoy2b for some reason.	-mrenner
+// well rawr then! :)				-aweldon
+
+void stroggExplode_5()	{	
+	thread stroggFlyerExplosion( $strafingFlyer_5 , $flyerStrafeExplode_5 );	
+}
+
+void stroggExplode_6()	{
+	thread stroggFlyerExplosion( $strafingFlyer_6 , $flyerStrafeExplode_6 );	
+}
+
+//--
+// End strafing runs
+
+
+/* this doesn't happen anymore.
+
+//--
+// Extend the bridge ( sans old man from scene 24 )	aweldon Mar 05
+//--
+
+void extendBridge()	{
+
+	$bridgeNorth_1.move( SOUTH , 320 );
+	$bridgeSouth_1.move( NORTH , 320 );
+	
+	sys.waitFor( $bridgeSouth_1 );
+	sys.wait( 1 );
+	
+	$bridgeNorth_2.move( SOUTH , 320 );
+	$bridgeSouth_2.move( NORTH , 320 );
+	
+	sys.waitFor( $bridgeSouth_2 );
+	
+	sys.trigger( $bridgeObstacle);
+	sys.trigger( $fenceNorth );
+	sys.trigger( $fenceSouth );
+
+	sys.wait(10); // play some more radio chatter while it's quiet 4/27/05 gc
+	radioChatterPlayWait($radio_flyerSquadron, "");
+}
+
+//--
+// End bridge
+
+*/
+
+//--
+// Lock vehicle in death cloud		aweldon Mar 05
+//-- 
+
+
+void lockDown()	{
+	
+	if ( !$playerWalker.isLocked() )	{
+		
+		$playerWalker.lock( true );
+		$playerWalker.guiEvent("warning_hazard");
+	}
+	
+}
+
+void allClear()	{
+
+	if ( $playerWalker.isLocked() )	{
+		
+		$playerWalker.lock( false );
+		$playerWalker.guiEvent( "info_safe" );
+	}
+	
+}
+
+//--
+// End vehicle lock
+
+void playTargetsApproachingRadioChatter()
+{
+	radioChatterPlayWait($radio_targetsApproaching_1, "");
+	sys.wait(1);
+	radioChatterPlayWait($radio_targetsApproaching_2, "");
+}
+
+void playBadgerEvacRadioChatter()
+{
+	radioChatterPlayWait($radio_badger_evac_1, "");
+	sys.wait(1);
+	radioChatterPlayWait($radio_badger_evac_2, "");
+}
+
+void playPvtCalhounRadioChatter()
+{
+	radioChatterPlayWait($radio_pvtCalhoun_1, "");
+	sys.wait(1);
+	radioChatterPlayWait($radio_pvtCalhoun_2, "");
+	sys.wait(.5);
+	radioChatterPlayWait($radio_pvtCalhoun_3, "");
+}
+
+void playBisonScrewedRadioChatter()
+{
+	radioChatterPlayWait($radio_bison_screwed_1, "");
+	sys.wait(1);
+	radioChatterPlayWait($radio_bison_screwed_2, "");
+	sys.wait(1);
+	radioChatterPlayWait($radio_bison_screwed_3, "");
+	sys.wait(.75);
+	radioChatterPlayWait($radio_bison_screwed_4, "");
+
+	sys.wait(3);
+	radioChatterPlayWait($radio_aidBison_1, "");
+	sys.wait(.75);
+	radioChatterPlayWait($radio_aidBison_2, "");
+}
+
+//--
+// Harvester init
+//--
+
+// Called on the script_init on the harvester entity
+void initHarvester(entity harvester)	{
+	harvester.setEnemy( $player1 );
+}
+
+//--
+// End harvester init
+
+//--
+// Harvester attacking pipes
+//--
+
+void harvAttackPipes()	{
+	
+	entity pipe;
+	$monster_harvester_combat_1.becomePassive(1);
+	
+	// Random pick
+	float whichPipeShallItBe = sys.random( 2 );
+	
+	// Set which one to attack, whee!
+	if( whichPipeShallItBe <= 1 )	{
+		$monster_harvester_combat_1.setEnemy( $destroyablePipe_1 );
+		pipe=$destroyablePipe_1;
+		
+	} else	{
+		$monster_harvester_combat_1.setEnemy( $destroyablePipe_2 );	
+		pipe=$destroyablePipe_2;
+	}
+	
+	while( isValidEntity( pipe ) )	{
+		sys.wait(.5);
+	}
+	
+	// Return focus to the player
+	$monster_harvester_combat_1.becomeAggressive();
+	$monster_harvester_combat_1.setEnemy( $player1 );
+}
+
+
+//--
+// End harvester attacking pipes
+
+
+float portalIsOpen=1;
+
+void secondMostHorrendousHackEver_open()	{
+	if( !portalIsOpen )	{
+		sys.trigger($lookIAmAHack );
+		portalIsOpen=1;
+	}
+}
+
+void secondMostHorrendousHackEver_close()	{
+	if( portalIsOpen )	{
+		sys.trigger($lookIAmAHack );
+		portalIsOpen=0;
+	}	
+}
+
+
+//--
+// Dropships		aweldon Jul 05
+//--
+
+void endDropshipPath( entity shipBase )	{
+		
+	setNewTimes( shipBase , 1 , .5 , .5 );
+	shipBase.rotateOnce( '0 0 45' );
+	sys.waitFor( shipBase );
+	setNewTimes( shipBase , 1 , .5 , .5 );
+	shipBase.rotateOnce( '0 0 -75' );
+	sys.trigger( $dropshipOverhead );
+}
+
+void endDropships()	{
+	
+	// Put the objective here
+	sys.trigger( $item_objectivecomplete_1 );
+	
+	setNewTimes( $endDropShipBase_1 , 4 , 0 , 0 );
+	setNewTimes( $endDropShipBase_2 , 4 , 0 , 0 );
+		
+	$endDropShipBase_1.startSpline( $endDropShipSpline_1 );
+	thread endDropshipPath( $endDropShipBase_1b);
+	sys.wait( 1.5 );
+	$endDropShipBase_2.startSpline( $endDropShipSpline_2 );
+	thread endDropshipPath( $endDropShipBase_2b );
+
+	sys.waitFor( $endDropShipBase_1 );
+	$endDropShipBase_1.remove();
+	
+	sys.waitFor( $endDropShipBase_2 );
+	$endDropShipBase_2.remove();
+}
+
+
+
+void main()
+{
+	thread initFlyby();
+	
+	thread lowerLifts();	
+	
+	thread mostHorrendousHackEver();
+}
+
+}	//end namespace

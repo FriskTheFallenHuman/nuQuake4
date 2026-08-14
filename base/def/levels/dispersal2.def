@@ -1,0 +1,33 @@
+/***********************************************************************************************************************
+Dispersal2
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+model model_dispersal2_monster_grunt
+{
+	inherit												model_monster_grunt
+}
+
+entityDef dispersal2_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"editor_menu"										"level"
+	"model"												"model_dispersal2_monster_grunt"
+
+	"sg_category"										"None"
+}
+
+model model_dispersal2_monster_gladiator
+{
+	inherit												model_monster_gladiator	
+}
+
+entityDef dispersal2_monster_gladiator
+{
+	"inherit"											"monster_gladiator"
+	"editor_menu"										"level"
+	"model"												"model_dispersal2_monster_gladiator"
+
+	"sg_category"										"None"
+}

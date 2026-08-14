@@ -1,0 +1,69 @@
+/*
+===========================================================================
+
+Quake 4 Reconstructed GPL Source Code
+Copyright (C) 2026 Justin Marshall(IceColdDuke).
+
+This file is part of the Quake 4 Reconstructed GPL Source Code (?Quake 4 Reconstructed Source Code?).
+
+Quake 4 Reconstructed Source Code is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Quake 4 Reconstructed Source Code is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/licenses/>.
+
+===========================================================================
+*/
+
+/*
+===============================================================================
+
+  rvHealingStation
+
+===============================================================================
+*/
+class rvHealingStation : public idAnimatedEntity {
+public:
+
+	CLASS_PROTOTYPE( rvHealingStation );
+
+	virtual void			Think						( void );
+
+	void					Spawn						( void );
+	void					Save						( idSaveGame *savefile ) const;
+	void					Restore						( idRestoreGame *savefile );
+	
+	void					BeginHealing				( idEntity *toHeal );
+	void					EndHealing					( void );
+
+protected:
+
+	void					CreateFrame					( float station_health );
+
+	stateResult_t			State_Healing				( const stateParms_t& parms );
+
+	rvStateThread			stateThread;
+	idEntityPtr<idEntity>	entityToHeal;
+	int						nextHealTime;
+	int						healFrequency;
+	int						healAmount;
+	int						healthDispensed;
+	int						maxHealth;
+	int						dispenseAnim;
+	int						soundStartTime;
+	int						soundLength;
+
+private:
+
+	bool					IsPlaying					( void );
+
+	CLASS_STATES_PROTOTYPE ( rvHealingStation );
+};
+

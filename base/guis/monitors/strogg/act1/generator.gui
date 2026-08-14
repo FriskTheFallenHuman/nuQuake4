@@ -1,0 +1,700 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	backcolor	0.0784,0.0901,0.105,1
+	visible	1
+	definevec4	"white"	1,1,1,1
+	definevec4	"white_7"	1,1,1,.7
+	definevec4	"white_4"	1,1,1,.4
+	definevec4	"white_2"	1,1,1,.2
+	definevec4	"white_0"	1,1,1,0
+	definevec4	"box"	0.650,0.792,0.858,1
+	definevec4	"box_0"	0.650,0.792,0.858,0
+	definevec4	"img"	0.882,0.929,0.949,1
+	definevec4	"img_0"	0.882,0.929,0.949,0
+	definevec4	"orange"	0.992,0.470,0,1
+	definevec4	"orange_0"	0.992,0.470,0,0
+	definevec4	"orange2"	1,0.792,0.309,1
+	definevec4	"orange2_0"	1,0.792,0.309,0
+	definevec4	"logo_on"	0.650,0.792,0.858,1
+	definevec4	"logo_off"	0.650,0.792,0.858,0
+	windowDef p_topwave
+	{
+		rect	12,-44,617,246
+		visible	1
+		windowDef wave1
+		{
+			rect	-29,0,640,480
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1, 1, 1, 0.2
+
+			onTime 0 {
+				transition "rect" "0 0 640 480" "0 240 640 0" "600" ;
+			}
+
+			onTime 600 {
+				transition "rect" "0 240 640 0" "0 0 640 -480" "600" ;
+			}
+
+			onTime 1200 {
+				transition "rect" "0 0 640 -480" "0 240 640 0" "600" ;
+			}
+
+			onTime 1800 {
+				transition "rect" "0 240 640 0" "0 0 640 480" "600" ;
+			}
+
+			onTime 2400 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave2
+		{
+			rect	-29,40,640,400
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1, 1, 1, 0.3
+
+			onTime 0 {
+				transition "rect" "0 40 640 400" "0 240 640 0" "150" ;
+			}
+
+			onTime 150 {
+				transition "rect" "0 240 640 0" "0 40 640 -400" "150" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 40 640 -400" "0 240 640 0" "150" ;
+			}
+
+			onTime 450 {
+				transition "rect" "0 240 640 0" "0 40 640 400" "150" ;
+			}
+
+			onTime 600 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave3
+		{
+			rect	-29,80,640,320
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1, 1, 1, 0.4
+
+			onTime 0 {
+				transition "rect" "0 80 640 320" "0 240 640 0" "300" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 240 640 0" "0 80 640 -320" "300" ;
+			}
+
+			onTime 600 {
+				transition "rect" "0 80 640 -320" "0 240 640 0" "300" ;
+			}
+
+			onTime 900 {
+				transition "rect" "0 240 640 0" "0 80 640 320" "300" ;
+			}
+
+			onTime 1200 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave4
+		{
+			rect	-29,120,640,240
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1, 1, 1, 0.3
+
+			onTime 0 {
+				transition "rect" "0 120 640 240" "0 240 640 0" "150" ;
+			}
+
+			onTime 150 {
+				transition "rect" "0 240 640 0" "0 120 640 -240" "150" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 120 640 -240" "0 240 640 0" "150" ;
+			}
+
+			onTime 450 {
+				transition "rect" "0 240 640 0" "0 120 640 240" "150" ;
+			}
+
+			onTime 600 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave5
+		{
+			rect	-29,160,640,160
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1, 1, 1, 0.2
+
+			onTime 0 {
+				transition "rect" "0 160 640 160" "0 240 640 0" "600" ;
+			}
+
+			onTime 600 {
+				transition "rect" "0 240 640 0" "0 160 640 -160" "600" ;
+			}
+
+			onTime 1200 {
+				transition "rect" "0 160 640 -160" "0 240 640 0" "600" ;
+			}
+
+			onTime 1800 {
+				transition "rect" "0 240 640 0" "0 160 640 160" "600" ;
+			}
+
+			onTime 2400 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave6
+		{
+			rect	-29,160,640,160
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1,0.501,0,0.2
+
+			onTime 0 {
+				transition "rect" "0 160 640 160" "0 240 640 0" "100" ;
+			}
+
+			onTime 100 {
+				transition "rect" "0 240 640 0" "0 160 640 -160" "100" ;
+			}
+
+			onTime 200 {
+				transition "rect" "0 160 640 -160" "0 240 640 0" "100" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 240 640 0" "0 160 640 160" "100" ;
+			}
+
+			onTime 400 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave7
+		{
+			rect	-29,170,640,150
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1,0.501,0,0.2
+
+			onTime 0 {
+				transition "rect" "0 170 640 150" "0 240 640 0" "100" ;
+			}
+
+			onTime 100 {
+				transition "rect" "0 240 640 0" "0 170 640 -150" "100" ;
+			}
+
+			onTime 200 {
+				transition "rect" "0 170 640 -150" "0 240 640 0" "100" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 240 640 0" "0 170 640 150" "100" ;
+			}
+
+			onTime 400 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave8
+		{
+			rect	-29,180,640,140
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1,0.501,0,0.2
+
+			onTime 0 {
+				transition "rect" "0 180 640 140" "0 240 640 0" "100" ;
+			}
+
+			onTime 100 {
+				transition "rect" "0 240 640 0" "0 180 640 -140" "100" ;
+			}
+
+			onTime 200 {
+				transition "rect" "0 180 640 -140" "0 240 640 0" "100" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 240 640 0" "0 180 640 140" "100" ;
+			}
+
+			onTime 400 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave9
+		{
+			rect	-29,190,640,130
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1,0.501,0,0.2
+
+			onTime 0 {
+				transition "rect" "0 190 640 130" "0 240 640 0" "100" ;
+			}
+
+			onTime 100 {
+				transition "rect" "0 240 640 0" "0 190 640 -130" "100" ;
+			}
+
+			onTime 200 {
+				transition "rect" "0 190 640 -130" "0 240 640 0" "100" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 240 640 0" "0 190 640 130" "100" ;
+			}
+
+			onTime 400 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef wave10
+		{
+			rect	-29,200,640,120
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line1"
+			matcolor	1,0.501,0,0.2
+
+			onTime 0 {
+				transition "rect" "0 200 640 120" "0 240 640 0" "100" ;
+			}
+
+			onTime 100 {
+				transition "rect" "0 240 640 0" "0 200 640 -120" "100" ;
+			}
+
+			onTime 200 {
+				transition "rect" "0 200 640 -120" "0 240 640 0" "100" ;
+			}
+
+			onTime 300 {
+				transition "rect" "0 240 640 0" "0 200 640 120" "100" ;
+			}
+
+			onTime 400 {
+				resetTime "0" ;
+			}
+
+		}
+	}
+	windowDef p_btmlines
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef line1
+		{
+			rect	0,315,640,25
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line2"
+			matcolor	1,0.501,0,0.4
+
+			onTime 0 {
+				transition "line1::rect" "$line1::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 100 {
+				transition "line2::rect" "$line2::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 200 {
+				transition "line3::rect" "$line3::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 300 {
+				transition "line4::rect" "$line4::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 1000 {
+				transition "line1::rect" "$d_line::rect" "$line1::rect" "1000" ;
+			}
+
+			onTime 1100 {
+				transition "line2::rect" "$d_line::rect" "$line2::rect" "1000" ;
+			}
+
+			onTime 1200 {
+				transition "line3::rect" "$d_line::rect" "$line3::rect" "1000" ;
+			}
+
+			onTime 1300 {
+				transition "line4::rect" "$d_line::rect" "$line4::rect" "1000" ;
+			}
+
+			onTime 2000 {
+				transition "line1::rect" "$line1::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 2100 {
+				transition "line2::rect" "$line2::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 2200 {
+				transition "line3::rect" "$line3::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 2300 {
+				transition "line4::rect" "$line4::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 3000 {
+				transition "line1::rect" "$d_line::rect" "$line1::rect" "1000" ;
+			}
+
+			onTime 3100 {
+				transition "line2::rect" "$d_line::rect" "$line2::rect" "1000" ;
+			}
+
+			onTime 3200 {
+				transition "line3::rect" "$d_line::rect" "$line3::rect" "1000" ;
+			}
+
+			onTime 3300 {
+				transition "line4::rect" "$d_line::rect" "$line4::rect" "1000" ;
+			}
+
+			onTime 4000 {
+				transition "line1::rect" "$line1::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 4100 {
+				transition "line2::rect" "$line2::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 4200 {
+				transition "line3::rect" "$line3::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 4300 {
+				transition "line4::rect" "$line4::rect" "$d_line::rect" "1000" ;
+			}
+
+			onTime 5000 {
+				transition "line1::rect" "$d_line::rect" "$line1::rect" "1000" ;
+			}
+
+			onTime 5100 {
+				transition "line2::rect" "$d_line::rect" "$line2::rect" "1000" ;
+			}
+
+			onTime 5200 {
+				transition "line3::rect" "$d_line::rect" "$line3::rect" "1000" ;
+			}
+
+			onTime 5300 {
+				transition "line4::rect" "$d_line::rect" "$line4::rect" "1000" ;
+			}
+
+			onTime 10000 {
+				resetTime "0" ;
+			}
+
+		}
+		windowDef line2
+		{
+			rect	0,315,640,25
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line2"
+			matcolor	1,0.501,0,0.6
+			matscalex	0.75
+		}
+		windowDef line3
+		{
+			rect	0,315,640,25
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line2"
+			matcolor	1,0.501,0,0.8
+			matscalex	0.5
+		}
+		windowDef line4
+		{
+			rect	0,315,640,25
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_line2"
+			matcolor	1,1,1,0.8
+			matscalex	0.25
+		}
+		windowDef d_line
+		{
+			rect	0,269,640,117
+			visible	0
+		}
+	}
+	windowDef dotline1
+	{
+		rect	25,93,642,31
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_dots"
+		matcolor	0.952,0.788,0.396,0.4
+	}
+	windowDef dotline2
+	{
+		rect	-43,170,642,30
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_dots"
+		matcolor	0.952,0.788,0.396,0.4
+	}
+	windowDef dotline3
+	{
+		rect	25,274,642,30
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_dots"
+		matcolor	0.952,0.788,0.396,0.4
+	}
+	windowDef dotline4
+	{
+		rect	-43,351,642,30
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_dots"
+		matcolor	0.952,0.788,0.396,0.4
+	}
+	windowDef bg
+	{
+		rect	0,0,640,480
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_bg"
+		matcolor	0.192,0.0705,0.0431,1
+	}
+	windowDef bg2
+	{
+		rect	0,21,640,246
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_bg2"
+		matcolor	0.862,0.478,0.219,1
+	}
+	windowDef bg3
+	{
+		rect	0,200,640,246
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_bg2"
+		matcolor	0.862,0.517,0.137,1
+	}
+	windowDef top
+	{
+		rect	0,0,640,60
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_top"
+		matcolor	0.674,0.250,0.109,1
+	}
+	windowDef btm
+	{
+		rect	0,245,640,240
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_btm"
+		matcolor	0.674,0.250,0.109,1
+	}
+	windowDef title1
+	{
+		rect	17,409,210,37
+		visible	1
+		forecolor	0.854,0.878,0.964,1
+		text	"gener tor"
+		textscale	0.8
+		font	"fonts/strogg"
+	}
+	windowDef title2
+	{
+		rect	21,442,207,26
+		visible	1
+		forecolor	0.874,0.647,0.109,1
+		text	"7894-sdds-4"
+		textscale	0.52
+		font	"fonts/strogg"
+	}
+	windowDef label1
+	{
+		rect	-50,31,325,63
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_label"
+		matcolor	0.913,0.682,0.254,1
+	}
+	windowDef label2
+	{
+		rect	-49,214,324,62
+		visible	1
+		background	"gfx/guis/monitors/strogg/streamhub/hub5_label"
+		matcolor	0.913,0.682,0.254,1
+	}
+	windowDef t1
+	{
+		rect	37,52,168,24
+		visible	1
+		forecolor	0,0,0,1
+		text	"array vector"
+		textscale	0.5
+		font	"fonts/strogg"
+	}
+	windowDef t2
+	{
+		rect	37,236,158,24
+		visible	1
+		forecolor	0,0,0,1
+		text	"sig variance"
+		textscale	0.5
+		font	"fonts/strogg"
+	}
+	windowDef p_arrow1
+	{
+		rect	121,101,85,47
+		visible	1
+
+		onTime 0 {
+			transition "rect" "$p_arrow1::rect" "$d_arrow1::rect" "5000" ;
+		}
+
+		onTime 10000 {
+			transition "rect" "$d_arrow1::rect" "$p_arrow1::rect" "5000" ;
+		}
+
+		onTime 20000 {
+			resettime "0" 
+		}
+
+		windowDef arrow1
+		{
+			rect	25,-1,32,32
+			visible	1
+			background	"gfx/guis/common/arrow6"
+			matcolor	0.980,0.239,0.0196,1
+			matscaley	-1
+		}
+		windowDef t_arrow1
+		{
+			rect	3,22,78,19
+			visible	1
+			forecolor	1,1,1,1*guitable_10_5[time*0.0005]
+			text	84278324
+			textscale	0.36
+			font	"fonts/strogg"
+		}
+	}
+	windowDef d_arrow1
+	{
+		rect	297,101,85,47
+		visible	0
+	}
+	windowDef p_arrow2
+	{
+		rect	388,281,85,47
+		visible	1
+
+		onTime 0 {
+			transition "rect" "$p_arrow2::rect" "$d_arrow2::rect" "6000" ;
+		}
+
+		onTime 12000 {
+			transition "rect" "$d_arrow2::rect" "$p_arrow2::rect" "6000" ;
+		}
+
+		onTime 24000 {
+			resettime "0" 
+		}
+
+		windowDef arrow2
+		{
+			rect	25,-1,32,32
+			visible	1
+			background	"gfx/guis/common/arrow6"
+			matcolor	0.980,0.239,0.0196,1
+			matscaley	-1
+		}
+		windowDef t_arrow2
+		{
+			rect	3,22,78,19
+			visible	1
+			forecolor	1,1,1,1*guitable_10_5[time*0.0005]
+			text	40923892
+			textscale	0.36
+			font	"fonts/strogg"
+		}
+	}
+	windowDef d_arrow2
+	{
+		rect	208,280,85,47
+		visible	0
+	}
+	windowDef circle
+	{
+		rect	583,5,45,45
+		visible	1
+		background	"gfx/guis/common/circle5"
+		matcolor	0,0,0,1
+		rotate	.08*time
+		matscalex	-1
+	}
+	windowDef circle1
+	{
+		rect	542,5,45,45
+		visible	1
+		background	"gfx/guis/common/circle5"
+		matcolor	0,0,0,1
+		rotate	.06*time
+		matscalex	-1
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	0,-130,640,742
+			background	"gfx/guis/common/monitor_line6"
+			matcolor	0.945,0.925,0.780,0.239
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches5"
+			matcolor	0.988,0.988,0.913,0.603
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-86,640,568
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.262,0.196,0.129,1
+		}
+		windowDef monitor_dirt
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/screen_dirt4"
+			matcolor	0.2,0.101,0.0313,0.784
+			matscalex	-1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+}

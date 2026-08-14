@@ -1,0 +1,78 @@
+/***********************************************************************
+
+hanging bodies on meathooks in dispersal level #1
+
+***********************************************************************/
+export hanging_bodies
+{
+	options -prefix ONE_ -scale 1 -keep hook_base_mover2
+	mesh work/models/Simon/Rigs/hanging_body_11.ma	-dest models/characters/bodies_parts/hook_bodies/body1_mesh 
+	anim work/models/Simon/Rigs/hanging_body_11.ma	-dest models/characters/bodies_parts/hook_bodies/body1_idle
+	anim work/models/Simon/Rigs/hanging_body_af_pose.ma	-dest models/characters/bodies_parts/hook_bodies/ragdoll1
+
+
+}
+
+model env_hanging_body_1
+{
+	mesh							"models/characters/bodies_parts/hook_bodies/body1_mesh.md5mesh"
+	anim af_pose					"models/characters/bodies_parts/hook_bodies/ragdoll1.md5anim"
+	anim idle						"models/characters/bodies_parts/hook_bodies/body1_idle.md5anim"
+//	anim initial					"models/characters/bodies_parts/hook_bodies/body1_idle.md5anim"
+}
+
+entityDef env_hanging_body_1 {
+
+	"inherit"						"actor_default"
+
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -8 -8"
+	"editor_maxs"					"8 8 8"
+	"editor_usage"					"Hanging body with ragdoll. Head, upper torso, arm, intestines."
+	//"spawnclass"					"idAnimated"
+	"bleed"							"1"
+	"sleep"							"1"
+	"health"						"100"
+	"model"							"env_hanging_body_1"
+	"ragdoll"						"hanging_body_1"
+	"articulatedFigure"				"hanging_body_1"
+}
+
+
+
+
+
+
+/***********************************************************************
+
+hanging bodies on meathooks in dispersal level #2
+
+***********************************************************************/
+export hanging_bodies
+{
+	options -scale 1
+	mesh work/models/Simon/Rigs/hanging_body_2.ma	-dest models/characters/bodies_parts/hook_bodies/body2_mesh 
+	anim work/models/Simon/Rigs/hanging_body_2.ma	-dest models/characters/bodies_parts/hook_bodies/body2_idle
+	anim work/models/Simon/Rigs/hanging_body_2_RAGDOLL_POSE.ma	-dest models/characters/bodies_parts/hook_bodies/ragdoll2
+}
+
+model env_hanging_body_2
+{
+	mesh							"models/characters/bodies_parts/hook_bodies/body2_mesh.md5mesh"
+	anim af_pose					"models/characters/bodies_parts/hook_bodies/ragdoll2.md5anim"
+	anim idle						"models/characters/bodies_parts/hook_bodies/body2_idle.md5anim"
+//	anim initial					"models/characters/bodies_parts/hook_bodies/body2_idle.md5anim"
+}
+
+entityDef env_hanging_body_2 {
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -8 -8"
+	"editor_maxs"					"8 8 8"
+	"editor_usage"					"Hanging body with ragdoll. Torso, legs."
+	"spawnclass"					"idAFEntity_Base"
+	"bleed"							"1"
+	"sleep"							"1"
+	"model"						"env_hanging_body_2"
+	"ragdoll"					"hanging_body_2"
+	"articulatedFigure"				"hanging_body_2"
+}

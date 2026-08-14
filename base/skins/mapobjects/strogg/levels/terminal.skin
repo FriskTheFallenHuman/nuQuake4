@@ -1,0 +1,27 @@
+skin skins/mapobjects/strogg/terminal/railings/64a_wide
+
+{
+	"models/mapobjects/strogg/terminal/railings/64_wide" "models/mapobjects/strogg/terminal/railings/64a_wide"
+}
+
+skin skins/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty
+
+{
+	"models/mapobjects/strogg/terminal/drawbridge/bridge_d" "models/mapobjects/strogg/terminal/drawbridge/bridge_d_dirty"
+}
+
+skin skins/mapobjects/strogg/terminal/wire_end_a
+
+{
+	"models/mapobjects/strogg/terminal/wire_end" "models/mapobjects/strogg/terminal/wire_end_a"
+}
+
+skin skins/mapobjects/strogg/terminal/tsd_burn
+
+{
+	"models/mapobjects/strogg/terminal/TSD_battery/TSD_lo" "models/mapobjects/strogg/terminal/TSD_battery/TSD_burnaway"
+	"models/mapobjects/strogg/medlabs/lab_arm/tube_ends" "models/mapobjects/strogg/medlabs/lab_arm/tube_ends_burnaway"
+	"models/mapobjects/strogg/medlabs/lab_arm/tube_glass" "textures/glass/black"
+
+}
+

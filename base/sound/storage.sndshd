@@ -1,0 +1,386 @@
+
+
+sound ambient_roof_core
+{
+	minDistance	1500
+	maxDistance	6000
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/storage/roof_core
+	shakeData 0 lhihnlnjikjmmolhipnokghfmiihgihhhfffhjkihghhhjhhjjkjihgijkkhfgsurheelllggfikikgfgloolhfhijighfijhhgfghhfffihjgegfjjkhghlkmmeigjkkjgglopmhfgpnkffgjiifgiijjgghgmkkkhhijiihhikikhhhmomg
+}
+
+
+sound ambient_roof_core2
+{
+	minDistance	1500
+	maxDistance	6000
+	volumeDb	0
+	looping
+
+	sound/ambience/storage/roof_core2
+	shakeData 0 llklkkljklkkjjjjlkjjjjhijhlkjmmlllkikikkklkklkjkkkllmkkmlklkjkkjkljlklkkkkjkkkkjjkijkjkkihkjiljkkkklkjljkkkklkjkjjkjjmkkjnlkllkjlkkkjh
+}
+
+
+sound ambient_roof_blast
+{
+	minDistance	1500
+	maxDistance	6000
+	volumeDb	0
+
+	sound/ambience/storage/roof_core_blast
+	shakeData 0 zzyxzxxzwxtwytquuswwrqnqonrnllomoljikjkklkllffgdheeeedcegcccbbdddbcddfedddbbabbaaaaaaa
+}
+
+
+sound ambient_storage_ambience01
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/storage/storage_ambience01
+	shakeData 0 jhihjhggghhfhgffgehhhfgffgfgfgiegggggfffghfffgffeggeheggeigggggggfhfhffgfffhghfffffgffefgifffggfhhfffghfgggghghihhhiigfhggihhggghhhjghfjgihhhg
+}
+
+
+sound ambient_storage_ambience02
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/storage/storage_ambience02
+	shakeData 0 ffefdeedceedeedddefeddddddcefeddddeddeddeeeeeeddfeeeeefgigffefighgfffhghhegegfgfgiiiihfheeffeddefdgddgeefeffeddffefefeeeedfeddddddddedd
+}
+
+
+sound ambient_storage_ambience03
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/storage/storage_ambience03
+	shakeData 0 fgfgghghhfgghgiefegghgggfieeggghfhgedehgdfdedfggegegfhhfdefegffefeefgggffffhhfifedeefdehgfffedfhfffhjhegejegifhgffghheghffeghefigfgfghfdeefgigfhfiggfighgeefggfhfeegfgffffggihfeedgdgfgegegddehffeffgefgffeeiefefefeggfffgggffffgedffgegefgffggdheijjijigfedfgiegfdfge
+}
+
+
+sound ambient_storage_ambience04
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	soundClass	1
+	looping
+
+	sound/ambience/storage/storage_ambience04
+	shakeData 0 iigffffeggfhjghggheghgeghhffgfgefgfeegeeegfgefgffffffggfegfgggfgefhgfgffgihgjjffffeffeffgfifhif
+}
+
+
+sound storage_voice_evac
+{
+	description	"Torso Storage Device evacuation activated"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	shakes		0.1
+	global
+
+	sound/ambience/storage/voice/evac
+	shakeData 0 afdowzponqqwyzrjnrkczzyzxwyjjhdxkdwxyninimfexyvgcijyjiinwjkjhjgfdcbbabaawyyeddekigtugbhggbcbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_voice_floor
+{
+	description	"Hanger floor damage reaching critical levels"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	shakes		0.1
+	global
+
+	sound/ambience/storage/voice/floor_damage
+	shakeData 0 amuyonuszwgecftqwxxzxssihzxyuhuwmfhnrruzremmxxmkhdilgtwryvdkxtligcbcnjszzzpunhfdeomlebcbbbbaaaaaaaaaaaaaaa
+}
+
+
+sound storage_voice_repairdroid
+{
+	description	"Repair Droid to fire hazard in section 1."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	shakes		0.1
+	global
+
+	sound/ambience/storage/voice/repair_droid
+	shakeData 0 eiwwlccjtxxxyzwhklzzxzvyyxmgkoyrheddwxxxzzyyjjmtuxjlnnnlwzggfjkliwwgdnjnuwjnndcccbhklyysxvggfeedccccbbbabaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_voice_shutdown
+{
+	description	"Torso Storage Device currently in route to storage facility.  Terminal is currently being shut down"
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	shakes		0.1
+	global
+
+	sound/ambience/storage/voice/shutdown
+	shakeData 0 aggsvuynjqlzyyxslnmhyzwyqrwgijeysgyzxuhfhicggglnqideimppnccxwpllklhszyjccccilkhhlkllcbtxntpouupelgccohfhjlnulpiceegeddcbbbbaaaaampuxojutnpjeecewuiljbkfmyywxjedhitumhfcuxywxrigfjqnkluypeeeccbczyywxuifeeeccccbbbbbaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_voice_tactical
+{
+	description	"Multiple Human squads detected on hanger floor.  Tactical teams dispatched."
+
+	minDistance	590
+	maxDistance	1377
+	volumeDb	0
+	shakes		0.1
+	global
+
+	sound/ambience/storage/voice/tactical
+	shakeData 0 eijjxzwmgftygouzxthejlmvslozomkknlfdkmxzyzyonhfihfnoohccgjtsbcbiwyywwzxmhfcdcdkwvknusnedcdgmxwsmigfecccbbbbbbbbaaaaaptvmdcpqcitwidikknmpokeddhfdbnnkoqkbbtxkecccekjkbecbbaaaaaaaaaaaaaaa
+}
+
+
+sound storage_ambient_battle1
+{
+	description	"battle happening behind closed doors"
+
+	minDistance	393
+	maxDistance	1968
+	volumeDb	0
+
+	sound/ambience/storage/ambient/battle
+	shakeData 0 jhkkmklmkkkkjlopqqpnlpprqrmmmlkigfjmonklmmnonnlkjjjkoookkgjihgeedijkjopjlomlmqoomnmnppppnnljmmkjkiihiihkmkmjjjjnpomlmlnnomomnlllommjjjoomnmnkponooomnllmlkjikmmknoomlikklnjllmllmjihgffdddddbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_tsd_scream1
+{
+	description	"writhing and screaming"
+
+	minDistance	196
+	maxDistance	787
+	volumeDb	-6
+
+	sound/ambience/storage/tsd/scream1
+	shakeData 0 aaaaaaaaabgninmnpwxwmpwwozywquozrvvtvoyvxvutqsxxsuuuuvytrifgfgdedcdcbbbcbbbhryzxtwzvieffeeececcccccbbbbbcdeggkoqvrnlkorsnkljikkjfeccccbbbcdcefikhecabbbbbbaaaabaabaaaacccgmrpkecjhecbbbcbbbbbddhfghjhmihkbcbbbbbabaabaabcdglkimmhinqpqlohedcdbcccbbbbbbaaabaaaaaaaaaaabswzzxwxyzvwqtvustrrrornvqnpsunonnmmmnqrqpryyyzvyytqigifddbbaa
+}
+
+
+sound storage_tsd_body_tube
+{
+	description	"foomp!"
+
+	minDistance	40
+	maxDistance	600
+	volumeDb	-12
+
+	sound/ambience/storage/tsd/body_tube1
+	shakeData 0 hqtvztxuttuqushhifheddccbaaaaaaa
+	sound/ambience/storage/tsd/body_tube2
+	shakeData 1 elrxvnsvttrwwtlmijighdcbaaaaaa
+	sound/ambience/storage/tsd/body_tube3
+	shakeData 2 kwyvvwxvxsxwjjighgffeddcbbaaaaaaaaaa
+}
+
+
+sound storage_incoming_crash
+{
+	minDistance	800
+	maxDistance	4000
+	volumeDb	0
+
+	sound/strogg/flyer/bomb_run
+	shakeData 0 lmmqnpnmmlknnmoprnqppospvqrrnqrstnqpoqnorqqrntolroopompnstqnokonqrqpqooonqorpqqopnmokmspponnnnopoonsnnokkolmmjlijkjhjkihliklijjhghkjjfhggfhffggegffddceeddcddccbbbbbbbbbaaaaaa
+}
+
+
+sound storage_distant_crash
+{
+	minDistance	1000
+	maxDistance	2500
+	volumeDb	0
+	shakes		0.2
+	soundClass	1
+
+	sound/ambience/storage/distant_crash1
+	shakeData 0 aaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbccbccccdeeedeeffeffhefgfgghihhhjjijijjlklljmlnnmomnnpooomlmljihggfhhhhruxxxxvxrxwvusuwtuxtstrsuqrputxvvwwxxwwvwwvwwuuvuuytvxrtrsppuprtvtutwsqrottsqsqqtonqqtpqrsuostunosuqlnqlomonpjjlnjgfhgggfghiheeeeeeeffffffefeccccccbdddccccccbbbbbbbbaabbbbbcccbaaaaabaaaaaabbabbbbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/storage/distant_crash2
+	shakeData 1 aaaaaaaaaaaaaaaaaaaaaaaaaaaabaabbbbbbbbbbbccccdccccccdccccddfeeefghhihhgggffeeefdfeffhhiighgggiiilikkiiijjmkjmkmooomkuvxxxxxuvwwywvytvwwyvvwqtvtuwrrvrtwuurusvsqsppnproqssttsruxtwuturpoppqmsopmoknnnmnnlnlmmmlklkjjjjjjkkkjiihiiggffihfgffgffffhgffeeeccdcdccceecbbcccbbccccccbbabbbabccbbababbbaaaaaabbababbabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_crash_sequence
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	shakes		0.1
+	global
+
+	sound/ambience/storage/crash_sequence
+	shakeData 0 ffghjmsuuqvzzzzzzyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzyyzxwvwxywqpsurnmprtpnsqruzzzzzzzzzzxzzwvtwwvvtsutomqrqomqtpnnnqrqvwwqkilovrrzzzzzyzzxzzzzyzzwzytsuuqnqspmpuxtsnpoojmmnmjmnppqrpxzyyttqqnoqokkvwyzzzzzzzzzzzzzzzzzzzzzyxzywzxzusrutunssqskilnlggqrrqrqzzyzzzzyyzzzzzzzzzwxxvuvwvzzzwxzvzyyuyvyxxswwvuqquvuurtssvvwwusvuvrpprvyzzzzzzzzzzzzxyvuvsvuxwotqmkpwrpqoopplopljkmmsjklplkkqtqysmmmjhjpkklkkzzzzzzstxusqnruvxzzzzzzzzzzzzzzzzzzzzzzzzwwxvtxsqsqpnpqnihkklhgiiiffgjgdcghfbbfgfdbfifbbefeaadddaacdcaacccaabbbaabbbaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_panel_in
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/panel_in
+	shakeData 0 ebbbefppfbb
+}
+
+
+sound storage_panel_rotate
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/panel_rotate
+	shakeData 0 komghggi
+}
+
+
+sound storage_panel_out
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/panel_in
+	shakeData 0 ebbbefppfbb
+}
+
+
+sound storage_bridge_extend1
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/extend1
+	shakeData 0 szyutyxqrslsonloopllookmlmmlkkknpopmqssnosrqrsroqtqpstsortwsqprwvuttpnpqqtspssrqsnooomnlllozzulpmnmomkoijgjigfijgghjecbaaaa
+}
+
+
+sound storage_bridge_extend2
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/extend2
+	shakeData 0 abinwzzzxvvqwysrvtqrsrtqvuppqwttqnprmpqollmmlolnkikkhlkhhihgefdeejnkeddiljigkokkedbbaaaaaaa
+}
+
+
+sound storage_bridge_extend3
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/extend3
+	shakeData 0 eegiipnlqnjjjhiiiihiihiiijjkjiijliijjkkjjjjiiiiiiiljhhkjokulqihebaa
+}
+
+
+sound storage_bridge_extend4
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+
+	sound/ambience/storage/bridge/extend4
+	shakeData 0 bzzuwqrmnomnkujkzzqiedbbaa
+}
+
+
+sound storage_network_guardian_distance
+{
+	description	"grr!"
+
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	soundClass	1
+	global
+
+	sound/strogg/network_guardian/growl1_distance
+	shakeData 0 ikjljpnpstptwsqussutvssorrpqrqosqqqomommkmmkhhfgffffeeddcccccccbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/network_guardian/growl2_distance
+	shakeData 1 aillnlorsspooppqpuutsssttqsqpqqroppmmnnnnnmjkkjklihgggfefddcdccccbbbbbbbbbabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/strogg/network_guardian/alert_distance
+	shakeData 2 cefgijmpnnpppropprrpstrstqpqptrvssprpppqpsqspsqwopnmpmmmrqmnooonnmnqmnljmmllljlijjkjkjiikfgfedecdcccbcccbbbaababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_network_guardian_pound
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	0
+	shakes		0.5
+	soundClass	1
+	no_dups
+
+	sound/ambience/industrial/metal_pound_verb1
+	shakeData 0 wyzyxxvytyyyuwyrtuyruvtttxwovtuqsvxxvzxyxyxxyuuxyvyytvwywrprrmpnmilkgikigeeeeddddcccbcbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_pound_verb2
+	shakeData 1 szzzyyzxwvwxvttxsxsquuxvumuvuxpxstwvsqvostusrsurtspstrllpkklmikjhjjlhhfihdeedecccccbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_pound_verb3
+	shakeData 2 dxzxxzyvuytwtvswtqposoqnrrromtqnmqmstosruworwturuuonpoljnljghiegfffeeedddcccbcbbbbbbbaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	sound/ambience/industrial/metal_pound_verb4
+	shakeData 3 uytzvwyzuuwyvswtowrkuslmsqnpponllkhjhigfgeffedccbcccbbbbbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_elevator_klaxon
+{
+	minDistance	39
+	maxDistance	1181
+	volumeDb	0
+	soundClass	1
+
+	sound/ambience/alarms_buzzers/1shot_alarm01
+	shakeData 0 aaacdedfikmnllmonmplrsotuvxtstwttrsvutustnqlkmlnlikijllihihhhgfdcddcbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+}
+
+
+sound storage_grunt_grate_clang
+{
+	minDistance	400
+	maxDistance	1200
+	volumeDb	6
+
+	sound/ambience/waste/bridge_collapse
+	shakeData 0 zzxwwpzzzzzzzzyzwsloihggeeeddccbcbbbbbaaaaaaaaaaaaaaaaa
+}
+
+

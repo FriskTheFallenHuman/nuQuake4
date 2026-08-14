@@ -1,0 +1,1738 @@
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/torch_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/equipment/torch_lo_local.tga work/models/characters/marines/items/cutting_tourch/ct_hi_f.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/torch_lo_local.tga, heightmap (models/mapobjects/marine/equipment/torch_lo_h.tga, 1 ))
+	diffusemap 		models/mapobjects/marine/equipment/torch_lo_d.tga
+	specularmap		models/mapobjects/marine/equipment/torch_lo_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/mec_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/equipment/mec_lo_local.tga work/models/mapobjects/marines/marine_explosive_charge/mec_hi_b.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/mec_lo_local.tga, heightmap (models/mapobjects/marine/equipment/mec_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/mec_lo_d.tga
+	specularmap		models/mapobjects/marine/equipment/mec_lo_s.tga
+		{
+			blend add
+			map models/mapobjects/marine/equipment/mec_lo_g.tga
+			rgb square [time * 2]
+		}
+}
+
+//----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/pod_arm
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump -size 512 512 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/equipment/pod_arm_local.tga work/models/mapobjects/marine/equipment/pod_arm_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/pod_arm_local.tga, heightmap (models/mapobjects/marine/equipment/pod_arm_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/pod_arm_d.tga
+	specularmap		models/mapobjects/marine/equipment/pod_arm_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/chairs/lab
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/chairs/lab_local.tga work/models/mapobjects/marine/equipment/chairs/lab_chair_high.lwo
+    materialImage models/mapobjects/marine/equipment/chairs/lab_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/chairs/lab_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/chairs/lab_local.tga, heightmap (models/mapobjects/marine/equipment/chairs/lab_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/chairs/lab_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/chairs/marine
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/chairs/marine_local.tga work/models/mapobjects/marine/equipment/chairs/marine_chair_high.lwo
+    materialImage models/mapobjects/marine/equipment/chairs/marine_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/chairs/marine_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/chairs/marine_local.tga, heightmap (models/mapobjects/marine/equipment/chairs/marine_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/chairs/marine_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/misc/spool1_low
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/misc/spool1_low_local.tga work/models/mapobjects/marine/equipment/misc/spool1_high.lwo
+    materialImage models/mapobjects/marine/equipment/misc/spool1_low_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/spool1_low_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/misc/spool1_low_local.tga, heightmap (models/mapobjects/marine/equipment/misc/spool1_low_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/misc/spool1_low_s.tga
+}
+
+
+
+//atlas ripped equipment----------------------------------------------------------
+//crates----------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/crates/crate_bottom
+{
+      	noselfShadow
+		unsmoothedtangents
+		materialType hollowmetal
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/crates/crate_bottom_local.tga work/models/mapobjects/marine/equipment/crates/crate_bottom_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate_bottom_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate_bottom_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate_bottom_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate_bottom_s.tga
+}
+models/mapobjects/marine/equipment/crates/crate_top
+{
+      	noselfShadow
+		unsmoothedtangents
+		materialType hollowmetal
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/crates/crate_top_local.tga work/models/mapobjects/marine/equipment/crates/crate_top_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate_top_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate_top_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate_top_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate_top_s.tga
+}
+
+models/mapobjects/marine/equipment/crates/crate1
+{
+      	noselfShadow
+		unsmoothedtangents
+		materialType hollowmetal
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/crates/crate1_local.tga work/models/mapobjects/marine/equipment/crates/crate1_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate1_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate1_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate1_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate1_s.tga
+}
+
+models/mapobjects/marine/equipment/crates/crate2
+{
+      	noselfShadow
+		unSmoothedTangents
+		materialType hollowmetal
+
+	materialImage 	models/mapobjects/marine/equipment/crates/crate2_hit
+
+	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/marine/equipment/crates/crate2_local.tga work/models/mapobjects/marine/equipment/crates/crate2_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate2_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate2_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate2_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate2_s.tga
+}
+
+models/mapobjects/marine/equipment/crates/crate3
+{
+      	noselfShadow
+		unSmoothedTangents
+		materialType hollowmetal
+
+	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/marine/equipment/crates/crate3_local.tga work/models/mapobjects/marine/equipment/crates/crate3_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate3_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate3_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate3_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate3_s.tga
+}
+models/mapobjects/marine/equipment/crates/crate4
+{
+      	noselfShadow
+		unSmoothedTangents
+		materialType hollowmetal
+
+	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/marine/equipment/crates/crate4_local.tga work/models/mapobjects/marine/equipment/crates/crate4_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate4_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate4_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate4_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate4_s.tga
+}
+
+
+models/mapobjects/marine/equipment/crates/crate9
+{
+      	noselfShadow
+		unSmoothedTangents
+		materialType hollowmetal
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/crates/crate9proof_local.tga work/models/mapobjects/marine/equipment/crates/crate9_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate9_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate9_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate9_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate9_s.tga
+}
+//tables-----------------------------------------------------------------------------------------------
+
+
+
+models/mapobjects/marine/equipment/tables/table1
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/tables/tableg_local.tga work/models/mapobjects/marine/equipment/tables/table1_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/tables/table1_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/tables/table1_local.tga, heightmap (models/mapobjects/marine/equipment/tables/table1_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/tables/table1_s.tga
+}
+
+models/mapobjects/marine/equipment/tables/table2
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/tables/table2f_local.tga work/models/mapobjects/marine/equipment/tables/table2_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/tables/table2_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/tables/table2_local.tga, heightmap (models/mapobjects/marine/equipment/tables/table2_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/tables/table2_s.tga
+}
+
+
+//atlas ripped equipment end------------------------------------------------------------------------------------
+
+
+//models/mapobjects/marine/equipment/crates/ammobox--------------------------------------------------
+
+models/mapobjects/marine/equipment/crates/ammobox
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/crates/ammobox_local.tga work/models/mapobjects/marine/equipment/crates/ammobox_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/ammobox_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/ammobox_local.tga, heightmap (models/mapobjects/marine/equipment/crates/ammobox_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/ammobox_s.tga
+}
+
+//models/mapobjects/marine/equipment/misc/marine_cot_lo--------------------------------------------------
+
+models/mapobjects/marine/equipment/misc/marine_cot_lo
+{
+	unSmoothedTangents
+	
+
+	renderbump  -size 256 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/misc/marine_cot_lo_local.tga work/models/mapobjects/marine/equipment/cot/render_cot1_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/marine_cot_lo_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/misc/marine_cot_lo_local.tga, heightmap (models/mapobjects/marine/equipment/misc/marine_cot_lo_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/misc/marine_cot_lo_s.tga
+}
+//models/mapobjects/marine/equipment/misc/cot1_cloth_lo--------------------------------------------------
+
+models/mapobjects/marine/equipment/misc/cot1_cloth_lo
+{
+      	noSelfShadow 
+		unSmoothedTangents
+		twoSided	 
+
+	renderbump  -size 256 512 -aa 2 -trace .06 -MergeHigh models/mapobjects/marine/equipment/misc/cot1_cloth_lo_local.tga work/models/mapobjects/marine/equipment/cot/cot1_body2_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/cot1_cloth_lo_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/misc/cot1_cloth_lo_local.tga, heightmap (models/mapobjects/marine/equipment/misc/cot1_cloth_lo_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/misc/cot1_cloth_lo_s.tga
+}
+//models/mapobjects/marine/equipment/misc/cot1_cloth2_lo--------------------------------------------------
+
+models/mapobjects/marine/equipment/misc/cot1_cloth2_lo
+{
+  	noSelfShadow
+	unSmoothedTangents
+	twoSided
+
+	renderbump  -size 256 512 -aa 2 -trace .06 -MergeHigh models/mapobjects/marine/equipment/misc/cot1_cloth2_lo_local.tga work/models/mapobjects/marine/equipment/cot/cot1_body1_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/cot1_cloth2_lo_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/misc/cot1_cloth2_lo_local.tga, heightmap (models/mapobjects/marine/equipment/misc/cot1_cloth2_lo_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/misc/cot1_cloth2_lo_s.tga
+}
+//models/mapobjects/marine/equipment/crates/crate5--------------------------------------------------
+
+models/mapobjects/marine/equipment/crates/crate5
+{
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .06 -MergeHigh models/mapobjects/marine/equipment/crates/crate5_local.tga work/models/mapobjects/marine/equipment/crates/crate5_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate5_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate5_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate5_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate5_s.tga
+}
+//models/mapobjects/marine/equipment/crates/crate6--------------------------------------------------
+
+models/mapobjects/marine/equipment/crates/crate6
+{
+
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/equipment/crates/crate6_local.tga work/models/mapobjects/marine/equipment/crates/crate6_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/crates/crate6_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/crates/crate6_local.tga, heightmap (models/mapobjects/marine/equipment/crates/crate6_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/crates/crate6_s.tga
+}
+
+
+
+models/mapobjects/marine/equipment/misc/bodybag
+{
+      	noselfShadow
+		unsmoothedtangents
+	materialImage models/mapobjects/marine/equipment/misc/bodybag_hit
+	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/marine/equipment/misc/bodybag_local.tga work/models/mapobjects/marine/equipment/misc/bodybag_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/bodybag_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/misc/bodybag_local.tga, heightmap (models/mapobjects/marine/equipment/misc/bodybag_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/misc/bodybag_s.tga
+}
+
+
+
+//=========== Reused ID Models ================
+
+models/mapobjects/marine/equipment/misc/fireext
+{
+	unSmoothedTangents
+	materialImage models/mapobjects/marine/equipment/misc/fireext_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/fireext_d.tga
+	bumpmap 	models/mapobjects/marine/equipment/misc/fireext_local.tga
+	specularmap	models/mapobjects/marine/equipment/misc/fireext_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/fireext_red
+{
+
+		unsmoothedtangents
+	materialImage models/mapobjects/marine/equipment/misc/fireext_hit
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/misc/fireext_local.tga work/models/mapobjects/marine/equipment/misc/fireext_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/misc/fireext_red_d.tga
+	bumpmap 	models/mapobjects/marine/equipment/misc/fireext_local.tga
+	specularMap	models/mapobjects/marine/equipment/misc/fireext_red_s.tga
+}
+
+
+
+models/mapobjects/marine/equipment/misc/reuse/binder1
+{
+	{
+		blend diffuseMap		
+		map models/mapobjects/marine/equipment/misc/reuse/binder1.tga
+	}	
+//        { 
+//		blend		bumpmap
+//		map		heightmap (textures/test/grnx1_1_h.tga, 2)
+// 	}
+
+	{
+		blend 		specularmap
+		map		textures/test/grnx1_1_s.tga
+	}
+
+
+
+}
+
+
+
+models/mapobjects/marine/equipment/misc/reuse/foamcup
+{
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/foamcup_d.tga
+	bumpmap addnormals      (models/mapobjects/marine/equipment/misc/reuse/foamcup_local.tga, heightmap (models/mapobjects/marine/equipment/misc/reuse/foamcup_h.tga, 2 ))
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/foamcup_s.tga
+	
+}
+
+models/mapobjects/marine/equipment/misc/reuse/airtank
+{
+	renderbump  	-size 64 256 -aa 2 models/mapobjects/marine/equipment/misc/reuse/airtank_local.tga models/mapobjects/marine/equipment/misc/reuse/airtank_hp.lwo
+	bumpmap addnormals (models/mapobjects/marine/equipment/misc/reuse/airtank_local.tga, heightmap (models/mapobjects/marine/equipment/misc/reuse/airtank_h.tga, 2 ))
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/airtank_d
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/airtank_s
+}
+
+models/mapobjects/marine/equipment/misc/reuse/airtank2
+{
+	renderbump  	-size 64 256 -aa 2 models/mapobjects/marine/equipment/misc/reuse/airtank_local.tga models/mapobjects/marine/equipment/misc/reuse/airtank_hp.lwo
+	bumpmap 		models/mapobjects/marine/equipment/misc/reuse/airtank_local.tga
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/airtank2_d
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/airtank2_s
+}
+models/mapobjects/marine/equipment/misc/reuse/sink2faucet
+{
+	renderbump  -aa 2 -size 64 64 models/mapobjects/marine/equipment/misc/reuse/sink2faucet_local.tga models/mapobjects/marine/equipment/misc/reuse/sink2_hp.lwo
+
+	materialImage models/mapobjects/marine/equipment/misc/reuse/sink2faucet_hit
+	bumpmap	models/mapobjects/marine/equipment/misc/reuse/sink2faucet_local.tga
+	diffusemap	models/mapobjects/marine/equipment/misc/reuse/sink2faucet_d.tga
+	specularmap	models/mapobjects/marine/equipment/misc/reuse/sink2faucet_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/sink2
+{
+	renderbump  -aa 2 -size 128 128 models/mapobjects/marine/equipment/misc/reuse/sink2_local.tga models/mapobjects/equipment/misc/reuse/sink2_hp.lwo
+
+	materialImage models/mapobjects/marine/equipment/misc/reuse/sink2_hit
+	bumpmap	models/mapobjects/marine/equipment/misc/reuse/sink2_local.tga
+	diffusemap	models/mapobjects/marine/equipment/misc/reuse/sink2_d.tga
+	specularmap	models/mapobjects/marine/equipment/misc/reuse/sink2_s.tga
+}
+
+
+models/mapobjects/marine/equipment/misc/reuse/plasticbin
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticbin_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticbin_hi.lwo
+
+                diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticbin_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticbin_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticbin_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food2
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food2_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food3
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food3_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food4
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_food4_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/plasticjar_food
+{
+         noselfshadow
+	materialType	plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar_food_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar_food2
+{
+         noselfshadow
+	materialType	plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar_food2_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar_food3
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar_food3_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/plasticjar_food4
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar_food4_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/plasticjar2
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar2b
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2b_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar2c
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2c_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar2o
+{
+         noselfshadow
+ 	materialType	plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2o_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar2r
+{
+         noselfshadow
+	materialType	plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar2_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2r_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar2_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar2_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticbinmini
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticbinmini_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticbinmini_hi.lwo
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticbinmini_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticbinmini_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticbinmini_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar1_hi.lwo
+
+                diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1b
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar1_hi.lwo
+
+                diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1b_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1g
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar1_hi.lwo
+
+                diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1g_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/plasticjar1y
+{
+         noselfshadow
+	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga models/mapobjects/marine/equipment/misc/reuse/plasticjar1_hi.lwo
+
+                diffusemap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1y_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/plasticjar1_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/plasticjar1_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/beaker
+{
+        noselfshadow
+        translucent
+//		glass
+//		renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/beaker_local.tga models/mapobjects/marine/equipment/misc/reuse/beaker_hi.lwo
+		{
+			blend	diffusemap
+			map     models/mapobjects/marine/equipment/misc/reuse/beaker_d.tga
+		}
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/beaker_local.tga
+        specularmap	models/mapobjects/marine/equipment/misc/reuse/beaker_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/mkeyboard
+{
+	noSelfShadow
+ 	renderbump  -size 256 256 -aa 2 -colorMap  models/mapobjects/marine/equipment/misc/reuse/mkeyboard_local.tga models/mapobjects/marine/equipment/misc/reuse/mkeyboard_hi.lwo
+
+	materialImage models/mapobjects/marine/equipment/misc/reuse/mkeyboard_hit
+
+	bumpmap			models/mapobjects/marine/equipment/misc/reuse/mkeyboard_local.tga
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/mkeyboard_d.tga
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/mkeyboard_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/aircannister
+{
+	noSelfShadow
+ 	renderbump  -size 512 512 -aa 2 -trace 0.005 -colorMap models/mapobjects/marine/equipment/misc/reuse/aircannister_local.tga models/mapobjects/marine/equipment/misc/reuse/aircannister_hi.lwo
+
+	materialImage models/mapobjects/marine/equipment/misc/reuse/aircannister_hit
+
+	bumpmap			models/mapobjects/marine/equipment/misc/reuse/aircannister_local.tga
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/aircannister_d.tga
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/aircannister_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/toolchest
+{
+	materialImage models/mapobjects/marine/equipment/misc/reuse/toolchest_hit
+	
+	bumpmap			addnormals (models/mapobjects/marine/equipment/misc/reuse/toolchest_local.tga, heightmap (models/mapobjects/marine/equipment/misc/reuse/toolchest_h.tga, 2) )
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/toolchest_d
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/toolchest_s
+}
+
+models/mapobjects/marine/equipment/misc/reuse/toolchest_green
+{
+	materialImage models/mapobjects/marine/equipment/misc/reuse/toolchest_hit
+	
+	bumpmap			addnormals (models/mapobjects/marine/equipment/misc/reuse/toolchest_local.tga, heightmap (models/mapobjects/marine/equipment/misc/reuse/toolchest_h.tga, 2) )
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/toolchest_green_d
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/toolchest_s
+}
+
+models/mapobjects/marine/equipment/misc/reuse/tool_wheel
+
+{
+	bumpmap			models/mapobjects/marine/equipment/misc/reuse/tool_wheel_local.tga
+	diffusemap		models/mapobjects/marine/equipment/misc/reuse/tool_wheel_d
+	specularmap		models/mapobjects/marine/equipment/misc/reuse/tool_wheel_s
+	{
+		blend diffusemap
+		map 		models/mapobjects/marine/equipment/misc/reuse/tool_wheel_d.tga
+		alphatest .5
+	}
+
+}
+
+//=========== Reused ID Models ================
+
+models/mapobjects/marine/medical/biocase
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/biocase_lo_local.tga work/models/mapobjects/marine/medical/biocase_hi.lwo
+	materialImage models/mapobjects/marine/medical/biocase_hit
+
+	diffusemap 		models/mapobjects/marine/medical/biocase_lo_d.tga
+	bumpmap 		addnormals (models/mapobjects/marine/medical/biocase_lo_local.tga, heightmap (models/mapobjects/marine/medical/biocase_lo_h.tga, 2 ))
+	specularmap		models/mapobjects/marine/medical/biocase_lo_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/canister
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 64 64 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/canister_lo_local.tga work/models/mapobjects/marine/medical/canister_hi.lwo
+	materialImage models/mapobjects/marine/medical/canister_hit
+
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/canister_lo_local.tga, heightmap (models/mapobjects/marine/medical/canister_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/canister_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/canister_lo_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/6pack
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/6pack_lo_local.tga work/models/mapobjects/marine/medical/6pack_hi.lwo
+	materialImage models/mapobjects/marine/medical/shelf_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/6pack_lo_local.tga, heightmap (models/mapobjects/marine/medical/6pack_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/6pack_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/6pack_lo_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bottle1
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/bottle1_lo_local.tga work/models/mapobjects/marine/medical/bottle1_hi.lwo
+	materialImage models/mapobjects/marine/medical/shelf_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bottle1_lo_local.tga, heightmap (models/mapobjects/marine/medical/bottle1_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/bottle1_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/bottle1_lo_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bottle2
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/bottle2_lo_local.tga work/models/mapobjects/marine/medical/bottle2_hi.lwo
+	materialImage models/mapobjects/marine/medical/shelf_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bottle2_lo_local.tga, heightmap (models/mapobjects/marine/medical/bottle2_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/bottle2_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/bottle2_lo_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bottle3
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/bottle3_lo_local.tga work/models/mapobjects/marine/medical/bottle3_hi.lwo
+	materialImage models/mapobjects/marine/medical/shelf_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bottle3_lo_local.tga, heightmap (models/mapobjects/marine/medical/bottle3_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/bottle3_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/bottle3_lo_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bottle4
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/bottle4_lo_local.tga work/models/mapobjects/marine/medical/bottle4_hi.lwo
+	materialImage models/mapobjects/marine/medical/shelf_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bottle4_lo_local.tga, heightmap (models/mapobjects/marine/medical/bottle4_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/bottle4_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/bottle4_lo_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bgbottle1
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .25 -MergeHigh models/mapobjects/marine/medical/bgbottle1_lo_local.tga work/models/mapobjects/marine/medical/bgbottle1_hi.lwo
+	materialImage models/mapobjects/marine/medical/bgbottle1_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bgbottle1_lo_local.tga, heightmap (models/mapobjects/marine/medical/bgbottle1_lo_h.tga, 2 ))
+
+	specularmap		models/mapobjects/marine/medical/bgbottle1_lo_s.tga
+{
+	blend diffusemap
+	map 		models/mapobjects/marine/medical/bgbottle1_lo_d.tga
+	alphatest .5
+}
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bgbottle2
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .25 -MergeHigh models/mapobjects/marine/medical/bgbottle2_lo_local.tga work/models/mapobjects/marine/medical/bgbottle2_hi.lwo
+	materialImage models/mapobjects/marine/medical/bgbottle2_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bgbottle2_lo_local.tga, heightmap (models/mapobjects/marine/medical/bgbottle2_lo_h.tga, 2 ))
+
+	specularmap		models/mapobjects/marine/medical/bgbottle2_lo_s.tga
+{
+	blend diffusemap
+	map 		models/mapobjects/marine/medical/bgbottle2_lo_d.tga
+	alphatest .5
+}
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bgbottle3
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .25 -MergeHigh models/mapobjects/marine/medical/bgbottle3_lo_local.tga work/models/mapobjects/marine/medical/bgbottle3_hi.lwo
+	materialImage models/mapobjects/marine/medical/bgbottle3_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bgbottle3_lo_local.tga, heightmap (models/mapobjects/marine/medical/bgbottle3_lo_h.tga, 2 ))
+
+	specularmap		models/mapobjects/marine/medical/bgbottle3_lo_s.tga
+{
+	blend diffusemap
+	map 		models/mapobjects/marine/medical/bgbottle3_lo_d.tga
+	alphatest .5
+}
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/bgbottle4
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .25 -MergeHigh models/mapobjects/marine/medical/bgbottle4_lo_local.tga work/models/mapobjects/marine/medical/bgbottle4_hi.lwo
+	materialImage models/mapobjects/marine/medical/bgbottle4_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/bgbottle4_lo_local.tga, heightmap (models/mapobjects/marine/medical/bgbottle4_lo_h.tga, 2 ))
+
+	specularmap		models/mapobjects/marine/medical/bgbottle4_lo_s.tga
+{
+	blend diffusemap
+	map 		models/mapobjects/marine/medical/bgbottle4_lo_d.tga
+	alphatest .5
+}
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/cabinet
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/cabinet_lo_local.tga work/models/mapobjects/marine/medical/cabinet_hi.lwo
+	materialImage models/mapobjects/marine/medical/cabinet_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/cabinet_lo_local.tga, heightmap (models/mapobjects/marine/medical/cabinet_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/cabinet_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/cabinet_lo_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/cabinetdoor
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/cabinetdoor_lo_local.tga work/models/mapobjects/marine/medical/cabinetdoor_hi.lwo
+	materialImage models/mapobjects/marine/medical/cabinet_hit
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/cabinetdoor_lo_local.tga, heightmap (models/mapobjects/marine/medical/cabinetdoor_lo_h.tga, 2 ))
+
+	specularmap		models/mapobjects/marine/medical/cabinetdoor_lo_s.tga
+	{
+		blend diffusemap
+		map 		models/mapobjects/marine/medical/cabinetdoor_lo_d.tga
+		alphatest .5
+	}
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/shelf
+{
+      	noselfShadow
+	//unsmoothedtangents
+
+	renderbump  -size 128 128 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/medical/shelf_lo_local.tga work/models/mapobjects/marine/medical/shelf_hi.lwo
+	materialImage models/mapobjects/marine/medical/shelf_hit
+
+
+	bumpmap 		addnormals (models/mapobjects/marine/medical/shelf_lo_local.tga, heightmap (models/mapobjects/marine/medical/shelf_lo_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/medical/shelf_lo_d.tga
+	specularmap		models/mapobjects/marine/medical/shelf_lo_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/portable_commstation
+{
+
+		unsmoothedtangents
+         materialImage models/mapobjects/marine/equipment/portable_commstation/portable_commstation_hit
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/portable_commstation_local.tga work/models/mapobjects/marine/portable_communication_station/portable_commstation_hi.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/portable_commstation/portable_commstation_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/portable_commstation/portable_commstation_local.tga, heightmap (models/mapobjects/marine/equipment/portable_commstation/portable_commstation_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/portable_commstation/portable_commstation_s.tga
+}
+
+//=========== Medical Models END ================
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/autopsy/table
+{
+      	noselfShadow
+	unSmoothedTangents
+    materialImage models/mapobjects/marine/equipment/autopsy/table_hit
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/autopsy/table_local.tga work/models/mapobjects/marine/equipment/autopsy/table_high.lwo
+
+
+	bumpmap 		addnormals (models/mapobjects/marine/equipment/autopsy/table_local.tga, heightmap (models/mapobjects/marine/equipment/autopsy/table_h.tga, 2 ))
+	specularMap		models/mapobjects/marine/equipment/autopsy/table_s.tga
+
+	{
+	blend diffusemap
+	map 		models/mapobjects/marine/equipment/autopsy/table_d.tga
+	alphatest .5
+}
+}
+//-------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/tool_table
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/tool_table_local.tga work/models/mapobjects/marine/medical/tool_table_hp_REF.lwo
+    materialImage models/mapobjects/marine/medical/tool_table_hit
+
+	diffusemap 	models/mapobjects/marine/medical/tool_table_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/tool_table_local.tga, heightmap (models/mapobjects/marine/medical/tool_table_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/tool_table_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+models/mapobjects/marine/medical/tool_table_bloody
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/tool_table_local.tga work/models/mapobjects/marine/medical/tool_table_hp_REF.lwo
+    materialImage models/mapobjects/marine/medical/tool_table_hit
+
+	diffusemap 	models/mapobjects/marine/medical/tool_table_bloody_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/tool_table_local.tga, heightmap (models/mapobjects/marine/medical/tool_table_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/tool_table_bloody_s.tga
+}
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------
+models/mapobjects/marine/medical/crash_cart
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/crash_cart_local.tga work/models/mapobjects/marine/medical/crash_cart_high2.lwo
+    materialImage models/mapobjects/marine/medical/crash_cart_hit
+
+	diffusemap 	models/mapobjects/marine/medical/crash_cart_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/crash_cart_local.tga, heightmap (models/mapobjects/marine/medical/crash_cart_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/crash_cart_s.tga
+	{
+		blend add
+		map models/mapobjects/marine/medical/crash_cart_glow.tga
+	}
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------
+models/mapobjects/marine/medical/surgical_lamps
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/surgical_lamps_local.tga work/models/mapobjects/marine/medical/surgical_lamps_high.lwo
+    materialImage models/mapobjects/marine/medical/surgical_lamps_hit
+
+	diffusemap 	models/mapobjects/marine/medical/surgical_lamps_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/surgical_lamps_local.tga, heightmap (models/mapobjects/marine/medical/surgical_lamps_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/surgical_lamps_s.tga
+	{
+		blend add
+		map models/mapobjects/marine/medical/surgical_lamps_glow.tga
+	}
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_monitorArm
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 32 64 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_monitorArm_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_monitorArm_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_monitorArm_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_monitorArm_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_monitorArm_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_monitorArm_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_monitorArm_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_monitor01
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_monitor01_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_monitor01_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_monitor01_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_monitor01_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_monitor01_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_monitor01_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_monitor01_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_monitor02
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_monitor02_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_monitor02_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_monitor02_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_monitor02_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_monitor02_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_monitor02_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_monitor02_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/monitors/mcc_monitor03
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 128 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_monitor03_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_monitor03_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_monitor03_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_monitor03_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_monitor03_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_monitor03_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_monitor03_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/monitors/mcc_console01
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_console01_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_console01_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_console01_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_console01_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_console01_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_console01_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_console01_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_console02
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_console02_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_console02_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_console02_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_console02_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_console02_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_console02_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_console02_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_console03a
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_console03a_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_console03a_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_console03a_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_console03a_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_console03a_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_console03a_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_console03a_s.tga
+}
+
+
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_console03b
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_console03b_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_console03b_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_console03b_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_console03b_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_console03b_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_console03b_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_console03b_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/monitors/mcc_console04
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/monitors/mcc_console04_local.tga work/models/mapobjects/marine/equipment/monitors/mcc_console04_high.lwo
+    materialImage models/mapobjects/marine/equipment/monitors/mcc_console04_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/monitors/mcc_console04_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/monitors/mcc_console04_local.tga, heightmap (models/mapobjects/marine/equipment/monitors/mcc_console04_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/monitors/mcc_console04_s.tga
+}
+
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/medical/changable_arm_scope
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/changable_arm_local.tga work/models/mapobjects/marine/medical/changable_arm_scope_high.lwo
+    materialImage models/mapobjects/marine/medical/changable_arm_hit
+
+	diffusemap 	models/mapobjects/marine/medical/changable_arm_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/changable_arm_local.tga, heightmap (models/mapobjects/marine/medical/changable_arm_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/changable_arm_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/changable_arm_base
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/changable_arm_local.tga work/models/mapobjects/marine/medical/changable_arm_base_high.lwo
+    materialImage models/mapobjects/marine/medical/changable_arm_hit
+
+	diffusemap 	models/mapobjects/marine/medical/changable_arm_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/changable_arm_local.tga, heightmap (models/mapobjects/marine/medical/changable_arm_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/changable_arm_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/medical/changable_arm_joint2
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/changable_arm_local.tga work/models/mapobjects/marine/medical/changable_arm_joint2_high.lwo
+    materialImage models/mapobjects/marine/medical/changable_arm_hit
+
+	diffusemap 	models/mapobjects/marine/medical/changable_arm_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/changable_arm_local.tga, heightmap (models/mapobjects/marine/medical/changable_arm_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/changable_arm_s.tga
+}
+
+models/mapobjects/marine/tactical_station
+{
+//   	noSelfShadow
+	unSmoothedTangents
+
+	renderbump  -size 1024 1024 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/tactical_station_local.tga work/models/mapobjects/marine/tactical_station/tactical_station_hi.lwo
+	
+	diffusemap 	models/mapobjects/marine/tactical_station/tactical_station_d.tga
+	bumpmap 	addnormals (models/mapobjects/marine/tactical_station/tactical_station_local.tga, heightmap (models/mapobjects/marine/tactical_station/tactical_station_h.tga, 2))
+	specularmap	models/mapobjects/marine/tactical_station/tactical_station_s.tga
+	
+	{
+		blend add
+		map models/mapobjects/marine/tactical_station/tactical_station_glow.tga
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+		colored
+	}
+	
+	{
+		blend add
+		map models/mapobjects/marine/tactical_station/tactical_station_glow2.tga
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+		colored
+	}
+}
+
+models/mapobjects/marine/tactical_station_vidscreen
+{
+	
+/*
+	unsmoothedTangents	
+	
+	noShadows
+	noSelfShadow
+	noDamage
+	translucent
+	twoSided
+	collision
+	
+	{
+		blend add
+		map models/monsters/gladiator/glad_shieldadd.tga
+		vertexColor
+		rgb guitable_random1 [time * 2 ]
+		scale 1 / 4 , 1
+		scroll table4[ time * 6] , 0
+	}
+*/									
+
+}
+
+models/mapobjects/marine/equipment/misc/reuse/coffeecup
+{
+         noselfshadow
+//	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga work/models/mapobjects/marine/equipment/misc/id_models_hi/coffeecup_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/coffeecup_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/coffeecup_s.tga
+}
+
+models/mapobjects/marine/equipment/misc/reuse/coffeecup2
+{
+         noselfshadow
+//	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga work/models/mapobjects/marine/equipment/misc/id_models_hi/coffeecup_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/coffeecup2_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/coffeecup_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/coffeecup3
+{
+         noselfshadow
+//	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga work/models/mapobjects/marine/equipment/misc/id_models_hi/coffeecup_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/coffeecup3_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/coffeecup_s.tga
+}
+models/mapobjects/marine/equipment/misc/reuse/coffeecup4
+{
+         noselfshadow
+//	materialType plastic
+	renderbump  -size 128 128 -aa 2  models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga work/models/mapobjects/marine/equipment/misc/id_models_hi/coffeecup_hi.lwo
+
+
+        	diffusemap	models/mapobjects/marine/equipment/misc/reuse/coffeecup4_d.tga
+		bumpmap		models/mapobjects/marine/equipment/misc/reuse/coffeecup_local.tga
+                specularmap	models/mapobjects/marine/equipment/misc/reuse/coffeecup_s.tga
+}
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/locker/closed
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/locker/locker_closed_local.tga work/models/mapobjects/marine/equipment/locker/locker_closed_hi.lwo
+    materialImage models/mapobjects/marine/equipment/locker/closed_hit
+
+	diffusemap 	models/mapobjects/marine/equipment/locker/closed_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/locker/closed_local.tga, heightmap (models/mapobjects/marine/equipment/locker/closed_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/locker/closed_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+
+models/mapobjects/marine/medical/gurneybed
+{
+      	noselfShadow
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/medical/gurneybed_local.tga work/models/mapobjects/marine/medical/gurneybed_hi.lwo
+    materialImage models/mapobjects/marine/medical/gurneybed_hit
+
+	diffusemap 	models/mapobjects/marine/medical/gurneybed_d.tga
+	bumpmap addnormals (models/mapobjects/marine/medical/gurneybed_local.tga, heightmap
+ (models/mapobjects/marine/medical/gurneybed_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/medical/gurneybed_s.tga
+}
+
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/vent/interior
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/vent/interior_local.tga work/models/mapobjects/marine/vent/interior_HI.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/vent/interior_local.tga, heightmap (models/mapobjects/marine/vent/interior_h.tga,3 ))
+	diffusemap 		models/mapobjects/marine/vent/interior_d.tga
+	specularmap		models/mapobjects/marine/vent/interior_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/lights/small
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/lights/small_local.tga work/models/mapobjects/marine/lights/small_HI.lwo
+
+	bumpmap addnormals (models/mapobjects/marine/lights/small_local.tga, heightmap (models/mapobjects/marine/lights/small_h.tga,3 ))
+	diffusemap 		models/mapobjects/marine/lights/small_d.tga
+	specularmap		models/mapobjects/marine/lights/small_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/lights/large
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/lights/large_local.tga work/models/mapobjects/marine/lights/large_HI.lwo
+
+	bumpmap addnormals (models/mapobjects/marine/lights/large_local.tga, heightmap (models/mapobjects/marine/lights/large_h.tga,3 ))
+	diffusemap 		models/mapobjects/marine/lights/large_d.tga
+	specularmap		models/mapobjects/marine/lights/large_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+models/mapobjects/marine/turret/belly
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/turret/belly_local.tga work/models/mapobjects/marine/turret/belly_HI.lwo
+
+	bumpmap addnormals (models/mapobjects/marine/turret/belly_local.tga, heightmap (models/mapobjects/marine/turret/belly_h.tga,3 ))
+	diffusemap 		models/mapobjects/marine/turret/belly_d.tga
+	specularmap		models/mapobjects/marine/turret/belly_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/turret/top
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderBump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/turret/top_local.tga work/models/mapobjects/marine/turret/top_HI.lwo
+
+	bumpmap addnormals (models/mapobjects/marine/turret/top_local.tga, heightmap (models/mapobjects/marine/turret/top_h.tga,4 ))
+	diffusemap 		models/mapobjects/marine/turret/top_d.tga
+	specularmap		models/mapobjects/marine/turret/top_s.tga
+}
+
+models/mapobjects/marine/equipment/doors/single_door/door1
+{
+
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/single_door/door1_local.tga work/models/mapobjects/marine/equipment/doors/single_door/door_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/doors/single_door/door1_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/single_door/door1_local.tga, heightmap(models/mapobjects/marine/equipment/doors/single_door/door1_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/doors/single_door/door1_s.tga
+}
+
+models/mapobjects/marine/equipment/doors/single_door/window_door
+{
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/single_door/window_door_local.tga work/models/mapobjects/marine/equipment/doors/single_door/window_door_high.lwo
+ 
+	diffusemap 	models/mapobjects/marine/equipment/doors/single_door/window_door_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/single_door/window_door_local.tga, heightmap(models/mapobjects/marine/equipment/doors/single_door/window_door_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/doors/single_door/window_door_s.tga
+}
+
+models/mapobjects/marine/equipment/doors/single_door/frame
+{
+		unsmoothedtangents
+
+	renderbump  -size 256 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/single_door/frame_local.tga work/models/mapobjects/marine/equipment/doors/single_door/frame_high.lwo
+  
+	diffusemap 	models/mapobjects/marine/equipment/doors/single_door/frame_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/single_door/frame_local.tga, heightmap(models/mapobjects/marine/equipment/doors/single_door/frame_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/doors/single_door/frame_s.tga
+
+        {
+		blend add
+		map models/mapobjects/marine/equipment/doors/single_door/frame_glow.tga
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+		colored
+	}
+	
+
+	
+}
+
+
+models/mapobjects/marine/equipment/doors/double_door/dd_frame
+{
+      	
+		unsmoothedtangents
+
+	renderbump  -size 256 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/double_door/dd_frame_local.tga work/models/mapobjects/marine/equipment/doors/double_door/dd_frame_high.lwo
+
+	diffusemap 	models/mapobjects/marine/equipment/doors/double_door/dd_frame_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/double_door/dd_frame_local.tga, heightmap(models/mapobjects/marine/equipment/doors/double_door/dd_frame_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/doors/double_door/dd_frame_s.tga
+{
+		blend add
+		map models/mapobjects/marine/equipment/doors/double_door/dd_frame_glow.tga
+		red		Parm0
+		green	Parm1
+		blue	Parm2
+		colored
+	}
+
+}
+
+models/mapobjects/marine/equipment/doors/double_door/dd_left
+{
+      	
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/double_door/dd_left_local.tga work/models/mapobjects/marine/equipment/doors/double_door/dd_left_high.lwo
+ 
+	diffusemap 	models/mapobjects/marine/equipment/doors/double_door/dd_left_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/double_door/dd_left_local.tga, heightmap(models/mapobjects/marine/equipment/doors/double_door/dd_left_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/doors/double_door/dd_left_s.tga
+}
+
+models/mapobjects/marine/equipment/doors/double_door/dd_right
+{
+      	
+		unsmoothedtangents
+
+	renderbump  -size 512 512 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/double_door/dd_right_local.tga work/models/mapobjects/marine/equipment/doors/double_door/dd_right_high.lwo
+  
+	diffusemap 	models/mapobjects/marine/equipment/doors/double_door/dd_right_d.tga
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/double_door/dd_right_local.tga, heightmap(models/mapobjects/marine/equipment/doors/double_door/dd_right_h.tga, 2 ))
+	specularmap	models/mapobjects/marine/equipment/doors/double_door/dd_right_s.tga
+}
+
+//-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/doors/morgue_door/morguedoor
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/doors/morgue_door/morguedoor_local.tga work/models/mapobjects/marine/equipment/doors/morgue_door/morguedoor_high.lwo
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/doors/morgue_door/morguedoor_local.tga, heightmap (models/mapobjects/marine/equipment/doors/morgue_door/morguedoor_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/doors/morgue_door/morguedoor_d.tga
+	specularmap		models/mapobjects/marine/equipment/doors/morgue_door/morguedoor_s.tga
+}
+
+//Turret Hatch-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/turret_hatch
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/equipment/turret_hatch_local.tga work/models/mapobjects/marine/equipment/turret_hatch_high.lwo
+    materialImage models/mapobjects/marine/equipment/turret_hatch_hit
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/turret_hatch_local.tga, heightmap (models/mapobjects/marine/equipment/turret_hatch_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/turret_hatch_d.tga
+	specularmap		models/mapobjects/marine/equipment/turret_hatch_s.tga
+}
+
+//ladder_128-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/ladder_128
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 128 256 -aa 2 -trace .02 -MergeHigh models/mapobjects/marine/equipment/ladder_128_local.tga work/models/mapobjects/marine/equipment/ladder_128_high.lwo
+    materialImage models/mapobjects/marine/equipment/ladder_128_hit
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/ladder_128_local.tga, heightmap (models/mapobjects/marine/equipment/ladder_128_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/ladder_128_d.tga
+	specularmap		models/mapobjects/marine/equipment/ladder_128_s.tga
+}
+
+//Marine mine pack---------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/minepack
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .09 -MergeHigh models/mapobjects/marine/equipment/minepack1_local.tga work/models/mapobjects/marine/equipment/mine_pack/antenna_hi.lwo
+    materialType solidmetal
+    
+	bumpmap addnormals (models/mapobjects/marine/equipment/minepack_local.tga, heightmap (models/mapobjects/marine/equipment/minepack_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/minepack_d.tga
+	specularmap		models/mapobjects/marine/equipment/minepack_s.tga
+	{
+		blend add
+		map models/mapobjects/marine/equipment/minepack_g.tga
+	}
+}
+
+models/mapobjects/marine/equipment/minepack_sprite
+
+{
+	noshadows
+	translucent
+	nonSolid
+	twoSided	
+	deform	sprite
+
+	   {
+		blend	add
+		map gfx/effects/energy_sparks/spark2.tga
+		rgb sintable [time]
+		clamp
+//		vertexColor   
+        }
+}
+
+
+//welding mask-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/mask
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/equipment/mask_local.tga work/models/mapobjects/marine/wm_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/mask_local.tga, heightmap (models/mapobjects/marine/equipment/mask_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/mask_d.tga
+	specularmap		models/mapobjects/marine/equipment/mask_s.tga
+}
+
+
+//Portable torch-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/tc
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .07 -MergeHigh models/mapobjects/marine/equipment/tc_local.tga work/models/mapobjects/marine/tc_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/tc_local.tga, heightmap (models/mapobjects/marine/equipment/tc_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/tc_d.tga
+	specularmap		models/mapobjects/marine/equipment/tc_s.tga
+}
+
+//gui_clipboard-----------------------------------------------------------------------------------------------
+
+
+models/mapobjects/marine/equipment/gcb
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 256 256 -aa 2 -trace .04 -MergeHigh models/mapobjects/marine/equipment/gcb_local.tga work/models/mapobjects/marine/equipment/gui_clipboard/gcb_hi.lwo
+
+
+	bumpmap addnormals (models/mapobjects/marine/equipment/gcb_local.tga, heightmap (models/mapobjects/marine/equipment/gcb_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/equipment/gcb_d.tga
+	specularmap		models/mapobjects/marine/equipment/gcb_s.tga
+}
+
+// EMP-----------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/marine_emp/emp
+{
+      	noselfShadow
+	unsmoothedtangents
+
+	renderbump  -size 1024 1024 -aa 2 -trace .05 -MergeHigh models/mapobjects/marine/marine_emp/emp_local.tga work/models/mapobjects/marine/marine_emp/emp_hi.lwo
+
+	bumpmap addnormals (models/mapobjects/marine/marine_emp/emp_local.tga, heightmap (models/mapobjects/marine/marine_emp/emp_h.tga, 2 ))
+	diffusemap 		models/mapobjects/marine/marine_emp/emp_d.tga
+	specularmap		models/mapobjects/marine/marine_emp/emp_s.tga
+	{
+		blend add
+		map models/mapobjects/marine/marine_emp/emp_g.tga
+		rgb grunttable [ time * .5 ]
+	}
+		{
+			blend add
+			map models/mapobjects/marine/marine_emp/emp_g.tga
+			rgb grunttable [ time * -.5 ]
+		}
+}
+
+//marine_vaccine_gun---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/vaccinegun
+{
+      	noselfShadow
+	unsmoothedtangents
+ 	
+	renderBump  -size 256 256 -aa 2 -MergeHigh -trace .1  models/mapobjects/marine/equipment/vaccinegun_local.tga work/models/mapobjects/strogg/misc_equipment/vaccine_gun01_hi.lwo
+  	materialType solidmetal
+	
+	bumpmap		addnormals (models/mapobjects/marine/equipment/vaccinegun_local.tga, heightmap (models/mapobjects/marine/equipment/vaccinegun_h.tga, 2))
+	diffusemap		models/mapobjects/marine/equipment/vaccinegun_d.tga
+	specularmap		models/mapobjects/marine/equipment/vaccinegun_s.tga
+	
+}
+
+//marine_com_link---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/comm
+{
+      	noselfShadow
+	unsmoothedtangents
+ 	
+	renderBump  -size 256 256 -aa 2 -MergeHigh -trace .1  models/mapobjects/marine/equipment/com_local.tga work/models/mapobjects/marine/equipment/com/com_hi.lwo
+  	materialType solidmetal
+	
+	bumpmap		addnormals (models/mapobjects/marine/equipment/com_local.tga, heightmap (models/mapobjects/marine/equipment/com_h.tga, 2))
+	diffusemap		models/mapobjects/marine/equipment/com_d.tga
+	specularmap		models/mapobjects/marine/equipment/com_s.tga
+	
+}
+
+//Gen. Harper's Phone---------------------------------------------------------------------------------------------------------------------------------
+
+models/mapobjects/marine/equipment/phone
+{
+      	noselfShadow
+	//unsmoothedtangents
+ 	
+	renderBump  -size 128 256 -aa 2 -MergeHigh -trace .05  models/mapobjects/marine/equipment/phone_local.tga work/models/mapobjects/marine/equipment/phone/models/phone_hi.lwo
+  	materialType solidmetal
+	
+	bumpmap		addnormals (models/mapobjects/marine/equipment/phone_local.tga, heightmap (models/mapobjects/marine/equipment/phone_h.tga, 1))
+	diffusemap		models/mapobjects/marine/equipment/phone_d.tga
+	specularmap		models/mapobjects/marine/equipment/phone_s.tga
+	
+}
+
+
+models/mapobjects/marine/equipment/backpack
+{
+	noselfShadow
+	
+	
+	renderBump  -size 256 256 -aa 2 -trace .09 -mergeHigh models/mapobjects/marine/equipment/backpack/sp_backpack_local.tga work/models/pick_ups/sp_pickups/sp_backpack_hi.lwo
+   
+    
+	bumpMap			addnormals (models/mapobjects/marine/equipment/backpack/sp_backpack_local.tga, heightmap(models/mapobjects/marine/equipment/backpack/sp_backpack_h.tga, 2))
+	diffuseMap		models/mapobjects/marine/equipment/backpack/sp_backpack_d.tga
+	specularMap		models/mapobjects/marine/equipment/backpack/sp_backpack_s.tga
+}
+	    

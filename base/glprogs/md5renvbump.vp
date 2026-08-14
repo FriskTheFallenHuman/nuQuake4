@@ -1,0 +1,59 @@
+!!ARBvp1.0 
+
+# VPROG_MD5R_ENV_BUMP
+# 
+# input:
+# 
+# attrib[0]		vertex.position
+# attrib[2]		normal
+# attrib[3]		vertex.color (diffuse)
+# attrib[6]		tangent
+# attrib[7]		binormal
+# attrib[8]		2D texture coordinate
+#
+# program.env[75]-program.env[78]	Model-view-projection transform
+# program.env[80]					Model local view origin
+# program.env[87]-program.env[89]	Model transform
+# program.env[91]					Color modulate
+# program.env[92]					Color add
+# 
+# output:
+# 
+
+TEMP	R0;
+
+#
+# Transform the model vertex position by the model-view-projection transform.
+# 
+DP4 result.position.x, program.env[75], vertex.position;
+DP4 result.position.y, program.env[76], vertex.position;
+DP4 result.position.z, program.env[77], vertex.position;
+DP4 result.position.w, program.env[78], vertex.position;
+
+# texture 0 takes the unmodified texture coordinates
+MOV result.texcoord[0], vertex.attrib[8];
+
+# texture 1 is the vector to the eye in model coordinates
+SUB R0, program.env[80], vertex.position;
+DP3 result.texcoord[1].x, R0, program.env[87];
+DP3 result.texcoord[1].y, R0, program.env[88];
+DP3 result.texcoord[1].z, R0, program.env[89];
+
+# texture 2, 3 and 4 gets the transformed tangent, binormal, normal (transposed)
+DP3	result.texcoord[2].x, vertex.attrib[6], program.env[87];
+DP3	result.texcoord[3].x, vertex.attrib[6], program.env[88];
+DP3	result.texcoord[4].x, vertex.attrib[6], program.env[89];
+
+DP3	result.texcoord[2].y, vertex.attrib[7], program.env[87];
+DP3	result.texcoord[3].y, vertex.attrib[7], program.env[88];
+DP3	result.texcoord[4].y, vertex.attrib[7], program.env[89];
+
+DP3	result.texcoord[2].z, vertex.normal, program.env[87];
+DP3	result.texcoord[3].z, vertex.normal, program.env[88];
+DP3	result.texcoord[4].z, vertex.normal, program.env[89];
+
+# modulate and add to the vertex color 
+MAD result.color, vertex.color, program.env[91], program.env[92];
+
+END
+

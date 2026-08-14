@@ -1,0 +1,666 @@
+{
+  "source": "E:\\projects\\Quake4Alpha\\Toolsx86.dll",
+  "source_size": 3416064,
+  "source_sha256": "66bd959f17f765c5885362882f51ca9222eade8642e5c0127fcdede87f7978b9",
+  "resource_directory_rva": "0x016ac000",
+  "resource_directory_size": 663008,
+  "emitted": [
+    {
+      "resource_type": "2",
+      "resource_name": "IDB_EV_TOOLBAR",
+      "language": "1033",
+      "rva": "0x016bcd60",
+      "path": "bitmaps/IDB_EV_TOOLBAR_1033.bmp",
+      "size": 478,
+      "sha256": "71abd04261f637cefd1f388893549a8f981e3ea05450db1eb0f4bfc9fd1ba271"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "1003",
+      "language": "1033",
+      "rva": "0x016b0c98",
+      "path": "bitmaps/1003_1033.bmp",
+      "size": 502,
+      "sha256": "ec7e8c8da7149ecc368bfec9a4e7336180d593b1211002f56798e564cb1cdb17"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "1004",
+      "language": "1033",
+      "rva": "0x016b0e80",
+      "path": "bitmaps/1004_1033.bmp",
+      "size": 310,
+      "sha256": "8436f943492ced0572ccd69ebbd6c335f74e2006ad85a60cee92fd49e71d2462"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "2043",
+      "language": "1033",
+      "rva": "0x016dd758",
+      "path": "bitmaps/2043_1033.bmp",
+      "size": 21560,
+      "sha256": "c22d1e83370dba12a6988c5280ae26f653536439985fb4b567220f5c4b4b01e8"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "5100",
+      "language": "1033",
+      "rva": "0x016d6ca0",
+      "path": "bitmaps/5100_1033.bmp",
+      "size": 478,
+      "sha256": "d3d46db4893ed4e24fc100e171a19ecb6fecb6fd21bdd031d37d98c37b36d4b4"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "5134",
+      "language": "1033",
+      "rva": "0x016cdff0",
+      "path": "bitmaps/5134_1033.bmp",
+      "size": 1078,
+      "sha256": "e7bcfa33d670025f4e00215dc52dfbb9d5fd4ffdb0c0e4a1e55a42287319384d"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "6008",
+      "language": "1033",
+      "rva": "0x016dca70",
+      "path": "bitmaps/6008_1033.bmp",
+      "size": 478,
+      "sha256": "71abd04261f637cefd1f388893549a8f981e3ea05450db1eb0f4bfc9fd1ba271"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7057",
+      "language": "1033",
+      "rva": "0x016f6b38",
+      "path": "bitmaps/7057_1033.bmp",
+      "size": 478,
+      "sha256": "64d0ed0f770360c2aed088be95baf007ec7ec8ab87d5804362eeb83622d26a50"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7058",
+      "language": "1033",
+      "rva": "0x016f6d08",
+      "path": "bitmaps/7058_1033.bmp",
+      "size": 6374,
+      "sha256": "edef8e72ee6408932bbe9ae5a7841ff0b507c6be3a5ad75026e2bbec6ad310ed"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7069",
+      "language": "1033",
+      "rva": "0x016f85e0",
+      "path": "bitmaps/7069_1033.bmp",
+      "size": 486,
+      "sha256": "cce0a72891b0bcf3918e8f9319b97d9adb9ea69a1878ee035969d9909d213029"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7070",
+      "language": "1033",
+      "rva": "0x016f87b8",
+      "path": "bitmaps/7070_1033.bmp",
+      "size": 486,
+      "sha256": "96760adf9d7d05421da3578d0cd68f95069f034a72c4ccc235655631dba0d4e3"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7071",
+      "language": "1033",
+      "rva": "0x016f8990",
+      "path": "bitmaps/7071_1033.bmp",
+      "size": 486,
+      "sha256": "8abd4fa018b64e014362e95171bccc8e2b446782ce7d4f2c76821151b08182d9"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7072",
+      "language": "1033",
+      "rva": "0x016f8b68",
+      "path": "bitmaps/7072_1033.bmp",
+      "size": 486,
+      "sha256": "d2137819936c0664053b5f399d34a257fa00ca024ad61b8bc8d804d01cca39db"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7079",
+      "language": "1033",
+      "rva": "0x016f8d40",
+      "path": "bitmaps/7079_1033.bmp",
+      "size": 1014,
+      "sha256": "44effbbad46fa3bcf5fe71279a7d4f839a9b3ab4628f9430f899d0a342686ada"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7080",
+      "language": "1033",
+      "rva": "0x016f9128",
+      "path": "bitmaps/7080_1033.bmp",
+      "size": 502,
+      "sha256": "60b55a8d92ed811b5416c331657584b27bf8a7dae03037862fd082f8a68cd3f2"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7081",
+      "language": "1033",
+      "rva": "0x016f9310",
+      "path": "bitmaps/7081_1033.bmp",
+      "size": 122262,
+      "sha256": "80664ad6ef38c0a0100586014d0d707ab3ce7c7e76003a1fbbf2d94633dee1d5"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7082",
+      "language": "1033",
+      "rva": "0x01717098",
+      "path": "bitmaps/7082_1033.bmp",
+      "size": 108734,
+      "sha256": "47fd73c187f5bd62c68b3fccb362dbacd05a7cc14b85e3f940bb0ea8430bf1db"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "7093",
+      "language": "1033",
+      "rva": "0x01731948",
+      "path": "bitmaps/7093_1033.bmp",
+      "size": 47936,
+      "sha256": "d9cf7fb05389e402f6bc88b08951f0c84b930948198647eba5d3d6ef5dc13baa"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "15469",
+      "language": "1033",
+      "rva": "0x016f0a20",
+      "path": "bitmaps/15469_1033.bmp",
+      "size": 1014,
+      "sha256": "ec8747eed1d221ff6e749dd97c2dbc4ece71a2286c5de67c6e5fadf4bbd9c47b"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "20122",
+      "language": "1033",
+      "rva": "0x016b6a30",
+      "path": "bitmaps/20122_1033.bmp",
+      "size": 1198,
+      "sha256": "e0f7251d34c26bcba49d2c0d9e12267b1894fe4ab7bba38d71fe9e16a1c1bbfd"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "30994",
+      "language": "1033",
+      "rva": "0x01748518",
+      "path": "bitmaps/30994_1033.bmp",
+      "size": 198,
+      "sha256": "baf0520b920913155bcbede3d0ff5fae3a3506566de13a501f9aca07c15f9745"
+    },
+    {
+      "resource_type": "2",
+      "resource_name": "30996",
+      "language": "1033",
+      "rva": "0x017485d0",
+      "path": "bitmaps/30996_1033.bmp",
+      "size": 338,
+      "sha256": "d4f6f3f9bf38396dfe3e590650308c81395f9873ae257ae639cb3b63b150bb10"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "5105",
+      "language": "1033",
+      "rva": "0x016d7160",
+      "path": "cursors/5105_1033.cur",
+      "size": 766,
+      "sha256": "3e29c884e3902845184fd94f300b8c870a1a596f5b049df9606cad12a885840c"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "30977",
+      "language": "1033",
+      "rva": "0x017471a8",
+      "path": "cursors/30977_1033.cur",
+      "size": 518,
+      "sha256": "edb061d4b764a7794ed2362638dd0ecadd0a0f0d22aeb863ab6dc7fb07103c8a"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "30978",
+      "language": "1033",
+      "rva": "0x01748908",
+      "path": "cursors/30978_1033.cur",
+      "size": 518,
+      "sha256": "ee638137dcf3a007a1ca2a78579d4839a8abf8fd402079819f9415016e11c0ad"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "30998",
+      "language": "1033",
+      "rva": "0x01747998",
+      "path": "cursors/30998_1033.cur",
+      "size": 326,
+      "sha256": "a6dcfde3bfa144f871ee3182c0a6ce47da955987733582090ce752520c157495"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "30999",
+      "language": "1033",
+      "rva": "0x01747308",
+      "path": "cursors/30999_1033.cur",
+      "size": 326,
+      "sha256": "a3050de87cbdd46eae2e1a5979465af6c350b95bf0cba63b70c32061e8ac8f55"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31000",
+      "language": "1033",
+      "rva": "0x01747848",
+      "path": "cursors/31000_1033.cur",
+      "size": 326,
+      "sha256": "093f192bb1ba7018438a67eb3a91e1c85f35f63e86960c163b241f3a2c78f36a"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31001",
+      "language": "1033",
+      "rva": "0x017476f8",
+      "path": "cursors/31001_1033.cur",
+      "size": 326,
+      "sha256": "bee246dddb6dea971665aebe5fdd1046fbe4a0a1ffd3d0f8d4dc585ee1bea979"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31002",
+      "language": "1033",
+      "rva": "0x01748028",
+      "path": "cursors/31002_1033.cur",
+      "size": 326,
+      "sha256": "ff844d80b064ba31e66716d4e95b12dc92abd48425171d44cda6c6797fc740f8"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31003",
+      "language": "1033",
+      "rva": "0x017475a8",
+      "path": "cursors/31003_1033.cur",
+      "size": 326,
+      "sha256": "c17e1eda5b2e2b0c03eb9efb737ba7106a98e08d1b40e5bed6dedce8ba000644"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31004",
+      "language": "1033",
+      "rva": "0x01747c38",
+      "path": "cursors/31004_1033.cur",
+      "size": 326,
+      "sha256": "050f66327debbff2dca3adf91f522767e8c4e014f6b491ee5c1802f5b635f131"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31005",
+      "language": "1033",
+      "rva": "0x01747458",
+      "path": "cursors/31005_1033.cur",
+      "size": 326,
+      "sha256": "48c702e32c0f1c00f842d1e9ae9a7884f91a1a3185ae7b242cdf1a0944bb6e33"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31006",
+      "language": "1033",
+      "rva": "0x01747ae8",
+      "path": "cursors/31006_1033.cur",
+      "size": 326,
+      "sha256": "2124ef1c42fda2e5387075d9e3f62d35f198f14cf62434caccd335f9aaf00e04"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31007",
+      "language": "1033",
+      "rva": "0x01747d88",
+      "path": "cursors/31007_1033.cur",
+      "size": 326,
+      "sha256": "89ddad138a48d2b9b531e89c73b87318c48f980af1a4a4d30a686c36961363fd"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31008",
+      "language": "1033",
+      "rva": "0x01747ed8",
+      "path": "cursors/31008_1033.cur",
+      "size": 326,
+      "sha256": "5903cc06c7235227d0438cef15de65edc3304a3fb366642f3e0b6e343f5b7cca"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31009",
+      "language": "1033",
+      "rva": "0x01748178",
+      "path": "cursors/31009_1033.cur",
+      "size": 326,
+      "sha256": "a27ee60d0f9e1cdbf0512c25d845a14ca3679fb238f68bb8d52008a9db61debb"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31010",
+      "language": "1033",
+      "rva": "0x017482c8",
+      "path": "cursors/31010_1033.cur",
+      "size": 326,
+      "sha256": "dd0278ea7446014fb8aafb9114c77c909db35505adc17c54a4d7f7c7a2871036"
+    },
+    {
+      "resource_type": "12",
+      "resource_name": "31011",
+      "language": "1033",
+      "rva": "0x01748418",
+      "path": "cursors/31011_1033.cur",
+      "size": 326,
+      "sha256": "15223ceead884bbd92b75e44ae8ae84295ccccbee8762a15725eda04e76b54fd"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "112",
+      "language": "1033",
+      "rva": "0x016b5e98",
+      "path": "icons/112_1033.ico",
+      "size": 2998,
+      "sha256": "e5b931b591372708cafb9ed41e87e4d3622615ef4481f9c7525b46a314eb6e41"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "1211",
+      "language": "1033",
+      "rva": "0x016b10d0",
+      "path": "icons/1211_1033.ico",
+      "size": 318,
+      "sha256": "560a8185e8913f224913da0a4f2fa4f32f5ccdf5a16435292a4b9a29d2c8e2ee"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2000",
+      "language": "1033",
+      "rva": "0x016d0dd8",
+      "path": "icons/2000_1033.ico",
+      "size": 318,
+      "sha256": "ec4d19a9fa78546362de48ed291d3256cce08916dc8a2b4e23934d1dff92ca29"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2038",
+      "language": "1033",
+      "rva": "0x016e8808",
+      "path": "icons/2038_1033.ico",
+      "size": 22486,
+      "sha256": "c7bdff04dc71113a507cd42ad1a80fa84ca551690df2af138754ba36afac9131"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2049",
+      "language": "1033",
+      "rva": "0x016e8b50",
+      "path": "icons/2049_1033.ico",
+      "size": 766,
+      "sha256": "85b364875570f7bbefc73f0ce0b2e8f62316c92d6056d3fb6f98222b7134d83a"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2050",
+      "language": "1033",
+      "rva": "0x016e8e50",
+      "path": "icons/2050_1033.ico",
+      "size": 766,
+      "sha256": "b62e9e96d3e4b7c45536e5959276d51851558a78349cb072d9b7ef8fcd2d5025"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2051",
+      "language": "1033",
+      "rva": "0x016e9150",
+      "path": "icons/2051_1033.ico",
+      "size": 766,
+      "sha256": "76b468c7fd8590b08ed35031f8d13689c93fd0e03c43ad907fc1ce95c50b6b88"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2052",
+      "language": "1033",
+      "rva": "0x016e9450",
+      "path": "icons/2052_1033.ico",
+      "size": 766,
+      "sha256": "1fac5908cbd3ce57dec144835c58496c55faa70af9e6c232ca25bf44d3949a5e"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2053",
+      "language": "1033",
+      "rva": "0x016e9750",
+      "path": "icons/2053_1033.ico",
+      "size": 766,
+      "sha256": "58826068a090746b03323ed1a070095f771548c5ee6390ae37ec250f19275395"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2054",
+      "language": "1033",
+      "rva": "0x016e9a50",
+      "path": "icons/2054_1033.ico",
+      "size": 766,
+      "sha256": "54f2c5e7cd2d982de6283237333ff9070ddc8de5f6b8730d46f8af5b0f2552dd"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2070",
+      "language": "1033",
+      "rva": "0x016e9b90",
+      "path": "icons/2070_1033.ico",
+      "size": 318,
+      "sha256": "4a53a513e14ff5337f0f45266a418f971275fcb91993bc5fc195340f2c24ae12"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2072",
+      "language": "1033",
+      "rva": "0x016e9cd0",
+      "path": "icons/2072_1033.ico",
+      "size": 318,
+      "sha256": "cc6420a9899c9179baace360eab00de7d81146078bbe3c66abbd256cda7adbb9"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2073",
+      "language": "1033",
+      "rva": "0x016e9e10",
+      "path": "icons/2073_1033.ico",
+      "size": 318,
+      "sha256": "77e3518c6b0cf49ab9376de374cc781ef65c005e509575512f1b188c21e51faf"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2075",
+      "language": "1033",
+      "rva": "0x016e9f50",
+      "path": "icons/2075_1033.ico",
+      "size": 318,
+      "sha256": "3b73fe2dfdeb46cf3bd5548fda2058bd3b65b117554d7f633dbd08f34d786c47"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2076",
+      "language": "1033",
+      "rva": "0x016ea090",
+      "path": "icons/2076_1033.ico",
+      "size": 318,
+      "sha256": "c7856dbf912e96d2b5c5cd2365e25d060acb855ad17b1db36630013cd5a31637"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2077",
+      "language": "1033",
+      "rva": "0x016ea1d0",
+      "path": "icons/2077_1033.ico",
+      "size": 318,
+      "sha256": "508d4f348b19eea357bb4c630dede9f28995c571d4824528450f806dcace1d97"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2078",
+      "language": "1033",
+      "rva": "0x016ea310",
+      "path": "icons/2078_1033.ico",
+      "size": 318,
+      "sha256": "ca9e7d252c4a9ae859366017b8f94723ee505dcf0b104aa0094f7982653a6c4a"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "2079",
+      "language": "1033",
+      "rva": "0x016ea450",
+      "path": "icons/2079_1033.ico",
+      "size": 318,
+      "sha256": "3237be1e6d36236e7ea0782455068efa60d306ff4f2db73ff412fa3fcbcf8f06"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5092",
+      "language": "1033",
+      "rva": "0x016d0f18",
+      "path": "icons/5092_1033.ico",
+      "size": 318,
+      "sha256": "b8eb7dd57522998b06fffadc91b7b85923f68731f4c5968d80c3afa393bc9dc7"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5098",
+      "language": "1033",
+      "rva": "0x016d66a0",
+      "path": "icons/5098_1033.ico",
+      "size": 22486,
+      "sha256": "ed0e24cbe857cb8a869743291c16b72deeefe19ce3fcd0c31a2af4b83bf25456"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5099",
+      "language": "1033",
+      "rva": "0x016d6828",
+      "path": "icons/5099_1033.ico",
+      "size": 318,
+      "sha256": "3b037bcd4b963fa4ea59d37ce465ca341641642f6bbb7c6ca43d4ef66e8d95b8"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5101",
+      "language": "1033",
+      "rva": "0x016d6968",
+      "path": "icons/5101_1033.ico",
+      "size": 318,
+      "sha256": "9fafebd6bffbe5ebb0e2bb3a996a8115f28de2e72a46dee6694f3f2e452c428d"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5102",
+      "language": "1033",
+      "rva": "0x016d6aa8",
+      "path": "icons/5102_1033.ico",
+      "size": 318,
+      "sha256": "12481f915db5ceb1b2c933f22c48638361eec168bf2955263c3fea73cf345d7b"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5103",
+      "language": "1033",
+      "rva": "0x016d6be8",
+      "path": "icons/5103_1033.ico",
+      "size": 318,
+      "sha256": "83635a7b458959108c1209860d41c6bcf754eabd8ac8488e55cb5cc7fd8038ee"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5127",
+      "language": "1033",
+      "rva": "0x016c8808",
+      "path": "icons/5127_1033.ico",
+      "size": 766,
+      "sha256": "1025522605a2c47165030064efaa3f6caceaf6e3c57c692ef25e96812c6297d1"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "5153",
+      "language": "1033",
+      "rva": "0x016cdf90",
+      "path": "icons/5153_1033.ico",
+      "size": 22486,
+      "sha256": "d4510ab76b51f3667c516534c7f48d54d0becda8623b1f7921808b2665710d43"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "6003",
+      "language": "1033",
+      "rva": "0x016dca10",
+      "path": "icons/6003_1033.ico",
+      "size": 22486,
+      "sha256": "f8543cc46636cecd210b1f6dd047fab342c3cda473b9a10dddb8327b24b96a8e"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "7052",
+      "language": "1033",
+      "rva": "0x016f6b10",
+      "path": "icons/7052_1033.ico",
+      "size": 1078,
+      "sha256": "e09441af754fe41ec511947171f8f73a92beb2518455c8eddd7cc1b73b05380f"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "8002",
+      "language": "1033",
+      "rva": "0x016bcd00",
+      "path": "icons/8002_1033.ico",
+      "size": 22486,
+      "sha256": "f5296213be0c0252f37da381aa324b27f628633541bd05163001bb83c5d1e754"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "15665",
+      "language": "1033",
+      "rva": "0x016f05d8",
+      "path": "icons/15665_1033.ico",
+      "size": 22486,
+      "sha256": "e2fff88875226a55463ecbe95e36cfeceeb9149f988cf8f727a472502d0bf07b"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "17012",
+      "language": "1033",
+      "rva": "0x016f65a8",
+      "path": "icons/17012_1033.ico",
+      "size": 22486,
+      "sha256": "0823c8c5bf88ae2f952af35b96397631fd03b1e46c0e686d5a27438b2575cf64"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "21113",
+      "language": "1033",
+      "rva": "0x016b62c8",
+      "path": "icons/21113_1033.ico",
+      "size": 318,
+      "sha256": "017868ed73d2451d663edf44c4507bfb4f8e17974f46090a3e7599e7851e1faf"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "21114",
+      "language": "1033",
+      "rva": "0x016b6408",
+      "path": "icons/21114_1033.ico",
+      "size": 318,
+      "sha256": "fd811fc5ef5014801f9f74d62e35ba6da013229afe05d350427e4feaa8881d5f"
+    },
+    {
+      "resource_type": "14",
+      "resource_name": "21115",
+      "language": "1033",
+      "rva": "0x016b6548",
+      "path": "icons/21115_1033.ico",
+      "size": 318,
+      "sha256": "12277df21909a49b7033da9bec357e74168e8f8b5b90d77af13b7610accd38fd"
+    }
+  ]
+}

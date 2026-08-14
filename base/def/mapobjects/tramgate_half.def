@@ -1,0 +1,38 @@
+
+/***********************************************************************
+TRAMGATE_half
+
+***********************************************************************/
+export tramgate_half {		
+	options -prefix tmgt_ -align ALL 
+         
+	mesh	work/models/mapobjects/strogg/tram/tramgate_half/animation/tramgate_idle.ma		-dest models/mapobjects/strogg/tram/tramgate_half/mesh
+	anim	work/models/mapobjects/strogg/tram/tramgate_half/animation/tramgate_idle.ma		-dest models/mapobjects/strogg/tram/tramgate_half/idle_close
+	anim	work/models/mapobjects/strogg/tram/tramgate_half/animation/tramgate_idle_open.ma	-dest models/mapobjects/strogg/tram/tramgate_half/idle_open		
+	anim	work/models/mapobjects/strogg/tram/tramgate_half/animation/tramgate_open.ma		-dest models/mapobjects/strogg/tram/tramgate_half/open
+	anim	work/models/mapobjects/strogg/tram/tramgate_half/animation/tramgate_close.ma		-dest models/mapobjects/strogg/tram/tramgate_half/close
+}
+
+
+
+entityDef env_tramGate_half {
+	"editor_usage"			"animated_tramgate_half"
+	"editor_mins"			"-125 -125 -250"
+	"editor_maxs"			"125 125 160"
+	
+	"model"					"model_env_tramgate_half"
+	
+	"spawnclass"			"idAnimated"
+	
+
+	
+}
+
+model model_env_tramgate_half {
+	mesh					models/mapobjects/strogg/tram/tramgate_half/mesh.md5mesh
+	anim idle	 			models/mapobjects/strogg/tram/tramgate_half/idle_close.md5anim
+	anim idle_close 			models/mapobjects/strogg/tram/tramgate_half/idle_close.md5anim
+	anim idle_open 				models/mapobjects/strogg/tram/tramgate_half/idle_open.md5anim
+	anim open				models/mapobjects/strogg/tram/tramgate_half/open.md5anim
+	anim close 				models/mapobjects/strogg/tram/tramgate_half/close.md5anim
+}

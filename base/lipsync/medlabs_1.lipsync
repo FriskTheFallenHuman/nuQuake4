@@ -1,0 +1,789 @@
+
+lipSync vo_2_1_1_05_1
+{
+	description	"Behavioral program downloaded to neurocyte."
+	text		"#str_301285"
+	visemes	"english"	"x8a <Behavioral> b46l AH8q h3n EY3q v3l y3q ER3q AH7q l4v <program> p3v r3q OW6q g3u r3q AE21z m99v <downloaded> d4y AW3q n4v l3w OW3q d3x AH3q d3w <to> t3u UW31z <neurocyte> n99w y4q UW21z r99z AA6q s3w IH76z t3v EH11t x99p "
+	visemes	"italian"	"x6l <Programma> p3o r4q OW15v g5n r6q AA13u m12r AA3q <comportamentale> k3t OW6q m22t p3o OW9r r3q t11n AA5q m8v EH4q n13r t5r AA12t l4r EH4q <inviato> IY12t n7t v3n IY12t AA11t t8l OW7q <al> AA3q l3t <neurocita> n12u EH3q UW12t r8q OW8r CH13q IY77z t5c AA9e x12a "
+	visemes	"spanish"	"x18a <Programa> p7q r8q OW3q g11i r12t AA8r m6q AA7q <de> d8q EY3q <comportamiento> k11o OW6q m15h p5o OW3q r5q t16o AA7q m7m IY11s EY3q n17k t5n OW3q <descargado> d12p EY7q s9m k7l AA9r r11s g4o AA12u d24n OW7q <a> AA5q <neurocito> n24m EY9q UW3q r5q OW9q s10l IY5q t15h OW4q x26g "
+	visemes	"french"	"x3i <Programme> p10q r3q AO4q g7q r3q AH4q m19v EY4q <comportemental> k3r OW3q n99q n24q p6q AO3q r3q t4u UW5q m3w AA5q t3s AH21z l3l x13t <chargé> SH5x AH5q r3q j3u EY3q x50q <dans> d3s AA3q <neurocyte> n39q EH3q w5q r3q OW3q k3p IY3q t3u x99p x31p "
+}
+
+
+lipSync vo_2_1_1_10_1
+{
+	description	"Take 'em down!"
+	text		"#str_301287"
+	visemes	"english"	"x8q <Take> t3y EY6q k9n <em> EH4q m4r <down> d11r AW39z n11g "
+	visemes	"french"	"x3u <Abattez> AH9r b5o AH11t t8l EY11t <les> l3o EY34z "
+	visemes	"italian"	"<Fateli> f7p AA10s t5p EH6q l3t IY9r <fuori> f4o w3q AW11t r3q IY17x x7a "
+	visemes	"spanish"	"x3k <Eliminadlos> EY12t l3p IY6q m6o IY7q n4s AA10s d7m l5s OW24z s14c "
+}
+
+
+lipSync vo_2_1_1_10_10
+{
+	description	"{scared}Lieutenant! According to the med chip, this is Matthew Kane."
+	text		"#str_301288"
+	visemes	"english"	"{scared} <Lieutenant> l6m UW5q t12n EH10s n3u AH6q n10c t3a x25c <According> AH6q k12n AO8r r3q d3u IH3q NG4u <to> t3r UW4q <the> DH7t IY3q <med> m8v EH8r d5k <chip> CH14o IH9r p9c <this> DH12p IH9r s7l <is> IH5q z5l <Matthew> m7t AE14v TH6c y6q UW4q <Kane> k13m EY9r n25o "
+	visemes	"french"	"x13i {scared} <Lieutenant> l3r y5q UW3q t11j n4u AA13u x44e <Daprès> d6u AH7q p9n r3q <les> l4t EY6q <relevés> r3q UW3q l9v EH3q v3n <de> d3v EY9r <sa> s4p AH9s x5l <biopuce> b3q IY3q OW4q p8j UW18x s10k x15a <cest> s8p EY3q s3o t10q <Kane> k7w AH7q n7n x22g "
+	visemes	"italian"	"{scared} <Tenente> t9l EH5q n3x EY6q n6n t5n EH5q x56c <Secondo> s9o EH3q k9p OW3q n3q d4p OW3q <il> IY3q l3k <chip> k8p IY5q p6i <medico> m9p EY7q d3m IY4q k7l OW7q <questo> k9h w3q EH5q s4j t6h OW8q <è> EH3q <Matthew> m10q AA4q t9m EH3q <Kane> AA3q n7m EH13u x18i "
+	visemes	"spanish"	"{scared} <Teniente> t3o EY7q n4q IY4q EY4q n8n t4j EY3q x51c <Según> s8o EY6q g3p UW4q n5s <el> EY3q l3p x6f <chip> CH4l IY7q p4k <médico> m6r EY6q d3n IY6q k6k OW5q <éste> EY9r s4i t7m EY3q <es> EY3q s5m <Matthew> m12q AA8r t4e t6n EY3q w7q <Kane> k5p AA3q n3s EY7q x10h "
+}
+
+
+lipSync vo_2_1_1_10_11
+{
+	description	"{confused}Is he Strogg?"
+	text		"#str_301289"
+	visemes	"english"	"{confused} <Is> IH8q z5p <he> h4s IY5q <Strogg> s8p t7s r10s AA15w g16o "
+	visemes	"french"	"{confused} <Stroggifié> s9m t5m r3q OW7q IY11t f10o IY14v x19m "
+	visemes	"italian"	"{confused} <È> EH15v <uno> UW3q n7p OW6q <Strogg> s3m t6n r3q OW10s g11m x13i "
+	visemes	"spanish"	"{confused} <Es> EY15v s10q x5r <strogg> s7k t5n r3q OW13u g5g g3j "
+}
+
+
+lipSync vo_2_1_1_10_12
+{
+	description	"No. The neurocyte in his head hasn't been activated. The Strogg don't control him."
+	text		"#str_301290"
+	visemes	"english"	"x4f <No> n12t OW22z <The> DH5s IY3q <neurocyte> n10v y3q UW3q r11t AA6q s11n IH3q t3u EH3q <in> IH8q n7r <his> h3v IH4q z4l <head> h8s EH11t d3s <hasnt> h11t AE4q z5p AH3q n3n t3l <been> b3u IH3q n3t <activated> AE15v k5e t4l IH4q v5l EY14u t3k AH3q d13e x24a <The> DH3j IY3q <Strogg> s12l t4o r7q AA11t g4l <dont> d6q OW8r n4p t3f <control> k5m AH3q n3k t8k r6q OW5q l11q <him> h3p IH9q m11i "
+	visemes	"french"	"<Non> n8q OW17x n4o <le> l4t EY3q <neurocyte> n5q EH3q w5q r3q OW9r k7m IY7q t9l <logé> l3x AO4q j9n EY4q <dans> d4p AA9r <son> s7l OW5q n4k <crâne> k10p r3q AH3q n5m <nest> n5q EY4q s3i t6s <pas> p6w AH3q <activé> AH3q k4e t11l IY32z v3a EY3a x37c <les> l4o EY7q <Stroggs> s3m t12q r3q OW3q z3m <ne> n8r EY9r x5i <le> l6q EY3q <contrôlent> k10n OW6q n5m t5n r3q AO4q l6r x4i <pas> p5c AH3a x6a "
+	visemes	"italian"	"<No> n10r AW17x x4e <il> IY10s l3s <neurocita> n6u EH4q UW6q r3q OW7q CH8p IY6q t5o AA6q <nella> n4p EH5q y3q AA6q <sua> s7l UW4q AA4q <testa> t6m EY12t s3h t7n AA4q <non> n5o OW4q n5n <è> EH5q <stato> s3e t5o AA7q t5n OW3q <attivato> AA5q t9l IY4q v4s AA12u t6i OW3q x37a <Gli> l3i y3q IY6q <Strogg> s3k t8n r3q OW9s g10n <non> n7p OW4q n3q <lo> l3u OW4q <controllano> k7l OW4q n4m t5p r3q OW8r y3q AA3q n4h OW3q x8e "
+	visemes	"spanish"	"<No> n14u OW4q <El> EY3q l3r <neurocito> n4q EY15v UW13u r3q OW6q s6l IY8r t4s OW5q <de> d4q EY4q <su> s6q UW3q <cabeza> k6o AA6q b3q EY7q s7m AA6q <no> n9s OW3q <ha> AA5q <sido> s8q IY6q d5q OW3q <activado> AA3q k5c t5k IY8q b3r AA8q d3i OW3q x52h <los> l3v OW5q s8r x3r <strogg> s5n t9o r4q OW4q g3e g4n <no> n10v OW6q <lo> l5u OW5q <controlan> k4m OW4q n6l t4p r3q OW3q l5r AA4q n5g x9a "
+}
+
+
+lipSync vo_2_1_1_10_13
+{
+	description	"{furrow}How do we know the neurocyte isn't gonna suddenly switch on and he winds up fully Strogg?"
+	text		"#str_301291"
+	visemes	"english"	"x3c {furrow} <How> h4t AW7q <do> d3v UW4q <we> w10t IY8r <know> n8v OW15w <the> DH6s IY3q <neurocyte> n7w y3q UW3q r13u AA6q s12p IH9r t3t EH9r <isnt> IH10s z6q AH3q n6p t3r <gonna> g3v AA3q n8v AH8r <suddenly> s13o AH6q d3v AH4q n4t l8t IY9r <switch> s13n w9s IH7q CH11s <on> AA18x n3s <and> AE3q n3t d3s <he> h6v IY6q <winds> w18y IH12t n5v d3p z4t <up> AH9r p8f x3c <fully> f7r UH4q l13u IY7q <Strogg> s11q t8q r11t AA21z g7f x7e "
+	visemes	"french"	"x7j {furrow} <Et> EY11s <si> s14p IY8r <le> l4r EY4q <neurocyte> n3v EH5q w5q r3q OW8q k13n IY6q t5j <se> s11l UW6q <met> m7r EH10s <en> AA7q <branle> b11n r3q AA3q l18t EY3q <tout> t10k UW5q <dun> d6r UW7q n4k <coup> k4j UW30z x30f <et> EY10r x7i <le> l3m EY3q <transforme> t3s r3q AA6q s10n f7o AO11t r3q m7p EY3q <en> AA5q <vrai> v7m r3q EH13u <Strogg> s9n t11o r3q OW10s x10g <pour> p5m UW6q r3q <de> d6n EY4q <bon> b8n OW6q n16i "
+	visemes	"italian"	"x3k {furrow} <Come> k3s OW6q m7w EH5q <sappiamo> s6s AA6q p7f y11t AA8r m8q OW6q <che> k10n EH3q <il> IY4q l3o <neurocita> n11v EH6q UW9s r3q OW8r CH10p IY9r t6r AA4q <non> n6v OW4q n5s <si> s9p IY3q <attiverà> AA3q t11o IY6q v4s EY6q r3q AA5q <improvvisamente> IY5q m8r p3o r3q OW6q v8p IY6q z6q AA3q m8u EH4q n8p t4p EH9r x7i <trasformandolo> t7o r3q AA7q s7m f4n OW4q r3q m11v AA6q n9v d3v OW5q l3u OW3q <in> IY4q n6v <uno> UW3q n6t OW6q <Strogg> s4j t10k r3q OW7q g11g x12g "
+	visemes	"spanish"	"{furrow} <Cómo> k4v OW4q m6u OW6q <sabemos> s7t AA7q b3u EY6q m6t OW6q s3q <que> k4o EY3q <el> EY4q l3s <neurocito> n4t EY3q UW6q r3q OW8q s7p IY6q t8q OW6q <no> n7t OW5q <se> s7s EY3q <va> b3q AA3q <a> AA3q <activar> AA3q k6e t5q IY5q b4t AA5q r3q <repentinamente> r4q EY6q p6q EY5q n8q t6n IY7q n6u AA5q m6u EY5q n9r t6r EY8r x24m <y> IY8r <acabará> AA4q k11t AA4q b3t AA8r r4q AA3q x5s <siendo> s17r IY8r EY5q n11t d4t OW8r <strogg> s7p t13r r3q OW7q g3m g3o x17m "
+}
+
+
+lipSync vo_2_1_1_10_14
+{
+	description	"He won't. I guarantee it."
+	text		"#str_301292"
+	visemes	"english"	"<He> h7o IY5q <wont> w10s OW17x n10l t3l <I> AY4q <guarantee> g13p EH9s r3q AH3q n8n t7n IY17w <it> IH3f t5a "
+	visemes	"french"	"x4h <Oh> AO5q <non> n5p OW13u n3n <Ca> s7o AH4q <narrivera> n4s AH8r r3q IY7q v5q EH3q r3q AA8r <pas> p5k AH14v x17g "
+	visemes	"italian"	"x4i <Non> n9p OW3q n3s <lo> l3s OW4q <farà> f7p AA6q r3q AA6q <garantisco> g8m AA3q r3q AA3q n7o t4m IY4q s5l k5l OW4q <io> IY12t OW3q x8c "
+	visemes	"spanish"	"<No> n15u OW9s <lo> l3t OW6q <hará> AA3q r3q AA8r x10i <Puedo> p4p UW4q EY4q d3s OW6q <garantizarlo> g3v AA4q r3q AA3q n6n t4m IY7q s4o AA4q r3q l3k OW3q x15h "
+}
+
+
+lipSync vo_2_1_1_10_15
+{
+	description	"H Q, this is Rhino squad. {furrow}We've got an injured Marine who needs immediate evac."
+	text		"#str_301293"
+	visemes	"english"	"<H> EY14v CH9o <Q> k11q y9r UW11t <this> DH8q IH4q s7o <is> IH7q z5p <Rhino> r15w AY11t n3u OW10s <squad> s6m k6h w16w AA12t d7h x24e {furrow} <Weve> w4q IY3q v5m <got> g5u AA7q t3q <an> AE4q n4r <injured> IH14v n3t j9q ER5q d4s <Marine> m3v ER14v IY21z n3v <who> h7v UW4q <needs> n6s IY13u d4l z4q <immediate> IH4q m16v IY35z d15m IY10s AH3q t4t <evac> EH4q v3s AE11s k20k "
+	visemes	"french"	"<QG> k5t <ici> IY10s s4v IY20z x82p <escouade> EH9r s8s k7i w5q AH7q d4m <Rhino> r5q IY10s n4r OW13u x59a {furrow} <Nous> n4o UW9r <avons> AH9r v4o OW5q n3u <un> UW6q n3l <blessé> b3r l4v EY9r s11t EY10s <pour> p6n UW4q r3q <évacuation> EY6q v4r AH5q k11k UW9s AH3q s9r y3q OW3q n3t <immédiate> IY9r m5u EY7q d4h y9r AH7q t17h x5a "
+	visemes	"italian"	"<Comando> k4c OW3q m7n AA11t n9r d3p OW16w <qui> k10a w6q IY15v <squadra> s4m k6l w3q AA11t d4o r4q AA6q <Rhino> r6q IY14v n5r OW10s x24f {furrow} <Abbiamo> AA4q b6h y9r AA3q m7s OW6q <un> UW3q n3r <marine> m4t AA3q r4q IY10s n3r EH4q <ferito> f6p EH3q r3q IY14v t3o OW6q <da> d3r AA5q <far> f6m AA4q r3q <evacuare> EH6q v5t AA6q k7l UW7q AA12u r3q EH4q <immediatamente> IY25z m5u EH7q d4s y3q AA4q t5p AA5q m7t EH8r n6n t6k EH9q x14a "
+	visemes	"spanish"	"<Cuartel> k4n UW5q AA4q r3q t5k EY10s l3s <general> h8p EY3q n4q EY8r r4q AA7q l7r <aquí> AA7q k6h w3q IY5q <pelotón> p3n EY6q l3u OW6q t4r OW7q n8p <Rino> r3q IY11t n3o OW17v x14a {furrow} <Tenemos> t3l EY6q n4r EY3q m6q OW7q s5n <un> UW4q n3q <marine> m5q AA3q r4q IY10s n3s EY3q <herido> EY5q r3q IY9r d3r OW8r <que> k3p EY4q <necesita> n3s EY6q s4m EY7q s4n IY6q t4q AA3q <evacuación> EY4q b3s AA8r k6m UW8r AA6q s4j IY6q OW3q n4s <inmediata> IY5q n6q m4s EY3q d3r IY8r AA4q t6m AA9r x10f "
+}
+
+
+lipSync vo_2_1_1_10_16
+{
+	description	"Rhino squad, meet Falcon 5 at the coordinates being sent."
+	text		"#str_301294"
+	visemes	"english"	"x14n <Rhino> r5q AY14v n3x OW4q <squad> s3o k12r w3q AA21z d3k x19i <meet> m5r IY6q t3p x9j <Falcon> f3t AE4q l8z k9r AH12t n3i <five> f4t AY18y v3r <at> AE3q t3k <the> DH3t IY3q <coordinates> k10r OW3q AO6q r5q d3o AH3q n3u AH3q t4a s3a x4c <being> b3s IY4q IH5q NG4r x37q <sent> s3i EH3q n4o t4p "
+	visemes	"french"	"x14q <Rhino> r7q IY6q n6v OW10t <rejoignez> r7q UW3c j20l w4q AH20z n4r EY9s x5l <Faucon> f5p AO7q k7t OW3q n3w x14t <Cinq> s3y AA9s k15r <aux> AO6q x4k <coordonnées> k7x AO3q AO12u r3q d3u AO6q n6s EY8r <suivantes> s7p UW3q IY9s v3y AA14v t29n "
+	visemes	"italian"	"x5o <Squadra> s4l k16w w3q AA5q d7t r5q AA3q <Rhino> r5q IY3q n16r OW8r <raggiungete> r8r AA5q d4h j3p UW5q n7q d6t j3v j3r t5o EH8r x8r <Falcon> f3z AA4q l3t k10r OW4q n8m <cinque> CH5p IY8r n8p k5s w3q EH7q <alle> AA4q y3q EH6q <coordinate> k15v OW3q OW3q r3q d8p IY7q n5v AA3q t3z EH3q x5l <inviate> IY9r n5n v3o IY8r AA10t t8i EH6q x54l "
+	visemes	"spanish"	"<Pelotón> p3x EY3q l4t OW6q t6r OW8r n13t <Rino> r3q IY7q n6u OW14v x5o <reúnase> r3q EY5q UW10s n4u AA9r s5s EY6q <con> k4r OW4q n4u <Halcón> AA5q l3p k9s OW6q n6r x3f <cinco> s5r IY7q n6q k5t OW4q <en> EY3q n3w <las> l3v AA4q s4l <coordenadas> k7s OW3q OW5q r4q d3r EY4q n4u AA8r d5u AA3q s3o <que> k7p EY3q <estamos> EY3q s3k t5u AA5q m5t OW5q s5s <enviando> EY4q n5r b5u IY8r AA3q n7s d3s OW11s x24a "
+}
+
+
+lipSync vo_2_1_1_10_17
+{
+	description	"Roger that, H Q. Rhino squad, out."
+	text		"#str_301295"
+	visemes	"english"	"x6j <Roger> r4q AA11t j11n ER4q <that> DH7t AE19y t4r <H> EY12t CH12l <Q> k9j y6q UW17w x48e <Rhino> r6q AY12t n4q OW11s <squad> s9l k8i w14u AA20z d5l x9m <out> AW21z t14c x3a "
+	visemes	"french"	"<Bien> b4q y10s AA3q <reçu> r3q UW6q s12q UW8q <QG> k10i x70k <Rhino> r3q IY11t n3t OW12t <terminé> t9o EH7q r3q m4s IY7q n5p EY17w "
+	visemes	"italian"	"x8j <Ricevuto> r3q IY9q CH7p EH4q v5q UW12u t3p OW6q <Comando> k5p OW4q m5v AA7q n4t d3s OW15v <Squadra> s4k k5c w6q AA7q d5s r3q AA4q <Rhino> r6q IY13u n5v OW9s <chiudo> k11n y3q UW6q d3q OW9r x9a "
+	visemes	"spanish"	"x4l <Recibido> r3q EY12t s4k IY7q b3u IY6q d4s OW9r <cuartel> k5o UW3q AA3q r3q t9o EY7q l3o <general> h7m EY4q n5o EY6q r3q AA9s l14m <Pelotón> p27a EY6q l3q OW7q t4o OW8r n19q <Rino> r3q IY7q n5o OW14t <corto> k7n OW5q r4q t9k OW9q x7e "
+}
+
+
+lipSync vo_2_1_1_10_18
+{
+	description	"{happy}Welcome back to the land of the living, Kane."
+	text		"#str_301296"
+	visemes	"english"	"{happy} <Welcome> w6q EH4q l7r k3t AH3q m7y <back> b7t AE15v k4g <to> t6q UW4q <the> DH6s IY3q <land> l15t AE12t n4x d4v <of> AH4q v4n <the> DH6s IY3q <living> l12u IH8r v4p IH4q NG11q <Kane> k9n EY16w n14p "
+	visemes	"french"	"{happy} <Bienvenue> b3h y12u AA5q v11r n9s UW7q <dans> d5q AA3q <le> l9r EY4q <monde> m10p OW3q n8p d3n <des> d5m EY7q <vivants> v10l IY5q v9k AA12s x6c <Kane> k11k AH3q n5k x34f "
+	visemes	"italian"	"{happy} <Bentornato> b5l EY7q n4l t6l OW6q r4q n8u AA8r t7q OW6q <nella> n8t EH6q y4q AA6q <terra> t7l EY3q r3q AA3q <dei> d7s EH10s IY16w <vivi> v4p IY11t v4k IY7q x6g <Kane> AA3g n28i EH3q x14c "
+	visemes	"spanish"	"{happy} <Bienvenido> b9p IY3q EY5q n5l b4q EY5q n3n IY8q d3s OW8r <de> d4r EY3q <nuevo> n6q UW9r EY3q b3v OW3q <al> AA3q l5t <mundo> m6r UW3q n5r d3q OW9r <de> d3p EY3q <los> l4r OW8q s4k <vivos> b3l IY11s b4l OW8q s4l <Kane> k8r AA3q n3u EY8q x9g "
+}
+
+
+lipSync vo_2_1_1_10_19
+{
+	description	"{furrow}C'mon. Let's move out."
+	text		"#str_301297"
+	visemes	"english"	"x3k {furrow} <Cmon> k3r AH3q m6w AA14v n4l x29e <Lets> l4k EH5q t4l s5n <move> m7x UW7q v5s <out> AW16w t3e x11a "
+	visemes	"french"	"{furrow} <Allez> AH8r l3s EY15w x40a <Levons> l6r UW8r v4t OW11t n9n <le> l11w EY3q <camp> k3l AA3f x5a "
+	visemes	"italian"	"{furrow} <Forza> f7r AW7q r3q t7m s5r AA6q <muoviamoci> m13p w7q AW3q v4p y5q AA5q m7t OW5q CH11o IY6q x11a "
+	visemes	"spanish"	"{furrow} <Venga> b9r EY8r n4p g5q AA14u x28a <Salgamos> s6k AA6q l6n g3r AA9s m6q OW17w s15g "
+}
+
+
+lipSync vo_2_1_1_10_2
+{
+	description	"{furrow}Flank left! Flank left!"
+	text		"#str_301298"
+	visemes	"english"	"x4a {furrow} <Flank> f9p l8x AE3q NG6o k3n <left> l7w EH12u f8f t4a x4a <Flank> f11l l9v AE3q NG4k k3n <left> l8u EH15w f13h t12a "
+	visemes	"french"	"x3a {furrow} <Flanc> f9e l40u AA4q <gauche> g3s AO4q SH12o x17a <Flanc> f9k l11u AA16w <gauche> g8t AO21z SH15m x7a "
+	visemes	"italian"	"{furrow} <Fianco> f4o y3q AA8r n5g k7s OW6q <sinistro> s5p IY5q n4p IY10s s3i t10p r3q OW10s x9a <Sinistro> s8p IY10s n6v IY10s s3i t22v r3q OW6q x6a "
+	visemes	"spanish"	"x3a {furrow} <Flanco> f6j l6q AA4q n9m k5o OW3q <izquierdo> IY9r s3c k7k w3q IY4q EY4q r4q d6o OW10s x9c <Flanco> f4i l5r AA6q n9o k4n OW3q <izquierdo> IY8q s3e k9p w3q IY3q EY3q r5q d4p OW12t x5c "
+}
+
+
+lipSync vo_2_1_1_10_3
+{
+	description	"I'm on it!"
+	text		"#str_301299"
+	visemes	"english"	"<Im> AY19y m6s <on> AA19z n4u <it> IH10s t4a "
+	visemes	"french"	"x3h <Je> j4r UW11t <prends> p38u r3q AA3a "
+	visemes	"italian"	"<Ci> CH6o IY12u <sono> s5s OW10t n9t OW11s x7a "
+	visemes	"spanish"	"x4r <Estoy> EY12t s5l t10p OW9s IY8r x3w <en> EY5q n4v x16w <ello> EY11t l4v l3u OW7q x12f "
+}
+
+
+lipSync vo_2_1_1_10_4
+{
+	description	"All clear!"
+	text		"#str_301300"
+	visemes	"english"	"<All> AO19z l5c <clear> k7l l6u IH24z r5q x8c "
+	visemes	"french"	"x8k <Cest> k8q EY6q s3n t3k <bon> b5t OW12t n13k x12a "
+	visemes	"italian"	"<Via> v5k IY14v AA6q <libera> l4r IY10s b4u EH12u r3q AA7q x8a "
+	visemes	"spanish"	"<Todo> t3n OW11t d3s OW7q <despejado> d3o EY9r s5f p4m EY8r h5n AA11t d3r OW18x "
+}
+
+
+lipSync vo_2_1_1_10_5
+{
+	description	"We're too late for this one."
+	text		"#str_301301"
+	visemes	"english"	"<Were> w4q IY3q r3q <too> t10p UW10t <late> l10x EY15w t4c <for> f5o AO3q r3q <this> DH4u IH9r s8n <one> w6q AH4q n6o x21k "
+	visemes	"french"	"x5l <On> OW4q n7p <arrive> AH7q r3q IY6q v3i EY3q <trop> t7l r3q AO7q <tard> t6q AH11t r3q <pour> p6k UW3q r3q <celui> s9n l3r UW5q IY9q <là> l3n AH3q x20i "
+	visemes	"italian"	"x3a <Troppo> t3l r3q AW9r p9p OW7q <tardi> t9t AA13u r4q d7k IY8q <per> p5f EH3q r4q <lui> l6k UW9q IY13s x9c "
+	visemes	"spanish"	"x3r <Hemos> EY5q m7t OW4q s3q <llegado> l3t l3u EY3q g3s AA7q d3u OW7q <demasiado> d3t EY4q m5r AA6q s8r IY3q AA3q d3u OW5q <tarde> t6t AA7q r3q d3u EY4q <para> p7t AA4q r4q AA3q <éste> EY5q s8n t11k EY3q x8h "
+}
+
+
+lipSync vo_2_1_1_10_7
+{
+	description	"{furrow}I'm doin' you a favor, Marine."
+	text		"#str_301302"
+	visemes	"english"	"{furrow} <Im> AY6q m12u <doin> d7v OY16x n7x <you> y4q UW10s <a> AH4q x8h <favor> f5q EY15w v4r ER5q <Marine> m11u ER9s IY16w n5o x10i "
+	visemes	"french"	"x3a {furrow} <Je> j8i UW3a <te> t5l EY10s <rends> r3q AA15w <service> s11q EH12u r3q v3p IY19y s8l <marine> m9l AH12t r3q IY9q n12f EY5a "
+	visemes	"italian"	"{furrow} <Ti> t4h IY8q <sto> s3f t7o AW9s x3e <facendo> f4o AA7q CH7s EY7q n6t d3u OW5q <un> UW3q n7p <favore> f5p AA4q v7p OW6q r3q EH4q <marine> m14m AA3q r4q IY11q n14f EH3f x13a "
+	visemes	"spanish"	"{furrow} <Te> t3t EY3q <estoy> EY4q s3i t5o OW4q IY8r <haciendo> AA4q s3m IY3q EY4q n4s d3s OW3q <un> UW3q n3l <favor> f5t AA6q b3q OW14v r3q <marine> m12t AA3q r3q IY9r n4u EY11t x14j "
+}
+
+
+lipSync vo_2_1_1_10_8
+{
+	description	"{scared}Wait!"
+	text		"#str_301303"
+	visemes	"english"	"{scared} <Wait> w15w EY13u t8k x3a "
+	visemes	"french"	"{scared} <Attendez> AH4q t7r AA6q d4t EY18x "
+	visemes	"italian"	"{scared} <Fermo> f5m EH9s r3q m7s OW6q x7a "
+	visemes	"spanish"	"{scared} <Quieto> k4m w3q IY7q EY4q t6l OW24z "
+}
+
+
+lipSync vo_2_1_1_10_9
+{
+	description	"Take a reading on him."
+	text		"#str_301304"
+	visemes	"english"	"x3k <Take> t3r EY8r k5r <a> AH5q <reading> r14v EH5q d4t IH3q NG11t <on> AA11s n3p <him> h3r IH4q m15i "
+	visemes	"french"	"<Lancez> l5v AA5q s10t EY4q <un> UW3q n3m <bioscan> b3p IY4q OW3q z6u k5q AH6q n6p <sur> s8s UW3q r3q <lui> l3m UW3q IY14t "
+	visemes	"italian"	"<Fagli> f4k AA5q l3v IY3q <una> UW14v n3x AA8r <scansione> s4p k4r AA4q n4r s7p y4q OW5q n6o EH5q x10c "
+	visemes	"spanish"	"<Tómele> t3m OW6q m8r EY5q l4t EY3q <una> UW3q n10s AA4q <lectura> l5v EY4q k6f t5r UW9s r4q AA15u "
+}
+
+
+lipSync vo_2_1_1_11_1
+{
+	description	"You can't go running around unarmed. Grab Moore's weapons."
+	text		"#str_301305"
+	visemes	"english"	"<You> y6q UW3q <cant> k12p AE11t n6i t3l <go> g3w OW12t <running> r8r AH5q n4t IH5q NG3r <around> ER9r AW19y n3q d3s <unarmed> AH5q n5q AA21z r3q m6i d4g <Grab> g13m r4q AE10s b6n <Moores> m8t UH9s r3q z6j <weapons> w9r EH8r p8i AH3q n10k z17i "
+	visemes	"french"	"x4c <Vaut> v7m AO3q <mieux> m6p y8r UW5q <pas> p13s AH6q <se> s3k UW3q <balader> b3u AH8r l5v AH5q d6o EY7q <sans> s6n AA8r x5n <arme> AH15w r3q m7m EY3q x32a <prends> p8l r3q AA7q <celles> s7o EH8r l3m <de> d7u EY4q <Moore> m12p OW3q OW3q r3q x23f "
+	visemes	"italian"	"<Non> n12k OW5q n7o <puoi> p4m w6q AW4q IY9r <girare> d3m j6m IY5q r4q AA6q r3q EH3q <disarmato> d5l IY7q z6n AA3q r3q m9p AA8q t7f OW3g x26a <Prendi> p7h r3q EY9s n3o d3q IY7q <le> l3t EH9s <armi> AA6q r3q m5q IY4q <di> d4p IY4q <Moore> m7q OW3q OW5q r4q EH3f x7a "
+	visemes	"spanish"	"<No> n12v OW4q <puedes> p10n UW3q EY4q d3r EY5q s7r <ir> IY7q r3q <por> p6m OW5q r3q <ahí> AA4q IY10s <desarmado> d3s EY5q s7p AA4q r3q m5s AA7q d3p OW6q x18e <coge> k5n OW8r h8p EY3q <las> l3u AA6q s7r <armas> AA5q r3q m6s AA5q s3m <de> d3t EY4q <Moore> m6r OW3q OW6q r5q EY4a "
+}
+
+
+lipSync vo_2_1_1_12_1
+{
+	description	"Yeah... {happy}the Strogg really did a number on you."
+	text		"#str_301306"
+	visemes	"english"	"x15h <Yeah> y14u AE22z x37f {happy} <the> DH3i IY3q <Strogg> s6l t13l r11t AA12u g6o <really> r7q IH5q l7w IY6q <did> d4r IH7r d6v <a> AH3q <number> n7v AH9s m6t b3v ER13u <on> AA7q n6s <you> y6q UW3q x17j "
+	visemes	"french"	"x13l <Ouais> w4q EH18x x59i {happy} <les> l4o EY10r <Stroggs> s4j t5j r3q OW7q z3n <tont> t9l OW7q n3n <vraiment> v6k r3q EH7q m8s AA4q <pas> p6n AH7q <fait> f10n EH4q <de> d17r EY4q <cadeau> k4n AH4q d3p AO3q x16h "
+	visemes	"italian"	"x4i <Già> d5l j7s IY4q AA12u x53k {happy} <gli> l3i y6q IY5q <Strogg> s6l t5p r3q OW10s g10m <ti> t3p IY3q <hanno> AA3q n3u y3q OW5q <conciato> k6n OW3q n5r CH7p AA5q t6n OW3q <per> p8p EH4q r3q <benino> b7r EH4q n4x IY12t n7n OW3q x9a "
+	visemes	"spanish"	"x3k <Sí> s10p IY18x x32l {happy} <menudo> m12v EY6q n4u UW4q d3s OW7q <trabajito> t7q r3q AA3q b3r AA7q h9p IY7q t3p OW6q <que> k5o EY5q <te> t5n EY5q <hicieron> IY5q s4l IY5q EY4q r3q OW4q n4q <los> l3q OW6q s6p x3n <strogg> s5l t8n r3q OW7q g4i g3g x5a "
+}
+
+
+lipSync vo_2_1_1_13_1
+{
+	description	"You have to keep up with us, Kane."
+	text		"#str_301307"
+	visemes	"english"	"<You> y7q UW3q <have> h11s AE10s v4f <to> t6p UW7q <keep> k9q IY12t p3s <up> AH10s p7m <with> w4q IH3q DH5m <us> AH8q s5o <Kane> k11n EY16w n12l "
+	visemes	"french"	"<Ne> n15l EY5q <vous> v6q UW24z <éloignez> EY9s l5i w4q AH8r n7n EY3q <pas> p3s AH9r <de> d16o EY16w <nous> n8l UW3q <Kane> k3e AH3a n4a "
+	visemes	"italian"	"<Devi> d5c EY7q v5h IY8q <starci> s5j t5q AA5q r3q CH12r IY7q <dietro> d4l y10s EY10s t8k r4q OW8q x10k <Kane> AA3q n22k EH5q x6a "
+	visemes	"spanish"	"<Tiene> t4g IY8q EY3q n3r EY7q <que> k3m EY5q <mantener> m4q AA6q n7m t3p EY4q n4q EY5q r3q <nuestro> n6p UW5q EY4q s5j t6l r5q OW6q <ritmo> r4q IY9s t3n m9p OW8q <Kane> k7s AA3q n3w EY8q x14i "
+}
+
+
+lipSync vo_2_1_1_13_2
+{
+	description	"What are you waitin' for? The Strogg? Let's go!"
+	text		"#str_301308"
+	visemes	"english"	"x14m <What> w5q AH4q t3t <are> AA4q r4q <you> y3q UW3q <waitin> w8r EY6q t3k IH4q n3t x8k <for> f4q AO9s r3q <The> DH4t IY5q x6l <Strogg> s5k t8o r6q AA19y g6e x14c <Lets> l3l EH8r t4i s3g <go> g14t OW25z x7a "
+	visemes	"french"	"<Mais> m4g AH3q IY3q s3k <quest> k7n EY5q s3n t3k <ce> s4q UW6q <que> k8s UW3q <tattends> t3k AH3a t4r t3z EH3q n14m d16r z9l x9r <Les> l9x EY11s <Stroggs> s4i t16n r3q OW3q z3v <Allons> AH3q l6s OW6q n4l x3p <y> IY39z "
+	visemes	"italian"	"x3c <Che> k3q EH9r <stai> s5i t6s AA6q IY10s <aspettando> AA7q s5h p7r EH3q t13n AA10s n6k d3n OW3q <Gli> l3p y10r IY6q <Strogg> s3j t11t r6q OW10s g13f x13q <Andiamo> AA4q n6n d3o y4q AA12u m5m OW13t x8a "
+	visemes	"spanish"	"x4n <A> AA7q <qué> k9o EY3q <estás> EY5q s3i t5p AA8r s4p <esperando> EY6q s3e p7r EY5q r3q AA5q n8k d3k OW7q x11k <A> AA7q <los> l4m OW6q s6k x4k <strogg> s5f t10r r3q OW6q g4i g3i x10e <Vámonos> b12t AA5q m8l OW5q n5m OW14t s13g "
+}
+
+
+lipSync vo_2_1_1_13_3
+{
+	description	"C'mon, Kane. Keep up with us."
+	text		"#str_301309"
+	visemes	"english"	"x4n <Cmon> k3w AH3q m7v AA16w n12q <Kane> k6o EY20z n6o <Keep> k7q IY9s p7m <up> AH12u p7h <with> w4q IH3q DH4l <us> AH12r s3c x4a "
+	visemes	"french"	"x6q <Allez> AH4q l3x EY51z <Kane> k3k AH6q n4c <Colle> k6p AO4q l3v EY4q <nous> n4s UW7q <aux> AO5q <basques> b5q AH18y s5f k8g UW3a "
+	visemes	"italian"	"x5r <Forza> f3u AW8r r3q t6k s4n AA3q <Kane> AA3q n7n EH14v x19r <stacci> s3i t5n AA9s CH8n IY8r <dietro> d3r y9s EY5q t4k r7q OW7q x6e "
+	visemes	"spanish"	"<Vamos> b14r AA18y m7t OW6q s4p <Kane> k5u AA3q n3v EY8r <Mantén> m8u AA3q n8q t4v EY5q n3t <nuestro> n3t UW3q EY4q s4k t6t r3q OW5q <ritmo> r3q IY6q t3s m8u OW12t x6g "
+}
+
+
+lipSync vo_2_1_1_13_4
+{
+	description	"{furrow}Stick with the group, Kane. There's no telling when Strogg might show up."
+	text		"#str_301310"
+	visemes	"english"	"x4c {furrow} <Stick> s13l t6o IH7q k8l <with> w4q IH3q DH3l <the> DH5q IY3q <group> g11o r3q UW11t p5l <Kane> k11p EY5q n26q x22a <Theres> DH3a EH3q r3q z6m <no> n6v OW11t <telling> t13o EH5q l8v IH3q NG6t <when> w6q EH4q n6r <Strogg> s3m t12n r6q AA10s g7m <might> m4r AY11t t5m <show> SH11q OW15v <up> AH19y p8a "
+	visemes	"french"	"x5i {furrow} <Reste> r3q EH9s s3l t7r EY4q <avec> AH3q v3u EH4q k5i x3i <nous> n23r UW16w x26h <Kane> k3a AH3a n3a x31f <Les> l3q EY5q <Stroggs> s6m t6m r3q OW6q z3l x7e <peuvent> p3r EH5q v5l <se> s8p UW3q <montrer> m8s OW3q n7n t3n r3q EY4q <dun> d6r UW6q n4s <instant> AA8q s3k t7p AA6q <à> AH12t <lautre> l7q AA3q t7j r3q x13a "
+	visemes	"italian"	"x8k {furrow} <Resta> r3q EY6q s3i t5o AA6q <col> k7o OW3q l4u <gruppo> g10p r3q UW8r p12g OW3q <Kane> AA3q n7j EH12u x56n <Gli> l3k y5q IY6q <Strogg> s4h t5o r3q OW17x g7i <possono> p4q AW6q s3j s4n OW4q n3o OW6q <saltar> s7o AA4q l3l t8n AA6q r4q <fuori> f7i w4q AW3q r3q IY6q <a> AA5q <sorpresa> s9o OW7q r3q p6o r3q EH13u s5k AA3q x8a "
+	visemes	"spanish"	"{furrow} <Pégate> p3t EY10s g5q AA6q t7n EY6q <al> AA3q l3p <grupo> g7m r3q UW6q p9k OW5q <Kane> k8m AA3q n3s EY7q x37c <No> n11s OW4q <se> s7p EY6q <sabe> s7q AA4q b3n EY4q <cuándo> k9i UW5q AA3q n4q d6r OW5q <pueden> p7l UW4q EY3q d4q EY4q n4s <aparecer> AA4q p4o AA3q r3q EY10r s4l EY8q r3q <los> l3q OW7q s6q x3l <strogg> s4k t10n r3q OW4q g3f g8c "
+}
+
+
+lipSync vo_2_1_1_21_1
+{
+	description	"Kane, you look like hell."
+	text		"#str_301311"
+	visemes	"english"	"<Kane> k10q EY20z n7q <you> y10s UW3q x5o <look> l9v UH4q k8m <like> l5v AY12t k3n <hell> h16q EH9r l17q x7a "
+	visemes	"french"	"x3a <Tas> t8p AH10s <une> UW4q n12t <de> d9r EY6q <ces> s14t EH3q <tronches> t21p r3q OW7q n13m SH18r x13m "
+	visemes	"italian"	"<Kane> AA3g n3q EH3q <hai> AA3q IY17x x10n <un> UW10s n10v <aspetto> AA6q s5k p7r EY7q t9q OW4q <di> d4w IY6q <merda> m8v EH13u r3q d10m AA11r "
+	visemes	"spanish"	"<Kane> k4u AA3q n3v EY6q x16r <tienes> t10n IY5q EY3q n5s EY6q s7s <un> UW4q n6u <aspecto> AA5q s6n p8t EY6q k8e t8r OW3q <inmundo> IY5q n7p m6t UW3q n10t d5p OW11s x13i "
+}
+
+
+lipSync vo_2_1_1_21_2
+{
+	description	"{happy}You're damn lucky we happened to be in the neighborhood."
+	text		"#str_301312"
+	visemes	"english"	"{happy} <Youre> y6q UH5q r3q <damn> d8t AE23z m9u <lucky> l10w AH13u k6o IY9s <we> w7q IY10s <happened> h7t AE15v p4r AH3q n4t d3u <to> t3r UW3q <be> b3x IY10s <in> IH3q n6s <the> DH3v IY3q <neighborhood> n5v EY13u b5t ER6q h3t UH15v d11f "
+	visemes	"french"	"x4f {happy} <Tas> t4m AH21z <un> UW3q n3l <sacré> s12o AH6q k14o r3q EY7q <bol> b6t AO8r l6l <quon> k7n OW3q n5o <se> s3m UW3q <soit> s8n w4q AH8r <pointés> p7f w8r AA5q t6l EH3q r3q <dans> d3p AA3q <le> l6q EY3q <secteur> s6n EH6q k4i t7l EH18x r3q x8a "
+	visemes	"italian"	"{happy} <Tè> t4n EH21z <andata> AA3q n8o d3u AA7q t5r AA6q <bene> b9s EY17x n6s EH9r <che> k9o EH3q <eravamo> EH4q r3q AA5q v5s AA5q m6r OW5q <da> d5r AA6q <quelle> k5j w5q EH5q y4q EH7q <parti> p7p AA12t r3q t13h IY9q x8a "
+	visemes	"spanish"	"x10p {happy} <Has> AA8q s3m <tenido> t7r EY6q n3t IY8r d3u OW4q <mucha> m6t UW5q CH7s AA7q <suerte> s6p UW6q EY3q r3q t4s EY5q <de> d5t EY5q <que> k3m EY3q <estuviéramos> EY3q s3k t6p UW4q b4s IY4q EY3q r3q AA4q m6s OW6q s4i <por> p5p OW5q r4q <los> l4u OW6q s6t <alrededores> AA5q l4t r3q EY8r d3u EY6q d5q OW8q r4q EY9q s12n x4a "
+}
+
+
+lipSync vo_2_1_1_21_3
+{
+	description	"{happy}Heh, if we'd been a couple minutes later, you'd be a squib."
+	text		"#str_301313"
+	visemes	"english"	"x3f {happy} <Heh> h9p EH5q <if> IH3q f3m x49e <wed> w15w IY6q d3t <been> b4w IH15w n3m <a> AH3f <couple> k5s AH11t p4n AH3q l5w <minutes> m9x IH3q n6w AH4q t3n s3m <later> l9v EY9s t3q ER6q x23f <youd> y9s UW3q d4u <be> b4x IY11t <a> AH4q <squib> s9o k7q w10t IH14v b9g "
+	visemes	"french"	"x8j {happy} <Eh> EY3q x59k <deux> d10r UW5q <minutes> m3v IY8r n4s UW6q t13m EY9r <plus> p4n l3x UW3q s3v <tard> t3u AH15v r3q x34e <et> EY8r <taurais> t8p AA5q r3q EH10s <viré> v8o IY8r r3q EY8r <ta> t3n AH7q <cuti> k8m UW7q t6k IY13t x10c "
+	visemes	"italian"	"x10n {happy} <Eh> EH10s x35a <Solo> s6g OW7q l5t OW3q <un> UW3q n11n <paio> p5t AA5q y11t OW3q <di> d3u IY6q <minuti> m3u IY4q n4t UW5q t5n IY6q <più> p4k y4q UW4q <tardi> t10n AA13u r3q d17p IY8q <e> EH3q <ora> OW4q r3q AA8q <saresti> s6n AA4q r4q EH5q s3j t6i IY6q <uno> UW4q n9t OW3q <di> d6q IY5q <loro> l11s OW4q r3q OW6q x6a "
+	visemes	"spanish"	"{happy} <Je> h6u EY8r x55k <Si> s8s IY3q <hubiéramos> UW3q b3v IY3q EY3q r3q AA3q m7u OW6q s3q <llegado> l3u l3v EY5q g3w AA6q d4v OW3q <un> UW3q n8p <par> p4u AA6q r3q <de> d3v EY5q <minutos> m4t IY3q n6t UW3q t6r OW7q s3t <más> m7u AA6q s4i <tarde> t5t AA3q r3q d9s EY5q <serías> s10t EY3q r3q IY11t AA3q s11u <una> UW4q n18u AA3q <rata> r4q AA5q t11n AA3q x14l "
+}
+
+
+lipSync vo_2_1_1_22_1
+{
+	description	"You better say a lot of prayers tonight because someone's sure watchin' over you."
+	text		"#str_301314"
+	visemes	"english"	"x5e <You> y5q UW4q <better> b6s EH6q t3u ER5q x5i <say> s5r EY4q <a> AH4q <lot> l13u AA7q t3u <of> AH3q v9e <prayers> p4r r5q EH7q r3q z6j <tonight> t3p AH3q n6r AY12t t3h <because> b3n IH3q k5p AO3q z7k <someones> s5l AH5q m7t w3q AH3q n3p z4n <sure> SH14q UH3q r4q <watchin> w12t AA6q t6i CH4p IH4q n4r <over> OW9s v5m ER3q <you> y11s UW7q x8e "
+	visemes	"french"	"x3a <Il> IY3q l3s <y> IY3q <en> AA5q <a> AH11t <un> UW4q n7n <qui> k5n IY4q <ta> t6p AA5q <à> AH5q <la> l4w AH7q <bonne> b8s AO5q n15u <là> l13v AH3q <haut> h3o AO7q x49c <et> EY7q <tu> t9i UW4q <lui> l3o UW3q IY3q <dois> d4n w4q AH3q <une> UW4q n6o x7l <sacrée> s4r AH8r k6p r3q EY6q <chandelle> SH10t AA7q d4r EH10s l3l x17c "
+	visemes	"italian"	"<Ti> t3n IY6q <consiglio> k6m OW8r n3n s8p IY5q l6r OW5q <di> d7p IY4q <pregare> p6o r3q EH4q g7r AA5q r3q EH4q <molto> m6r OW3q l9t t8l OW8q <stanotte> s5i t4o AA6q n3r AW11t t7n EH7q <perché> p6q EY3q r3q k8o EH4q <lassù> l5r AA5q s6n s4n UW9r <qualcuno> k5m w3q AA3q l4n k9o UW4q n5q OW6q <ti> t5k IY4q <vuole> v3m w4q AW3q l5v EH4q <bene> b5s EY10s n5n EH10r x5a "
+	visemes	"spanish"	"x5i <Será> s5q EY6q r3q AA5q <mejor> m6s EY4q h7o OW5q r4q <que> k6p EY5q <reces> r4q EY10s s5o EY5q s3o <mucho> m7r UW6q CH10p OW3q <esta> EY5q s4k t6s AA3q <noche> n6r OW6q CH11p EY9s <porque> p7p OW4q r4q k3i w3q EY4q <fijo> f8k IY7q h7q OW5q <que> k6p EY4q <hay> AA3q IY7q <alguien> AA3q l3w g6r IY3q EY3q n6q <cuidando> k3h UW3q IY6q d5v AA3q n6s d3t OW4q <de> d5o EY7q <ti> t7o IY9r x9i "
+}
+
+
+lipSync vo_2_1_1_22_2
+{
+	description	"We were passing through this building trying to get to the extraction point. Never thought we'd find you here."
+	text		"#str_301315"
+	visemes	"english"	"x3k <We> w3q IY3q <were> w4q ER3q <passing> p10o AE15v s6p IH4q NG4k <through> TH4o r3q UW3q <this> DH3s IH3q s3l <building> b8p IH5q l7v d3t IH3q NG7r <trying> t8p r3q AY3q IH3q NG3s <to> t3t UW3q <get> g6o EH3q t3k <to> t7n UW3q <the> DH6p IY4q <extraction> IH3q k4k s8m t6l r3q AE7q k5h SH5m AH3q n7l <point> p9m OY14u n8a t3a x43a <Never> n3o EH3q v7o ER4q x4f <thought> TH4t AO7q t3n <wed> w6q IY5q d5i <find> f5n AY14v n8s d3r <you> y4q UW9s <here> h6t IH6q r6q x16g "
+	visemes	"french"	"<On> OW3f n6f <faisait> f8g UW6q z6n EH9r <que> k6c UW3a <passer> p4o AH8r s9o EY5q <dans> d4s AA4q <le> l3t EY4q <coin> k10n w3q AA6q <pour> p11k UW7q r3q <rejoindre> r3q UW3q j7o w4q AA4q d5q r4q UW3q <la> l3r AH3q <zone> z5p AO3q n3t EY3q <dextraction> d4p EH4q k4k s5k t5i r5q AH4q k6i t9m IY3q OW3q n13m x26a <On> OW4q n3n <naurait> n6p AA4q r3q EH7q <jamais> j6s AH5q m7s EH8q <pensé> p5n AA7q s7o EY4q <te> t3i EY3a <trouver> t9k r3q UW4q v5q EY6q <là> l3v AH13u x7a "
+	visemes	"italian"	"x8a <Stavamo> s3a t5g AA6q v3l AA7q m7q OW4q <raggiungendo> r4q AA4q d3t j6n UW7q n3r d3p j3t EY9s n5p d3s OW5q <il> IY4q l5g <punto> p4q UW5q n5o t4q OW6q <destrazione> d6s EH7q s3k t11p AA3q t7h s5p y3q OW11t n6p EH3q x14i <Non> n6l OW3q n8m <avremmo> AA3q v4o r3q EH5q m7q OW3q <mai> m7p AA5q IY4q <pensato> p6l EH4q n5n s8n AA11t t6i OW3q <di> d4l IY5q <trovarti> t7i r4q OW3q v4o AA4q r3q t10h IY5q <qui> k7e w3q IY4q x11e "
+	visemes	"spanish"	"x4n <Estábamos> EY7q s4l t7o AA5q b3u AA3q m6r OW6q s4p <atravesando> AA6q t4o r3q AA4q b3r EY6q s7o AA4q n5q d3r OW3q <el> EY3q l3q <edificio> EY3q d3l IY8q f6k IY8q s5i IY7q OW3q x9k <intentando> IY4q n6o t3t EY4q n7n t3s AA4q n4s d3u OW3q <llegar> l3n l3r EY4q g3s AA4q r3q <al> AA5q l3r <punto> p8m UW4q n7q t3r OW4q <de> d4q EY3q <extracción> EY3q k3n s4l t5m r3q AA4q k3e s5k IY5q OW4q n7l x8a <No> n10r OW6q <pensamos> p9r EY4q n5p s7q AA4q m6s OW7q s4l <que> k5n EY3q <estarías> EY3q s3f t4o AA3q r4q IY10s AA4q s8p <ahí> AA4q IY13t x5e "
+}
+
+
+lipSync vo_2_1_1_22_3
+{
+	description	"We all thought you died back at the hub along with Strauss."
+	text		"#str_301316"
+	visemes	"english"	"<We> w4q IY9r <all> AO14v l4c <thought> TH4t AO10s t7k <you> y6q UW3q <died> d9r AY21z d3m <back> b6s AE8r k5p <at> AE5q t3e <the> DH5r IY3q <hub> h8r AH12u b4r <along> AH3q l8v AO10s NG7r <with> w3q IH3q DH3m <Strauss> s5k t7l r11s AW12t s17i x4a "
+	visemes	"french"	"x4g <On> OW3q n4m <était> EY7q t7l EH5q <persuadés> p8l EH5q r3q s11m UW7q AH3q d4s EY7q <que> k6k UW7q <Strauss> s11q t4n r3q AA12u s10o <et> EY6q <toi> t7l w5q AH4q <vous> v6k UW5q x4m <étiez> EY11s t3n y3q EY4q <canés> k8s AH4q n5o EY6q x12g "
+	visemes	"italian"	"x5g <Credevamo> k3g r4q EH4q d7p EH3q v5r AA5q m7r OW6q <che> k6n EH4q x3f <fossi> f3l OW7q s3o s5p IY3q <morto> m6s AW4q r4q t9o OW5q <nel> n6p EH3q l3p <Cuore> k10o w3q AW3q r3q EH3q <insieme> IY6q n5o s5o y3q EY3q m3q EH3q <a> AA3q <Strauss> s3k t10o r6q AH9r UW5f s5h s7g "
+	visemes	"spanish"	"<Todos> t4t OW5q d5r OW5q s4k <creíamos> k5m r3q EY3q IY10s AA3q m5q OW6q s5m <que> k5q EY3q <habías> AA3q b3q IY8r AA4q s3k <muerto> m4o UW3q EY3q r3q t8o OW6q <en> EY6q n3p <el> EY4q l3i <Centro> s4n EY5q n7q t5o r3q OW4q <junto> h8l UW3q n8p t3r OW4q <con> k5n OW3q n10p <Strauss> s5m t6l r3q AA3q UW7q s6m s7l "
+}
+
+
+lipSync vo_2_1_1_23_1
+{
+	description	"If we'd been five or ten seconds later, youd be a full Strogg right now."
+	text		"#str_301317"
+	visemes	"english"	"x3e <If> IH4q f8k <wed> w5q IY5q d4o <been> b4t IH6q n5r x3h <five> f6p AY15w v3p <or> AO3q r3q <ten> t11p EH3q n8r <seconds> s9o EH10s k6n AH3q n4n d3m z5n <later> l10u EY12u t3p ER8q x31e <youd> y10r UW7q d4q <be> b6o IY9r <a> AH3q x8e <full> f4o UH3q l9q <Strogg> s10l t7o r9s AA11t g5k <right> r6q AY9r t3f <now> n12n AW5q x13c "
+	visemes	"french"	"x4a <Si> s9i IY3q <on> OW4q n4t <était> EY6q t6p EH5q <intervenu> AA6q t8p EH6q r3q v5r UW5q n6s UW5q <dix> d3n IY3q s3o <secondes> s3s UW7q g7o OW5q n14q d5r EY10r <plus> p3o l3x UW3q s3y <tard> t3w AH3q r5q x58f <tu> t3i UW8q <serais> s7m r4q EH4q <un> UW8r n7q <Strogg> s3m t9k r3q OW10s <là> l9p AH13u x15g "
+	visemes	"italian"	"x4a <Fossimo> f4k OW8q s4m s3p IY5q m5u OW3q <arrivati> AA3q r3q IY6q v3t AA8r t6o IY6q <cinque> CH11q IY6q n8u k3q w3q EH3q <o> AW5q <dieci> d7n y4q EY4q CH6p IY7q <secondi> s5q EH4q k7o OW5q n5s d3r IY5q <dopo> d5t OW11t p7n OW7q x23k <ora> OW6q r3q AA6q <saresti> s8p AA3q r3q EH5q s4i t5n IY3q <un> UW3q n3p <vero> v5p EH4q r3q OW7q <Strogg> s6k t6q r3q OW13u g9k x9h "
+	visemes	"spanish"	"x3g <Si> s6n IY3q <llegamos> l3s l3s EY3q g5p AA4q m6s OW4q s5t <a> AA4q <tardar> t7s AA3q r3q d6m AA9r r3q x3a <cinco> s3m IY7q n6p k5n OW5q <o> OW3q <diez> d5o IY3q EY5q s4o <segundos> s5q EY4q g4r UW3q n6u d4t OW6q s4i <más> m7r AA9s s13m x13o <a> AA6q <estas> EY8q s4f t6q AA6q s7p <horas> OW6q r4q AA5q s4p <serías> s6p EY4q r3q IY10s AA5q s6n <un> UW4q n8p <strogg> s5l t7o r3q OW3q g3i g3i x7g "
+}
+
+
+lipSync vo_2_1_1_23_2
+{
+	description	"It's a lucky thing Voss recognized you, because no one else would underneath all that Strogg gear."
+	text		"#str_301318"
+	visemes	"english"	"<Its> IH3q t4o s3s <a> AH3q <lucky> l10t AH5q k8n IY7q x4c <thing> TH3q IH7q NG10t <Voss> v5p AO19y s7k <recognized> r9s EH8r k7m AH3q g5n n5s AY16w z4l d7l <you> y5q UW7q x25c <because> b6f IH3g k6m AO3q z9n <no> n9u OW8r <one> w13v AH3q n3v <else> EH8r l8u s7i x5l <would> w4q UH5q d3s <underneath> AH8r n3q d3s ER3q n3s IY11t TH6p <all> AO6q l7r <that> DH4s AE11t t3l <Strogg> s9m t6m r9s AA12u g10k <gear> g6n IH7q r3q x10c "
+	visemes	"french"	"x11a <Tas> t3n AH10r <vraiment> v7k r3q EH10s m7s AA6q <de> d11u EY3q <la> l5r AH3q <chance> SH4p AA10s s5l <que> k6n UW7q <Voss> v12s OW12t s3m <tait> t8l EH6q <reconnu> r3q UW3q k9q AO4q n4s UW11s x3k <sous> s4m UW6q <ton> t5l OW3q n8q <déguisement> d4s EY4q g7n IY8q z4m m7q AA3q x45k <Personne> p6o EH8r r3q s10p AO5q n12s <dautre> d5w AA4q t3k r3c <naurait> n7o AA8r r4q EH8q <pu> p4l UW4q <le> l3p EY3q x4g <faire> f6m EH12t r3q x19a "
+	visemes	"italian"	"<È> EH3f x6k <una> UW5q n7r AA4q <vera> v6s EH7q r3q AA4q <fortuna> f8o OW4q r4q t10n UW11t n4v AA5q <che> k10k EH4q <Voss> v10p AW6q s3k s4c <ti> t6j IY7q <abbia> AA4q b5l y4q AA3q <riconosciuto> r3q IY5q k8n OW5q n3u OW6q SH12o UW9r t6j OW3q x14c <con> k5g OW3q n8j <tutte> t5m UW4q t8m EH3q <quelle> k6g w7q EH4q y3q EH4q <componenti> k8m OW4q m5m p6l OW3q n7r EY3q n7l t4k IY5q <Strogg> s7i t6p r3q OW7q g8m <che> k11l EH8r <hai> AA3q IY11t <addosso> AA3q d11o AW11t s3n s12n OW6e "
+	visemes	"spanish"	"<Qué> k4o EY6q <suerte> s10q UW5q EY4q r3q t8r EY5q <que> k4p EY4q <Voss> b5r OW8r s3o s3c <te> t4q EY6q <reconociera> r3q EY5q k4o OW3q n5q OW7q s4i IY7q EY4q r3q AA3q x13k <porque> p22m OW4q r3q k6k w3q EY3q <nadie> n5s AA3q d5p IY3q EY3q <más> m7r AA8r s5l <lo> l4p OW5q <habría> AA4q b3n r3q IY11t AA3q <hecho> EY15v CH7l OW6q <debajo> d4k EY4q b5r AA4q h10o OW5q <de> d4o EY5q <todo> t5p OW7q d3n OW6q <ese> EY7q s7p EY3q <material> m5p AA5q t8l EY4q r3q IY9r AA7q l8l <strogg> s5k t7j r3q OW9r g4c g5a "
+}
+
+
+lipSync vo_2_1_1_23_3
+{
+	description	"They're gonna have a heck of a time getting all the Strogg implants off you."
+	text		"#str_301319"
+	visemes	"english"	"x3e <Theyre> DH4v EH5q r3q <gonna> g5t AA3q n4s AH3q <have> h8u AE8r v4p <a> AH3q <heck> h17t EH3q k9p <of> AH3q v5s <a> AH3q <time> t13o AY14v m3p <getting> g7q EH3q t3f IH3q NG3t <all> AO5q l9r <the> DH3o IY3q <Strogg> s3l t13m r5q AA11t g6n <implants> IH7q m7m p4l l10r AE7q n3j t3k s6n <off> AO11t f8h <you> y12t UW10s x9f "
+	visemes	"french"	"x4c <Il> IY10r l5p <y> IY3q <en> AA8r <a> AH6q <qui> k6l IY5q <vont> v3m OW3q n5n <samuser> s10n AH7q m5r UW11s z6n EH4q r3q <à> AH3q <extraire> EH11t k4i s7k t3j r3q EH3q r3q x7f <tous> t5k UW15v s3k <les> l3r EY3q <implants> AA4q p10k l5q AA4q <stroggs> s5g t6k r3q OW6q z3l <de> d9m EY4q <ton> t7j OW3q n6m <crâne> k9l r3q AH8r n6l x18g "
+	visemes	"italian"	"x4g <Avranno> AA4q v4k r3q AA7q n5r y3q OW3q <un> UW3q n3q <bel> b4w EY5q l3m <daffare> d4s AA5q f12o AA4q r3q EH3q <a> AA4q <estrarre> EH20z s3k t10l r3q AA10s r5q EH6q <tutti> t6l UW6q t6f IY4q <gli> l3m y3q IY3q <impianti> IY5q m5o p3k y5q AA3q n6o t4n IY6q <Strogg> s5l t7o r3q OW10s g8n <che> k9m EH6q <ti> t6i IY5q <ritrovi> r3q IY4q t9m r4q AW8r v3l IY13t "
+	visemes	"spanish"	"x4o <Les> l6s EY6q s6q <espera> EY5q s5p p8s EY5q r3q AA3q <una> UW3q n9r AA4q <buena> b4p UW3q EY7q n5p AA6q <cuando> k6n UW3q AA3q n4n d3q OW3q <te> t6m EY4q <intenten> IY3q n6k t4q EY5q n7m t4p EY6q n5l <quitar> k3i w3q IY5q t5r AA8r r3q <todos> t6l OW7q d3l OW6q s3k <los> l3n OW6q s6n <implantes> IY3q m7j p4l l3t AA4q n9m t3n EY5q s3n <strogg> s3m t16l r3q OW4q g3e g6f x4c "
+}
+
+
+lipSync vo_2_1_1_31_1
+{
+	description	"{puzzled}Did you want something?"
+	text		"#str_301320"
+	visemes	"english"	"x3h {puzzled} <Did> d3m IH3q d4o <you> y3q UW3q <want> w13u AA4q n3o t3m <something> s6o AH7q m7l TH3i IH7q NG15p "
+	visemes	"french"	"x3f {puzzled} <Tu> t3m UW3q <voulais> v4p UW5q l3w EH3q <quelque> k5n EH4q l3k k7n UW6q <chose> SH3q AO4q z8l x13c "
+	visemes	"italian"	"x10f {puzzled} <Che> k3p EH4q <cè> k3u EH3q <Vuoi> v3s w3q AW3q IY3q <qualcosa> k6m w3q AA3q l3m k8r AW11t s4k AA3q x12f "
+	visemes	"spanish"	"{puzzled} <Qué> k5k EY3q <Querías> k3y w3q EY3q r3q IY3q AA3q s6n <algo> AA3q l5o g5q OW7q x10c "
+}
+
+
+lipSync vo_2_1_1_31_2
+{
+	description	"{confused}You okay?"
+	text		"#str_301321"
+	visemes	"english"	"{confused} <You> y12s UW6q <okay> OW13u k10q EY16w x10i "
+	visemes	"french"	"x3c {confused} <Ca> s5j AH10r <va> v3s AH17x x17a "
+	visemes	"italian"	"x4e {confused} <Stai> s6i t6j AA3q IY8q <bene> b7t EY5q n9q EH3q x11g "
+	visemes	"spanish"	"x5p {confused} <Estás> EY7q s3n t7s AA6q s4o <bien> b3n IY6q EY3q n7s x7g "
+}
+
+
+lipSync vo_2_1_1_31_3
+{
+	description	"{puzzled}You feelin' all right, Kane?"
+	text		"#str_301322"
+	visemes	"english"	"x6a {puzzled} <You> y12t UW7q x9e <feelin> f4l IY6q l10w IH3q n3v <all> AO10t l3v <right> r9r AY13u t8i <Kane> k5n EY5q n26q "
+	visemes	"french"	"x5k {puzzled} <Tu> t14n UW10s <te> t3u EY5q <sens> s3u AA7q s3p <bien> b6j y7q AA3q <Kane> k3v AH3q n8p x21g "
+	visemes	"italian"	"x9i {puzzled} <Eh> EH13s <ti> t8f IY5q <senti> s8o EY4q n6p t5l IY5q <bene> b6s EY11t n5p EH3q x17m <Kane> AA3q n19q EH3f x7a "
+	visemes	"spanish"	"{puzzled} <Te> t4r EY3q <encuentras> EY4q n7n k3n UW3q EY5q n4o t5p r3q AA4q s4o <bien> b7q IY4q EY10s n7k <Kane> k4p AA3q n3s EY8q x13i "
+}
+
+
+lipSync vo_2_1_1_40_1
+{
+	description	"It's locked."
+	text		"#str_301323"
+	visemes	"english"	"x3o <Its> IH3q t3j s4l <locked> l10x AA9s k3i t15c x6a "
+	visemes	"french"	"x7f <Cest> k4j EY6q s3f t3f <fermé> f5p EH9s r3q m7s EY12t "
+	visemes	"italian"	"x7l <È> EH4q <bloccata> b9n l3v OW3q k19u AA5q t5k AA3q x12j "
+	visemes	"spanish"	"x3n <Está> EY7q s4h t5p AA7q <cerrada> s3k EY6q r4q r3q AA5q d5r AA5q x10k "
+}
+
+
+lipSync vo_2_1_1_40_12
+{
+	description	"Okay, Anderson. You escort Kane to Falcon 5. We'll get this door open and proceed without you."
+	text		"#str_301324"
+	visemes	"english"	"<Okay> OW9r k12s EY17x <Anderson> AE3q n3q d4r ER5q s10q AH7q n17p x11a <You> y8r UW6q <escort> EH4q s8p k7q AO6q r6q t3e <Kane> k11s EY11t n3y <to> t3u UW3q <Falcon> f12n AE5q l7t k8p AH4q n5r <five> f11n AY25z v8j x19f <Well> w5q IY3q l3p <get> g5s EH5q t5h <this> DH3r IH7q s3m <door> d11r AO10s r11t <open> OW12t p4q AH4q n3v <and> AE3q n9q d3m <proceed> p3o r7q AH3q s9q IY8r d4p <without> w5q IH3q TH4q AW11t t3s <you> y13t UW5q x8e "
+	visemes	"french"	"<Ok> OW9s k12s <Anderson> AH10s n3m d3q EH3q r3q z14s OW5q n12g x18k <Escortez> EH5q z9t k4n OW4q r3q t10p EH3q z3o x8e <Kane> k7r AH4q n8t <jusquà> j8p UW4q z9r k4p AA5q <Faucon> f9m AO3q k9l OW5q n5o <Cinq> s12t AA14t k13c x30f <On> OW3q n3m <va> v5o AH9s <ouvrir> UW5q v6n r3q IY7q r3q <cette> s11t EH4q t6e x6a <porte> p3q AO8r r4q t9l EY5q <et> EY3g <continuer> k5p OW7q n6k t3p IY5q n5p UW8q EY5q <sans> s11t AA3q <vous> v12k UW8q x5a "
+	visemes	"italian"	"x8i <OK> OW4q <Anderson> AA3q n4v d8p EY26z r10s s10n OW6q n13m <Scorta> s4i k8n AW3q r3q t7n AA6q x7o <Kane> AA3q n15v EH5q <da> d4p AA4q <Falcon> f8n AA3q l3p k8m OW3q n7n <cinque> CH8l IY8q n3i k8f w3q EH4q x13c <Noi> n6k OW4q IY11s <apriamo> AA4q p8j r3q y3q AA3q m4p OW3q <questa> k3l w4q EH3q s3h t5o AA4q <porta> p7q AW4q r3q t10o AA8q x3e <e> EH10r <andiamo> AA4q n5p d3m y7q AA3q m8r OW6q <senza> s5q EY6q n3p t3i s4n AA5q <di> d4k IY7q <te> t8j EH6q x18a "
+	visemes	"spanish"	"<Bien> b7p IY8r EY5q n5s <Anderson> AA3q n8s d3s EY6q r3q s8l OW9q n7k <Escolte> EY6q s5l k6l OW8r l3p t5p EY6q <a> AA4q <Kane> k7r AA4q n10s EY3q <a> AA3q <Halcón> AA3q l5s k7n OW7q n5p x4g <cinco> s3l IY8q n5o k6i OW13t x15e <Nosotros> n6n OW5q s4n OW8q t4o r3q OW5q s5o <abriremos> AA4q b3u r4q IY9r r3q EY5q m6o OW7q s4o <esta> EY6q s3k t3p AA7q <puerta> p7p UW3q EY5q r4q t3q AA3q <y> IY5q <proseguiremos> p6o r3q OW6q s5n EY5q g3p IY3q r3q EY7q m7q OW5q s3l <sin> s4n IY5q n4q <ustedes> UW7q s4j t4r EY8r d3o EY17v s10e "
+}
+
+
+lipSync vo_2_1_1_40_13
+{
+	description	"{scared}I'm supposed to escort him alone?"
+	text		"#str_301325"
+	visemes	"english"	"{scared} <Im> AY9q m12p <supposed> s8l AH4q p9m OW12u z5k d3c <to> t3n UW3q <escort> EH12u s5k k6o AO7r r3q t3v <him> h3y IH3q m6v <alone> AH3q l9v OW15w n22r "
+	visemes	"french"	"x3c {scared} <Je> j3m UW3q <serai> s6m r4q EY6q <son> s8l OW3q n6n <seul> s12p EH4q l4r <garde> g11q AH8r r3q d11n EY5q <du> d8k UW3q <corps> k6x AO3q r7q x19e "
+	visemes	"italian"	"x13f {scared} <Devo> d9m EY8r v6p OW4q <accompagnarlo> AA3q k10q OW5q m7p p3n AA4q n9s y4q AA3q r3q l8u OW6q <da> d3p AA5q <solo> s11t OW3q l13u OW4q x13h "
+	visemes	"spanish"	"x3h {scared} <Se> s10p EY5q <supone> s8p UW3q p8i OW6q n4r EY5q <que> k6q EY4q <debo> d4n EY4q b4n OW3q <escoltarlo> EY3q s4m k6o OW7q l3j t8m AA6q r4q l5t OW7q <solo> s8n OW8r l12r OW4a "
+}
+
+
+lipSync vo_2_1_1_40_14
+{
+	description	"{happy}You did guarantee he wouldn't turn Strogg, didn't you?"
+	text		"#str_301326"
+	visemes	"english"	"x4n {happy} <You> y9r UW4q <did> d9r IH8r d5q <guarantee> g9t EH7q r6q AH3q n3i t9p IY13u <he> h4t IY4q <wouldnt> w12u UH3q d7u AH3q n3j t4s <turn> t4r ER10s n4q <Strogg> s10p t6s r9s AA13u g9l <didnt> d4q IH5q d3r AH3q n3t t3u <you> y7q UW11s x7a "
+	visemes	"french"	"{happy} <Vous> v4i UW3q <mavez> m9r AH5q v6s EH6q z5x <certifié> s6u EH5q r3q t7k IY7q f9p y4q EY6q <quil> k7l IY7q l3w <allait> AH3q l4s EH6q <bien> b3o y12t AA3q x43k <oui> w12t IY6q <ou> UW7q <non> n9q OW10s n8j x12a "
+	visemes	"italian"	"x6p {happy} <Hai> AA3q IY7q <garantito> g7r AA4q r3q AA3q n7r t5p IY3q t4p OW6q <tu> t5r UW10s <che> k5k EH5q <non> n5o OW3q n4n <si> s5n IY5q <sarebbe> s6q AA4q r3q EY5q b7r EH5q <trasformato> t4m r4q AA6q s5o f4m OW5q r4q m3s AA8r t7o OW3q <in> IY5q n3o <uno> UW3q n3n OW6q <Strogg> s4g t9i r3q OW3q g11f x11e "
+	visemes	"spanish"	"{happy} <Garantizó> g8q AA8r r3q AA4q n8n t4l IY7q s5m OW9r <que> k5r EY4q <no> n5u OW6q <se> s5r EY4q <volvería> b4s OW3q l3s b8q EY3q r4q IY17x AA5q <strogg> s8l t6q r3q OW15v g5g g6h <no> n5o OW18x "
+}
+
+
+lipSync vo_2_1_1_40_15
+{
+	description	"{furrow}Yeah, but..."
+	text		"#str_301327"
+	visemes	"english"	"x8c {furrow} <Yeah> y17x AE25z <but> b10p AH13u t3e x50f "
+	visemes	"french"	"x7a {furrow} <Oui> w28z IY6q x10s <mais> m33l AH3q IY36z s3a "
+	visemes	"italian"	"x6k {furrow} <Eh> EH23z <sì> s17p IY20z <ma> m48r AA4c "
+	visemes	"spanish"	"x4g {furrow} <Sí> s14n IY29z x11e <pero> p4r EY8r r4q OW14u x28c "
+}
+
+
+lipSync vo_2_1_1_40_16
+{
+	description	"It'll be fine, Anderson."
+	text		"#str_301328"
+	visemes	"english"	"<Itll> IH8q t3u AH3q l4v <be> b5u IY8r x7m <fine> f8p AY30z n3s <Anderson> AE11s n3p d4n ER8q s9p AH7q n13n "
+	visemes	"french"	"x4c <Tout> t3l UW8q x6o <ira> IY8r r3q AH8r <bien> b4s y12u AA3q <Anderson> AH4q n10p d3q EH3q r3q z16t OW7q n14n x15f "
+	visemes	"italian"	"x9m <Andrà> AA3q n6o d5w r3q AA5q <tutto> t7r UW4q t7q OW5q <bene> b7q EY9r n7n EH6q <Anderson> AA3q n9m d3i EY3q r3q s11o OW6q n9l x12e "
+	visemes	"spanish"	"<No> n12n OW10s <pasará> p6o AA8r s7o AA7q r4q AA6q <nada> n9s AA14v d3s AA4q <Anderson> AA13u n7q d3o EY3q r3q s13j OW4q n15f "
+}
+
+
+lipSync vo_2_1_1_40_17
+{
+	description	"Huh. C'mon, Kane. This way."
+	text		"#str_301329"
+	visemes	"english"	"x3a <Huh> h3i AH3q x62m <Cmon> k7r AH5q m13w AA6q n7o <Kane> k10o EY3q n26s <This> DH8q IH6q s10m <way> w6q EY15v x10g "
+	visemes	"french"	"x69h <huh> UW3q <Allez> AH5q l3u EY16w <Kane> k11o AH6q n11p x25g <Par> p3o AH9s r3q <là> l4r AH5q x24k "
+	visemes	"italian"	"x7h <Uh> UW4q x60h <Forza> f5q AW13v r3q t7j s4m AA3q <Kane> AA3q n8j EH21z <di> d18k IY5q <qua> k7h w6q AA10s x12h "
+	visemes	"spanish"	"x86l <Um> UW3q m6r <Vamos> b3w AA7q m5m OW6q s5l <Kane> k4p AA3q n3s EY6q x17c <Por> p5k OW4q r3q <aquí> AA6q k5f w3q IY4q x13c "
+}
+
+
+lipSync vo_2_1_1_40_2
+{
+	description	"Let me see what I can do."
+	text		"#str_301330"
+	visemes	"english"	"<Let> l6u EH3q t3w <me> m4x IY5q <see> s9r IY5q <what> w7q AH4q t3u <I> AY7q <can> k6r AE3q n8w <do> d4u UW11t x14l "
+	visemes	"french"	"<Voyons> v4k w3q AH3q y6q OW4q n3p <voir> v3n w3q AH4q r3q <ce> s4s UW3q <que> k3k UW3q <je> j3q UW3q <peux> p5i UW5q <faire> f10j EH7q r3q x17e "
+	visemes	"italian"	"<Vediamo> v11p EH5q d3r y4q AA3q m6v OW6q <che> k4r EH3q <posso> p7p AW7q s4q s4p OW3q <a> AA3q <fare> f5k AA4q r8q EH6q x16f "
+	visemes	"spanish"	"<A> AA11s <ver> b4r EY11t r4q <qué> k8o EY4q <puedo> p9o UW4q EY3q d3u OW4q <hacer> AA9r s5k EY9r r4q x6e "
+}
+
+
+lipSync vo_2_1_1_40_3
+{
+	description	"Rhino, this is H Q. What is your status?"
+	text		"#str_301331"
+	visemes	"english"	"x19m <Rhino> r3q AY18y n10v OW8r x3h <this> DH3t IH5q s3l x5p <is> IH6q z3l x4p <H> EY11t CH3g x9o <Q> k9n y3q UW7q <What> w3q AH14v t4c x15q <is> IH8r z3i x8n <your> y3q AO3q r4q <status> s3m t9o AE15w t4s AH15v s3e x28m "
+	visemes	"french"	"x15s <Rhino> r4q IY3q n22v OW13v x47o <ici> IY12u s6t IY15w x19a <QG> k10v <Quelle> k7v EH4q l5u <est> EH5q x7q <la> l3t AH3q x6p <situation> s3p IY3q t8q UW3q AH12t s6p y6q OW6q n3o x16n "
+	visemes	"italian"	"x13q <Rhino> r5q IY15w n9w OW5q <qui> k12r w3q IY9r <Comando> k13v OW3q m6t AA10s n5n d8q OW7q x41q <Fate> f3z AA5q t5p EH9s x17s <rapporto> r3q AA10s p13n AW3q r3q t4h OW3e x46l "
+	visemes	"spanish"	"x3o <Rino> r6q IY15v n7t OW5q <aquí> AA8r k9j w3q IY3q <el> EY3q l6q <cuartel> k5l UW3q AA3q r3q t9k EY6q l6r x4g <general> h4n EY4q n6r EY6q r5q AA8r l7p <Cuál> k11i UW6q AA3q l5s <es> EY9s s3j <su> s5k UW7q <situación> s5k IY6q t5k UW3q AA8q s4i IY7q OW3q n12m "
+}
+
+
+lipSync vo_2_1_1_40_4
+{
+	description	"We should be at the evac coordinates in 10 minutes."
+	text		"#str_301332"
+	visemes	"english"	"<We> w6q IY3q <should> SH10u UH3q d3q <be> b3t IY8r <at> AE3q t3m <the> DH4r IY20z <evac> EH3q v5s AE12u k4a <coordinates> k9p OW3q AO7r r4q d7w AH3q n4t AH3g t3k s3n <in> IH3q n9t <ten> t10o EH8r n5w <minutes> m9x IH6q n3t AH7q t8i s9m "
+	visemes	"french"	"<On> OW3q n3p <devrait> d5q UW5q v4p r3q EH4q <bientôt> b3l y9s AA5q t9o AO8r <atteindre> AH3q t4i AA3a d4s r3q UW7q <les> l11s EY7q <coordonnées> k8r AO8r AO3q r3q d4s AO5q n6s EY7q <dévacuation> d4r EH3q v3r AH7q k8m UW8r AH4q t10t IY3q OW3q n6l x7a "
+	visemes	"italian"	"x4h <Saremo> s4j AA4q r3q EY7q m5q OW3q <al> AA3q l3p <punto> p8n UW3q n6s t3r OW5q <di> d6r IY3q <evacuazione> EH4q v4t AA5q k6m w5q t8l s4p y3q OW3q n7u EH5q <fra> f8l r3q AA4q <dieci> d5o y10s EY6q CH7s IY5q <minuti> m6u IY4q n6p UW7q t6f IY9q x10a "
+	visemes	"spanish"	"<Deberíamos> d5o EY5q b3q EY5q r3q IY6q AA3q m4u OW6q s3n <estar> EY5q s3i t5n AA5q r3q <en> EY3q n4p <las> l4u AA5q s4k <coordenadas> k5m OW3q OW3q r3q d3p EY4q n7s AA4q d3u AA7q s3i <de> d3n EY3q <evacuación> EY3q b3t AA6q k7m UW7q AA6q s4k IY5q OW3q n4p <en> EY3q n6m <diez> d4p IY3q EY5q s3m <minutos> m4q IY6q n5q UW6q t5i OW17v s12f "
+}
+
+
+
+
+
+
+
+
+
+
+lipSync vo_2_1_1_40_5
+{
+	description	"There's a medic with Falcon 5. Take the injured marine to them. The rest of your men will have to continue on to the original extraction point."
+	text		"#str_301333"
+	visemes	"english"	"x20l <Theres> DH4u EH5q r4q z3l x4s <a> AH7q <medic> m7r EH11t d3t IH8r k8i <with> w3q IH4q DH3i <Falcon> f4e AE12u l4t k9q AH5q n6j <five> f3i AY33z v3c x25a <Take> t6q EY8q k10m <the> DH3s IY4q <injured> IH9s n5q j3r ER6q d5m <marine> m4t ER11t IY6q n13s <to> t9r UW5q x25v <them> DH3k EH4q m6l x22j <The> DH3s IY4q <rest> r8r EH6q s3f t10m <of> AH4q v3p <your> y11t AO5q r5q <men> m3w EH3q n3p <will> w3q IH3q l6y <have> h12y AE4q v3c x10j <to> t9n UW8q <continue> k8p AH3q n3r t3p IH4q n3s y3q UW3q <on> AA22z n3m <to> t8n UW4q <the> DH4q IY11t <original> ER8r IH9r j6j AH3q n3t AH10t l5z <extraction> IH5q k8n s3k t5p r4q AE10s k10o SH5q AH5q n5n x4n <point> p4t OY14v n10p t26m "
+	visemes	"italian"	"x8n <Cè> k15p EH12u <un> UW9r n5u x5y <medico> m4w EY3q d6m IY3q k13t OW4q <con> k9s OW6q n3p x5l <Falcon> f3p AA9s l3o k10s OW3q n4m x7k <5> CH4p IY5q n5i k9o w3q EH3q x29k <Portate> p5p OW6q r6q t6q AA7q t6o EH5q <da> d5q AA6q <loro> l11u OW3q r5q OW3q <il> IY6q l3q <marine> m3r AA3q r6q IY3q n3s EH3q x9m <ferito> f4t EH5q r3q IY9q t9o OW5q x37i <Gli> l5v y5q IY3q x9x <altri> AA8r l3e t4o r3q IY6q <dovranno> d6p OW7q v3s r3q AA9s n4q y3q OW5q x3f <proseguire> p3p r3q OW7q s4l EH8q g4l w3q IY12t r3q EH7q <verso> v3r EY5q r8q s5k OW6q <il> IY3q l3c <punto> p4p UW3q n7q t4n OW8r <destrazione> d3r EH6q s3h t6o AA8q t8f s3p y6q OW5q n11t EH3q <originario> OW3q r5q IY3q d4k j6p n8q AA15v r4a y4q OW4q x57l "
+	visemes	"spanish"	"x6l <Hay> AA3q IY5q x3n <un> UW5q n4t <médico> m7s EY8r d4n IY6q k5i OW7q <con> k6k OW4q n7p <Halcón> AA4q l4o k9k OW5q n8o x6a <5> s3l IH5q n9l k5l OW10r x21a <Lleven> l3r l5r EY11t b3t EY4q n6r <al> AA7q l4o <marine> m5o AA4q r4q IY10r n8r EY8q <herido> EY3q r3q IY11s d6r OW5q <con> k5l OW5q n6o <ellos> EY8q l3i l7p OW5q s10h x41j <el> EY5q l3p x6n <resto> r3q EY10r s5f t6l OW3q <de> d7n EY6q <sus> s6l UW6q s5k <hombres> OW5q m7l b3k r3q EY4q s4f <tendrá> t5f EY5q n5o d3o r3q AA4q <que> k5c w3q EY4q <proseguir> p6j r3q OW5q s8k EY5q g6l IY9r r3q <hacia> AA6q s8g IY3q AA3q <el> EY4q l3h x3a <punto> p3l UW6q n8q t3p OW6q <de> d5q EY6q <extracción> EY7q k4c s5f t6j r3q AA4q k12a s3n IY7q OW3q n6p <original> OW3q r5q IY7q h9l IY3q n5q AA10r l5k "
+	visemes	"french"	"x4p <Un> UW9r n6s <médecin> m3t EH6q d9i s5p AA5q <accompagne> AH10s k9m OW4q n4o p7r AH7q n11q EY7q x5e <Faucon> f4n AO4q k9l OW5q n5n x8i <5> s5n AA6q n15n k8e x30m <Amenez> AH3q m3v n13u EY6q <lui> l3p UW4q IY9r <le> l3r EY6q <blessé> b7n l3s EY10s s12k EY13t x58a <le> l3n EY9r <reste> r5q EH11t s3f t7m EY5q <de> d5r EY4q <vos> v6p AO3q x9p <hommes> AO6q m10o <poursuit> p4l UW4q r3q s12k UW5q IY5q <jusquà> j5n UW6q z3k k7m AA6q <la> l4u AH10s <zone> z6n AO3q n6p EY3q <dextraction> d5q EH5q k6g s3g t7m r3q AH4q k6i t10l IY3q OW3q n3q <initiale> IY4q n6r IY8q s10i y5q AH17w l3h x10a "
+}
+lipSync vo_2_1_1_40_6
+{
+	description	"Copy that. Rhino, out."
+	text		"#str_301334"
+	visemes	"english"	"<Copy> k7s AA10s p5n IY9s <that> DH3u AE19y t12a x14i <Rhino> r10s AY6q n3u OW14v <out> AW16w t5a "
+	visemes	"french"	"<Compris> k6s OW6q n4k p3k r3q IY15v x16e <Rhino> r4q IY12t n4s OW10s <terminé> t9q EH8r r3q m3r IY8r n5p EY14u "
+	visemes	"italian"	"<Ricevuto> r7q IY8q CH8p EH5q v5u UW12u t7o OW8q x10l <Rhino> r4q IY14v n3t OW10s <chiudo> k7l y4q UW4q d5m OW8q x11a "
+	visemes	"spanish"	"x7l <Recibido> r3q EY7q s5i IY6q b3t IY8r d4s OW17w x27h <Rino> r4q IY14v n4p OW10r <corto> k10l OW8r r4q t6h OW17v "
+}
+
+
+lipSync vo_2_1_1_50_1
+{
+	description	"Hey, stick with me."
+	text		"#str_301335"
+	visemes	"english"	"x3i <Hey> h3u EY14v <stick> s3k t16n IH8r k6k <with> w4q IH3q DH8l <me> m5v IY27z "
+	visemes	"french"	"x6p <Hé> h23u EY5q <téloigne> t8n EH5q l10u OY3q n11l <pas> p13v AH4q x11e "
+	visemes	"italian"	"<Ehi> EY12u IY6q x16l <rimani> r4q IY9r m3v AA6q n4r IY5q <con> k5r OW4q n5o <me> m4r EH9r x6a "
+	visemes	"spanish"	"x4p <Ey> EY9r IY7q <no> n7s OW3q <te> t7k EY5q <separes> s7q EY3q p6p AA6q r3q EY8r s3m <de> d6p EY5q <mí> m4p IY8q x11c "
+}
+
+
+lipSync vo_2_1_1_50_2
+{
+	description	"We can't split up like this."
+	text		"#str_301336"
+	visemes	"english"	"x3e <We> w9r IY3q <cant> k12q AE12u n3k t3k <split> s8k p5i l7v IH7q t4x <up> AH7q p4e x3h <like> l9u AY8r k9e <this> DH3q IH13u s26n "
+	visemes	"french"	"x6o <On> OW4q n3s <ne> n3n EY3q <doit> d4p w3q AH12t x3h <pas> p8w AH5q <se> s3h UW3g x3h <séparer> s5q EY12t p4n AH13u r7q EY19y x18g "
+	visemes	"italian"	"<Non> n10p OW8r n8o <possiamo> p4m OW7q s3k s8m y6q AA9s m6n OW7q <separarci> s8n EH4q p5q AA7q r3q AA8r r3q CH15l IY12e "
+	visemes	"spanish"	"<No> n14t OW5q <podemos> p6k OW8q d3t EY4q m5s OW6q s4s <separarnos> s4t EY4q p8u AA3q r3q AA7q r3q n6s OW6q s6r <así> AA4q s6q IY10s x6h "
+}
+
+
+lipSync vo_2_1_1_50_3
+{
+	description	"Don't go running off."
+	text		"#str_301337"
+	visemes	"english"	"x3g <Dont> d12n OW8r n4q t3l <go> g8t OW5q <running> r9s AH7q n4v IH6q NG3y <off> AO21z f23f "
+	visemes	"french"	"x7n <Hé> h23w EY3q <Ne> n4k EY3e <te> t6r EY4q <barre> b7t AH6q r3q EY3q <pas> p28v AH3q x16h "
+	visemes	"italian"	"<Non> n9n OW11t n4s <allontanarti> AA8r y3q OW11t n6k t4p AA7q n4w AA17x r3q t6l IY17x x8c "
+	visemes	"spanish"	"<No> n14r OW8q <te> t9o EY4q <escapes> EY4q s8n k7r AA8r p10l EY7q s15l "
+}
+
+
+lipSync vo_2_1_1_50_4
+{
+	description	"It's safer if we stay together."
+	text		"#str_301338"
+	visemes	"english"	"x3o <Its> IH7q t4j s8m <safer> s7p EY17x f11n ER7r <if> IH5q f8h <we> w6q IY4q <stay> s3o t11n EY11t <together> t4r AH4q g9p EH14v DH8q ER6q x7c "
+	visemes	"french"	"x8o <On> OW4q n9p <devrait> d3w UW9r v9o r8r EH8r <rester> r4q EH5q s3n t11q EY7q <ensemble> AA11t s12p AA4q b3t l16s UW5q x20i "
+	visemes	"italian"	"x5i <È> EH9r <meglio> m10r EY15v l3s OW7q <se> s6m EH7q <stiamo> s3i t7e y6q AA5q m5q OW6q <vicini> v4p IY6q CH10r IY12t n3n IY7q x9e "
+	visemes	"spanish"	"x3n <Es> EY7q s5q <más> m8s AA7q s4s <seguro> s7r EY5q g6o UW4q r3q OW10s <si> s5o IY4q <nos> n4p OW4q s5m <quedamos> k4n w3q EY3q d3w AA5q m6o OW4q s5i <juntos> h6m UW4q n7k t4k OW8q s11i "
+}
+
+
+
+
+
+
+
+
+
+
+lipSync vo_2_1_1_60_1
+{
+	description	"Anderson, this is Falcon 5. Get to the L Z on the double. Radar shows Strogg headed our way."
+	text		"#str_301339"
+	visemes	"english"	"<Anderson> AE5q n3l d5k ER3q s3p AH18y n6t x10o <this> DH3w IH18y s3n x4p <is> IH9r z3m <Falcon> f3l AE10s l6w k8o AH12t n3k <five> f3p AY31z v3m <Get> g5s EH5q t4k x4n <to> t5p UW9r <the> DH3s IY5q <L> EH3q l10v x4l <Z> z4r IY4q <on> AA14v n3p <the> DH3t IY5q <double> d7p AH14v b3w AH31z l4l <Radar> r10s EY3q d3s AA8r r5q x13q <shows> SH3u OW7q z3l x10l <Strogg> s3k t6p r3q AA9s g3z <headed> h20s EH3q d3p AH7q d3r <our> AW38z ER3q <way> w3q EY3q x24m "
+	visemes	"french"	"x5o <Anderson> AH8r n3n d3w EH6q r3q z12l OW8r n25p <this> t4e IY10r x8l <is> IY10r <Falcon> f4n AH4q l5o k4n OW8r n3m x6i <5> s5q AA10s n10p k7c <Get> j4a x27a <to> t5c AO3q <the> t3s EY9r x3o <L> EH3q l4r <Z> z10r EH5q d5q <on> OW6q n3q <the> t4s EY4q <double> d5r UW3q b3s l7w EY4q <Radar> r4q AH22z d3n AH3q r3q x28m <shows> SH3z AO6q <Strogg> s3j t11k r3q OW3q <headed> EH4q AH5q d44q EH7q <our> UW3q r3q <way> w3q AH9r IY5q x11e "
+	visemes	"italian"	"<Anderson> AA7q n8v d3k EY3q r7q s4u OW3q n4j <qui> k28t w3q IY9r x4g <Falcon> f3m AA11t l3p k10u OW3q n7m <5> CH5o IY6q n8r k11k w4q EH6q x14k <Raggiungete> r4q AA11t d4h j4n UW7q n4i d6q j3u j5s t7n EH8r <il> IY4q l20r <punto> p18u UW3q n6h t3q OW3q <datterraggio> d3v AA3q t3s EH4q r3q AA9s d6f j3g OW12t x3i <Ci> CH6n IY4q x7k <sono> s3n OW7q n4t OW7q <Strogg> s3i t6o r6q OW7q g5k <in> IY9r n4s <avvicinamento> AA7q v3k IY7q CH8o IY7q n3s AA5q m7r EH7q n11i t4o OW31z x9m "
+	visemes	"spanish"	"<Anderson> AA7q n7s d4t EY4q r4q s10q OW8r n11p x6r <aquí> AA8q k10m w3q IY5q <Halcón> AA7q l4p k6m OW6q n10r <5> s4h IH16w n4k k5n OW11s x20f <Vaya> b13t AA3q IY7q AA8r <a> AA4q <la> l4s AA9r x3e <zona> s4p OW5q n7t AA4q <de> d6r EY3q <aterrizaje> AA5q t7r EY3q r3q r4q IY7q s7p AA4q h12n EY3q <inmediatamente> IY3q n10t m3t EY3q d4p IY6q AA5q t9s AA3q m6s EY6q n9p t7q EY9r x26f <El> EY7q l3r x3s <radar> r3q AA10s d5u AA5q r3q <señala> s10q EY4q n11t AA3q l6s AA4q <unos> UW5q n10t OW4q s3n <strogg> s3e t11r r3q OW3q g3g g3a <que> k4n w3q EY4q <se> s7o EY5q <dirigen> d3r IY11t r3q IY3q h3n EY3q n4t <hacia> AA7q s6h IY3q AA3q <nosotros> n8s OW6q s7p OW8q t11p r3q OW8q s12k "
+}
+lipSync vo_2_1_1_60_2
+{
+	description	"{scared}Don't leave without us."
+	text		"#str_301340"
+	visemes	"english"	"{scared} <Dont> d5t OW10t n4w t3n <leave> l19q IY16w v5n <without> w4q IH4q TH7m AW22z t3o <us> AH9q s21l "
+	visemes	"french"	"{scared} <Partez> p3s AH11t r3q t9l EY9r x7j <pas> p8w AH4q x13r <sans> s3v AA4q <nous> n23q UW6q x16g "
+	visemes	"italian"	"{scared} <Non> n10m OW7q n5q <andatevene> AA3q n10q d5s AA8r t5o EH4q v4r EH4q n3r EH7q <senza> s5n EY6q n4n t3h s4o AA3q <di> d5n IY5q <noi> n4s OW8q IY5q x9c "
+	visemes	"spanish"	"{scared} <No> n19v OW9s <se> s10q EY5q <vayan> b5s AA14v IY6q AA3q n6m <sin> s9n IY7q n5r <nosotros> n5r OW9r s7p OW7q t5i r3q OW8q s14i "
+}
+
+
+lipSync vo_2_1_1_60_3
+{
+	description	"We'll stay as long as possible. Falcon 5 out."
+	text		"#str_301341"
+	visemes	"english"	"x10n <Well> w3q IY3q l10y x11m <stay> s3l t4p EY4q <as> AE20z z4o <long> l3s AO14v NG3q <as> AE3q z3p <possible> p12o AA14v s3n AH11s b3r AH26z l5m x10n <Falcon> f3r AE9s l7r k5q AH10s n3n <five> f3p AY18y v3p <out> AW28z t3n x29n "
+	visemes	"french"	"<On> OW3q n4l <attendra> AH3g t3h AA5q d3w r3q AH7q <jusquau> j3n UW3q z3u k99u k41u OW3e <dernier> d3i EH3q r3q n4i y3q EY3q <moment> m3u AO3q m3v AA6q <Terminé> t5s EH4q r3q m3u IY3q n3q EY4q x17l "
+	visemes	"italian"	"<Rimarremo> r15v IY7q m5u AA7q r3q EH3q m3v OW3q <il> IY5q l4p <più> p28u y3q UW3q <a> AA4q <lungo> l3x UW3q n3i g4x OW8r <possibile> p3n OW9r s3h s6i IY4q b3s IY3q l11o EH3q x14t <Falcon> f3m AA8r l3s k12v OW4q n3i x4k <cinque> CH4r IY6q n8p k4n w5q EH3q <chiudo> k11k y3q UW10s d8t OW10s x23k "
+	visemes	"spanish"	"<Nos> n15u OW4q s6p <quedaremos> k5o w3q EY3q d3v AA3q r3q EY8r m4u OW7q s3n <todo> t8q OW5q d3s OW4q <lo> l4t OW6q <que> k4m w3q EY3q <podamos> p7q OW6q d3u AA8r m9s OW11s s9q x12r <Halcón> AA6q l5s k11s OW3q n8s <5> s8o IH6q n10s k4r OW9r <corto> k7o OW9s r4q t10q OW15v "
+}
+
+
+lipSync vo_2_1_1_65_1
+{
+	description	"Hey, Kane, look. There's our ticket out of here."
+	text		"#str_301342"
+	visemes	"english"	"<Hey> h6m EY4q <Kane> k14n EY16w n8r <look> l17u UH4q k17g x38a <Theres> DH4v EH16w r3q z8n <our> AW5q ER4q <ticket> t16m IH6q k9p AH5q t3t <out> AW19y t3n <of> AH3q v4m <here> h10l IH14t r3f x6a "
+	visemes	"french"	"x5n <Eh> EY13u <Kane> k10n AH3q n3s <regarde> r3q UW3q g3p AH3q r3q d3u EY5q <Cest> k6q EY3q s3x t3w <notre> n3r AO3q t3i r4q UW3e x49a <ticket> t4m IY6q k3r EH6q <de> d34o EY8r x6f <sortie> s7r AO6q r3q t12l IY13u x19i "
+	visemes	"italian"	"<Ehi> EY16w IY5q x6o <Kane> AA3q n3y EH6q <guarda> g11m w6q AA5q r3q d7n AA5q x31c <il> IY10r l3n <nostro> n6p AW6q s5h t4n r3q OW3q <biglietto> b8o IY9q l3p EH7q t6m OW6q <per> p4n EH4q r3q <uscire> UW7q SH8n IY6q r3q EH4q <da> d3r AA5q <qui> k8g w4q IY13t x3a "
+	visemes	"spanish"	"x4p <Ey> EY4q IY13u <Kane> k8q AA3q n3x EY9r x12i <mira> m5t IY7q r4q AA3q x33m <Ahí> AA3q IY13u <está> EY5q s4m t6p AA4q <nuestro> n3o UW3q EY3q s3l t6l r3q OW4q <billete> b4l IY5q l3r l3u EY5q t5o EY4q <para> p7n AA3q r3q AA4q <salir> s8q AA4q l3n IY7q r3q <de> d4q EY3q <aquí> AA3q k6h w3q IY3q x6e "
+}
+
+
+
+
+
+
+lipSync vo_2_1_1_67_1
+{
+	description	"Anderson, this is Falcon 5. Sorry but we have to dust off now. We have incoming."
+	text		"#str_301343"
+	visemes	"english"	"<Anderson> AE5q n3l d4l ER3q s3u AH11t n3m <this> DH3q IH3q s3q <is> IH3q z3m <Falcon> f3r AE7q l12t k33s AH21z n3l <five> f3p AY38z v3l x10l <Sorry> s4s AA19y r3q IY3q <but> b3v AH8r t3o <we> w3q IY3q <have> h12v AE3q v3l <to> t3r UW3q <dust> d7q AH17x s3r t3w <off> AO10s f3k <now> n8o AW33z <We> w4q IY4q <have> h20t AE4q v3p <incoming> IH4q n3m k7u AH10s m4q IH10s NG9n x16n "
+	visemes	"french"	"<Anderson> AH5q n3l d6w EH3q r6q z3s OW4q n3u <ici> IY3q s3l IY3q <Faucon> f3o AO3q k50p OW3q n6o <cinq> s3q AA5q k68s <Désolé> d3r EY10s z5s AO8r l10u EY8r x3k <faut> f4o AO7q <quon> k4r OW6q n3x <mette> m4u EH4q t3k x7p <les> l3v EY5q <voiles> v3l w3q AH31z l3k EY3q <Des> d7n EY6q <Stroggs> s3o t10r r4q OW6q z3r <approchent> AH10s p6s r3q AO10s SH4m x21n "
+	visemes	"italian"	"x3s <Anderson> AA4q n15s d4w EY5q r3q s8n OW8r n7p <qui> k3m w3q IY12t x3a <Falcon> f4t AA7q l6p k5k OW6q n10p <5> s4o IH10s n9q k5k OW13u <Spiacente> s5f p7n IY3q AA8r s5o EY12u n8m t3q EY7q <ma> m6t AA7q <dobbiamo> d4q OW3q b3k b4p IY3q AA3q m5r OW4q <decollare> d6o EY5q k5j OW3q l3w l5r AA6q r3q EY8q <subito> s8k UW8q b4m IY8q t5j OW6q <Abbiamo> AA8r b3k b3l IY4q AA4q m6r OW7q <visite> b3k IY14v s3g IY8q t9h EY12s x6a "
+	visemes	"spanish"	"<Anderson> AA8r n10t d4v EY3q r6q s10r OW10s n8u <aquí> AA7q k9o w3q IY7q <Halcón> AA8r l5q k6l OW9s n8s <5> s7o IH13u n5m k5p OW14u x21k <Lo> l5v OW8r <sentimos> s7q EY5q n7s t5r IY7q m5u OW8r s6m <pero> p7t EY4q r3q OW5q <tenemos> t6s EY4q n5t EY3q m5u OW7q s4l <que> k3n w3q EY4q <salir> s6q AA5q l5r IY8r r3q <pitando> p8q IY6q t5s AA7q n12s d3u OW8r x4t <Alguien> AA8r l7s g3s IY8r EY3q n4r <se> s7q EY3q <acerca> AA7q s4p EY8r r4q k9p AA9r x4j "
+}
+lipSync vo_2_1_1_67_2
+{
+	description	"H Q... H Q this is Falcon 5. We request..."
+	text		"#str_301344"
+	visemes	"english"	"<H> EY5q CH3k <Q> k39p y3q UW7q <H> EY6q CH3z <Q> k42r y3q UW13u <this> DH3o IH7q s3n x5q <is> IH5q z3m x4n <Falcon> f3m AE3q l3x k4x AH18x n6l <five> f3n AY27z v4m x17l <We> w4q IY6q <request> r8r IH8r k17t w3q EH4q s3n t6o "
+	visemes	"french"	"x10m <QG> k6v <QG> k4x <ici> IY8r s4t IY3q <Faucon> f3y AO18y k77t OW5q n3o x3l <Cinq> s3r AA9s k90t <Demandons> d4n UW3q m4z AA8r d8t OW13u n3m x10o "
+	visemes	"italian"	"<Comando> k6v OW3q m6w AA3q n3z d4z OW3q <Comando> k16u OW3q m3i AA3q n3s d3v OW5q <qui> k39v w3q IY8r x9s <Falcon> f3y AA4q l4s k9u OW3q n6i <cinque> CH6r IY7q n5t k10k w4q EH13u x6t <Richiediamo> r5q IY6q k22r y3q EH3q d3y y3q AA6q m5r OW5q x28n "
+	visemes	"spanish"	"<Cuartel> k3v UW3q AA7q r3q t8s EY5q l5s <general> h7n EY5q n7u EY6q r4q AA12t l8s <cuartel> k10o UW3q AA10s r3q t10s EY3q l7t <general> h10r EY4q n8u EY7q r5q AA6q l12s x22n <aquí> AA9s k11m w3q IY9s <Halcón> AA3q l5t k14s OW4q n11t <5> s9o IH8r n11s k6r OW16w <Solicitamos> s11r OW6q l6s IY7q s5o IY8r t8t AA7q m6u OW15v s8l x15c "
+}
+
+
+lipSync vo_2_1_1_67_2_5
+{
+	description	"{scared}Holy shit . . . that was our ticket out of here."
+	text		"#str_303660"
+	visemes	"english"	"x4a {scared} <Holy> h12n OW5q l17s IY4q x6q <shit> SH17u IY14u t11h x58h <that> DH3t AE9r t3s <was> w3q AA3q z9r <our> AW4q ER4q <ticket> t12r IH7q k7s AH3q t3v <out> AW7q t3w <of> AH4q v3u <here> h21s IH12t r3q x20i "
+	visemes	"french"	"{scared} <Putain> p3g UW24z t3o AA3q x9o <de> d3p EY25z <merde> m3n EH3q r3q d9k EY3q x69a <Comment> k10p AO4q m22t AA9r x6l <on> OW5q n3k x7h <sort> s9r AO5q r3q <maintenant> m7p AA3q t10k n4t AA7q x15l "
+	visemes	"italian"	"x23c {scared} <Merda> m21t EH13u r4q d15s AA3q x11n <con> k9s OW4q n10u <quello> k6r w6q EH4q y9r OW4q <dovevamo> d6u OW4q v4x EH3q v6u AA7q m5w OW5q <andarcene> AA3q n6u d6u AA7q r3q CH11q EH5q n3v EH6q <da> d5s AA7q <qui> k10s w7q IY11t x25i "
+	visemes	"spanish"	"x9a {scared} <Mierda> m20r IY7q EY3q r3q d9j AA3q x44l <Era> EY8r r3q AA3q <nuestro> n5t UW3q EY3q s3n t8o r3q OW3q <billete> b4o IY5q l3i l3t EY8r t6o EY4q <para> p9p AA3q r3q AA5q <salir> s7n AA3q l3l IY10s r3q <de> d4u EY3q <aquí> AA5q k6m w3q IY5q x13f "
+}
+
+
+lipSync vo_2_1_1_67_4
+{
+	description	"I copy, Lieutenant. Anderson, out."
+	text		"#str_301347"
+	visemes	"english"	"<I> AY15v <copy> k20t AA9s p6k IY9r <Lieutenant> l8u UW6q t8m EH10s n3r AH5q n6k t3a x18g <Anderson> AE16w n3r d3t ER6q s11q AH4q n6u <out> AW19y t15g x6a "
+	visemes	"italian"	"x5c <Ricevuto> r3g IY7q CH8o EH5q v7r UW8r t4r OW6q <tenente> t4o EH5q n3r EY8r n6m t4k EH6q x38l <Anderson> AA8r n7o d3q EY4q r3q s10l OW6q n3g <chiudo> k11h y6q UW9s d3p OW6q x7c "
+	visemes	"spanish"	"x9t <Recibido> r3q EY11t s3k IY6q b4s IY7q d4s OW5q <teniente> t7o EY5q n3q IY6q EY3q n5k t5h EY6q x26i <Anderson> AA6q n8q d4s EY3q r3q s9r OW7q n5m <corto> k4r OW5q r3q t9j OW7q x26a "
+	visemes	"french"	"<Compris> k5n OW10s n4h p3h r3q IY7q <lieutenant> l3r y8r UW6q t3a n8q AA13u x30i <Anderson> AH6q n3r d4u EH5q r3q z11o OW5q n10m <terminé> t3p EH5q r3q m5n IY7q n5s EY10s x10i "
+}
+
+
+lipSync vo_2_1_1_67_5
+{
+	description	"C'mon, Kane. Let's get going."
+	text		"#str_303954"
+	visemes	"english"	"x13s <Cmon> k15r AH5q m3x AA9s n29r <Kane> k8o EY19y n6g x18c <Lets> l3p EH15v t8u s13p <get> g3w EH5q t5u <going> g3t OW3q IH9r NG6h x17f "
+	visemes	"french"	"x5n <Allez> AH14v l7n EY23z <caporal> k6e AH3q p3v AO3q r3q AH3q l3n x28f <Kane> k4q AH4q n11u x14n <on> OW6q n24s <y> IY28z <va> v3e AH3a "
+	visemes	"italian"	"<Forza> f4a AW4f r4q t8m s5u AA5q x16s <Kane> AA8r n28r EH7q x38l <andiamo> AA8r n19r d28l y9r AA3q m6p OW6q x7c "
+	visemes	"spanish"	"<Vamos> b4r AA3q m7w OW3q s3m x9p <Kane> k18t AA4q n7l EY22z x38i <En> EY6q n20t x6r <marcha> m17r AA8r r3q CH6i AA7q x26a "
+}
+
+
+lipSync vo_2_1_1_80_1
+{
+	description	"You try that door over there, I'll try this one."
+	text		"#str_301349"
+	visemes	"english"	"<You> y18x UW8r <try> t14o r6q AY11t <that> DH3t AE12t t3j <door> d8q AO12u r4q <over> OW12u v4q ER4q <there> DH7r EH17x r5q x50c <Ill> AY15v l5s <try> t13l r5q AY10s <this> DH4o IH8q s9l <one> w7f AH3f n8a "
+	visemes	"french"	"x4l <Essaie> EH4q s12o EH20z x9f <la> l5q AH3q <porte> p3u AO3q r3q t7h EY3q <là> l3t AH7q <bas> b3o AH14v x88c <Je> j5f UW3q <me> m5p UW5q <charge> SH8r AH7q r3q j12l EY5q <de> d6r EY3q <lautre> l5r AA3q t6h r3q x11a "
+	visemes	"italian"	"<Tu> t5p UW9r <prova> p8r r3q AW7q v4t AA6q <quella> k7k w3q EH5q y3q AA7q <porta> p6n AW9s r3q t7p AA5q <lì> l3s IY12t x92a <io> IY11s OW5q <provo> p5p r3q AW3q v4p OW4q <questa> k5g w6q EH7q s6g t5i AA3q x6a "
+	visemes	"spanish"	"<Prueba> p5n r3q UW7q EY3q b3q AA6q <con> k5n OW4q n5r <esa> EY4q s8r AA5q <puerta> p5i UW3q EY9r r3g t5r AA4q <de> d6o EY3q <ahí> AA3q IY8q x31i <Yo> IY10s OW9r <probaré> p5k r4q OW4q b3r AA3q r3q EY8q <con> k4n OW4q n4n <ésta> EY5q s4k t8h AA3q x7f "
+}
+
+
+lipSync vo_2_1_1_80_2
+{
+	description	"This is disgusting!"
+	text		"#str_303792"
+	visemes	"english"	"x4a <This> DH4r IH17x s13p <is> IH8q z9n <disgusting> d10k IH6q s17r g10q AH12t s10p t6i IH6q NG5f x19c "
+	visemes	"french"	"<Cest> k3a EY3q s17p t3s <dégueulasse> d27q EY15v g8t EH7q l3s AH21z s12p EY3q x15i "
+	visemes	"italian"	"x13c <Davvero> d6n AA3q v3s EH3q r3q OW3q <disgustoso> d21n IY10s z9r g9s UW6q s12p t8r OW21z s6q OW3q x17l "
+	visemes	"spanish"	"x41p <Esto> EY13u s4i t12l OW6q <es> EY6q s4n x4r <asqueroso> AA7q s6k k9k w3q EY5q r4q OW8r s12p OW3q x17g "
+}
+
+
+lipSync vo_2_1_1_90_1
+{
+	description	"Kane, this Lieutenant Voss. H Q just told me about Anderson. I'm sorry to hear about that. He was one of the best medics I've ever known."
+	text		"#str_301351"
+	visemes	"english"	"x8o <Kane> k13s EY12u n7v <this> DH3w IH20z s3m x18r <Lieutenant> l3x UW5q t11q EH7q n3u AH4q n3h t3f <Voss> v4r AO25z s3n x66l <H> EY11t CH6r x7r <Q> k8t y5q UW4q x5s <just> j9s AH3q s4h t5p <told> t3u OW4q l4x d3w <me> m4v IY6q <about> AH3q b3s AW11t t3q <Anderson> AE13u n3r d4s ER5q s5n AH14u n3t x35q <Im> AY13u m4r x9q <sorry> s5t AA7r r3q IY3q <to> t5u UW3q <hear> h7r IH4q r4q <about> AH8r b3n AW12t t3c x5o <that> DH3r AE13u t3h <He> h51i IY3a x6m <was> w3q AA4q z8s <one> w4q AH10s n3s <of> AH5q v3g <the> DH3c IY4c <best> b3r EH11t s5p t6r <medics> m5w EH7q d3s IH5q k7o s5r <Ive> AY33z v3s <ever> EH3q v3v ER5q <known> n3x OW3q n5t x18p "
+	visemes	"french"	"<Kane> k7u AH11t n23j x11l <ici> IY6q s10u IY7q <le> l3y EY3q <lieutenant> l3p y11t UW3q t3f n9r AA3q <Voss> v11q OW15v s22q x34c <Le> l3n EY5q <QG> k10p <vient> v10t y20z AA3q <de> d3q EY3q <mannoncer> m4t AH6q n3r n3s OW3q n4r s11u EH4q r3q <la> l3v AH3q <mort> m7s AO7q r3q <dAnderson> d6p AH6q n6p d4t EH4q r3q z12s OW6q n10f x28a <Cela> s10q l7s AH4q <mattriste> m5v AH6q t5k t5n r3q IY11s z13t t13n x75a <cétait> s6k EH3q t9l EH5q <lun> l5t UW6q n4n <des> d4r EY6q <meilleurs> m4u EH3q y12u EH3q r3q <toubibs> t10l UW5q b5q IY9r b5h <que> k6m UW5q <jai> j6p AH3q <connus> k11n AO3q n9o UW5q x17a "
+	visemes	"italian"	"<Kane> AA3q n3o EH3q <qui> k10q w3q IY29z x18s <tenente> t3t EH3q n3v EY4q n3h t29s EH3q <Voss> v3r AW14v s3r s4s x60o <Il> IY7q l4t <Comando> k9u OW3q m5w AA6q n6t d3u OW4q <mi> m9s IY7q <ha> AA3q <appena> AA3q p12n EH5q n3s AA5q <riferito> r4q IY7q f5r EH3q r6q IY6q t5q OW6q <di> d4o IY9r <Anderson> AA3q n5p d3p EY3q r3q s13q OW6q n4p x52m <Mi> m3r IY5q <spiace> s4o p4o y3q AA3q CH3s EH4q x69o <era> EY3q r6q AA13u <uno> UW6q n8v OW6q <dei> d5p EH3q IY5q <migliori> m12p IY13u l3x OW3q r3q IY6q <medici> m4s EY10s d4m IY5q CH8t IY7q <che> k4r EH3q <avessi> AA3q v3t EH7q s5t s4u IY4q <mai> m3u AA4q IY5q <conosciuto> k6s OW3q n3v OW5q SH12u UW7q t7n OW4q x50n "
+	visemes	"spanish"	"<Kane> k5t AA3q n3x EY17x x14e <aquí> AA9r k5h w3q IY3q <el> EY5q l3o <teniente> t5q EY4q n5r IY3q EY3q n7p t3q EY7q <Voss> b3s OW17w s5i s4f x35a <El> EY6q l3f <cuartel> k3n UW4q AA5q r3g t4n EY7q l4p <general> h6n EY4q n4p EY3q r4q AA7q l4v <acaba> AA5q k6p AA4q b3t AA5q <de> d3s EY3q <informarme> IY4q n5n f5n OW5q r4q m5r AA5q r4q m4q EY5q <sobre> s6n OW10s b3q r3q EY3q <Anderson> AA3q n7q d3q EY3q r3q s11k OW6q n12j x52a <Lo> l3m OW6q <siento> s6m IY4q EY3q n7q t3p OW6q <mucho> m6t UW6q CH10l OW7q <era> EY4q r3q AA4q <uno> UW3q n3s OW3q <de> d3r EY4q <los> l5r OW10s s3k <mejores> m7m EY4q h7n OW4q r3q EY6q s3k <médicos> m7q EY5q d3n IY5q k5m OW8q s3l <que> k5m EY4q <he> EY5q <conocido> k5n OW5q n3q OW5q s6l IY10r d3l OW13s "
+}
+
+
+lipSync vo_2_1_1_90_2
+{
+	description	"But let's focus on getting you to safety. You're gonna to have to catch up with the squad, Kane. Meet us at the medlabs storage facility. We'll wait for you there."
+	text		"#str_301352"
+	visemes	"english"	"<But> b3p AH4q t5n <lets> l14v EH4q t6l s3q <focus> f7p OW10t k8q AH5q s4i x3s <on> AA7r n9q <getting> g6u EH5q t3u IH3q NG5t <you> y6q UW3q <to> t3r UW4q <safety> s3n EY3q f3n t6q IY4q <Youre> y3q UH3q r3q <gonna> g9q AA3q n4n AH9q x23c <to> t4n UW11t <have> h16u AE5q v3h <to> t4s UW3q x4l <catch> k10v AE6q CH5p x4s <up> AH5q p6m <with> w3q IH3q DH3c <the> DH4q IY3q <squad> s4o k12r w3q AA15w d3k <Kane> k16r EY4q n13t x31n <Meet> m9s IY7q t4t <us> AH4q s3l x6q <at> AE4q t6o <the> DH3u IY5q <medlabs> m4v EH9r d3i l11w AE10s b3p z4p <storage> s5k t5s AO4q r4q AH8r j6p x8q <facility> f6n AH3q s4p IH3q l8v AH7q t3q IY6q x18k <Well> w4q IY3q l5p <wait> w6q EY5q t5p x6r <for> f3u AO4q r5q <you> y6q UW4q <there> DH3s EH13u r8r x13o "
+	visemes	"italian"	"x16n <Ma> m5u AA16x <ora> OW3q r3q AA6q <pensiamo> p8p EH4q n4p s7s y3q AA3q m4u OW3q <a> AA4q <portarti> p6q OW3q r3q t8p AA4q r3q t7m IY3q <in> IY5q n3m x5r <salvo> s4q AA6q l6p v5n OW4q x19r <Dovrai> d7o OW5q v4r r4q AA6q IY9r <raggiungere> r4q AA3q d5o j4s UW7q n5r d3r j3t EH6q r3q EH3q <il> IY8r l6t <resto> r3q EY6q s5l t4o OW7q <della> d4s EH4q y3q AA5q <squadra> s3r k8o w3q AA10s d3n r4q AA5q x29n <Ci> CH5q IY3q <troverai> t6n r3q OW6q v3t EH6q r3q AA5q IY11t <al> AA3q l5s <magazzino> m6s AA5q g5r AA4q d7i z3q IY11t n3u OW6q <del> d3p EH3q l3s <laboratorio> l4t AA5q b3p OW4q r3q AA5q t6p AW5q r3q y9r OW3q <medico> m4r EY9r d6n IY3q k13q OW4q x37h <Ti> t6g IY4q <aspetteremo> AA5q s4m p7p EH4q t7o EH4q r3q EH3q m5s OW3q <lì> l6q IY3q x26m "
+	visemes	"french"	"x5e <Mais> m5s AH4q IY3q s3p <occupons> AO3f k5o UW9r p5q OW5q n3u <nous> n8u UW8r <de> d6t EY3q <vous> v6n UW4q <mettre> m7v EH6q t5l r3q UW3q <en> AA4q <sûreté> s10u UW5q r3q t10n EY13u x33a <Vous> v11o UW5q <allez> AH3q l3u EY5q <devoir> d4r UW5q v6l w3q AH11t r3q <rejoindre> r3q UW7q j6n w7q AA4q d5o r3q UW3q <lescouade> l3v EH5q z8s k8i UW4q AH11t d8e <Kane> k9k AH3q n18m x40a <Retrouvez> r3q UW9r t4k r3q UW4q v3r EY6q <nous> n4q UW8r <à> AH6q <lentrepôt> l3t EH3q n6q t4i r3q EH5q p8s OW6q <médical> m5t EY5q d5n IY5q k9m AH12t l3f x35c <On> OW4q n3k <vous> v3m UW4q <attendra> AH3q t5s AA4q d7n r3q AH6q <là> l6p AH14u <bas> b5l AH8q x15f "
+	visemes	"spanish"	"<Pero> p3p EY5q r3q OW5q <concentrémonos> k4r OW6q n3n s4p EY5q n5o t3n r3q EY5q m6s OW4q n4u OW8r s5r <en> EY3q n8p <ponerte> p4q OW5q n4u EY8r r3q t4o EY3q <a> AA5q <salvo> s6n AA6q l6r b5l OW8q x34c <Vas> b6r AA6q s4o <a> AA7q <tener> t4p EY4q n3u EY7q r3q <que> k4q EY3q <alcanzar> AA3q l3r k4q AA4q n8o s4r AA4q r3q <al> AA6q l4s <pelotón> p7o EY5q l4u OW6q t5p OW8r n10q <Kane> k7p AA3q n3q EY7q x42g <Reúnete> r3q EY3q UW8r n4s EY5q t3t EY5q <con> k5q OW4q n3s <nosotros> n3s OW6q s5o OW5q t3n r3q OW6q s5n <en> EY3q n3r <las> l3t AA5q s4m <instalaciones> IY5q n3l s3g t4p AA4q l4o AA6q s3j IY5q OW3q n3s EY4q s3n <de> d3n EY3q <almacenamiento> AA3q l3r m3s AA7q s3l EY4q n6r AA3q m5r IY3q EY3q n6p t3m OW4q <del> d3u EY4q l4r <laboratorio> l3v AA4q b3r OW3q r3q AA7q t6o OW3q r3q IY4q OW3q <médico> m6t EY3q d4q IY7q k6k OW13s "
+}
+
+
+lipSync vo_2_1_1_90_3
+{
+	description	"{pain}Kane? Kane is that you? This section caved in. {furrow}I'm not sure where the rest of the squad is. My comlink is damaged. Find your way around this mess and we'll figure out a way to get out of here."
+	text		"#str_301353"
+	visemes	"english"	"{pain} <Kane> k10q EY8r n24p x54e <Kane> k6p EY12t n3t <is> IH6q z5p <that> DH3v AE9r t3o <you> y13u UW11t x54g <This> DH10k IH7q s4o <section> s14o EH6q k4k SH9r AH4q n8k <caved> k7m EY12t v6l d5m <in> IH5q n19n x79c {furrow} <Im> AY3q m3t <not> n6u AA8r t3q <sure> SH10s UH3q r3q <where> w4q EH3q r3q <the> DH3s IY3q <rest> r10s EH5q s6l t4n <of> AH4q v3m <the> DH3n IY3q <squad> s10n k5c w12t AA11t d3s <is> IH13u z7m <My> m6n AY8q <comlink> k14p AA9r m8s l7s IH3q NG3h k4n <is> IH6q z5l <damaged> d6q AE11s m6q AH3q j12n d6i x45a <Find> f11n AY9s n3s d3u <your> y3q AO4q r3q <way> w6q EY9s <around> ER10s AW12t n3x d3w <this> DH3v IH5q s9m <mess> m7t EH10s s4o <and> AE3q n3r d3t <well> w3q IY3q l3m <figure> f10l IH6q g4p y6q ER7q <out> AW6q t3r <a> AH3q <way> w11t EY6q <to> t3r UW3q <get> g8p EH4q t3s <out> AW12t t3q <of> AH3q v3o <here> h7k IH6q r3q x13i "
+	visemes	"french"	"{pain} <Kane> k11t AH14v n10p x92i <Kane> k3a AH3e n4k <cest> s6u EY22z s12t t3q <vous> v6p UW17x x69h <Bon> b7o OW5q n8l <sang> s18t AA3q <ma> m16l AH6q <tête> t25q EH3q t21r x87g <Cette> s11s EH3q t8n <section> s6t EH5q k4q s9v y3q OW5q n4u <sest> s9v EY3q s3i t4n <effondrée> EY6q f9o OW5q n4p d3r r3q EY9s x96k {furrow} <Je> j9k UW3q <ne> n3i EY4q <sais> s10p EH3q <pas> p8o AH12u <où> UW10s <est> EH3f <passé> p3l AH9r s10t EY4q <le> l3l EY4q <reste> r3q EH9r s9t t6k EY3q <de> d4n EY4q <lescouade> l3l EH8q z9t k9h UW3q AH12u d9k x70h <mon> m12j OW5q n4c <comlink> k6q OW4q m5p l3s IY10s n11o k10p <est> EH3q <endommagé> AA4q d5s AO3q m8s AH4q j13t EY9r x83h <Débrouillez> d7n EY6q b4p r3q UW4q y12u EY3q <vous> v5n UW11s <pour> p4m UW4q r4q <me> m7u UW8r <rejoindre> r3q UW5q j7p w11t AA6q d3n r3q UW3q <et> EY3q <on> OW8r n4i <trouvera> t3k r3q UW3q v5k r3q AH6q <un> UW4q n3q <moyen> m3r w3q AH3q y6q AA3q <de> d3q EY6q <sortir> s9s AO4q r3e t9p IY3q r3q <dici> d6j IY5q s13t IY12s x30h "
+	visemes	"italian"	"x7p {pain} <Kane> AA3q n3v EH10s <Kane> AA3q n5o EH3q x99a x4a <sei> s3m EY21z IY12t <tu> t4r UW12t x5o <Aaah> AA4q AA3q AA4q x99k x21k <merda> m18h EH8q r3q d22k AA5q <la> l9h AA4a x36h <testa> t12l EY6q s6k t13k AA3q x83f <Ascolta> AA5q s4k k5m OW3q l3o t8n AA4q x47f {furrow} <cè> k4i EH4q <stato> s3h t4l AA7q t4l OW3q <uno> UW3q n4n OW5q <scontro> s4i k5n OW5q n3m t3n r3q OW3q <a> AA3q <fuoco> f9n w3q AW9r k8k OW7q x6k <e> EH9q <questa> k7c w3q EH4q s3g t4k AA5q <sezione> s7m EH5q t5f s5o y3q OW5q n4q EH3q <è> EH6q <crollata> k8k r5q OW3q y6q AA13u t7f AA3q x12h <Non> n12h OW4q n7m <so> s8o AW6q <dove> d3m OW5q v3l EH4q <sia> s9m IY8q AA3q <il> IY4q l4n <resto> r3q EY5q s3i t5k OW4q <della> d3l EH4q y5q AA4q <squadra> s5i k5i w3q AA7q d4k r4q AA3q <ho> AW4q x26f <il> IY3q l6k <comlink> k9i OW7q m9l l4p IY5q n3k x12j <fuori> f3i w3q AW3q r3q IY4q <uso> UW11r z10k OW3q x43a <Se> s7i EH6q <ti> t7e IY4q <orienti> OW3q r3q y12t EY4q n4n t4k IY4q <in> IY3q n3i <questo> k3k w3q EH3q s3j t3o OW6q <casino> k4n AA4q z6p IY7q n4p OW6q <troviamo> t5k r3q OW4q v5l y3q AA3q m7p OW3q <un> UW3q n3o <modo> m6r AW6q d3o OW5q <per> p4n EH5q r3q <andarcene> AA3q n5l d6l AA3q r3q CH11l EH4q n6g EH3f x12a "
+	visemes	"spanish"	"{pain} <Kane> k4k AA3q n3s EY11s x97g <Kane> k4n AA3q n3v EY18x <eres> EY11s r3q EY6q s4i <tú> t6m UW15v x99a x14a <Esta> EY8r s3k t4s AA7q <sección> s5r EY5q k5e s3h IY7q OW4q n3n <se> s5r EY5q <colapsó> k4o OW5q l3t AA7q p3i s7p OW17x x99a x85a {furrow} <No> n7q OW3q <estoy> EY6q s3h t3p OW4q IY6q <seguro> s5o EY5q g4o UW6q r3q OW3q <de> d3s EY7q <dónde> d3u OW6q n8o d3s EY5q <se> s7o EY7q <encuentra> EY3q n4e k3n UW4q EY4q n6q t3q r5q AA4q <el> EY5q l5q <resto> r3q EY6q s3g t4o OW4q <del> d3p EY9s l3g <pelotón> p4r EY3q l3s OW7q t3l OW12t n12k x14a <mi> m7p IY4q <enlace> EY4q n5n l4q AA7q s4m EY8r <de> d3u EY4q <comunicaciones> k4m OW3q m5o UW3q n3o IY5q k4o AA7q s3i IY5q OW3q n3r EY6q s4n <está> EY7q s3h t4p AA15w <dañado> d7o AA3q n3u AA4q d3o OW11s x62e <Ábrete> AA8q b3p r5q EY5q t3p EY7q <paso> p5p AA6q s7m OW4q <en> EY3q n15n <este> EY10s s3f t4m EY5q <desastre> d3q EY7q s6n AA8r s3i t4l r3q EY3q <e> EH3q <intentaremos> IY3q n4m t3q EY4q n8n t4o AA4q r3q EY5q m5p OW6q s4n <encontrar> EY4q n6n k3n OW6q n5l t4l r3q AA3q r3q <una> UW3q n6n AA7q <forma> f8n OW4q r3q m7o AA5q <de> d3p EY5q <salir> s6l AA4q l3n IY10s r3q <de> d3q EY3q <aquí> AA4q k8i w3q IY13s "
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

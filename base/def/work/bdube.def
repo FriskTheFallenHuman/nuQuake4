@@ -1,0 +1,47 @@
+
+
+entityDef char_marine_puccini
+{
+	"inherit"					"char_marine"
+	"editor_ignore"				"1"
+	"npc_shortname"				"Puccini"
+	
+	"lipsync_malgar_killed1"	"vo_1_1_5_130_2"
+	"lipsync_malgar_killed2"	"vo_1_1_5_131_1"
+	"lipsync_elgar_killed1"		"vo_1_1_5_131_2"
+	
+	"follows"					"1"
+	"talks"						"0"
+}
+
+entityDef char_marine_malgar
+{
+	"inherit"					"char_marine_hyperblaster"
+	"editor_ignore"				"1"
+	"npc_shortname"				"malgar"
+	
+	"lipsync_puccini1"			"vo_1_1_5_130_1"
+	"lipsync_puccini2"			"vo_1_1_5_132_2"
+	"lipsync_elgar_killed1"		"vo_1_1_5_131_2"
+
+	"follows"					"1"
+	"talks"						"0"
+}
+
+entityDef char_marine_elgar
+{
+	"inherit"					"char_marine_shotgun"
+	"editor_ignore"				"1"
+	"npc_shortname"				"elgar"
+	
+	"lipsync_puccini1"			"vo_1_1_5_130_1"
+	"lipsync_puccini2"			"vo_1_1_5_132_2"
+	"lipsync_malgar_killed1"	"vo_1_1_5_130_2"
+	"lipsync_malgar_killed2"	"vo_1_1_5_131_1"
+
+	"follows"					"1"
+	"talks"						"0"
+	"health"					"175"
+	
+	"def_head"					"char_marinehead_helmet"
+}

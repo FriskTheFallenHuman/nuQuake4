@@ -1,0 +1,292 @@
+entityDef char_marine_tramCar_lybeck {
+	"inherit"					"char_marine_tramCar"
+	
+	"npc_name"					"PFC Lybeck"
+	"npc_description"			""
+	
+	"lipsync_talk_primary"		"vo_3_1_5_100_1"
+	"lipsync_talk_secondary"	"vo_3_1_5_110_1"
+	
+	"lipsync_vo_3_1_5_120_1"	"vo_3_1_5_120_1"
+	
+	"lipsync_vo_3_1_5_10_1"		"vo_3_1_5_10_1"
+	"lipsync_vo_3_1_5_20_1"		"vo_3_1_5_20_1"
+	
+	"lipsync_damageWarning1"	"vo_3_1_5_30_1"
+	"lipsync_damageWarning2"	"vo_3_1_5_30_2"
+	"lipsync_damageWarning3"	"vo_3_1_5_30_3"
+	"lipsync_damageWarning4"	"vo_3_1_5_30_4"
+	"lipsync_damageWarning5"	"vo_3_1_5_30_5"
+	"lipsync_damageWarning6"	"vo_3_1_5_30_6"
+	
+	"lipsync_vo_3_1_5_35_1"		"vo_3_1_5_35_1"
+	"lipsync_vo_3_1_5_38_1"		"vo_3_1_5_38_1"
+	"lipsync_vo_3_1_5_40_1"		"vo_3_1_5_40_1"
+	
+	"lipsync_vo_3_1_5_50_1"		"vo_3_1_5_50_1"
+	
+	"lipsync_vo_3_1_5_60_1"		"vo_3_1_5_60_1"
+	"lipsync_vo_3_1_5_60_2"		"vo_3_1_5_60_2"
+	"lipsync_vo_3_1_5_60_3"		"vo_3_1_5_60_3"
+	"lipsync_vo_3_1_5_60_4"		"vo_3_1_5_60_4"
+	"lipsync_vo_3_1_5_60_5"		"vo_3_1_5_60_5"
+	
+	"lipsync_vo_3_1_5_70_1"		"vo_3_1_5_70_1"
+	
+	"lipsync_vo_3_1_5_80_1"		"vo_3_1_5_80_1"
+	"lipsync_vo_3_1_5_80_2"		"vo_3_1_5_80_2"
+	"lipsync_vo_3_1_5_80_3"		"vo_3_1_5_80_3"
+	
+	"lipsync_vo_3_1_5_90_1"		"vo_3_1_5_90_1"
+	"lipsync_vo_3_1_5_90_2"		"vo_3_1_5_90_2"
+	"lipsync_vo_3_1_5_90_3"		"vo_3_1_5_90_3"
+	
+	"lipsync_driverDeath"		""
+}
+
+entityDef occupant_tramCar_driver_lybeck {
+	"inherit"					"occupant_tramCar_driver"
+	
+	"def_occupant"				"char_marine_tramCar_lybeck"
+}
+
+model tram1_model_char_marine
+{
+	inherit							model_char_marine
+	
+	anim idle_scan_2					models/characters/marine/idle_scan_2.md5anim	
+	
+	anim	player_gift_start					models/characters/marine/player_gift_start.md5anim					
+	anim	player_gift_loop					models/characters/marine/player_gift_loop.md5anim			
+	anim	player_gift_end						models/characters/marine/player_gift_end.md5anim	
+	
+	anim	player_gift2_start					models/characters/marine/player_gift2_start.md5anim					
+	anim	player_gift2_loop					models/characters/marine/player_gift2_loop.md5anim			
+	anim	player_gift2_end					models/characters/marine/player_gift2_end.md5anim	
+	
+	anim idle_startled_1				models/characters/marine/idle_startled_1.md5anim
+	anim idle_startled_2				models/characters/marine/idle_startled_2.md5anim
+	
+	anim	conversation_1				models/characters/marine/conversation_1.md5anim
+	
+	anim	use_gui_standing_start			models/characters/marine/standing_gui_start.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_loop			models/characters/marine/standing_gui_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	use_gui_standing_end			models/characters/marine/standing_gui_end.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	idle_weapon_1_start				models/characters/marine/idle_weapon_1_start.md5anim
+	anim	idle_weapon_1_loop				models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1					models/characters/marine/idle_weapon_1_loop.md5anim
+	anim	idle_weapon_1_end				models/characters/marine/idle_weapon_1_end.md5anim
+	anim	idle_weapon_2_start				models/characters/marine/idle_weapon_2_start.md5anim
+	anim	idle_weapon_2_loop				models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2					models/characters/marine/idle_weapon_2_loop.md5anim
+	anim	idle_weapon_2_end				models/characters/marine/idle_weapon_2_end.md5anim
+	anim	idle_weapon_3_start				models/characters/marine/idle_weapon_3_start.md5anim
+	anim	idle_weapon_3_loop				models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3					models/characters/marine/idle_weapon_3_loop.md5anim
+	anim	idle_weapon_3_end				models/characters/marine/idle_weapon_3_end.md5anim
+	
+	anim	explosion_injured				models/characters/marine/explosion_injured.md5anim
+	{
+		ai_no_look
+	}
+	anim	explosion_injured_loop			models/characters/marine/explosion_injured_loop.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	explosion_assist				models/characters/marine/explosion_assist.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim	explosion_assist_loop			models/characters/marine/explosion_assist_loop.md5anim
+	{
+		ai_no_look
+	}
+	
+	anim	console_stand_start			models/characters/marine/console_stand_start.md5anim
+	anim	console_stand_loop			models/characters/marine/console_stand_loop.md5anim
+	{
+		frame	6,19,30,40,51,59		sound	snd_console
+	}
+	anim	console_stand_end			models/characters/marine/console_stand_end.md5anim
+	
+	anim    tram_driving_idle		models/characters/marine/tram_driving_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	
+	anim	recomp_mod_hyper						models/characters/marine/recomp_mod_hyper.md5anim
+	
+}
+
+// ModelDef for tram1 tech
+model tram1_model_char_marine_tech
+{
+	inherit					tram1_model_char_marine
+	mesh					models/characters/marine_tech/marine_tech.md5mesh
+	
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+	
+	// Re-define Heal anims	-----------------------------------------------------------------------------------------		
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+// modelDef for tram1 medic
+model tram1_model_char_marine_medic
+{
+	inherit							tram1_model_char_marine
+	mesh							models/characters/marine_medic/marine_medic.md5mesh
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	medic_vaccinegun
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							sound	snd_med_gun_heal
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	medic_vaccinegun
+		rate 1.3
+	}
+}
+
+// Custom tram1 marine
+entityDef tram1_char_marine
+{
+	"inherit"					"char_marine"
+	"model"						"tram1_model_char_marine"
+	"editor_menu"					"level"
+}
+
+// Custom tram1 tech
+entityDef tram1_char_marine_tech
+{
+	"inherit"					"char_marine_tech_armed"
+	"model"						"tram1_model_char_marine_tech"
+	"editor_menu"					"level"
+}
+
+// Custom tram1 medic
+entityDef tram1_char_marine_medic
+{
+	"inherit"					"char_marine_medic_armed"
+	"model"						"tram1_model_char_marine_medic"
+	"editor_menu"					"level"
+}
+
+model model_char_marine_npc_cortez_tram1
+{
+	inherit							tram1_model_char_marine
+	anim    tram_driving_idle		models/characters/marine/tram_driving_idle.md5anim
+}
+
+entityDef char_marine_npc_cortez_tram1
+{
+	"inherit"											"char_marine"
+	"editor_menu"										"char_npc_tram1"
+}
+
+
+/***********************************************************************
+TRAM1_grunt_door
+***********************************************************************/
+export tram1_grunt_door
+{		
+	options -scale .3937 -prefix DOOOR_ -align ALL 
+         
+	mesh	work/models/mapobjects/strogg/tram/grunt_door/door_idle.ma	  						-dest models/mapobjects/tram/door/mesh
+	anim	work/models/mapobjects/strogg/tram/grunt_door/door_idle.ma	  						-dest models/mapobjects/tram/door/idle
+	anim	work/models/monsters/grunt/animations/tram_grunt_intro2.ma	  						-dest models/mapobjects/tram/door/grunt_tears_door
+	
+}
+
+entityDef tram1_grunt_door
+{
+	"model"							"model_tram1_grunt_door"
+	"spawnclass"					"idAnimated"
+	
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-8 -8 0"
+	"editor_maxs"					"8 8 16"
+	"editor_usage"					"Animated door pulled open by grunt in tram1"
+	"editor_menu"					"level"
+
+	//"animate_z"						"1"
+	//"floats"						"1"
+	"anim"							"idle"
+	"start_anim"					"idle"	
+	
+	"snd_tear"						"ambient_metal_stress_violent"
+	"snd_break1"					"generic_small_metal_break"
+	"snd_break2"					"generic_large_metal_break"
+}
+
+model model_tram1_grunt_door
+{
+	mesh												models/mapobjects/tram/door/mesh.md5mesh
+	anim idle											models/mapobjects/tram/door/idle.md5anim
+	anim grunt_tears									models/mapobjects/tram/door/grunt_tears_door.md5anim
+	{
+		frame	8					sound	snd_tear
+		frame	16					sound	snd_break1
+		frame	30					sound	snd_break2
+		rate 1.1
+	}
+}	
+
+
+// -- Specialty Grunt ------------------------------------------------------------------------------------
+
+
+model model_tram1_monster_grunt 
+{
+	inherit												model_monster_grunt
+	
+	anim tram1_grunt_intro								models/monsters/grunt/tram1_grunt_intro.md5anim
+{		
+	 frame	12											sound		snd_growl
+	 rate 1.1 
+}
+
+}
+	
+entityDef tram1_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"model"												"model_tram1_monster_grunt"
+	"editor_menu"										"level"
+	
+	"snd_growl"											"grunt_sight"
+}

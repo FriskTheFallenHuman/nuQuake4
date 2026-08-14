@@ -1,0 +1,721 @@
+//---------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+
+textures/flares/mp_flagpole1
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	6 + 8 * guitable_random1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red		0.7 * guitable_random1[time*0.5]
+		green		0.7 * guitable_random1[time*0.5]
+		blue		0.5 * guitable_random1[time*0.5]
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/mp_flagpole2
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	3 + 4 * guitable_random1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red		0.7 * guitable_random1[time*0.5]
+		green		0.7 * guitable_random1[time*0.5]
+		blue		0.5 * guitable_random1[time*0.5]
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/mp_flagpole3
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	3 + 4 * guitable_random1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red		0.7 * guitable_random1[time*0.5]
+		green		0.7 * guitable_random1[time*0.5]
+		blue		0.5 * guitable_random1[time*0.5]
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare1
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse2[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse2[time*0.5])
+		green		.25 + (0.25 * introship_pulse2[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare2
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse1[time*0.5])
+		green		.25 + (0.25 * introship_pulse1[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare3
+{
+
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse1[time*0.5])
+		green		.25 + (0.25 * introship_pulse1[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare4
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse2[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse2[time*0.5])
+		green		.25 + (0.25 * introship_pulse2[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare5
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse2[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse2[time*0.5])
+		green		.25 + (0.25 * introship_pulse2[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare6
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse1[time*0.5])
+		green		.25 + (0.25 * introship_pulse1[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare7
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse1[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse1[time*0.5])
+		green		.25 + (0.25 * introship_pulse1[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare8
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse2[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse2[time*0.5])
+		green		.25 + (0.25 * introship_pulse2[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare9
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse3[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse3[time*0.5])
+		green		.25 + (0.25 * introship_pulse3[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+textures/flares/introship_flare10
+{
+	//sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	2 + 4 * introship_pulse3[time*0.5]
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		if Parm5 == 1
+		blend 		add
+		map 		_quadratic
+		
+		red		.5 + (.5 * introship_pulse3[time*0.5])
+		green		.25 + (0.25 * introship_pulse3[time*0.5])
+		blue		0 
+		alpha		parm3 
+		vertexcolor
+	}
+}
+
+models/mapobjects/terminal/doorflare
+
+{
+
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		20
+
+
+
+	{
+		if(Parm4!=1)
+		blend add
+//		map textures/terminal/t_wall_glow.tga
+		map _quadratic
+//		colored
+		red .9
+		green 1
+		blue	1
+		alpha	.9
+		vertexcolor
+	}
+
+	{
+		if(Parm4 == 1)
+		blend add
+		map _quadratic
+		red Parm0
+		green Parm1
+		blue Parm2
+		vertexcolor
+	}
+	
+
+}
+
+models/mapobjects/terminal/chiclightflare
+
+{
+//	deform sprite
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		8
+
+	{
+		blend GL_ONE, GL_ONE
+		map textures/terminal/t_chiclight_glow.tga
+		red .9
+		green 1
+		blue	1
+		alpha	.9
+		vertexcolor
+
+	}
+
+}
+
+
+models/mapobjects/terminal/sm_lightflare
+
+{
+	noshadows
+	translucent
+	nonsolid
+
+	{
+		blend GL_ONE, GL_ONE
+		map textures/terminal/t_sm_light_glow.tga
+
+	}
+
+}
+
+//-----------------------------------------------------------------------------------------------------
+textures/flares/SoundFlare
+{
+	noshadows
+	translucent
+	nonSolid
+	twoSided
+	deform	flare 	(.5 * Parm5) + (.5 * Parm5 * sound)
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend	add
+		map		_quadratic
+		colored
+		vertexColor
+		Red			Parm0
+		Green		Parm1
+		Blue		Parm2
+	}
+}
+
+models/monsters/gladiator/chesttest
+
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		15
+
+	{
+		blend GL_ONE, GL_ONE
+//		map textures/flares/wall_glow.tga
+		map		_quadratic
+		red 	.57//.37
+		green 	.6//.40
+		blue	.98//.78
+		alpha	1
+		vertexcolor
+
+	}
+
+}
+
+
+// standard flares
+// 	-combine for blinky lights
+// 	-use _color on a func_static to force a colour
+textures/flares/flare_4
+{
+	sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	4
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/flares/flare_8
+{
+	sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	8
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red		parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/flares/flare_8_global_startoff
+{
+	sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	8
+	qer_editorimage	textures/editor/qer_flare_global.tga
+
+	{
+		if (global1>0)
+		blend 		add
+		map 		_quadratic
+		
+		red		parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/flares/flare_8_global_starton
+{
+	sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	8
+	qer_editorimage	textures/editor/qer_flare_global.tga
+
+	{
+		if (global1==0)
+		blend 		add
+		map 		_quadratic
+		
+		red		parm0 
+		green		parm1
+		blue		parm2
+		alpha		parm3
+		colored
+		vertexcolor
+	}
+}
+
+textures/flares/flare_8_global_crossfade
+{
+	sort far
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	8
+	qer_editorimage	textures/editor/qer_flare_global.tga
+
+	{
+		blend		add
+		if		(global1 == 0)							// modulated orange
+		map		_quadratic
+		red 		1.00 * storage_pulse[time*0.5]
+		green 		0.71 * storage_pulse[time*0.5]
+		blue 		0.00 * storage_pulse[time*0.5]
+		vertexColor
+	}
+	
+	{
+		blend		add
+		if		(global1 && time - global1 < .25)				// ramp to known orange
+		map		_quadratic
+		red		(1.00 * storage_pulse[global1*0.5]) + ((1.00 - storage_pulse[global1*0.5]) * storage_fadein[(time-global1)*4])
+		green		(0.71 * storage_pulse[global1*0.5]) + ((0.71 - (0.71 * storage_pulse[global1*0.5])) * storage_fadein[(time-global1)*4])
+		blue		0
+		vertexColor
+	}
+	{
+		blend		add
+		if		(global1 && time - global1 >= 0.25 && time - global1 < 2.25 )	// fade to blue
+		map		_quadratic
+		red		storage_light_r[(time-global1-.25)*0.5]
+		green		storage_light_g[(time-global1-.25)*0.5]
+		blue		storage_light_b[(time-global1-.25)*0.5]
+		vertexColor
+	}
+	
+	{
+		blend		add
+		if		(global1 && time - global1 >= 2.25)
+		map		_quadratic
+		red		0.58
+		green		0.82
+		blue		1.00
+		vertexColor
+	}
+	
+}
+
+textures/flares/flare_16
+{
+	sort far
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	16
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/flares/flare_24
+{
+	sort far
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	24
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+textures/flares/flare_32
+{
+	sort far
+	noshadows
+	translucent
+	nonsolid
+	deform	flare	32
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+		
+		red			parm0 
+		green		parm1 
+		blue		parm2 
+		alpha		parm3 
+		colored
+		vertexcolor
+	}
+}
+
+// dynamic sizeable flare of goodness (starts at size 16)
+//	-use parm4 to modify the size
+textures/flares/flare_sizeable
+{
+	sort far
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		( 16 + parm4 )
+	qer_editorimage		textures/editor/qer_flare.tga
+	{
+		if ( parm7 == 0 )
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+// lock lights (generic for map use)
+//	-turn into a func_static and use parm7 to modify colour status.  use to indicate door lock status, update on unlock/lock
+//	-create a new image if you need a different shape, these work best as small rectangles`
+textures/flares/locklight_rectangle
+{
+	translucent
+	{
+		if ( parm7 == 0 )
+		blend 	add
+		map		textures/flares/locklight1_add.tga
+		red		1
+		green	0.1
+		blue	0.1
+
+	}
+	{
+		if ( parm7 == 1 )
+		blend 	add
+		map		textures/flares/locklight1_add.tga
+		red		0.6
+		green	1
+		blue	0.23
+	}
+}
+
+//specific flares w/ colours
+
+textures/flares/flare_12_red
+{
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	12
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+
+		red			0.9
+		green		0.1
+		blue		0
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+textures/flares/flare_12_yellow
+{
+	noShadows
+	translucent
+	nonsolid
+	deform	flare	12
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend 		add
+		map 		_quadratic
+
+		red		0.91
+		green		0.85
+		blue		0.61
+		alpha		parm3
+		vertexcolor
+	}
+}
+
+// mcc
+textures/flares/flare_8_mcc
+{
+	noshadows
+	translucent
+	nonsolid
+	deform	flare 		8
+	qer_editorimage	textures/editor/qer_flare.tga
+
+	{
+		blend add
+		map _quadratic
+		
+		red 	0.9 
+		green	0.97 
+		blue	1
+		alpha	.5
+		vertexcolor
+	}
+}

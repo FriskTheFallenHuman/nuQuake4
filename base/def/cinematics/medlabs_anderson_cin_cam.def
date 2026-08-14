@@ -1,0 +1,22 @@
+export cin_med_anderson
+{
+	options -scale .3937 -nomesh -sourcedir work/models/cinematics/anderson_death -destdir models/cinematics/medlabs2
+	camera	level.ma			-dest cin_med_anderson
+}
+
+camera cin_cam_medlabs_anderson
+{
+	anim cin_med_anderson					"models/cinematics/medlabs2/cin_med_anderson.md5camera"
+}
+
+entityDef cin_med_anderson 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_cam_medlabs_anderson"
+}

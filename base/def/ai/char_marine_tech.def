@@ -1,0 +1,217 @@
+/*
+===============================================================================
+
+	Marine_tech
+
+===============================================================================
+*/
+
+export char_marine_tech
+{
+	options -scale .3937 -prefix PLAYER_ -align ALL -keep l_elbo_tweak r_elbo_tweak body shoulders neckcontrol legs_channel head_channel SG_muzzle_flash MG_muzzle_flash HB_muzzle_flash -parent SG_stock r_wrist -parent MG_stock_joint r_wrist -parent HB_base r_wrist -parent hips body -parent waist SPINNER -parent SPINNER body -sourcedir work/models/characters/marine_tech/animations -destdir models/characters/marine_tech
+
+	addoptions -skipmesh dummyEyeL
+	addoptions -skipmesh dummyEyeR
+	addoptions -skipmesh dummyHair1
+	addoptions -skipmesh dummyHair2
+	addoptions -skipmesh dummyHair3
+	addoptions -skipmesh dummy_head
+
+	addoptions -skipmesh PST_pistol_mesh
+ 	addoptions -skipmesh NG_stock_mesh 
+ 	addoptions -skipmesh NG_handle_mesh 
+ 	addoptions -skipmesh NG_handlebase_mesh 
+ 	addoptions -skipmesh NG_drum_mesh 
+ 	addoptions -skipmesh NG_clip_mesh 
+ 	addoptions -skipmesh NG_clip_left_mesh 
+ 	addoptions -skipmesh NG_clip_right_mesh 
+ 	addoptions -skipmesh NG_scope_mesh 
+ 	addoptions -skipmesh NG_a1_mesh 
+ 	addoptions -skipmesh NG_a2_mesh 
+ 	addoptions -skipmesh NG_b1_mesh 
+ 	addoptions -skipmesh NG_b2_mesh 
+ 	addoptions -skipmesh NG_c1_mesh 
+ 	addoptions -skipmesh NG_c2_mesh 
+ 	addoptions -skipmesh NG_d1_mesh 
+ 	addoptions -skipmesh NG_d2_mesh 
+ 	addoptions -skipmesh NG_e1_mesh 
+ 	addoptions -skipmesh NG_e2_mesh 
+ 	addoptions -skipmesh NG_f1_mesh 
+ 	addoptions -skipmesh NG_f2_mesh 
+ 	addoptions -skipmesh RKT_stock_mesh 
+ 	addoptions -skipmesh RKT_trigger_lft_mesh 
+ 	addoptions -skipmesh RKT_trigger_rt_mesh 
+ 	addoptions -skipmesh RKT_laser_sight_front_mesh 
+ 	addoptions -skipmesh RKT_laser_sight_back_mesh 
+ 	addoptions -skipmesh RKT_rack_mesh 
+ 	addoptions -skipmesh RKT_clasp_front_lft_mesh 
+ 	addoptions -skipmesh RKT_clasp_back_lft_mesh 
+ 	addoptions -skipmesh RKT_clasp_front_rt_mesh 
+ 	addoptions -skipmesh RKT_clasp_back_rt_mesh 
+ 	addoptions -skipmesh RKT_rocket_mesh 
+ 	addoptions -skipmesh RKT_fin_top_mesh 
+ 	addoptions -skipmesh RKT_fin_left_mesh 
+ 	addoptions -skipmesh RKT_fin_right_mesh 
+ 	addoptions -skipmesh GN_stock_mesh 
+ 	addoptions -skipmesh GN_ammo_mesh 
+ 	addoptions -skipmesh LG_stock_mesh 
+ 	addoptions -skipmesh LG_center_rod_mesh 
+ 	addoptions -skipmesh LG_spire_1_mesh 
+ 	addoptions -skipmesh LG_spire_2_mesh 
+ 	addoptions -skipmesh LG_spire_3_mesh 
+ 	addoptions -skipmesh LG_spire_4_mesh 
+ 	addoptions -skipmesh LG_flap_top_1 
+ 	addoptions -skipmesh LG_flap_top_2 
+ 	addoptions -skipmesh LG_flap_left_1 
+ 	addoptions -skipmesh LG_flap_left_2 
+ 	addoptions -skipmesh LG_flap_right_1 
+ 	addoptions -skipmesh LG_flap_right_2
+ 	addoptions -skipmesh RG_stock_mesh
+ 	addoptions -skipmesh DMG_body_mesh
+ 	addoptions -skipmesh DMG_l_magnet_mesh
+ 	addoptions -skipmesh DMG_r_magnet_mesh
+ 	addoptions -skipmesh DMG_outer_ring_mesh
+ 	addoptions -skipmesh DMG_middle_ring_mesh
+ 	addoptions -skipmesh DMG_inner_ring_mesh
+
+	mesh	tech_marine_mesh.ma			-dest marine_tech
+//	anim	idle.ma						-dest marine_tech
+	}
+
+/*
+===============================================================================
+
+	Marine_tech Model Definition
+
+===============================================================================
+*/
+
+model model_char_marine_tech
+{
+	inherit							model_char_marine
+
+	mesh							models/characters/marine_tech/marine_tech.md5mesh
+
+	channel torso	( *waist )
+	channel legs	( *origin *hips -*waist )
+
+//	anim	idle					models/characters/marine_tech/marine_tech.md5anim
+	anim	idle					models/characters/marine/idle.md5anim
+
+	anim	medic_treating_player_start		models/characters/marine/medic_treating_player_start.md5anim
+	{
+		frame	13							attachment_show	tech_tool
+		rate 1.3
+	}
+	anim	medic_treating_player			models/characters/marine/medic_treating_player.md5anim
+	{
+		frame	1							attachment_show	tech_tool
+		frame	1							sound	snd_tech_tool_repair
+		rate .5
+	}
+	anim	medic_treating_player_end		models/characters/marine/medic_treating_player_end.md5anim
+	{
+		frame	17							attachment_hide	tech_tool
+		rate 1.3
+	}
+}
+
+/*
+===============================================================================
+
+	Marine_tech Entity Definition
+
+===============================================================================
+*/
+
+entityDef tech_tool
+{
+	"spawnclass"				"idAFAttachment"
+	"model"						"models/mapobjects/marine/equipment/tc.lwo"
+//	"model"						"models/mapobjects/marine/equipment/vaccinegun.lwo"
+
+	"angles"					"42 -70 0"
+	"origin"					"-2 -8.5 -3"
+	
+	"joint"						"l_wrist"
+
+	//keep it non-solid for now
+	"noclipmodel"				"1"
+}
+
+entityDef char_marine_tech_extras
+{
+	"editor_ignore"					"1"
+	
+	"spawnclass"					"rvAIMedic"
+	"editor_var disableHeal"		"Set to 1 to have them spawn with heal disabled - enable it later via the enableHeal script event.  Default 0."
+	"editor_var noAutoHeal"			"Won't heal you unless you click on them.  Defaults to 0."
+	"editor_var stationary"			"Won't move towards you to heal you.  Defaults to 0."
+	"editor_var healObeyTether"		"Won't break tethers to heal you.  Defaults to 0."
+	"editor_var minMarineHeal"		"When your health drops at or below this (as a normal marine), they will automatically try to heal you.  Also, when healing, they will heal you to *at least* this level.  Default 50.  This should really be consistent across all levels."
+	"editor_var maxMarineHeal"		"When your health is at or above this (as a normal marine), they will refuse to heal you even if you click on them.  Default 75.  This should really be consistent across all levels."
+	"editor_var minStroggHeal"		"When your health drops at or below this (when stroggified), they will automatically try to heal you.  Also, when healing, they will heal you to *at least* this level.  Default 50.  This should really be consistent across all levels."
+	"editor_var maxStroggHeal"		"When your health is at or above this (when stroggified), they will refuse to heal you even if you click on them.  Default 100.  This should really be consistent across all levels."
+	"editor_var healAmt"			"How much (minimum) they will heal you per heal instance.  Default 50.  This should really be consistent across all levels."
+	"editor_var patientRange"		"Maximum range their patient can be from them for them to automatically consider you as a patient.  Default 640.  Should not be changed unless necessary."
+	"editor_var buddyRange"			"Maximum range they look for buddies who are in combat - if there are buddies in this range with enemies, they won't auto-heal.  Default 640.  Should not be changed unless necessary."
+	"editor_var enemyRange"			"Maxiumum range they look for enemies who are in combat - if there are enemies in this range mad at the patient, the medic/tech or buddies within buddyRange, they won't auto-heal.  Default 1024.  Should not be changed unless necessary."
+	"editor_var healWait"			"How long (in seconds) they force you to wait between heals.  Default 0.  This should really be consistent across all levels."
+
+	"tech"							"1"
+	"minMarineHeal"					"50"
+	"maxMarineHeal"					"75"
+	"minStroggHeal"					"50"
+	"maxStroggHeal"					"100"
+	"healAmt"						"50"
+	"patientRange"					"640"
+	"buddyRange"					"640"
+	"enemyRange"					"1024"
+	
+	"def_attach"					"tech_tool"
+
+	"annoyed"						"0"
+/*
+//call
+	"lipsync_call_player_tech_1"	"vo_9_10_360_1"
+	"lipsync_call_player_tech_2"	"vo_9_10_360_2"
+	"lipsync_call_player_tech_3"	"vo_9_10_360_3"
+
+//start
+	"lipsync_heal_start_tech_1"		"vo_9_10_370_1"
+	"lipsync_heal_start_tech_2"		"vo_9_10_370_2"
+	"lipsync_heal_start_tech_3"		"vo_9_10_370_3"
+
+//move
+	"lipsync_heal_move_1"			"vo_9_10_310_1"
+	"lipsync_heal_move_2"			"vo_9_10_310_2"
+	"lipsync_heal_move_3"			"vo_9_10_310_5"
+
+//done
+	"lipsync_heal_end_tech_1"		"vo_9_10_380_1"
+	"lipsync_heal_end_tech_2"		"vo_9_10_380_2"
+	"lipsync_heal_end_tech_3"		"vo_9_10_380_3"
+
+//busy
+	"lipsync_heal_busy_1"			"vo_9_10_30_1"
+	"lipsync_heal_busy_2"			"vo_9_10_30_2"
+
+//noheal
+	"lipsync_heal_noheal_1"			"vo_9_10_250_1"
+	"lipsync_heal_noheal_2"			"vo_9_10_250_2"
+*/
+
+	// TODO: please get me the right sound!
+	"snd_tech_tool_repair"			"med_gun_heal"
+//	"snd_tech_tool_repair"			"tech_tool_repair"
+}
+
+entityDef char_marine_tech
+{
+	"inherit1"						"char_marine_tech_extras"
+	"inherit2"						"char_marine_unarmed"
+	"editor_ignore"					"0"
+
+	"model"							"model_char_marine_tech"
+	"def_head"						"char_marinehead_helmet_tech"
+}	

@@ -1,0 +1,909 @@
+/***********************************************************************************************************************
+Putra
+
+Unique entities created for the putrafication level
+
+8 Apr 04 
+Jim Shepard
+
+************************************************************************************************************************/
+
+// Contents
+
+//---------------------------------------------------------------------------------
+//	Models
+//
+//		model_putra_monster_grunt
+//		model_putra_monster_strogg_marine
+//		model_putra_monster_transfer
+//		model_putra_monster_failed_transfer
+//
+//---------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------
+//	Entity Defs
+//
+//		putra_monster_grunt
+//		putra_monster_strogg_marine
+//		putra_monster_tactical
+//		putra_monster_failed_transfer
+//		putra_char_marine_unarmed
+//
+//---------------------------------------------------------------------------------
+
+//======================================================================================================================
+
+//---------------------------------------------------------------------------------
+// Putra Grunt
+//
+//	model:		model_putra_monster_grunt
+//  entity:		putra_monster_grunt
+//---------------------------------------------------------------------------------
+
+model model_putra_monster_grunt
+{
+	inherit												"model_monster_grunt"
+
+	anim chain_grunt_up									models/monsters/grunt/chain_grunt_up.md5anim
+	{
+		frame 1											disableClip
+		frame 1											disableGravity
+		frame 105                                              					enableClip
+		frame 105										enableGravity
+
+	}
+
+	anim chain_grunt_down								models/monsters/grunt/chain_grunt_down.md5anim
+	{
+		frame 1											disableClip
+		frame 1											disableGravity
+	}
+}
+
+entityDef putra_monster_grunt
+{
+	"inherit"											"monster_grunt"
+	"editor_menu"										"level"
+	"model"												"model_putra_monster_grunt"
+
+	"sg_category"										"None"
+}
+
+//---------------------------------------------------------------------------------
+// Putra Strogg Marine
+//
+//	model:		model_putra_monster_strogg_marine
+//  entity:		putra_monster_strogg_marine
+//---------------------------------------------------------------------------------
+model model_putra_monster_strogg_marine
+{
+	inherit												model_monster_strogg_marine
+}
+
+entityDef putra_monster_strogg_marine
+{
+	"inherit"											"monster_strogg_marine"
+	"editor_menu"										"level"
+	"model"												"model_putra_monster_strogg_marine"
+	
+	"sg_category"										"None"
+}
+
+//---------------------------------------------------------------------------------
+// Putra Tactical Transfer
+//
+//	model:		model_putra_monster_tactical
+//  entity:		putra_monster_tactical
+//---------------------------------------------------------------------------------
+model model_putra_monster_tactical
+{
+	inherit												"model_monster_tactical"
+}
+
+entityDef putra_monster_tactical
+{
+	"inherit"											"monster_tactical"
+	"editor_menu"										"level"
+	"model"												"model_putra_monster_tactical"
+
+	"sg_category"										"None"
+}
+
+//---------------------------------------------------------------------------------
+// Putra Failed Transfer
+//
+//	model:		model_putra_monster_failed_transfer
+//  entity:		putra_monster_failed_transfer
+//---------------------------------------------------------------------------------
+model model_putra_monster_failed_transfer
+{
+	inherit												"model_monster_failed_transfer"
+}
+
+entityDef putra_monster_failed_transfer
+{
+	"inherit"											"monster_failed_transfer"
+	"editor_menu"										"level"
+	"model"												"model_putra_monster_failed_transfer"
+
+	"sg_category"										"None"
+}
+
+//---------------------------------------------------------------------------------
+// Putra Failed Transfer
+//
+//	model:		model_putra_char_marine_unarmed
+//	entity:		putra_char_marine_unarmed
+//---------------------------------------------------------------------------------
+
+model model_putra_char_marine_unarmed
+{
+	inherit						model_char_marine
+
+	anim	lightning_idle				models/characters/marine/lightning_idle.md5anim
+	{
+		ai_look_head_only
+	}
+	anim	lightning_dead				models/characters/marine/lightning_dead.md5anim
+	{
+		ai_no_look
+	}
+	anim	lightning_pain_start			models/characters/marine/lightning_pain_start.md5anim
+	{
+		ai_no_look
+	}
+	anim	lightning_pain_loop			models/characters/marine/lightning_pain_loop.md5anim
+	{
+		ai_no_look
+	}
+	anim	lightning_pain_end			models/characters/marine/lightning_pain_end.md5anim
+	{
+		ai_no_look
+	}
+	
+}
+
+entityDef putra_char_marine_unarmed
+{
+	"inherit"					"char_marine_unarmed"
+	"model"						"model_putra_char_marine_unarmed"
+	
+	"editor_menu"					"level"		
+}
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//	Intestines (various sections for putrafication)
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for NEW_Intestine1 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale 1  -align ALL -prefix INTEST_
+	mesh	work/models/mapobjects/strogg/putra/intestines/intestines01_mesh.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines01_mesh.md5mesh
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines01_idle.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines01_idle.md5anim
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines01_spaz.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines01_spaz.md5anim
+}
+
+//Model definition Intestines1 -----------------------------------------------------------------------------------------
+model model_Putra_Intestines01
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/intestines01_mesh.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/intestines01_idle.md5anim"
+	{
+	}	
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/intestines01_spaz.md5anim"	
+	
+}
+//Entity definition for Intestines1 ------------------------------------------------------------------------------------
+entityDef Putra_Intestines01
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines01"
+	"editor_rotatable"		"1"
+	
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_Putra_Intestines01"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//	Intestines (various sections for putrafication)
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for NEW_Intestine2 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale 1  -align ALL -prefix INTEST_
+	mesh	work/models/mapobjects/strogg/putra/intestines/intestines02_mesh.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines02_mesh.md5mesh
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines02_idle.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines02_idle.md5anim
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines02_spaz.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines02_spaz.md5anim
+}
+
+//Model definition Intestines2 -----------------------------------------------------------------------------------------
+model model_Putra_Intestines02
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/intestines02_mesh.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/intestines02_idle.md5anim"
+	{
+	}	
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/intestines02_spaz.md5anim"	
+	
+}
+//Entity definition for Intestines2 ------------------------------------------------------------------------------------
+entityDef Putra_Intestines02
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines02"
+	"editor_rotatable"		"1"
+	
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_Putra_Intestines02"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//Export block for NEW_Intestine3 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale 1  -align ALL -prefix INTEST_
+	mesh	work/models/mapobjects/strogg/putra/intestines/intestines03_mesh.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines03_mesh.md5mesh
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines03_idle.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines03_idle.md5anim
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines03_spaz.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines03_spaz.md5anim
+}
+
+//Model definition Intestines3 -----------------------------------------------------------------------------------------
+model model_Putra_Intestines03
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/intestines03_mesh.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/intestines03_idle.md5anim"
+	{
+	}	
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/intestines03_spaz.md5anim"	
+	
+}
+//Entity definition for Intestines3 ------------------------------------------------------------------------------------
+entityDef Putra_Intestines03
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines03"
+	"editor_rotatable"		"1"
+	
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_Putra_Intestines03"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for NEW_Intestine4 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale 1  -align ALL -prefix INTEST_
+	mesh	work/models/mapobjects/strogg/putra/intestines/intestines04_mesh.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines04_mesh.md5mesh
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines04_idle.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines04_idle.md5anim
+	anim	work/models/mapobjects/strogg/putra/intestines/intestines04_spaz.ma				-dest models/mapobjects/strogg/bio_machines/intestines/intestines04_spaz.md5anim
+}
+
+//Model definition Intestines4 -----------------------------------------------------------------------------------------
+model model_Putra_Intestines04
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/intestines04_mesh.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/intestines04_idle.md5anim"
+	{
+	}	
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/intestines04_spaz.md5anim"	
+	
+}
+//Entity definition for Intestines4 ------------------------------------------------------------------------------------
+entityDef Putra_Intestines04
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines04"
+	"editor_rotatable"		"1"
+	
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_Putra_Intestines04"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+
+
+
+
+
+
+//Export block for Intestine1 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale 1		//Not scalled down...
+	//options -scale .3937
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines1_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines1_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines1_idle.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines1_idle.md5anim
+}
+
+//Model definition Intestines1 -----------------------------------------------------------------------------------------
+model model_Putra_Intestines1
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines1_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines1_idle.md5anim"
+	{
+		rate					.3
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines1_idle.md5anim"
+	{
+		rate					5
+	}		
+}
+//Entity definition for Intestines1 ------------------------------------------------------------------------------------
+entityDef Putra_Intestines1
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines1"
+	
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_Putra_Intestines1"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for Intestine2 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale 1
+// -keep start Int1_1 Int1_2 Int1_3 Int1_4 Int1_5 Int1_6 Int1_7 Int1_8 Int1_9 Int1_10 Int1_11 Int1_12 Int1_13 Int1_14 Int1_15 Int1_16 Int1_17 Int1_18 Int1_19 Int1_20 Int1_22 SInt1_1 SInt1_2 SInt1_3 SInt1_4 SInt1_5 SInt1_6 SInt1_7 SInt1_8 SInt1_9 SInt1_10 SInt1_11 SInt1_12 SInt1_13 SInt1_14 SInt1_15 SInt1_16 SInt2_1 SInt2_2 SInt2_3 SInt2_4 SInt2_5 SInt2_6 SInt2_7 SInt2_8 SInt2_9 SInt2_10 SInt2_11 SInt2_12 SInt2_13 SInt2_14 SInt2_15 SInt2_16 SInt3_1 SInt3_2 SInt3_3 SInt3_4 SInt3_5 SInt3_6 SInt3_7 SInt3_8 SInt3_9 SInt3_10 SInt3_11 SInt3_12 SInt3_13
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines2_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines2_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines2_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines2_idle.md5anim
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines2_spaz.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines2_spaz.md5anim
+}
+
+//Model definition Intestine2 ------------------------------------------------------------------------------------------
+model model_Putra_Intestines2
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines2_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines2_idle.md5anim"
+	{
+		rate					.75
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines2_spaz.md5anim"
+	{
+		rate					5
+	}		
+}
+//Entity definition for Intestines2----------------------------------------------------------------------------------
+entityDef Putra_Intestines2
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines2"
+	
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_Putra_Intestines2"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for Intestine3 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale .3937
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines3_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines3_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines3_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines3_idle.md5anim
+
+}
+
+//Model definition Intestine3 ------------------------------------------------------------------------------------------
+model model_Putra_Intestines3
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines3_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines3_idle.md5anim"
+	{
+		rate					.75
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines3_idle.md5anim"
+	{
+		rate					5
+	}		
+}
+
+//Entity definition for Intestines3----------------------------------------------------------------------------------
+entityDef Putra_Intestines3
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines3"
+	"spawnclass"			"idAnimated"
+	
+	"model"					"model_Putra_Intestines3"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for Intestine4 ------------------------------------------------------------------------------------------
+export putra
+{
+	options -scale .3937
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines4_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines4_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines4_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines4_idle.md5anim
+
+}
+
+//Model definition Intestine4 ------------------------------------------------------------------------------------------
+model model_Putra_Intestines4
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines4_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines4_idle.md5anim"
+	{
+		rate					.75
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines4_idle.md5anim"
+	{
+		rate					5
+	}		
+}
+//Entity definition for Intestines4----------------------------------------------------------------------------------
+entityDef Putra_Intestines4
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_usage"			"Intestines4"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_Putra_Intestines4"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for Intestine5 ------------------------------------------------------------------------------------------
+export putra
+{
+//	options -scale .3937
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines5_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines5_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines5_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines5_idle.md5anim
+
+}
+
+//Model definition Intestine5 ------------------------------------------------------------------------------------------
+model model_Putra_Intestines5
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines5_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines5_idle.md5anim"
+	{
+		rate					.3
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines5_idle.md5anim"
+	{
+		rate					5
+	}		
+
+}
+//Entity definition for Intestines5----------------------------------------------------------------------------------
+entityDef Putra_Intestines5
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_rotatable"		"1"
+	"editor_usage"			"Intestines5"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_Putra_Intestines5"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+//Export block for Intestine6 ------------------------------------------------------------------------------------------
+export putra
+{
+//	options -scale .3937
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines6_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines6_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines6_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines6_idle.md5anim
+
+}
+
+//Model definition Intestine6 ------------------------------------------------------------------------------------------
+model model_Putra_Intestines6
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines6_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines6_idle.md5anim"
+	{
+		rate					.3
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines6_idle.md5anim"
+	{
+		rate					5
+	}		
+
+}
+//Entity definition for Intestines6----------------------------------------------------------------------------------
+entityDef Putra_Intestines6
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_rotatable"		"1"
+	"editor_usage"			"Intestines6"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_Putra_Intestines6"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+//Export block for Intestine7 ------------------------------------------------------------------------------------------
+export putra
+{
+//	options -scale .3937
+	mesh	work/models/mapobjects/strogg/bio_machines/intestines/Intestines7_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines7_base.md5mesh
+	anim	work/models/mapobjects/strogg/bio_machines/intestines/Intestines7_base.ma		-dest models/mapobjects/strogg/bio_machines/intestines/Intestines7_idle.md5anim
+
+}
+
+//Model definition Intestine7 ------------------------------------------------------------------------------------------
+model model_Putra_Intestines7
+{
+	mesh												"models/mapobjects/strogg/bio_machines/intestines/Intestines7_base.md5mesh"
+	anim idle											"models/mapobjects/strogg/bio_machines/intestines/Intestines7_idle.md5anim"
+	{
+		rate					.3
+	}		
+	anim spaz											"models/mapobjects/strogg/bio_machines/intestines/Intestines7_idle.md5anim"
+	{
+		rate					5
+	}		
+
+}
+//Entity definition for Intestines7----------------------------------------------------------------------------------
+entityDef Putra_Intestines7
+{
+	"editor_menu"			"level"
+	"editor_mins"			"-64 -64 0"
+	"editor_maxs"			"64 64 128"
+	"editor_rotatable"		"1"
+	"editor_usage"			"Intestines7"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_Putra_Intestines7"
+	"scriptObject"			"putra_intestines"
+	"combatModel"			"1"
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+export putra
+{
+	options -prefix CHAIN_  -align ALL -scale 1 
+	mesh	work/models/mapobjects/strogg/structural/chain/reference/chainlink_default.ma		-dest models/mapobjects/strogg/structural/chain/chain.md5mesh
+	anim	work/models/mapobjects/strogg/structural/chain/reference/chainlink_default.ma		-dest models/mapobjects/strogg/structural/chain/idle.md5anim
+	anim	work/models/mapobjects/strogg/structural/chain/reference/chainlink_jump_Chain_Down2.ma		-dest models/mapobjects/strogg/structural/chain/down.md5anim
+	anim	work/models/mapobjects/strogg/structural/chain/reference/chainlink_climbup_rope.ma		-dest models/mapobjects/strogg/structural/chain/up.md5anim
+}
+
+//Model definition Chain ------------------------------------------------------------------------------------------------
+
+model model_Putra_Chain
+
+{
+	mesh							"models/mapobjects/strogg/structural/chain/chain.md5mesh"
+	anim idle						"models/mapobjects/strogg/structural/chain/idle.md5anim"
+	anim down						"models/mapobjects/strogg/structural/chain/down.md5anim"
+	anim up							"models/mapobjects/strogg/structural/chain/up.md5anim"
+
+}
+
+//Entity definition for Chain----------------------------------------------------------------------------------
+entityDef Putra_Chain
+{
+	"editor_menu"										"level"
+
+	"editor_mins"			"-4 -4 0"
+	"editor_maxs"			"4 4 960"
+
+	"editor_usage"										"Chain"
+	"spawnclass"										"idAnimated"
+	"model"												"model_Putra_Chain"
+	"start_anim"										"idle"
+	"anim"												"down"
+}
+
+// Entity definition for Putra Arms ----------------------------------------------------------------------------------
+
+export putra_arms
+{
+	options -prefix BUZZ_  -align ALL -scale 1 
+	mesh	work/models/mapobjects/strogg/machines/arms_generic/buzzsaw_needle_arms/animations/buzzsaw_default.ma		-dest models/mapobjects/strogg/machines/buzzsaw_needle_arms/buzzsaw.md5mesh
+	anim	work/models/mapobjects/strogg/machines/arms_generic/buzzsaw_needle_arms/animations/buzzsaw_default.ma		-dest models/mapobjects/strogg/machines/buzzsaw_needle_arms/buzz_idle.md5anim
+	anim	work/models/mapobjects/strogg/machines/arms_generic/buzzsaw_needle_arms/animations/buzzsaw_anim.ma		-dest models/mapobjects/strogg/machines/buzzsaw_needle_arms/buzz_attack.md5anim
+
+	options -prefix NEEDLE_  -align ALL -scale 1 
+	mesh	work/models/mapobjects/strogg/machines/arms_generic/buzzsaw_needle_arms/animations/needle_default.ma		-dest models/mapobjects/strogg/machines/buzzsaw_needle_arms/Needle.md5mesh
+	anim	work/models/mapobjects/strogg/machines/arms_generic/buzzsaw_needle_arms/animations/needle_default.ma		-dest models/mapobjects/strogg/machines/buzzsaw_needle_arms/needle_idle.md5anim
+	anim	work/models/mapobjects/strogg/machines/arms_generic/buzzsaw_needle_arms/animations/needle_anim.ma		-dest models/mapobjects/strogg/machines/buzzsaw_needle_arms/needle_attack.md5anim
+}
+
+entityDef Putra_Arm
+{
+	"editor_menu"				"level"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	
+	"editor_var initialDelay"	"time before first animation of needle arm"
+	"editor_var attackDelay"	"time between attacks"
+	
+	"spawnclass"				"idAnimated"
+
+	"scriptObject"				"putra_arm"
+	"combatModel"				"1"
+	"initialDelay"				"5"
+	"attackDelay"				"5"
+	
+	"snd_arm_extend"			"putra_mech_arm_extend"
+	"snd_needle_inject"			"putra_needle_inject"
+	"snd_needle_poker"			"generic_mechanical_poker"
+}
+
+entityDef Putra_Needle
+{
+	"inherit"					"Putra_Arm"
+	"editor_usage"				"Needle"
+	"model"						"model_Putra_Needle"
+}
+
+model model_Putra_Needle
+
+{
+	mesh							"models/mapobjects/strogg/machines/buzzsaw_needle_arms/needle.md5mesh"
+	anim idle						"models/mapobjects/strogg/machines/buzzsaw_needle_arms/needle_idle.md5anim"
+	anim attack						"models/mapobjects/strogg/machines/buzzsaw_needle_arms/needle_attack.md5anim"
+	{
+		frame	1,19		sound		snd_arm_extend
+		frame	12			sound		snd_needle_inject	
+		frame	15			sound		snd_needle_poker
+		frame 13 object_call Hurt
+		frame 16 object_call Hurt
+	}
+}
+
+entityDef Putra_Buzzsaw
+{
+	"inherit"					"Putra_Arm"
+	"editor_usage"				"Buzzsaw"
+	"model"						"model_Putra_Buzzsaw"
+}
+
+model model_Putra_Buzzsaw
+{
+	mesh							"models/mapobjects/strogg/machines/buzzsaw_needle_arms/buzzsaw.md5mesh"
+	anim idle						"models/mapobjects/strogg/machines/buzzsaw_needle_arms/buzz_idle.md5anim"
+	anim attack						"models/mapobjects/strogg/machines/buzzsaw_needle_arms/buzz_attack.md5anim"
+	{
+		frame	1,18				sound	snd_arm_extend	
+		frame 3 object_call Hurt
+		frame 21 object_call Hurt
+	}
+}
+
+
+export putra
+{
+	options -prefix HATCH_  -align ALL -scale 1.15
+	mesh	work/models/mapobjects/strogg/doors/floorhatch_1/nick/Anims/default.ma		-dest models/mapobjects/strogg/doors/floorhatch_1/floorhatch.md5mesh
+	anim	work/models/mapobjects/strogg/doors/floorhatch_1/nick/Anims/default.ma		-dest models/mapobjects/strogg/doors/floorhatch_1/idle.md5anim
+	anim	work/models/mapobjects/strogg/doors/floorhatch_1/nick/Anims/open_below.ma	-range 23 65 -dest models/mapobjects/strogg/doors/floorhatch_1/open_below.md5anim
+	}
+//Model definition Floorhatch ------------------------------------------------------------------------------------------------
+model model_Putra_Floorhatch
+{
+	mesh							"models/mapobjects/strogg/doors/floorhatch_1/floorhatch.md5mesh"
+	anim idle						"models/mapobjects/strogg/doors/floorhatch_1/idle.md5anim"
+	anim open_below						"models/mapobjects/strogg/doors/floorhatch_1/open_below.md5anim"
+	{
+		frame	1										sound		snd_handle
+		frame	11										sound		snd_open
+	}
+}
+//Entity definition for Floorhatch----------------------------------------------------------------------------------
+entityDef Putra_Floorhatch
+{
+	"editor_menu"										"level"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	
+	"combatModel"				"1"
+	
+	"spawnclass"										"idAnimated"
+	"model"												"model_Putra_Floorhatch"
+	"start_anim"										"idle"
+	"anim"												"open_below"
+	
+	"snd_handle"										"floor_hatch_handle"
+	"snd_open"											"floor_hatch_open"
+}
+
+
+
+export Putra_Floorhatch_big
+{
+	options -prefix HATCH_ -align ALL 
+	mesh	work/models/monsters/Harvester/animations/HUB1_battle_master.ma					-dest models/mapobjects/strogg/doors/floorhatch_1/hub1_battle.md5mesh
+	anim 	work/models/monsters/Harvester/animations/HUB1_battle_master.ma					-dest models/mapobjects/strogg/doors/floorhatch_1/hub1_battle.md5anim
+	anim 	work/models/monsters/Harvester/animations/HUB1_battle_master.ma					-range 0 1 -dest models/mapobjects/strogg/doors/floorhatch_1/hub1_battle_closed.md5anim
+	anim 	work/models/monsters/Harvester/animations/HUB1_battle_master.ma					-range 60 61 -dest models/mapobjects/strogg/doors/floorhatch_1/hub1_battle_open.md5anim
+
+	anim	work/models/mapobjects/strogg/doors/floorhatch_1/nick/Anims/tunnel_open.ma		-range 1 206	-dest models/mapobjects/strogg/doors/floorhatch_1/tunnel_open.md5anim
+	anim	work/models/mapobjects/strogg/doors/floorhatch_1/nick/Anims/tunnel_open.ma		-range 0 1		-dest models/mapobjects/strogg/doors/floorhatch_1/tunnel_closed_idle.md5anim
+	anim	work/models/mapobjects/strogg/doors/floorhatch_1/nick/Anims/tunnel_open.ma		-range 206 207	-dest models/mapobjects/strogg/doors/floorhatch_1/tunnel_open_idle.md5anim
+
+}
+
+model model_Putra_Floorhatch_big
+{
+	mesh							"models/mapobjects/strogg/doors/floorhatch_1/hub1_battle.md5mesh"
+	anim hub1_battle					"models/mapobjects/strogg/doors/floorhatch_1/hub1_battle.md5anim"
+	{
+		frame	1							sound	snd_metal_pound
+		frame	3							sound	snd_metal_stress
+		frame	13							sound	snd_metal_break
+		frame	17,36						sound	snd_metal_bounce
+	}
+	anim hub1_battle_closed			"models/mapobjects/strogg/doors/floorhatch_1/hub1_battle_closed.md5anim"
+	anim hub1_battle_open			"models/mapobjects/strogg/doors/floorhatch_1/hub1_battle_open.md5anim"
+
+	anim tunnel_open					"models/mapobjects/strogg/doors/floorhatch_1/tunnel_open.md5anim"
+	{
+		frame	1							sound	snd_handle
+		frame	110							sound	snd_open
+	}
+	anim idle					"models/mapobjects/strogg/doors/floorhatch_1/tunnel_closed_idle.md5anim"
+	anim tunnel_open_idle					"models/mapobjects/strogg/doors/floorhatch_1/tunnel_open_idle.md5anim"
+}
+entityDef Putra_Floorhatch_big
+{
+	"editor_menu"										"level"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	"spawnclass"										"idAnimated"
+	"model"												"model_Putra_Floorhatch_big"
+	"start_anim"										"idle"
+//	"anim"												"open_below"
+	"snd_handle"										"big_hatch_handle"
+	"snd_open"											"big_hatch_open"
+	"snd_metal_pound"									"ambient_metal_pound"
+	"snd_metal_break"									"generic_small_metal_break"
+	"snd_metal_bounce"									"generic_large_metal_break"
+	"snd_metal_stress"									"ambient_metal_stress_violent"
+}
+
+
+export putra
+{
+	options -prefix BARREL_  -align ALL -scale .3937 
+	mesh	work/models/monsters/failed_transfer/slimy_transfer/nick_anims/barrel_default.ma		-dest models/misc/barrel/barrel.md5mesh
+	anim	work/models/monsters/failed_transfer/slimy_transfer/nick_anims/barrel_default.ma		-dest models/misc/barrel/idle.md5anim
+	anim	work/models/monsters/Slimy_Transfer/animations/barrel_crawl.ma							-dest models/misc/barrel/knock_over.md5anim
+	}
+
+//Model definition Barrel ------------------------------------------------------------------------------------------------
+
+model model_Putra_Barrel
+
+{
+	mesh							"models/misc/barrel/barrel.md5mesh"
+	anim idle						"models/misc/barrel/idle.md5anim"
+	anim knock_over						"models/misc/barrel/knock_over.md5anim"
+	{
+		frame	20						sound		snd_barrel_fall
+	}
+	
+
+}
+
+//Entity definition for Barrel----------------------------------------------------------------------------------
+entityDef Putra_Barrel
+{
+	"editor_menu"										"level"
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_rotatable"			"1"
+	
+	"spawnclass"										"idAnimated"
+	"model"												"model_Putra_barrel"
+	"start_anim"										"idle"
+	"anim"												"knock_over"
+	
+	"snd_barrel_fall"									"putra_barrel_fall"
+}
+
+entityDef Putra_Ragdoll
+{
+	"inherit"											"env_ragdoll_marine_fullgear"
+	"editor_menu"										"level"
+	"touchtriggers"										"1"
+}
+
+
+// Adding level-specific version of pistonB for scripting on frame commands
+
+entityDef putra_pistonB
+{
+	"inherit"						"env_pistonB"
+	
+	"model"							"model_putra_pistonB"
+	"spawnclass"					"idAnimated"
+	"editor_menu"								"level"	
+}
+
+/*
+model model_putra_pistonB
+{						
+	mesh					models/mapobjects/strogg/machines/pistonb/pistonb_mesh.md5mesh
+	anim idle 				models/mapobjects/strogg/machines/pistonb/idle.md5anim
+	anim cycle				models/mapobjects/strogg/machines/pistonb/cycle.md5anim
+	{
+		frame	2						sound				vertical_piston_cap_down
+		frame	35			fx			fx_impact			base
+		frame	35,116,218				sound				piston_lock
+		frame	35						call			map_putra::chargeItUp
+		frame	55			fx			fx_energy			piston_joint
+		frame	63,142					sound				piston_unlock
+		frame	67						sound				horizontal_piston_in
+		frame	145						sound				vertical_piston_cap_up
+		frame	220			fx			fx_arc				piston_joint	base
+		frame	220			fx			fx_release			piston_joint
+		frame	1,220					sound				effects_steam_blast
+		frame	222						sound				horizontal_piston_out
+		frame	142			fx			fx_guide			guide
+	}
+}
+*/

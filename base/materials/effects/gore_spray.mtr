@@ -1,0 +1,280 @@
+gfx/effects/gore_spray/bloodhit1
+{
+	qer_editorimage gfx/effects/gore_spray/bloodhit1.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodhit1.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodhit2
+{
+	qer_editorimage gfx/effects/gore_spray/bloodhit2.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodhit2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodhit3
+{
+	qer_editorimage gfx/effects/gore_spray/bloodhit3.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodhit3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodhit4
+{
+	qer_editorimage gfx/effects/gore_spray/bloodhit4.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodhit4.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodhit5
+{
+	qer_editorimage gfx/effects/gore_spray/bloodhit5.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodhit5.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodhit6
+{
+	qer_editorimage gfx/effects/gore_spray/bloodhit6.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodhit6.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodline1
+{
+	qer_editorimage gfx/effects/gore_spray/bloodline1.tga
+	twoSided
+	noShadows
+	noimpact
+	translucent
+	{
+		blend blend
+		map gfx/effects/gore_spray/bloodline1.tga
+		vertexColor
+		clamp
+	}
+}
+
+gfx/effects/gore_spray/bloodspray
+{
+	qer_editorimage gfx/effects/gore_spray/bloodspray.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	blend	
+		Map gfx/effects/gore_spray/bloodspray.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodspray2
+{
+	qer_editorimage gfx/effects/gore_spray/bloodspray2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	blend
+		Map gfx/effects/gore_spray/bloodspray2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodspray3
+{
+	qer_editorimage gfx/effects/gore_spray/bloodspray3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	blend
+		Map gfx/effects/gore_spray/bloodspray3.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodspray4
+{
+	qer_editorimage gfx/effects/gore_spray/bloodspray3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	blend
+		Map gfx/effects/gore_spray/bloodspray4.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/bloodspray5
+{
+	qer_editorimage gfx/effects/gore_spray/bloodspray5.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+      	blend		gl_zero, gl_one_minus_src_color
+		Map gfx/effects/gore_spray/bloodspray5.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/guts
+{
+	qer_editorimage gfx/effects/gore_spray/guts.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/gore_spray/guts.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/guts2
+{
+	qer_editorimage gfx/effects/gore_spray/guts2.tga
+	translucent
+	twoSided
+	noShadows
+	{
+		blend add
+		map gfx/effects/gore_spray/guts2.tga
+		vertexColor
+	}
+}
+
+gfx/effects/gore_spray/FT_bloodburst
+{
+	qer_editorimage gfx/effects/gore_spray/FT_bloodburst.tga
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	blend		
+		Map gfx/effects/gore_spray/FT_bloodburst.tga
+		vertexColor
+	}
+}
+
+
+gfx/effects/gore_spray/blooddrip1
+{
+	qer_editorimage gfx/effects/gore_spray/blooddrip1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+//	blood
+
+	{
+      	blend		gl_zero, gl_one_minus_src_color
+		Map gfx/effects/gore_spray/blooddrip1.tga
+		vertexColor
+		rgba		decalFade[ DecalLife ]
+	}
+}
+
+gfx/effects/gore_spray/blooddrip2
+{
+	qer_editorimage gfx/effects/gore_spray/blooddrip2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+//	blood
+
+	{
+      	blend		gl_zero, gl_one_minus_src_color
+		Map gfx/effects/gore_spray/blooddrip2.tga
+		vertexColor
+		rgba		decalFade[ DecalLife ]
+	}
+}
+
+
+gfx/effects/gore_spray/blooddrip3
+{
+	qer_editorimage gfx/effects/gore_spray/blooddrip3.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+//	blood
+
+	{
+      	blend		gl_zero, gl_one_minus_src_color
+		Map gfx/effects/gore_spray/blooddrip3.tga
+		vertexColor
+		rgba		decalFade[ DecalLife ]
+	}
+}
+
+gfx/effects/gore_spray/FT_bloodburst_add
+{
+	qer_editorimage gfx/effects/gore_spray/FT_bloodburst.tga
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend	add
+		Map gfx/effects/gore_spray/FT_bloodburst2.tga
+		vertexColor
+	}
+}

@@ -1,0 +1,1105 @@
+
+
+sound main_menu
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/main_menu.wav
+}
+
+sound main_menu_gameplay
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/main_menu_gameplay.wav
+}
+
+sound end_credits
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	looping
+	global
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/end_credits.wav
+}
+
+sound finale
+{
+	minDistance	39
+	maxDistance	393
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/finale.wav
+}
+
+sound cine_intro_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/intro_cinematic
+}
+
+sound cine_gunner_intro_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/gunner_intro
+	
+}
+
+
+sound cine_lt_tank_intro_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/recomp_lt_tank
+	
+}
+
+
+sound cine_stream_protector_intro_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/stream_protector_intro
+	
+}
+
+
+sound cine_voss_kidnapping_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/voss_kidnapping
+	
+}
+
+
+sound cine_iron_maiden_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/cinematics/iron_maiden/iron_maiden_music
+	
+}
+
+
+sound cine_tactical_music
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/cinematics/tactical/tactical_music
+	
+}
+
+
+sound airdefense_opening
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null.wav
+}
+
+sound airdefense_1st_encounter
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+
+sound airdefense_strogg_marine_jump
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+
+sound airdefense_machinegun_pickup
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+
+sound airdefense_grunt_through_pipes
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/stinger02
+	
+}
+
+sound airdefense_grunt_through_floor
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/stinger03
+	
+}
+
+
+sound airdefense_berserker
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+
+sound airdefense_intense_battle
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+sound airdefense2_combat
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_landing_combat
+}
+
+sound hangar2_bomb_run
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/convoy_ride2
+}
+
+sound convoy_runaway
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/network_guardian_appear
+	
+}
+
+
+
+sound convoy1_ride
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/convoy_ride1
+	
+}
+
+
+sound convoy_ride_mellow
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/convoy_ride2
+	
+}
+
+sound convoy_harvester_cinematic
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/harvester_convoy2b
+	
+}
+
+sound medlabs_ride
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/medlabs_ride.wav
+}
+
+sound medlabs_rocket_launcher
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/airdefense_opening
+	
+}
+
+sound medlabs_anderson_death
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/anderson_death.wav
+}
+
+sound medlabs_crash
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/medlabs_crash
+}
+
+sound waste_opening
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	-5
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/waste_opening
+	
+}
+
+sound hangar1_opening
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/airdefense_opening
+	
+}
+
+sound hangar1_shotgun
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/hangar1_shotgun
+	
+}
+
+
+sound hangar2_opening
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/hangar2_opening
+	
+}
+
+
+sound MCC_landing_opening
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/airdefense_opening.wav
+}
+
+sound MCC_landing_combat_loop
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_landing_combat
+}
+
+sound mcc_landing_global
+{
+	minDistance	5000
+	maxDistance	5000
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_landing_hannibal
+}
+
+sound mcc_underscore_subtle
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	global
+	looping
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_underscore_subtle
+}
+
+sound mcc_underscore_action
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	global
+	looping
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/mcc_underscore_action
+}
+
+sound mcc_underscore_theme
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	global
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/mcc_underscore_theme
+}
+
+
+sound hub1_harvester_attacks
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/airdefense_1st_encounter
+	
+}
+
+sound hub1_harvester
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/harvester_convoy2b
+	
+}
+
+sound hub1_combat_loop
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/hub1_combat
+}
+
+sound hub_makron_first_appearance
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/makron_first_appear
+	
+}
+
+sound hub_makron_first_combat
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/hub1_combat
+}
+
+
+sound hub1_hallmusic1
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/cinematics/iron_maiden/iron_maiden_music
+	
+}
+
+sound hub1_hallmusic2
+{
+	minDistance	400
+	maxDistance	2500
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/cinematics/tactical/tactical_music
+	
+}
+
+
+sound walker_opening
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/airdefense_opening
+	
+}
+
+sound walker_combat
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/combat_walker.wav
+	
+}
+
+sound dispersal_tactical_transfer_combat
+{
+	minDistance	40
+	maxDistance	400
+	volumeDb	0
+	global
+	looping
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_underscore_subtle
+}
+
+sound walker_e3_harvester
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/e3_harvester
+	
+}
+
+sound tram1_dropship_loop
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/tram_loop
+}
+
+
+
+sound tram1b_ride
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	no_shakes
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/tram_ride
+	
+}
+
+
+sound tram1_berserker_stinger
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	5
+	no_occlusion
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/stinger01
+	sound/ambience/musical/stinger02
+	sound/ambience/musical/stinger03
+}
+
+sound synth_sweep1
+{
+	minDistance	984
+	maxDistance	1181
+	global
+	volumeDb	0
+	no_occlusion
+	no_shakes
+
+	sound/ambience/synth/st_1shot_space1
+	
+}
+
+sound synth_sweep2
+{
+	minDistance	984
+	maxDistance	1181
+	global
+	volumeDb	0
+	no_occlusion
+	no_shakes
+
+	sound/ambience/synth/st_1shot_space2
+	
+}
+
+
+sound atmospheric01
+{
+	minDistance	984
+	maxDistance	1181
+	volumeDb	1
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/musical/atmospheric01
+	
+}
+
+
+sound atmospheric02
+{
+	minDistance	984
+	maxDistance	1181
+	volumeDb	-6
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/musical/atmospheric02
+	
+}
+
+
+sound atmospheric03
+{
+	minDistance	984
+	maxDistance	1181
+	volumeDb	1
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/musical/atmospheric03
+	
+}
+
+
+sound atmospheric04
+{
+	minDistance	984
+	maxDistance	1181
+	volumeDb	1
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/musical/atmospheric04
+	
+}
+
+
+sound heartroom01
+{
+	minDistance	984
+	maxDistance	1181
+	volumeDb	1
+	no_occlusion
+	looping
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/heartroom01
+	
+}
+
+sound grunt_chainlink_stinger
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	no_occlusion
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/grunt_chainlink
+	
+}
+
+
+sound grunt_marine_attack
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	4
+	no_occlusion
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/grunt_marine_attack
+	
+}
+
+
+sound generic_music_stinger
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	5
+	no_occlusion
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/stinger01
+	sound/ambience/musical/stinger02
+	sound/ambience/musical/stinger03
+}
+
+sound amb_ogg_large_room
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/ogg/amb_large_room
+
+}
+
+
+sound amb_ogg_machinery01
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/ogg/amb_machinery01
+}
+
+
+sound amb_ogg_metalstress01
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/ogg/amb_metalstress01
+}
+
+
+sound amb_ogg_metalstress02
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/ogg/amb_metalstress02
+}
+
+
+sound amb_ogg_rumble01
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/ogg/amb_rumble01
+}
+
+
+sound amb_ogg_rumble_drips
+{
+	minDistance	196
+	maxDistance	1968
+	volumeDb	0
+	no_occlusion
+	looping
+	no_shakes
+
+	sound/ambience/ogg/amb_rumble_drips
+}
+
+sound waste_voss_battle
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	looping
+	noRandomStart
+	soundClass	3
+
+	sound/ambience/musical/hangar1_shotgun
+}
+
+
+sound putra_fatguy_combat
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/hub1_combat
+}
+
+sound process_battle
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	1
+	no_occlusion
+	global
+	no_shakes
+	soundClass	3
+
+	sound/null
+	shakeData 0 aaaaaaaaaaaa
+}
+
+sound process1_elevator_combat
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_landing_combat
+}
+
+sound network_lobby_combat
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/hub1_combat
+}
+
+sound network_guardian_appear
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/network_guardian_appear
+}
+
+
+sound network_guardian_battle
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/network_guardian_battle
+}
+
+
+sound network_guardian_elevator
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/network_guardian_elevator
+}
+
+sound core_makron_stinger
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/network_guardian_appear
+}
+
+sound core_makron_battle1
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/hub1_combat
+}
+
+sound core_makron_battle2
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/hangar1_shotgun
+}
+
+sound core_brain_battle
+{
+	minDistance	1181
+	maxDistance	1181
+	volumeDb	0
+	global
+	looping
+	noRandomStart
+	no_shakes
+	soundClass	3
+
+	sound/ambience/musical/mcc_landing_combat
+}

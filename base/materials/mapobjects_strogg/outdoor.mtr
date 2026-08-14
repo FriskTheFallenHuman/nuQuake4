@@ -1,0 +1,593 @@
+//-------------this is a Strogg outdoor air filter-----------------------------
+
+models/mapobjects/strogg/outdoor/airfilter/main
+{
+      noselfShadow
+//	unsmoothedtangents
+
+//check path	renderbump  -size 1024 1024 -aa 1 -trace .07 -MergeHigh models/mapobjects/strogg/outdoor/airfilter_local.tga models/mapobjects/strogg/outdoor/airfilter_hi_main.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/airfilter/airfilter_local.tga, heightmap (models/mapobjects/strogg/outdoor/airfilter/airfilter_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/airfilter/airfilter_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/airfilter/airfilter_s.tga
+
+}
+
+models/mapobjects/strogg/outdoor/airfiler/pipe
+{
+      noselfShadow
+//	unsmoothedtangents
+
+//check path	renderbump  -size 1024 1024 -aa 1 -trace .07 -MergeHigh models/mapobjects/strogg/outdoor/pipe_local.tga models/mapobjects/strogg/outdoor/airfilter_pipe_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/airfilter/airfilter_local.tga, heightmap (models/mapobjects/strogg/outdoor/airfilter/airfilter_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/airfilter/airfilter_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/airfilter/airfilter_s.tga
+
+}
+
+models/mapobjects/strogg/outdoor/airfilter/support
+{
+      noselfShadow
+//	unsmoothedtangents
+
+//check path	renderbump  -size 1024 1024 -aa 1 -trace .07 -MergeHigh models/mapobjects/strogg/outdoor/support_local.tga models/mapobjects/strogg/outdoor/airfilter_support_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/airfilter/airfilter_local.tga, heightmap (models/mapobjects/strogg/outdoor/airfilter/airfilter_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/airfilter/airfilter_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/airfilter/airfilter_s.tga
+
+}
+
+//-------------asteroids---------------------------------------------
+
+models/mapobjects/strogg/stroggos/a1
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a1_local.tga work/models/mapobjects/strogg/stroggos/a1hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a1_local.tga, heightmap (models/mapobjects/strogg/stroggos/a1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a1_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a1_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a1b
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a1b_local.tga work/models/mapobjects/strogg/stroggos/a1hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a1b_local.tga, heightmap (models/mapobjects/strogg/stroggos/a1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a1b_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a1_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a1c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a1c_local.tga work/models/mapobjects/strogg/stroggos/a1hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a1c_local.tga, heightmap (models/mapobjects/strogg/stroggos/a1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a1c_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a1_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a2
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a2_local.tga work/models/mapobjects/strogg/stroggos/a2hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a2_local.tga, heightmap (models/mapobjects/strogg/stroggos/a2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a2_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a2_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a2b
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a2b_local.tga work/models/mapobjects/strogg/stroggos/a2hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a2b_local.tga, heightmap (models/mapobjects/strogg/stroggos/a2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a2b_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a2_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a2c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a2c_local.tga work/models/mapobjects/strogg/stroggos/a2hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a2c_local.tga, heightmap (models/mapobjects/strogg/stroggos/a2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a2c_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a2_s.tga
+
+}
+
+
+models/mapobjects/strogg/stroggos/a3
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a3_local.tga work/models/mapobjects/strogg/stroggos/a3hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a3_local.tga, heightmap (models/mapobjects/strogg/stroggos/a3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a3_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a3_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a3b
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a3b_local.tga work/models/mapobjects/strogg/stroggos/a3hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a3b_local.tga, heightmap (models/mapobjects/strogg/stroggos/a3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a3b_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a3_s.tga
+
+
+}
+
+models/mapobjects/strogg/stroggos/a3c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a3c_local.tga work/models/mapobjects/strogg/stroggos/a3hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a3c_local.tga, heightmap (models/mapobjects/strogg/stroggos/a3_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a3c_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a3_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a4
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .1 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a4_local.tga work/models/mapobjects/strogg/stroggos/a4hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a4_local.tga, heightmap (models/mapobjects/strogg/stroggos/a4_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a4_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a4_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a4b
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .1 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a4b_local.tga work/models/mapobjects/strogg/stroggos/a4hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a4b_local.tga, heightmap (models/mapobjects/strogg/stroggos/a4_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a4b_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a4_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a4c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .1 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a4c_local.tga work/models/mapobjects/strogg/stroggos/a4hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a4c_local.tga, heightmap (models/mapobjects/strogg/stroggos/a4_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a4c_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a4_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a5
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .1 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a5_local.tga work/models/mapobjects/strogg/stroggos/a5hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a5_local.tga, heightmap (models/mapobjects/strogg/stroggos/a5_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a5_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a5_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a5b
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .1 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a5b_local.tga work/models/mapobjects/strogg/stroggos/a5hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a5b_local.tga, heightmap (models/mapobjects/strogg/stroggos/a5_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a5b_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a5_s.tga
+
+}
+
+models/mapobjects/strogg/stroggos/a5c
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 256 256 -aa 1 -trace .1 -MergeHigh -unweld models/mapobjects/strogg/stroggos/a5c_local.tga work/models/mapobjects/strogg/stroggos/a5hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/stroggos/a5c_local.tga, heightmap (models/mapobjects/strogg/stroggos/a5_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/stroggos/a5c_d.tga
+	specularmap		models/mapobjects/strogg/stroggos/a5_s.tga
+
+}
+
+//exterior building 2 pieces-----------------------------------------------------------
+
+models/mapobjects/strogg/outdoor/buildings/building1
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/outdoor/strogg_building1_local.tga models/mapobjects/strogg/outdoor/strogg_building1_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/buildings/building1_local.tga, heightmap (models/mapobjects/strogg/outdoor/buildings/building1_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/buildings/building1_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/buildings/building1_s.tga
+
+}
+
+models/mapobjects/strogg/outdoor/buildings/building1_walkway
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/outdoor/strogg_building1_walkway_local.tga models/mapobjects/strogg/outdoor/strogg_building1_walkway_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/buildings/building1_walkway_local.tga, heightmap (models/mapobjects/strogg/outdoor/buildings/building1_walkway_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/buildings/building1_walkway_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/buildings/building1_walkway_s.tga
+
+}
+
+//-------------Strogg weathervane pieces---------------------------------------------
+
+models/mapobjects/strogg/outdoor/weathervane/base
+{
+      	noselfShadow
+	
+//check path	renderbump  -size 1024 1024 -aa 2 -trace .07 -MergeHigh -unweld models/mapobjects/strogg/outdoor/weathervane_local.tga models/mapobjects/strogg/outdoor/weathervane_base_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/weathervane/base_local.tga, heightmap (models/mapobjects/strogg/outdoor/weathervane/base_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/weathervane/base_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/weathervane/base_s.tga
+
+}
+
+models/mapobjects/strogg/outdoor/weathervane/base2
+{
+      	noSelfShadow
+      
+	
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/weathervane/base_local.tga, heightmap (models/mapobjects/strogg/outdoor/weathervane/base2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/weathervane/base2_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/weathervane/base2_s.tga
+
+}
+
+
+models/mapobjects/strogg/outdoor/weathervane/sail
+{
+      	noSelfShadow
+      	
+	
+//check path	renderbump  -size 512 512 -aa 1 -trace .02 models/mapobjects/strogg/outdoor/weathervane_sail_local.tga models/mapobjects/strogg/outdoor/weathervane_sail_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/weathervane/sail_local.tga, heightmap (models/mapobjects/strogg/outdoor/weathervane/sail_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/weathervane/sail_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/weathervane/sail_s.tga
+
+}
+
+
+models/mapobjects/strogg/outdoor/weathervane/pipe
+{
+      	noselfShadow
+	
+//check path	renderbump  -size 512 512 -aa 1 -trace .10 -MergeHigh -unweld models/mapobjects/strogg/outdoor/weathervane_tube_local.tga models/mapobjects/strogg/outdoor/weathervane_tube_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/weathervane/pipe_local.tga, heightmap (models/mapobjects/strogg/outdoor/weathervane/pipe_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/weathervane/pipe_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/weathervane/pipe_s.tga
+
+}
+
+
+models/mapobjects/strogg/outdoor/weathervane/pipe2
+{
+      	noSelfShadow
+      	
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/weathervane/pipe_local.tga, heightmap (models/mapobjects/strogg/outdoor/weathervane/pipe2_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/weathervane/pipe2_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/weathervane/pipe2_s.tga
+
+}
+
+
+//----------------------------------------------------------------------------------------------------------
+
+//h bunker 2 pieces 9 render entries-----------------------------------------------------------
+
+models/mapobjects/strogg/outdoor/bunker/H_type
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 1024 1024 -aa 1 -MergeHigh -trace .09  models/mapobjects/strogg/outdoor/bunker/bunker_local.tga work/models/mapobjects/strogg/outdoor/bunker/bunker_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/bunker/H_type_local.tga, heightmap (models/mapobjects/strogg/outdoor/bunker/H_type_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/bunker/H_type_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/bunker/H_type_s.tga
+/*	
+	{ 
+		blend add
+		map models/mapobjects/strogg/outdoor/bunker/H_type_glow.tga
+	}
+*/
+}
+
+
+models/mapobjects/strogg/outdoor/bunker/H_type_turret
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+//check path	renderbump  -size 512 512 -aa 2 -MergeHigh -trace .05  models/mapobjects/strogg/outdoor/bunker/turret_local.tga work/models/mapobjects/strogg/outdoor/bunker/turret_bunker_hi.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/bunker/H_type_turret_local.tga, heightmap (models/mapobjects/strogg/outdoor/bunker/H_type_turret_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/bunker/H_type_turret_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/bunker/H_type_turret_s.tga
+/*	{ 
+		blend add
+		map models/mapobjects/strogg/outdoor/bunker/H_type_turret_glow.tga
+		rgb grunttable [ time * 1.3 ]
+	}
+*/
+}
+
+//-------------Strogg Generic Pump---------------------------------------------
+
+models/mapobjects/strogg/outdoor/pump/pump01
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 1024 1024 -aa 1 -trace .08 -MergeHigh -unweld models/mapobjects/strogg/outdoor/pump/pump01_local.tga models/mapobjects/strogg/outdoor/pump/pump_body_01_high.lwo
+
+	bumpmap		addnormals (models/mapobjects/strogg/outdoor/pump/pump01_local.tga, heightmap (models/mapobjects/strogg/outdoor/pump/pump01_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/pump/pump01_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/pump/pump01_s.tga
+
+}
+
+//-------------Strogg Fence Node---------------------------------------------
+
+models/mapobjects/strogg/outdoor/fence/fence_node_lo
+{
+      	noselfShadow
+	unsmoothedtangents
+	
+	renderBump  -size 512 1024 -aa 2 -trace .07 -MergeHigh models/mapobjects/strogg/outdoor/fence/fence_node_local.tga work/models/mapobjects/strogg/outdoor/fence/fence_node_hi.lwo
+
+	bumpmap			addnormals (models/mapobjects/strogg/outdoor/fence/fence_node_local.tga, heightmap (models/mapobjects/strogg/outdoor/fence/fence_node_h.tga, 2))
+	diffusemap		models/mapobjects/strogg/outdoor/fence/fence_node_d.tga
+	specularmap		models/mapobjects/strogg/outdoor/fence/fence_node_s.tga
+	
+/*
+	{	//Glow spots for laser beam origins
+		blend		add
+		map			models/mapobjects/strogg/outdoor/fence/fence_node_g.tga
+		rgb			.75 + (sintable[time * 2] * .25)
+	}
+*/
+
+}
+
+
+models/mapobjects/strogg/outdoor/fence/fence_node_glows
+{
+   	noselfShadow
+	unsmoothedtangents
+
+	
+	{	//Glow line for laser beam origins
+		if ( parm7 == 1 )
+		blend		add
+		map			models/mapobjects/strogg/outdoor/fence/fence_node_g2.tga
+		rgb			.75 + (sintable[time * 2] * .25)
+	}
+}
+
+models/mapobjects/strogg/outdoor/fence/fence_node_fence
+{
+	qer_editorimage models/mapobjects/strogg/outdoor/fence/ForceFence_beams2.tga
+//	translucent
+	twoSided
+	noShadows
+	nonSolid
+	monsterClip
+	playerClip
+	
+	// RAVEN BEGIN
+	//
+	// Adjusted the beams to listen to shader parm0, parm1 and parm2 so we
+	// could fade them out with gui effects
+	
+	{	//Beam layer (single)
+		blend		add
+		map models/mapobjects/strogg/outdoor/fence/ForceFence_beams2.tga
+		//rgb			(1 + (sintable[time * 2] * .25)) 
+		red			(1 + (sintable[time * 2] * .25)) * parm0
+		green		(1 + (sintable[time * 2] * .25)) * parm1
+		blue		(1 + (sintable[time * 2] * .25)) * parm2
+
+		colored
+	}
+
+	{	//Static layer
+		blend		add
+		map			models/mapobjects/strogg/outdoor/fence/ForceFence_static2.tga
+		scale		6,2
+		
+		red			(.6 + (sintable[time * .2] * .2)) * parm0 
+		green		(.1 + (sintable[time * .2] * .15)) * parm1 
+		blue		(.1 + (sintable[time * .2] * .15)) * parm2 
+		
+		/*
+		red			(.6 + (sintable[time * .2] * .2)) 
+		green		(.1 + (sintable[time * .2] * .15)) 
+		blue		(.1 + (sintable[time * .2] * .15)) 
+		*/
+		translate	LaserFenceStatic[(time * 5) + 3], LaserFenceStatic[time * 2]
+	}
+
+	{	//Travelling wave
+//		if			((LaserFenceWave[time / 10]) <= 1)
+//		zeroClamp
+		blend		add
+		scale		.5, 1
+		map			models/mapobjects/strogg/outdoor/fence/ForceFence_wave1.tga
+//		translate	(LaserFenceWave[time / 10]) * 4, 0
+		translate	time * -2, 0
+		
+		//rgb			.4 + (sintable[time * 2] * .2) * parm0 
+		
+		red			.4 + (sintable[time * 2] * .2) * parm0
+		blue		.4 + (sintable[time * 2] * .2) * parm1
+		green		.4 + (sintable[time * 2] * .2) * parm2
+		colored
+	}
+//
+// RAVEN END
+//
+
+/*
+	{	//Travelling pulse 1
+		if			(LaserFenceOn[time / 15] == 1)
+		blend		add
+		scale		4,1
+		map			models/mapobjects/strogg/outdoor/fence/ForceFence_pulse1.tga
+		translate	(time - .5),LaserFenceBarJump[time / 10]
+		rgb			1 + (sintable[time * 2] * .25) * parm0 
+		colored
+	}
+
+	{	//Travelling pulse 2
+		if			(LaserFenceOn[(time / 15)] != 1)
+		blend		add
+		scale		4,1
+		map			models/mapobjects/strogg/outdoor/fence/ForceFence_pulse1.tga
+		translate	((time - .5) * -1),LaserFenceBarJump[(time / 10) -.5 ]
+		rgb			1 + (sintable[(time * 2) + .5] * .25) * parm0 
+		colored
+	}
+*/
+
+}
+
+models/mapobjects/strogg/outdoor/fence/fence_node_fence_blue
+{
+	qer_editorimage models/mapobjects/strogg/outdoor/fence/ForceFence_beams2_blue.tga
+//	translucent
+	twoSided
+	noShadows
+	nonSolid
+	monsterClip
+	playerClip
+	
+	// RAVEN BEGIN
+	//
+	// Adjusted the beams to listen to shader parm0, parm1 and parm2 so we
+	// could fade them out with gui effects
+	
+	{	//Beam layer (single)
+		blend		add
+		map models/mapobjects/strogg/outdoor/fence/ForceFence_beams2_blue.tga
+		//rgb			(1 + (sintable[time * 2] * .25)) 
+		red			(1 + (sintable[time * 2] * .25)) * parm0
+		green		(1 + (sintable[time * 2] * .25)) * parm1
+		blue		(.6 + (sintable[time * 2] * .25)) * parm2
+
+		colored
+	}
+
+	{	//Static layer
+		blend		add
+		map			models/mapobjects/strogg/outdoor/fence/ForceFence_static2.tga
+		scale		6,2
+		
+		red			(.1 + (sintable[time * .2] * .2)) * parm0 
+		green		(.1 + (sintable[time * .2] * .15)) * parm1 
+		blue		(.1 + (sintable[time * .2] * .15)) * parm2 
+		
+		translate	LaserFenceStatic[(time * 5) + 3], LaserFenceStatic[time * 2]
+	}
+
+	{	//Travelling wave
+//		if			((LaserFenceWave[time / 10]) <= 1)
+//		zeroClamp
+		blend		add
+		scale		.5, 1
+		map			models/mapobjects/strogg/outdoor/fence/ForceFence_wave1_blue.tga
+//		translate	(LaserFenceWave[time / 10]) * 4, 0
+		translate	time * -2, 0
+		
+		//rgb			.4 + (sintable[time * 2] * .2) * parm0 
+		
+		red			.4 + (sintable[time * 2] * .2) * parm0
+		blue		.4 + (sintable[time * 2] * .2) * parm1
+		green		.4 + (sintable[time * 2] * .2) * parm2
+		colored
+	}
+
+}
+
+
+
+// sky portal terrain pieces 
+
+
+
+models/mapobjects/env/portal_sky_terrain1
+{
+	noselfShadow
+
+
+	renderbump  -size 1024 1024  -aa 2  models/mapobjects/env/portal_sky_terrain1_local.tga  models/mapobjects/env/portal_sky_terrain1_hi.lwo
+
+
+	diffusemap	models/mapobjects/env/portal_sky_terrain1_d.tga
+	bumpmap	 	models/mapobjects/env/portal_sky_terrain1_tiled_local.tga
+	
+
+	
+	
+	
+}

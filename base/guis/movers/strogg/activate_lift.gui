@@ -1,0 +1,492 @@
+windowDef Desktop
+{
+	comment	"lift gui. (see map matt/lift for implementation example) gui_parm_strogg == 1 sets the lift gui to use non readable strogg text. gui_parm_disable == 1 turns off the button functionality, set it back to == 0 to turn the button back on. namedEvent 'triggerGui' allows you to activate the gui through script as if the player had clicked it."
+	rect	0,0,640,480
+	backcolor	0,0,0,1
+	visible	1
+	definevec4	"btn_off"	0.843,0.474,0.141,1
+	definevec4	"btn_on"	1,0.325,0,1
+	definevec4	"btn_glow"	1,0.854,0.349,1
+	float	"pressed"	1
+
+	onInit {
+		namedEvent "updateFloor";
+		
+		if ( "gui::gui_parm_strogg" == 1 ) {
+			set "p_strogg::visible" "1";
+			set "p_readable::visible" "0";
+		} else {
+			set "p_strogg::visible" "0";
+			set "p_readable::visible" "1";
+		}
+	}
+
+	onNamedEvent updateFloor {
+		if ("gui::floor" == "gui::topfloor" && "desktop::pressed" == "0") { 
+			resettime "anim_up_reset" "0" ;
+			set "desktop::inmotion" "0" ;
+		} else if ("gui::floor" == "gui::bottomfloor" && "desktop::pressed" == "0") { 
+			resettime "anim_down_reset" "0" ;
+			set "desktop::inmotion" "0" ;
+		} 		
+	}
+
+	onNamedEvent triggerGui {
+		set "button::visible" "0" ;
+		
+		if ("gui::floor" == "gui::topfloor" ) { 
+			set	"cmd" "play guisound_beep2 ; changefloor down" ;
+			resettime "anim_down" "0" ;		
+			set "desktop::pressed" "1" ;
+		} 
+		
+		if ("gui::floor" == "gui::bottomfloor") { 
+			set	"cmd" "play guisound_beep2 ; changefloor up" ;
+			resettime "anim_up" "0" ;
+			set "desktop::pressed" "1" ;	
+		} 
+	}
+	
+	onNamedEvent triggerDown {
+		set "button::visible" "0" ;
+		set	"cmd" "play guisound_beep2 ; changefloor down" ;
+		resettime "anim_down" "0" ;		
+		set "desktop::pressed" "1" ;
+	}
+
+	onNamedEvent anim_up {
+		resettime "anim_up" "0" ;		
+	}
+
+	onNamedEvent anim_up_reset {
+		resettime "anim_up_reset" "0" ;		
+	}
+
+	onNamedEvent anim_down {
+		resettime "anim_down" "0" ;		
+	}
+
+	onNamedEvent anim_down_reset {
+		resettime "anim_down_reset" "0" ;		
+	}
+
+	onNamedEvent disable {
+		set "button::visible" "0" ;
+	}
+
+	onNamedEvent enable {
+		set "button::visible" "1" ;
+	}
+
+	windowDef bg_decal
+	{
+		rect	100,0,440,480
+		visible	1
+		background	"gfx/guis/common/strogg/decal3"
+		matcolor	0.450,0.568,0.529,0.2*guitable_10_0[time*0.0005]
+	}
+	windowDef up_arrows
+	{
+		rect	136,-752,367,1232
+		visible	1
+		background	"gfx/guis/common/strogg/up_arrow_scroll"
+		matcolor	0.780,0.439,0.129,0
+	}
+	windowDef dn_arrows
+	{
+		rect	136,-751,367,1232
+		visible	1
+		background	"gfx/guis/common/strogg/dn_arrow_scroll"
+		matcolor	0.780,0.439,0.129,0
+	}
+	windowDef p_all
+	{
+		rect	0,-294,640,1070
+		visible	1
+		windowDef l_dot
+		{
+			rect	10,469,64,130
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_dot"
+			matcolor	0.976,0.462,0,1*guitable_10_0[time*0.0015]
+		}
+		windowDef r_dot
+		{
+			rect	568,469,64,130
+			visible	1
+			background	"gfx/guis/common/strogg/genericseal_dot"
+			matcolor	0.976,0.462,0,1*guitable_10_0[time*0.0015]
+		}
+		windowDef t_btn
+		{
+			rect	0,294,640,240
+			visible	1
+			background	"gfx/guis/movers/strogg/lift_btn"
+			matcolor	1,0.623,0.0588,1
+		}
+		windowDef b_btn
+		{
+			rect	0,534,640,240
+			visible	1
+			background	"gfx/guis/movers/strogg/lift_btn"
+			matcolor	1,0.623,0.0588,1
+			matscaley	-1
+		}
+		windowDef t_dotline
+		{
+			rect	59,291,524,23
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_dots"
+			matcolor	0.968,0.980,0.984,.4
+		}
+		windowDef b_dotline
+		{
+			rect	59,754,524,23
+			visible	1
+			background	"gfx/guis/monitors/strogg/streamhub/hub5_dots"
+			matcolor	0.968,0.980,0.984,.4
+		}
+		windowDef t_arrow
+		{
+			rect	242,293,160,99
+			visible	1
+			background	"gfx/guis/common/arrow6"
+			matcolor	1,0.501,0,0.6
+			matscaley	-1
+		}
+		windowDef b_arrow
+		{
+			rect	242,675,160,99
+			visible	1
+			background	"gfx/guis/common/arrow6"
+			matcolor	1,0.501,0,0.6
+		}
+		windowDef tl_edge
+		{
+			rect	0,0,160,480
+			visible	1
+			background	"gfx/guis/movers/strogg/lift_edge"
+			matcolor	0.901,0.725,0.117,1
+		}
+		windowDef tr_edge
+		{
+			rect	480,0,160,480
+			visible	1
+			background	"gfx/guis/movers/strogg/lift_edge"
+			matcolor	0.901,0.725,0.117,1
+			matscalex	-1
+		}
+		windowDef bl_edge
+		{
+			rect	0,589,160,480
+			visible	1
+			background	"gfx/guis/movers/strogg/lift_edge"
+			matcolor	0.901,0.725,0.117,1
+			matscaley	-1
+		}
+		windowDef br_edge
+		{
+			rect	480,590,160,480
+			visible	1
+			background	"gfx/guis/movers/strogg/lift_edge"
+			matcolor	0.901,0.725,0.117,1
+			matscalex	-1
+			matscaley	-1
+		}
+		windowDef p_strogg
+		{
+			rect	0,444,640,187
+			visible	0
+			windowDef t_activate
+			{
+				rect	124,30,395,74
+				visible	1
+				forecolor	0.752,0.780,0.819,1
+				text	"#str_200477"
+				textscale	1.9
+				font	"fonts/strogg"
+				textspacing	2
+			}
+			windowDef t_liftsys
+			{
+				rect	130,100,391,60
+				visible	1
+				forecolor	0.752,0.780,0.819,1
+				text	"#str_200382"
+				textscale	1.4
+				font	"fonts/strogg"
+				textspacing	2
+			}
+			windowDef t_liftsys2
+			{
+				rect	130,29,390,60
+				visible	1
+				forecolor	0.752,0.780,0.819,0
+				text	"#str_200382"
+				textscale	1.4
+				font	"fonts/strogg"
+				textspacing	2
+			}
+			windowDef t_intrans
+			{
+				rect	124,90,395,74
+				visible	1
+				forecolor	0.752,0.780,0.819,0
+				text	"#str_200550"
+				textscale	1.55
+				font	"fonts/strogg"
+				textspacing	2
+			}
+		}
+		windowDef p_readable
+		{
+			rect	0,444,640,187
+			visible	0
+			windowDef tr_activate
+			{
+				rect	90,14,457,86
+				visible	1
+				forecolor	0.752,0.780,0.819,1
+				text	"#str_200477"
+				textscale	1.6
+				font	"fonts/r_strogg"
+			}
+			windowDef tr_liftsys
+			{
+				rect	92,82,468,67
+				visible	1
+				forecolor	0.752,0.780,0.819,1
+				text	"#str_200382"
+				textscale	1.2
+				font	"fonts/r_strogg"
+			}
+			windowDef tr_liftsys2
+			{
+				rect	92,24,468,67
+				visible	1
+				forecolor	0.752,0.780,0.819,0
+				text	"#str_200382"
+				textscale	1.2
+				font	"fonts/r_strogg"
+			}
+			windowDef tr_intrans
+			{
+				rect	92,74,468,70
+				visible	1
+				forecolor	0.752,0.780,0.819,0
+				text	"#str_200550"
+				textscale	1.38
+				font	"fonts/r_strogg"
+			}
+		}
+	}
+	windowDef d_all_up
+	{
+		rect	0,-155,640,1070
+		visible	0
+	}
+	windowDef d_all_down
+	{
+		rect	0,-433,640,1070
+		visible	0
+	}
+	windowDef topstuff
+	{
+		visible	1
+		rect	0,0,640,480
+		windowDef sline
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_line7"
+			matcolor	0.949,0.792,0.466,0.048
+		}
+		windowDef sline2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_line6"
+			matcolor	0.949,0.792,0.466,0.28
+		}
+		windowDef scratches
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/common/screen_scratches2"
+			matcolor	0.886,0.929,0.952,0.4
+		}
+		windowDef topreflect
+		{
+			visible	1
+			rect	0,-84,640,566
+			background	"gfx/guis/common/monitor_reflect2"
+			matcolor	0.870,0.529,0.152,1
+		}
+		windowDef monitor_darkedge2
+		{
+			visible	1
+			rect	0,0,640,480
+			background	"gfx/guis/common/monitor_darkedge2"
+			matcolor	0,0,0,1
+		}
+	}
+	windowDef anim_bpulse
+	{
+		rect	0,0,1,1
+		visible	1
+
+		onTime 0 {
+			transition "t_btn::matcolor" "$desktop::btn_off" "$desktop::btn_on" "500" ;
+			transition "b_btn::matcolor" "$desktop::btn_off" "$desktop::btn_on" "500" ;
+		}
+
+		onTime +500 {
+			transition "t_btn::matcolor" "$desktop::btn_on" "$desktop::btn_off" "500" ;
+			transition "b_btn::matcolor" "$desktop::btn_on" "$desktop::btn_off" "500" ;
+		}
+
+		onTime +1000 {
+			resettime "0" ;
+		}
+
+	}
+	windowDef anim_up
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "p_all::rect" "$p_all::rect" "$d_all_up::rect" "1000" ;
+			transition "t_dotline::matcolor_w" "0.4" "0" "1000" ;
+			transition "b_dotline::matcolor_w" "0.4" "0" "1000" ;
+			transition "up_arrows::matcolor_w" "0" "0.4" "1000" ;
+			
+			transition "t_activate::forecolor_w" "1" "0" "300" ;
+			transition "t_liftsys::forecolor_w" "1" "0" "300" ;
+			transition "t_intrans::forecolor_w" "0" "1" "300" ;
+			transition "t_liftsys2::forecolor_w" "0" "1" "300" ;
+			
+			transition "tr_activate::forecolor_w" "1" "0" "300" ;
+			transition "tr_liftsys::forecolor_w" "1" "0" "300" ;
+			transition "tr_intrans::forecolor_w" "0" "1" "300" ;
+			transition "tr_liftsys2::forecolor_w" "0" "1" "300" ;
+		}
+
+		onTime +50 {		
+			set "desktop::pressed" "0" ;
+		}
+
+	}
+	windowDef anim_down
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "p_all::rect" "$p_all::rect" "$d_all_down::rect" "1000" ;
+			transition "t_dotline::matcolor_w" "0.4" "0" "1000" ;
+			transition "b_dotline::matcolor_w" "0.4" "0" "1000" ;
+			transition "dn_arrows::matcolor_w" "0" "0.4" "1000" ;
+			
+			transition "t_activate::forecolor_w" "1" "0" "300" ;
+			transition "t_liftsys::forecolor_w" "1" "0" "300" ;
+			transition "t_intrans::forecolor_w" "0" "1" "300" ;
+			transition "t_liftsys2::forecolor_w" "0" "1" "300" ;
+			
+			transition "tr_activate::forecolor_w" "1" "0" "300" ;
+			transition "tr_liftsys::forecolor_w" "1" "0" "300" ;
+			transition "tr_intrans::forecolor_w" "0" "1" "300" ;
+			transition "tr_liftsys2::forecolor_w" "0" "1" "300" ;
+		}
+
+		onTime +50 {		
+			set "desktop::pressed" "0" ;
+		}
+
+	}
+	windowDef anim_up_reset
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "p_all::rect" "$d_all_up::rect" "$p_all::rect" "200" ;
+			transition "t_dotline::matcolor_w" "0" "0.4" "200" ;
+			transition "b_dotline::matcolor_w" "0" "0.4" "200" ;
+			transition "up_arrows::matcolor_w" "0.4" "0" "200" ;
+			
+			transition "t_activate::forecolor_w" "0" "1" "200" ;
+			transition "t_liftsys::forecolor_w" "0" "1" "200" ;
+			transition "t_intrans::forecolor_w" "1" "0" "200" ;
+			transition "t_liftsys2::forecolor_w" "1" "0" "200" ;
+			
+			transition "tr_activate::forecolor_w" "0" "1" "200" ;
+			transition "tr_liftsys::forecolor_w" "0" "1" "200" ;
+			transition "tr_intrans::forecolor_w" "1" "0" "200" ;
+			transition "tr_liftsys2::forecolor_w" "1" "0" "200" ;
+		}
+
+		onTime +200 {
+			set "button::visible" "1" ;
+		}
+
+	}
+	windowDef anim_down_reset
+	{
+		rect	0,0,1,1
+		visible	1
+		notime	1
+
+		onTime 0 {
+			transition "p_all::rect" "$d_all_down::rect" "$p_all::rect" "200" ;
+			transition "t_dotline::matcolor_w" "0" "0.4" "200" ;
+			transition "b_dotline::matcolor_w" "0" "0.4" "200" ;
+			transition "dn_arrows::matcolor_w" "0.4" "0" "200" ;
+			
+			transition "t_activate::forecolor_w" "0" "1" "200" ;
+			transition "t_liftsys::forecolor_w" "0" "1" "200" ;
+			transition "t_intrans::forecolor_w" "1" "0" "200" ;
+			transition "t_liftsys2::forecolor_w" "1" "0" "200" ;
+			
+			transition "tr_activate::forecolor_w" "0" "1" "200" ;
+			transition "tr_liftsys::forecolor_w" "0" "1" "200" ;
+			transition "tr_intrans::forecolor_w" "1" "0" "200" ;
+			transition "tr_liftsys2::forecolor_w" "1" "0" "200" ;
+		}
+
+		onTime +200 {
+			set "button::visible" "1" ;
+		}
+
+	}
+	windowDef button
+	{
+		rect	0,0,640,480
+		visible	1
+
+		onAction {
+			if ("gui::gui_parm_disable" == "0" ) { 	
+				set "button::visible" "0" ;
+				
+				if ("gui::floor" == "gui::topfloor" ) { 
+					set	"cmd" "play guisound_beep2 ; changefloor down" ;
+					resettime "anim_down" "0" ;		
+					set "desktop::pressed" "1" ;
+					set "cmd" "activate" ;
+				} 
+				
+				if ("gui::floor" == "gui::bottomfloor") { 
+					set	"cmd" "play guisound_beep2 ; changefloor up" ;
+					resettime "anim_up" "0" ;
+					set "desktop::pressed" "1" ;	
+					set "cmd" "activate" ;
+				} 
+			}
+			
+		}
+
+	}
+}

@@ -1,0 +1,22 @@
+export cin_flyer_crash_cam
+{
+	options -scale .3937 -nomesh -sourcedir work/models/vehicles/strogg_flyer/animations -destdir models/cinematics/tram1b
+	camera	tram1_flyer_crash_1_cam.ma			-dest flyer_crash_cam
+}
+
+camera cin_flyer_crash_cam
+{
+	anim flyer_crash_cam					"models/cinematics/tram1b/flyer_crash_cam.md5camera"
+}
+
+entityDef cin_flyer_crash_cam 
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-16 -16 0"
+	"editor_maxs"					"16 16 64"
+	
+	"spawnclass"					"idCameraAnim"
+	"cinematic"						"1"
+
+	"camera"						"cin_flyer_crash_cam"
+}

@@ -1,0 +1,317 @@
+/***********************************************************************************************************************
+Process
+
+Unique entities created for the process level
+************************************************************************************************************************/
+
+//----------------------------------------------------------------------------------------------------------------------
+//	NPC Sledge
+//----------------------------------------------------------------------------------------------------------------------
+
+model process_model_char_marine
+{
+	inherit							model_char_marine
+	
+	anim weapon_check_1					models/characters/marine/weapon_check_1.md5anim	
+	anim waste_over_here						models/characters/marine/bld_b_over_here.md5anim
+	
+	anim idle_checks_time				models/characters/marine/idle_checks_time.md5anim
+	
+	anim idle_look_back_lt				models/characters/marine/idle_look_back_lt.md5anim
+	
+	anim	com_link_start				models/characters/marine/com_link_start.md5anim
+	{
+		frame	27							sound	snd_comm
+	}
+	anim	com_link_loop				models/characters/marine/com_link_loop.md5anim
+	anim	com_link_end				models/characters/marine/com_link_end.md5anim
+
+}
+
+entityDef char_marine_npc_sledge_process1
+{
+	"inherit"										"char_marine_hyperblaster"
+	"model"										"process_model_char_marine"
+
+	"objectivetitle_failed"								"#str_400185"
+	"objectivetext_failed"								"#str_400184"
+
+	"editor_menu"										"char_npc_process1"
+	
+	//sledge should stick close by to you
+	"followRange"										"70 175"
+
+	//"Humph, the elevator must be at the top of this tower. How I hate to wait for elevators."
+	"lipsync_vo_3_1_14_90_1"								"vo_3_1_14_90_1"
+
+	//"Well, that was certainly entertaining."
+	"lipsync_vo_3_1_14_100_1"								"vo_3_1_14_100_1"
+
+	//"Kane, over here."
+	"lipsync_vo_3_1_14_40_1"								"vo_3_1_14_40_1"
+
+	//"It was a death march getting here. I am the only man who survived. But we have a mission. Let us get to the top of this tower. Lead the way."
+	"lipsync_vo_3_1_14_50_1"								"vo_3_1_14_50_1"
+
+    //clicky talk
+	"lipsync_talk_primary"									"vo_3_1_14_52_1"
+	"lipsync_talk_secondary"								"vo_3_1_14_52_2"
+	"lipsync_talk_loop1"									"vo_3_1_14_52_3"
+	"talks"													"1"
+
+}
+
+entityDef char_marine_tramCar_process1_cortez {
+	"inherit"				"char_marine_tramCar"
+	
+	"def_persona"				"persona_rhino_cortez_cpl_act2"
+
+	//"Yes, we have just arrived."
+	"lipsync_talkToMorris1"			"vo_3_1_14_6_2"
+
+	//"But I had hoped to stay here with Kane."
+	"lipsync_talkToMorris2"			"vo_3_1_14_6_4"
+
+	//"Very well, Cortez out.  I'm sorry Kane.  But I must go.  Good luck to you, my friend."
+	"lipsync_talkToMorris3"			"vo_3_1_14_6_6"
+
+	//clicky talk
+	"lipsync_talk_primary"			"vo_3_1_14_8_1"
+	"lipsync_talk_secondary"		"vo_3_1_14_8_2"
+	"lipsync_talk_loop1"			"vo_3_1_14_8_3"
+}
+
+entityDef occupant_tramCar_driver_process1_cortez {
+	"inherit"						"occupant_tramCar_driver"
+	
+	"def_occupant"					"char_marine_tramCar_process1_cortez"
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+//	Eggshell (protecting security room core)
+//----------------------------------------------------------------------------------------------------------------------
+export process		//eggshell top
+{
+	options -scale .3937 // -keep start top turn1 turn2 turn3 turn4
+	mesh	work/models/mapobjects/strogg/process/eggshell/EggshellTop_base.ma	-dest models/mapobjects/strogg/process/eggshell/EggshellTop_base.md5mesh
+	anim	work/models/mapobjects/strogg/process/eggshell/EggshellTop_base.ma	-dest models/mapobjects/strogg/process/eggshell/EggshellTop_idle.md5anim
+	anim	work/models/mapobjects/strogg/process/eggshell/EggshellTop_open.ma	-dest models/mapobjects/strogg/process/eggshell/EggshellTop_open.md5anim
+}
+export process		//eggshell bottom
+{
+	options -scale .3937 -keep bottom bturn1 bturn2 bturn3 bturn4 bend1 bend2 bend3 bend4 baim1 baim2 baim3 baim4
+	mesh	work/models/mapobjects/strogg/process/eggshell/EggshellBottom_base.ma	-dest models/mapobjects/strogg/process/eggshell/EggshellBottom_base.md5mesh
+	anim	work/models/mapobjects/strogg/process/eggshell/EggshellBottom_base.ma	-dest models/mapobjects/strogg/process/eggshell/EggshellBottom_idle.md5anim
+	anim	work/models/mapobjects/strogg/process/eggshell/EggshellBottom_open.ma	-dest models/mapobjects/strogg/process/eggshell/EggshellBottom_open.md5anim
+}
+
+//Model definition for EggshellTop -------------------------------------------------------------------------------------
+model model_level_eggshelltop
+{
+	mesh			"models/mapobjects/strogg/process/eggshell/EggshellTop_base.md5mesh"
+	anim idle		"models/mapobjects/strogg/process/eggshell/EggshellTop_idle.md5anim"
+	anim open		"models/mapobjects/strogg/process/eggshell/EggshellTop_open.md5anim"
+	{
+	frame	40				sound		snd_open
+	}
+}
+
+//Entity definition for EggshellTop ------------------------------------------------------------------------------------
+entityDef level_EggshellTop
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 64"
+
+	"editor_usage"			"Opening eggshell top for process"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_level_eggshelltop"
+	"anim"					"open"
+	
+	"snd_open"				"process_eggshell_open"
+}
+
+//Model definition for EggshellBottom ----------------------------------------------------------------------------------
+model model_level_eggshellbottom
+{
+	mesh			"models/mapobjects/strogg/process/eggshell/EggshellBottom_base.md5mesh"
+	anim idle		"models/mapobjects/strogg/process/eggshell/EggshellBottom_idle.md5anim"
+	anim open		"models/mapobjects/strogg/process/eggshell/EggshellBottom_open.md5anim"
+}
+
+//Entity definition for EggshellBottom ---------------------------------------------------------------------------------
+entityDef level_EggshellBottom
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 0"
+	"editor_maxs"			"32 32 64"
+
+	"editor_usage"			"Opening eggshell bottom for process"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_level_eggshellbottom"
+	"anim"					"open"
+	"fx_vent"				"effects/levels/process/Eggshell_vent.fx"
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//	LaserCoupling (top of tower thing in process3)
+//----------------------------------------------------------------------------------------------------------------------
+export process		//Spinny laser thing
+{
+	options -scale 1.5
+//	options -scale .3937	Original size
+	mesh	work/models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_rigged/laserCoupling_base.ma		-dest models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_base.md5mesh
+	anim	work/models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_rigged/laserCoupling_lowSpin.ma		-dest models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_lowSpin.md5anim
+	anim	work/models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_rigged/laserCoupling_open.ma		-dest models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_open.md5anim
+	anim	work/models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_rigged/laserCoupling_highSpin.ma	-dest models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_highSpin.md5anim
+	anim	work/models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_rigged/laserCoupling_openArms.ma	-dest models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_openArms.md5anim
+	anim	work/models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_rigged/spin_loop.ma					-dest models/mapobjects/strogg/terminal/laser_coupling/spin_loop.md5anim
+}
+
+
+//Model definition for laserCoupling -----------------------------------------------------------------------------------
+model model_level_laserCoupling
+{
+	mesh			"models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_base.md5mesh"
+	anim low		"models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_lowSpin.md5anim"
+	{
+		frame	1						sound	snd_spin_slow
+	}
+	anim open		"models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_open.md5anim"
+	{
+		frame	1						sound	snd_spin_build
+	}
+	anim high		"models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_highSpin.md5anim"
+	{
+		frame	1						sound	snd_spin_fast
+	}
+	anim openArms	"models/mapobjects/strogg/terminal/laser_coupling/laserCoupling_openArms.md5anim"
+	{
+		frame	1						sound	snd_arm_adjust
+	}
+	anim spin_loop	"models/mapobjects/strogg/terminal/laser_coupling/spin_loop.md5anim"
+
+	anim spin_loop_slow	"models/mapobjects/strogg/terminal/laser_coupling/spin_loop.md5anim"
+	{
+		rate	.25
+	}
+}
+
+//Entity definition for laserCoupling----------------------------------------------------------------------------------
+entityDef level_laserCoupling
+{
+	"editor_color"			"0 .5 .25"
+	"editor_mins"			"-32 -32 -72"
+	"editor_maxs"			"32 32 0"
+
+	"editor_usage"			"Top of laser tower for process"
+
+	"spawnclass"			"idAnimated"
+
+	"model"					"model_level_laserCoupling"
+	"anim"					"low"
+	"fx_laserpulse"			"effects/levels/process/laser_pulse.fx"
+	
+	"snd_spin_fast"			"generic_laser_coupling_spin_fast"
+	"snd_spin_slow"			"generic_laser_coupling_spin_slow"
+	"snd_spin_build"		"generic_laser_coupling_spin_build"
+	"snd_arm_adjust"		"generic_laser_coupling_arm_adjust"
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+/***********************************************************************
+elevator for Process shaft
+***********************************************************************/
+export  process
+{
+	options  -scale .3937 -prefix elev_ -keep elev_fx_top_2 elev_fx_top_1 elev_fx_bot_1 elev_fx_bot_2
+mesh	work/models/mapobjects/strogg/terminal/elevator/animations/idle.ma		-dest models/mapobjects/strogg/terminal/elevator/animations/elevator_mesh.md5mesh
+anim	work/models/mapobjects/strogg/terminal/elevator/animations/idle.ma		-dest models/mapobjects/strogg/terminal/elevator/animations/idle.md5anim
+anim	work/models/mapobjects/strogg/terminal/elevator/animations/process_ride.ma	-dest models/mapobjects/strogg/terminal/elevator/animations/process_ride.md5anim
+}
+
+model env_elevator
+{
+	mesh						models/mapobjects/strogg/terminal/elevator/animations/elevator_mesh.md5mesh
+	anim idle					models/mapobjects/strogg/terminal/elevator/animations/idle.md5anim	
+	anim process_ride			models/mapobjects/strogg/terminal/elevator/animations/process_ride.md5anim	
+	{
+		frame 727				call	map_process1::guardianGrabElevator
+		frame 1014				sound	snd_process_elevator_crash
+		frame 1055				call	map_process1::unbindFogLights
+		frame 1072				call	map_process1::offTrack
+		frame 1094				call	map_process1::elevatorCrashLand
+		frame 1096				fx		fx_camshake
+	}
+}
+
+entityDef env_elevator
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -12 0"
+	"editor_maxs"					"8 24 12"
+
+	"editor_usage"					"elevator"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"env_elevator"
+	
+	"fx_camshake"					"effects/monsters/camerashakelarge.fx"
+	
+	"snd_sequence"					"process_elevator_sequence"
+	"snd_process_elevator_crash"	"process_elevator_crash"
+}
+
+/***********************************************************************
+Network Guardian door for Process shaft
+***********************************************************************/
+export  process
+{
+	options  -scale .3937 -prefix GD_ 
+mesh	work/models/mapobjects/strogg/process/guardian_door/idle.ma		-dest models/mapobjects/strogg/process/guardian_door/mesh.md5mesh
+anim	work/models/mapobjects/strogg/process/guardian_door/idle.ma		-dest models/mapobjects/strogg/process/guardian_door/idle.md5anim
+anim	work/models/mapobjects/strogg/process/guardian_door/crumple3.ma	-dest models/mapobjects/strogg/process/guardian_door/crumple.md5anim
+}
+
+model env_guardian_door
+{
+	mesh						models/mapobjects/strogg/process/guardian_door/mesh.md5mesh
+	anim idle					models/mapobjects/strogg/process/guardian_door/idle.md5anim	
+	anim crumple				models/mapobjects/strogg/process/guardian_door/crumple.md5anim
+	{
+	//	rate    1.5
+	//	frame	156,215,430				sound		snd_impact
+	//	frame	180,306					sound		snd_stress_light
+	//	frame	291						sound		snd_break
+	//	frame	369						sound		snd_stress_violent
+	
+	frame 76		call		map_process1::guardiantDoorBustOut
+	}
+}
+
+entityDef env_guardian_door
+{
+	"editor_color"					"1 .5 0"
+	"editor_mins"					"-8 -12 0"
+	"editor_maxs"					"8 24 12"
+
+	"editor_usage"					"guardian_door"
+
+	"spawnclass"					"idAnimated"
+
+	"model"							"env_guardian_door"
+	
+	"snd_impact"					"guardian_door_pound"
+	"snd_stress_light"				"guardian_door_stress_light"
+	"snd_stress_violent"			"guardian_door_stress_violent"
+	"snd_break"						"guardian_door_break"
+	
+}

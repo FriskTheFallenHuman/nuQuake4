@@ -1,0 +1,265 @@
+
+/***********************************************************************
+
+env_tube_marine
+
+***********************************************************************/
+
+export  marine {
+	options -prefix TUBE_MAR_ -scale .38 -align ALL -parent hook hook_intersection -parent Rteye_Focus head_1 -parent Lfteye_Focus head_1 -parent Lft_EyeBall head_1 -parent Rt_EyeBall head_1 -parent Lft_EyeCenter Lft_EyeBall -parent Rt_EyeCenter Rt_EyeBall -keep Lft_EyeCenter Rt_EyeCenter hook_base_mover hook_intersection
+
+	mesh	work/models/characters/tube_marine/animations/env_tubemarine_conveyoridle.ma		-dest models/characters/tube_marine/tubemarine_mesh
+	anim	work/models/characters/tube_marine/animations/env_tubemarine_conveyoridle.ma		-dest models/characters/tube_marine/tubemar_conveyor_idle
+	anim	work/models/characters/tube_marine/animations/env_tubemarine_conveyoridle_IDLE.ma		-dest models/characters/tube_marine/tubemar_conveyor_idle_short
+//	anim	work/models/characters/tube_marine/animations/env_tubemarine_conveyorstop1.ma		-dest models/characters/tube_marine/tubemar_conveyor_stopA
+//	anim	work/models/characters/tube_marine/animations/env_tubemarine_conveyorstop2.ma		-dest models/characters/tube_marine/tubemar_conveyor_stopB
+	anim	work/models/characters/tube_marine/animations/env_tubemarine_stroggification.ma		-dest models/characters/tube_marine/tubemar_tubeinsertion
+	anim	work/models/characters/tube_marine/animations/env_tubemarine_floating_A.ma			-dest models/characters/tube_marine/tubemar_floatA
+	anim	work/models/characters/tube_marine/animations/env_tubemarine_eyeTest.ma		-dest models/characters/tube_marine/eyeTest
+//	anim	work/models/characters/tube_marine/animations/tubemarine_hooked01.ma		-dest models/characters/tube_marine/tubemarine_hooked
+	anim	work/models/characters/tube_marine/animations/tubemarine_hook_anim_TEST.ma		-dest models/characters/tube_marine/tubemarine_hooked
+	anim	work/models/characters/tube_marine/animations/ragdoll.ma			-dest models/characters/tube_marine/ragdoll
+	anim	work/models/characters/tube_marine/animations/tubemarine_hook_idle.ma		-dest models/characters/tube_marine/tubemarine_hook_idle
+	anim	work/models/monsters/Gunner/Animations/RECOMP_intro_tubemarine.ma			-dest models/characters/tube_marine/recomp_intro_tube_marine
+	anim	work/models/characters/tube_marine/animations/medlabs_tube_idle.ma				-dest models/characters/tube_marine/medlab_tube_idle
+
+}
+
+/*
+entityDef character_tube_marine
+{
+	//"inherit"						"actor_default"
+	"spawnclass"					"idAnimated"
+	"size"							"32 32 64"
+	"health"						"200"
+	"ragdoll"						"tube_marine"	
+	"model"							"model_character_tube_marine"
+	"anim"							"idle"
+	
+	
+	"snd_hook_down"					"dispersal_hook_down"
+	"snd_hook_in"					"dispersal_hook_ouch"
+	"snd_hook_exhale"				"dispersal_hook_exhale"
+	"snd_hook_thump"				"dispersal_hook_thump"
+	
+}
+*/
+
+
+model model_character_tube_marine
+{
+	mesh												models/characters/tube_marine/tubemarine_mesh.md5mesh
+	
+	channel	torso										( *waist )
+	channel	legs										( *hip_joint origin )
+	
+	anim idle											models/characters/tube_marine/tubemarine_hook_idle.md5anim
+	
+	anim hooked											models/characters/tube_marine/tubemarine_hooked.md5anim
+	{		
+		frame	1										event				disableClip
+		//frame	7										event				show
+		
+		frame	280										call	marineFunctions::HookedBodyStartRagdoll
+		frame	167										sound	snd_hook_down
+		frame	231										sound	snd_hook_in
+		frame	246										sound	snd_hook_exhale
+		frame	157										sound	snd_hook_thump
+	}	
+	
+	anim recomp_intro_tube_mar							models/characters/tube_marine/recomp_intro_tube_marine.md5anim
+	{
+		frame	51										sound   snd_vo_2_2_4_20_1
+		frame	20										sound	generic_creature_fall_small
+		frame	72										sound	recomp_hooked
+		frame	96										sound	ambient_chain_oneshot	
+		frame	1										disableClip
+		frame	1										disableGravity
+	}
+
+	anim af_pose										models/characters/tube_marine/ragdoll.md5anim
+	anim idle_medlabs									models/characters/tube_marine/medlab_tube_idle.md5anim
+}
+
+entityDef env_hooked_body
+{
+	"spawnclass"					"idAnimated"
+	"size"							"32 32 64"
+
+	"model"							"model_env_hooked_body"
+	"anim"						"hooked"
+	"start_anim"					"idle"
+	"hide"						"1"
+	"ragdoll"					"hooked_body"
+	
+	"snd_hook_down"					"dispersal_hook_down"
+	"snd_hook_in"					"dispersal_hook_ouch"
+	"snd_hook_exhale"				"dispersal_hook_exhale"
+	"snd_hook_thump"				"dispersal_hook_thump"
+	"snd_hook_recomp"				"recomp_hooked"
+	"snd_chains"					"ambient_chain_oneshot"
+
+}
+
+model model_env_hooked_body
+{
+	mesh												models/characters/tube_marine/tubemarine_mesh.md5mesh
+	skin												skins/characters/tube_marine/tm_base_bruised
+	
+	channel	torso										( *waist )
+	channel	legs										( *hip_joint origin )
+	
+	anim idle											models/characters/tube_marine/tubemarine_hook_idle.md5anim
+	
+	anim hooked											models/characters/tube_marine/tubemarine_hooked.md5anim
+	{//280
+		frame	1										event show		
+		frame	260										call	marineFunctions::HookedBodyStartRagdoll
+		frame	167										sound	snd_hook_down
+		frame	231										sound	snd_hook_in
+		frame	246										sound	snd_hook_exhale
+		frame	157										sound	snd_hook_thump
+	}	
+	
+	
+	anim af_pose										models/characters/tube_marine/ragdoll.md5anim
+	
+}
+
+entityDef env_tube_marine {
+	"spawnclass"					"idMover"								
+//	"inherit"						"actor_default"
+//	"size"							"32 32 72"
+//	"health"						"40"
+
+	"model"					"models/characters/tube_marine/tubemarine_mesh.md5mesh"
+
+//	"channel torso"					"*origin"
+//	"channel legs"					"*hip_joint"
+
+
+	"anim test"		"models/characters/tube_marine/eyeTest.md5anim"
+	"anim tubemarine_hooked"				"models/characters/tube_marine/tubemarine_hooked.md5anim"
+	"anim idle"		"models/characters/tube_marine/tubemar_conveyor_idle.md5anim"
+	"anim short_idle"		"models/characters/tube_marine/tubemar_conveyor_idle_short.md5anim"
+//	"anim conveyor_stop_a"	"models/characters/tube_marine/tubemar_conveyor_stopA.md5anim"
+//	"anim conveyor_stop_b"	"models/characters/tube_marine/tubemar_conveyor_stopB.md5anim"
+	"anim insert_tube"		"models/characters/tube_marine/tubemar_tubeinsertion.md5anim"
+	"anim tube_float"		"models/characters/tube_marine/tubemar_floatA.md5anim"
+
+//	"anim af_pose"					"models/characters/tube_marine/ragdoll.md5anim"	
+
+
+/*
+	"frame idle:188"				"sound snd_tap"
+	"frame idle:192"				"sound snd_tap"
+	"frame idle:255"				"sound snd_tap"
+	"frame idle:258"				"sound snd_tap"
+	"frame idle:259"				"sound snd_thump"
+	"frame idle:336"				"sound snd_grunt"
+	"frame idle:338"				"sound snd_tap"
+	"frame idle:339"				"sound snd_tap"
+	"frame idle:356"				"sound snd_grunt"
+	"frame idle:357"				"sound snd_tap"
+	"frame idle:358"				"sound snd_tap"
+	"frame idle:433"				"sound snd_tap"
+	"frame idle:435"				"sound snd_tap"
+	"frame idle:551"				"sound snd_tap"
+	"frame idle:568"				"sound snd_tap"
+	"frame short_idle:160"			"sound snd_tap"
+	"frame short_idle:239"			"sound snd_grunt"
+	"frame short_idle:240"			"sound snd_tap"
+	"frame short_idle:252"			"sound snd_tap"
+	"frame short_idle:253"			"sound snd_tap"
+	"frame short_idle:254"			"sound snd_tap"
+	"frame short_idle:272"			"sound snd_tap"
+	"frame short_idle:292"			"sound snd_tap"
+	"frame short_idle:354"			"sound snd_tap"
+	"frame short_idle:359"			"sound snd_tap"
+	"frame short_idle:376"			"sound snd_tap"
+	"frame insert_tube:3"			"sound snd_tap"
+	"frame insert_tube:5"			"sound snd_tap"
+	"frame insert_tube:17"			"sound snd_tap"
+	"frame insert_tube:24"			"sound snd_tap"
+	"frame insert_tube:40"			"sound snd_thump"
+	"frame insert_tube:53"			"sound snd_thump"
+	"frame insert_tube:61"			"sound snd_grunt"
+	"frame insert_tube:63"			"sound snd_thump"
+	"frame insert_tube:75"			"sound snd_grunt"
+	"frame insert_tube:77"			"sound snd_thump"
+	"frame insert_tube:115"			"sound snd_scream"	
+	"frame insert_tube:102"			"sound snd_tap"
+	"frame insert_tube:119"			"sound snd_thump"
+	"frame insert_tube:125"			"sound snd_tap"
+	"frame insert_tube:127"			"sound snd_tap"
+	"frame insert_tube:130"			"sound snd_tap"
+
+//	"frame conveyor_stop:125"		"call Anim_ConveyorStop_End"
+	"frame tube_float:210"			"sound snd_wateridle"
+	"frame tube_float:315"			"sound snd_waterswish"
+*/
+
+	"snd_tap"						"tube_marine_tap_glass"
+	"snd_thump"					"tube_marine_pound_glass"
+	"snd_waterswish"				"water_swish"
+	"snd_wateridle"				"water_idle"
+	"snd_grunt"					"marine_grunt"
+	"snd_scream"					"marine_scream"
+}
+
+entityDef env_tube_marine_bruised
+{
+	"inherit"	"env_tube_marine"
+	"skin"		"skins/characters/tube_marine/tm_base_bruised"
+}
+
+entityDef env_tube_marine_dead
+{
+	"inherit"	"env_tube_marine"
+	"skin"		"skins/characters/tube_marine/tm_base_dead"
+}
+
+entityDef env_tube_marine_bloody
+{
+	"inherit"	"env_tube_marine"
+	"skin"		"skins/characters/tube_marine/tm_base_bloody"
+}
+
+
+
+/***********************************************************************
+
+env_tubemarine_meathook
+
+***********************************************************************/
+
+export marine {
+	options -prefix MHM_ -scale .38 -align ALL -parent Rteye_Focus head_1 -parent Lfteye_Focus head_1 -parent Lft_EyeBall head_1 -parent Rt_EyeBall head_1 -parent Lft_EyeCenter Lft_EyeBall -parent Rt_EyeCenter Rt_EyeBall -keep Lft_EyeCenter Rt_EyeCenter -keep hook
+	//mesh	work/models/Simon/Rigs/MHM_idle.ma			-dest models/characters/tube_marine/meatHook_marine
+	//anim	work/models/Simon/Rigs/MHM_idle.ma			-dest models/characters/tube_marine/meatHook_marine_idle
+	//anim	work/models/Simon/Rigs/MHM_ragdoll.ma		-dest models/characters/tube_marine/meatHook_marine_ragdoll
+}
+	
+entityDef env_tubemarine_hook {
+	"spawnclass"					"idMover"								
+//	"inherit"						"actor_default"
+//	"size"							"32 32 72"
+//	"health"						"40"
+
+	"model"					"models/characters/tube_marine/meatHook_marine.md5mesh"
+
+//	"channel torso"					"*origin"
+//	"channel legs"					"*hip_joint"
+
+
+
+	"anim idle"				"models/characters/tube_marine/meatHook_marine_idle.md5anim"
+	"anim af_pose"			"models/characters/tube_marine/meatHook_marine_ragdoll.md5anim"	
+
+	"snd_tap"						"tube_marine_tap_glass"
+	"snd_thump"					"tube_marine_pound_glass"
+	"snd_waterswish"				"water_swish"
+	"snd_wateridle"				"water_idle"
+	"snd_grunt"					"marine_grunt"
+	"snd_scream"					"marine_scream"
+}

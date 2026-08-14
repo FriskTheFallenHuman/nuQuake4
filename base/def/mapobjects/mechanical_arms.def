@@ -1,0 +1,68 @@
+/***********************************************************************
+RECOMP PALLET GRABBING ARM
+***********************************************************************/
+export magnetic_arm
+{
+	options -prefix MAG_ -align ALL -sourcedir work/models/mapobjects/strogg/machines/arms_generic/magnetic_arm/animations -destdir models/mapobjects/strogg/machines/arms_generic/magnetic_arm
+	mesh MAG_mesh.ma							-dest magnetic_arm
+	anim MAG_mesh.ma							-dest idle
+//	anim MAG_pickup.ma							-dest pickup
+	anim MAG_pickup_reviso.ma					-dest pickup
+	anim MAG_pickup_stretch.ma					-dest pickup_range
+	anim MAG_pickup_pallet.ma					-dest pickup_pallet
+	anim MAG_pickup_pallet_return.ma				-dest return_pallet
+}
+entityDef env_magnetic_arm
+{
+	"editor_color"					"0 .5 .25"
+	"editor_mins"					"-32 -32 0"
+	"editor_maxs"					"32 32 16"
+
+	"editor_usage"					"scripted ceiling panel for core"
+
+	"spawnclass"					"idAnimated"
+
+	"model"						"model_magnetic_arm"
+	"anim"						"idle"
+	
+	"snd_extend"				"med_labs_tube_arm_extend"
+	"snd_thump"					"med_labs_tube_arm_lock"
+	"snd_attach"				"med_labs_tube_arm_lock"
+	"snd_steam"					"med_labs_tub_arm_steam"
+	"snd_detach"				"med_labs_tube_arm_unlock"
+	"snd_rotate"				"med_labs_tube_arm_rotate2"
+}
+
+model model_magnetic_arm
+{
+	mesh					models/mapobjects/strogg/machines/arms_generic/magnetic_arm/magnetic_arm.md5mesh
+	anim idle				models/mapobjects/strogg/machines/arms_generic/magnetic_arm/idle.md5anim
+	anim pickup				models/mapobjects/strogg/machines/arms_generic/magnetic_arm/pickup.md5anim
+	{
+		frame 1				sound	snd_extend
+		frame 35			sound	snd_extend
+		frame 60			sound	snd_extend
+		frame 85			sound	snd_extend
+		frame 85			call	map_recomp::rotatePalette
+		frame 135			sound	snd_detach
+		frame 135			call	map_recomp::dropPalette
+		frame 160			sound	snd_extend
+		frame 200			sound	snd_thump
+	}
+	anim pickup_pallet		models/mapobjects/strogg/machines/arms_generic/magnetic_arm/pickup_pallet.md5anim
+	{
+		frame	1,20,29,46,57,60,85,89	sound		snd_extend	
+		frame	98						sound		snd_detach
+		frame	121						sound		snd_thump
+	}
+	anim return_pallet		models/mapobjects/strogg/machines/arms_generic/magnetic_arm/return_pallet.md5anim
+	{
+		frame	1						sound		snd_detach
+		frame	28						sound		snd_thump
+		frame	35,45					sound		snd_extend
+	}
+	anim pickup_range		models/mapobjects/strogg/machines/arms_generic/magnetic_arm/pickup_range.md5anim
+	{
+		frame	1,8,27,54,61			sound		snd_extend
+	}
+}
