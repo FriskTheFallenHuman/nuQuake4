@@ -57,6 +57,6 @@ echo.
 
 mkdir "%BUILD_DIR%" 2>nul
 pushd "%BUILD_DIR%"
-cmake -G "%CMAKE_GEN%" -A %CMAKE_ARCH% %* ../../src
+cmake -G "%CMAKE_GEN%" -A %CMAKE_ARCH% %* ../../code
 popd
 pause
