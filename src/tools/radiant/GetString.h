@@ -36,7 +36,7 @@ If you have questions concerning this license or the applicable additional terms
 // CGetString dialog
 
 // NOTE: already included in qe3.h but won't compile without including it again !?
-#include "../../sys/win32/rc/Radiant_resource.h"
+#include "../rc/Radiant_resource.h"
 
 class CGetString : public CDialog
 {

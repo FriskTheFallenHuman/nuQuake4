@@ -78,6 +78,7 @@ public:
 	virtual void			SetForegroundWindow( void *hWnd );
 	virtual void			SetFocus( void *hWnd );
 	virtual void			DestroyWindow( void *hWnd );
+	virtual void			ShowSplashScreen( bool show );
 
 	virtual void			ShowConsole( int visLevel, bool quitOnClose );
 	virtual void			UpdateConsole( void );

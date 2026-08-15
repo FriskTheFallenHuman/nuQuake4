@@ -29,7 +29,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../idlib/precompiled.h"
 #pragma hdrstop
 
-#include "../../sys/win32/rc/Radiant_resource.h"
+#include "../rc/Radiant_resource.h"
 #include "DialogColorPicker.h"
 
 #ifdef ID_DEBUG_MEMORY

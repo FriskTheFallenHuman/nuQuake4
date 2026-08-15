@@ -29,7 +29,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../idlib/precompiled.h"
 #pragma hdrstop
 
-#include "../../sys/win32/rc/Common_resource.h"
+#include "../rc/Common_resource.h"
 
 idCVar rbfg_DefaultWidth( "rbfg_DefaultWidth", "0", 0, "" );
 idCVar rbfg_DefaultHeight( "rbfg_DefaultHeight", "0", 0, "" );

@@ -27,11 +27,7 @@ along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/l
 
 #include "../Game_local.h"
 
-#ifdef _WIN32
-#include "TypeInfo.h"
-#else
 #include "NoGameTypeInfo.h"
-#endif
 
 /*
 Save game related helper classes.

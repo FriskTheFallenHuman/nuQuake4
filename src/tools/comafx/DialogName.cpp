@@ -29,7 +29,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../idlib/precompiled.h"
 #pragma hdrstop
 
-#include "../../sys/win32/rc/common_resource.h"
+#include "../rc/common_resource.h"
 #include "DialogName.h"
 
 /////////////////////////////////////////////////////////////////////////////

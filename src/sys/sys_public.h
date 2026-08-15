@@ -808,6 +808,7 @@ public:
 	virtual void			SetForegroundWindow( void *hWnd ) = 0;
 	virtual void			SetFocus( void *hWnd ) = 0;
 	virtual	void			DestroyWindow( void *hWnd ) = 0;
+	virtual void			ShowSplashScreen( bool show ) = 0;
 
 	virtual	void			ShowConsole( int visLevel, bool quitOnClose ) = 0;
 	virtual	void			UpdateConsole( void ) = 0;

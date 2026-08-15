@@ -1067,7 +1067,7 @@ void idConsoleLocal::DrawSolidConsole( float frac ) {
 	versionColor.w = 0.5f;
 	renderSystem->SetColor( versionColor );
 
-	idStr version = va( "%s %s %s V%s Build %u", "GSS_TEXT_NAME", "Quake4", "Release", "0.13.0.7", 1834u );
+	idStr version = va( "%s v1.4.3", ENGINE_VERSION );
 	i = version.Length();
 
 	for ( x = 0; x < i; x++ ) {

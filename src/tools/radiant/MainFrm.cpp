@@ -59,7 +59,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "autocaulk.h"
 #include "../compilers/dmap/dmap.h"
 
-#include "../../sys/win32/rc/common_resource.h"
+#include "../rc/common_resource.h"
 #include "../comafx/DialogName.h"
 #include "../comafx/DialogColorPicker.h"
 

@@ -49,7 +49,7 @@ along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/l
 
 // paths
 #define	CD_BASEDIR						"Quake4"
-#define	BASE_GAMEDIR					"base"
+#define	BASE_GAMEDIR					"q4base"
 #define	BASE_MPGAMEDIR					"q4mp"
 #define	DEMO_GAMEDIR					"demo"
 

@@ -32,7 +32,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../sys/win32/win_local.h"
 #include "ColorButton.h"
 #include "MaskEdit.h"
-#include "../../sys/win32/rc/guied_resource.h"
+#include "../rc/guied_resource.h"
 
 static HHOOK	gAlphaHook = NULL;
 static HWND		gAlphaDlg  = NULL;

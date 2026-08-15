@@ -40,8 +40,7 @@ along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/l
 #pragma hdrstop
 
 #include "win_local.h"
-#include "rc/AFEditor_resource.h"
-#include "rc/doom_resource.h"
+#include "rc/quake4_resource.h"
 #include "../../renderer/tr_local.h"
 
 static void		GLW_InitExtensions( void );
@@ -182,6 +181,7 @@ The renderer calls this when the user adjusts r_gamma or r_brightness
 ========================
 */
 void GLimp_SetGamma( unsigned short red[256], unsigned short green[256], unsigned short blue[256] ) {
+#if 0
 	unsigned short table[3][256];
 	int i;
 
@@ -198,6 +198,7 @@ void GLimp_SetGamma( unsigned short red[256], unsigned short green[256], unsigne
 	if ( !SetDeviceGammaRamp( win32.hDC, table ) ) {
 		common->Printf( "WARNING: SetDeviceGammaRamp failed.\n" );
 	}
+#endif
 }
 
 /*
@@ -560,7 +561,7 @@ static bool GLW_CreateWindow( glimpParms_t parms ) {
 	//
 	if ( parms.fullScreen ) {
 		exstyle = WS_EX_TOPMOST;
-		stylebits = WS_POPUP|WS_VISIBLE|WS_SYSMENU;
+		stylebits = WS_POPUP|WS_SYSMENU;
 
 		x = 0;
 		y = 0;
@@ -619,7 +620,7 @@ static bool GLW_CreateWindow( glimpParms_t parms ) {
 
 	::SetTimer( win32.hWnd, 0, 100, NULL );
 
-	ShowWindow( win32.hWnd, SW_SHOW );
+	ShowWindow( win32.hWnd, SW_HIDE );
 	UpdateWindow( win32.hWnd );
 	common->Printf( "...created window @ %d,%d (%dx%d)\n", x, y, w, h );
 
@@ -807,7 +808,7 @@ bool GLimp_Init( glimpParms_t parms ) {
 
 	// save the hardware gamma so it can be
 	// restored on exit
-	GLimp_SaveGamma();
+	//GLimp_SaveGamma();
 
 	// create our window classes if we haven't already
 	GLW_CreateWindowClasses();
@@ -987,7 +988,7 @@ void GLimp_Shutdown( void ) {
 	}
 
 	// restore gamma
-	GLimp_RestoreGamma();
+	//GLimp_RestoreGamma();
 
 	// shutdown QGL subsystem
 	QGL_Shutdown();

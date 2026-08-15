@@ -41,7 +41,6 @@ along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/l
 
 #include "../sys_local.h"
 #include "win_local.h"
-#include "rc/CreateResourceIDs.h"
 #include "../../renderer/tr_local.h"
 
 idCVar Win32Vars_t::sys_arch( "sys_arch", "", CVAR_SYSTEM | CVAR_INIT, "" );
@@ -1385,6 +1384,9 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	win32.hInstance = hInstance;
 	idStr::Copynz( sys_cmdline, lpCmdLine, sizeof( sys_cmdline ) );
+
+	// Show the splash screen.
+	sys->ShowSplashScreen(true);
 
 	// done before Com/Sys_Init since we need this for error output
 	Sys_CreateConsole();

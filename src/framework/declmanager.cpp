@@ -801,8 +801,9 @@ int idDeclFile::LoadAndParse( bool unique ) {
 		if ( newDecl ) {
 			// update the existing copy
 			if ( newDecl->sourceFile != this || newDecl->redefinedInReload ) {
-				src.Warning( "%s '%s' previously defined at %s:%i", declManagerLocal.GetDeclNameFromType( identifiedType ),
-								name.c_str(), newDecl->sourceFile->fileName.c_str(), newDecl->sourceLine );
+				// Too noisy.
+				//src.Warning( "%s '%s' previously defined at %s:%i", declManagerLocal.GetDeclNameFromType( identifiedType ),
+				//				name.c_str(), newDecl->sourceFile->fileName.c_str(), newDecl->sourceLine );
 				continue;
 			}
 			if ( newDecl->declState != DS_UNPARSED ) {
