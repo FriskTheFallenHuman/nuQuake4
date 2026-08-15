@@ -4,8 +4,8 @@
 *.h linguist-language=C++
 
 # Don't count 3rd-party libraries
-neo/curl/* linguist-vendored
-neo/imgui/* linguist-vendored
-neo/libbink/* linguist-vendored
-neo/openal/* linguist-vendored
-neo/sys/sdl2/* linguist-vendored
+code/curl/* linguist-vendored
+code/directxSDK/* linguist-vendored
+code/openal/* linguist-vendored
+code/renderer/jpeg-6/* linguist-vendored
+code/sound/oggvorbis/* linguist-vendored
