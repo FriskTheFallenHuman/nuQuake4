@@ -13,7 +13,7 @@
 
 ## Introduction
 
-Source port for Quake 4 base on the Quake 4 Awakening's executable by [jmarshall23](https://github.com/jmarshall23)
+Source port for Quake 4 base on the Quake 4 Awakening's reverse engineer executable by [jmarshall23](https://github.com/jmarshall23)
 
 ## Compiling
 
