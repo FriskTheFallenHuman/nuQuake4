@@ -1,6 +1,7 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "quake4_resource.h"
+#include "..\..\AutoVersion.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -27,7 +28,8 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 1 TEXTINCLUDE 
 BEGIN
-    "quake4_resource.h\0"
+	"quake4_resource.h\0"
+	"..\..\AutoVersion.h\0"
 END
 
 3 TEXTINCLUDE 
@@ -67,8 +69,8 @@ IDB_BITMAP_LOGO			BITMAP					"res\\splash.bmp"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,1
- PRODUCTVERSION 1,0,0,1
+ FILEVERSION VERSION_STRING
+ PRODUCTVERSION VERSION_STRING
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -84,12 +86,12 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
 			VALUE "FileDescription", "Quake 4"
-			VALUE "FileVersion", "1, 4, 2, 0"
+			VALUE "FileVersion", VERSION_STRING
 			VALUE "InternalName", "Quake 4"
 			VALUE "LegalCopyright", "Copyright (C) 2005 Raven Software"
 			VALUE "OriginalFilename", "Quake4.exe"
 			VALUE "ProductName", "Quake 4"
-			VALUE "ProductVersion", "1, 4, 2, 0"
+			VALUE "ProductVersion", VERSION_STRING
         END
     END
     BLOCK "VarFileInfo"

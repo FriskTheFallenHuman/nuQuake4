@@ -25,6 +25,8 @@ along with Quake 4 Reconstructed Source Code.  If not, see <http://www.gnu.org/l
 #include "../idlib/precompiled.h"
 #pragma hdrstop
 
+#include "../sys/AutoVersion.h"
+
 void SCR_DrawTextLeftAlign( float &y, const char *text, ... ) id_attribute((format(printf,2,3)));
 void SCR_DrawTextRightAlign( float &y, const char *text, ... ) id_attribute((format(printf,2,3)));
 
@@ -1067,7 +1069,7 @@ void idConsoleLocal::DrawSolidConsole( float frac ) {
 	versionColor.w = 0.5f;
 	renderSystem->SetColor( versionColor );
 
-	idStr version = va( "%s v1.4.3", ENGINE_VERSION );
+	idStr version = va( "%s v%s", ENGINE_VERSION, VERSION_STRING_DOTTED );
 	i = version.Length();
 
 	for ( x = 0; x < i; x++ ) {
