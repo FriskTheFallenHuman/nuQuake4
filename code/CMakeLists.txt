@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(Quake4Reconstruction LANGUAGES C CXX)
+project(nuQuake4 LANGUAGES C CXX)
 
 get_filename_component(Q4_RUNTIME_DIR "${PROJECT_SOURCE_DIR}/.." ABSOLUTE)
-set(Q4_BASE_GAMEDIR "q4base")
 
 if(NOT WIN32)
-	message(FATAL_ERROR "The initial reconstruction target is 32-bit Windows")
+	message(FATAL_ERROR "Non Windows builds are not supported yet")
 endif()
 
 if(NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
-	message(FATAL_ERROR "Configure with a Win32/x86 generator; the recovered ABI is 32-bit")
+	message(FATAL_ERROR "x64 Builds are not supported yet")
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
